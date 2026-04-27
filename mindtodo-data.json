@@ -158,6 +158,33 @@
       "updatedAt": "2026-04-27T12:32:46.391Z",
       "tags": [],
       "done": false
+    },
+    {
+      "id": "mohbknxhloo14",
+      "type": "task",
+      "content": "买手机膜",
+      "createdAt": "2026-04-27T14:55:51.077Z",
+      "updatedAt": "2026-04-27T14:56:22.366Z",
+      "tags": [
+        "自己"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mohbknxharm0m",
+          "content": "小红书看看手机膜推荐5min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mohbknxhnznil",
+          "content": "写一下需求3min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "slots": [
@@ -167,7 +194,8 @@
     }
   ],
   "tags": [
-    "家"
+    "家",
+    "自己"
   ],
   "commonTags": [],
   "title": "🌿 todo",
@@ -175,6 +203,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T12:38:03.845Z"
+    "lastSync": "2026-04-27T12:50:20.782Z"
   }
 }
