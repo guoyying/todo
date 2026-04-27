@@ -140,24 +140,6 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "moh6er0z0p0jn",
-      "type": "feeling",
-      "content": "厕",
-      "createdAt": "2026-04-27T12:31:17.075Z",
-      "updatedAt": "2026-04-27T12:31:17.075Z",
-      "tags": [],
-      "done": false
-    },
-    {
-      "id": "moh6gnxz368bn",
-      "type": "feeling",
-      "content": "为什么还是不行啊？",
-      "createdAt": "2026-04-27T12:32:46.391Z",
-      "updatedAt": "2026-04-27T12:32:46.391Z",
-      "tags": [],
-      "done": false
     }
   ],
   "slots": [
@@ -175,6 +157,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T12:32:01.761Z"
+    "lastSync": "2026-04-27T12:30:51.126Z"
   }
 }
