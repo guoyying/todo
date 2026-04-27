@@ -482,10 +482,12 @@
         <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;">🌿 心事与任务</h1>
         <div class="github-bar">
             <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
-            <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
+            <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">页面设置</button>
             <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
             <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
-            <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送</button>
+            <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
+            <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
+            <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
         </div>
     </div>
     <div class="update-banner" id="updateBanner">
@@ -1877,6 +1879,101 @@
             } catch(e) {
                 alert('网络错误，请检查网络连接');
             }
+        }
+
+        async function pushHtmlToGithub(input) {
+            if (!data.github) {
+                alert('请先配置 GitHub 信息');
+                showGithubConfig();
+                input.value = '';
+                return;
+            }
+
+            const file = input.files[0];
+            if (!file) {
+                input.value = '';
+                return;
+            }
+
+            if (!file.name.endsWith('.html')) {
+                alert('请选择 HTML 文件');
+                input.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const htmlContent = e.target.result;
+                const {username, repo, token} = data.github;
+                const path = 'index.html';
+                const content = utf8ToBase64(htmlContent);
+                const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
+                
+                let sha = null;
+                try {
+                    const getRes = await fetch(api, {headers: {Authorization: `token ${token}`}});
+                    if (getRes.ok) {
+                        const info = await getRes.json();
+                        sha = info.sha;
+                    }
+                } catch(e) {}
+
+                const body = {
+                    message: `update index.html (v${data.github.version || 0 + 1})`,
+                    content
+                };
+                if (sha) body.sha = sha;
+
+                try {
+                    const res = await fetch(api, {
+                        method: 'PUT',
+                        headers: {'Authorization': `token ${token}`, 'Content-Type': 'application/json'},
+                        body: JSON.stringify(body)
+                    });
+
+                    if (res.status === 401 || res.status === 403) {
+                        showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                        showGithubConfig();
+                        input.value = '';
+                        return;
+                    }
+
+                    if (res.status === 409) {
+                        showBanner('❌ 推送失败：文件冲突，请刷新页面后重试', '#f44336', 3000);
+                        input.value = '';
+                        return;
+                    }
+
+                    if (res.ok) {
+                        // 增加版本号
+                        if (!data.github.version) data.github.version = 1;
+                        data.github.version++;
+                        data.github.lastSync = nowStr();
+                        saveData();
+                        
+                        showBanner('✅ HTML 推送成功！请等待 1-2 分钟让 GitHub Pages 更新', '#4caf50', 4000);
+                        input.value = '';
+                    } else {
+                        showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
+                        input.value = '';
+                    }
+                } catch(e) {
+                    showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
+                    input.value = '';
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function showBanner(message, color, duration) {
+            const banner = document.createElement('div');
+            banner.className = 'update-banner';
+            banner.style.backgroundColor = color;
+            banner.innerHTML = message;
+            document.body.insertBefore(banner, document.body.firstChild);
+            setTimeout(() => {
+                banner.remove();
+            }, duration);
         }
 
         function base64ToUtf8(str) {
