@@ -128,6 +128,20 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh1z30kghpf9",
+      "type": "task",
+      "content": "熨衣服",
+      "createdAt": "2026-04-27T10:27:07.652Z",
+      "updatedAt": "2026-04-27T10:27:07.652Z",
+      "tags": [
+        "家×"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -137,7 +151,8 @@
     }
   ],
   "tags": [
-    "ai"
+    "ai",
+    "家"
   ],
   "commonTags": [],
   "title": "🌿 todo",
