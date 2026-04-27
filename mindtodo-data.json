@@ -102,6 +102,18 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh0gxfu5ti76",
+      "type": "task",
+      "content": "改下退网进度目标，然后通知县分10min",
+      "createdAt": "2026-04-27T09:45:01.002Z",
+      "updatedAt": "2026-04-27T09:45:01.002Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -117,6 +129,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:36:03.196Z"
+    "lastSync": "2026-04-27T09:44:45.268Z"
   }
 }
