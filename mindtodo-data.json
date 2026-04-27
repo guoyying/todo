@@ -5,7 +5,7 @@
       "type": "feeling",
       "content": "ai写代码，发现github的json和issue都能存数据。不一致，却能拓宽视野",
       "createdAt": "2026-04-27T08:11:36.960Z",
-      "updatedAt": "2026-04-27T08:11:36.960Z",
+      "updatedAt": "2026-04-27T09:50:48.548Z",
       "tags": [],
       "done": false
     },
@@ -24,7 +24,7 @@
           "id": "mogyvk4dxosrz",
           "content": "vlookup匹配下哪些退网状态变了，剩下的就是还没处理的10min",
           "done": true,
-          "placedIn": "slot_mogza8851da3a"
+          "placedIn": null
         },
         {
           "id": "mogyvk4dfsui8",
@@ -74,7 +74,7 @@
           "id": "mogzhiiys4mtv",
           "content": "copy颜色到excel里，对照检查下每一项，写下比对不对的现象10min",
           "done": true,
-          "placedIn": "slot_mogza8851da3a"
+          "placedIn": null
         }
       ],
       "doneAt": "2026-04-27T09:29:49.168Z"
@@ -118,20 +118,17 @@
   ],
   "slots": [
     {
-      "id": "slot_mogza8851da3a",
-      "name": "下班前"
+      "id": "slot_moh0nqsed5yfd",
+      "name": "晚上"
     }
   ],
-  "tags": [
-    "测试，测试1",
-    "测试"
-  ],
+  "tags": [],
   "commonTags": [],
   "title": "🌿 todo",
   "github": {
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:45:04.266Z"
+    "lastSync": "2026-04-27T09:48:52.866Z"
   }
 }
