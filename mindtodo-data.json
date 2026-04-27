@@ -154,6 +154,18 @@
       "dueTime": "1min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh2tpkbtwkgv",
+      "type": "task",
+      "content": "了解一下不用手动删除上传最新文件的方法",
+      "createdAt": "2026-04-27T10:50:56.555Z",
+      "updatedAt": "2026-04-27T10:50:56.555Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
