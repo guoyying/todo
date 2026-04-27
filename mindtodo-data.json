@@ -90,6 +90,18 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh05xsby94sa",
+      "type": "task",
+      "content": "黄埔过单4326设备，上传关电照片",
+      "createdAt": "2026-04-27T09:36:28.235Z",
+      "updatedAt": "2026-04-27T09:36:28.235Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -105,6 +117,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:34:11.786Z"
+    "lastSync": "2026-04-27T09:36:03.196Z"
   }
 }
