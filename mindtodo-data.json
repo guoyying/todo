@@ -114,6 +114,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh0sse851a7v",
+      "type": "task",
+      "content": "试一下自动page更新的，不过要注意这个版本要容易回退。可以copy代码先",
+      "createdAt": "2026-04-27T09:54:14.336Z",
+      "updatedAt": "2026-04-27T09:54:14.336Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -129,6 +141,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:48:52.866Z"
+    "lastSync": "2026-04-27T09:53:22.244Z"
   }
 }
