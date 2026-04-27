@@ -14,7 +14,7 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-27T09:11:58.633Z",
+      "updatedAt": "2026-04-27T09:33:59.934Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -23,7 +23,7 @@
         {
           "id": "mogyvk4dxosrz",
           "content": "vlookup匹配下哪些退网状态变了，剩下的就是还没处理的10min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_mogza8851da3a"
         },
         {
@@ -64,19 +64,20 @@
       "type": "task",
       "content": "把这张单弄了",
       "createdAt": "2026-04-27T09:17:28.714Z",
-      "updatedAt": "2026-04-27T09:17:38.656Z",
+      "updatedAt": "2026-04-27T09:29:49.168Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
         {
           "id": "mogzhiiys4mtv",
           "content": "copy颜色到excel里，对照检查下每一项，写下比对不对的现象10min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_mogza8851da3a"
         }
-      ]
+      ],
+      "doneAt": "2026-04-27T09:29:49.168Z"
     }
   ],
   "slots": [
@@ -92,6 +93,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:16:46.340Z"
+    "lastSync": "2026-04-27T09:17:50.062Z"
   }
 }
