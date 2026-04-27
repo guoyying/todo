@@ -1,19 +1,6 @@
 {
   "items": [
     {
-      "id": "mogvpdzz1gd1w",
-      "type": "task",
-      "content": "运行RPA试试",
-      "createdAt": "2026-04-27T07:31:37.631Z",
-      "updatedAt": "2026-04-27T07:32:30.546Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "2026-04-27T07:31:00.000Z",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": null
-    },
-    {
       "id": "mogx4tc0pxr8t",
       "type": "feeling",
       "content": "ai写代码，发现github的json和issue都能存数据。不一致，却能拓宽视野",
