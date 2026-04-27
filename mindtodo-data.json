@@ -14,7 +14,7 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-27T09:33:59.934Z",
+      "updatedAt": "2026-04-27T09:34:56.072Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -78,6 +78,18 @@
         }
       ],
       "doneAt": "2026-04-27T09:29:49.168Z"
+    },
+    {
+      "id": "moh04z8tojh9w",
+      "type": "task",
+      "content": "给算力提供一季度的清单，给美哥反馈算力的情况",
+      "createdAt": "2026-04-27T09:35:43.469Z",
+      "updatedAt": "2026-04-27T09:35:43.469Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -93,6 +105,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T09:17:50.062Z"
+    "lastSync": "2026-04-27T09:34:11.786Z"
   }
 }
