@@ -140,6 +140,15 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh6er0z0p0jn",
+      "type": "feeling",
+      "content": "厕",
+      "createdAt": "2026-04-27T12:31:17.075Z",
+      "updatedAt": "2026-04-27T12:31:17.075Z",
+      "tags": [],
+      "done": false
     }
   ],
   "slots": [
@@ -157,6 +166,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T12:19:13.392Z"
+    "lastSync": "2026-04-27T12:19:56.418Z"
   }
 }
