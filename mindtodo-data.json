@@ -132,22 +132,12 @@
       "type": "task",
       "content": "熨衣服",
       "createdAt": "2026-04-27T10:27:07.652Z",
-      "updatedAt": "2026-04-27T10:53:29.276Z",
-      "tags": [],
+      "updatedAt": "2026-04-27T11:31:45.421Z",
+      "tags": [
+        "家"
+      ],
       "done": false,
       "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "moh22aygpidwv",
-      "type": "task",
-      "content": "需求记录：无论是代办还是感受，希望点击标签按钮就能筛选出对应任务，现在点击按钮是没有反应的。如果选择两个或以上标签，那满足其中一个的任务都会被筛选出来。另外点击标签按钮之后，“全部”这个标签就变浅色点击的按钮变成深色。",
-      "createdAt": "2026-04-27T10:29:37.912Z",
-      "updatedAt": "2026-04-27T10:42:48.380Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "1min",
       "unknown": false,
       "subtasks": []
     },
@@ -170,13 +160,15 @@
       "name": "晚上"
     }
   ],
-  "tags": [],
+  "tags": [
+    "家"
+  ],
   "commonTags": [],
   "title": "🌿 todo",
   "github": {
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T10:51:13.734Z"
+    "lastSync": "2026-04-27T11:30:51.820Z"
   }
 }
