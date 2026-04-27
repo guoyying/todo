@@ -14,19 +14,14 @@
       "doneAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mogvplyvvgxpi",
-      "name": "1"
-    }
-  ],
+  "slots": [],
   "tags": [],
   "commonTags": [],
-  "title": "🌿 心事与任务",
+  "title": "🌿 todo",
   "github": {
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": null
+    "lastSync": "2026-04-27T07:57:24.855Z"
   }
 }
