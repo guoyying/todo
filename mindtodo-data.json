@@ -14,7 +14,7 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-27T09:00:24.349Z",
+      "updatedAt": "2026-04-27T09:11:58.633Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -24,7 +24,7 @@
           "id": "mogyvk4dxosrz",
           "content": "vlookup匹配下哪些退网状态变了，剩下的就是还没处理的10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mogza8851da3a"
         },
         {
           "id": "mogyvk4dfsui8",
@@ -33,40 +33,14 @@
           "placedIn": null
         }
       ]
-    },
-    {
-      "id": "mogywt5r84vdd",
-      "type": "task",
-      "content": "烽火从化",
-      "createdAt": "2026-04-27T09:01:22.719Z",
-      "updatedAt": "2026-04-27T09:01:22.719Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mogywt5rggc6v",
-          "content": "vookup我关注的清单",
-          "done": false,
-          "placedIn": null
-        }
-      ]
-    },
-    {
-      "id": "mogyx5ouz7uhs",
-      "type": "task",
-      "content": "vlookup我关注的清单",
-      "createdAt": "2026-04-27T09:01:38.958Z",
-      "updatedAt": "2026-04-27T09:01:54.400Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "subtasks": []
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mogza8851da3a",
+      "name": "下班前"
+    }
+  ],
   "tags": [],
   "commonTags": [],
   "title": "🌿 todo",
