@@ -463,18 +463,29 @@
         .unknown-subtasks input { background: var(--bg); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); }
         .unknown-subtasks input:focus { background: var(--card); }
         .update-banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: #ff9800;
             color: white;
-            padding: 10px 16px;
+            padding: 12px 20px;
             border-radius: var(--radius);
-            margin-bottom: 16px;
             display: none;
             align-items: center;
-            justify-content: space-between;
-            box-shadow: var(--shadow);
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            min-width: 200px;
+            text-align: center;
+            font-size: 14px;
+            animation: slideIn 0.3s ease-out;
         }
         .update-banner.show { display: flex; }
         .update-banner span { font-size: 14px; }
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -1821,7 +1832,11 @@
             try {
                 const getRes = await fetch(api, {headers: {Authorization: `token ${token}`}});
                 getStatus = getRes.status;
-                if (getRes.status === 401) { alert('Token 已过期，请重新配置'); showGithubConfig(); return; }
+                if (getRes.status === 401) {
+                    showBanner('❌ Token 已过期，请重新配置', '#f44336', 3000);
+                    showGithubConfig();
+                    return;
+                }
                 if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
             } catch(e) {}
             const issue = data.github.issue || '';
@@ -1834,50 +1849,40 @@
                     headers: {'Authorization': `token ${token}`, 'Content-Type': 'application/json'},
                     body: JSON.stringify(body)
                 });
-                if (res.status === 401 || res.status === 403) { alert('Token 无效或已过期，请重新配置'); showGithubConfig(); return; }
+                if (res.status === 401 || res.status === 403) {
+                    showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                    showGithubConfig();
+                    return;
+                }
                 if (res.status === 409) {
                     const reason = sha
                         ? '文件可能已被其他设备修改，sha 不匹配。'
                         : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
-                    alert('推送失败 (409 Conflict)\n\n可能原因：' + reason);
+                    showBanner('❌ 推送失败 (409): ' + reason, '#f44336', 5000);
                     return;
                 }
                 if (res.status === 422) {
                     const err = await res.json().catch(() => ({}));
-                    alert('推送失败 (422)：' + (err.message || '请求格式错误'));
+                    showBanner('❌ 推送失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
                     return;
                 }
                 if (res.ok) {
                     data.github.lastSync = nowStr();
                     saveData();
                     checkUpdateStatus();
-                    // 推送成功后自动隐藏提示，无需确认
+                    // 推送成功后自动隐藏提示
                     setTimeout(() => {
                         const banner = document.getElementById('updateBanner');
                         if (banner) banner.classList.remove('show');
                     }, 100);
-                    // 显示成功提示，无需确认
-                    const successBanner = document.createElement('div');
-                    successBanner.className = 'update-banner';
-                    successBanner.style.backgroundColor = '#4caf50';
-                    successBanner.innerHTML = '✅ 推送成功！';
-                    document.body.insertBefore(successBanner, document.body.firstChild);
-                    setTimeout(() => {
-                        successBanner.remove();
-                    }, 2000);
+                    // 显示成功气泡，自动消失
+                    showBanner('✅ 推送成功！', '#4caf50', 2000);
                 } else {
-                    // 显示失败提示，无需确认
-                    const errorBanner = document.createElement('div');
-                    errorBanner.className = 'update-banner';
-                    errorBanner.style.backgroundColor = '#f44336';
-                    errorBanner.innerHTML = '❌ 推送失败：HTTP ' + res.status;
-                    document.body.insertBefore(errorBanner, document.body.firstChild);
-                    setTimeout(() => {
-                        errorBanner.remove();
-                    }, 3000);
+                    // 显示失败气泡，自动消失
+                    showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
                 }
             } catch(e) {
-                alert('网络错误，请检查网络连接');
+                showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
             }
         }
 
