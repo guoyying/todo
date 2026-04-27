@@ -139,14 +139,29 @@
             margin-top: 6px;
         }
         .tag {
-            padding: 3px 10px;
+            padding: 3px 8px 3px 10px;
             border-radius: 20px;
             font-size: 12px;
             cursor: pointer;
             border: 1px solid var(--border);
             background: var(--bg);
             user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
+        .tag .tag-del {
+            font-size: 11px;
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            text-align: center;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: inline-block;
+        }
+        .tag .tag-del:hover { background: var(--danger); color: white; }
         .tag.active {
             background: var(--primary);
             color: white;
@@ -401,10 +416,12 @@
 </head>
 <body>
     <div class="header">
-        <h1>🌿 心事与任务</h1>
+        <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;">🌿 心事与任务</h1>
         <div class="github-bar">
             <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
+            <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
             <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
+            <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
             <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送</button>
         </div>
     </div>
@@ -448,7 +465,7 @@
                         <input type="radio" name="dueType" value="unknown" onchange="toggleDueType()"> 未知（需要拆解）
                     </label>
                 </div>
-                <input type="datetime-local" id="taskDueTime">
+                <input type="number" id="taskDueTime" placeholder="预计小时数" min="0" step="0.5">
                 <div class="unknown-notice hidden" id="unknownNotice">
                     因为时间未知，请把任务拆解为更小的步骤：
                 </div>
@@ -500,6 +517,10 @@
                 <input type="text" id="ghRepo" placeholder="todo-data">
             </div>
             <div class="input-group">
+                <label>Issue编号</label>
+                <input type="text" id="ghIssue" placeholder="1">
+            </div>
+            <div class="input-group">
                 <label>Personal Access Token</label>
                 <input type="text" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
             </div>
@@ -523,6 +544,24 @@
         </div>
     </div>
 
+    <div class="modal-overlay hidden" id="pageSettingsModal">
+        <div class="modal">
+            <h3>页面设置</h3>
+            <div class="input-group">
+                <label>网页标题</label>
+                <input type="text" id="settingTitle" placeholder="心事与任务">
+            </div>
+            <div class="input-group">
+                <label>常用标签（用逗号分隔）</label>
+                <input type="text" id="settingCommonTags" placeholder="生活,工作">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closePageSettings()">取消</button>
+                <button class="btn btn-primary" onclick="savePageSettings()">保存</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ============ Data ============
         let data = {
@@ -531,7 +570,8 @@
             tags: ['工作','生活','重要','灵感','情绪'],
             commonTags: ['生活','工作'],
             github: null,
-            firstLoaded: false
+            firstLoaded: false,
+            title: '🌿 心事与任务'
         };
         let editingId = null;
         let recording = null;
@@ -665,8 +705,16 @@
             allTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'tag' + (selected.includes(tag) ? ' active' : '');
-                span.textContent = tag;
-                span.onclick = () => span.classList.toggle('active');
+                const text = document.createElement('span');
+                text.textContent = tag;
+                text.onclick = (e) => { e.stopPropagation(); span.classList.toggle('active'); };
+                const del = document.createElement('span');
+                del.className = 'tag-del';
+                del.textContent = '×';
+                del.title = '删除标签';
+                del.onclick = (e) => { e.stopPropagation(); deleteTag(tag); };
+                span.appendChild(text);
+                span.appendChild(del);
                 el.appendChild(span);
             });
             const editor = document.createElement('div');
@@ -686,6 +734,15 @@
             if (!data.tags.includes(v)) data.tags.push(v);
             renderTags(containerId, getSelectedTags(containerId).concat(v));
             saveData();
+        }
+
+        function deleteTag(tag) {
+            data.tags = data.tags.filter(t => t !== tag);
+            data.commonTags = data.commonTags.filter(t => t !== tag);
+            data.items.forEach(i => {
+                if (i.tags) i.tags = i.tags.filter(t => t !== tag);
+            });
+            saveData(); render();
         }
 
         // ============ Save ============
@@ -710,7 +767,7 @@
             let dueTime = null;
             if (!unknown) {
                 const v = document.getElementById('taskDueTime').value;
-                if (v) dueTime = new Date(v).toISOString();
+                if (v) dueTime = parseFloat(v);
             }
             let subtasks = [];
             if (unknown) {
@@ -728,6 +785,8 @@
             document.getElementById('taskContent').value = '';
             document.getElementById('taskDueTime').value = '';
             document.querySelectorAll('#unknownSubtasks .subtask-input').forEach(i => i.value = '');
+            document.querySelector('input[name="dueType"][value="known"]').checked = true;
+            toggleDueType();
             renderTags('taskTags');
             saveData(); render();
         }
@@ -751,9 +810,14 @@
             header.className = 'item-header';
             const typeLabel = item.type === 'feeling' ? '感受' : '任务';
             const typeClass = item.type;
+            let timeInfo = fmtTime(item.createdAt);
+            if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
+            if (item.type === 'task' && item.dueTime && !item.unknown) {
+                timeInfo += ` | 预计${item.dueTime}小时`;
+            }
             header.innerHTML = `
                 <span class="item-type ${typeClass}">${typeLabel}</span>
-                <span class="item-time">${fmtTime(item.createdAt)} ${item.updatedAt !== item.createdAt ? '(已编辑)' : ''}</span>
+                <span class="item-time">${timeInfo}</span>
             `;
             el.appendChild(header);
 
@@ -818,10 +882,17 @@
 
             const actions = document.createElement('div');
             actions.className = 'item-actions';
-            actions.innerHTML = `
+            let actionButtons = `
                 <button class="btn btn-secondary btn-small" onclick="openEdit('${item.id}')">编辑</button>
                 <button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}')">删除</button>
             `;
+            if (item.type === 'task' && !item.unknown && !item.placedIn && !item.done) {
+                actionButtons = `
+                    <button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>
+                    ${actionButtons}
+                `;
+            }
+            actions.innerHTML = actionButtons;
             el.appendChild(actions);
 
             return el;
@@ -892,7 +963,7 @@
                 if (i.type === 'task' && !i.done && !i.placedIn) {
                     if (i.unknown) return false;
                     if (!i.dueTime) return isToday(i.createdAt);
-                    return isToday(i.dueTime) || new Date(i.dueTime) <= new Date();
+                    return isToday(i.createdAt);
                 }
                 return false;
             });
@@ -1045,6 +1116,37 @@
             }
         }
 
+        function showTaskPlaceMenu(e, itemId) {
+            const existing = document.querySelector('.place-select-overlay');
+            if (existing) existing.remove();
+            const menu = document.createElement('div');
+            menu.className = 'place-select-overlay';
+            data.slots.forEach(slot => {
+                const opt = document.createElement('div');
+                opt.className = 'place-option';
+                opt.textContent = slot.name;
+                opt.onclick = () => {
+                    const item = data.items.find(i => i.id === itemId);
+                    if (item) {
+                        item.placedIn = slot.id;
+                        item.updatedAt = nowStr();
+                        saveData(); render();
+                    }
+                    menu.remove();
+                };
+                menu.appendChild(opt);
+            });
+            document.body.appendChild(menu);
+            const rect = e.target.getBoundingClientRect();
+            menu.style.top = (rect.bottom + window.scrollY) + 'px';
+            menu.style.left = (rect.left + window.scrollX) + 'px';
+            setTimeout(() => {
+                document.addEventListener('click', function handler(ev) {
+                    if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener('click', handler); }
+                }, {once:true});
+            }, 10);
+        }
+
         function toggleHistory() {
             const content = document.getElementById('historyContent');
             const arrow = document.getElementById('historyArrow');
@@ -1057,6 +1159,7 @@
             const g = data.github || {};
             document.getElementById('ghUsername').value = g.username || '';
             document.getElementById('ghRepo').value = g.repo || '';
+            document.getElementById('ghIssue').value = g.issue || '';
             document.getElementById('ghToken').value = g.token || '';
             document.getElementById('githubModal').classList.remove('hidden');
         }
@@ -1068,12 +1171,13 @@
         function saveGithubConfig() {
             const username = document.getElementById('ghUsername').value.trim();
             const repo = document.getElementById('ghRepo').value.trim();
+            const issue = document.getElementById('ghIssue').value.trim();
             const token = document.getElementById('ghToken').value.trim();
             if (!username || !repo || !token) {
                 alert('请填写完整');
                 return;
             }
-            data.github = {username, repo, token, lastSync: null};
+            data.github = {username, repo, issue, token, lastSync: null};
             saveData();
             closeGithubModal();
             updateGithubStatus();
@@ -1088,19 +1192,83 @@
             el.textContent = `已配置: ${data.github.repo}`;
         }
 
+        function applyTitle() {
+            const title = data.title || '🌿 心事与任务';
+            document.getElementById('pageTitle').textContent = title;
+            document.title = title.replace(/^\S+\s*/, '');
+        }
+
+        function showPageSettings() {
+            document.getElementById('settingTitle').value = (data.title || '🌿 心事与任务').replace(/^\S+\s*/, '');
+            document.getElementById('settingCommonTags').value = (data.commonTags || []).join(',');
+            document.getElementById('pageSettingsModal').classList.remove('hidden');
+        }
+
+        function closePageSettings() {
+            document.getElementById('pageSettingsModal').classList.add('hidden');
+        }
+
+        function savePageSettings() {
+            const titleInput = document.getElementById('settingTitle').value.trim();
+            const tagInput = document.getElementById('settingCommonTags').value.trim();
+            data.title = (titleInput ? '🌿 ' + titleInput : '🌿 心事与任务');
+            if (tagInput) {
+                data.commonTags = tagInput.split(',').map(t => t.trim()).filter(Boolean);
+            } else {
+                data.commonTags = [];
+            }
+            saveData();
+            applyTitle();
+            render();
+            closePageSettings();
+        }
+
+        function utf8ToBase64(str) {
+            try {
+                const bytes = new TextEncoder().encode(str);
+                let binary = '';
+                const len = bytes.byteLength;
+                for (let i = 0; i < len; i++) {
+                    binary += String.fromCharCode(bytes[i]);
+                }
+                return btoa(binary);
+            } catch (e) {
+                return btoa(unescape(encodeURIComponent(str)));
+            }
+        }
+
         async function pushToGithub() {
             if (!data.github) { showGithubConfig(); return; }
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
-            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            // 创建要推送的数据副本，移除敏感信息
+            const dataToPush = {
+                items: data.items,
+                slots: data.slots,
+                tags: data.tags,
+                commonTags: data.commonTags,
+                title: data.title,
+                github: {
+                    username: data.github.username,
+                    repo: data.github.repo,
+                    issue: data.github.issue,
+                    lastSync: data.github.lastSync
+                    // 不包含 token
+                }
+            };
+            const content = utf8ToBase64(JSON.stringify(dataToPush, null, 2));
             const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
             let sha = null;
+            let getStatus = null;
             try {
                 const getRes = await fetch(api, {headers: {Authorization: `token ${token}`}});
+                getStatus = getRes.status;
                 if (getRes.status === 401) { alert('Token 已过期，请重新配置'); showGithubConfig(); return; }
                 if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
             } catch(e) {}
-            const body = {message: 'update mindtodo data', content};
+            const issue = data.github.issue || '';
+            const message = issue ? `update mindtodo data (issue #${issue})` : 'update mindtodo data';
+            const body = {message, content};
             if (sha) body.sha = sha;
             try {
                 const res = await fetch(api, {
@@ -1109,20 +1277,46 @@
                     body: JSON.stringify(body)
                 });
                 if (res.status === 401 || res.status === 403) { alert('Token 无效或已过期，请重新配置'); showGithubConfig(); return; }
+                if (res.status === 409) {
+                    const reason = sha
+                        ? '文件可能已被其他设备修改，sha 不匹配。'
+                        : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
+                    alert('推送失败 (409 Conflict)\n\n可能原因：' + reason);
+                    return;
+                }
+                if (res.status === 422) {
+                    const err = await res.json().catch(() => ({}));
+                    alert('推送失败 (422)：' + (err.message || '请求格式错误'));
+                    return;
+                }
                 if (res.ok) {
                     data.github.lastSync = nowStr();
                     saveData();
                     alert('推送成功');
                 } else {
-                    alert('推送失败: ' + res.status);
+                    alert('推送失败: HTTP ' + res.status);
                 }
             } catch(e) {
-                alert('网络错误');
+                alert('网络错误，请检查网络连接');
             }
         }
 
-        async function pullFromGithub() {
-            if (!data.github || data.firstLoaded) return;
+        function base64ToUtf8(str) {
+            try {
+                const binary = atob(str);
+                const bytes = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) {
+                    bytes[i] = binary.charCodeAt(i);
+                }
+                return new TextDecoder().decode(bytes);
+            } catch (e) {
+                return decodeURIComponent(escape(atob(str)));
+            }
+        }
+
+        async function pullFromGithub(manual=false) {
+            if (!data.github) { if (manual) showGithubConfig(); return; }
+            if (!manual && data.firstLoaded) return;
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
             try {
@@ -1130,22 +1324,45 @@
                     headers: {Authorization: `token ${token}`}
                 });
                 if (res.status === 401) {
-                    data.github = null;
-                    saveData();
+                    alert('Token 已过期，请重新配置');
+                    if (manual) showGithubConfig();
+                    else { data.github = null; saveData(); }
                     return;
                 }
-                if (!res.ok) { data.firstLoaded = true; saveData(); return; }
+                if (res.status === 404) {
+                    if (manual) alert('远程暂无数据文件');
+                    data.firstLoaded = true; saveData(); return;
+                }
+                if (res.status === 409) {
+                    alert('拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。');
+                    return;
+                }
+                if (!res.ok) {
+                    if (manual) alert('拉取失败: HTTP ' + res.status);
+                    data.firstLoaded = true; saveData(); return;
+                }
                 const info = await res.json();
-                const json = decodeURIComponent(escape(atob(info.content)));
+                const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
                 if (remote.items) data.items = remote.items;
                 if (remote.slots) data.slots = remote.slots;
                 if (remote.tags) data.tags = remote.tags;
                 if (remote.commonTags) data.commonTags = remote.commonTags;
+                if (remote.title) data.title = remote.title;
+                // 不覆盖本地的 github.token 配置
+                if (remote.github) {
+                    if (remote.github.username) data.github.username = remote.github.username;
+                    if (remote.github.repo) data.github.repo = remote.github.repo;
+                    if (remote.github.issue !== undefined) data.github.issue = remote.github.issue;
+                    if (remote.github.lastSync) data.github.lastSync = remote.github.lastSync;
+                }
                 data.firstLoaded = true;
                 saveData();
+                applyTitle();
                 render();
+                if (manual) alert('拉取成功');
             } catch(e) {
+                if (manual) alert('拉取失败: ' + (e.message || '网络错误'));
                 data.firstLoaded = true;
                 saveData();
             }
@@ -1155,6 +1372,7 @@
         loadData();
         initVoice();
         selectType('feeling');
+        applyTitle();
         updateGithubStatus();
         render();
         pullFromGithub();
