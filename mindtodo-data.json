@@ -142,6 +142,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moh22aygpidwv",
+      "type": "task",
+      "content": "需求记录：无论是代办还是感受，希望点击标签按钮就能筛选出对应任务，现在点击按钮是没有反应的。如果选择两个或以上标签，那满足其中一个的任务都会被筛选出来。",
+      "createdAt": "2026-04-27T10:29:37.912Z",
+      "updatedAt": "2026-04-27T10:30:02.523Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "1min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -160,6 +172,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T10:06:11.486Z"
+    "lastSync": "2026-04-27T10:28:30.331Z"
   }
 }
