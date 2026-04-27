@@ -132,14 +132,15 @@
       "type": "task",
       "content": "熨衣服",
       "createdAt": "2026-04-27T10:27:07.652Z",
-      "updatedAt": "2026-04-27T11:31:45.421Z",
+      "updatedAt": "2026-04-27T23:55:17.865Z",
       "tags": [
         "家"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mohuu56htlsuk"
     },
     {
       "id": "mohbknxhloo14",
@@ -169,22 +170,25 @@
       ]
     },
     {
-      "id": "mohbt1u218s0y",
+      "id": "mohutsgoftpq5",
       "type": "task",
-      "content": "不要语音输入按钮；输入标签添加任务后为什么标签旁有个x，这样不行",
-      "createdAt": "2026-04-27T15:02:22.346Z",
-      "updatedAt": "2026-04-27T15:02:22.346Z",
-      "tags": [],
+      "content": "换衣服收拾包穿鞋",
+      "createdAt": "2026-04-27T23:54:49.561Z",
+      "updatedAt": "2026-04-27T23:55:09.351Z",
+      "tags": [
+        "家"
+      ],
       "done": false,
-      "dueTime": "10",
+      "dueTime": "8",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mohuu56htlsuk"
     }
   ],
   "slots": [
     {
-      "id": "slot_moh0nqsed5yfd",
-      "name": "晚上"
+      "id": "slot_mohuu56htlsuk",
+      "name": "出门前"
     }
   ],
   "tags": [
@@ -197,6 +201,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T15:01:16.715Z"
+    "lastSync": "2026-04-27T23:53:50.004Z"
   }
 }
