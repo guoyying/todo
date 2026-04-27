@@ -118,20 +118,6 @@
             margin-top: 8px;
             flex-wrap: wrap;
         }
-        .voice-btn {
-            background: var(--feeling-light);
-            color: var(--text);
-            border: 1px solid var(--feeling);
-        }
-        .voice-btn.recording {
-            background: var(--feeling);
-            color: white;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
         .tags-select {
             display: flex;
             flex-wrap: wrap;
@@ -517,7 +503,7 @@
                 <label>此刻的感受</label>
                 <textarea id="feelingContent" rows="3" placeholder="写下你的感受..."></textarea>
                 <div class="input-actions">
-                    <button class="btn btn-secondary voice-btn" id="feelingVoiceBtn" onclick="toggleVoice('feeling')">🎤 语音输入</button>
+                    <span style="font-size:12px;color:var(--text-secondary);">语音输入功能已移除</span>
                 </div>
             </div>
             <div class="input-group">
@@ -532,7 +518,7 @@
                 <label>想做的事</label>
                 <textarea id="taskContent" rows="2" placeholder="写下你想做的事..."></textarea>
                 <div class="input-actions">
-                    <button class="btn btn-secondary voice-btn" id="taskVoiceBtn" onclick="toggleVoice('task')">🎤 语音输入</button>
+                    <span style="font-size:12px;color:var(--text-secondary);">语音输入功能已移除</span>
                 </div>
             </div>
             <div class="input-group">
@@ -587,14 +573,19 @@
     <div class="section-title">✅ 今日完成 <span class="count" id="doneCount"></span></div>
     <div id="doneList"></div>
 
-    <div class="history-section">
-        <div class="history-header" onclick="toggleHistory()">
-            <span id="historyArrow">▶</span>
-            <span>往期记录（点击展开）</span>
-            <span class="count" id="historyCount"></span>
-        </div>
-        <div class="history-content hidden" id="historyContent"></div>
+    <div class="section-title">📅 往期待办 <span class="count" id="oldTodoCount"></span></div>
+    <div class="filter-bar" id="oldTodoFilterBar">
+        <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
+        <div class="tag-filter" id="oldTodoTagFilter"></div>
     </div>
+    <div id="oldTodoList"></div>
+
+    <div class="section-title">💭 往期感受 <span class="count" id="oldFeelingCount"></span></div>
+    <div class="filter-bar" id="oldFeelingFilterBar">
+        <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
+        <div class="tag-filter" id="oldFeelingTagFilter"></div>
+    </div>
+    <div id="oldFeelingList"></div>
 
     <div class="modal-overlay hidden" id="githubModal">
         <div class="modal">
@@ -813,7 +804,11 @@
         }
 
         function getSelectedTags(containerId) {
-            return Array.from(document.querySelectorAll(`#${containerId} .tag.active`)).map(el => el.textContent);
+            return Array.from(document.querySelectorAll(`#${containerId} .tag.active`)).map(el => {
+                // 只获取标签文本，不包含删除按钮
+                const textSpan = el.querySelector('span:first-child');
+                return textSpan ? textSpan.textContent : el.textContent.replace('×', '').trim();
+            });
         }
 
         function addTag(containerId) {
@@ -854,8 +849,12 @@
                 container.dataset.selectedTags = '[]';
                 if (containerId === 'todayTagFilter') {
                     renderToday();
-                } else {
+                } else if (containerId === 'feelingTagFilter') {
                     renderFeelings();
+                } else if (containerId === 'oldTodoTagFilter') {
+                    renderOldTodos();
+                } else if (containerId === 'oldFeelingTagFilter') {
+                    renderOldFeelings();
                 }
             };
             container.appendChild(allBtn);
@@ -881,8 +880,12 @@
                     container.dataset.selectedTags = JSON.stringify(currentTags);
                     if (containerId === 'todayTagFilter') {
                         renderToday();
-                    } else {
+                    } else if (containerId === 'feelingTagFilter') {
                         renderFeelings();
+                    } else if (containerId === 'oldTodoTagFilter') {
+                        renderOldTodos();
+                    } else if (containerId === 'oldFeelingTagFilter') {
+                        renderOldFeelings();
                     }
                 };
                 container.appendChild(span);
@@ -902,8 +905,12 @@
                         saveData();
                         if (containerId === 'todayTagFilter') {
                             renderToday();
-                        } else {
+                        } else if (containerId === 'feelingTagFilter') {
                             renderFeelings();
+                        } else if (containerId === 'oldTodoTagFilter') {
+                            renderOldTodos();
+                        } else if (containerId === 'oldFeelingTagFilter') {
+                            renderOldFeelings();
                         }
                     }
                 }
@@ -964,8 +971,9 @@
             renderSlots();
             renderFeelings();
             renderToday();
+            renderOldTodos();
+            renderOldFeelings();
             renderDone();
-            renderHistory();
             checkUpdateStatus();
         }
 
@@ -1340,7 +1348,7 @@
             const selectedTags = JSON.parse(selectedTagsStr);
             
             let list = data.items.filter(i => {
-                if (i.type === 'task' && !i.done && !i.placedIn) {
+                if (i.type === 'task' && !i.done && !i.placedIn && isToday(i.createdAt)) {
                     if (i.unknown) {
                         // 未知时间的任务，显示父任务和子任务
                         return true;
@@ -1370,6 +1378,142 @@
             renderTagFilter('todayTagFilter', selectedTags);
             
             list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
+        }
+
+        function renderOldTodos() {
+            const container = document.getElementById('oldTodoList');
+            container.innerHTML = '';
+            
+            // 获取筛选条件
+            const searchTerm = document.getElementById('oldTodoSearch')?.value.toLowerCase() || '';
+            const selectedTagsStr = document.getElementById('oldTodoTagFilter')?.dataset.selectedTags || '[]';
+            const selectedTags = JSON.parse(selectedTagsStr);
+            
+            let list = data.items.filter(i => {
+                if (i.type === 'task' && !i.done && !i.placedIn && !isToday(i.createdAt)) {
+                    return true;
+                }
+                return false;
+            });
+            
+            // 应用搜索过滤
+            if (searchTerm) {
+                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+            }
+            
+            // 应用标签过滤（满足任一标签即可）
+            if (selectedTags && selectedTags.length > 0) {
+                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+            }
+            
+            document.getElementById('oldTodoCount').textContent = list.length ? `(${list.length})` : '';
+            if (list.length === 0) {
+                container.innerHTML = '<div class="empty-tip">暂无往期待办</div>';
+                return;
+            }
+            
+            // 渲染标签筛选器
+            renderTagFilter('oldTodoTagFilter', selectedTags);
+            
+            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
+        }
+
+        function renderOldFeelings() {
+            const container = document.getElementById('oldFeelingList');
+            container.innerHTML = '';
+            
+            // 获取筛选条件
+            const searchTerm = document.getElementById('oldFeelingSearch')?.value.toLowerCase() || '';
+            const selectedTagsStr = document.getElementById('oldFeelingTagFilter')?.dataset.selectedTags || '[]';
+            const selectedTags = JSON.parse(selectedTagsStr);
+            
+            let list = data.items.filter(i => i.type === 'feeling' && !i.done && !isToday(i.createdAt));
+            
+            // 应用搜索过滤
+            if (searchTerm) {
+                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+            }
+            
+            // 应用标签过滤（满足任一标签即可）
+            if (selectedTags && selectedTags.length > 0) {
+                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+            }
+            
+            document.getElementById('oldFeelingCount').textContent = list.length ? `(${list.length})` : '';
+            if (list.length === 0) {
+                container.innerHTML = '<div class="empty-tip">暂无往期感受</div>';
+                return;
+            }
+            
+            // 渲染标签筛选器
+            renderTagFilter('oldFeelingTagFilter', selectedTags);
+            
+            list.forEach(item => {
+                const el = document.createElement('div');
+                el.className = `item feeling-item`;
+                el.dataset.id = item.id;
+                el.style.cursor = 'pointer';
+                el.onclick = (e) => {
+                    if (e.target.closest('.item-actions') || e.target.closest('.item-tag')) {
+                        return;
+                    }
+                    showFeelingEditor(item.id);
+                };
+                
+                const header = document.createElement('div');
+                header.className = 'item-header';
+                header.innerHTML = `
+                    <span class="item-type feeling">感受</span>
+                    <span class="item-time">${fmtTime(item.createdAt)} ${item.updatedAt !== item.createdAt ? '(已编辑)' : ''}</span>
+                `;
+                el.appendChild(header);
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'item-content';
+                const textSpan = document.createElement('span');
+                textSpan.textContent = item.content;
+                contentDiv.appendChild(textSpan);
+                el.appendChild(contentDiv);
+                
+                const tagsDiv = document.createElement('div');
+                tagsDiv.className = 'item-tags';
+                
+                if (item.tags && item.tags.length) {
+                    item.tags.forEach(t => {
+                        const s = document.createElement('span');
+                        s.className = 'item-tag';
+                        s.textContent = t;
+                        s.style.cursor = 'pointer';
+                        s.onclick = (e) => {
+                            e.stopPropagation();
+                            showTagEditor(item.id, t, 'feeling');
+                        };
+                        tagsDiv.appendChild(s);
+                    });
+                } else {
+                    const addTagBtn = document.createElement('span');
+                    addTagBtn.className = 'item-tag';
+                    addTagBtn.textContent = '+ 添加标签';
+                    addTagBtn.style.cursor = 'pointer';
+                    addTagBtn.style.color = 'var(--primary)';
+                    addTagBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        showTagEditor(item.id, null, 'feeling');
+                    };
+                    tagsDiv.appendChild(addTagBtn);
+                }
+                el.appendChild(tagsDiv);
+                
+                const actions = document.createElement('div');
+                actions.className = 'item-actions';
+                actions.style.opacity = '1';
+                actions.innerHTML = `
+                    <button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}')">删除</button>
+                `;
+                el.appendChild(actions);
+                
+                container.appendChild(el);
+            });
         }
 
         function renderDone() {
