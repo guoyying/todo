@@ -14,7 +14,7 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-27T09:34:56.072Z",
+      "updatedAt": "2026-04-27T11:33:05.674Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -39,7 +39,7 @@
       "type": "task",
       "content": "南沙就完成年度目标了，有点不合理其他县分可能有意见。怎么办。",
       "createdAt": "2026-04-27T09:14:14.882Z",
-      "updatedAt": "2026-04-27T09:14:14.882Z",
+      "updatedAt": "2026-04-27T11:33:57.298Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -132,9 +132,9 @@
       "type": "task",
       "content": "熨衣服",
       "createdAt": "2026-04-27T10:27:07.652Z",
-      "updatedAt": "2026-04-27T10:27:07.652Z",
+      "updatedAt": "2026-04-27T11:31:45.421Z",
       "tags": [
-        "家×"
+        "家"
       ],
       "done": false,
       "dueTime": "10min",
@@ -142,16 +142,14 @@
       "subtasks": []
     },
     {
-      "id": "moh22aygpidwv",
+      "id": "moh2tpkbtwkgv",
       "type": "task",
-      "content": "需求记录：无论是代办还是感受，希望点击标签按钮就能筛选出对应任务，现在点击按钮是没有反应的。如果选择两个或以上标签，那满足其中一个的任务都会被筛选出来。另外点击标签按钮之后，“全部”这个标签就变浅色点击的按钮变成深色。",
-      "createdAt": "2026-04-27T10:29:37.912Z",
-      "updatedAt": "2026-04-27T10:42:48.380Z",
-      "tags": [
-        "111"
-      ],
+      "content": "了解一下不用手动删除上传最新文件的方法",
+      "createdAt": "2026-04-27T10:50:56.555Z",
+      "updatedAt": "2026-04-27T10:50:56.555Z",
+      "tags": [],
       "done": false,
-      "dueTime": "1min",
+      "dueTime": "10",
       "unknown": false,
       "subtasks": []
     }
@@ -163,7 +161,7 @@
     }
   ],
   "tags": [
-    "111"
+    "家"
   ],
   "commonTags": [],
   "title": "🌿 todo",
@@ -171,6 +169,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-27T12:17:54.027Z"
+    "lastSync": "2026-04-27T11:31:56.115Z"
   }
 }
