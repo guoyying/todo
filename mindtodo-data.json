@@ -42,7 +42,7 @@
       "type": "task",
       "content": "南沙就完成年度目标了，有点不合理其他县分可能有意见。怎么办。",
       "createdAt": "2026-04-27T09:14:14.882Z",
-      "updatedAt": "2026-04-28T08:48:10.726Z",
+      "updatedAt": "2026-04-28T08:58:29.511Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -51,13 +51,13 @@
         {
           "id": "mogzdcyqix0rb",
           "content": "看下南沙是不是800M的多3min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_moidush3h9z2g"
         },
         {
           "id": "mogzdcyq3vmws",
           "content": "5min思考怎么办",
-          "done": false,
+          "done": true,
           "placedIn": "slot_moidush3h9z2g"
         }
       ]
@@ -352,6 +352,18 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": "slot_moidush3h9z2g"
+    },
+    {
+      "id": "moie9ketq0s8f",
+      "type": "task",
+      "content": "做个800M的透视表，占总数量的多少",
+      "createdAt": "2026-04-28T08:58:58.325Z",
+      "updatedAt": "2026-04-28T08:58:58.325Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
