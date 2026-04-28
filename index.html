@@ -200,7 +200,14 @@
         .item-type.feeling { background: var(--feeling-light); color: #8b5a5a; }
         .item-type.task { background: var(--task-light); color: #5a7090; }
         .item-time { font-size: 12px; color: var(--text-secondary); }
-        .item-content { font-size: 14px; margin: 6px 0; white-space: pre-wrap; word-break: break-word; }
+        .item-content {
+            font-size: 14px;
+            margin: 6px 0;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.5;
+        }
         .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
         .item-tag {
             font-size: 11px;
@@ -263,29 +270,15 @@
         }
         .time-slots {
             display: flex;
+            flex-direction: column;
             gap: 12px;
             margin-top: 12px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            scroll-behavior: smooth;
-        }
-        .time-slots::-webkit-scrollbar {
-            height: 6px;
-        }
-        .time-slots::-webkit-scrollbar-track {
-            background: var(--bg);
-            border-radius: 3px;
-        }
-        .time-slots::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 3px;
         }
         .slot {
             background: var(--card);
             border-radius: var(--radius);
             padding: 14px;
             box-shadow: var(--shadow);
-            min-height: 120px;
         }
         .slot-header {
             font-size: 14px;
@@ -570,7 +563,7 @@
         <div class="task-input-area" id="taskArea">
             <div class="input-group">
                 <label>想做的事</label>
-                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..."></textarea>
+                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." onkeypress="if(event.key==='Enter' && (event.ctrlKey || event.metaKey))saveTask()"></textarea>
                 <div class="input-actions">
                     <span style="font-size:12px;color:var(--text-secondary);">语音输入功能已移除</span>
                 </div>
@@ -585,22 +578,22 @@
                         <input type="radio" name="dueType" value="unknown" onchange="toggleDueType()"> 未知（需要拆解）
                     </label>
                 </div>
-                <input type="text" id="taskDueTime" placeholder="预计时间（如：2小时、30分钟）">
+                <input type="text" id="taskDueTime" placeholder="预计时间（如：2 小时、30 分钟）" onkeypress="if(event.key==='Enter')saveTask()">
                 <div class="unknown-notice hidden" id="unknownNotice">
                     因为时间未知，请把任务拆解为更小的步骤：
                 </div>
                 <div class="unknown-subtasks hidden" id="unknownSubtasks">
                     <div class="subtask">
-                        <input type="text" placeholder="子任务 1" class="subtask-input" style="flex:1;">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                        <input type="text" placeholder="子任务 1" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
-                        <input type="text" placeholder="子任务 2" class="subtask-input" style="flex:1;">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                        <input type="text" placeholder="子任务 2" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
-                        <input type="text" placeholder="子任务 3" class="subtask-input" style="flex:1;">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                        <input type="text" placeholder="子任务 3" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                 </div>
             </div>
@@ -1089,8 +1082,14 @@
             const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
             let dueTime = null;
             if (!unknown) {
-                const v = document.getElementById('taskDueTime').value.trim();
-                if (v) dueTime = v;
+                let v = document.getElementById('taskDueTime').value.trim();
+                if (v) {
+                    // 如果是纯数字，自动添加"min"后缀
+                    if (/^\d+$/.test(v)) {
+                        v = v + 'min';
+                    }
+                    dueTime = v;
+                }
             }
             let subtasks = [];
             if (unknown) {
@@ -1098,7 +1097,11 @@
                 const timeInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-time'));
                 subtasks = subtaskInputs.map((i, idx) => {
                     const content = i.value.trim();
-                    const time = idx < timeInputs.length ? timeInputs[idx].value.trim() : '';
+                    let time = idx < timeInputs.length ? timeInputs[idx].value.trim() : '';
+                    // 如果是纯数字，自动添加"min"后缀
+                    if (time && /^\d+$/.test(time)) {
+                        time = time + 'min';
+                    }
                     return {id: genId(), content, estimatedTime: time, done: false, placedIn: null};
                 }).filter(st => st.content);
             }
@@ -1394,12 +1397,18 @@
                             wrapper.className = 'item task-item';
                             wrapper.innerHTML = `
                                 <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>
-                                <div class="item-content" style="display:flex;align-items:center;">
+                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
                                     <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
-                                    <span>${entry.sub.content}${subTimeDisplay}</span>
+                                    <input type="text" class="edit-input" value="${entry.sub.content.replace(/"/g, '&quot;')}"
+                                        onchange="updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')"
+                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                    <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
+                                        onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
+                                        placeholder="预计时间"
+                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
                                 </div>
-                                <div class="item-actions" style="opacity:1;margin-top:6px;">
-                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}','${entry.sub.id}')">返回待办</button>
+                                <div class="item-actions" style="opacity:1;">
+                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}', '${entry.sub.id}')">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -1413,11 +1422,17 @@
                             wrapper.className = 'item task-item';
                             wrapper.innerHTML = `
                                 <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.item.content}</div>
-                                <div class="item-content" style="display:flex;align-items:center;">
+                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
                                     <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
-                                    <span>${entry.item.content}${taskTimeDisplay}</span>
+                                    <input type="text" class="edit-input" value="${entry.item.content.replace(/"/g, '&quot;')}"
+                                        onchange="updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')"
+                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                    <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
+                                        onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
+                                        placeholder="预计时间"
+                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
                                 </div>
-                                <div class="item-actions" style="opacity:1;margin-top:6px;">
+                                <div class="item-actions" style="opacity:1;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
                                 </div>
                             `;
@@ -1928,6 +1943,55 @@
             }, 5000);
         }
 
+        // ============ 时间段任务板任务编辑函数 ============
+        function updateTaskInSlot(itemId, newContent, newDueTime) {
+            const item = data.items.find(i => i.id === itemId);
+            if (item) {
+                item.content = newContent.trim();
+                item.dueTime = newDueTime.trim();
+                item.updatedAt = nowStr();
+                saveData();
+                renderSlots(); // 重新渲染时间段任务板，更新总耗时
+            }
+        }
+
+        function updateTaskTimeInSlot(itemId, newDueTime) {
+            const item = data.items.find(i => i.id === itemId);
+            if (item) {
+                item.dueTime = newDueTime.trim();
+                item.updatedAt = nowStr();
+                saveData();
+                renderSlots(); // 重新渲染时间段任务板，更新总耗时
+            }
+        }
+
+        function updateSubtaskInSlot(parentId, subId, newContent, newEstimatedTime) {
+            const item = data.items.find(i => i.id === parentId);
+            if (item && item.subtasks) {
+                const sub = item.subtasks.find(st => st.id === subId);
+                if (sub) {
+                    sub.content = newContent.trim();
+                    sub.estimatedTime = newEstimatedTime.trim();
+                    item.updatedAt = nowStr();
+                    saveData();
+                    renderSlots(); // 重新渲染时间段任务板，更新总耗时
+                }
+            }
+        }
+
+        function updateSubtaskTimeInSlot(parentId, subId, newEstimatedTime) {
+            const item = data.items.find(i => i.id === parentId);
+            if (item && item.subtasks) {
+                const sub = item.subtasks.find(st => st.id === subId);
+                if (sub) {
+                    sub.estimatedTime = newEstimatedTime.trim();
+                    item.updatedAt = nowStr();
+                    saveData();
+                    renderSlots(); // 重新渲染时间段任务板，更新总耗时
+                }
+            }
+        }
+
         function showTaskPlaceMenu(e, itemId) {
             const existing = document.querySelector('.place-select-overlay');
             if (existing) existing.remove();
@@ -2011,15 +2075,18 @@
                 return;
             }
             
-            if (!data.tags.includes(newTag)) {
-                data.tags.push(newTag);
-            }
-            
+            // 添加到对应的 common 标签数组
             if (type === 'task') {
+                if (!data.commonTaskTags.includes(newTag)) {
+                    data.commonTaskTags.push(newTag);
+                }
                 if (!item.tags) item.tags = [];
                 const idx = item.tags.indexOf(newTag);
                 if (idx === -1) item.tags.push(newTag);
             } else {
+                if (!data.commonFeelingTags.includes(newTag)) {
+                    data.commonFeelingTags.push(newTag);
+                }
                 if (!item.tags) item.tags = [];
                 const idx = item.tags.indexOf(newTag);
                 if (idx === -1) item.tags.push(newTag);
