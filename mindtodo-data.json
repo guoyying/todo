@@ -178,13 +178,14 @@
       "type": "task",
       "content": "确认下一季度的清单是不是同一个退网单的，然后给美哥反馈",
       "createdAt": "2026-04-28T02:03:48.123Z",
-      "updatedAt": "2026-04-28T02:03:51.595Z",
+      "updatedAt": "2026-04-28T02:51:04.457Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mohxmpyrgmwrc"
+      "placedIn": "slot_mohxmpyrgmwrc",
+      "doneAt": "2026-04-28T02:51:04.457Z"
     },
     {
       "id": "mohzxu8re666s",
@@ -195,6 +196,30 @@
       "tags": [],
       "done": false,
       "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "moi1577dsdp0o",
+      "type": "task",
+      "content": "给美哥反馈算力的事情",
+      "createdAt": "2026-04-28T02:51:39.577Z",
+      "updatedAt": "2026-04-28T02:51:39.577Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "moi18sb27qopv",
+      "type": "task",
+      "content": "时间段任务板的任务可以修改内容和预计时间，如果有修改时间，总耗时也同步更新。如果内容有修改，点击返回待办后也是更新的内容。记录想做的事，预计时间默认是min，不需要我每次手打了。先不要写代码，你先理解我的需求，我确认了你再写。",
+      "createdAt": "2026-04-28T02:54:26.894Z",
+      "updatedAt": "2026-04-28T02:54:26.894Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3",
       "unknown": false,
       "subtasks": []
     }
@@ -215,6 +240,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T02:10:56.532Z"
+    "lastSync": "2026-04-28T02:50:39.163Z"
   }
 }
