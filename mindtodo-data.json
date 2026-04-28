@@ -82,7 +82,6 @@
       "dueTime": "6min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moidush3h9z2g",
       "doneAt": "2026-04-28T09:06:04.358Z"
     },
     {
@@ -254,7 +253,7 @@
       "type": "task",
       "content": "拆除马场的光路",
       "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-28T06:39:36.006Z",
+      "updatedAt": "2026-04-28T09:59:51.332Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -287,7 +286,7 @@
       "type": "task",
       "content": "更新三级系统资产",
       "createdAt": "2026-04-28T08:07:17.681Z",
-      "updatedAt": "2026-04-28T08:07:17.681Z",
+      "updatedAt": "2026-04-28T09:55:09.089Z",
       "tags": [],
       "done": false,
       "dueTime": "14min",
@@ -299,7 +298,7 @@
       "type": "task",
       "content": "网安的两件事",
       "createdAt": "2026-04-28T08:47:05.136Z",
-      "updatedAt": "2026-04-28T08:47:56.129Z",
+      "updatedAt": "2026-04-28T09:55:07.721Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -332,7 +331,6 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moidush3h9z2g",
       "doneAt": "2026-04-28T09:20:30.968Z"
     },
     {
@@ -348,12 +346,7 @@
       "subtasks": []
     }
   ],
-  "slots": [
-    {
-      "id": "slot_moidush3h9z2g",
-      "name": "下班前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
