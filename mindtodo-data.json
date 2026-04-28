@@ -127,13 +127,14 @@
       "type": "task",
       "content": "更新补环教程",
       "createdAt": "2026-04-28T01:14:22.256Z",
-      "updatedAt": "2026-04-28T06:21:42.077Z",
+      "updatedAt": "2026-04-28T06:31:13.985Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moi8n15sj15x6"
+      "placedIn": "slot_moi8n15sj15x6",
+      "doneAt": "2026-04-28T06:31:13.985Z"
     },
     {
       "id": "mohz1gzo37l7n",
@@ -285,6 +286,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T06:20:46.194Z"
+    "lastSync": "2026-04-28T06:22:29.626Z"
   }
 }
