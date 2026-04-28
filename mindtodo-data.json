@@ -346,13 +346,14 @@
       "type": "task",
       "content": "做好邮件团支部的",
       "createdAt": "2026-04-28T08:47:24.742Z",
-      "updatedAt": "2026-04-28T08:47:50.756Z",
+      "updatedAt": "2026-04-28T09:20:30.968Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moidush3h9z2g"
+      "placedIn": "slot_moidush3h9z2g",
+      "doneAt": "2026-04-28T09:20:30.968Z"
     },
     {
       "id": "moie9ketq0s8f",
@@ -383,6 +384,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T08:59:02.443Z"
+    "lastSync": "2026-04-28T09:06:26.993Z"
   }
 }
