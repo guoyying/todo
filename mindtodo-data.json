@@ -139,8 +139,7 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mohuu56htlsuk"
+      "subtasks": []
     },
     {
       "id": "mohbknxhloo14",
@@ -181,16 +180,10 @@
       "done": false,
       "dueTime": "8",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mohuu56htlsuk"
+      "subtasks": []
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mohuu56htlsuk",
-      "name": "出门前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己"
