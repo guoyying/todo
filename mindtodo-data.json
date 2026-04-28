@@ -188,11 +188,11 @@
       "type": "task",
       "content": "好想练习表达啊",
       "createdAt": "2026-04-28T04:26:14.426Z",
-      "updatedAt": "2026-04-28T04:26:14.426Z",
+      "updatedAt": "2026-04-28T04:41:53.076Z",
       "tags": [
         "表达"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -203,7 +203,8 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-04-28T04:41:53.076Z"
     },
     {
       "id": "moi4sba96rkq7",
