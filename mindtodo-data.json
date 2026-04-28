@@ -144,6 +144,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mohxo33kpsft2",
+      "type": "task",
+      "content": "更新补环教程",
+      "createdAt": "2026-04-28T01:14:22.256Z",
+      "updatedAt": "2026-04-28T01:14:22.256Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [
@@ -162,6 +174,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T00:43:11.682Z"
+    "lastSync": "2026-04-28T01:14:01.559Z"
   }
 }
