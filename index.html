@@ -2491,7 +2491,7 @@
             reader.readAsText(file);
         }
 
-        function showBanner(message, color, duration) {
+        function showBanner(message, color, duration = 3000) {
             const banner = document.createElement('div');
             banner.className = 'update-banner show';
             banner.style.backgroundColor = color;
@@ -2517,7 +2517,6 @@
 
         async function pullFromGithub(manual=false) {
             if (!data.github) { if (manual) showGithubConfig(); return; }
-            if (!manual && data.firstLoaded) return;
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
             try {
@@ -2527,21 +2526,26 @@
                     headers: {Authorization: `token ${token}`}
                 });
                 if (res.status === 401) {
-                    alert('Token 已过期，请重新配置');
-                    if (manual) showGithubConfig();
-                    else { data.github = null; saveData(); }
+                    const msg = 'Token 已过期，请重新配置';
+                    if (manual) { alert(msg); showGithubConfig(); }
+                    else { showBanner(msg, 'error'); data.github = null; saveData(); }
                     return;
                 }
                 if (res.status === 404) {
                     if (manual) alert('远程暂无数据文件');
+                    else showBanner('远程暂无数据文件', 'info');
                     data.firstLoaded = true; saveData(); return;
                 }
                 if (res.status === 409) {
-                    alert('拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。');
+                    const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
+                    if (manual) alert(msg);
+                    else showBanner(msg, 'error');
                     return;
                 }
                 if (!res.ok) {
-                    if (manual) alert('拉取失败: HTTP ' + res.status);
+                    const msg = '拉取失败：HTTP ' + res.status;
+                    if (manual) alert(msg);
+                    else showBanner(msg, 'error');
                     data.firstLoaded = true; saveData(); return;
                 }
                 const info = await res.json();
@@ -2564,9 +2568,18 @@
                 saveData();
                 applyTitle();
                 render();
-                if (manual) alert('拉取成功');
+                if (manual) {
+                    showBanner('拉取成功', 'success');
+                } else {
+                    showBanner('自动拉取成功', 'success');
+                }
             } catch(e) {
-                if (manual) alert('拉取失败: ' + (e.message || '网络错误'));
+                const msg = '拉取失败：' + (e.message || '网络错误');
+                if (manual) {
+                    alert(msg);
+                } else {
+                    showBanner(msg, 'error');
+                }
                 data.firstLoaded = true;
                 saveData();
             }
@@ -2598,7 +2611,16 @@
         applyTitle();
         updateGithubStatus();
         render();
+        // 刷新页面时自动拉取一次
         pullFromGithub();
+        
+        // 添加快捷键：Ctrl + Shift + P 触发推送
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+                e.preventDefault();
+                pushToGithub();
+            }
+        });
     </script>
 </body>
 </html>
