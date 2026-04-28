@@ -278,11 +278,45 @@
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
+        }
+        /* 气泡提示样式 */
+        .undo-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 12px;
+            animation: slideInUp 0.3s ease-out;
+        }
+        .undo-toast.show {
+            display: flex;
+        }
+        .undo-toast-message {
+            font-size: 14px;
+            color: var(--text);
+        }
+        .undo-toast-btn {
+            padding: 6px 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .undo-toast-btn:hover {
+            opacity: 0.9;
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         .slot .item { margin-bottom: 8px; padding: 10px; font-size: 13px; }
         .slot .item-actions { opacity: 1; }
@@ -494,6 +528,10 @@
         <span>📢 有更新待推送</span>
         <button class="btn btn-small" style="background:white;color:#ff9800;" onclick="pushToGithub()">立即推送</button>
     </div>
+    <div class="undo-toast hidden" id="undoToast">
+        <span class="undo-toast-message" id="undoToastMessage">已返回待办，点击撤销恢复</span>
+        <button class="undo-toast-btn" id="undoToastBtn">撤销</button>
+    </div>
 
     <div class="card">
         <div class="type-select">
@@ -539,9 +577,18 @@
                     因为时间未知，请把任务拆解为更小的步骤：
                 </div>
                 <div class="unknown-subtasks hidden" id="unknownSubtasks">
-                    <div class="subtask"><input type="text" placeholder="子任务 1" class="subtask-input"></div>
-                    <div class="subtask"><input type="text" placeholder="子任务 2" class="subtask-input"></div>
-                    <div class="subtask"><input type="text" placeholder="子任务 3" class="subtask-input"></div>
+                    <div class="subtask">
+                        <input type="text" placeholder="子任务 1" class="subtask-input" style="flex:1;">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                    </div>
+                    <div class="subtask">
+                        <input type="text" placeholder="子任务 2" class="subtask-input" style="flex:1;">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                    </div>
+                    <div class="subtask">
+                        <input type="text" placeholder="子任务 3" class="subtask-input" style="flex:1;">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;">
+                    </div>
                 </div>
             </div>
             <div class="input-group">
@@ -716,6 +763,31 @@
             const t = new Date();
             t.setHours(0,0,0,0);
             return d < t;
+        }
+
+        // 从时间字符串中提取数字（支持 min、分钟、小时等格式）
+        function extractTimeNumber(timeStr) {
+            if (!timeStr) return null;
+            timeStr = timeStr.trim().toLowerCase();
+            
+            // 支持 min/m 格式（直接返回分钟数）
+            if (timeStr.includes('min') || timeStr.includes('m')) {
+                const match = timeStr.match(/(\d+)/);
+                if (match) return parseInt(match[1]);
+            }
+            
+            // 支持中文格式
+            const match = timeStr.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
+            if (match) {
+                const num = parseInt(match[1]);
+                const unit = match[2];
+                if (unit === '小时') return num;
+                if (unit === '分钟') return num / 60;
+                if (unit === '天') return num * 24;
+                if (unit === '周') return num * 168;
+            }
+            
+            return null;
         }
 
         // ============ Voice ============
@@ -980,9 +1052,13 @@
             }
             let subtasks = [];
             if (unknown) {
-                subtasks = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-input'))
-                    .map(i => i.value.trim()).filter(Boolean)
-                    .map(t => ({id: genId(), content: t, done: false, placedIn: null}));
+                const subtaskInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-input'));
+                const timeInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-time'));
+                subtasks = subtaskInputs.map((i, idx) => {
+                    const content = i.value.trim();
+                    const time = idx < timeInputs.length ? timeInputs[idx].value.trim() : '';
+                    return {id: genId(), content, estimatedTime: time, done: false, placedIn: null};
+                }).filter(st => st.content);
             }
             const item = {
                 id: genId(), type: 'task', content,
@@ -994,6 +1070,7 @@
             document.getElementById('taskContent').value = '';
             document.getElementById('taskDueTime').value = '';
             document.querySelectorAll('#unknownSubtasks .subtask-input').forEach(i => i.value = '');
+            document.querySelectorAll('#unknownSubtasks .subtask-time').forEach(i => i.value = '');
             document.querySelector('input[name="dueType"][value="known"]').checked = true;
             toggleDueType();
             renderTags('taskTags');
@@ -1167,6 +1244,9 @@
                 const stDiv = document.createElement('div');
                 stDiv.className = 'subtask-list';
                 item.subtasks.forEach(st => {
+                    // 只显示未放入时间段且未完成的子任务
+                    if (st.placedIn || st.done) return;
+                    
                     const row = document.createElement('div');
                     row.className = 'subtask' + (st.done ? ' done' : '');
                     const cb = document.createElement('span');
@@ -1174,8 +1254,13 @@
                     cb.innerHTML = st.done ? '✓' : '';
                     cb.onclick = (e) => { e.stopPropagation(); toggleSubtask(item.id, st.id); };
                     const txt = document.createElement('span');
-                    txt.textContent = st.content;
                     txt.style.flex = '1';
+                    // 显示子任务内容和预计时间
+                    let stText = st.content;
+                    if (st.estimatedTime) {
+                        stText += ` | 预计：${st.estimatedTime}`;
+                    }
+                    txt.textContent = stText;
                     row.appendChild(cb);
                     row.appendChild(txt);
                     if (!st.placedIn && !st.done) {
@@ -1227,38 +1312,26 @@
                 placed.forEach(i => {
                     i.subtasks.filter(st => st.placedIn === slot.id && !st.done).forEach(st => {
                         allInSlot.push({kind:'sub', parent:i, sub:st});
-                        // 计算子任务预计时间
-                        const match = st.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
-                        if (match) {
-                            const num = parseInt(match[1]);
-                            const unit = match[2];
-                            if (unit === '小时') totalEstimatedTime += num;
-                            else if (unit === '分钟') totalEstimatedTime += num / 60;
-                            else if (unit === '天') totalEstimatedTime += num * 24;
-                            else if (unit === '周') totalEstimatedTime += num * 168;
+                        // 计算子任务预计时间（支持 min 格式）
+                        if (st.estimatedTime) {
+                            const num = extractTimeNumber(st.estimatedTime);
+                            if (num !== null) totalEstimatedTime += num;
                         }
                     });
                 });
                 simpleTasks.forEach(i => {
                     allInSlot.push({kind:'item', item:i});
-                    // 计算普通任务预计时间
+                    // 计算普通任务预计时间（支持 min 格式）
                     if (i.dueTime) {
-                        const match = i.dueTime.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
-                        if (match) {
-                            const num = parseInt(match[1]);
-                            const unit = match[2];
-                            if (unit === '小时') totalEstimatedTime += num;
-                            else if (unit === '分钟') totalEstimatedTime += num / 60;
-                            else if (unit === '天') totalEstimatedTime += num * 24;
-                            else if (unit === '周') totalEstimatedTime += num * 168;
-                        }
+                        const num = extractTimeNumber(i.dueTime);
+                        if (num !== null) totalEstimatedTime += num;
                     }
                 });
                 slotTotal += allInSlot.length;
 
                 const slotEl = document.createElement('div');
                 slotEl.className = 'slot';
-                const timeDisplay = totalEstimatedTime > 0 ? ` (预计总耗时：${totalEstimatedTime.toFixed(1)}小时)` : '';
+                const timeDisplay = totalEstimatedTime > 0 ? ` (预计总耗时：${totalEstimatedTime}min)` : '';
                 slotEl.innerHTML = `
                     <div class="slot-header">
                         <span>${slot.name}${timeDisplay}</span>
@@ -1270,11 +1343,10 @@
                 } else {
                     allInSlot.forEach(entry => {
                         if (entry.kind === 'sub') {
-                            // 提取子任务预计时间
+                            // 显示子任务预计时间
                             let subTimeDisplay = '';
-                            const subMatch = entry.sub.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
-                            if (subMatch) {
-                                subTimeDisplay = ` | 预计：${subMatch[0]}`;
+                            if (entry.sub.estimatedTime) {
+                                subTimeDisplay = ` | 预计：${entry.sub.estimatedTime}`;
                             }
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
@@ -1286,12 +1358,11 @@
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}','${entry.sub.id}')">返回待办</button>
-                                    <button class="btn btn-secondary btn-small" onclick="undoRemoveFromSlot('sub','${entry.parent.id}','${entry.sub.id}','${slot.id}')">撤销</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
                         } else {
-                            // 提取普通任务预计时间
+                            // 显示普通任务预计时间
                             let taskTimeDisplay = '';
                             if (entry.item.dueTime) {
                                 taskTimeDisplay = ` | 预计：${entry.item.dueTime}`;
@@ -1306,7 +1377,6 @@
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
-                                    <button class="btn btn-secondary btn-small" onclick="undoRemoveFromSlot('item','${entry.item.id}',null,'${slot.id}')">撤销</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -1427,14 +1497,15 @@
             const selectedTagsStr = document.getElementById('todayTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
             
-            // 显示所有当天创建且未完成的待办（包括已放入时间段的）
+            // 只显示当天创建且未完成且未放入时间段的待办
             let list = data.items.filter(i => {
                 if (i.type === 'task' && !i.done && isToday(i.createdAt)) {
                     if (i.unknown) {
-                        // 未知时间的任务，显示父任务和子任务
+                        // 未知时间的任务，显示父任务（但只显示未放入时间段的子任务）
                         return true;
                     }
-                    return true;
+                    // 普通任务，只显示未放入时间段的
+                    return !i.placedIn;
                 }
                 return false;
             });
@@ -1763,6 +1834,8 @@
                     st.placedIn = null;
                     item.updatedAt = nowStr();
                     saveData(); render();
+                    // 显示气泡提示
+                    showUndoToast('sub', itemId, subId);
                 }
             }
         }
@@ -1786,6 +1859,31 @@
                     saveData(); render();
                 }
             }
+        }
+
+        // 显示撤销提示气泡
+        let undoToastTimer = null;
+        function showUndoToast(type, itemId, subId) {
+            const toast = document.getElementById('undoToast');
+            const messageEl = document.getElementById('undoToastMessage');
+            const btn = document.getElementById('undoToastBtn');
+            
+            messageEl.textContent = '已返回待办，点击撤销恢复';
+            toast.classList.remove('hidden');
+            
+            // 清除之前的定时器
+            if (undoToastTimer) clearTimeout(undoToastTimer);
+            
+            // 设置撤销按钮点击事件
+            btn.onclick = () => {
+                undoRemoveFromSlot(type, itemId, subId, data.lastUndo?.slotId);
+                toast.classList.add('hidden');
+            };
+            
+            // 5 秒后自动消失
+            undoToastTimer = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5000);
         }
 
         function showTaskPlaceMenu(e, itemId) {
@@ -1827,6 +1925,8 @@
                 item.placedIn = null;
                 item.updatedAt = nowStr();
                 saveData(); render();
+                // 显示气泡提示
+                showUndoToast('item', itemId, null);
             }
         }
         
