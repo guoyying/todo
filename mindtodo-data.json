@@ -239,6 +239,18 @@
       "updatedAt": "2026-04-28T05:33:04.877Z",
       "tags": [],
       "done": false
+    },
+    {
+      "id": "moi8lzpq5n1po",
+      "type": "task",
+      "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
+      "createdAt": "2026-04-28T06:20:40.334Z",
+      "updatedAt": "2026-04-28T06:20:40.334Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [],
@@ -252,6 +264,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T06:14:33.373Z"
+    "lastSync": "2026-04-28T06:19:06.060Z"
   }
 }
