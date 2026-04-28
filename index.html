@@ -512,6 +512,9 @@
             from { transform: translateX(400px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+        .collapsed {
+            display: none !important;
+        }
         .old-section-collapsed {
             display: none !important;
         }
@@ -522,7 +525,7 @@
         <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;">🌿 心事与任务</h1>
         <div class="github-bar">
             <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
-            <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">页面设置</button>
+            <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
             <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
             <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
             <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
@@ -626,28 +629,35 @@
     </div>
     <div id="feelingList"></div>
 
-    <div class="section-title">✅ 今日完成 <span class="count" id="doneCount"></span></div>
-    <div id="doneList"></div>
-
-    <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
+    <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
+        ✅ 今日完成 <span class="count" id="doneCount"></span>
+        <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
+    </div>
+            <div id="doneList" class="collapsed"></div>
+            
+            <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
         📅 往期待办 <span class="count" id="oldTodoCount"></span>
         <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
     </div>
-    <div class="filter-bar" id="oldTodoFilterBar">
-        <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
-        <div class="tag-filter" id="oldTodoTagFilter"></div>
+    <div id="oldTodoWrapper" class="collapsed">
+        <div class="filter-bar" id="oldTodoFilterBar">
+            <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
+            <div class="tag-filter" id="oldTodoTagFilter"></div>
+        </div>
+        <div id="oldTodoList"></div>
     </div>
-    <div id="oldTodoList"></div>
 
     <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldFeeling')">
         💭 往期感受 <span class="count" id="oldFeelingCount"></span>
         <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
     </div>
-    <div class="filter-bar" id="oldFeelingFilterBar">
-        <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
-        <div class="tag-filter" id="oldFeelingTagFilter"></div>
+    <div id="oldFeelingWrapper" class="collapsed">
+        <div class="filter-bar" id="oldFeelingFilterBar">
+            <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
+            <div class="tag-filter" id="oldFeelingTagFilter"></div>
+        </div>
+        <div id="oldFeelingList"></div>
     </div>
-    <div id="oldFeelingList"></div>
 
     <div class="modal-overlay hidden" id="githubModal">
         <div class="modal">
@@ -2207,20 +2217,37 @@
             arrow.textContent = content.classList.contains('hidden') ? '▶' : '▼';
         }
 
+        // 折叠/展开今日完成
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const arrow = document.getElementById(sectionId === 'doneList' ? 'doneArrow' : '');
+            
+            if (!section) return;
+            
+            const isCollapsed = section.classList.contains('collapsed');
+            if (isCollapsed) {
+                section.classList.remove('collapsed');
+                if (arrow) arrow.textContent = '▼';
+            } else {
+                section.classList.add('collapsed');
+                if (arrow) arrow.textContent = '▶';
+            }
+        }
+        
+        // 折叠/展开往期板块
         function toggleOldSection(section) {
-            const list = document.getElementById(section === 'oldTodo' ? 'oldTodoList' : 'oldFeelingList');
-            const filterBar = document.getElementById(section === 'oldTodo' ? 'oldTodoFilterBar' : 'oldFeelingFilterBar');
+            const wrapper = document.getElementById(section === 'oldTodo' ? 'oldTodoWrapper' : 'oldFeelingWrapper');
             const arrow = document.getElementById(section === 'oldTodo' ? 'oldTodoArrow' : 'oldFeelingArrow');
             
-            const isHidden = list.classList.contains('old-section-collapsed');
-            if (isHidden) {
-                list.classList.remove('old-section-collapsed');
-                filterBar.classList.remove('old-section-collapsed');
-                arrow.textContent = '▼';
+            if (!wrapper) return;
+            
+            const isCollapsed = wrapper.classList.contains('collapsed');
+            if (isCollapsed) {
+                wrapper.classList.remove('collapsed');
+                if (arrow) arrow.textContent = '▼';
             } else {
-                list.classList.add('old-section-collapsed');
-                filterBar.classList.add('old-section-collapsed');
-                arrow.textContent = '▶';
+                wrapper.classList.add('collapsed');
+                if (arrow) arrow.textContent = '▶';
             }
         }
 
