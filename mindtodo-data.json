@@ -127,12 +127,13 @@
       "type": "task",
       "content": "更新补环教程",
       "createdAt": "2026-04-28T01:14:22.256Z",
-      "updatedAt": "2026-04-28T01:14:22.256Z",
+      "updatedAt": "2026-04-28T06:21:42.077Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moi8n15sj15x6"
     },
     {
       "id": "mohz1gzo37l7n",
@@ -165,12 +166,13 @@
       "type": "task",
       "content": "提醒两个人之后退网单给我审核",
       "createdAt": "2026-04-28T02:17:56.571Z",
-      "updatedAt": "2026-04-28T02:17:56.571Z",
+      "updatedAt": "2026-04-28T06:21:35.062Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moi8n15sj15x6"
     },
     {
       "id": "moi30uyzvpp8t",
@@ -213,14 +215,15 @@
       "type": "task",
       "content": "确认一下从化给了清单哪些不是SDH设备，然后跟话反馈优先退",
       "createdAt": "2026-04-28T04:33:36.801Z",
-      "updatedAt": "2026-04-28T04:33:36.801Z",
+      "updatedAt": "2026-04-28T06:21:37.637Z",
       "tags": [
         "工作"
       ],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moi8n15sj15x6"
     },
     {
       "id": "moi5w7tpiduzu",
@@ -245,15 +248,33 @@
       "type": "task",
       "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
       "createdAt": "2026-04-28T06:20:40.334Z",
-      "updatedAt": "2026-04-28T06:20:40.334Z",
+      "updatedAt": "2026-04-28T06:21:39.698Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moi8n15sj15x6"
+    },
+    {
+      "id": "moi8moz3kqmea",
+      "type": "task",
+      "content": "需求：可以点击推送，也可以快捷键推送。",
+      "createdAt": "2026-04-28T06:21:13.071Z",
+      "updatedAt": "2026-04-28T06:21:13.071Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
       "subtasks": []
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moi8n15sj15x6",
+      "name": "3点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己"
@@ -264,6 +285,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T06:19:06.060Z"
+    "lastSync": "2026-04-28T06:20:46.194Z"
   }
 }
