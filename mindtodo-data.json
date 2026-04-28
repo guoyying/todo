@@ -14,7 +14,7 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-28T01:13:43.823Z",
+      "updatedAt": "2026-04-28T01:52:30.889Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -29,7 +29,7 @@
         {
           "id": "mogyvk4dfsui8",
           "content": "vlookup下她给的清单，哪些属于我关注的范围4min，然后看下不同设备的状态，写下每种状态的做法8min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_mohxmpyrgmwrc"
         }
       ]
@@ -176,6 +176,20 @@
           "placedIn": "slot_mohxmpyrgmwrc"
         }
       ]
+    },
+    {
+      "id": "mohz1gzo37l7n",
+      "type": "task",
+      "content": "问董工",
+      "createdAt": "2026-04-28T01:52:46.404Z",
+      "updatedAt": "2026-04-28T01:54:48.611Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mohxmpyrgmwrc",
+      "doneAt": "2026-04-28T01:54:48.611Z"
     }
   ],
   "slots": [
@@ -194,6 +208,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T01:16:41.359Z"
+    "lastSync": "2026-04-28T01:20:12.930Z"
   }
 }
