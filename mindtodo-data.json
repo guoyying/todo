@@ -112,13 +112,14 @@
       "type": "task",
       "content": "改下退网进度目标，然后通知县分10min",
       "createdAt": "2026-04-27T09:45:01.002Z",
-      "updatedAt": "2026-04-28T01:13:34.317Z",
+      "updatedAt": "2026-04-28T03:43:39.601Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mohxmpyrgmwrc"
+      "placedIn": "slot_mohxmpyrgmwrc",
+      "doneAt": "2026-04-28T03:43:39.599Z"
     },
     {
       "id": "mohbknxhloo14",
@@ -200,16 +201,17 @@
       "subtasks": []
     },
     {
-      "id": "moi1577dsdp0o",
+      "id": "moi30uyzvpp8t",
       "type": "task",
-      "content": "给美哥反馈算力的事情",
-      "createdAt": "2026-04-28T02:51:39.577Z",
-      "updatedAt": "2026-04-28T02:51:39.577Z",
+      "content": "写给县分的话术，通知目标已更改。然后联系美哥说明算力的情况。",
+      "createdAt": "2026-04-28T03:44:16.331Z",
+      "updatedAt": "2026-04-28T03:44:26.497Z",
       "tags": [],
       "done": false,
-      "dueTime": "3min",
+      "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mohxmpyrgmwrc"
     }
   ],
   "slots": [
