@@ -344,6 +344,20 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moil60gadiwny",
+      "type": "task",
+      "content": "买鸡蛋小卖部",
+      "createdAt": "2026-04-28T12:12:09.802Z",
+      "updatedAt": "2026-04-28T12:12:09.802Z",
+      "tags": [
+        "家"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [],
