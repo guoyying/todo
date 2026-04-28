@@ -205,13 +205,14 @@
       "type": "task",
       "content": "写给县分的话术，通知目标已更改。然后联系美哥说明算力的情况。",
       "createdAt": "2026-04-28T03:44:16.331Z",
-      "updatedAt": "2026-04-28T03:44:26.497Z",
+      "updatedAt": "2026-04-28T03:54:15.839Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mohxmpyrgmwrc"
+      "placedIn": "slot_mohxmpyrgmwrc",
+      "doneAt": "2026-04-28T03:54:15.839Z"
     }
   ],
   "slots": [
@@ -230,6 +231,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T03:44:29.606Z"
+    "lastSync": "2026-04-28T03:44:38.339Z"
   }
 }
