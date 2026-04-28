@@ -158,26 +158,6 @@
       "subtasks": []
     },
     {
-      "id": "mohxqx6jturuq",
-      "type": "task",
-      "content": "时间段任务板一般就一个，空间可以横向扩展。标签问题",
-      "createdAt": "2026-04-28T01:16:34.555Z",
-      "updatedAt": "2026-04-28T01:54:58.169Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mohxqx6jt69nr",
-          "content": "写一下标签的优化",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": "slot_mohxmpyrgmwrc"
-        }
-      ]
-    },
-    {
       "id": "mohz1gzo37l7n",
       "type": "task",
       "content": "问董工",
