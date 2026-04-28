@@ -472,6 +472,9 @@
             from { transform: translateX(400px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+        .old-section-collapsed {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -573,14 +576,20 @@
     <div class="section-title">✅ 今日完成 <span class="count" id="doneCount"></span></div>
     <div id="doneList"></div>
 
-    <div class="section-title">📅 往期待办 <span class="count" id="oldTodoCount"></span></div>
+    <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
+        📅 往期待办 <span class="count" id="oldTodoCount"></span>
+        <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
+    </div>
     <div class="filter-bar" id="oldTodoFilterBar">
         <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
         <div class="tag-filter" id="oldTodoTagFilter"></div>
     </div>
     <div id="oldTodoList"></div>
 
-    <div class="section-title">💭 往期感受 <span class="count" id="oldFeelingCount"></span></div>
+    <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldFeeling')">
+        💭 往期感受 <span class="count" id="oldFeelingCount"></span>
+        <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
+    </div>
     <div class="filter-bar" id="oldFeelingFilterBar">
         <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
         <div class="tag-filter" id="oldFeelingTagFilter"></div>
@@ -645,11 +654,14 @@
         let data = {
             items: [],
             slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
-            tags: ['工作','生活','重要','灵感','情绪'],
-            commonTags: ['生活','工作'],
+            taskTags: ['工作','生活','重要','灵感','情绪'],
+            feelingTags: ['开心','难过','焦虑','平静','兴奋'],
+            commonTaskTags: ['生活','工作'],
+            commonFeelingTags: ['生活','工作'],
             github: null,
             firstLoaded: false,
-            title: '🌿 心事与任务'
+            title: '🌿 心事与任务',
+            lastUndo: null // 用于撤销操作
         };
         let editingId = null;
         let recording = null;
@@ -781,7 +793,15 @@
         function renderTags(containerId, selected=[]) {
             const el = document.getElementById(containerId);
             el.innerHTML = '';
-            const allTags = [...new Set([...data.tags, ...data.commonTags])];
+            
+            // 根据容器类型获取对应的标签
+            let allTags = [];
+            if (containerId === 'taskTags') {
+                allTags = [...new Set([...data.taskTags, ...data.commonTaskTags])];
+            } else if (containerId === 'feelingTags') {
+                allTags = [...new Set([...data.feelingTags, ...data.commonFeelingTags])];
+            }
+            
             allTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'tag' + (selected.includes(tag) ? ' active' : '');
@@ -792,7 +812,7 @@
                 del.className = 'tag-del';
                 del.textContent = '×';
                 del.title = '删除标签';
-                del.onclick = (e) => { e.stopPropagation(); deleteTag(tag); };
+                del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
                 span.appendChild(text);
                 span.appendChild(del);
                 el.appendChild(span);
@@ -815,17 +835,33 @@
             const input = document.getElementById(containerId + 'New');
             const v = input.value.trim();
             if (!v) return;
-            if (!data.tags.includes(v)) data.tags.push(v);
+            
+            // 根据容器类型添加到对应的标签数组
+            if (containerId === 'taskTags') {
+                if (!data.taskTags.includes(v)) data.taskTags.push(v);
+            } else if (containerId === 'feelingTags') {
+                if (!data.feelingTags.includes(v)) data.feelingTags.push(v);
+            }
+            
             renderTags(containerId, getSelectedTags(containerId).concat(v));
             saveData();
         }
 
-        function deleteTag(tag) {
-            data.tags = data.tags.filter(t => t !== tag);
-            data.commonTags = data.commonTags.filter(t => t !== tag);
+        function deleteTag(containerId, tag) {
+            // 根据容器类型从对应的标签数组删除
+            if (containerId === 'taskTags') {
+                data.taskTags = data.taskTags.filter(t => t !== tag);
+                data.commonTaskTags = data.commonTaskTags.filter(t => t !== tag);
+            } else if (containerId === 'feelingTags') {
+                data.feelingTags = data.feelingTags.filter(t => t !== tag);
+                data.commonFeelingTags = data.commonFeelingTags.filter(t => t !== tag);
+            }
+            
+            // 从所有项目中删除该标签
             data.items.forEach(i => {
                 if (i.tags) i.tags = i.tags.filter(t => t !== tag);
             });
+            
             saveData(); render();
         }
         
@@ -988,9 +1024,33 @@
             const typeClass = item.type;
             let timeInfo = fmtTime(item.createdAt);
             if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
-            if (item.type === 'task' && item.dueTime && !item.unknown) {
-                timeInfo += ` | 预计${item.dueTime}`;
+            
+            // 计算总时间（子任务时间求和）
+            let totalTime = '';
+            if (item.type === 'task' && item.unknown && item.subtasks && item.subtasks.length) {
+                const total = item.subtasks.reduce((sum, st) => {
+                    const match = st.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
+                    if (match) {
+                        const num = parseInt(match[1]);
+                        const unit = match[2];
+                        if (unit === '小时') return sum + num;
+                        if (unit === '分钟') return sum + num / 60;
+                        if (unit === '天') return sum + num * 24;
+                        if (unit === '周') return sum + num * 168;
+                    }
+                    return sum;
+                }, 0);
+                if (total > 0) {
+                    totalTime = ` | 总耗时：${total.toFixed(1)}小时`;
+                }
             }
+            
+            if (item.type === 'task' && item.dueTime && !item.unknown) {
+                timeInfo += ` | 预计：${item.dueTime}${totalTime}`;
+            } else if (totalTime) {
+                timeInfo += totalTime;
+            }
+            
             header.innerHTML = `
                 <span class="item-type ${typeClass}">${typeLabel}</span>
                 <span class="item-time">${timeInfo}</span>
@@ -1214,6 +1274,7 @@
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}','${entry.sub.id}')">返回待办</button>
+                                    <button class="btn btn-secondary btn-small" onclick="undoRemoveFromSlot('sub','${entry.parent.id}','${entry.sub.id}','${slot.id}')">撤销</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -1228,6 +1289,7 @@
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
+                                    <button class="btn btn-secondary btn-small" onclick="undoRemoveFromSlot('item','${entry.item.id}',null,'${slot.id}')">撤销</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -1347,8 +1409,9 @@
             const selectedTagsStr = document.getElementById('todayTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
             
+            // 显示所有当天创建且未完成的待办（包括已放入时间段的）
             let list = data.items.filter(i => {
-                if (i.type === 'task' && !i.done && !i.placedIn && isToday(i.createdAt)) {
+                if (i.type === 'task' && !i.done && isToday(i.createdAt)) {
                     if (i.unknown) {
                         // 未知时间的任务，显示父任务和子任务
                         return true;
@@ -1375,9 +1438,17 @@
             }
             
             // 渲染标签筛选器
-            renderTagFilter('todayTagFilter', selectedTags);
+            renderTagFilter('oldTodoTagFilter', selectedTags);
             
             list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
+            
+            // 检查折叠状态
+            const listEl = document.getElementById('oldTodoList');
+            const filterBarEl = document.getElementById('oldTodoFilterBar');
+            if (listEl.classList.contains('old-section-collapsed')) {
+                listEl.classList.add('old-section-collapsed');
+                filterBarEl.classList.add('old-section-collapsed');
+            }
         }
 
         function renderOldTodos() {
@@ -1514,6 +1585,14 @@
                 
                 container.appendChild(el);
             });
+            
+            // 检查折叠状态
+            const listEl = document.getElementById('oldFeelingList');
+            const filterBarEl = document.getElementById('oldFeelingFilterBar');
+            if (listEl.classList.contains('old-section-collapsed')) {
+                listEl.classList.add('old-section-collapsed');
+                filterBarEl.classList.add('old-section-collapsed');
+            }
         }
 
         function renderDone() {
@@ -1660,9 +1739,34 @@
             const item = data.items.find(i => i.id === itemId);
             if (item && item.subtasks) {
                 const st = item.subtasks.find(s => s.id === subId);
-                if (st) st.placedIn = null;
-                item.updatedAt = nowStr();
-                saveData(); render();
+                if (st) {
+                    // 保存撤销信息
+                    data.lastUndo = { type: 'sub', itemId, subId, slotId: st.placedIn };
+                    st.placedIn = null;
+                    item.updatedAt = nowStr();
+                    saveData(); render();
+                }
+            }
+        }
+
+        function undoRemoveFromSlot(kind, itemId, subId, slotId) {
+            if (kind === 'sub') {
+                const item = data.items.find(i => i.id === itemId);
+                if (item && item.subtasks) {
+                    const st = item.subtasks.find(s => s.id === subId);
+                    if (st) {
+                        st.placedIn = slotId;
+                        item.updatedAt = nowStr();
+                        saveData(); render();
+                    }
+                }
+            } else if (kind === 'item') {
+                const item = data.items.find(i => i.id === itemId);
+                if (item) {
+                    item.placedIn = slotId;
+                    item.updatedAt = nowStr();
+                    saveData(); render();
+                }
             }
         }
 
@@ -1700,6 +1804,8 @@
         function removeFromSlotSimple(itemId) {
             const item = data.items.find(i => i.id === itemId);
             if (item) {
+                // 保存撤销信息
+                data.lastUndo = { type: 'item', itemId, slotId: item.placedIn };
                 item.placedIn = null;
                 item.updatedAt = nowStr();
                 saveData(); render();
@@ -1872,6 +1978,23 @@
             const arrow = document.getElementById('historyArrow');
             content.classList.toggle('hidden');
             arrow.textContent = content.classList.contains('hidden') ? '▶' : '▼';
+        }
+
+        function toggleOldSection(section) {
+            const list = document.getElementById(section === 'oldTodo' ? 'oldTodoList' : 'oldFeelingList');
+            const filterBar = document.getElementById(section === 'oldTodo' ? 'oldTodoFilterBar' : 'oldFeelingFilterBar');
+            const arrow = document.getElementById(section === 'oldTodo' ? 'oldTodoArrow' : 'oldFeelingArrow');
+            
+            const isHidden = list.classList.contains('old-section-collapsed');
+            if (isHidden) {
+                list.classList.remove('old-section-collapsed');
+                filterBar.classList.remove('old-section-collapsed');
+                arrow.textContent = '▼';
+            } else {
+                list.classList.add('old-section-collapsed');
+                filterBar.classList.add('old-section-collapsed');
+                arrow.textContent = '▶';
+            }
         }
 
         // ============ GitHub ============
