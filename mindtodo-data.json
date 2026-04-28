@@ -121,36 +121,6 @@
       "doneAt": "2026-04-28T03:43:39.599Z"
     },
     {
-      "id": "mohbknxhloo14",
-      "type": "task",
-      "content": "买手机膜",
-      "createdAt": "2026-04-27T14:55:51.077Z",
-      "updatedAt": "2026-04-28T04:26:28.875Z",
-      "tags": [
-        "自己"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mohbknxharm0m",
-          "content": "小红书看看手机膜推荐5min",
-          "done": true,
-          "placedIn": "slot_moi3xz91qtzru",
-          "estimatedTime": "5"
-        },
-        {
-          "id": "mohbknxhnznil",
-          "content": "写一下需求3min",
-          "done": true,
-          "placedIn": "slot_moi3xz91qtzru",
-          "estimatedTime": "3"
-        }
-      ],
-      "doneAt": "2026-04-28T04:26:28.875Z"
-    },
-    {
       "id": "mohxo33kpsft2",
       "type": "task",
       "content": "更新补环教程",
@@ -252,6 +222,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T04:25:32.022Z"
+    "lastSync": "2026-04-28T04:26:53.306Z"
   }
 }
