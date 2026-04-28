@@ -42,7 +42,7 @@
       "type": "task",
       "content": "南沙就完成年度目标了，有点不合理其他县分可能有意见。怎么办。",
       "createdAt": "2026-04-27T09:14:14.882Z",
-      "updatedAt": "2026-04-27T11:33:57.298Z",
+      "updatedAt": "2026-04-28T08:48:10.726Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -52,13 +52,13 @@
           "id": "mogzdcyqix0rb",
           "content": "看下南沙是不是800M的多3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moidush3h9z2g"
         },
         {
           "id": "mogzdcyq3vmws",
           "content": "5min思考怎么办",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moidush3h9z2g"
         }
       ]
     },
@@ -101,13 +101,13 @@
       "type": "task",
       "content": "黄埔过单4326设备，上传关电照片",
       "createdAt": "2026-04-27T09:36:28.235Z",
-      "updatedAt": "2026-04-28T03:44:35.279Z",
+      "updatedAt": "2026-04-28T08:48:04.130Z",
       "tags": [],
       "done": false,
       "dueTime": "6min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": "slot_moidush3h9z2g"
     },
     {
       "id": "moh0gxfu5ti76",
@@ -260,12 +260,13 @@
       "type": "task",
       "content": "需求：可以点击推送，也可以快捷键推送。刷新网页自动拉取一次，随后不自动拉取除非我手动点击。",
       "createdAt": "2026-04-28T06:21:13.071Z",
-      "updatedAt": "2026-04-28T06:50:57.701Z",
+      "updatedAt": "2026-04-28T08:47:34.213Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-28T08:47:34.213Z"
     },
     {
       "id": "moi9ac06t98ch",
@@ -311,9 +312,54 @@
       "dueTime": "14min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moidua40lrs13",
+      "type": "task",
+      "content": "网安的两件事",
+      "createdAt": "2026-04-28T08:47:05.136Z",
+      "updatedAt": "2026-04-28T08:47:56.129Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moidua3znu6aw",
+          "content": "看下哪个ip出问题了上4a搞下",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "moidua40t82nk",
+          "content": "看下定级备案要做什么，转换为todo",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "moidup8mi1itx",
+      "type": "task",
+      "content": "做好邮件团支部的",
+      "createdAt": "2026-04-28T08:47:24.742Z",
+      "updatedAt": "2026-04-28T08:47:50.756Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moidush3h9z2g"
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moidush3h9z2g",
+      "name": "下班前"
+    }
+  ],
   "tags": [
     "家",
     "自己"
