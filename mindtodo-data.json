@@ -14,9 +14,9 @@
       "type": "task",
       "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
       "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-28T01:52:30.889Z",
+      "updatedAt": "2026-04-28T02:08:06.192Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -32,7 +32,8 @@
           "done": true,
           "placedIn": "slot_mohxmpyrgmwrc"
         }
-      ]
+      ],
+      "doneAt": "2026-04-28T02:08:06.192Z"
     },
     {
       "id": "mogzdcyqpcpwd",
@@ -84,13 +85,14 @@
       "type": "task",
       "content": "给算力提供一季度的清单，给美哥反馈算力的情况",
       "createdAt": "2026-04-27T09:35:43.469Z",
-      "updatedAt": "2026-04-28T02:00:09.271Z",
+      "updatedAt": "2026-04-28T02:08:00.947Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-04-28T02:08:00.947Z"
     },
     {
       "id": "moh05xsby94sa",
@@ -201,6 +203,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T02:03:19.294Z"
+    "lastSync": "2026-04-28T02:06:03.130Z"
   }
 }
