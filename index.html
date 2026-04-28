@@ -1025,30 +1025,9 @@
             let timeInfo = fmtTime(item.createdAt);
             if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
             
-            // 计算总时间（子任务时间求和）
-            let totalTime = '';
-            if (item.type === 'task' && item.unknown && item.subtasks && item.subtasks.length) {
-                const total = item.subtasks.reduce((sum, st) => {
-                    const match = st.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
-                    if (match) {
-                        const num = parseInt(match[1]);
-                        const unit = match[2];
-                        if (unit === '小时') return sum + num;
-                        if (unit === '分钟') return sum + num / 60;
-                        if (unit === '天') return sum + num * 24;
-                        if (unit === '周') return sum + num * 168;
-                    }
-                    return sum;
-                }, 0);
-                if (total > 0) {
-                    totalTime = ` | 总耗时：${total.toFixed(1)}小时`;
-                }
-            }
-            
+            // 只显示预计时间，不显示总耗时
             if (item.type === 'task' && item.dueTime && !item.unknown) {
-                timeInfo += ` | 预计：${item.dueTime}${totalTime}`;
-            } else if (totalTime) {
-                timeInfo += totalTime;
+                timeInfo += ` | 预计：${item.dueTime}`;
             }
             
             header.innerHTML = `
@@ -1243,19 +1222,46 @@
                     i.type === 'task' && !i.unknown && !i.done && i.placedIn === slot.id
                 );
                 const allInSlot = [];
+                let totalEstimatedTime = 0;
+                
                 placed.forEach(i => {
                     i.subtasks.filter(st => st.placedIn === slot.id && !st.done).forEach(st => {
                         allInSlot.push({kind:'sub', parent:i, sub:st});
+                        // 计算子任务预计时间
+                        const match = st.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
+                        if (match) {
+                            const num = parseInt(match[1]);
+                            const unit = match[2];
+                            if (unit === '小时') totalEstimatedTime += num;
+                            else if (unit === '分钟') totalEstimatedTime += num / 60;
+                            else if (unit === '天') totalEstimatedTime += num * 24;
+                            else if (unit === '周') totalEstimatedTime += num * 168;
+                        }
                     });
                 });
-                simpleTasks.forEach(i => allInSlot.push({kind:'item', item:i}));
+                simpleTasks.forEach(i => {
+                    allInSlot.push({kind:'item', item:i});
+                    // 计算普通任务预计时间
+                    if (i.dueTime) {
+                        const match = i.dueTime.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
+                        if (match) {
+                            const num = parseInt(match[1]);
+                            const unit = match[2];
+                            if (unit === '小时') totalEstimatedTime += num;
+                            else if (unit === '分钟') totalEstimatedTime += num / 60;
+                            else if (unit === '天') totalEstimatedTime += num * 24;
+                            else if (unit === '周') totalEstimatedTime += num * 168;
+                        }
+                    }
+                });
                 slotTotal += allInSlot.length;
 
                 const slotEl = document.createElement('div');
                 slotEl.className = 'slot';
+                const timeDisplay = totalEstimatedTime > 0 ? ` (预计总耗时：${totalEstimatedTime.toFixed(1)}小时)` : '';
                 slotEl.innerHTML = `
                     <div class="slot-header">
-                        <span>${slot.name}</span>
+                        <span>${slot.name}${timeDisplay}</span>
                         <span class="slot-delete" onclick="deleteSlot('${slot.id}')">✕</span>
                     </div>
                 `;
@@ -1264,13 +1270,19 @@
                 } else {
                     allInSlot.forEach(entry => {
                         if (entry.kind === 'sub') {
+                            // 提取子任务预计时间
+                            let subTimeDisplay = '';
+                            const subMatch = entry.sub.content.match(/(\d+)\s*(小时 | 分钟 | 天 | 周)/);
+                            if (subMatch) {
+                                subTimeDisplay = ` | 预计：${subMatch[0]}`;
+                            }
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
                             wrapper.innerHTML = `
                                 <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>
                                 <div class="item-content" style="display:flex;align-items:center;">
                                     <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
-                                    <span>${entry.sub.content}</span>
+                                    <span>${entry.sub.content}${subTimeDisplay}</span>
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}','${entry.sub.id}')">返回待办</button>
@@ -1279,13 +1291,18 @@
                             `;
                             slotEl.appendChild(wrapper);
                         } else {
+                            // 提取普通任务预计时间
+                            let taskTimeDisplay = '';
+                            if (entry.item.dueTime) {
+                                taskTimeDisplay = ` | 预计：${entry.item.dueTime}`;
+                            }
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
                             wrapper.innerHTML = `
                                 <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.item.content}</div>
                                 <div class="item-content" style="display:flex;align-items:center;">
                                     <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
-                                    <span>${entry.item.content}</span>
+                                    <span>${entry.item.content}${taskTimeDisplay}</span>
                                 </div>
                                 <div class="item-actions" style="opacity:1;margin-top:6px;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
@@ -1310,7 +1327,8 @@
             const selectedTagsStr = document.getElementById('feelingTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
             
-            let list = data.items.filter(i => i.type === 'feeling' && !i.done);
+            // 只显示当天创建的感受
+            let list = data.items.filter(i => i.type === 'feeling' && !i.done && isToday(i.createdAt));
             
             // 应用搜索过滤
             if (searchTerm) {
