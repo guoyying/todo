@@ -101,13 +101,14 @@
       "type": "task",
       "content": "黄埔过单4326设备，上传关电照片",
       "createdAt": "2026-04-27T09:36:28.235Z",
-      "updatedAt": "2026-04-28T08:48:04.130Z",
+      "updatedAt": "2026-04-28T09:06:04.358Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "6min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moidush3h9z2g"
+      "placedIn": "slot_moidush3h9z2g",
+      "doneAt": "2026-04-28T09:06:04.358Z"
     },
     {
       "id": "moh0gxfu5ti76",
@@ -382,6 +383,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-28T07:08:22.742Z"
+    "lastSync": "2026-04-28T08:59:02.443Z"
   }
 }
