@@ -299,6 +299,18 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-28T07:08:19.752Z"
+    },
+    {
+      "id": "moicf3xtre5jy",
+      "type": "task",
+      "content": "更新三级系统资产",
+      "createdAt": "2026-04-28T08:07:17.681Z",
+      "updatedAt": "2026-04-28T08:07:17.681Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "14min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "slots": [],
