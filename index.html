@@ -2586,9 +2586,15 @@
         }
 
         // ============ Helper Functions ============
+        let isPageRefresh = false;
         function checkUpdateStatus() {
             const banner = document.getElementById('updateBanner');
             if (!data.github || !data.github.lastSync) {
+                banner.classList.remove('show');
+                return;
+            }
+            // 如果是刷新页面，不显示"待推送"提示
+            if (isPageRefresh) {
                 banner.classList.remove('show');
                 return;
             }
@@ -2606,6 +2612,7 @@
 
         // ============ Init ============
         loadData();
+        isPageRefresh = true; // 标记为刷新页面，不显示"待推送"提示
         initVoice();
         selectType('feeling');
         applyTitle();
@@ -2614,9 +2621,9 @@
         // 刷新页面时自动拉取一次
         pullFromGithub();
         
-        // 添加快捷键：Ctrl + Shift + P 触发推送
+        // 添加快捷键：Ctrl + Enter 触发推送
         document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+            if (e.ctrlKey && e.key === 'Enter') {
                 e.preventDefault();
                 pushToGithub();
             }
