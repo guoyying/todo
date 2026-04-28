@@ -125,7 +125,7 @@
       "type": "task",
       "content": "买手机膜",
       "createdAt": "2026-04-27T14:55:51.077Z",
-      "updatedAt": "2026-04-27T14:56:22.366Z",
+      "updatedAt": "2026-04-28T04:10:26.505Z",
       "tags": [
         "自己"
       ],
@@ -137,13 +137,15 @@
           "id": "mohbknxharm0m",
           "content": "小红书看看手机膜推荐5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moi3xz91qtzru",
+          "estimatedTime": "5"
         },
         {
           "id": "mohbknxhnznil",
           "content": "写一下需求3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moi3xz91qtzru",
+          "estimatedTime": "3"
         }
       ]
     },
@@ -211,7 +213,12 @@
       "doneAt": "2026-04-28T03:54:15.839Z"
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moi3xz91qtzru",
+      "name": "中午"
+    }
+  ],
   "tags": [
     "家",
     "自己"
