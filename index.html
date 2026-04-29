@@ -1118,7 +1118,7 @@
                  <h3>✨ AI润色</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
              </div>
-             <div class="modal-body" style="display:flex;gap:16px;max-height:70vh;">
+             <div class="modal-body" style="display:flex;gap:16px;max-height:75vh;">
                  <!-- 左侧：AI润色结果 -->
                  <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
                      <div style="margin-bottom:12px;">
@@ -1133,13 +1133,11 @@
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">原始内容</label>
-                         <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;"></div>
+                         <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;max-height:100px;overflow-y:auto;"></div>
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">润色结果 <small style="color:var(--text-secondary);font-weight:normal;">(可以直接选择文本)</small></label>
-                         <div id="aiPolishedContent" style="padding:12px;background:var(--primary-light);border-radius:6px;font-size:14px;line-height:1.6;min-height:150px;max-height:300px;overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;">
-                             <div style="color:var(--text-secondary);text-align:center;padding:20px;">点击下方按钮开始润色</div>
-                         </div>
+                         <div id="aiPolishedContent" style="padding:12px;background:var(--primary-light);border-radius:6px;font-size:14px;line-height:1.8;min-height:200px;max-height:400px;overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;white-space:pre-wrap;word-wrap:break-word;"></div>
                      </div>
                      <div style="display:flex;gap:8px;">
                          <button class="btn btn-primary" onclick="startAiPolish()" id="aiPolishBtn">开始润色</button>
@@ -1154,7 +1152,7 @@
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择文本添加到弹药库</label>
-                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;border:1px dashed var(--border);cursor:default;">
+                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;max-height:100px;overflow-y:auto;border:1px dashed var(--border);cursor:default;">
                              点击选择润色结果中的文本...
                          </div>
                      </div>
@@ -1174,7 +1172,7 @@
                      
                      <div style="margin-top:16px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">本次会话添加的弹药</label>
-                         <div id="sessionAmmoList" style="max-height:200px;overflow-y:auto;">
+                         <div id="sessionAmmoList" style="max-height:150px;overflow-y:auto;">
                              <div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>
                          </div>
                      </div>
@@ -4392,9 +4390,9 @@
              // 调用AI API进行润色
              const result = await callAiApi(currentAiContext.originalContent, modelId, customPrompt);
              
-             // 显示润色结果
+             // 显示润色结果（保留换行符）
              currentAiContext.polishedContent = result;
-             polishedContentEl.innerHTML = result;
+             polishedContentEl.textContent = result; // 使用 textContent 保留换行符
              
              // 启用复制按钮
              document.getElementById('aiCopyBtn').disabled = false;
@@ -4402,6 +4400,9 @@
              // 提示用户可以选择文本
              document.getElementById('aiSelectedText').textContent = '请从上方润色结果中选择文本...';
              document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
+             
+             // 滚动到润色结果区域顶部，方便用户查看和选择文本
+             polishedContentEl.scrollTop = 0;
              
          } catch (error) {
              console.error('AI润色失败:', error);
