@@ -220,7 +220,7 @@
       "type": "task",
       "content": "拆除马场的光路",
       "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-28T09:59:51.332Z",
+      "updatedAt": "2026-04-29T09:11:43.388Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -231,7 +231,7 @@
           "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
           "estimatedTime": "15min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moju5h19bscd0"
         }
       ]
     },
@@ -477,24 +477,26 @@
       "type": "task",
       "content": "三码过单",
       "createdAt": "2026-04-29T08:05:46.301Z",
-      "updatedAt": "2026-04-29T08:05:46.301Z",
+      "updatedAt": "2026-04-29T09:11:36.012Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moju5h19bscd0"
     },
     {
       "id": "moju3grtuj5bo",
       "type": "task",
       "content": "整理下ai做的作品，命名",
       "createdAt": "2026-04-29T09:09:53.705Z",
-      "updatedAt": "2026-04-29T09:09:53.705Z",
+      "updatedAt": "2026-04-29T09:11:37.625Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moju5h19bscd0"
     }
   ],
   "normalFeelings": [
@@ -547,7 +549,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moju5h19bscd0",
+      "name": "下班前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -560,6 +567,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T09:09:39.656Z"
+    "lastSync": "2026-04-29T09:10:02.542Z"
   }
 }
