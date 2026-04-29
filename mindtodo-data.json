@@ -293,12 +293,13 @@
       "type": "task",
       "content": "更新美哥周报",
       "createdAt": "2026-04-29T01:10:26.532Z",
-      "updatedAt": "2026-04-29T01:10:26.532Z",
+      "updatedAt": "2026-04-29T02:18:00.127Z",
       "tags": [],
       "done": false,
       "dueTime": "14min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss"
     },
     {
       "id": "mojd41e4l04hj",
@@ -366,12 +367,38 @@
       "type": "task",
       "content": "60个网元查询资源系统状态，选出退网的",
       "createdAt": "2026-04-29T01:50:18.313Z",
-      "updatedAt": "2026-04-29T01:50:18.313Z",
+      "updatedAt": "2026-04-29T02:18:06.144Z",
       "tags": [],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss"
+    },
+    {
+      "id": "mojfclelx6w8l",
+      "type": "task",
+      "content": "退网过单",
+      "createdAt": "2026-04-29T02:17:05.373Z",
+      "updatedAt": "2026-04-29T02:17:05.373Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "30min",
+      "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mojfdbicy03v1",
+      "type": "task",
+      "content": "宝英姐的确认参加培训，我得问泳哥。",
+      "createdAt": "2026-04-29T02:17:39.204Z",
+      "updatedAt": "2026-04-29T02:17:52.164Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss"
     }
   ],
   "normalFeelings": [
@@ -409,7 +436,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mojfdjcpfkmss",
+      "name": "11点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
