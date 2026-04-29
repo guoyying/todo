@@ -1661,7 +1661,7 @@
             if (item.type === 'task' && !item.unknown && !item.placedIn && !item.done) {
                 actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
             }
-            actionButtons += `<button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}', this)">删除</button>`;
+            actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
             actions.innerHTML = actionButtons;
             el.appendChild(actions);
 
@@ -1709,7 +1709,7 @@
                 slotEl.innerHTML = `
                     <div class="slot-header">
                         <span>${slot.name}${timeDisplay}</span>
-                        <span class="slot-delete" onclick="deleteSlot('${slot.id}')">✕</span>
+                        <span class="slot-delete" onclick="showDeleteConfirm('${slot.id}', 'slot', this)">✕</span>
                     </div>
                 `;
                 if (allInSlot.length === 0) {
@@ -1990,7 +1990,7 @@
                 actions.className = 'item-actions';
                 actions.style.opacity = '1';
                 actions.innerHTML = `
-                    <button class="btn btn-danger btn-small" onclick="deleteFeeling('${item.id}', this)">删除</button>
+                    <button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'feeling', this)">删除</button>
                 `;
                 el.appendChild(actions);
                 
@@ -2064,7 +2064,7 @@
                     <div style="display:flex;gap:8px;">
                         ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editBlockName('${block.id}')">修改名称</button>` : ''}
                         ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="event.stopPropagation();archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();unarchiveBlock('${block.id}')">恢复</button>`}
-                        <button class="btn btn-small btn-danger" onclick="event.stopPropagation();deleteBlock('${block.id}')">删除</button>
+                        <button class="btn btn-small btn-danger" onclick="event.stopPropagation();showDeleteConfirm('${block.id}', 'block', this)">删除</button>
                     </div>
                 </div>
                 <div class="practice-records" id="records-${block.id}" style="display:${isCollapsed ? 'none' : 'block'};margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
@@ -2152,14 +2152,82 @@
             }
         }
 
-        function deleteBlock(blockId) {
-            if (!confirm('确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。')) {
+        // 统一的删除确认函数
+        function showDeleteConfirm(id, type, btnElement) {
+            // 安全检查：确保 btnElement 存在且有 parentElement
+            if (!btnElement || !btnElement.parentElement) {
+                // 如果按钮元素无效，使用传统的 confirm 弹窗
+                let msg = '确定要删除吗？';
+                if (type === 'block') msg = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
+                if (type === 'slot') msg = '删除这个时间段？其中的任务会回到待办。';
+                if (!confirm(msg)) return;
+                
+                // 执行删除
+                executeDelete(id, type);
                 return;
             }
-            data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== blockId);
-            saveData();
-            render();
-            showBanner('板块练习已删除', 'error');
+            
+            // 在删除按钮旁边显示确认提示
+            const container = btnElement.parentElement;
+            // 检查是否已经有确认提示，避免重复添加
+            if (container.querySelector('.delete-confirm')) return;
+            
+            const confirmDiv = document.createElement('div');
+            confirmDiv.className = 'delete-confirm';
+            confirmDiv.innerHTML = `
+                <span>确定要删除吗？</span>
+                <button class="btn btn-small btn-danger" onclick="executeDelete('${id}', '${type}')">确认</button>
+                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
+            `;
+            container.appendChild(confirmDiv);
+            
+            // 3 秒后自动消失
+            setTimeout(() => {
+                if (confirmDiv.parentElement) {
+                    confirmDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        // 执行删除操作
+        function executeDelete(id, type) {
+            let msg = '';
+            switch(type) {
+                case 'task':
+                    data.tasks = data.tasks.filter(i => i.id !== id);
+                    msg = '任务已删除';
+                    break;
+                case 'feeling':
+                    data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
+                    msg = '感受已删除';
+                    break;
+                case 'block':
+                    data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== id);
+                    msg = '板块练习已删除';
+                    break;
+                case 'slot':
+                    data.slots = data.slots.filter(s => s.id !== id);
+                    msg = '时间段已删除';
+                    break;
+                case 'subtask':
+                    // 子任务删除需要特殊处理，这里简化处理
+                    const parentTask = data.tasks.find(i => i.id === id);
+                    if (parentTask && parentTask.subtasks) {
+                        // 这里需要传入子任务 ID，简化处理：假设 id 格式为 'parentId:subId'
+                        const [parentId, subId] = id.split(':');
+                        const pTask = data.tasks.find(i => i.id === parentId);
+                        if (pTask && pTask.subtasks) {
+                            pTask.subtasks = pTask.subtasks.filter(st => st.id !== subId);
+                            msg = '子任务已删除';
+                        }
+                    }
+                    break;
+            }
+            if (msg) {
+                saveData();
+                render();
+                showBanner(msg, 'error');
+            }
         }
 
         function archiveBlock(blockId) {
@@ -2362,7 +2430,7 @@
                 actions.className = 'item-actions';
                 actions.style.opacity = '1';
                 actions.innerHTML = `
-                    <button class="btn btn-danger btn-small" onclick="deleteOldFeeling('${item.id}', this)">删除</button>
+                    <button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'feeling', this)">删除</button>
                 `;
                 el.appendChild(actions);
                 
@@ -2429,127 +2497,6 @@
             toggleSubtask(itemId, subId);
         }
 
-        function deleteItem(id, btnElement) {
-            // 安全检查：确保 btnElement 存在且有 parentElement
-            if (!btnElement || !btnElement.parentElement) {
-                // 如果按钮元素无效，使用传统的 confirm 弹窗
-                if (!confirm('确定要删除这个任务吗？')) return;
-                data.tasks = data.tasks.filter(i => i.id !== id);
-                saveData();
-                render();
-                return;
-            }
-            
-            // 在删除按钮旁边显示确认提示
-            const container = btnElement.parentElement;
-            // 检查是否已经有确认提示，避免重复添加
-            if (container.querySelector('.delete-confirm')) return;
-            
-            const confirmDiv = document.createElement('div');
-            confirmDiv.className = 'delete-confirm';
-            confirmDiv.innerHTML = `
-                <span>确定要删除吗？</span>
-                <button class="btn btn-small btn-danger" onclick="confirmDelete('${id}', this)">确认</button>
-                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
-            `;
-            container.appendChild(confirmDiv);
-            
-            // 3 秒后自动消失
-            setTimeout(() => {
-                if (confirmDiv.parentElement) {
-                    confirmDiv.remove();
-                }
-            }, 3000);
-        }
-
-        function confirmDelete(id, btnElement) {
-            data.tasks = data.tasks.filter(i => i.id !== id);
-            saveData();
-            render();
-            showBanner('任务已删除', 'error');
-        }
-        
-        // 删除感受（带气泡确认）
-        function deleteFeeling(id, btnElement) {
-            // 安全检查：确保 btnElement 存在且有 parentElement
-            if (!btnElement || !btnElement.parentElement) {
-                // 如果按钮元素无效，使用传统的 confirm 弹窗
-                if (!confirm('确定要删除这个感受吗？')) return;
-                data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
-                saveData();
-                render();
-                return;
-            }
-            
-            // 在删除按钮旁边显示确认提示
-            const container = btnElement.parentElement;
-            // 检查是否已经有确认提示，避免重复添加
-            if (container.querySelector('.delete-confirm')) return;
-            
-            const confirmDiv = document.createElement('div');
-            confirmDiv.className = 'delete-confirm';
-            confirmDiv.innerHTML = `
-                <span>确定要删除吗？</span>
-                <button class="btn btn-small btn-danger" onclick="confirmDeleteFeeling('${id}', this)">确认</button>
-                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
-            `;
-            container.appendChild(confirmDiv);
-            
-            // 3 秒后自动消失
-            setTimeout(() => {
-                if (confirmDiv.parentElement) {
-                    confirmDiv.remove();
-                }
-            }, 3000);
-        }
-        
-        function confirmDeleteFeeling(id, btnElement) {
-            data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
-            saveData();
-            render();
-            showBanner('感受已删除', 'error');
-        }
-        
-        // 删除往期感受（带气泡确认）
-        function deleteOldFeeling(id, btnElement) {
-            // 安全检查：确保 btnElement 存在且有 parentElement
-            if (!btnElement || !btnElement.parentElement) {
-                // 如果按钮元素无效，使用传统的 confirm 弹窗
-                if (!confirm('确定要删除这个感受吗？')) return;
-                data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
-                saveData();
-                render();
-                return;
-            }
-            
-            // 在删除按钮旁边显示确认提示
-            const container = btnElement.parentElement;
-            // 检查是否已经有确认提示，避免重复添加
-            if (container.querySelector('.delete-confirm')) return;
-            
-            const confirmDiv = document.createElement('div');
-            confirmDiv.className = 'delete-confirm';
-            confirmDiv.innerHTML = `
-                <span>确定要删除吗？</span>
-                <button class="btn btn-small btn-danger" onclick="confirmDeleteOldFeeling('${id}', this)">确认</button>
-                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
-            `;
-            container.appendChild(confirmDiv);
-            
-            // 3 秒后自动消失
-            setTimeout(() => {
-                if (confirmDiv.parentElement) {
-                    confirmDiv.remove();
-                }
-            }, 3000);
-        }
-        
-        function confirmDeleteOldFeeling(id, btnElement) {
-            data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
-            saveData();
-            render();
-            showBanner('感受已删除', 'error');
-        }
 
         function openEdit(id) {
             const item = data.tasks.find(i => i.id === id);
@@ -2589,21 +2536,6 @@
                 addSlot();
             }
         });
-
-        function deleteSlot(id) {
-            if (!confirm('删除这个时间段？其中的任务会回到待办。')) return;
-            data.slots = data.slots.filter(s => s.id !== id);
-            data.tasks.forEach(i => {
-                if (i.placedIn === id) delete i.placedIn;
-                if (i.subtasks) {
-                    i.subtasks.forEach(st => {
-                        if (st.placedIn === id) st.placedIn = null;
-                    });
-                }
-            });
-            saveData(); render();
-        }
-
         function showPlaceMenu(e, itemId, subId) {
             const existing = document.querySelector('.place-select-overlay');
             if (existing) existing.remove();
@@ -3529,13 +3461,13 @@
         // 刷新页面时自动拉取一次
         pullFromGithub();
         
-        // 添加快捷键：Ctrl + Shift + P 触发推送
+        // 添加快捷键：Ctrl + Shift + U 触发推送（U for Update/Upload）
         document.addEventListener('keydown', function(e) {
             // 确保不在输入框中触发
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
                 return;
             }
-            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'p') {
+            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'u') {
                 e.preventDefault();
                 pushToGithub();
             }
