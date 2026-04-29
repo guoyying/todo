@@ -392,13 +392,14 @@
       "type": "task",
       "content": "宝英姐的确认参加培训，我得问泳哥。",
       "createdAt": "2026-04-29T02:17:39.204Z",
-      "updatedAt": "2026-04-29T02:17:52.164Z",
+      "updatedAt": "2026-04-29T02:38:17.154Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss"
+      "placedIn": "slot_mojfdjcpfkmss",
+      "doneAt": "2026-04-29T02:38:17.154Z"
     },
     {
       "id": "mojfusqga4dim",
