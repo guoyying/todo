@@ -2167,12 +2167,9 @@
                         <div class="item-header">
                             <span class="item-type feeling">第${recordNumber}次</span>
                             <span class="item-time">${fmtTime(record.time)}</span>
-                            <div style="display:flex;gap:6px;">
-                                <button class="btn btn-small btn-secondary" onclick="editPracticeRecord('${block.id}', '${record.id}', this)">编辑</button>
-                                <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
-                            </div>
+                            <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
                         </div>
-                        <div class="item-content" style="margin-top:8px;">${record.content}</div>
+                        <div class="item-content" style="margin-top:8px; cursor: pointer; padding: 4px; border-radius: 4px;" onclick="editPracticeRecordInline('${block.id}', '${record.id}', this)" title="点击编辑">${record.content}</div>
                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
                     `;
                     recordsContainer.appendChild(recordEl);
@@ -2278,7 +2275,87 @@
                 render();
             }
         }
-
+        
+        // 点击内容直接编辑练习记录
+        function editPracticeRecordInline(blockId, recordId, contentDiv) {
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (!block) return;
+            const record = block.records.find(r => r.id === recordId);
+            if (!record) return;
+            
+            // 创建可编辑区域
+            const originalContent = contentDiv.innerHTML;
+            const currentText = record.content;
+            
+            // 创建输入框
+            const input = document.createElement('textarea');
+            input.value = currentText;
+            input.style.width = '100%';
+            input.style.minHeight = '60px';
+            input.style.padding = '8px';
+            input.style.border = '1px solid var(--primary)';
+            input.style.borderRadius = '4px';
+            input.style.fontFamily = 'inherit';
+            input.style.fontSize = '14px';
+            input.style.resize = 'vertical';
+            
+            // 创建按钮容器
+            const buttonDiv = document.createElement('div');
+            buttonDiv.style.display = 'flex';
+            buttonDiv.style.gap = '8px';
+            buttonDiv.style.marginTop = '8px';
+            
+            // 保存按钮
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'btn btn-small btn-primary';
+            saveBtn.textContent = '保存';
+            saveBtn.onclick = function(e) {
+                e.stopPropagation();
+                const newContent = input.value.trim();
+                if (newContent && newContent !== record.content) {
+                    record.content = newContent;
+                    saveData();
+                    render();
+                } else {
+                    contentDiv.innerHTML = originalContent;
+                }
+            };
+            
+            // 取消按钮
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'btn btn-small btn-secondary';
+            cancelBtn.textContent = '取消';
+            cancelBtn.onclick = function(e) {
+                e.stopPropagation();
+                contentDiv.innerHTML = originalContent;
+            };
+            
+            buttonDiv.appendChild(saveBtn);
+            buttonDiv.appendChild(cancelBtn);
+            
+            // 替换内容
+            contentDiv.innerHTML = '';
+            contentDiv.appendChild(input);
+            contentDiv.appendChild(buttonDiv);
+            
+            // 聚焦到输入框
+            setTimeout(() => input.focus(), 100);
+            
+            // 支持 Ctrl+Enter 保存
+            input.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    saveBtn.click();
+                }
+            });
+            
+            // 阻止事件冒泡
+            input.onclick = function(e) {
+                e.stopPropagation();
+            };
+        }
+        
         function editBlockName(blockId) {
             const block = data.practiceBlocks.find(b => b.id === blockId);
             if (!block) return;
