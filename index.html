@@ -786,10 +786,17 @@
              opacity: 0.8;
          }
          
-         /* 文本选择高亮 */
-         ::selection {
-             background: var(--primary-light);
-         }
+          /* 文本选择高亮 */
+          ::selection {
+              background: rgba(107, 142, 107, 0.4);
+              color: #1a331a;
+          }
+          
+          /* 兼容不同浏览器的文本选择 */
+          ::-moz-selection {
+              background: rgba(107, 142, 107, 0.4);
+              color: #1a331a;
+          }
          
          /* 加载动画 */
          .loading {
@@ -4367,14 +4374,16 @@
               throw new Error('未找到指定的模型');
           }
           
-          const prompt = `请对以下文本进行润色优化，要求：
-1. 保持原意不变，提升表达的流畅性和准确性
-2. 优化句式结构，使语言更加精炼优美
-3. 修正语法错误和用词不当之处
-4. 保持适合的语气和风格
-5. 只返回润色后的文本，不要添加任何解释、说明或引言
-
-原文：${content}`;
+           const prompt = `请对以下文本进行阅读理解和共情回应。
+ 
+ 1. 识别核心意图
+ 2. 共情与确认
+ 3. 提炼关键逻辑
+ 4. 价值升华
+ 
+ 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
+ 
+ 文本：${content}`;
           
           if (model.provider === 'openai') {
               return await callOpenAiApi(prompt, modelId);
