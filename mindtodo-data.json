@@ -599,28 +599,6 @@
   "title": "🌿 todo",
   "ammoLibrary": [
     {
-      "id": "mok09l2shxt0k",
-      "content": "需要额外花费精力去适应和妥协",
-      "type": "sentence",
-      "sourceBlockId": "mojcp6s67l0ow",
-      "sourceRecordId": "mojw77tv9hnf3",
-      "sourceBlockName": "自己做小工具的意义",
-      "createdAt": "2026-04-29T12:02:36.916Z",
-      "useCount": 0,
-      "tags": []
-    },
-    {
-      "id": "mok09u4gbyd72",
-      "content": "每个功能都是经过精心选择和设计的。",
-      "type": "sentence",
-      "sourceBlockId": "mojcp6s67l0ow",
-      "sourceRecordId": "mojw77tv9hnf3",
-      "sourceBlockName": "自己做小工具的意义",
-      "createdAt": "2026-04-29T12:02:48.640Z",
-      "useCount": 1,
-      "tags": []
-    },
-    {
       "id": "mok2oldcm7i8v",
       "content": "那些细小的手动操作就像不断被小石子绊倒，虽然每个动作不大，但累积起来会让人感到疲惫和烦躁",
       "type": "sentence",
@@ -783,6 +761,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T12:03:55.443Z"
+    "lastSync": "2026-04-29T14:49:13.943Z"
   }
 }
