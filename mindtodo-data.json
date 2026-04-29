@@ -590,10 +590,170 @@
   ],
   "commonTags": [],
   "title": "🌿 todo",
+  "ammoLibrary": [
+    {
+      "id": "mok09l2shxt0k",
+      "content": "需要额外花费精力去适应和妥协",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojw77tv9hnf3",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T12:02:36.916Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "mok09u4gbyd72",
+      "content": "每个功能都是经过精心选择和设计的。",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojw77tv9hnf3",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T12:02:48.640Z",
+      "useCount": 1,
+      "tags": []
+    }
+  ],
+  "aiConfig": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "models": [
+      {
+        "id": "gpt-3.5-turbo",
+        "name": "GPT-3.5 Turbo",
+        "provider": "openai"
+      },
+      {
+        "id": "gpt-4",
+        "name": "GPT-4",
+        "provider": "openai"
+      },
+      {
+        "id": "gpt-4-turbo",
+        "name": "GPT-4 Turbo",
+        "provider": "openai"
+      },
+      {
+        "id": "gpt-4o",
+        "name": "GPT-4o",
+        "provider": "openai"
+      },
+      {
+        "id": "gpt-4o-mini",
+        "name": "GPT-4o Mini",
+        "provider": "openai"
+      },
+      {
+        "id": "claude-3-sonnet",
+        "name": "Claude 3 Sonnet",
+        "provider": "anthropic"
+      },
+      {
+        "id": "claude-3-opus",
+        "name": "Claude 3 Opus",
+        "provider": "anthropic"
+      },
+      {
+        "id": "claude-3.5-sonnet",
+        "name": "Claude 3.5 Sonnet",
+        "provider": "anthropic"
+      },
+      {
+        "id": "deepseek-chat",
+        "name": "DeepSeek Chat",
+        "provider": "deepseek"
+      },
+      {
+        "id": "deepseek-coder",
+        "name": "DeepSeek Coder",
+        "provider": "deepseek"
+      },
+      {
+        "id": "qwen-turbo",
+        "name": "Qwen Turbo (千问极速版)",
+        "provider": "qwen"
+      },
+      {
+        "id": "qwen-plus",
+        "name": "Qwen Plus (千问增强版)",
+        "provider": "qwen"
+      },
+      {
+        "id": "qwen-max",
+        "name": "Qwen Max (千问旗舰版)",
+        "provider": "qwen"
+      },
+      {
+        "id": "qwen-long",
+        "name": "Qwen Long (千问长文本)",
+        "provider": "qwen"
+      },
+      {
+        "id": "glm-4",
+        "name": "GLM-4",
+        "provider": "zhipu"
+      },
+      {
+        "id": "glm-4-flash",
+        "name": "GLM-4 Flash",
+        "provider": "zhipu"
+      },
+      {
+        "id": "glm-3-turbo",
+        "name": "GLM-3 Turbo",
+        "provider": "zhipu"
+      },
+      {
+        "id": "ernie-bot-4",
+        "name": "ERNIE Bot 4.0 (文心一言4.0)",
+        "provider": "baidu"
+      },
+      {
+        "id": "ernie-bot-turbo",
+        "name": "ERNIE Bot Turbo (文心一言Turbo)",
+        "provider": "baidu"
+      },
+      {
+        "id": "ernie-bot",
+        "name": "ERNIE Bot (文心一言)",
+        "provider": "baidu"
+      },
+      {
+        "id": "hunyuan-lite",
+        "name": "Hunyuan Lite (混元轻量版)",
+        "provider": "tencent"
+      },
+      {
+        "id": "hunyuan-standard",
+        "name": "Hunyuan Standard (混元标准版)",
+        "provider": "tencent"
+      },
+      {
+        "id": "hunyuan-pro",
+        "name": "Hunyuan Pro (混元专业版)",
+        "provider": "tencent"
+      },
+      {
+        "id": "moonshot-v1-8k",
+        "name": "Kimi 8K",
+        "provider": "moonshot"
+      },
+      {
+        "id": "moonshot-v1-32k",
+        "name": "Kimi 32K",
+        "provider": "moonshot"
+      },
+      {
+        "id": "moonshot-v1-128k",
+        "name": "Kimi 128K",
+        "provider": "moonshot"
+      }
+    ]
+  },
   "github": {
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T10:18:48.265Z"
+    "lastSync": "2026-04-29T12:03:55.443Z"
   }
 }
