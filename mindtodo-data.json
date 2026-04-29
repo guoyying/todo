@@ -262,33 +262,6 @@
       "doneAt": "2026-04-29T01:50:24.192Z"
     },
     {
-      "id": "moidua40lrs13",
-      "type": "task",
-      "content": "网安的两件事",
-      "createdAt": "2026-04-28T08:47:05.136Z",
-      "updatedAt": "2026-04-29T01:24:27.291Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moidua3znu6aw",
-          "content": "看下哪个ip出问题了上4a搞下",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "moidua40t82nk",
-          "content": "看下定级备案要做什么，转换为todo",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        }
-      ]
-    },
-    {
       "id": "moidup8mi1itx",
       "type": "task",
       "content": "做好邮件团支部的",
@@ -449,6 +422,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T01:25:53.649Z"
+    "lastSync": "2026-04-29T01:50:31.643Z"
   }
 }
