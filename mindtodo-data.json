@@ -293,13 +293,13 @@
       "type": "task",
       "content": "更新美哥周报",
       "createdAt": "2026-04-29T01:10:26.532Z",
-      "updatedAt": "2026-04-29T02:18:00.127Z",
+      "updatedAt": "2026-04-29T02:30:57.153Z",
       "tags": [],
       "done": false,
       "dueTime": "14min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss"
+      "placedIn": null
     },
     {
       "id": "mojd41e4l04hj",
@@ -399,6 +399,18 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": "slot_mojfdjcpfkmss"
+    },
+    {
+      "id": "mojfusqga4dim",
+      "type": "task",
+      "content": "得确认下ppt的数要对的上",
+      "createdAt": "2026-04-29T02:31:14.680Z",
+      "updatedAt": "2026-04-29T02:31:14.680Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
