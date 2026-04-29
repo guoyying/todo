@@ -293,13 +293,14 @@
       "type": "task",
       "content": "更新美哥周报",
       "createdAt": "2026-04-29T01:10:26.532Z",
-      "updatedAt": "2026-04-29T02:30:57.153Z",
+      "updatedAt": "2026-04-29T03:48:04.081Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "14min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-04-29T03:48:04.080Z"
     },
     {
       "id": "mojd41e4l04hj",
@@ -493,6 +494,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T03:35:52.894Z"
+    "lastSync": "2026-04-29T03:45:30.898Z"
   }
 }
