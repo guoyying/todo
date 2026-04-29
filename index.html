@@ -2411,9 +2411,10 @@
             }
         }
 
-        // 统一的删除确认函数
-        function showDeleteConfirm(id, type, btnElement, extraParam = null) {
-            // 安全检查：确保 btnElement 存在且有 parentElement
+          // 统一的删除确认函数
+          function showDeleteConfirm(id, type, btnElement, extraParam = null) {
+              console.log('showDeleteConfirm 被调用:', { id, type, btnElement, extraParam });
+              // 安全检查：确保 btnElement 存在且有 parentElement
             if (!btnElement || !btnElement.parentElement) {
                 // 如果按钮元素无效，使用传统的 confirm 弹窗
                 let msg = '确定要删除吗？';
@@ -2430,14 +2431,31 @@
             // 检查是否已经有确认提示，避免重复添加
             if (container.querySelector('.delete-confirm')) return;
             
-            const confirmDiv = document.createElement('div');
-            confirmDiv.className = 'delete-confirm';
-            confirmDiv.innerHTML = `
-                <span>确定要删除吗？</span>
-                <button class="btn btn-small btn-danger" onclick="executeDelete('${id}', '${type}')">确认</button>
-                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
-            `;
-            container.appendChild(confirmDiv);
+             const confirmDiv = document.createElement('div');
+             confirmDiv.className = 'delete-confirm';
+             
+             const messageSpan = document.createElement('span');
+             messageSpan.textContent = '确定要删除吗？';
+             confirmDiv.appendChild(messageSpan);
+             
+               const confirmBtn = document.createElement('button');
+               confirmBtn.className = 'btn btn-small btn-danger';
+               confirmBtn.textContent = '确认';
+               confirmBtn.onclick = function() {
+                   console.log('确认按钮被点击:', { id, type, extraParam });
+                   executeDelete(id, type, extraParam);
+               };
+             confirmDiv.appendChild(confirmBtn);
+             
+             const cancelBtn = document.createElement('button');
+             cancelBtn.className = 'btn btn-small btn-secondary';
+             cancelBtn.textContent = '取消';
+             cancelBtn.onclick = function() {
+                 confirmDiv.remove();
+             };
+             confirmDiv.appendChild(cancelBtn);
+             
+             container.appendChild(confirmDiv);
             
             // 3 秒后自动消失
             setTimeout(() => {
@@ -2447,10 +2465,11 @@
             }, 3000);
         }
         
-        // 执行删除操作
-        function executeDelete(id, type, extraParam = null) {
-            let msg = '';
-            switch(type) {
+          // 执行删除操作
+          function executeDelete(id, type, extraParam = null) {
+              console.log('executeDelete 被调用:', { id, type, extraParam });
+              let msg = '';
+              switch(type) {
                 case 'task':
                     data.tasks = data.tasks.filter(i => i.id !== id);
                     msg = '任务已删除';
@@ -2459,9 +2478,13 @@
                     data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
                     msg = '感受已删除';
                     break;
-                case 'block':
-                    data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== id);
-                    msg = '板块练习已删除';
+                 case 'block':
+                     console.log('处理 block 删除:', { id });
+                     console.log('删除前的板块:', data.practiceBlocks);
+                     data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== id);
+                     console.log('删除后的板块:', data.practiceBlocks);
+                     msg = '板块练习已删除';
+                     console.log('删除成功，消息:', msg);
                     break;
                 case 'slot':
                     data.slots = data.slots.filter(s => s.id !== id);
@@ -2480,21 +2503,32 @@
                         }
                     }
                     break;
-                case 'practice-record':
-                    const block = data.practiceBlocks.find(b => b.id === id);
-                    if (block && extraParam !== null) {
-                        const recordNumber = extraParam;
-                        const recordIndex = block.records.length - recordNumber;
-                        if (recordIndex >= 0 && recordIndex < block.records.length) {
-                            block.records.splice(recordIndex, 1);
-                            // 重新编号所有记录
-                            block.records.forEach((rec, idx) => {
-                                const newNum = block.records.length - idx;
-                                rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
-                            });
-                            msg = '练习记录已删除';
-                        }
-                    }
+                 case 'practice-record':
+                     console.log('处理 practice-record 删除:', { id, extraParam });
+                     const block = data.practiceBlocks.find(b => b.id === id);
+                     console.log('找到的板块:', block);
+                     if (block && extraParam !== null) {
+                         // extraParam 现在是记录 ID，而不是记录编号
+                         const recordId = extraParam;
+                         console.log('要删除的记录 ID:', recordId);
+                         console.log('板块中的记录:', block.records);
+                         const recordIndex = block.records.findIndex(r => r.id === recordId);
+                         console.log('找到的记录索引:', recordIndex);
+                         if (recordIndex !== -1) {
+                             block.records.splice(recordIndex, 1);
+                             // 重新编号所有记录
+                             block.records.forEach((rec, idx) => {
+                                 const newNum = block.records.length - idx;
+                                 rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
+                             });
+                             msg = '练习记录已删除';
+                             console.log('删除成功，消息:', msg);
+                         } else {
+                             console.log('未找到记录');
+                         }
+                     } else {
+                         console.log('板块不存在或 extraParam 为空');
+                     }
                     break;
             }
             if (msg) {
@@ -3461,16 +3495,27 @@
             reader.readAsText(file);
         }
 
-        function showBanner(message, color, duration = 3000) {
-            const banner = document.createElement('div');
-            banner.className = 'update-banner show';
-            banner.style.backgroundColor = color;
-            banner.innerHTML = message;
-            document.body.insertBefore(banner, document.body.firstChild);
-            setTimeout(() => {
-                banner.remove();
-            }, duration);
-        }
+         function showBanner(message, color, duration = 3000) {
+             // 颜色名称映射
+             const colorMap = {
+                 'success': '#4caf50',
+                 'error': '#f44336',
+                 'warning': '#ff9800',
+                 'info': '#2196f3'
+             };
+             
+             // 如果是颜色名称，转换为实际颜色值
+             const bgColor = colorMap[color] || color;
+             
+             const banner = document.createElement('div');
+             banner.className = 'update-banner show';
+             banner.style.backgroundColor = bgColor;
+             banner.innerHTML = message;
+             document.body.insertBefore(banner, document.body.firstChild);
+             setTimeout(() => {
+                 banner.remove();
+             }, duration);
+         }
 
         // ============ 批量迁移功能 ============
         let migrationSelected = [];
