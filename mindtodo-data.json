@@ -405,12 +405,13 @@
       "type": "task",
       "content": "得确认下ppt的数要对的上",
       "createdAt": "2026-04-29T02:31:14.680Z",
-      "updatedAt": "2026-04-29T02:31:14.680Z",
+      "updatedAt": "2026-04-29T02:35:25.055Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss"
     }
   ],
   "normalFeelings": [
