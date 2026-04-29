@@ -715,7 +715,12 @@
             <!-- 板块练习特有：板块名称 -->
             <div class="input-group hidden" id="blockNameArea">
                 <label>板块小名称</label>
-                <input type="text" id="blockName" placeholder="例如：冥想练习、写作训练...">
+                <div style="display:flex;gap:8px;">
+                    <select id="blockNameSelect" onchange="handleBlockNameSelect(this)" style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                        <option value="">-- 选择已有板块 --</option>
+                    </select>
+                    <input type="text" id="blockName" placeholder="或输入新名称" style="flex:1;" oninput="clearBlockNameSelect()">
+                </div>
             </div>
             
             <div class="input-group">
@@ -1184,6 +1189,10 @@
             document.getElementById('blockNameArea').classList.toggle('hidden', type !== 'practice');
             // 选择"板块练习"时隐藏标签区域
             document.querySelector('.feeling-input-area .input-group:has(#feelingTags)').classList.toggle('hidden', type === 'practice');
+            // 切换到板块练习时更新下拉选项
+            if (type === 'practice') {
+                updateBlockNameSelect();
+            }
         }
 
         function toggleDueType() {
@@ -1383,7 +1392,15 @@
                 });
             } else {
                 // 板块练习
-                const blockName = document.getElementById('blockName').value.trim() || '未命名板块';
+                let blockName = document.getElementById('blockName').value.trim();
+                // 如果下拉框有选择，优先使用下拉框的值
+                const selectValue = document.getElementById('blockNameSelect').value;
+                if (selectValue) {
+                    blockName = selectValue;
+                }
+                if (!blockName) {
+                    blockName = '未命名板块';
+                }
                 // 查找或创建板块
                 let block = data.practiceBlocks.find(b => b.name === blockName);
                 if (!block) {
@@ -1401,8 +1418,35 @@
             
             document.getElementById('feelingContent').value = '';
             document.getElementById('blockName').value = '';
+            document.getElementById('blockNameSelect').value = '';
             renderTags('feelingTags');
+            updateBlockNameSelect();
             saveData(); render();
+        }
+        
+        // 处理板块名称下拉选择
+        function handleBlockNameSelect(select) {
+            if (select.value) {
+                document.getElementById('blockName').value = select.value;
+            }
+        }
+        
+        // 清空下拉选择（当手动输入时）
+        function clearBlockNameSelect() {
+            document.getElementById('blockNameSelect').value = '';
+        }
+        
+        // 更新板块名称下拉选项
+        function updateBlockNameSelect() {
+            const select = document.getElementById('blockNameSelect');
+            if (!select) return;
+            const currentValue = select.value;
+            select.innerHTML = '<option value="">-- 选择已有板块 --</option>';
+            data.practiceBlocks.forEach(block => {
+                const count = block.records.length;
+                select.innerHTML += `<option value="${block.name}">${block.name} (${count}条记录)</option>`;
+            });
+            select.value = currentValue;
         }
 
         function saveTask() {
@@ -2063,8 +2107,8 @@
             const isCollapsed = totalRecords > 0;
             
             blockEl.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;cursor:pointer;" onclick="toggleBlockRecords('${block.id}')">
-                    <div style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                    <div style="flex:1;cursor:pointer;" onclick="toggleBlockRecords('${block.id}')">
                         <h3 style="font-size:16px;margin-bottom:4px;display:flex;align-items:center;gap:8px;">
                             ${block.name} ${isArchived ? '<span style="font-size:12px;color:var(--text-secondary);">(已归档)</span>' : ''}
                             <span style="font-size:12px;color:var(--text-secondary);">${isCollapsed ? '▶' : '▼'}</span>
@@ -2075,17 +2119,25 @@
                         </div>
                     </div>
                     <div style="display:flex;gap:8px;">
+                        ${!isArchived ? `<button class="btn btn-small btn-primary" onclick="event.stopPropagation();toggleQuickAdd('${block.id}')">新增练习</button>` : ''}
                         ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editBlockName('${block.id}')">修改名称</button>` : ''}
                         ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="event.stopPropagation();archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();unarchiveBlock('${block.id}')">恢复</button>`}
                         <button class="btn btn-small btn-danger" onclick="event.stopPropagation();showDeleteConfirm('${block.id}', 'block', this)">删除</button>
                     </div>
                 </div>
+                ${!isArchived ? `<div id="quick-add-${block.id}" class="quick-add-area" style="display:none;margin-top:8px;padding:12px;background:var(--bg-secondary);border-radius:6px;">
+                    <div style="display:flex;gap:8px;">
+                        <input type="text" class="input" placeholder="输入练习内容..." id="quick-input-${block.id}" onkeypress="if(event.key==='Enter')quickAddPractice('${block.id}')" style="flex:1;">
+                        <button class="btn btn-small btn-primary" onclick="quickAddPractice('${block.id}')">确定</button>
+                        <button class="btn btn-small btn-secondary" onclick="toggleQuickAdd('${block.id}')">取消</button>
+                    </div>
+                </div>` : ''}
                 <div class="practice-records" id="records-${block.id}" style="display:${isCollapsed ? 'none' : 'block'};margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
                     ${totalRecords === 0 ? '<div class="empty-tip">暂无练习记录</div>' : ''}
                 </div>
                 ${!isArchived ? `<div style="margin-top:12px;${isCollapsed ? 'display:none;' : ''}">
-                    <input type="text" class="input" placeholder="新增练习记录..." id="new-record-${block.id}" onkeypress="if(event.key==='Enter')addPracticeRecord('${block.id}')">
-                    <button class="btn btn-small btn-primary" style="margin-left:8px;" onclick="addPracticeRecord('${block.id}')">添加</button>
+                    <input type="text" class="input" placeholder="记录练习内容..." id="new-record-${block.id}" onkeypress="if(event.key==='Enter')addPracticeRecord('${block.id}')" style="flex:1;">
+                    <button class="btn btn-small btn-primary" style="margin-left:8px;" onclick="addPracticeRecord('${block.id}')">记录练习</button>
                 </div>` : ''}
             `;
             
@@ -2105,12 +2157,53 @@
                         <div class="item-header">
                             <span class="item-type feeling">第${totalRecords - index}次</span>
                             <span class="item-time">${fmtTime(record.time)}</span>
+                            <div style="display:flex;gap:6px;">
+                                <button class="btn btn-small btn-secondary" onclick="editPracticeRecord('${block.id}', ${totalRecords - index}, this)">编辑</button>
+                                <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, ${totalRecords - index})">删除</button>
+                            </div>
                         </div>
                         <div class="item-content" style="margin-top:8px;">${record.content}</div>
                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
                     `;
                     recordsContainer.appendChild(recordEl);
                 });
+            }
+        }
+        
+        // 切换快速添加区域的显示/隐藏
+        function toggleQuickAdd(blockId) {
+            const area = document.getElementById(`quick-add-${blockId}`);
+            if (area) {
+                const isVisible = area.style.display !== 'none';
+                area.style.display = isVisible ? 'none' : 'block';
+                if (!isVisible) {
+                    setTimeout(() => {
+                        document.getElementById(`quick-input-${blockId}`)?.focus();
+                    }, 100);
+                }
+            }
+        }
+        
+        // 快速添加练习记录
+        function quickAddPractice(blockId) {
+            const input = document.getElementById(`quick-input-${blockId}`);
+            const content = input.value.trim();
+            if (!content) return;
+            
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (block) {
+                // 自动计算是第几次练习
+                const recordNumber = block.records.length + 1;
+                block.records.push({
+                    id: genId(),
+                    content: `第${recordNumber}次练习：${content}`,
+                    time: nowStr()
+                });
+                input.value = '';
+                toggleQuickAdd(blockId); // 关闭快速添加区域
+                saveData();
+                render();
+                showBanner('练习记录已添加', 'success');
             }
         }
         
@@ -2143,12 +2236,31 @@
             
             const block = data.practiceBlocks.find(b => b.id === blockId);
             if (block) {
+                // 自动计算是第几次练习
+                const recordNumber = block.records.length + 1;
                 block.records.push({
                     id: genId(),
-                    content,
+                    content: `第${recordNumber}次练习：${content}`,
                     time: nowStr()
                 });
                 input.value = '';
+                saveData();
+                render();
+            }
+        }
+        
+        // 编辑练习记录
+        function editPracticeRecord(blockId, recordNumber, btnElement) {
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (!block) return;
+            
+            const recordIndex = block.records.length - recordNumber;
+            if (recordIndex < 0 || recordIndex >= block.records.length) return;
+            
+            const record = block.records[recordIndex];
+            const newContent = prompt('编辑练习内容:', record.content.replace(`第${recordNumber}次练习：`, ''));
+            if (newContent !== null && newContent.trim()) {
+                record.content = `第${recordNumber}次练习：${newContent.trim()}`;
                 saveData();
                 render();
             }
@@ -2166,17 +2278,16 @@
         }
 
         // 统一的删除确认函数
-        function showDeleteConfirm(id, type, btnElement) {
+        function showDeleteConfirm(id, type, btnElement, extraParam = null) {
             // 安全检查：确保 btnElement 存在且有 parentElement
             if (!btnElement || !btnElement.parentElement) {
                 // 如果按钮元素无效，使用传统的 confirm 弹窗
                 let msg = '确定要删除吗？';
                 if (type === 'block') msg = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
                 if (type === 'slot') msg = '删除这个时间段？其中的任务会回到待办。';
+                if (type === 'practice-record') msg = `确定要删除第${extraParam}次练习记录吗？`;
                 if (!confirm(msg)) return;
-                
-                // 执行删除
-                executeDelete(id, type);
+                executeDelete(id, type, extraParam);
                 return;
             }
             
@@ -2203,7 +2314,7 @@
         }
         
         // 执行删除操作
-        function executeDelete(id, type) {
+        function executeDelete(id, type, extraParam = null) {
             let msg = '';
             switch(type) {
                 case 'task':
@@ -2235,11 +2346,27 @@
                         }
                     }
                     break;
+                case 'practice-record':
+                    const block = data.practiceBlocks.find(b => b.id === id);
+                    if (block && extraParam !== null) {
+                        const recordNumber = extraParam;
+                        const recordIndex = block.records.length - recordNumber;
+                        if (recordIndex >= 0 && recordIndex < block.records.length) {
+                            block.records.splice(recordIndex, 1);
+                            // 重新编号所有记录
+                            block.records.forEach((rec, idx) => {
+                                const newNum = block.records.length - idx;
+                                rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
+                            });
+                            msg = '练习记录已删除';
+                        }
+                    }
+                    break;
             }
             if (msg) {
                 saveData();
                 render();
-                showBanner(msg, 'error');
+                showBanner(msg, 'success');
             }
         }
 
