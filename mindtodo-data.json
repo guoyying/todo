@@ -194,13 +194,13 @@
       "type": "task",
       "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
       "createdAt": "2026-04-28T06:20:40.334Z",
-      "updatedAt": "2026-04-29T01:11:45.584Z",
+      "updatedAt": "2026-04-29T01:38:52.834Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mojd04tawn0s5"
+      "doneAt": "2026-04-29T01:38:52.834Z"
     },
     {
       "id": "moi8moz3kqmea",
@@ -253,13 +253,13 @@
       "type": "task",
       "content": "更新三级系统资产",
       "createdAt": "2026-04-28T08:07:17.681Z",
-      "updatedAt": "2026-04-29T01:11:43.564Z",
+      "updatedAt": "2026-04-29T01:50:24.192Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "14min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mojd04tawn0s5"
+      "doneAt": "2026-04-29T01:50:24.192Z"
     },
     {
       "id": "moidua40lrs13",
@@ -277,14 +277,14 @@
           "content": "看下哪个ip出问题了上4a搞下",
           "estimatedTime": "10min",
           "done": true,
-          "placedIn": "slot_mojd04tawn0s5"
+          "placedIn": null
         },
         {
           "id": "moidua40t82nk",
           "content": "看下定级备案要做什么，转换为todo",
           "estimatedTime": "5min",
           "done": true,
-          "placedIn": "slot_mojd04tawn0s5"
+          "placedIn": null
         }
       ]
     },
@@ -387,6 +387,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mojee5e1p6g2o",
+      "type": "task",
+      "content": "60个网元查询资源系统状态，选出退网的",
+      "createdAt": "2026-04-29T01:50:18.313Z",
+      "updatedAt": "2026-04-29T01:50:18.313Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -424,12 +436,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mojd04tawn0s5",
-      "name": "10点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -442,6 +449,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T01:24:35.769Z"
+    "lastSync": "2026-04-29T01:25:53.649Z"
   }
 }
