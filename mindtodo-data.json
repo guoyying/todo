@@ -612,6 +612,28 @@
       "createdAt": "2026-04-29T12:02:48.640Z",
       "useCount": 1,
       "tags": []
+    },
+    {
+      "id": "mok2oldcm7i8v",
+      "content": "那些细小的手动操作就像不断被小石子绊倒，虽然每个动作不大，但累积起来会让人感到疲惫和烦躁",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojcp6s6pywmx",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T13:10:16.368Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "mok2ouyqxmxoz",
+      "content": "效率的提升往往不在于更快地完成核心任务，而在于消除那些看似微小却持续消耗能量的“流程摩擦”",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojcp6s6pywmx",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T13:10:28.802Z",
+      "useCount": 0,
+      "tags": []
     }
   ],
   "aiConfig": {
