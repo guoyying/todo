@@ -470,6 +470,18 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-29T07:51:07.189Z"
+    },
+    {
+      "id": "mojrt03hdksx5",
+      "type": "task",
+      "content": "三码过单",
+      "createdAt": "2026-04-29T08:05:46.301Z",
+      "updatedAt": "2026-04-29T08:05:46.301Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -515,7 +527,7 @@
           "id": "mojnmwe4g1n4z",
           "content": "第4次练习：我们使用工具是为了让自己从繁琐，但是必须做的动作中解放出来别人的工具最好很难面渠道全都满足自己的需求，只能用适应对开发习惯的妥协存在，这其实无形中就增加了学习和适应的成本。自己做小工具，所有步骤都是最适合自己的。",
           "time": "2026-04-29T06:09:03.100Z",
-          "updatedAt": "2026-04-29T07:49:55.135Z"
+          "updatedAt": "2026-04-29T07:57:05.966Z"
         }
       ],
       "archived": false,
