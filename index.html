@@ -811,6 +811,18 @@
          @keyframes spin {
              to { transform: rotate(360deg); }
          }
+          
+          /* 文本选择气泡菜单样式 */
+          #textSelectionBubble {
+              animation: bubbleFadeIn 0.2s ease-out;
+          }
+          @keyframes bubbleFadeIn {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+          }
+          #textSelectionBubble.hidden {
+              display: none !important;
+          }
      </style>
 </head>
 <body>
@@ -1118,9 +1130,9 @@
                  <h3>✨ AI润色</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
              </div>
-             <div class="modal-body" style="display:flex;gap:16px;max-height:75vh;">
-                 <!-- 左侧：AI润色结果 -->
-                 <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+             <div class="modal-body" style="display:flex;gap:16px;max-height:80vh;">
+                 <!-- 左侧：控制面板 -->
+                 <div style="flex:0 0 320px;display:flex;flex-direction:column;min-width:0;padding-right:16px;border-right:1px solid var(--border);">
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择模型</label>
                          <select id="aiModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
@@ -1129,53 +1141,54 @@
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">自定义提示词（可选）</label>
-                         <textarea id="customPromptInput" rows="2" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                         <textarea id="customPromptInput" rows="3" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">原始内容</label>
-                         <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;max-height:100px;overflow-y:auto;"></div>
+                         <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;max-height:120px;overflow-y:auto;"></div>
                      </div>
                      <div style="margin-bottom:12px;">
-                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">润色结果 <small style="color:var(--text-secondary);font-weight:normal;">(可以直接选择文本)</small></label>
-                         <div id="aiPolishedContent" style="padding:12px;background:var(--primary-light);border-radius:6px;font-size:14px;line-height:1.8;min-height:200px;max-height:400px;overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;white-space:pre-wrap;word-wrap:break-word;"></div>
+                         <button class="btn btn-primary" onclick="startAiPolish()" id="aiPolishBtn" style="width:100%;">开始润色</button>
                      </div>
-                     <div style="display:flex;gap:8px;">
-                         <button class="btn btn-primary" onclick="startAiPolish()" id="aiPolishBtn">开始润色</button>
-                         <button class="btn btn-secondary" onclick="copyAiResult()" id="aiCopyBtn" disabled>复制结果</button>
+                     <div style="margin-bottom:12px;">
+                         <button class="btn btn-secondary" onclick="copyAiResult()" id="aiCopyBtn" disabled style="width:100%;">复制结果</button>
+                     </div>
+                     
+                     <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);">
+                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                             <h4 style="font-size:15px;margin:0;">💎 弹药库</h4>
+                             <button class="btn btn-small btn-secondary" onclick="showAmmoLibraryPanel()">查看全部</button>
+                         </div>
+                         <div style="margin-bottom:12px;">
+                             <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">本次会话添加的弹药</label>
+                             <div id="sessionAmmoList" style="max-height:200px;overflow-y:auto;">
+                                 <div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>
+                             </div>
+                         </div>
                      </div>
                  </div>
-                 <!-- 右侧：弹药库 -->
-                 <div style="flex:1;display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--border);padding-left:16px;">
-                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                         <h4 style="font-size:15px;margin:0;">💎 弹药库</h4>
-                         <button class="btn btn-small btn-secondary" onclick="showAmmoLibraryPanel()">查看全部</button>
-                     </div>
+                 
+                 <!-- 右侧：润色结果 -->
+                 <div style="flex:1;display:flex;flex-direction:column;min-width:0;position:relative;">
                      <div style="margin-bottom:12px;">
-                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择文本添加到弹药库</label>
-                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;max-height:100px;overflow-y:auto;border:1px dashed var(--border);cursor:default;">
-                             点击选择润色结果中的文本...
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">润色结果 <small style="color:var(--text-secondary);font-weight:normal;">(选择文本后点击"💎"按钮添加到弹药库)</small></label>
+                         <div id="aiPolishedContent" style="padding:16px;background:var(--primary-light);border-radius:8px;font-size:15px;line-height:1.8;min-height:300px;max-height:calc(80vh - 100px);overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-;-ms-user-select:text;white-space:pre-wrap;word-wrap:break-word;position:relative;">
+                             <div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>
                          </div>
                      </div>
-                     <div style="margin-bottom:12px;">
-                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">弹药类型</label>
-                         <select id="ammoTypeSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                             <option value="word">词汇</option>
-                             <option value="sentence">句子</option>
-                             <option value="paragraph">段落</option>
-                         </select>
-                     </div>
-                     <div style="margin-bottom:12px;">
-                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">标签（可选）</label>
-                         <input type="text" id="ammoTagsInput" placeholder="输入标签，用逗号分隔" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                     </div>
-                     <button class="btn btn-primary" onclick="addSelectedTextToAmmo()" id="addToAmmoBtn" disabled>添加到弹药库</button>
-                     
-                     <div style="margin-top:16px;">
-                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">本次会话添加的弹药</label>
-                         <div id="sessionAmmoList" style="max-height:150px;overflow-y:auto;">
-                             <div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>
-                         </div>
-                     </div>
+                 </div>
+                 
+                 <!-- 文本选择气泡菜单 -->
+                 <div id="textSelectionBubble" class="hidden" style="position:absolute;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;display:flex;align-items:center;gap:8px;">
+                     <span style="font-size:12px;color:var(--text-secondary);">添加到弹药库</span>
+                     <select id="bubbleAmmoType" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
+                         <option value="word">词汇</option>
+                         <option value="sentence">句子</option>
+                         <option value="paragraph">段落</option>
+                     </select>
+                     <input type="text" id="bubbleAmmoTags" placeholder="标签" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;width:80px;">
+                     <button class="btn btn-primary btn-small" onclick="addSelectedTextViaBubble()">💎</button>
+                     <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
                  </div>
              </div>
          </div>
@@ -4300,14 +4313,29 @@
              selectedText: ''
          };
          
+         // 先显示模态框，确保DOM元素可访问
+         document.getElementById('aiPolishModal').classList.remove('hidden');
+         
          // 填充模态框内容
-         document.getElementById('aiOriginalContent').textContent = currentAiContext.originalContent;
-         document.getElementById('aiPolishedContent').innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击下方按钮开始润色</div>';
-         document.getElementById('aiSelectedText').textContent = '点击选择润色结果中的文本...';
-         document.getElementById('aiSelectedText').style.background = 'var(--bg)';
-         document.getElementById('aiCopyBtn').disabled = true;
-         document.getElementById('addToAmmoBtn').disabled = true;
-         document.getElementById('sessionAmmoList').innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
+         const aiOriginalContent = document.getElementById('aiOriginalContent');
+         const aiPolishedContent = document.getElementById('aiPolishedContent');
+         const aiCopyBtn = document.getElementById('aiCopyBtn');
+         const sessionAmmoList = document.getElementById('sessionAmmoList');
+         const customPromptInput = document.getElementById('customPromptInput');
+         const modelSelect = document.getElementById('aiModelSelect');
+         
+         // 检查元素是否存在
+         if (!aiOriginalContent || !aiPolishedContent || !aiCopyBtn || !sessionAmmoList || !customPromptInput || !modelSelect) {
+             console.error('AI润色模态框元素未找到');
+             showToast('模态框加载失败，请刷新页面重试');
+             return;
+         }
+         
+         aiOriginalContent.textContent = currentAiContext.originalContent;
+         aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>';
+         aiCopyBtn.disabled = true;
+         sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
+         
          // 设置默认提示词到输入框
          const defaultPromptText = `请对以下文本进行阅读理解和共情回应。
  
@@ -4319,31 +4347,28 @@
  文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
  
  文本：[在此处输入你的文本]`;
-         document.getElementById('customPromptInput').value = defaultPromptText;
-         
-         // 填充模型选择器
-         const modelSelect = document.getElementById('aiModelSelect');
-         modelSelect.innerHTML = '';
-         data.aiConfig.models.forEach(model => {
-             const option = document.createElement('option');
-             option.value = model.id;
-             option.textContent = model.name;
-             if (model.id === data.aiConfig.model) {
-                 option.selected = true;
-             }
-             modelSelect.appendChild(option);
-         });
-         
-         // 显示模态框
-         document.getElementById('aiPolishModal').classList.remove('hidden');
-         
-         // 设置文本选择监听器
-         setupAiResultSelectionListener();
+ customPromptInput.value = defaultPromptText;
+ 
+ // 填充模型选择器
+ modelSelect.innerHTML = '';
+ data.aiConfig.models.forEach(model => {
+     const option = document.createElement('option');
+     option.value = model.id;
+     option.textContent = model.name;
+     if (model.id === data.aiConfig.model) {
+         option.selected = true;
      }
+     modelSelect.appendChild(option);
+ });
+ 
+ // 设置文本选择监听器
+ setupAiResultSelectionListener();
+}
      
      // 关闭AI润色模态框
      function closeAiPolishModal() {
          document.getElementById('aiPolishModal').classList.add('hidden');
+         hideTextSelectionBubble(); // 隐藏气泡菜单
          currentAiContext = {
              blockId: null,
              recordId: null,
@@ -4396,10 +4421,6 @@
              
              // 启用复制按钮
              document.getElementById('aiCopyBtn').disabled = false;
-             
-             // 提示用户可以选择文本
-             document.getElementById('aiSelectedText').textContent = '请从上方润色结果中选择文本...';
-             document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
              
              // 滚动到润色结果区域顶部，方便用户查看和选择文本
              polishedContentEl.scrollTop = 0;
@@ -4706,16 +4727,14 @@
          });
      }
      
-     // 从AI润色结果中选择文本
+     // 从AI润色结果中选择文本（已废弃，保留以兼容旧代码）
      function selectTextFromAiResult() {
          const selection = window.getSelection();
          const selectedText = selection.toString().trim();
          
          if (selectedText) {
              currentAiContext.selectedText = selectedText;
-             document.getElementById('aiSelectedText').textContent = selectedText;
-             document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
-             document.getElementById('addToAmmoBtn').disabled = false;
+             // 不再更新UI，改用气泡菜单
          } else {
              showToast('请先选择文本');
          }
@@ -4734,9 +4753,9 @@
                  // 检查选择是否在润色结果区域内
                  if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
                      currentAiContext.selectedText = selectedText;
-                     document.getElementById('aiSelectedText').textContent = selectedText;
-                     document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
-                     document.getElementById('addToAmmoBtn').disabled = false;
+                     showTextSelectionBubble(selection);
+                 } else {
+                     hideTextSelectionBubble();
                  }
              }, 10);
          });
@@ -4747,35 +4766,91 @@
                  const selection = window.getSelection();
                  const selectedText = selection.toString().trim();
                  
+                 // 检查选择是否在润色结果区域内
                  if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
                      currentAiContext.selectedText = selectedText;
-                     document.getElementById('aiSelectedText').textContent = selectedText;
-                     document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
-                     document.getElementById('addToAmmoBtn').disabled = false;
+                     showTextSelectionBubble(selection);
+                 } else {
+                     hideTextSelectionBubble();
                  }
              }, 10);
          });
+         
+         // 点击其他地方隐藏气泡
+         document.addEventListener('mousedown', function(e) {
+             const bubble = document.getElementById('textSelectionBubble');
+             if (!bubble.contains(e.target) && !polishedContentEl.contains(e.target)) {
+                 hideTextSelectionBubble();
+             }
+         });
      }
      
-     // 添加选中的文本到弹药库
-     function addSelectedTextToAmmo() {
-         if (!currentAiContext.selectedText) {
+     // 显示文本选择气泡菜单
+     function showTextSelectionBubble(selection) {
+         const bubble = document.getElementById('textSelectionBubble');
+         const range = selection.getRangeAt(0);
+         const rect = range.getBoundingClientRect();
+         
+         // 计算气泡位置（在选择文本的上方）
+         const bubbleWidth = 300; // 气泡宽度
+         const bubbleHeight = 50; // 气泡高度
+         
+         let left = rect.left + (rect.width / 2) - (bubbleWidth / 2);
+         let top = rect.top - bubbleHeight - 10;
+         
+         // 边界检查，防止气泡超出屏幕
+         if (left < 10) left = 10;
+         if (left + bubbleWidth > window.innerWidth - 10) left = window.innerWidth - bubbleWidth - 10;
+         if (top < 10) top = rect.bottom + 10; // 如果上方空间不足，显示在下方
+         
+         bubble.style.left = left + 'px';
+         bubble.style.top = top + 'px';
+         bubble.classList.remove('hidden');
+         
+         // 清空之前的输入
+         document.getElementById('bubbleAmmoTags').value = '';
+     }
+     
+     // 隐藏文本选择气泡菜单
+     function hideTextSelectionBubble() {
+         const bubble = document.getElementById('textSelectionBubble');
+         bubble.classList.add('hidden');
+     }
+     
+     // 通过气泡菜单添加选中的文本到弹药库
+     function addSelectedTextViaBubble() {
+         const selectedText = currentAiContext.selectedText;
+         if (!selectedText) {
              showToast('请先选择文本');
              return;
          }
          
-         const type = document.getElementById('ammoTypeSelect').value;
-         const tagsInput = document.getElementById('ammoTagsInput').value;
+         const type = document.getElementById('bubbleAmmoType').value;
+         const tags = document.getElementById('bubbleAmmoTags').value.trim();
+         
+         // 添加到弹药库
+         addAmmoToLibrary(selectedText, type, tags);
+         
+         // 隐藏气泡
+         hideTextSelectionBubble();
+         
+         // 清除选择
+         window.getSelection().removeAllRanges();
+         
+         showToast('已添加到弹药库');
+     }
+     // 通用函数：添加弹药到弹药库
+     function addAmmoToLibrary(content, type, tagsInput) {
          const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
          
          // 获取来源信息
          const block = data.practiceBlocks.find(b => b.id === currentAiContext.blockId);
-         const sourceBlockName = block ? block.name : '未知板块';
+         const sourceBlockName = block ? block.name : 'AI润色';
          
          // 创建弹药项
          const ammoItem = {
              id: genId(),
-             content: currentAiContext.selectedText,
+             content: content,
              type: type,
              sourceBlockId: currentAiContext.blockId,
              sourceRecordId: currentAiContext.recordId,
@@ -4792,12 +4867,25 @@
          // 更新UI
          updateSessionAmmoList(ammoItem);
          
+         return ammoItem;
+     }
+     
+     // 添加选中的文本到弹药库（已废弃，保留以兼容旧代码）
+     function addSelectedTextToAmmo() {
+         if (!currentAiContext.selectedText) {
+             showToast('请先选择文本');
+             return;
+         }
+         
+         // 使用默认类型和空标签
+         const type = 'sentence'; // 默认为句子类型
+         const tagsInput = ''; // 默认无标签
+ 
+         // 调用通用函数
+         addAmmoToLibrary(currentAiContext.selectedText, type, tagsInput);
+         
          // 重置选择
          currentAiContext.selectedText = '';
-         document.getElementById('aiSelectedText').textContent = '点击选择润色结果中的文本...';
-         document.getElementById('aiSelectedText').style.background = 'var(--bg)';
-         document.getElementById('addToAmmoBtn').disabled = true;
-         document.getElementById('ammoTagsInput').value = '';
          
          showToast('已添加到弹药库');
      }
