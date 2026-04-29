@@ -453,6 +453,18 @@
       "dueTime": "25min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mojj2vudafbt4",
+      "type": "task",
+      "content": "我想在板块练习每一项记录里有个按钮可以记录练习，点击确认之后就记录为第n次。我也希望板块小名称有已有的板块小名称下拉树选择。",
+      "createdAt": "2026-04-29T04:01:30.805Z",
+      "updatedAt": "2026-04-29T04:01:30.805Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
