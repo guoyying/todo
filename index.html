@@ -549,6 +549,105 @@
             from { transform: translateX(400px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+        
+        /* 情绪日历样式 */
+        .mood-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-top: 8px;
+        }
+        .mood-calendar .mood-header {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 4px;
+        }
+        .mood-calendar .mood-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            padding: 2px;
+        }
+        .mood-calendar .mood-day:hover {
+            transform: scale(1.1);
+        }
+        .mood-calendar .mood-day.selected {
+            background: var(--primary);
+            color: white;
+        }
+        .mood-calendar .mood-day.selected small {
+            color: white;
+        }
+        
+        /* 修复感受记录布局 */
+        /* 修复情绪日历布局 */
+        .feeling-mode > div:first-child {
+            display: flex !important;
+            gap: 16px !important;
+            align-items: flex-start !important;
+        }
+        
+        #moodCalendarSidebar {
+            width: 180px !important;
+            min-width: 180px !important;
+            max-width: 180px !important;
+            flex-shrink: 0 !important;
+            flex-grow: 0 !important;
+            display: block !important;
+        }
+        
+        #moodCalendarSidebar > div {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        #moodCalendarSidebar + div {
+            flex: 1 !important;
+            min-width: 0 !important;
+        }
+        
+        #feelingFilterBar {
+            margin-bottom: 12px;
+        }
+        .mood-calendar .mood-day.has-record::after {
+            content: '•';
+            position: absolute;
+            bottom: 2px;
+            font-size: 16px;
+        }
+        .mood-calendar .mood-day.today {
+            border: 2px solid var(--primary);
+        }
+        .mood-calendar .mood-day.selected {
+            background: var(--warning);
+            color: white;
+        }
+        .mood-calendar .mood-empty {
+            background: transparent;
+        }
+        .mood-calendar-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mood-calendar-nav {
+            display: flex;
+            gap: 8px;
+        }
+        .mood-calendar-nav button {
+            padding: 2px 8px;
+            font-size: 12px;
+        }
         .collapsed {
             display: none !important;
         }
@@ -694,12 +793,23 @@
 
     <!-- 感受模式模块 -->
     <div class="feeling-mode">
-        <div class="section-title">💭 感受记录 <span class="count" id="feelingCount"></span></div>
-        <div class="filter-bar" id="feelingFilterBar">
-            <input type="text" id="feelingSearch" placeholder="搜索感受..." oninput="renderFeelings()">
-            <div class="tag-filter" id="feelingTagFilter"></div>
+        <div style="display:flex;gap:16px;">
+            <!-- 情绪日历侧边栏 -->
+            <div id="moodCalendarSidebar" style="width:180px;flex-shrink:0;display:none;">
+                <div style="padding:12px;background:var(--bg-secondary);border-radius:var(--radius);">
+                    <div id="moodCalendar"></div>
+                </div>
+            </div>
+            <!-- 感受记录主区域 -->
+            <div style="flex:1;">
+                <div class="section-title">💭 感受记录 <span class="count" id="feelingCount"></span></div>
+                <div class="filter-bar" id="feelingFilterBar">
+                    <input type="text" id="feelingSearch" placeholder="搜索感受..." oninput="renderFeelings()">
+                    <div class="tag-filter" id="feelingTagFilter"></div>
+                </div>
+                <div id="feelingList"></div>
+            </div>
         </div>
-        <div id="feelingList"></div>
 
         <!-- 板块练习区域 -->
         <div class="section-title" id="practiceBlocksTitle">📚 板块练习</div>
@@ -1336,6 +1446,7 @@
             
             if (data.activeTab === 'feeling') {
                 // 感受模式：显示感受相关模块
+                renderMoodCalendar();
                 renderFeelings();
                 renderPracticeBlocks();
                 renderOldFeelings();
@@ -1345,6 +1456,9 @@
                 renderToday();
                 renderOldTodos();
                 renderDone();
+                // 隐藏情绪日历
+                const calendar = document.getElementById('moodCalendar');
+                if (calendar) calendar.style.display = 'none';
             }
             
             checkUpdateStatus();
@@ -1659,7 +1773,131 @@
             });
             document.getElementById('slotCount').textContent = slotTotal ? `(${slotTotal})` : '';
         }
-
+        
+        // 情绪日历相关变量
+        let currentCalendarMonth = new Date();
+        let selectedDate = null;
+        
+        // 渲染情绪日历
+        function renderMoodCalendar() {
+            const sidebar = document.getElementById('moodCalendarSidebar');
+            const container = document.getElementById('moodCalendar');
+            if (!sidebar || !container) return;
+            
+            // 始终显示日历（即使当月没有记录）
+            sidebar.style.display = 'block';
+            
+            const year = currentCalendarMonth.getFullYear();
+            const month = currentCalendarMonth.getMonth();
+            
+            const monthNames = ['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月'];
+            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            
+            // 获取当月第一天和最后一天
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startDay = firstDay.getDay();
+            
+            // 获取当月有记录的日子
+            const daysWithRecords = {};
+            data.normalFeelings.forEach(item => {
+                const d = new Date(item.createdAt);
+                if (d.getFullYear() === year && d.getMonth() === month) {
+                    const dateKey = `${year}-${d.getMonth()+1}-${d.getDate()}`;
+                    daysWithRecords[dateKey] = (daysWithRecords[dateKey] || 0) + 1;
+                }
+            });
+            
+            // 构建日历 HTML（紧凑版）
+            let html = `
+                <div class="mood-calendar-title">
+                    <span>📅 ${year}年 ${monthNames[month]}</span>
+                    <div class="mood-calendar-nav">
+                        <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(-1)">◀ 上月</button>
+                        <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(1)">下月 ▶</button>
+                    </div>
+                </div>
+                <div class="mood-calendar" style="gap:2px;">
+            `;
+            
+            // 添加星期标题
+            weekDays.forEach(day => {
+                html += `<div class="mood-header">${day}</div>`;
+            });
+            
+            // 添加空白格子（上月剩余天数）
+            for (let i = 0; i < startDay; i++) {
+                html += `<div class="mood-day mood-empty"></div>`;
+            }
+            
+            // 添加当月每一天
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateKey = `${year}-${month+1}-${day}`;
+                const hasRecord = daysWithRecords[dateKey];
+                const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
+                const isSelected = selectedDate === dateKey;
+                
+                let classes = 'mood-day';
+                if (hasRecord) classes += ' has-record';
+                if (isToday) classes += ' today';
+                if (isSelected) classes += ' selected';
+                
+                html += `<div class="${classes}" onclick="selectMoodDate('${dateKey}', ${hasRecord || 0})">${day}${hasRecord ? `<br><small>${hasRecord}条</small>` : ''}</div>`;
+            }
+            
+            html += '</div>';
+            
+            // 如果选中了日期，显示该日期的感受
+            if (selectedDate) {
+                const [selYear, selMonth, selDay] = selectedDate.split('-').map(Number);
+                const dayFeelings = data.normalFeelings.filter(item => {
+                    const d = new Date(item.createdAt);
+                    return d.getFullYear() === selYear &&
+                           d.getMonth() === selMonth - 1 &&
+                           d.getDate() === selDay;
+                });
+                
+                if (dayFeelings.length > 0) {
+                    html += `
+                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+                            <h4 style="font-size:14px;margin-bottom:8px;">${selMonth}月${selDay}日的感受 (${dayFeelings.length}条)</h4>
+                    `;
+                    dayFeelings.forEach(item => {
+                        html += `
+                            <div class="item feeling-item" style="margin-bottom:8px;padding:10px;">
+                                <div class="item-header">
+                                    <span class="item-time">${fmtTime(item.createdAt)}</span>
+                                </div>
+                                <div class="item-content">${item.content}</div>
+                                ${item.tags && item.tags.length ? `<div class="item-tags">${item.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        // 切换月份
+        function changeCalendarMonth(delta) {
+            currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() + delta);
+            renderMoodCalendar();
+        }
+        
+        // 选择日期
+        function selectMoodDate(dateKey, hasRecord) {
+            if (!hasRecord) {
+                selectedDate = null;
+            } else {
+                selectedDate = selectedDate === dateKey ? null : dateKey;
+            }
+            renderMoodCalendar();
+        }
+        
         function renderFeelings() {
             const container = document.getElementById('feelingList');
             container.innerHTML = '';
@@ -1752,7 +1990,7 @@
                 actions.className = 'item-actions';
                 actions.style.opacity = '1';
                 actions.innerHTML = `
-                    <button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}')">删除</button>
+                    <button class="btn btn-danger btn-small" onclick="deleteFeeling('${item.id}', this)">删除</button>
                 `;
                 el.appendChild(actions);
                 
@@ -1808,22 +2046,31 @@
             const totalRecords = block.records.length;
             const firstTime = block.records.length > 0 ? block.records[0].time : block.createdAt;
             
+            // 默认折叠状态
+            const isCollapsed = totalRecords > 0;
+            
             blockEl.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                    <div>
-                        <h3 style="font-size:16px;margin-bottom:4px;">${block.name} ${isArchived ? '<span style="font-size:12px;color:var(--text-secondary);">(已归档)</span>' : ''}</h3>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;cursor:pointer;" onclick="toggleBlockRecords('${block.id}')">
+                    <div style="flex:1;">
+                        <h3 style="font-size:16px;margin-bottom:4px;display:flex;align-items:center;gap:8px;">
+                            ${block.name} ${isArchived ? '<span style="font-size:12px;color:var(--text-secondary);">(已归档)</span>' : ''}
+                            <span style="font-size:12px;color:var(--text-secondary);">${isCollapsed ? '▶' : '▼'}</span>
+                        </h3>
                         <div style="font-size:12px;color:var(--text-secondary);">
                             共练习 ${totalRecords} 次 | 初次：${fmtTime(firstTime)}
+                            ${totalRecords > 0 ? `<span style="margin-left:12px;">最近：${fmtTime(block.records[block.records.length-1].time)}</span>` : ''}
                         </div>
                     </div>
                     <div style="display:flex;gap:8px;">
-                        ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="editBlockName('${block.id}')">修改名称</button>` : ''}
-                        ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="unarchiveBlock('${block.id}')">恢复</button>`}
-                        <button class="btn btn-small btn-danger" onclick="deleteBlock('${block.id}')">删除</button>
+                        ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editBlockName('${block.id}')">修改名称</button>` : ''}
+                        ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="event.stopPropagation();archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();unarchiveBlock('${block.id}')">恢复</button>`}
+                        <button class="btn btn-small btn-danger" onclick="event.stopPropagation();deleteBlock('${block.id}')">删除</button>
                     </div>
                 </div>
-                <div class="practice-records" id="records-${block.id}"></div>
-                ${!isArchived ? `<div style="margin-top:12px;">
+                <div class="practice-records" id="records-${block.id}" style="display:${isCollapsed ? 'none' : 'block'};margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+                    ${totalRecords === 0 ? '<div class="empty-tip">暂无练习记录</div>' : ''}
+                </div>
+                ${!isArchived ? `<div style="margin-top:12px;${isCollapsed ? 'display:none;' : ''}">
                     <input type="text" class="input" placeholder="新增练习记录..." id="new-record-${block.id}" onkeypress="if(event.key==='Enter')addPracticeRecord('${block.id}')">
                     <button class="btn btn-small btn-primary" style="margin-left:8px;" onclick="addPracticeRecord('${block.id}')">添加</button>
                 </div>` : ''}
@@ -1833,20 +2080,47 @@
             
             // 渲染记录列表
             const recordsContainer = blockEl.querySelector(`#records-${block.id}`);
-            block.records.slice().reverse().forEach(record => {
-                const recordEl = document.createElement('div');
-                recordEl.className = 'item feeling-item';
-                recordEl.innerHTML = `
-                    <div class="item-header">
-                        <span class="item-time">${fmtTime(record.time)}</span>
-                    </div>
-                    <div class="item-content">${record.content}</div>
-                    <div class="item-tags">
-                        ${record.tags && record.tags.length ? record.tags.map(t => `<span class="item-tag">${t}</span>`).join('') : ''}
-                    </div>
-                `;
-                recordsContainer.appendChild(recordEl);
-            });
+            if (totalRecords > 0) {
+                block.records.slice().reverse().forEach((record, index) => {
+                    const recordEl = document.createElement('div');
+                    recordEl.className = 'item feeling-item';
+                    recordEl.style.marginBottom = '8px';
+                    recordEl.style.padding = '12px';
+                    recordEl.style.background = 'var(--bg-secondary)';
+                    recordEl.style.borderRadius = '6px';
+                    recordEl.innerHTML = `
+                        <div class="item-header">
+                            <span class="item-type feeling">第${totalRecords - index}次</span>
+                            <span class="item-time">${fmtTime(record.time)}</span>
+                        </div>
+                        <div class="item-content" style="margin-top:8px;">${record.content}</div>
+                        ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+                    `;
+                    recordsContainer.appendChild(recordEl);
+                });
+            }
+        }
+        
+        // 切换板块记录的展开/折叠
+        function toggleBlockRecords(blockId) {
+            const recordsContainer = document.getElementById(`records-${blockId}`);
+            if (!recordsContainer) return;
+            
+            const isHidden = recordsContainer.style.display === 'none';
+            recordsContainer.style.display = isHidden ? 'block' : 'none';
+            
+            // 更新箭头图标
+            const cardEl = recordsContainer.parentElement;
+            const arrowSpan = cardEl.querySelector('h3 span:last-child');
+            if (arrowSpan) {
+                arrowSpan.textContent = isHidden ? '▼' : '▶';
+            }
+            
+            // 显示/隐藏新增输入框
+            const inputDiv = cardEl.querySelector('div:last-child');
+            if (inputDiv && !cardEl.querySelector('.btn-warning').textContent.includes('恢复')) {
+                inputDiv.style.display = isHidden ? 'none' : 'block';
+            }
         }
 
         function addPracticeRecord(blockId) {
@@ -2088,7 +2362,7 @@
                 actions.className = 'item-actions';
                 actions.style.opacity = '1';
                 actions.innerHTML = `
-                    <button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}')">删除</button>
+                    <button class="btn btn-danger btn-small" onclick="deleteOldFeeling('${item.id}', this)">删除</button>
                 `;
                 el.appendChild(actions);
                 
@@ -2193,6 +2467,88 @@
             saveData();
             render();
             showBanner('任务已删除', 'error');
+        }
+        
+        // 删除感受（带气泡确认）
+        function deleteFeeling(id, btnElement) {
+            // 安全检查：确保 btnElement 存在且有 parentElement
+            if (!btnElement || !btnElement.parentElement) {
+                // 如果按钮元素无效，使用传统的 confirm 弹窗
+                if (!confirm('确定要删除这个感受吗？')) return;
+                data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
+                saveData();
+                render();
+                return;
+            }
+            
+            // 在删除按钮旁边显示确认提示
+            const container = btnElement.parentElement;
+            // 检查是否已经有确认提示，避免重复添加
+            if (container.querySelector('.delete-confirm')) return;
+            
+            const confirmDiv = document.createElement('div');
+            confirmDiv.className = 'delete-confirm';
+            confirmDiv.innerHTML = `
+                <span>确定要删除吗？</span>
+                <button class="btn btn-small btn-danger" onclick="confirmDeleteFeeling('${id}', this)">确认</button>
+                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
+            `;
+            container.appendChild(confirmDiv);
+            
+            // 3 秒后自动消失
+            setTimeout(() => {
+                if (confirmDiv.parentElement) {
+                    confirmDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function confirmDeleteFeeling(id, btnElement) {
+            data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
+            saveData();
+            render();
+            showBanner('感受已删除', 'error');
+        }
+        
+        // 删除往期感受（带气泡确认）
+        function deleteOldFeeling(id, btnElement) {
+            // 安全检查：确保 btnElement 存在且有 parentElement
+            if (!btnElement || !btnElement.parentElement) {
+                // 如果按钮元素无效，使用传统的 confirm 弹窗
+                if (!confirm('确定要删除这个感受吗？')) return;
+                data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
+                saveData();
+                render();
+                return;
+            }
+            
+            // 在删除按钮旁边显示确认提示
+            const container = btnElement.parentElement;
+            // 检查是否已经有确认提示，避免重复添加
+            if (container.querySelector('.delete-confirm')) return;
+            
+            const confirmDiv = document.createElement('div');
+            confirmDiv.className = 'delete-confirm';
+            confirmDiv.innerHTML = `
+                <span>确定要删除吗？</span>
+                <button class="btn btn-small btn-danger" onclick="confirmDeleteOldFeeling('${id}', this)">确认</button>
+                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
+            `;
+            container.appendChild(confirmDiv);
+            
+            // 3 秒后自动消失
+            setTimeout(() => {
+                if (confirmDiv.parentElement) {
+                    confirmDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function confirmDeleteOldFeeling(id, btnElement) {
+            data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
+            saveData();
+            render();
+            showBanner('感受已删除', 'error');
         }
 
         function openEdit(id) {
