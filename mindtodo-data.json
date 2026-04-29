@@ -477,24 +477,28 @@
       "type": "task",
       "content": "发邮件",
       "createdAt": "2026-04-29T06:57:39.687Z",
-      "updatedAt": "2026-04-29T06:57:39.687Z",
+      "updatedAt": "2026-04-29T07:21:42.620Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mojozaoaf15q8",
+      "doneAt": "2026-04-29T07:21:42.620Z"
     },
     {
       "id": "mojpsirtkpb74",
       "type": "task",
       "content": "发送邮件更新了定级备案资产清单",
       "createdAt": "2026-04-29T07:09:24.617Z",
-      "updatedAt": "2026-04-29T07:09:35.600Z",
+      "updatedAt": "2026-04-29T07:33:46.112Z",
       "tags": [],
-      "done": false,
-      "dueTime": "15",
+      "done": true,
+      "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mojozaoaf15q8",
+      "doneAt": "2026-04-29T07:33:46.112Z"
     }
   ],
   "normalFeelings": [
@@ -547,12 +551,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mojozaoaf15q8",
-      "name": "三点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -565,6 +564,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T06:57:45.630Z"
+    "lastSync": "2026-04-29T07:09:52.889Z"
   }
 }
