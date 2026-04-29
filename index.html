@@ -962,18 +962,19 @@
 
     <script>
     // ============ Data ============
-    let data = {
-        tasks: [], // 待办任务
-        normalFeelings: [], // 普通感受
-        practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
-        slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
-        commonTaskTags: ['生活','工作'],
-        commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
-        github: null,
-        firstLoaded: false,
-        title: '🌿 心事与任务',
-        activeTab: 'feeling' // 'feeling' 或 'task'
-    };
+     let data = {
+         tasks: [], // 待办任务
+         normalFeelings: [], // 普通感受
+         practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
+         slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
+         commonTaskTags: ['生活','工作'],
+         commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
+         github: null,
+         firstLoaded: false,
+         title: '🌿 心事与任务',
+         activeTab: 'feeling', // 'feeling' 或 'task'
+         expandedBlocks: {} // 存储板块的展开/折叠状态 {blockId: true/false}
+     };
         let editingId = null;
         let recording = null;
         let recognition = null;
@@ -2099,12 +2100,13 @@
                 blockEl.style.background = 'var(--bg-secondary)';
             }
             
-            // 计算统计信息
-            const totalRecords = block.records.length;
-            const firstTime = block.records.length > 0 ? block.records[0].time : block.createdAt;
-            
-            // 默认折叠状态
-            const isCollapsed = totalRecords > 0;
+              // 计算统计信息
+              const totalRecords = block.records.length;
+              const firstTime = block.records.length > 0 ? block.records[0].time : block.createdAt;
+              
+              // 使用存储的展开/折叠状态，如果没有则默认折叠（有记录时）
+              const isExpanded = data.expandedBlocks[block.id] !== undefined ? data.expandedBlocks[block.id] : (totalRecords === 0);
+              const isCollapsed = !isExpanded;
             
             blockEl.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -2191,70 +2193,82 @@
             }
         }
         
-        // 快速添加练习记录
-        function quickAddPractice(blockId) {
-            const input = document.getElementById(`quick-input-${blockId}`);
-            const content = input.value.trim();
-            if (!content) return;
-            
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (block) {
-                // 自动计算是第几次练习
-                const recordNumber = block.records.length + 1;
-                block.records.push({
-                    id: genId(),
-                    content: `第${recordNumber}次练习：${content}`,
-                    time: nowStr()
-                });
-                input.value = '';
-                toggleQuickAdd(blockId); // 关闭快速添加区域
-                saveData();
-                render();
-                showBanner('练习记录已添加', 'success');
-            }
-        }
+          // 快速添加练习记录
+          function quickAddPractice(blockId) {
+              const input = document.getElementById(`quick-input-${blockId}`);
+              const content = input.value.trim();
+              if (!content) return;
+              
+              const block = data.practiceBlocks.find(b => b.id === blockId);
+              if (block) {
+                  // 自动计算是第几次练习
+                  const recordNumber = block.records.length + 1;
+                  block.records.push({
+                      id: genId(),
+                      content: `第${recordNumber}次练习：${content}`,
+                      time: nowStr()
+                  });
+                  input.value = '';
+                  
+                  // 保持板块展开状态
+                  data.expandedBlocks[blockId] = true;
+                  
+                  toggleQuickAdd(blockId); // 关闭快速添加区域
+                  saveData();
+                  render();
+                  showBanner('练习记录已添加', 'success');
+              }
+          }
         
-        // 切换板块记录的展开/折叠
-        function toggleBlockRecords(blockId) {
-            const recordsContainer = document.getElementById(`records-${blockId}`);
-            if (!recordsContainer) return;
-            
-            const isHidden = recordsContainer.style.display === 'none';
-            recordsContainer.style.display = isHidden ? 'block' : 'none';
-            
-            // 更新箭头图标
-            const cardEl = recordsContainer.parentElement;
-            const arrowSpan = cardEl.querySelector('h3 span:last-child');
-            if (arrowSpan) {
-                arrowSpan.textContent = isHidden ? '▼' : '▶';
-            }
-            
-            // 显示/隐藏新增输入框
-            const inputDiv = cardEl.querySelector('div:last-child');
-            if (inputDiv && !cardEl.querySelector('.btn-warning').textContent.includes('恢复')) {
-                inputDiv.style.display = isHidden ? 'none' : 'block';
-            }
-        }
+          // 切换板块记录的展开/折叠
+          function toggleBlockRecords(blockId) {
+              const recordsContainer = document.getElementById(`records-${blockId}`);
+              if (!recordsContainer) return;
+              
+              const isHidden = recordsContainer.style.display === 'none';
+              recordsContainer.style.display = isHidden ? 'block' : 'none';
+              
+              // 更新存储的展开/折叠状态
+              data.expandedBlocks[blockId] = isHidden;
+              saveData();
+              
+              // 更新箭头图标
+              const cardEl = recordsContainer.parentElement;
+              const arrowSpan = cardEl.querySelector('h3 span:last-child');
+              if (arrowSpan) {
+                  arrowSpan.textContent = isHidden ? '▼' : '▶';
+              }
+              
+              // 显示/隐藏新增输入框
+              const inputDiv = cardEl.querySelector('div:last-child');
+              if (inputDiv && !cardEl.querySelector('.btn-warning').textContent.includes('恢复')) {
+                  inputDiv.style.display = isHidden ? 'none' : 'block';
+              }
+          }
 
-        function addPracticeRecord(blockId) {
-            const input = document.getElementById(`new-record-${blockId}`);
-            const content = input.value.trim();
-            if (!content) return;
-            
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (block) {
-                // 自动计算是第几次练习
-                const recordNumber = block.records.length + 1;
-                block.records.push({
-                    id: genId(),
-                    content: `第${recordNumber}次练习：${content}`,
-                    time: nowStr()
-                });
-                input.value = '';
-                saveData();
-                render();
-            }
-        }
+           function addPracticeRecord(blockId) {
+               const input = document.getElementById(`new-record-${blockId}`);
+               const content = input.value.trim();
+               if (!content) return;
+               
+               const block = data.practiceBlocks.find(b => b.id === blockId);
+               if (block) {
+                   // 自动计算是第几次练习
+                   const recordNumber = block.records.length + 1;
+                   block.records.push({
+                       id: genId(),
+                       content: `第${recordNumber}次练习：${content}`,
+                       time: nowStr()
+                   });
+                   input.value = '';
+                   
+                   // 保持板块展开状态
+                   data.expandedBlocks[blockId] = true;
+                   
+                   saveData();
+                   render();
+               }
+           }
         
         // 编辑练习记录
         function editPracticeRecord(blockId, recordId, btnElement) {
@@ -2503,32 +2517,36 @@
                         }
                     }
                     break;
-                 case 'practice-record':
-                     console.log('处理 practice-record 删除:', { id, extraParam });
-                     const block = data.practiceBlocks.find(b => b.id === id);
-                     console.log('找到的板块:', block);
-                     if (block && extraParam !== null) {
-                         // extraParam 现在是记录 ID，而不是记录编号
-                         const recordId = extraParam;
-                         console.log('要删除的记录 ID:', recordId);
-                         console.log('板块中的记录:', block.records);
-                         const recordIndex = block.records.findIndex(r => r.id === recordId);
-                         console.log('找到的记录索引:', recordIndex);
-                         if (recordIndex !== -1) {
-                             block.records.splice(recordIndex, 1);
-                             // 重新编号所有记录
-                             block.records.forEach((rec, idx) => {
-                                 const newNum = block.records.length - idx;
-                                 rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
-                             });
-                             msg = '练习记录已删除';
-                             console.log('删除成功，消息:', msg);
-                         } else {
-                             console.log('未找到记录');
-                         }
-                     } else {
-                         console.log('板块不存在或 extraParam 为空');
-                     }
+                  case 'practice-record':
+                      console.log('处理 practice-record 删除:', { id, extraParam });
+                      const block = data.practiceBlocks.find(b => b.id === id);
+                      console.log('找到的板块:', block);
+                      if (block && extraParam !== null) {
+                          // extraParam 现在是记录 ID，而不是记录编号
+                          const recordId = extraParam;
+                          console.log('要删除的记录 ID:', recordId);
+                          console.log('板块中的记录:', block.records);
+                          const recordIndex = block.records.findIndex(r => r.id === recordId);
+                          console.log('找到的记录索引:', recordIndex);
+                          if (recordIndex !== -1) {
+                              block.records.splice(recordIndex, 1);
+                              // 重新编号所有记录
+                              block.records.forEach((rec, idx) => {
+                                  const newNum = block.records.length - idx;
+                                  rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
+                              });
+                              
+                              // 保持板块展开状态
+                              data.expandedBlocks[id] = true;
+                              
+                              msg = '练习记录已删除';
+                              console.log('删除成功，消息:', msg);
+                          } else {
+                              console.log('未找到记录');
+                          }
+                      } else {
+                          console.log('板块不存在或 extraParam 为空');
+                      }
                     break;
             }
             if (msg) {
