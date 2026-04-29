@@ -2171,13 +2171,31 @@
                             <span class="item-time">${fmtTime(record.time)}</span>
                             <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
                         </div>
-                        <div class="item-content" style="margin-top:8px; cursor: pointer; padding: 4px; border-radius: 4px;" onclick="window.editPracticeRecordInline('${block.id}', '${record.id}', this, event)" title="点击编辑">${record.content}</div>
+                           <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px;">
+                               <textarea
+                                      style="flex:1; border:none; background:transparent; font-size:14px; font-family:inherit; padding:4px 6px; width:100%; resize:none; overflow-y:hidden; min-height:24px; line-height:1.5; box-sizing:border-box; display:block;"
+                                      onchange="window.updatePracticeRecordContent('${block.id}', '${record.id}', this.value)"
+                                      onblur="window.updatePracticeRecordContent('${block.id}', '${record.id}', this.value)"
+                                      oninput="window.autoResizeTextarea(this)"
+                                      rows="1">${record.content.replace(/第\d+次练习：/, '')}</textarea>
+                           </div>
                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
                     `;
                     recordsContainer.appendChild(recordEl);
-                });
-            }
-        }
+                 });
+             }
+             
+             // 初始化所有 textarea 的高度
+             setTimeout(() => {
+                 const textareas = container.querySelectorAll('textarea');
+                 textareas.forEach(textarea => {
+                     // 确保内容已加载
+                     if (textarea.value) {
+                         autoResizeTextarea(textarea);
+                     }
+                 });
+             }, 100);
+         }
         
         // 切换快速添加区域的显示/隐藏
         function toggleQuickAdd(blockId) {
@@ -2287,144 +2305,80 @@
                 record.content = `第${recordNumber}次练习：${newContent.trim()}`;
                 saveData();
                 render();
-            }
-        }
-
-        // HTML 转义函数
-        function escapeHtml(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return text.replace(/[&<>"']/g, char => map[char]);
-        }
-
-        // 点击内容直接编辑练习记录
-        window.editPracticeRecordInline = function(blockId, recordId, contentDiv, event) {
-            if (event) event.stopPropagation();
-            
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (!block) return;
-            const record = block.records.find(r => r.id === recordId);
-            if (!record) return;
-            
-            const currentText = record.content;
-            
-            // 创建可编辑区域容器
-            const container = document.createElement('div');
-            container.style.width = '100%';
-            
-            // 创建输入框
-            const input = document.createElement('textarea');
-            input.value = currentText;
-            input.style.width = '100%';
-            input.style.minHeight = '60px';
-            input.style.padding = '8px';
-            input.style.border = '1px solid var(--primary)';
-            input.style.borderRadius = '4px';
-            input.style.fontFamily = 'inherit';
-            input.style.fontSize = '14px';
-            input.style.resize = 'vertical';
-            input.style.boxSizing = 'border-box';
-            
-            // 创建按钮容器
-            const buttonDiv = document.createElement('div');
-            buttonDiv.style.display = 'flex';
-            buttonDiv.style.gap = '8px';
-            buttonDiv.style.marginTop = '8px';
-            
-            // 保存按钮
-            const saveBtn = document.createElement('button');
-            saveBtn.className = 'btn btn-small btn-primary';
-            saveBtn.textContent = '保存';
-            saveBtn.style.cursor = 'pointer';
-            
-            // 取消按钮
-            const cancelBtn = document.createElement('button');
-            cancelBtn.className = 'btn btn-small btn-secondary';
-            cancelBtn.textContent = '取消';
-            cancelBtn.style.cursor = 'pointer';
-            
-            // 保存函数
-            const doSave = () => {
-                const newContent = input.value.trim();
-                if (newContent && newContent !== record.content) {
-                    record.content = newContent;
-                    saveData();
-                    // 计算次数
-                    const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
-                    const currentIndex = allRecords.findIndex(r => r.id === recordId);
-                    const recordNumber = allRecords.length - currentIndex;
-                    // 更新显示
-                    contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(newContent)}`;
-                    contentDiv.style.cursor = 'pointer';
-                    contentDiv.title = '点击编辑';
-                    showToast('修改成功');
-                } else {
-                    // 取消编辑，恢复原状
-                    const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
-                    const currentIndex = allRecords.findIndex(r => r.id === recordId);
-                    const recordNumber = allRecords.length - currentIndex;
-                    contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(record.content)}`;
-                    contentDiv.style.cursor = 'pointer';
-                    contentDiv.title = '点击编辑';
+             }
+         }
+ 
+         // HTML 转义函数
+         function escapeHtml(text) {
+             const map = {
+                 '&': '&amp;',
+                 '<': '&lt;',
+                 '>': '&gt;',
+                 '"': '&quot;',
+                 "'": '&#039;'
+             };
+             return text.replace(/[&<>"']/g, char => map[char]);
+         }
+ 
+           // 自动调整 textarea 高度
+           window.autoResizeTextarea = function(textarea) {
+               // 保存当前值和滚动位置
+               const value = textarea.value;
+               const scrollTop = textarea.scrollTop;
+               
+               // 先重置高度
+               textarea.style.height = 'auto';
+               
+               // 设置为内容高度
+               const newHeight = textarea.scrollHeight;
+               textarea.style.height = newHeight + 'px';
+               
+               // 恢复滚动位置
+               textarea.scrollTop = scrollTop;
+               
+               // 确保值没有丢失
+               if (textarea.value !== value) {
+                   textarea.value = value;
+               }
+           };
+         
+         // 更新练习记录内容
+         window.updatePracticeRecordContent = function(blockId, recordId, newContent) {
+                      const block = data.practiceBlocks.find(b => b.id === blockId);
+                      if (!block) return;
+                      const record = block.records.find(r => r.id === recordId);
+                      if (!record) return;
+                      
+                      // 获取记录编号
+                      const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
+                      const currentIndex = allRecords.findIndex(r => r.id === recordId);
+                      const recordNumber = allRecords.length - currentIndex;
+                      
+                      // 更新内容，保留"第X次练习："前缀
+                      if (newContent && newContent.trim()) {
+                          record.content = `第${recordNumber}次练习：${newContent.trim()}`;
+                         record.updatedAt = nowStr();
+                         saveData();
+                         showToast('修改成功');
+                     }
+                 };
+                 
+                 // 点击内容直接编辑练习记录（已弃用，现在使用输入框直接编辑）
+                 window.editPracticeRecordInline = function(blockId, recordId, contentDiv, event) {
+                     // 这个函数已经不再使用，保留是为了兼容性
+                     console.log('editPracticeRecordInline 已弃用，请使用输入框直接编辑');
+                 };
+                
+                function editBlockName(blockId) {
+                    const block = data.practiceBlocks.find(b => b.id === blockId);
+                    if (!block) return;
+                    const newName = prompt('请输入新的板块名称:', block.name);
+                    if (newName && newName.trim()) {
+                        block.name = newName.trim();
+                        saveData();
+                        render();
+                    }
                 }
-            };
-            
-            saveBtn.onclick = function(e) {
-                e.stopPropagation();
-                doSave();
-            };
-            
-            cancelBtn.onclick = function(e) {
-                e.stopPropagation();
-                const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
-                const currentIndex = allRecords.findIndex(r => r.id === recordId);
-                const recordNumber = allRecords.length - currentIndex;
-                contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(record.content)}`;
-                contentDiv.style.cursor = 'pointer';
-                contentDiv.title = '点击编辑';
-            };
-            
-            buttonDiv.appendChild(saveBtn);
-            buttonDiv.appendChild(cancelBtn);
-            
-            container.appendChild(input);
-            container.appendChild(buttonDiv);
-            
-            // 替换 contentDiv 的内容
-            contentDiv.innerHTML = '';
-            contentDiv.appendChild(container);
-            contentDiv.style.cursor = 'default';
-            contentDiv.title = '';
-            
-            // 聚焦到输入框
-            setTimeout(() => input.focus(), 50);
-            
-            // 支持 Ctrl+Enter 保存
-            input.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.key === 'Enter') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    doSave();
-                }
-            });
-        }
-        
-        function editBlockName(blockId) {
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (!block) return;
-            const newName = prompt('请输入新的板块名称:', block.name);
-            if (newName && newName.trim()) {
-                block.name = newName.trim();
-                saveData();
-                render();
-            }
-        }
-
           // 统一的删除确认函数
           function showDeleteConfirm(id, type, btnElement, extraParam = null) {
               console.log('showDeleteConfirm 被调用:', { id, type, btnElement, extraParam });
