@@ -1547,7 +1547,7 @@
             if (item.type === 'task' && !item.unknown && !item.placedIn && !item.done) {
                 actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
             }
-            actionButtons += `<button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}')">删除</button>`;
+            actionButtons += `<button class="btn btn-danger btn-small" onclick="deleteItem('${item.id}', this)">删除</button>`;
             actions.innerHTML = actionButtons;
             el.appendChild(actions);
 
