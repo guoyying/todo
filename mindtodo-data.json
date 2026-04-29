@@ -619,6 +619,17 @@
       "createdAt": "2026-04-29T13:10:28.802Z",
       "useCount": 0,
       "tags": []
+    },
+    {
+      "id": "mok6fh3td5frj",
+      "content": "工具本身可能带来新的适配问题",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojucmjpeimza",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T14:55:09.401Z",
+      "useCount": 0,
+      "tags": []
     }
   ],
   "aiConfig": {
