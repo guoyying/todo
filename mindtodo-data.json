@@ -220,7 +220,7 @@
       "type": "task",
       "content": "拆除马场的光路",
       "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-29T09:11:43.388Z",
+      "updatedAt": "2026-04-29T09:51:36.391Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -230,7 +230,7 @@
           "id": "moi9ac069jsj7",
           "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
           "estimatedTime": "15min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_moju5h19bscd0"
         }
       ]
@@ -499,6 +499,18 @@
       "subtasks": [],
       "placedIn": "slot_moju5h19bscd0",
       "doneAt": "2026-04-29T09:42:46.873Z"
+    },
+    {
+      "id": "mojvlvi0y9l3t",
+      "type": "task",
+      "content": "看下奥普泰50端口是否关闭or开着的。",
+      "createdAt": "2026-04-29T09:52:12.216Z",
+      "updatedAt": "2026-04-29T09:52:12.216Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -557,12 +569,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_moju5h19bscd0",
-      "name": "下班前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -575,6 +582,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T09:40:16.203Z"
+    "lastSync": "2026-04-29T09:42:52.984Z"
   }
 }
