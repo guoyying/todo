@@ -424,12 +424,13 @@
       "type": "task",
       "content": "整理算力的照片和修改越秀设备的归属",
       "createdAt": "2026-04-29T03:35:35.060Z",
-      "updatedAt": "2026-04-29T03:54:16.738Z",
+      "updatedAt": "2026-04-29T07:50:55.405Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "18min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:50:55.405Z"
     },
     {
       "id": "mojihtd6ludni",
@@ -449,24 +450,26 @@
       "type": "task",
       "content": "soc删除退网资产",
       "createdAt": "2026-04-29T03:54:29.721Z",
-      "updatedAt": "2026-04-29T03:54:29.721Z",
+      "updatedAt": "2026-04-29T07:51:00.523Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "25min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:51:00.523Z"
     },
     {
       "id": "mojj2vudafbt4",
       "type": "task",
       "content": "我想在板块练习每一项记录里有个按钮可以记录练习，点击确认之后就记录为第n次。我也希望板块小名称有已有的板块小名称下拉树选择。板块练习，我可以编辑或删除每一次的内容。",
       "createdAt": "2026-04-29T04:01:30.805Z",
-      "updatedAt": "2026-04-29T04:24:01.269Z",
+      "updatedAt": "2026-04-29T07:51:07.189Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:51:07.189Z"
     }
   ],
   "normalFeelings": [
