@@ -2169,7 +2169,7 @@
                             <span class="item-time">${fmtTime(record.time)}</span>
                             <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
                         </div>
-                        <div class="item-content" style="margin-top:8px; cursor: pointer; padding: 4px; border-radius: 4px;" onclick="editPracticeRecordInline('${block.id}', '${record.id}', this)" title="点击编辑">${record.content}</div>
+                        <div class="item-content" style="margin-top:8px; cursor: pointer; padding: 4px; border-radius: 4px;" onclick="window.editPracticeRecordInline('${block.id}', '${record.id}', this, event)" title="点击编辑">${record.content}</div>
                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
                     `;
                     recordsContainer.appendChild(recordEl);
@@ -2275,17 +2275,33 @@
                 render();
             }
         }
-        
+
+        // HTML 转义函数
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, char => map[char]);
+        }
+
         // 点击内容直接编辑练习记录
-        function editPracticeRecordInline(blockId, recordId, contentDiv) {
+        window.editPracticeRecordInline = function(blockId, recordId, contentDiv, event) {
+            if (event) event.stopPropagation();
+            
             const block = data.practiceBlocks.find(b => b.id === blockId);
             if (!block) return;
             const record = block.records.find(r => r.id === recordId);
             if (!record) return;
             
-            // 创建可编辑区域
-            const originalContent = contentDiv.innerHTML;
             const currentText = record.content;
+            
+            // 创建可编辑区域容器
+            const container = document.createElement('div');
+            container.style.width = '100%';
             
             // 创建输入框
             const input = document.createElement('textarea');
@@ -2298,6 +2314,7 @@
             input.style.fontFamily = 'inherit';
             input.style.fontSize = '14px';
             input.style.resize = 'vertical';
+            input.style.boxSizing = 'border-box';
             
             // 创建按钮容器
             const buttonDiv = document.createElement('div');
@@ -2309,51 +2326,78 @@
             const saveBtn = document.createElement('button');
             saveBtn.className = 'btn btn-small btn-primary';
             saveBtn.textContent = '保存';
-            saveBtn.onclick = function(e) {
-                e.stopPropagation();
-                const newContent = input.value.trim();
-                if (newContent && newContent !== record.content) {
-                    record.content = newContent;
-                    saveData();
-                    render();
-                } else {
-                    contentDiv.innerHTML = originalContent;
-                }
-            };
+            saveBtn.style.cursor = 'pointer';
             
             // 取消按钮
             const cancelBtn = document.createElement('button');
             cancelBtn.className = 'btn btn-small btn-secondary';
             cancelBtn.textContent = '取消';
+            cancelBtn.style.cursor = 'pointer';
+            
+            // 保存函数
+            const doSave = () => {
+                const newContent = input.value.trim();
+                if (newContent && newContent !== record.content) {
+                    record.content = newContent;
+                    saveData();
+                    // 计算次数
+                    const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
+                    const currentIndex = allRecords.findIndex(r => r.id === recordId);
+                    const recordNumber = allRecords.length - currentIndex;
+                    // 更新显示
+                    contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(newContent)}`;
+                    contentDiv.style.cursor = 'pointer';
+                    contentDiv.title = '点击编辑';
+                    showToast('修改成功');
+                } else {
+                    // 取消编辑，恢复原状
+                    const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
+                    const currentIndex = allRecords.findIndex(r => r.id === recordId);
+                    const recordNumber = allRecords.length - currentIndex;
+                    contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(record.content)}`;
+                    contentDiv.style.cursor = 'pointer';
+                    contentDiv.title = '点击编辑';
+                }
+            };
+            
+            saveBtn.onclick = function(e) {
+                e.stopPropagation();
+                doSave();
+            };
+            
             cancelBtn.onclick = function(e) {
                 e.stopPropagation();
-                contentDiv.innerHTML = originalContent;
+                const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
+                const currentIndex = allRecords.findIndex(r => r.id === recordId);
+                const recordNumber = allRecords.length - currentIndex;
+                contentDiv.innerHTML = `<strong>第${recordNumber}次练习：</strong>${escapeHtml(record.content)}`;
+                contentDiv.style.cursor = 'pointer';
+                contentDiv.title = '点击编辑';
             };
             
             buttonDiv.appendChild(saveBtn);
             buttonDiv.appendChild(cancelBtn);
             
-            // 替换内容
+            container.appendChild(input);
+            container.appendChild(buttonDiv);
+            
+            // 替换 contentDiv 的内容
             contentDiv.innerHTML = '';
-            contentDiv.appendChild(input);
-            contentDiv.appendChild(buttonDiv);
+            contentDiv.appendChild(container);
+            contentDiv.style.cursor = 'default';
+            contentDiv.title = '';
             
             // 聚焦到输入框
-            setTimeout(() => input.focus(), 100);
+            setTimeout(() => input.focus(), 50);
             
             // 支持 Ctrl+Enter 保存
             input.addEventListener('keydown', function(e) {
                 if (e.ctrlKey && e.key === 'Enter') {
                     e.preventDefault();
                     e.stopPropagation();
-                    saveBtn.click();
+                    doSave();
                 }
             });
-            
-            // 阻止事件冒泡
-            input.onclick = function(e) {
-                e.stopPropagation();
-            };
         }
         
         function editBlockName(blockId) {
@@ -2835,15 +2879,37 @@
             }
         }
 
-        // 显示撤销提示气泡
-        let undoToastTimer = null;
-        function showUndoToast(type, itemId, subId) {
-            const toast = document.getElementById('undoToast');
-            const messageEl = document.getElementById('undoToastMessage');
-            const btn = document.getElementById('undoToastBtn');
-            
-            messageEl.textContent = '已返回待办，点击撤销恢复';
-            toast.classList.remove('hidden');
+         // 显示简单提示气泡
+         let toastTimer = null;
+         function showToast(message, duration = 3000) {
+             const toast = document.getElementById('undoToast');
+             const messageEl = document.getElementById('undoToastMessage');
+             const btn = document.getElementById('undoToastBtn');
+             
+             messageEl.textContent = message;
+             btn.style.display = 'none'; // 隐藏撤销按钮
+             toast.classList.remove('hidden');
+             
+             // 清除之前的定时器
+             if (toastTimer) clearTimeout(toastTimer);
+             
+             // 指定时间后自动消失
+             toastTimer = setTimeout(() => {
+                 toast.classList.add('hidden');
+                 btn.style.display = 'inline-flex'; // 恢复撤销按钮显示
+             }, duration);
+         }
+ 
+         // 显示撤销提示气泡
+         let undoToastTimer = null;
+         function showUndoToast(type, itemId, subId) {
+             const toast = document.getElementById('undoToast');
+             const messageEl = document.getElementById('undoToastMessage');
+             const btn = document.getElementById('undoToastBtn');
+             
+             messageEl.textContent = '已返回待办，点击撤销恢复';
+             btn.style.display = 'inline-flex'; // 确保撤销按钮可见
+             toast.classList.remove('hidden');
             
             // 清除之前的定时器
             if (undoToastTimer) clearTimeout(undoToastTimer);
