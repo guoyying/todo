@@ -194,12 +194,13 @@
       "type": "task",
       "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
       "createdAt": "2026-04-28T06:20:40.334Z",
-      "updatedAt": "2026-04-28T06:21:39.698Z",
+      "updatedAt": "2026-04-29T01:04:16.627Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mojcah34acl0i"
     },
     {
       "id": "moi8moz3kqmea",
