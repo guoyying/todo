@@ -384,12 +384,13 @@
       "type": "task",
       "content": "退网过单",
       "createdAt": "2026-04-29T02:17:05.373Z",
-      "updatedAt": "2026-04-29T02:17:05.373Z",
+      "updatedAt": "2026-04-29T09:09:35.201Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "30min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-29T09:09:35.201Z"
     },
     {
       "id": "mojfdbicy03v1",
