@@ -1128,6 +1128,10 @@
                          </select>
                      </div>
                      <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">自定义提示词（可选）</label>
+                         <textarea id="customPromptInput" rows="2" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                     </div>
+                     <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">原始内容</label>
                          <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;"></div>
                      </div>
@@ -1150,7 +1154,7 @@
                      </div>
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择文本添加到弹药库</label>
-                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;border:1px dashed var(--border);cursor:pointer;" onclick="selectTextFromAiResult()">
+                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;border:1px dashed var(--border);cursor:default;">
                              点击选择润色结果中的文本...
                          </div>
                      </div>
@@ -1186,20 +1190,46 @@
                  <h3 style="margin:0;">💎 弹药库</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
              </div>
-             <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;">
-                 <div style="margin-bottom:16px;">
-                     <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                 </div>
-                 <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
-                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
-                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
-                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
-                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
-                 </div>
-                 <div id="ammoLibraryList">
-                     <!-- 动态生成弹药列表 -->
-                 </div>
-             </div>
+              <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;">
+                  <div style="margin-bottom:16px;">
+                      <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                  </div>
+                  <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+                      <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
+                      <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
+                      <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
+                      <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
+                      <button class="btn btn-small btn-primary" onclick="showAddAmmoForm()">+ 新增弹药</button>
+                  </div>
+                  
+                  <!-- 新增弹药表单 -->
+                  <div id="addAmmoForm" class="hidden" style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                      <div style="margin-bottom:12px;">
+                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
+                          <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                      </div>
+                      <div style="margin-bottom:12px;">
+                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">类型</label>
+                          <select id="newAmmoType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                              <option value="word">词汇</option>
+                              <option value="sentence">句子</option>
+                              <option value="paragraph">段落</option>
+                          </select>
+                      </div>
+                      <div style="margin-bottom:12px;">
+                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
+                          <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                      </div>
+                      <div style="display:flex;gap:8px;">
+                          <button class="btn btn-primary" onclick="addNewAmmo()">保存</button>
+                          <button class="btn btn-secondary" onclick="hideAddAmmoForm()">取消</button>
+                      </div>
+                  </div>
+                  
+                  <div id="ammoLibraryList">
+                      <!-- 动态生成弹药列表 -->
+                  </div>
+              </div>
          </div>
      </div>
  
@@ -4280,6 +4310,18 @@
          document.getElementById('aiCopyBtn').disabled = true;
          document.getElementById('addToAmmoBtn').disabled = true;
          document.getElementById('sessionAmmoList').innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
+         // 设置默认提示词到输入框
+         const defaultPromptText = `请对以下文本进行阅读理解和共情回应。
+ 
+ 1. 识别核心意图
+ 2. 共情与确认
+ 3. 提炼关键逻辑
+ 4. 价值升华
+ 
+ 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
+ 
+ 文本：[在此处输入你的文本]`;
+         document.getElementById('customPromptInput').value = defaultPromptText;
          
          // 填充模型选择器
          const modelSelect = document.getElementById('aiModelSelect');
@@ -4344,8 +4386,11 @@
          polishBtn.textContent = '润色中...';
          
          try {
+             // 获取自定义提示词
+             const customPrompt = document.getElementById('customPromptInput').value.trim();
+             
              // 调用AI API进行润色
-             const result = await callAiApi(currentAiContext.originalContent, modelId);
+             const result = await callAiApi(currentAiContext.originalContent, modelId, customPrompt);
              
              // 显示润色结果
              currentAiContext.polishedContent = result;
@@ -4367,23 +4412,42 @@
          }
      }
      
-      // 调用AI API
-      async function callAiApi(content, modelId) {
-          const model = data.aiConfig.models.find(m => m.id === modelId);
-          if (!model) {
-              throw new Error('未找到指定的模型');
-          }
-          
-           const prompt = `请对以下文本进行阅读理解和共情回应。
- 
- 1. 识别核心意图
- 2. 共情与确认
- 3. 提炼关键逻辑
- 4. 价值升华
- 
- 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
- 
- 文本：${content}`;
+       // 调用AI API
+       async function callAiApi(content, modelId, customPrompt = null) {
+           const model = data.aiConfig.models.find(m => m.id === modelId);
+           if (!model) {
+               throw new Error('未找到指定的模型');
+           }
+           
+           // 使用自定义提示词或默认提示词
+           const defaultPrompt = `请对以下文本进行阅读理解和共情回应。
+  
+  1. 识别核心意图
+  2. 共情与确认
+  3. 提炼关键逻辑
+  4. 价值升华
+  
+  文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
+  
+  文本：${content}`;
+            
+            // 处理自定义提示词：如果包含占位符，则替换为实际内容
+            let prompt;
+            if (customPrompt) {
+                // 检查是否包含占位符
+                if (customPrompt.includes('[在此处输入你的文本]') || customPrompt.includes('文本：')) {
+                    // 替换占位符为实际内容
+                    prompt = customPrompt.replace(/\[在此处输入你的文本\]/g, content).replace(/文本：[^\n]*$/gm, `文本：${content}`);
+                } else {
+                    // 如果没有占位符，直接追加内容
+                    prompt = customPrompt + `\n\n文本：${content}`;
+                }
+            } else {
+                prompt = defaultPrompt;
+            }
+            
+            // 保存默认提示词到全局变量，供UI显示使用
+            window.defaultPrompt = defaultPrompt;
           
           if (model.provider === 'openai') {
               return await callOpenAiApi(prompt, modelId);
@@ -4777,10 +4841,61 @@
          renderAmmoLibrary();
      }
      
-     // 关闭弹药库侧拉面板
-     function closeAmmoLibraryPanel() {
-         document.getElementById('ammoLibraryPanel').classList.add('hidden');
-     }
+      // 关闭弹药库侧拉面板
+      function closeAmmoLibraryPanel() {
+          document.getElementById('ammoLibraryPanel').classList.add('hidden');
+      }
+      
+      // 显示新增弹药表单
+      function showAddAmmoForm() {
+          document.getElementById('addAmmoForm').classList.remove('hidden');
+          document.getElementById('newAmmoContent').focus();
+      }
+      
+      // 隐藏新增弹药表单
+      function hideAddAmmoForm() {
+          document.getElementById('addAmmoForm').classList.add('hidden');
+          document.getElementById('newAmmoContent').value = '';
+          document.getElementById('newAmmoTags').value = '';
+      }
+      
+      // 手动新增弹药
+      function addNewAmmo() {
+          const content = document.getElementById('newAmmoContent').value.trim();
+          const type = document.getElementById('newAmmoType').value;
+          const tagsInput = document.getElementById('newAmmoTags').value;
+          const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
+          
+          if (!content) {
+              showToast('请输入弹药内容');
+              return;
+          }
+          
+          // 创建弹药项
+          const ammoItem = {
+              id: genId(),
+              content: content,
+              type: type,
+              sourceBlockId: null,
+              sourceRecordId: null,
+              sourceBlockName: '手动添加',
+              createdAt: nowStr(),
+              useCount: 0,
+              tags: tags
+          };
+          
+          // 添加到弹药库
+          data.ammoLibrary.push(ammoItem);
+          saveData();
+          
+          // 重新渲染弹药库
+          renderAmmoLibrary();
+          
+          // 隐藏表单并清空输入
+          hideAddAmmoForm();
+          
+          showToast('已添加到弹药库');
+      }
      
      // 渲染弹药库
      function renderAmmoLibrary() {
