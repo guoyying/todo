@@ -477,13 +477,14 @@
       "type": "task",
       "content": "三码过单",
       "createdAt": "2026-04-29T08:05:46.301Z",
-      "updatedAt": "2026-04-29T09:11:36.012Z",
+      "updatedAt": "2026-04-29T09:40:12.701Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moju5h19bscd0"
+      "placedIn": "slot_moju5h19bscd0",
+      "doneAt": "2026-04-29T09:40:12.701Z"
     },
     {
       "id": "moju3grtuj5bo",
