@@ -368,13 +368,14 @@
       "type": "task",
       "content": "60个网元查询资源系统状态，选出退网的",
       "createdAt": "2026-04-29T01:50:18.313Z",
-      "updatedAt": "2026-04-29T02:18:06.144Z",
+      "updatedAt": "2026-04-29T03:54:35.162Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss"
+      "placedIn": "slot_mojfdjcpfkmss",
+      "doneAt": "2026-04-29T03:54:35.162Z"
     },
     {
       "id": "mojfclelx6w8l",
@@ -489,12 +490,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mojfdjcpfkmss",
-      "name": "11点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -507,6 +503,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T03:52:04.010Z"
+    "lastSync": "2026-04-29T03:54:35.144Z"
   }
 }
