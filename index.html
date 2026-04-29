@@ -2171,30 +2171,14 @@
                             <span class="item-time">${fmtTime(record.time)}</span>
                             <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
                         </div>
-                           <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px;">
-                               <textarea
-                                      style="flex:1; border:none; background:transparent; font-size:14px; font-family:inherit; padding:4px 6px; width:100%; resize:none; overflow-y:hidden; min-height:24px; line-height:1.5; box-sizing:border-box; display:block;"
-                                      onchange="window.updatePracticeRecordContent('${block.id}', '${record.id}', this.value)"
-                                      onblur="window.updatePracticeRecordContent('${block.id}', '${record.id}', this.value)"
-                                      oninput="window.autoResizeTextarea(this)"
-                                      rows="1">${record.content.replace(/第\d+次练习：/, '')}</textarea>
-                           </div>
+                         <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" onclick="window.openPracticeRecordEdit('${block.id}', '${record.id}')" title="点击编辑">
+                             ${escapeHtml(record.content.replace(/第\d+次练习：/, ''))}
+                         </div>
                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
                     `;
                     recordsContainer.appendChild(recordEl);
                  });
              }
-             
-             // 初始化所有 textarea 的高度
-             setTimeout(() => {
-                 const textareas = container.querySelectorAll('textarea');
-                 textareas.forEach(textarea => {
-                     // 确保内容已加载
-                     if (textarea.value) {
-                         autoResizeTextarea(textarea);
-                     }
-                 });
-             }, 100);
          }
         
         // 切换快速添加区域的显示/隐藏
@@ -2320,30 +2304,61 @@
              return text.replace(/[&<>"']/g, char => map[char]);
          }
  
-           // 自动调整 textarea 高度
-           window.autoResizeTextarea = function(textarea) {
-               // 保存当前值和滚动位置
-               const value = textarea.value;
-               const scrollTop = textarea.scrollTop;
-               
-               // 先重置高度
-               textarea.style.height = 'auto';
-               
-               // 设置为内容高度
-               const newHeight = textarea.scrollHeight;
-               textarea.style.height = newHeight + 'px';
-               
-               // 恢复滚动位置
-               textarea.scrollTop = scrollTop;
-               
-               // 确保值没有丢失
-               if (textarea.value !== value) {
-                   textarea.value = value;
-               }
-           };
-         
-         // 更新练习记录内容
-         window.updatePracticeRecordContent = function(blockId, recordId, newContent) {
+             // 自动调整 textarea 高度
+             window.autoResizeTextarea = function(textarea) {
+                 // 保存当前值和滚动位置
+                 const value = textarea.value;
+                 const scrollTop = textarea.scrollTop;
+                 
+                 // 先重置高度
+                 textarea.style.height = 'auto';
+                 
+                 // 设置为内容高度
+                 const newHeight = textarea.scrollHeight;
+                 textarea.style.height = newHeight + 'px';
+                 
+                 // 恢复滚动位置
+                 textarea.scrollTop = scrollTop;
+                 
+                 // 确保值没有丢失
+                 if (textarea.value !== value) {
+                     textarea.value = value;
+                 }
+             };
+             
+             // 打开练习记录编辑模态框
+             window.openPracticeRecordEdit = function(blockId, recordId) {
+                 const block = data.practiceBlocks.find(b => b.id === blockId);
+                 if (!block) return;
+                 
+                 const record = block.records.find(r => r.id === recordId);
+                 if (!record) return;
+                 
+                 // 计算练习次数
+                 const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
+                 const currentIndex = allRecords.findIndex(r => r.id === recordId);
+                 const recordNumber = allRecords.length - currentIndex;
+                 
+                 // 设置模态框内容
+                 const modal = document.getElementById('editModal');
+                 const textarea = document.getElementById('editContent');
+                 
+                 // 显示练习信息
+                 textarea.value = record.content.replace(/第\d+次练习：/, '');
+                 textarea.rows = 6;
+                 
+                 // 保存当前编辑的记录信息
+                 textarea.dataset.blockId = blockId;
+                 textarea.dataset.recordId = recordId;
+                 textarea.dataset.recordNumber = recordNumber;
+                 
+                 // 显示模态框
+                 modal.classList.remove('hidden');
+                 textarea.focus();
+             };
+             
+             // 更新练习记录内容
+             window.updatePracticeRecordContent = function(blockId, recordId, newContent) {
                       const block = data.practiceBlocks.find(b => b.id === blockId);
                       if (!block) return;
                       const record = block.records.find(r => r.id === recordId);
@@ -2786,19 +2801,53 @@
             document.getElementById('editModal').classList.remove('hidden');
         }
 
-        function closeEditModal() {
-            document.getElementById('editModal').classList.add('hidden');
-            editingId = null;
-        }
+          function closeEditModal() {
+              const textarea = document.getElementById('editContent');
+              // 清理练习记录的编辑数据
+              delete textarea.dataset.blockId;
+              delete textarea.dataset.recordId;
+              delete textarea.dataset.recordNumber;
+              // 清理任务编辑数据
+              editingId = null;
+              // 隐藏模态框
+              document.getElementById('editModal').classList.add('hidden');
+          }
 
-        function saveEdit() {
-            const item = data.tasks.find(i => i.id === editingId);
-            if (!item) return;
-            item.content = document.getElementById('editContent').value;
-            item.updatedAt = nowStr();
-            saveData(); render();
-            closeEditModal();
-        }
+          function saveEdit() {
+              const textarea = document.getElementById('editContent');
+              const newContent = textarea.value.trim();
+              
+              // 检查是否是练习记录编辑
+              if (textarea.dataset.blockId && textarea.dataset.recordId) {
+                  const blockId = textarea.dataset.blockId;
+                  const recordId = textarea.dataset.recordId;
+                  const recordNumber = textarea.dataset.recordNumber;
+                  
+                  const block = data.practiceBlocks.find(b => b.id === blockId);
+                  if (!block) return;
+                  
+                  const record = block.records.find(r => r.id === recordId);
+                  if (!record) return;
+                  
+                  // 更新练习记录内容
+                  if (newContent) {
+                      record.content = `第${recordNumber}次练习：${newContent}`;
+                      record.updatedAt = nowStr();
+                      saveData();
+                      renderPracticeBlocks();
+                      showToast('修改成功');
+                  }
+              } else {
+                  // 原有的任务编辑逻辑
+                  const item = data.tasks.find(i => i.id === editingId);
+                  if (!item) return;
+                  item.content = newContent;
+                  item.updatedAt = nowStr();
+                  saveData(); render();
+              }
+              
+              closeEditModal();
+          }
 
         function addSlot() {
             const input = document.getElementById('newSlotName');
