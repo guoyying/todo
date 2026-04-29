@@ -305,12 +305,10 @@
     {
       "id": "mojd41e4l04hj",
       "type": "task",
-      "content": "给老公看衣服，生日礼物.",
+      "content": "给老公看衣服，生日礼物",
       "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-04-29T07:09:47.690Z",
-      "tags": [
-        "老公"
-      ],
+      "updatedAt": "2026-04-29T01:14:26.956Z",
+      "tags": [],
       "done": false,
       "dueTime": null,
       "unknown": true,
@@ -384,7 +382,7 @@
       "type": "task",
       "content": "退网过单",
       "createdAt": "2026-04-29T02:17:05.373Z",
-      "updatedAt": "2026-04-29T07:09:45.255Z",
+      "updatedAt": "2026-04-29T02:17:05.373Z",
       "tags": [],
       "done": false,
       "dueTime": "30min",
@@ -424,14 +422,12 @@
       "type": "task",
       "content": "整理算力的照片和修改越秀设备的归属",
       "createdAt": "2026-04-29T03:35:35.060Z",
-      "updatedAt": "2026-04-29T06:53:25.268Z",
+      "updatedAt": "2026-04-29T03:54:16.738Z",
       "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": "18min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojozaoaf15q8",
-      "doneAt": "2026-04-29T06:53:25.268Z"
+      "subtasks": []
     },
     {
       "id": "mojihtd6ludni",
@@ -451,54 +447,24 @@
       "type": "task",
       "content": "soc删除退网资产",
       "createdAt": "2026-04-29T03:54:29.721Z",
-      "updatedAt": "2026-04-29T07:09:08.907Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "25min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojozaoaf15q8",
-      "doneAt": "2026-04-29T07:09:08.907Z"
-    },
-    {
-      "id": "mojp0dw878sn6",
-      "type": "task",
-      "content": "800M电路更新",
-      "createdAt": "2026-04-29T06:47:31.928Z",
-      "updatedAt": "2026-04-29T06:47:31.928Z",
+      "updatedAt": "2026-04-29T03:54:29.721Z",
       "tags": [],
       "done": false,
-      "dueTime": "40min",
+      "dueTime": "25min",
       "unknown": false,
       "subtasks": []
     },
     {
-      "id": "mojpdeufsmy09",
+      "id": "mojj2vudafbt4",
       "type": "task",
-      "content": "发邮件",
-      "createdAt": "2026-04-29T06:57:39.687Z",
-      "updatedAt": "2026-04-29T07:21:42.620Z",
+      "content": "我想在板块练习每一项记录里有个按钮可以记录练习，点击确认之后就记录为第n次。我也希望板块小名称有已有的板块小名称下拉树选择。板块练习，我可以编辑或删除每一次的内容。",
+      "createdAt": "2026-04-29T04:01:30.805Z",
+      "updatedAt": "2026-04-29T04:24:01.269Z",
       "tags": [],
-      "done": true,
-      "dueTime": "8min",
+      "done": false,
+      "dueTime": "3min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojozaoaf15q8",
-      "doneAt": "2026-04-29T07:21:42.620Z"
-    },
-    {
-      "id": "mojpsirtkpb74",
-      "type": "task",
-      "content": "发送邮件更新了定级备案资产清单",
-      "createdAt": "2026-04-29T07:09:24.617Z",
-      "updatedAt": "2026-04-29T07:33:46.112Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojozaoaf15q8",
-      "doneAt": "2026-04-29T07:33:46.112Z"
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -512,15 +478,6 @@
         "ai"
       ],
       "done": false
-    },
-    {
-      "id": "mojqraj9mao88",
-      "content": "这两天ai搞太猛了，没休息好一直想做到好才踏实。下午好困",
-      "tags": [
-        "ai"
-      ],
-      "createdAt": "2026-04-29T07:36:26.901Z",
-      "updatedAt": "2026-04-29T07:36:26.901Z"
     }
   ],
   "practiceBlocks": [
@@ -533,27 +490,27 @@
           "content": "第1次练习：以前是用别人设计好的App或网页，要我们自己去适应对方的功能。使用工具是为了减轻负担，减少复杂步骤如果为了适应对方的工具而增加了不必要的步骤，其实是一种负担，现在可以AI写代码写网页自己要什么功能就做什么功能，没有任何多余的。工具用了趁手就像融入自己的习惯一样，不用消耗任何经历，能够更加精神的把自己精力投入到手头的事情中。",
           "time": "2026-04-28T05:04:38.557Z",
           "estimatedTime": "",
-          "updatedAt": "2026-04-29T06:46:02.062Z"
+          "updatedAt": "2026-04-29T07:43:59.123Z"
         },
         {
           "id": "mojcp6s6pywmx",
           "content": "第2次练习：我做这个todo的背景：之前的方法，让我完成任务时很焦虑，脑子里总想着事情，我看小红书说过一句话，固定SOP这句话给我启发，只要无脑执行这个任务经历就不会太多的被消耗。为什么原来的记录方法不能有这样的效果呢？原来的方法需要手动敲击数字动计算总时间手动从待办里面复制粘贴任务，这些细小的动作堆积起来，每一次都要做这些重复的动作，其实很消耗人的，我就用AI发了这个工具复制粘贴的动作用一次点击就能代替，总的来说就是用AI做工具，努力的用点击一次选择就能代替过往两到三步的动作。非核心，但是必要的步骤少了，就有更多的精力投入到真正有意义核心的内容中。",
           "time": "2026-04-28T05:33:04.877Z",
           "estimatedTime": "",
-          "updatedAt": "2026-04-29T06:45:55.833Z"
+          "updatedAt": "2026-04-29T07:43:53.196Z"
         },
         {
           "id": "mojj9v9i4tlqs",
           "content": "第3次练习：自己做小工具的意义在于无需花时间去适应别人开发的App的不适合自己的功能。因为自己体验过，所以知道那些步骤是必要，但不是核心的会消耗精力的，比如我将上午要做的事复制粘贴到一个文本框里，每一个是向我都要复制粘贴，那么这个补助就是琐碎的小经历的自己做小工具，就能用一个简单的点击代替复制粘贴的动作。",
           "tags": [],
           "time": "2026-04-29T04:06:56.646Z",
-          "updatedAt": "2026-04-29T06:45:54.154Z"
+          "updatedAt": "2026-04-29T07:44:02.496Z"
         },
         {
           "id": "mojnmwe4g1n4z",
           "content": "第4次练习：我们使用工具是为了让自己从繁琐，但是必须做的动作中解放出来别人的工具最好很难面渠道全都满足自己的需求，只能用适应对开发习惯的妥协存在，这其实无形中就增加了学习和适应的成本。自己做小工具，所有步骤都是最适合自己的。",
           "time": "2026-04-29T06:09:03.100Z",
-          "updatedAt": "2026-04-29T06:45:52.621Z"
+          "updatedAt": "2026-04-29T07:44:04.802Z"
         }
       ],
       "archived": false,
@@ -573,6 +530,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T07:33:54.669Z"
+    "lastSync": "2026-04-29T04:01:36.643Z"
   }
 }
