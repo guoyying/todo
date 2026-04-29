@@ -59,10 +59,29 @@
         }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:hover { opacity: 0.9; }
-        .btn-secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
         .btn-secondary:hover { background: var(--bg); }
         .btn-danger { background: var(--danger); color: white; }
+        .btn-warning { background: #f5a623; color: white; }
+        .btn-warning:hover { background: #d99012; }
         .btn-small { padding: 4px 10px; font-size: 12px; }
+        .delete-confirm {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #856404;
+            margin-left: 8px;
+            animation: fadeIn 0.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .card {
             background: var(--card);
             border-radius: var(--radius);
@@ -77,13 +96,13 @@
         }
         .type-btn {
             flex: 1;
-            padding: 14px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             background: var(--card);
             cursor: pointer;
             text-align: center;
-            font-size: 15px;
+            font-size: 13px;
             transition: all 0.2s;
         }
         .type-btn.active {
@@ -424,6 +443,24 @@
             margin-top: 20px;
         }
         .hidden { display: none !important; }
+        .task-mode, .feeling-mode {
+            display: none;
+        }
+        .task-mode.active {
+            display: block;
+        }
+        .feeling-mode.active {
+            display: block;
+        }
+        .practice-records {
+            margin: 10px 0;
+            padding-left: 10px;
+            border-left: 2px solid var(--border);
+        }
+        .practice-records .item {
+            margin-bottom: 8px;
+            padding: 10px;
+        }
         .empty-tip {
             text-align: center;
             color: var(--text-secondary);
@@ -543,33 +580,45 @@
     </div>
 
     <div class="card">
+        <!-- 主选项卡：感受 vs 任务 -->
         <div class="type-select">
-            <div class="type-btn" data-type="feeling" onclick="selectType('feeling')">💭 感受</div>
-            <div class="type-btn" data-type="task" onclick="selectType('task')">📝 想做的事</div>
+            <div class="type-btn" data-type="feeling" onclick="switchMainTab('feeling')">💭 感受</div>
+            <div class="type-btn" data-type="task" onclick="switchMainTab('task')">📝 想做的事</div>
         </div>
 
+        <!-- 感受输入区域 -->
         <div class="feeling-input-area" id="feelingArea">
-            <div class="input-group">
-                <label>此刻的感受</label>
-                <textarea id="feelingContent" rows="3" placeholder="写下你的感受..."></textarea>
-                <div class="input-actions">
-                    <span style="font-size:12px;color:var(--text-secondary);">语音输入功能已移除</span>
+            <!-- 感受类型选择：普通感受 vs 板块练习 -->
+            <div style="margin-bottom:12px; max-width: 200px;">
+                <div class="type-select" style="margin-bottom:0;">
+                    <div class="type-btn" data-feeling-type="normal" onclick="selectFeelingType('normal')">普通感受</div>
+                    <div class="type-btn" data-feeling-type="practice" onclick="selectFeelingType('practice')">板块练习</div>
                 </div>
             </div>
+            
+            <div class="input-group">
+                <label>此刻的感受</label>
+                <textarea id="feelingContent" rows="3" placeholder="写下你的感受..." onkeypress="if(event.key==='Enter' && (event.ctrlKey || event.metaKey)) saveFeeling()"></textarea>
+            </div>
+            
+            <!-- 板块练习特有：板块名称 -->
+            <div class="input-group hidden" id="blockNameArea">
+                <label>板块小名称</label>
+                <input type="text" id="blockName" placeholder="例如：冥想练习、写作训练...">
+            </div>
+            
             <div class="input-group">
                 <label>标签</label>
                 <div class="tags-select" id="feelingTags"></div>
             </div>
-            <button class="btn btn-primary" onclick="saveFeeling()">记录感受</button>
+            
+            <button class="btn btn-primary" onclick="saveFeeling()">记录</button>
         </div>
 
         <div class="task-input-area" id="taskArea">
             <div class="input-group">
                 <label>想做的事</label>
-                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." onkeypress="if(event.key==='Enter' && (event.ctrlKey || event.metaKey))saveTask()"></textarea>
-                <div class="input-actions">
-                    <span style="font-size:12px;color:var(--text-secondary);">语音输入功能已移除</span>
-                </div>
+                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." onkeypress="if(event.key==='Enter' && !event.shiftKey) { event.preventDefault(); saveTask(); }"></textarea>
             </div>
             <div class="input-group">
                 <label>预计完成时间</label>
@@ -608,55 +657,69 @@
         </div>
     </div>
 
-    <div class="section-title">📌 时间段任务板 <span class="count" id="slotCount"></span></div>
-    <div class="time-slots" id="timeSlots"></div>
-    <div class="add-slot">
-        <input type="text" id="newSlotName" placeholder="添加时间段，如今日下午、本周内...">
-        <button class="btn btn-secondary" onclick="addSlot()">添加</button>
-    </div>
-
-    <div class="section-title">📋 待办 <span class="count" id="todayCount"></span></div>
-    <div class="filter-bar" id="todayFilterBar">
-        <input type="text" id="todaySearch" placeholder="搜索待办..." oninput="renderToday()">
-        <div class="tag-filter" id="todayTagFilter"></div>
-    </div>
-    <div id="todayList"></div>
-
-    <div class="section-title">💭 感受记录 <span class="count" id="feelingCount"></span></div>
-    <div class="filter-bar" id="feelingFilterBar">
-        <input type="text" id="feelingSearch" placeholder="搜索感受..." oninput="renderFeelings()">
-        <div class="tag-filter" id="feelingTagFilter"></div>
-    </div>
-    <div id="feelingList"></div>
-
-    <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
-        ✅ 今日完成 <span class="count" id="doneCount"></span>
-        <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
-    </div>
-            <div id="doneList" class="collapsed"></div>
-            
-            <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
-        📅 往期待办 <span class="count" id="oldTodoCount"></span>
-        <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
-    </div>
-    <div id="oldTodoWrapper" class="collapsed">
-        <div class="filter-bar" id="oldTodoFilterBar">
-            <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
-            <div class="tag-filter" id="oldTodoTagFilter"></div>
+    <!-- 任务模式模块 -->
+    <div class="task-mode">
+        <div class="section-title">📌 时间段任务板 <span class="count" id="slotCount"></span></div>
+        <div class="time-slots" id="timeSlots"></div>
+        <div class="add-slot">
+            <input type="text" id="newSlotName" placeholder="添加时间段，如今日下午、本周内...">
+            <button class="btn btn-secondary" onclick="addSlot()">添加</button>
         </div>
-        <div id="oldTodoList"></div>
+
+        <div class="section-title">📋 待办 <span class="count" id="todayCount"></span></div>
+        <div class="filter-bar" id="todayFilterBar">
+            <input type="text" id="todaySearch" placeholder="搜索待办..." oninput="renderToday()">
+            <div class="tag-filter" id="todayTagFilter"></div>
+        </div>
+        <div id="todayList"></div>
+
+        <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
+            ✅ 今日完成 <span class="count" id="doneCount"></span>
+            <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
+        </div>
+        <div id="doneList" class="collapsed"></div>
+        
+        <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
+            📅 往期待办 <span class="count" id="oldTodoCount"></span>
+            <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
+        </div>
+        <div id="oldTodoWrapper" class="collapsed">
+            <div class="filter-bar" id="oldTodoFilterBar">
+                <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
+                <div class="tag-filter" id="oldTodoTagFilter"></div>
+            </div>
+            <div id="oldTodoList"></div>
+        </div>
     </div>
 
-    <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldFeeling')">
-        💭 往期感受 <span class="count" id="oldFeelingCount"></span>
-        <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
-    </div>
-    <div id="oldFeelingWrapper" class="collapsed">
-        <div class="filter-bar" id="oldFeelingFilterBar">
-            <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
-            <div class="tag-filter" id="oldFeelingTagFilter"></div>
+    <!-- 感受模式模块 -->
+    <div class="feeling-mode">
+        <div class="section-title">💭 感受记录 <span class="count" id="feelingCount"></span></div>
+        <div class="filter-bar" id="feelingFilterBar">
+            <input type="text" id="feelingSearch" placeholder="搜索感受..." oninput="renderFeelings()">
+            <div class="tag-filter" id="feelingTagFilter"></div>
         </div>
-        <div id="oldFeelingList"></div>
+        <div id="feelingList"></div>
+
+        <!-- 板块练习区域 -->
+        <div class="section-title" id="practiceBlocksTitle">📚 板块练习</div>
+        <div id="practiceBlocksList"></div>
+
+        <div style="display:flex;align-items:center;">
+            <div class="section-title" style="cursor:pointer;flex:1;" onclick="toggleOldSection('oldFeeling')">
+                💭 往期感受 <span class="count" id="oldFeelingCount"></span>
+                <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
+            </div>
+            <button class="btn btn-small btn-secondary" onclick="console.log('点击了批量迁移'); showMigrationModal()">批量迁移</button>
+            <button class="btn btn-small btn-primary" onclick="alert('测试按钮'); document.getElementById('migrationModal').classList.remove('hidden')">测试模态框</button>
+        </div>
+        <div id="oldFeelingWrapper" class="collapsed">
+            <div class="filter-bar" id="oldFeelingFilterBar">
+                <input type="text" id="oldFeelingSearch" placeholder="搜索往期感受..." oninput="renderOldFeelings()">
+                <div class="tag-filter" id="oldFeelingTagFilter"></div>
+            </div>
+            <div id="oldFeelingList"></div>
+        </div>
     </div>
 
     <div class="modal-overlay hidden" id="githubModal">
@@ -712,16 +775,77 @@
         </div>
     </div>
 
+    <!-- 批量迁移模态框 -->
+    <div class="modal-overlay hidden" id="migrationModal">
+        <div class="modal" style="max-width:800px;">
+            <div class="modal-header">
+                <h3>批量迁移往期感受</h3>
+                <span class="close" onclick="closeMigrationModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom:15px;">
+                    选择要迁移的记录，可以迁移到"普通感受"或"板块练习"。
+                </p>
+                
+                <div style="margin-bottom:15px;">
+                    <label style="display:block;margin-bottom:8px;">
+                        <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+                        <strong>全选/取消全选</strong>
+                    </label>
+                    <div id="migrationList" style="max-height:300px;overflow-y:auto;border:1px solid #ddd;border-radius:4px;padding:10px;">
+                        <!-- 动态生成列表 -->
+                    </div>
+                </div>
+
+                <div style="margin-bottom:15px;">
+                    <label style="display:block;margin-bottom:8px;"><strong>迁移目标：</strong></label>
+                    <div style="display:flex;gap:15px;align-items:center;">
+                        <label>
+                            <input type="radio" name="migrationTarget" value="normal" checked onchange="toggleMigrationTarget()">
+                            普通感受（保持现状）
+                        </label>
+                        <label>
+                            <input type="radio" name="migrationTarget" value="block" onchange="toggleMigrationTarget()">
+                            板块练习
+                        </label>
+                    </div>
+                </div>
+
+                <div id="blockSelectDiv" style="display:none;margin-bottom:15px;">
+                    <label style="display:block;margin-bottom:8px;"><strong>选择板块：</strong></label>
+                    <select id="blockSelect" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;margin-bottom:10px;">
+                        <option value="new">-- 新建板块 --</option>
+                        <!-- 动态生成板块列表 -->
+                    </select>
+                    <div id="newBlockInput" style="display:none;">
+                        <input type="text" id="newBlockName" placeholder="输入新板块名称" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;">
+                    </div>
+                </div>
+
+                <div style="background:#f0f7ff;padding:10px;border-radius:4px;margin-bottom:15px;">
+                    <strong>已选择：</strong> <span id="selectedCount">0</span> 条记录
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeMigrationModal()">取消</button>
+                <button class="btn btn-primary" onclick="executeMigration()">开始迁移</button>
+            </div>
+        </div>
+    </div>
+
     <script>
     // ============ Data ============
     let data = {
-        items: [],
+        tasks: [], // 待办任务
+        normalFeelings: [], // 普通感受
+        practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
         slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
         commonTaskTags: ['生活','工作'],
         commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
         github: null,
         firstLoaded: false,
-        title: '🌿 心事与任务'
+        title: '🌿 心事与任务',
+        activeTab: 'feeling' // 'feeling' 或 'task'
     };
         let editingId = null;
         let recording = null;
@@ -734,8 +858,30 @@
             if (raw) {
                 try {
                     const parsed = JSON.parse(raw);
-                    data = { ...data, ...parsed };
-                } catch(e) {}
+                    // 迁移旧数据：所有旧数据保留在 normalFeelings 中，不自动迁移到板块练习
+                    if (parsed.items) {
+                        data.tasks = parsed.items.filter(i => i.type === 'task');
+                        // 所有感受（无论是否有 blockName）都保留在 normalFeelings 中
+                        data.normalFeelings = parsed.items.filter(i => i.type === 'feeling');
+                        // 板块练习保持为空，等待用户手动创建
+                        data.practiceBlocks = [];
+                    } else {
+                        data.tasks = parsed.tasks || [];
+                        data.normalFeelings = parsed.normalFeelings || [];
+                        data.practiceBlocks = parsed.practiceBlocks || [];
+                    }
+                    // 合并其他属性
+                    // 确保 slots 始终有默认值
+                    if (parsed.slots && Array.isArray(parsed.slots) && parsed.slots.length > 0) {
+                        data.slots = parsed.slots;
+                    }
+                    data.commonTaskTags = parsed.commonTaskTags || data.commonTaskTags;
+                    data.commonFeelingTags = parsed.commonFeelingTags || data.commonFeelingTags;
+                    data.github = parsed.github || null;
+                    data.firstLoaded = parsed.firstLoaded || false;
+                    data.title = parsed.title || data.title;
+                    data.activeTab = parsed.activeTab || 'feeling';
+                } catch(e) { console.error('Load data error:', e); }
             }
         }
 
@@ -751,7 +897,7 @@
 
         function getTaskTags() {
             const tags = new Set(data.commonTaskTags);
-            data.items.filter(i => i.type === 'task').forEach(i => {
+            data.tasks.forEach(i => {
                 if (i.tags) i.tags.forEach(t => tags.add(t));
             });
             return Array.from(tags);
@@ -759,7 +905,7 @@
 
         function getFeelingTags() {
             const tags = new Set(data.commonFeelingTags);
-            data.items.filter(i => i.type === 'feeling').forEach(i => {
+            data.normalFeelings.forEach(i => {
                 if (i.tags) i.tags.forEach(t => tags.add(t));
             });
             return Array.from(tags);
@@ -884,11 +1030,38 @@
         }
 
         // ============ Type Select ============
-        function selectType(type) {
-            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector(`.type-btn[data-type="${type}"]`).classList.add('active');
+        function switchMainTab(type) {
+            data.activeTab = type;
+            saveData();
+            
+            // 更新主选项卡按钮
+            document.querySelectorAll('.type-select:first-child .type-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.type-select:first-child .type-btn[data-type="${type}"]`).classList.add('active');
+            
+            // 更新输入区域显示
             document.getElementById('feelingArea').classList.toggle('active', type === 'feeling');
             document.getElementById('taskArea').classList.toggle('active', type === 'task');
+            
+            // 更新模块显示
+            document.querySelectorAll('.task-mode').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.feeling-mode').forEach(el => el.classList.remove('active'));
+            if (type === 'task') {
+                document.querySelectorAll('.task-mode').forEach(el => el.classList.add('active'));
+            } else {
+                document.querySelectorAll('.feeling-mode').forEach(el => el.classList.add('active'));
+            }
+            
+            render();
+        }
+
+        let currentFeelingType = 'normal'; // 'normal' 或 'practice'
+        function selectFeelingType(type) {
+            currentFeelingType = type;
+            document.querySelectorAll('.feeling-input-area .type-select .type-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.feeling-input-area .type-select .type-btn[data-feeling-type="${type}"]`).classList.add('active');
+            document.getElementById('blockNameArea').classList.toggle('hidden', type !== 'practice');
+            // 选择"板块练习"时隐藏标签区域
+            document.querySelector('.feeling-input-area .input-group:has(#feelingTags)').classList.toggle('hidden', type === 'practice');
         }
 
         function toggleDueType() {
@@ -963,7 +1136,7 @@
 
         function deleteTag(containerId, tag) {
             // 检查是否有任何任务使用该标签
-            const hasUsage = data.items.some(i => i.tags && i.tags.includes(tag));
+            const hasUsage = data.tasks.some(i => i.tags && i.tags.includes(tag));
             if (hasUsage) {
                 alert('该标签正在被任务使用，无法删除');
                 return;
@@ -1075,13 +1248,37 @@
         function saveFeeling() {
             const content = document.getElementById('feelingContent').value.trim();
             if (!content) return;
-            const item = {
-                id: genId(), type: 'feeling', content,
-                createdAt: nowStr(), updatedAt: nowStr(),
-                tags: getSelectedTags('feelingTags'), done: false
-            };
-            data.items.push(item);
+            const tags = getSelectedTags('feelingTags');
+            
+            if (currentFeelingType === 'normal') {
+                // 普通感受
+                data.normalFeelings.push({
+                    id: genId(),
+                    content,
+                    tags,
+                    createdAt: nowStr(),
+                    updatedAt: nowStr()
+                });
+            } else {
+                // 板块练习
+                const blockName = document.getElementById('blockName').value.trim() || '未命名板块';
+                // 查找或创建板块
+                let block = data.practiceBlocks.find(b => b.name === blockName);
+                if (!block) {
+                    block = { id: genId(), name: blockName, records: [] };
+                    data.practiceBlocks.push(block);
+                }
+                // 添加记录
+                block.records.push({
+                    id: genId(),
+                    content,
+                    tags,
+                    time: nowStr()
+                });
+            }
+            
             document.getElementById('feelingContent').value = '';
+            document.getElementById('blockName').value = '';
             renderTags('feelingTags');
             saveData(); render();
         }
@@ -1121,7 +1318,7 @@
                 tags: getSelectedTags('taskTags'), done: false,
                 dueTime, unknown: !!unknown, subtasks
             };
-            data.items.push(item);
+            data.tasks.push(item);
             document.getElementById('taskContent').value = '';
             document.getElementById('taskDueTime').value = '';
             document.querySelectorAll('#unknownSubtasks .subtask-input').forEach(i => i.value = '');
@@ -1136,12 +1333,20 @@
         function render() {
             renderTags('feelingTags');
             renderTags('taskTags');
-            renderSlots();
-            renderFeelings();
-            renderToday();
-            renderOldTodos();
-            renderOldFeelings();
-            renderDone();
+            
+            if (data.activeTab === 'feeling') {
+                // 感受模式：显示感受相关模块
+                renderFeelings();
+                renderPracticeBlocks();
+                renderOldFeelings();
+            } else {
+                // 任务模式：显示任务相关模块
+                renderSlots();
+                renderToday();
+                renderOldTodos();
+                renderDone();
+            }
+            
             checkUpdateStatus();
         }
 
@@ -1353,14 +1558,14 @@
             const container = document.getElementById('timeSlots');
             container.innerHTML = '';
             let slotTotal = 0;
-            data.slots.forEach(slot => {
-                const placed = data.items.filter(i =>
-                    i.type === 'task' && i.unknown && i.subtasks &&
-                    i.subtasks.some(st => st.placedIn === slot.id && !st.done)
-                );
-                const simpleTasks = data.items.filter(i =>
-                    i.type === 'task' && !i.unknown && !i.done && i.placedIn === slot.id
-                );
+             data.slots.forEach(slot => {
+                 const placed = data.tasks.filter(i =>
+                     i.unknown && i.subtasks &&
+                     i.subtasks.some(st => st.placedIn === slot.id && !st.done)
+                 );
+                 const simpleTasks = data.tasks.filter(i =>
+                     !i.unknown && !i.done && i.placedIn === slot.id
+                 );
                 const allInSlot = [];
                 let totalEstimatedTime = 0;
                 
@@ -1465,7 +1670,7 @@
             const selectedTags = JSON.parse(selectedTagsStr);
             
             // 只显示当天创建的感受
-            let list = data.items.filter(i => i.type === 'feeling' && !i.done && isToday(i.createdAt));
+            let list = data.normalFeelings.filter(i => isToday(i.createdAt));
             
             // 应用搜索过滤
             if (searchTerm) {
@@ -1555,6 +1760,154 @@
             });
         }
 
+        function renderPracticeBlocks() {
+            const container = document.getElementById('practiceBlocksList');
+            container.innerHTML = '';
+            
+            // 分离未归档和已归档的板块
+            const activeBlocks = data.practiceBlocks.filter(b => !b.archived);
+            const archivedBlocks = data.practiceBlocks.filter(b => b.archived);
+            
+            if (activeBlocks.length === 0 && archivedBlocks.length === 0) {
+                container.innerHTML = '<div class="empty-tip">暂无板块练习记录</div>';
+                return;
+            }
+            
+            // 渲染未归档的板块
+            if (activeBlocks.length > 0) {
+                activeBlocks.forEach(block => {
+                    renderBlockCard(block, container, false);
+                });
+            }
+            
+            // 渲染已归档的板块
+            if (archivedBlocks.length > 0) {
+                const archivedSection = document.createElement('div');
+                archivedSection.style.marginTop = '24px';
+                archivedSection.style.paddingTop = '16px';
+                archivedSection.style.borderTop = '1px solid var(--border)';
+                archivedSection.innerHTML = '<h4 style="font-size:14px;margin-bottom:12px;color:var(--text-secondary);">已归档</h4>';
+                
+                archivedBlocks.forEach(block => {
+                    renderBlockCard(block, archivedSection, true);
+                });
+                
+                container.appendChild(archivedSection);
+            }
+        }
+
+        function renderBlockCard(block, container, isArchived) {
+            const blockEl = document.createElement('div');
+            blockEl.className = 'card';
+            if (isArchived) {
+                blockEl.style.opacity = '0.7';
+                blockEl.style.background = 'var(--bg-secondary)';
+            }
+            
+            // 计算统计信息
+            const totalRecords = block.records.length;
+            const firstTime = block.records.length > 0 ? block.records[0].time : block.createdAt;
+            
+            blockEl.innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                    <div>
+                        <h3 style="font-size:16px;margin-bottom:4px;">${block.name} ${isArchived ? '<span style="font-size:12px;color:var(--text-secondary);">(已归档)</span>' : ''}</h3>
+                        <div style="font-size:12px;color:var(--text-secondary);">
+                            共练习 ${totalRecords} 次 | 初次：${fmtTime(firstTime)}
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="editBlockName('${block.id}')">修改名称</button>` : ''}
+                        ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="unarchiveBlock('${block.id}')">恢复</button>`}
+                        <button class="btn btn-small btn-danger" onclick="deleteBlock('${block.id}')">删除</button>
+                    </div>
+                </div>
+                <div class="practice-records" id="records-${block.id}"></div>
+                ${!isArchived ? `<div style="margin-top:12px;">
+                    <input type="text" class="input" placeholder="新增练习记录..." id="new-record-${block.id}" onkeypress="if(event.key==='Enter')addPracticeRecord('${block.id}')">
+                    <button class="btn btn-small btn-primary" style="margin-left:8px;" onclick="addPracticeRecord('${block.id}')">添加</button>
+                </div>` : ''}
+            `;
+            
+            container.appendChild(blockEl);
+            
+            // 渲染记录列表
+            const recordsContainer = blockEl.querySelector(`#records-${block.id}`);
+            block.records.slice().reverse().forEach(record => {
+                const recordEl = document.createElement('div');
+                recordEl.className = 'item feeling-item';
+                recordEl.innerHTML = `
+                    <div class="item-header">
+                        <span class="item-time">${fmtTime(record.time)}</span>
+                    </div>
+                    <div class="item-content">${record.content}</div>
+                    <div class="item-tags">
+                        ${record.tags && record.tags.length ? record.tags.map(t => `<span class="item-tag">${t}</span>`).join('') : ''}
+                    </div>
+                `;
+                recordsContainer.appendChild(recordEl);
+            });
+        }
+
+        function addPracticeRecord(blockId) {
+            const input = document.getElementById(`new-record-${blockId}`);
+            const content = input.value.trim();
+            if (!content) return;
+            
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (block) {
+                block.records.push({
+                    id: genId(),
+                    content,
+                    time: nowStr()
+                });
+                input.value = '';
+                saveData();
+                render();
+            }
+        }
+
+        function editBlockName(blockId) {
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (!block) return;
+            const newName = prompt('请输入新的板块名称:', block.name);
+            if (newName && newName.trim()) {
+                block.name = newName.trim();
+                saveData();
+                render();
+            }
+        }
+
+        function deleteBlock(blockId) {
+            if (!confirm('确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。')) {
+                return;
+            }
+            data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== blockId);
+            saveData();
+            render();
+            showBanner('板块练习已删除', 'error');
+        }
+
+        function archiveBlock(blockId) {
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (!block) return;
+            block.archived = true;
+            block.archivedAt = new Date().toISOString();
+            saveData();
+            render();
+            showBanner('板块练习已归档', 'success');
+        }
+
+        function unarchiveBlock(blockId) {
+            const block = data.practiceBlocks.find(b => b.id === blockId);
+            if (!block) return;
+            block.archived = false;
+            block.archivedAt = null;
+            saveData();
+            render();
+            showBanner('板块练习已恢复', 'success');
+        }
+
         function renderToday() {
             const container = document.getElementById('todayList');
             container.innerHTML = '';
@@ -1565,8 +1918,8 @@
             const selectedTags = JSON.parse(selectedTagsStr);
             
             // 只显示当天创建且未完成且未放入时间段的待办
-            let list = data.items.filter(i => {
-                if (i.type === 'task' && !i.done && isToday(i.createdAt)) {
+            let list = data.tasks.filter(i => {
+                if (!i.done && isToday(i.createdAt)) {
                     if (i.unknown) {
                         // 未知时间的任务，显示父任务（但只显示未放入时间段的子任务）
                         return true;
@@ -1616,8 +1969,8 @@
             const selectedTagsStr = document.getElementById('oldTodoTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
             
-            let list = data.items.filter(i => {
-                if (i.type === 'task' && !i.done && !i.placedIn && !isToday(i.createdAt)) {
+            let list = data.tasks.filter(i => {
+                if (!i.done && !i.placedIn && !isToday(i.createdAt)) {
                     return true;
                 }
                 return false;
@@ -1654,7 +2007,7 @@
             const selectedTagsStr = document.getElementById('oldFeelingTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
             
-            let list = data.items.filter(i => i.type === 'feeling' && !i.done && !isToday(i.createdAt));
+            let list = data.normalFeelings.filter(i => !isToday(i.createdAt));
             
             // 应用搜索过滤
             if (searchTerm) {
@@ -1754,7 +2107,7 @@
         function renderDone() {
             const container = document.getElementById('doneList');
             container.innerHTML = '';
-            const list = data.items.filter(i => i.done && isToday(i.doneAt || i.updatedAt));
+            const list = data.tasks.filter(i => i.done && isToday(i.doneAt || i.updatedAt));
             document.getElementById('doneCount').textContent = list.length ? `(${list.length})` : '';
             if (list.length === 0) {
                 container.innerHTML = '<div class="empty-tip">今天还没有完成的事项</div>';
@@ -1766,7 +2119,7 @@
         function renderHistory() {
             const container = document.getElementById('historyContent');
             container.innerHTML = '';
-            const list = data.items.filter(i => {
+            const list = data.tasks.filter(i => {
                 if (i.done && isToday(i.doneAt || i.updatedAt)) return false;
                 return isBeforeToday(i.createdAt);
             });
@@ -1780,7 +2133,7 @@
 
         // ============ Actions ============
         function toggleDone(id) {
-            const item = data.items.find(i => i.id === id);
+            const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             item.done = !item.done;
             item.doneAt = item.done ? nowStr() : null;
@@ -1789,7 +2142,7 @@
         }
 
         function toggleSubtask(itemId, subId) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             const st = item.subtasks.find(s => s.id === subId);
             if (!st) return;
@@ -1802,14 +2155,48 @@
             toggleSubtask(itemId, subId);
         }
 
-        function deleteItem(id) {
-            if (!confirm('确定要删除吗？')) return;
-            data.items = data.items.filter(i => i.id !== id);
-            saveData(); render();
+        function deleteItem(id, btnElement) {
+            // 安全检查：确保 btnElement 存在且有 parentElement
+            if (!btnElement || !btnElement.parentElement) {
+                // 如果按钮元素无效，使用传统的 confirm 弹窗
+                if (!confirm('确定要删除这个任务吗？')) return;
+                data.tasks = data.tasks.filter(i => i.id !== id);
+                saveData();
+                render();
+                return;
+            }
+            
+            // 在删除按钮旁边显示确认提示
+            const container = btnElement.parentElement;
+            // 检查是否已经有确认提示，避免重复添加
+            if (container.querySelector('.delete-confirm')) return;
+            
+            const confirmDiv = document.createElement('div');
+            confirmDiv.className = 'delete-confirm';
+            confirmDiv.innerHTML = `
+                <span>确定要删除吗？</span>
+                <button class="btn btn-small btn-danger" onclick="confirmDelete('${id}', this)">确认</button>
+                <button class="btn btn-small btn-secondary" onclick="this.parentElement.remove()">取消</button>
+            `;
+            container.appendChild(confirmDiv);
+            
+            // 3 秒后自动消失
+            setTimeout(() => {
+                if (confirmDiv.parentElement) {
+                    confirmDiv.remove();
+                }
+            }, 3000);
+        }
+
+        function confirmDelete(id, btnElement) {
+            data.tasks = data.tasks.filter(i => i.id !== id);
+            saveData();
+            render();
+            showBanner('任务已删除', 'error');
         }
 
         function openEdit(id) {
-            const item = data.items.find(i => i.id === id);
+            const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             editingId = id;
             document.getElementById('editContent').value = item.content;
@@ -1822,7 +2209,7 @@
         }
 
         function saveEdit() {
-            const item = data.items.find(i => i.id === editingId);
+            const item = data.tasks.find(i => i.id === editingId);
             if (!item) return;
             item.content = document.getElementById('editContent').value;
             item.updatedAt = nowStr();
@@ -1850,10 +2237,12 @@
         function deleteSlot(id) {
             if (!confirm('删除这个时间段？其中的任务会回到待办。')) return;
             data.slots = data.slots.filter(s => s.id !== id);
-            data.items.forEach(i => {
-                if (i.type === 'task') {
-                    if (i.placedIn === id) delete i.placedIn;
-                    if (i.subtasks) i.subtasks.forEach(st => { if (st.placedIn === id) st.placedIn = null; });
+            data.tasks.forEach(i => {
+                if (i.placedIn === id) delete i.placedIn;
+                if (i.subtasks) {
+                    i.subtasks.forEach(st => {
+                        if (st.placedIn === id) st.placedIn = null;
+                    });
                 }
             });
             saveData(); render();
@@ -1869,7 +2258,7 @@
                 opt.className = 'place-option';
                 opt.textContent = slot.name;
                 opt.onclick = () => {
-                    const item = data.items.find(i => i.id === itemId);
+                    const item = data.tasks.find(i => i.id === itemId);
                     if (item && item.subtasks) {
                         const st = item.subtasks.find(s => s.id === subId);
                         if (st) st.placedIn = slot.id;
@@ -1892,7 +2281,7 @@
         }
 
         function removeFromSlot(itemId, subId) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (item && item.subtasks) {
                 const st = item.subtasks.find(s => s.id === subId);
                 if (st) {
@@ -1909,7 +2298,7 @@
 
         function undoRemoveFromSlot(kind, itemId, subId, slotId) {
             if (kind === 'sub') {
-                const item = data.items.find(i => i.id === itemId);
+                const item = data.tasks.find(i => i.id === itemId);
                 if (item && item.subtasks) {
                     const st = item.subtasks.find(s => s.id === subId);
                     if (st) {
@@ -1919,7 +2308,7 @@
                     }
                 }
             } else if (kind === 'item') {
-                const item = data.items.find(i => i.id === itemId);
+                const item = data.tasks.find(i => i.id === itemId);
                 if (item) {
                     item.placedIn = slotId;
                     item.updatedAt = nowStr();
@@ -1955,7 +2344,7 @@
 
         // ============ 时间段任务板任务编辑函数 ============
         function updateTaskInSlot(itemId, newContent, newDueTime) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 item.content = newContent.trim();
                 item.dueTime = newDueTime.trim();
@@ -1966,7 +2355,7 @@
         }
 
         function updateTaskTimeInSlot(itemId, newDueTime) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 item.dueTime = newDueTime.trim();
                 item.updatedAt = nowStr();
@@ -1976,7 +2365,7 @@
         }
 
         function updateSubtaskInSlot(parentId, subId, newContent, newEstimatedTime) {
-            const item = data.items.find(i => i.id === parentId);
+            const item = data.tasks.find(i => i.id === parentId);
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
                 if (sub) {
@@ -1990,7 +2379,7 @@
         }
 
         function updateSubtaskTimeInSlot(parentId, subId, newEstimatedTime) {
-            const item = data.items.find(i => i.id === parentId);
+            const item = data.tasks.find(i => i.id === parentId);
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
                 if (sub) {
@@ -2012,7 +2401,7 @@
                 opt.className = 'place-option';
                 opt.textContent = slot.name;
                 opt.onclick = () => {
-                    const item = data.items.find(i => i.id === itemId);
+                    const item = data.tasks.find(i => i.id === itemId);
                     if (item) {
                         item.placedIn = slot.id;
                         item.updatedAt = nowStr();
@@ -2034,7 +2423,7 @@
         }
 
         function removeFromSlotSimple(itemId) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 保存撤销信息
                 data.lastUndo = { type: 'item', itemId, slotId: item.placedIn };
@@ -2047,9 +2436,8 @@
         }
         
         function showTagEditor(itemId, currentTag, type) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
-            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             modal.innerHTML = `
@@ -2073,9 +2461,8 @@
         }
         
         function saveTagEdit(itemId, type) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
-            
             const input = document.getElementById('tagEditorInput');
             const newTag = input.value.trim();
             const modal = input.closest('.modal-overlay');
@@ -2108,9 +2495,8 @@
         }
         
         function deleteTagFromItem(itemId, tag) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
-            
             item.tags = item.tags.filter(t => t !== tag);
             item.updatedAt = nowStr();
             saveData(); render();
@@ -2118,9 +2504,8 @@
         }
         
         function showFeelingEditor(itemId) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
-            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             modal.innerHTML = `
@@ -2177,9 +2562,8 @@
         }
         
         function saveFeelingEdit(itemId) {
-            const item = data.items.find(i => i.id === itemId);
+            const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
-            
             const content = document.getElementById('feelingEditorContent').value.trim();
             if (!content) return;
             
@@ -2333,7 +2717,9 @@
             const path = 'mindtodo-data.json';
             // 创建要推送的数据副本，移除敏感信息
             const dataToPush = {
-                items: data.items,
+                tasks: data.tasks,
+                normalFeelings: data.normalFeelings,
+                practiceBlocks: data.practiceBlocks,
                 slots: data.slots,
                 tags: data.tags,
                 commonTags: data.commonTags,
@@ -2502,6 +2888,169 @@
             }, duration);
         }
 
+        // ============ 批量迁移功能 ============
+        let migrationSelected = [];
+
+        function showMigrationModal() {
+            migrationSelected = [];
+            const modal = document.getElementById('migrationModal');
+            const list = document.getElementById('migrationList');
+            const blockSelect = document.getElementById('blockSelect');
+            
+            console.log('data.normalFeelings:', data.normalFeelings);
+            console.log('data.normalFeelings length:', data.normalFeelings.length);
+            
+            // 获取往期感受（非当天的感受）
+            const oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
+            
+            console.log('oldFeelings:', oldFeelings);
+            console.log('oldFeelings length:', oldFeelings.length);
+            
+            if (oldFeelings.length === 0) {
+                alert('没有可迁移的往期感受记录。当前共有感受：' + data.normalFeelings.length + ' 条。\n\n请检查控制台 (F12) 查看详细数据。');
+                return;
+            }
+            
+            // 生成板块列表
+            blockSelect.innerHTML = '<option value="new">-- 新建板块 --</option>';
+            data.practiceBlocks.forEach(block => {
+                const option = document.createElement('option');
+                option.value = block.id;
+                option.textContent = block.name;
+                blockSelect.appendChild(option);
+            });
+            
+            // 生成迁移列表
+            list.innerHTML = '';
+            oldFeelings.forEach((feeling, index) => {
+                const div = document.createElement('div');
+                div.style.cssText = 'display:flex;align-items:center;padding:8px;border-bottom:1px solid #eee;';
+                div.innerHTML = `
+                    <input type="checkbox" id="mig_${index}" value="${index}" onchange="updateSelectedCount()" style="margin-right:10px;">
+                    <span style="flex:1;">${feeling.content.substring(0, 50)}${feeling.content.length > 50 ? '...' : ''}</span>
+                    <span style="color:#999;font-size:12px;">${fmtTime(feeling.createdAt)}</span>
+                `;
+                list.appendChild(div);
+            });
+            
+            document.getElementById('selectAll').checked = false;
+            document.getElementById('selectedCount').textContent = '0';
+            document.getElementById('blockSelect').value = 'new';
+            document.getElementById('newBlockInput').style.display = 'block'; // 默认显示新建输入框
+            
+            // 添加监听器：当选择板块时，控制新建输入框的显示/隐藏
+            blockSelect.onchange = function() {
+                const newBlockInput = document.getElementById('newBlockInput');
+                if (this.value === 'new') {
+                    newBlockInput.style.display = 'block';
+                    document.getElementById('newBlockName').focus();
+                } else {
+                    newBlockInput.style.display = 'none';
+                }
+            };
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeMigrationModal() {
+            document.getElementById('migrationModal').classList.add('hidden');
+        }
+
+        function toggleSelectAll() {
+            const selectAll = document.getElementById('selectAll').checked;
+            const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = selectAll);
+            updateSelectedCount();
+        }
+
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]:checked');
+            const count = checkboxes.length;
+            document.getElementById('selectedCount').textContent = count;
+            
+            migrationSelected = Array.from(checkboxes).map(cb => parseInt(cb.value));
+        }
+
+        function toggleMigrationTarget() {
+            const target = document.querySelector('input[name="migrationTarget"]:checked').value;
+            const blockSelectDiv = document.getElementById('blockSelectDiv');
+            
+            if (target === 'block') {
+                blockSelectDiv.style.display = 'block';
+            } else {
+                blockSelectDiv.style.display = 'none';
+            }
+        }
+
+        function executeMigration() {
+            if (migrationSelected.length === 0) {
+                alert('请选择要迁移的记录。');
+                return;
+            }
+            
+            const target = document.querySelector('input[name="migrationTarget"]:checked').value;
+            
+            if (target === 'normal') {
+                // 迁移到普通感受（保持现状，无需操作）
+                alert(`已成功迁移 ${migrationSelected.length} 条记录到普通感受。`);
+                closeMigrationModal();
+                render();
+                return;
+            }
+            
+            // 迁移到板块练习
+            let blockId = document.getElementById('blockSelect').value;
+            let blockName = '';
+            
+            if (blockId === 'new') {
+                blockName = document.getElementById('newBlockName').value.trim();
+                if (!blockName) {
+                    alert('请输入新板块名称。');
+                    return;
+                }
+                // 创建新板块
+                const newBlock = {
+                    id: genId(),
+                    name: blockName,
+                    records: []
+                };
+                data.practiceBlocks.push(newBlock);
+                blockId = newBlock.id;
+            } else {
+                const block = data.practiceBlocks.find(b => b.id === blockId);
+                if (block) blockName = block.name;
+            }
+            
+            // 迁移选中的记录
+            const oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
+            const migratedIds = [];
+            
+            migrationSelected.forEach(index => {
+                const feeling = oldFeelings[index];
+                if (feeling) {
+                    // 找到对应的板块
+                    const block = data.practiceBlocks.find(b => b.id === blockId);
+                    if (block) {
+                        block.records.push({
+                            id: genId(),
+                            content: feeling.content,
+                            time: feeling.createdAt,
+                            estimatedTime: feeling.estimatedTime || ''
+                        });
+                        migratedIds.push(feeling.id);
+                    }
+                }
+            });
+            
+            // 从 normalFeelings 中移除已迁移的记录
+            data.normalFeelings = data.normalFeelings.filter(f => !migratedIds.includes(f.id));
+            
+            alert(`成功迁移 ${migratedIds.length} 条记录到板块"${blockName}"。`);
+            closeMigrationModal();
+            render();
+            saveData();
+        }
+
         function base64ToUtf8(str) {
             try {
                 const binary = atob(str);
@@ -2551,7 +3100,9 @@
                 const info = await res.json();
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
-                if (remote.items) data.items = remote.items;
+                if (remote.tasks) data.tasks = remote.tasks;
+                if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
+                if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
                 if (remote.slots) data.slots = remote.slots;
                 if (remote.tags) data.tags = remote.tags;
                 if (remote.commonTags) data.commonTags = remote.commonTags;
@@ -2599,7 +3150,7 @@
                 return;
             }
             const lastSync = new Date(data.github.lastSync);
-            const lastUpdate = new Date(data.items.reduce((max, item) => {
+            const lastUpdate = new Date(data.tasks.reduce((max, item) => {
                 const itemTime = new Date(item.updatedAt);
                 return itemTime > max ? itemTime : max;
             }, new Date(0)));
@@ -2614,16 +3165,21 @@
         loadData();
         isPageRefresh = true; // 标记为刷新页面，不显示"待推送"提示
         initVoice();
-        selectType('feeling');
+        // 设置默认选项卡
+        const initialTab = data.activeTab || 'feeling';
+        switchMainTab(initialTab);
         applyTitle();
         updateGithubStatus();
-        render();
         // 刷新页面时自动拉取一次
         pullFromGithub();
         
-        // 添加快捷键：Ctrl + Enter 触发推送
+        // 添加快捷键：Ctrl + Shift + P 触发推送
         document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.key === 'Enter') {
+            // 确保不在输入框中触发
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'p') {
                 e.preventDefault();
                 pushToGithub();
             }
