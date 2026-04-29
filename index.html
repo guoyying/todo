@@ -823,7 +823,94 @@
           #textSelectionBubble.hidden {
               display: none !important;
           }
-     </style>
+          
+          /* 移动设备响应式样式 */
+          @media (max-width: 768px) {
+              /* AI润色模态框移动端优化 */
+              #aiPolishModal .modal {
+                  width: 95% !important;
+                  max-width: none !important;
+                  margin: 10px auto !important;
+              }
+              
+              #aiPolishModal .modal-body {
+                  flex-direction: column !important;
+                  gap: 12px !important;
+                  max-height: 85vh !important;
+              }
+              
+              /* 左侧控制面板在移动端改为全宽 */
+              #aiPolishModal .modal-body > div:first-child {
+                  flex: none !important;
+                  width: 100% !important;
+                  padding-right: 0 !important;
+                  border-right: none !important;
+                  border-bottom: 1px solid var(--border) !important;
+                  padding-bottom: 12px !important;
+                  max-height: 40vh !important;
+                  overflow-y: auto !important;
+              }
+              
+              /* 右侧润色结果在移动端改为全宽 */
+              #aiPolishModal .modal-body > div:nth-child(2) {
+                  flex: none !important;
+                  width: 100% !important;
+              }
+              
+              /* 润色结果区域移动端优化 */
+              #aiPolishedContent {
+                  min-height: 200px !important;
+                  max-height: 40vh !important;
+                  font-size: 14px !important;
+                  padding: 12px !important;
+              }
+              
+              /* 原始内容区域移动端优化 */
+              #aiOriginalContent {
+                  max-height: 80px !important;
+                  font-size: 13px !important;
+              }
+              
+              /* 自定义提示词输入框移动端优化 */
+              #customPromptInput {
+                  rows: 2 !important;
+                  font-size: 13px !important;
+              }
+              
+              /* 会话弹药列表移动端优化 */
+              #sessionAmmoList {
+                  max-height: 120px !important;
+              }
+              
+              /* 气泡菜单移动端优化 */
+              #textSelectionBubble {
+                  flex-wrap: wrap !important;
+                  max-width: 300px !important;
+                  padding: 6px 8px !important;
+              }
+              
+              #bubbleAmmoTags {
+                  width: 60px !important;
+                  font-size: 11px !important;
+              }
+              
+              /* 按钮移动端优化 */
+              #aiPolishModal .btn {
+                  padding: 6px 12px !important;
+                  font-size: 13px !important;
+              }
+              
+              /* 模态框头部移动端优化 */
+              #aiPolishModal .modal-header h3 {
+                  font-size: 16px !important;
+              }
+              
+              /* 标签移动端优化 */
+              #aiPolishModal label {
+                  font-size: 12px !important;
+              }
+          }
+      </style>
 </head>
 <body>
     <div class="header">
