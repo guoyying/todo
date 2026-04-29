@@ -663,23 +663,162 @@
         .collapsed {
             display: none !important;
         }
-        .old-section-collapsed {
-            display: none !important;
-        }
-    </style>
+         .old-section-collapsed {
+             display: none !important;
+         }
+         
+         /* AI润色和弹药库样式 */
+         .modal-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+         .modal-header .close {
+             cursor: pointer;
+             font-size: 24px;
+             color: var(--text-secondary);
+         }
+         .modal-header .close:hover {
+             color: var(--text);
+         }
+         .modal-body {
+             max-height: 60vh;
+             overflow-y: auto;
+         }
+         .modal-footer {
+             display: flex;
+             justify-content: flex-end;
+             gap: 8px;
+             margin-top: 20px;
+             padding-top: 16px;
+             border-top: 1px solid var(--border);
+         }
+         
+         /* 弹药库样式 */
+         .ammo-item {
+             background: var(--card);
+             border: 1px solid var(--border);
+             border-radius: 8px;
+             padding: 12px;
+             margin-bottom: 10px;
+             transition: all 0.2s;
+         }
+         .ammo-item:hover {
+             box-shadow: var(--shadow);
+         }
+         .ammo-item-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 8px;
+         }
+         .ammo-item-type {
+             font-size: 11px;
+             padding: 2px 8px;
+             border-radius: 12px;
+             font-weight: 500;
+         }
+         .ammo-item-type.word {
+             background: var(--feeling-light);
+             color: #8b5a5a;
+         }
+         .ammo-item-type.sentence {
+             background: var(--task-light);
+             color: #5a7090;
+         }
+         .ammo-item-type.paragraph {
+             background: var(--primary-light);
+             color: var(--primary);
+         }
+         .ammo-item-content {
+             font-size: 14px;
+             line-height: 1.6;
+             margin-bottom: 8px;
+         }
+         .ammo-item-source {
+             font-size: 12px;
+             color: var(--text-secondary);
+             margin-bottom: 8px;
+         }
+         .ammo-item-tags {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 4px;
+             margin-bottom: 8px;
+         }
+         .ammo-item-tag {
+             font-size: 11px;
+             padding: 2px 8px;
+             border-radius: 10px;
+             background: var(--bg);
+             color: var(--text-secondary);
+         }
+         .ammo-item-actions {
+             display: flex;
+             gap: 6px;
+             opacity: 0;
+             transition: opacity 0.2s;
+         }
+         .ammo-item:hover .ammo-item-actions {
+             opacity: 1;
+         }
+         
+         /* 智能推荐弹药样式 */
+         .ammo-suggestion {
+             background: var(--primary-light);
+             border: 1px solid var(--primary);
+             border-radius: 8px;
+             padding: 10px 12px;
+             margin: 8px 0;
+             cursor: pointer;
+             transition: all 0.2s;
+         }
+         .ammo-suggestion:hover {
+             background: var(--primary);
+             color: white;
+         }
+         .ammo-suggestion-content {
+             font-size: 14px;
+             margin-bottom: 4px;
+         }
+         .ammo-suggestion-source {
+             font-size: 11px;
+             opacity: 0.8;
+         }
+         
+         /* 文本选择高亮 */
+         ::selection {
+             background: var(--primary-light);
+         }
+         
+         /* 加载动画 */
+         .loading {
+             display: inline-block;
+             width: 20px;
+             height: 20px;
+             border: 2px solid var(--border);
+             border-radius: 50%;
+             border-top-color: var(--primary);
+             animation: spin 1s linear infinite;
+         }
+         @keyframes spin {
+             to { transform: rotate(360deg); }
+         }
+     </style>
 </head>
 <body>
     <div class="header">
         <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;">🌿 心事与任务</h1>
-        <div class="github-bar">
-            <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
-            <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
-            <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
-            <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
-            <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
-            <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
-            <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
-        </div>
+         <div class="github-bar">
+             <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
+             <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
+             <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
+             <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
+             <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
+             <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
+             <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
+             <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
+         </div>
     </div>
     <div class="update-banner" id="updateBanner">
         <span>📢 有更新待推送</span>
@@ -707,10 +846,11 @@
                 </div>
             </div>
             
-            <div class="input-group">
-                <label>此刻的感受</label>
-                <textarea id="feelingContent" rows="3" placeholder="写下你的感受..." onkeypress="if(event.key==='Enter' && (event.ctrlKey || event.metaKey)) saveFeeling()"></textarea>
-            </div>
+             <div class="input-group">
+                 <label>此刻的感受</label>
+                 <textarea id="feelingContent" rows="3" placeholder="写下你的感受..." oninput="handleFeelingInput(this)" onkeypress="if(event.key==='Enter' && (event.ctrlKey || event.metaKey)) saveFeeling()"></textarea>
+                 <div id="ammoSuggestions" style="margin-top:8px;"></div>
+             </div>
             
             <!-- 板块练习特有：板块名称 -->
             <div class="input-group hidden" id="blockNameArea">
@@ -888,19 +1028,23 @@
         </div>
     </div>
 
-    <div class="modal-overlay hidden" id="pageSettingsModal">
-        <div class="modal">
-            <h3>页面设置</h3>
-            <div class="input-group">
-                <label>网页标题</label>
-                <input type="text" id="settingTitle" placeholder="心事与任务">
-            </div>
-            <div class="modal-actions">
-                <button class="btn btn-secondary" onclick="closePageSettings()">取消</button>
-                <button class="btn btn-primary" onclick="savePageSettings()">保存</button>
-            </div>
-        </div>
-    </div>
+     <div class="modal-overlay hidden" id="pageSettingsModal">
+         <div class="modal">
+             <h3>页面设置</h3>
+             <div class="input-group">
+                 <label>网页标题</label>
+                 <input type="text" id="settingTitle" placeholder="心事与任务">
+             </div>
+             <div class="input-group">
+                 <label>AI功能</label>
+                 <button class="btn btn-secondary" onclick="showAiConfigModal()">AI配置</button>
+             </div>
+             <div class="modal-actions">
+                 <button class="btn btn-secondary" onclick="closePageSettings()">取消</button>
+                 <button class="btn btn-primary" onclick="savePageSettings()">保存</button>
+             </div>
+         </div>
+     </div>
 
     <!-- 批量迁移模态框 -->
     <div class="modal-overlay hidden" id="migrationModal">
@@ -956,11 +1100,180 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeMigrationModal()">取消</button>
                 <button class="btn btn-primary" onclick="executeMigration()">开始迁移</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
+             </div>
+         </div>
+     </div>
+ 
+     <!-- AI润色模态框 -->
+     <div class="modal-overlay hidden" id="aiPolishModal">
+         <div class="modal" style="max-width:1000px;width:95%;">
+             <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                 <h3>✨ AI润色</h3>
+                 <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
+             </div>
+             <div class="modal-body" style="display:flex;gap:16px;max-height:70vh;">
+                 <!-- 左侧：AI润色结果 -->
+                 <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择模型</label>
+                         <select id="aiModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                             <!-- 动态生成模型选项 -->
+                         </select>
+                     </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">原始内容</label>
+                         <div id="aiOriginalContent" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;line-height:1.6;"></div>
+                     </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">润色结果 <small style="color:var(--text-secondary);font-weight:normal;">(可以直接选择文本)</small></label>
+                         <div id="aiPolishedContent" style="padding:12px;background:var(--primary-light);border-radius:6px;font-size:14px;line-height:1.6;min-height:150px;max-height:300px;overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;">
+                             <div style="color:var(--text-secondary);text-align:center;padding:20px;">点击下方按钮开始润色</div>
+                         </div>
+                     </div>
+                     <div style="display:flex;gap:8px;">
+                         <button class="btn btn-primary" onclick="startAiPolish()" id="aiPolishBtn">开始润色</button>
+                         <button class="btn btn-secondary" onclick="copyAiResult()" id="aiCopyBtn" disabled>复制结果</button>
+                     </div>
+                 </div>
+                 <!-- 右侧：弹药库 -->
+                 <div style="flex:1;display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--border);padding-left:16px;">
+                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                         <h4 style="font-size:15px;margin:0;">💎 弹药库</h4>
+                         <button class="btn btn-small btn-secondary" onclick="showAmmoLibraryPanel()">查看全部</button>
+                     </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择文本添加到弹药库</label>
+                         <div id="aiSelectedText" style="padding:10px;background:var(--bg);border-radius:6px;font-size:14px;min-height:60px;border:1px dashed var(--border);cursor:pointer;" onclick="selectTextFromAiResult()">
+                             点击选择润色结果中的文本...
+                         </div>
+                     </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">弹药类型</label>
+                         <select id="ammoTypeSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                             <option value="word">词汇</option>
+                             <option value="sentence">句子</option>
+                             <option value="paragraph">段落</option>
+                         </select>
+                     </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">标签（可选）</label>
+                         <input type="text" id="ammoTagsInput" placeholder="输入标签，用逗号分隔" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                     </div>
+                     <button class="btn btn-primary" onclick="addSelectedTextToAmmo()" id="addToAmmoBtn" disabled>添加到弹药库</button>
+                     
+                     <div style="margin-top:16px;">
+                         <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">本次会话添加的弹药</label>
+                         <div id="sessionAmmoList" style="max-height:200px;overflow-y:auto;">
+                             <div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+     <!-- 弹药库侧拉面板 -->
+     <div class="modal-overlay hidden" id="ammoLibraryPanel">
+         <div class="modal" style="max-width:500px;width:90%;max-height:85vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);">
+             <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:16px;border-bottom:1px solid var(--border);">
+                 <h3 style="margin:0;">💎 弹药库</h3>
+                 <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
+             </div>
+             <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;">
+                 <div style="margin-bottom:16px;">
+                     <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                 </div>
+                 <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
+                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
+                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
+                     <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
+                 </div>
+                 <div id="ammoLibraryList">
+                     <!-- 动态生成弹药列表 -->
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+     <!-- AI配置模态框 -->
+      <div class="modal-overlay hidden" id="aiConfigModal">
+          <div class="modal" style="max-width:600px;">
+              <h3>⚙️ AI配置</h3>
+              <div class="input-group">
+                  <label>启用AI功能</label>
+                  <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);">
+                      <input type="checkbox" id="aiEnabled" onchange="toggleAiEnabled()"> 启用
+                  </label>
+              </div>
+              
+              <div style="border-top:1px solid var(--border);margin:16px 0;padding-top:16px;">
+                  <h4 style="font-size:14px;margin-bottom:12px;">🔑 API密钥配置</h4>
+                  
+                  <div class="input-group">
+                      <label>OpenAI API密钥</label>
+                      <input type="password" id="openaiApiKey" placeholder="sk-...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">用于GPT系列模型</small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>Anthropic API密钥</label>
+                      <input type="password" id="anthropicApiKey" placeholder="sk-ant-...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">用于Claude系列模型</small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>DeepSeek API密钥</label>
+                      <input type="password" id="deepseekApiKey" placeholder="sk-...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:var(--primary);">https://platform.deepseek.com/api_keys</a></small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>阿里云千问API密钥</label>
+                      <input type="password" id="qwenApiKey" placeholder="sk-...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://dashscope.console.aliyun.com/apiKey" target="_blank" style="color:var(--primary);">https://dashscope.console.aliyun.com/apiKey</a></small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>智谱AI API密钥</label>
+                      <input type="password" id="zhipuApiKey" placeholder="...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://open.bigmodel.cn/usercenter/apikeys" target="_blank" style="color:var(--primary);">https://open.bigmodel.cn/usercenter/apikeys</a></small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>百度文心一言API密钥</label>
+                      <input type="password" id="baiduApiKey" placeholder="...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://cloud.baidu.com/product/wenxinworkshop" target="_blank" style="color:var(--primary);">https://cloud.baidu.com/product/wenxinworkshop</a></small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>腾讯混元API密钥</label>
+                      <input type="password" id="tencentApiKey" placeholder="...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://console.cloud.tencent.com/hunyuan" target="_blank" style="color:var(--primary);">https://console.cloud.tencent.com/hunyuan</a></small>
+                  </div>
+                  
+                  <div class="input-group">
+                      <label>月之暗面Kimi API密钥</label>
+                      <input type="password" id="moonshotApiKey" placeholder="sk-...">
+                      <small style="color:var(--text-secondary);display:block;margin-top:4px;">获取地址: <a href="https://platform.moonshot.cn/console/api-keys" target="_blank" style="color:var(--primary);">https://platform.moonshot.cn/console/api-keys</a></small>
+                  </div>
+              </div>
+              
+              <div class="input-group">
+                  <label>默认模型</label>
+                  <select id="aiDefaultModel">
+                      <!-- 动态生成模型选项 -->
+                  </select>
+              </div>
+              
+              <div class="modal-actions">
+                  <button class="btn btn-secondary" onclick="closeAiConfigModal()">取消</button>
+                  <button class="btn btn-primary" onclick="saveAiConfig()">保存</button>
+              </div>
+          </div>
+      </div>
+ 
+     <script>
     // ============ Data ============
      let data = {
          tasks: [], // 待办任务
@@ -973,7 +1286,58 @@
          firstLoaded: false,
          title: '🌿 心事与任务',
          activeTab: 'feeling', // 'feeling' 或 'task'
-         expandedBlocks: {} // 存储板块的展开/折叠状态 {blockId: true/false}
+         expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
+         ammoLibrary: [], // 弹药库 [{id, content, type, sourceBlockId, sourceRecordId, sourceBlockName, createdAt, useCount, tags}]
+           aiConfig: { // AI配置
+               enabled: false,
+               apiKeys: { // 多个提供商的API密钥
+                   openai: '',
+                   anthropic: '',
+                   deepseek: '',
+                   qwen: '',
+                   zhipu: '',
+                   baidu: '',
+                   tencent: '',
+                   moonshot: ''
+               },
+               model: 'gpt-3.5-turbo', // 默认模型
+               models: [ // 支持的模型列表
+                  // OpenAI 模型
+                  { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', provider: 'openai' },
+                  { id: 'gpt-4', name: 'GPT-4', provider: 'openai' },
+                  { id: 'gpt-4-turbo', name: 'GPT-4 Turbo', provider: 'openai' },
+                  { id: 'gpt-4o', name: 'GPT-4o', provider: 'openai' },
+                  { id: 'gpt-4o-mini', name: 'GPT-4o Mini', provider: 'openai' },
+                  // Anthropic 模型
+                  { id: 'claude-3-sonnet', name: 'Claude 3 Sonnet', provider: 'anthropic' },
+                  { id: 'claude-3-opus', name: 'Claude 3 Opus', provider: 'anthropic' },
+                  { id: 'claude-3.5-sonnet', name: 'Claude 3.5 Sonnet', provider: 'anthropic' },
+                  // DeepSeek 模型
+                  { id: 'deepseek-chat', name: 'DeepSeek Chat', provider: 'deepseek' },
+                  { id: 'deepseek-coder', name: 'DeepSeek Coder', provider: 'deepseek' },
+                  // 阿里云千问模型
+                  { id: 'qwen-turbo', name: 'Qwen Turbo (千问极速版)', provider: 'qwen' },
+                  { id: 'qwen-plus', name: 'Qwen Plus (千问增强版)', provider: 'qwen' },
+                  { id: 'qwen-max', name: 'Qwen Max (千问旗舰版)', provider: 'qwen' },
+                  { id: 'qwen-long', name: 'Qwen Long (千问长文本)', provider: 'qwen' },
+                  // 智谱AI模型
+                  { id: 'glm-4', name: 'GLM-4', provider: 'zhipu' },
+                  { id: 'glm-4-flash', name: 'GLM-4 Flash', provider: 'zhipu' },
+                  { id: 'glm-3-turbo', name: 'GLM-3 Turbo', provider: 'zhipu' },
+                  // 百度文心一言模型
+                  { id: 'ernie-bot-4', name: 'ERNIE Bot 4.0 (文心一言4.0)', provider: 'baidu' },
+                  { id: 'ernie-bot-turbo', name: 'ERNIE Bot Turbo (文心一言Turbo)', provider: 'baidu' },
+                  { id: 'ernie-bot', name: 'ERNIE Bot (文心一言)', provider: 'baidu' },
+                  // 腾讯混元模型
+                  { id: 'hunyuan-lite', name: 'Hunyuan Lite (混元轻量版)', provider: 'tencent' },
+                  { id: 'hunyuan-standard', name: 'Hunyuan Standard (混元标准版)', provider: 'tencent' },
+                  { id: 'hunyuan-pro', name: 'Hunyuan Pro (混元专业版)', provider: 'tencent' },
+                  // 月之暗面Kimi模型
+                  { id: 'moonshot-v1-8k', name: 'Kimi 8K', provider: 'moonshot' },
+                  { id: 'moonshot-v1-32k', name: 'Kimi 32K', provider: 'moonshot' },
+                  { id: 'moonshot-v1-128k', name: 'Kimi 128K', provider: 'moonshot' }
+              ]
+          }
      };
         let editingId = null;
         let recording = null;
@@ -1004,11 +1368,24 @@
                         data.slots = parsed.slots;
                     }
                     data.commonTaskTags = parsed.commonTaskTags || data.commonTaskTags;
-                    data.commonFeelingTags = parsed.commonFeelingTags || data.commonFeelingTags;
-                    data.github = parsed.github || null;
-                    data.firstLoaded = parsed.firstLoaded || false;
-                    data.title = parsed.title || data.title;
-                    data.activeTab = parsed.activeTab || 'feeling';
+                     data.commonFeelingTags = parsed.commonFeelingTags || data.commonFeelingTags;
+                     data.github = parsed.github || null;
+                     data.firstLoaded = parsed.firstLoaded || false;
+                     data.title = parsed.title || data.title;
+                     data.activeTab = parsed.activeTab || 'feeling';
+                      data.ammoLibrary = parsed.ammoLibrary || [];
+                      if (parsed.aiConfig) {
+                          // 合并aiConfig,确保apiKeys正确合并
+                          data.aiConfig.enabled = parsed.aiConfig.enabled !== undefined ? parsed.aiConfig.enabled : data.aiConfig.enabled;
+                          data.aiConfig.model = parsed.aiConfig.model || data.aiConfig.model;
+                          if (parsed.aiConfig.apiKeys) {
+                              data.aiConfig.apiKeys = { ...data.aiConfig.apiKeys, ...parsed.aiConfig.apiKeys };
+                          }
+                          // 兼容旧版本的apiKey字段
+                          if (parsed.aiConfig.apiKey && !data.aiConfig.apiKeys.openai) {
+                              data.aiConfig.apiKeys.openai = parsed.aiConfig.apiKey;
+                          }
+                      }
                 } catch(e) { console.error('Load data error:', e); }
             }
         }
@@ -2165,17 +2542,20 @@
                     // 例如：总 5 条，index=0 → 第 5 次，index=4 → 第 1 次
                     const recordNumber = totalRecords - index;
                     
-                    recordEl.innerHTML = `
-                        <div class="item-header">
-                            <span class="item-type feeling">第${recordNumber}次</span>
-                            <span class="item-time">${fmtTime(record.time)}</span>
-                            <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
-                        </div>
-                         <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" onclick="window.openPracticeRecordEdit('${block.id}', '${record.id}')" title="点击编辑">
-                             ${escapeHtml(record.content.replace(/第\d+次练习：/, ''))}
+                     recordEl.innerHTML = `
+                         <div class="item-header">
+                             <span class="item-type feeling">第${recordNumber}次</span>
+                             <span class="item-time">${fmtTime(record.time)}</span>
+                             <div style="display:flex;gap:6px;">
+                                 <button class="btn btn-small btn-primary" onclick="openAiPolishModal('${block.id}', '${record.id}')" title="AI润色">✨ 润色</button>
+                                 <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
+                             </div>
                          </div>
-                        ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
-                    `;
+                          <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" onclick="window.openPracticeRecordEdit('${block.id}', '${record.id}')" title="点击编辑">
+                              ${escapeHtml(record.content.replace(/第\d+次练习：/, ''))}
+                          </div>
+                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
+                     `;
                     recordsContainer.appendChild(recordEl);
                  });
              }
@@ -3354,23 +3734,30 @@
             if (!data.github) { showGithubConfig(); return; }
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
-            // 创建要推送的数据副本，移除敏感信息
-            const dataToPush = {
-                tasks: data.tasks,
-                normalFeelings: data.normalFeelings,
-                practiceBlocks: data.practiceBlocks,
-                slots: data.slots,
-                tags: data.tags,
-                commonTags: data.commonTags,
-                title: data.title,
-                github: {
-                    username: data.github.username,
-                    repo: data.github.repo,
-                    issue: data.github.issue,
-                    lastSync: data.github.lastSync
-                    // 不包含 token
-                }
-            };
+             // 创建要推送的数据副本，移除敏感信息
+             const dataToPush = {
+                 tasks: data.tasks,
+                 normalFeelings: data.normalFeelings,
+                 practiceBlocks: data.practiceBlocks,
+                 slots: data.slots,
+                 tags: data.tags,
+                 commonTags: data.commonTags,
+                 title: data.title,
+                 ammoLibrary: data.ammoLibrary,
+                 aiConfig: {
+                     enabled: data.aiConfig.enabled,
+                     model: data.aiConfig.model,
+                     models: data.aiConfig.models
+                     // 不包含 apiKey
+                 },
+                 github: {
+                     username: data.github.username,
+                     repo: data.github.repo,
+                     issue: data.github.issue,
+                     lastSync: data.github.lastSync
+                     // 不包含 token
+                 }
+             };
             const content = utf8ToBase64(JSON.stringify(dataToPush, null, 2));
             const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
             let sha = null;
@@ -3750,21 +4137,28 @@
                 const info = await res.json();
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
-                if (remote.tasks) data.tasks = remote.tasks;
-                if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
-                if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
-                if (remote.slots) data.slots = remote.slots;
-                if (remote.tags) data.tags = remote.tags;
-                if (remote.commonTags) data.commonTags = remote.commonTags;
-                if (remote.title) data.title = remote.title;
-                // 不覆盖本地的 github.token 配置
-                if (remote.github) {
-                    if (remote.github.username) data.github.username = remote.github.username;
-                    if (remote.github.repo) data.github.repo = remote.github.repo;
-                    if (remote.github.issue !== undefined) data.github.issue = remote.github.issue;
-                    if (remote.github.lastSync) data.github.lastSync = remote.github.lastSync;
-                    if (remote.github.version) data.github.version = remote.github.version;
-                }
+                 if (remote.tasks) data.tasks = remote.tasks;
+                 if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
+                 if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
+                 if (remote.slots) data.slots = remote.slots;
+                 if (remote.tags) data.tags = remote.tags;
+                 if (remote.commonTags) data.commonTags = remote.commonTags;
+                 if (remote.title) data.title = remote.title;
+                 if (remote.ammoLibrary) data.ammoLibrary = remote.ammoLibrary;
+                 if (remote.aiConfig) {
+                     if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
+                     if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
+                     if (remote.aiConfig.models) data.aiConfig.models = remote.aiConfig.models;
+                     // 不覆盖本地的 apiKey
+                 }
+                 // 不覆盖本地的 github.token 配置
+                 if (remote.github) {
+                     if (remote.github.username) data.github.username = remote.github.username;
+                     if (remote.github.repo) data.github.repo = remote.github.repo;
+                     if (remote.github.issue !== undefined) data.github.issue = remote.github.issue;
+                     if (remote.github.lastSync) data.github.lastSync = remote.github.lastSync;
+                     if (remote.github.version) data.github.version = remote.github.version;
+                 }
                 data.firstLoaded = true;
                 saveData();
                 applyTitle();
@@ -3833,7 +4227,841 @@
                 e.preventDefault();
                 pushToGithub();
             }
-        });
-    </script>
+         });
+     </script>
+ 
+     <script>
+     // ============ AI润色和弹药库功能 ============
+     
+     // 当前AI润色的上下文
+     let currentAiContext = {
+         blockId: null,
+         recordId: null,
+         originalContent: '',
+         polishedContent: '',
+         selectedText: ''
+     };
+     
+     // 当前弹药库筛选状态
+     let currentAmmoFilter = {
+         type: 'all',
+         searchTerm: ''
+     };
+     
+     // 打开AI润色模态框
+     function openAiPolishModal(blockId, recordId) {
+         const block = data.practiceBlocks.find(b => b.id === blockId);
+         if (!block) return;
+         
+         const record = block.records.find(r => r.id === recordId);
+         if (!record) return;
+         
+         // 保存上下文
+         currentAiContext = {
+             blockId: blockId,
+             recordId: recordId,
+             originalContent: record.content.replace(/第\d+次练习：/, ''),
+             polishedContent: '',
+             selectedText: ''
+         };
+         
+         // 填充模态框内容
+         document.getElementById('aiOriginalContent').textContent = currentAiContext.originalContent;
+         document.getElementById('aiPolishedContent').innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击下方按钮开始润色</div>';
+         document.getElementById('aiSelectedText').textContent = '点击选择润色结果中的文本...';
+         document.getElementById('aiSelectedText').style.background = 'var(--bg)';
+         document.getElementById('aiCopyBtn').disabled = true;
+         document.getElementById('addToAmmoBtn').disabled = true;
+         document.getElementById('sessionAmmoList').innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
+         
+         // 填充模型选择器
+         const modelSelect = document.getElementById('aiModelSelect');
+         modelSelect.innerHTML = '';
+         data.aiConfig.models.forEach(model => {
+             const option = document.createElement('option');
+             option.value = model.id;
+             option.textContent = model.name;
+             if (model.id === data.aiConfig.model) {
+                 option.selected = true;
+             }
+             modelSelect.appendChild(option);
+         });
+         
+         // 显示模态框
+         document.getElementById('aiPolishModal').classList.remove('hidden');
+         
+         // 设置文本选择监听器
+         setupAiResultSelectionListener();
+     }
+     
+     // 关闭AI润色模态框
+     function closeAiPolishModal() {
+         document.getElementById('aiPolishModal').classList.add('hidden');
+         currentAiContext = {
+             blockId: null,
+             recordId: null,
+             originalContent: '',
+             polishedContent: '',
+             selectedText: ''
+         };
+     }
+     
+     // 开始AI润色
+     async function startAiPolish() {
+          if (!data.aiConfig.enabled) {
+              alert('请先在设置中启用AI功能');
+              showAiConfigModal();
+              return;
+          }
+          
+          const modelId = document.getElementById('aiModelSelect').value;
+          const model = data.aiConfig.models.find(m => m.id === modelId);
+          if (!model) {
+              alert('未找到指定的模型');
+              return;
+          }
+          
+          // 检查对应提供商的API密钥
+          const apiKey = data.aiConfig.apiKeys[model.provider];
+          if (!apiKey) {
+              alert(`请先配置${model.provider}的API密钥`);
+              showAiConfigModal();
+              return;
+          }
+         const polishedContentEl = document.getElementById('aiPolishedContent');
+         const polishBtn = document.getElementById('aiPolishBtn');
+         
+         // 显示加载状态
+         polishedContentEl.innerHTML = '<div style="text-align:center;padding:20px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在润色...</p></div>';
+         polishBtn.disabled = true;
+         polishBtn.textContent = '润色中...';
+         
+         try {
+             // 调用AI API进行润色
+             const result = await callAiApi(currentAiContext.originalContent, modelId);
+             
+             // 显示润色结果
+             currentAiContext.polishedContent = result;
+             polishedContentEl.innerHTML = result;
+             
+             // 启用复制按钮
+             document.getElementById('aiCopyBtn').disabled = false;
+             
+             // 提示用户可以选择文本
+             document.getElementById('aiSelectedText').textContent = '请从上方润色结果中选择文本...';
+             document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
+             
+         } catch (error) {
+             console.error('AI润色失败:', error);
+             polishedContentEl.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">润色失败：${error.message}</div>`;
+         } finally {
+             polishBtn.disabled = false;
+             polishBtn.textContent = '开始润色';
+         }
+     }
+     
+      // 调用AI API
+      async function callAiApi(content, modelId) {
+          const model = data.aiConfig.models.find(m => m.id === modelId);
+          if (!model) {
+              throw new Error('未找到指定的模型');
+          }
+          
+          const prompt = `请对以下文本进行润色优化，要求：
+1. 保持原意不变，提升表达的流畅性和准确性
+2. 优化句式结构，使语言更加精炼优美
+3. 修正语法错误和用词不当之处
+4. 保持适合的语气和风格
+5. 只返回润色后的文本，不要添加任何解释、说明或引言
+
+原文：${content}`;
+          
+          if (model.provider === 'openai') {
+              return await callOpenAiApi(prompt, modelId);
+          } else if (model.provider === 'anthropic') {
+              return await callAnthropicApi(prompt, modelId);
+          } else if (model.provider === 'deepseek') {
+              return await callDeepSeekApi(prompt, modelId);
+          } else if (model.provider === 'qwen') {
+              return await callQwenApi(prompt, modelId);
+          } else if (model.provider === 'zhipu') {
+              return await callZhipuApi(prompt, modelId);
+          } else if (model.provider === 'baidu') {
+              return await callBaiduApi(prompt, modelId);
+          } else if (model.provider === 'tencent') {
+              return await callTencentApi(prompt, modelId);
+          } else if (model.provider === 'moonshot') {
+              return await callMoonshotApi(prompt, modelId);
+          } else {
+              throw new Error('不支持的AI提供商');
+          }
+      }
+     
+      // 调用OpenAI API
+      async function callOpenAiApi(prompt, modelId) {
+          const response = await fetch('https://api.openai.com/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.aiConfig.apiKeys.openai}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 调用Anthropic API
+      async function callAnthropicApi(prompt, modelId) {
+          const response = await fetch('https://api.anthropic.com/v1/messages', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'x-api-key': data.aiConfig.apiKeys.anthropic,
+                  'anthropic-version': '2023-06-01'
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  max_tokens: 2000,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }]
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error?.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.content[0].text;
+       }
+       
+       // 调用DeepSeek API
+      async function callDeepSeekApi(prompt, modelId) {
+          const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.aiConfig.apiKeys.deepseek}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 调用阿里云千问API
+       async function callQwenApi(prompt, modelId) {
+           const response = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer ${data.aiConfig.apiKeys.qwen}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 调用智谱AI API
+      async function callZhipuApi(prompt, modelId) {
+          const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.aiConfig.apiKeys.zhipu}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 调用百度文心一言API
+      async function callBaiduApi(prompt, modelId) {
+          // 百度API需要使用access_token,这里简化处理,实际使用时需要先获取access_token
+          const accessToken = data.aiConfig.apiKeys.baidu; // 假设用户直接配置了access_token
+          
+          const response = await fetch(`https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/${modelId}?access_token=${accessToken}`, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }]
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error_msg || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.result;
+       }
+       
+       // 调用腾讯混元API
+      async function callTencentApi(prompt, modelId) {
+          const response = await fetch('https://hunyuan.cloud.tencent.com/hyllm/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.aiConfig.apiKeys.tencent}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 调用月之暗面Kimi API
+      async function callMoonshotApi(prompt, modelId) {
+          const response = await fetch('https://api.moonshot.cn/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.aiConfig.apiKeys.moonshot}`
+              },
+              body: JSON.stringify({
+                  model: modelId,
+                  messages: [{
+                      role: 'user',
+                      content: prompt
+                  }],
+                  max_tokens: 2000,
+                  temperature: 0.7
+              })
+          });
+          
+           if (!response.ok) {
+               const error = await response.json();
+               throw new Error(error.error?.message || 'API调用失败');
+           }
+           
+           const result = await response.json();
+           return result.choices[0].message.content;
+       }
+       
+       // 复制AI润色结果
+     function copyAiResult() {
+         if (!currentAiContext.polishedContent) return;
+         
+         navigator.clipboard.writeText(currentAiContext.polishedContent).then(() => {
+             showToast('已复制到剪贴板');
+         }).catch(err => {
+             console.error('复制失败:', err);
+             showToast('复制失败');
+         });
+     }
+     
+     // 从AI润色结果中选择文本
+     function selectTextFromAiResult() {
+         const selection = window.getSelection();
+         const selectedText = selection.toString().trim();
+         
+         if (selectedText) {
+             currentAiContext.selectedText = selectedText;
+             document.getElementById('aiSelectedText').textContent = selectedText;
+             document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
+             document.getElementById('addToAmmoBtn').disabled = false;
+         } else {
+             showToast('请先选择文本');
+         }
+     }
+     
+     // 监听润色结果区域的文本选择
+     function setupAiResultSelectionListener() {
+         const polishedContentEl = document.getElementById('aiPolishedContent');
+         
+         // 监听鼠标抬起事件（选择文本结束时触发）
+         polishedContentEl.addEventListener('mouseup', function() {
+             setTimeout(() => {
+                 const selection = window.getSelection();
+                 const selectedText = selection.toString().trim();
+                 
+                 // 检查选择是否在润色结果区域内
+                 if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
+                     currentAiContext.selectedText = selectedText;
+                     document.getElementById('aiSelectedText').textContent = selectedText;
+                     document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
+                     document.getElementById('addToAmmoBtn').disabled = false;
+                 }
+             }, 10);
+         });
+         
+         // 监听触摸结束事件（移动端）
+         polishedContentEl.addEventListener('touchend', function() {
+             setTimeout(() => {
+                 const selection = window.getSelection();
+                 const selectedText = selection.toString().trim();
+                 
+                 if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
+                     currentAiContext.selectedText = selectedText;
+                     document.getElementById('aiSelectedText').textContent = selectedText;
+                     document.getElementById('aiSelectedText').style.background = 'var(--primary-light)';
+                     document.getElementById('addToAmmoBtn').disabled = false;
+                 }
+             }, 10);
+         });
+     }
+     
+     // 添加选中的文本到弹药库
+     function addSelectedTextToAmmo() {
+         if (!currentAiContext.selectedText) {
+             showToast('请先选择文本');
+             return;
+         }
+         
+         const type = document.getElementById('ammoTypeSelect').value;
+         const tagsInput = document.getElementById('ammoTagsInput').value;
+         const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
+         
+         // 获取来源信息
+         const block = data.practiceBlocks.find(b => b.id === currentAiContext.blockId);
+         const sourceBlockName = block ? block.name : '未知板块';
+         
+         // 创建弹药项
+         const ammoItem = {
+             id: genId(),
+             content: currentAiContext.selectedText,
+             type: type,
+             sourceBlockId: currentAiContext.blockId,
+             sourceRecordId: currentAiContext.recordId,
+             sourceBlockName: sourceBlockName,
+             createdAt: nowStr(),
+             useCount: 0,
+             tags: tags
+         };
+         
+         // 添加到弹药库
+         data.ammoLibrary.push(ammoItem);
+         saveData();
+         
+         // 更新UI
+         updateSessionAmmoList(ammoItem);
+         
+         // 重置选择
+         currentAiContext.selectedText = '';
+         document.getElementById('aiSelectedText').textContent = '点击选择润色结果中的文本...';
+         document.getElementById('aiSelectedText').style.background = 'var(--bg)';
+         document.getElementById('addToAmmoBtn').disabled = true;
+         document.getElementById('ammoTagsInput').value = '';
+         
+         showToast('已添加到弹药库');
+     }
+     
+     // 更新本次会话添加的弹药列表
+     function updateSessionAmmoList(ammoItem) {
+         const container = document.getElementById('sessionAmmoList');
+         
+         // 如果是第一个弹药，清空容器
+         if (container.querySelector('.empty-tip')) {
+             container.innerHTML = '';
+         }
+         
+         const ammoEl = document.createElement('div');
+         ammoEl.className = 'ammo-item';
+         ammoEl.style.marginBottom = '8px';
+         ammoEl.style.padding = '8px';
+         ammoEl.innerHTML = `
+             <div class="ammo-item-header">
+                 <span class="ammo-item-type ${ammoItem.type}">${getTypeName(ammoItem.type)}</span>
+                 <span style="font-size:11px;color:var(--text-secondary);">刚刚</span>
+             </div>
+             <div class="ammo-item-content" style="font-size:13px;">${escapeHtml(ammoItem.content.substring(0, 50))}${ammoItem.content.length > 50 ? '...' : ''}</div>
+         `;
+         
+         container.appendChild(ammoEl);
+     }
+     
+     // 获取类型名称
+     function getTypeName(type) {
+         const typeNames = {
+             'word': '词汇',
+             'sentence': '句子',
+             'paragraph': '段落'
+         };
+         return typeNames[type] || type;
+     }
+     
+     // 显示弹药库侧拉面板
+     function showAmmoLibraryPanel() {
+         document.getElementById('ammoLibraryPanel').classList.remove('hidden');
+         renderAmmoLibrary();
+     }
+     
+     // 关闭弹药库侧拉面板
+     function closeAmmoLibraryPanel() {
+         document.getElementById('ammoLibraryPanel').classList.add('hidden');
+     }
+     
+     // 渲染弹药库
+     function renderAmmoLibrary() {
+         const container = document.getElementById('ammoLibraryList');
+         const searchTerm = document.getElementById('ammoSearchInput').value.toLowerCase();
+         
+         // 筛选弹药
+         let filteredAmmo = data.ammoLibrary.filter(ammo => {
+             // 类型筛选
+             if (currentAmmoFilter.type !== 'all' && ammo.type !== currentAmmoFilter.type) {
+                 return false;
+             }
+             
+             // 搜索筛选
+             if (searchTerm && !ammo.content.toLowerCase().includes(searchTerm) &&
+                 !ammo.sourceBlockName.toLowerCase().includes(searchTerm)) {
+                 return false;
+             }
+             
+             return true;
+         });
+         
+         // 按使用次数和创建时间排序
+         filteredAmmo.sort((a, b) => {
+             if (b.useCount !== a.useCount) {
+                 return b.useCount - a.useCount;
+             }
+             return new Date(b.createdAt) - new Date(a.createdAt);
+         });
+         
+         // 渲染
+         container.innerHTML = '';
+         
+         if (filteredAmmo.length === 0) {
+             container.innerHTML = '<div class="empty-tip">暂无弹药</div>';
+             return;
+         }
+         
+         filteredAmmo.forEach(ammo => {
+             const ammoEl = document.createElement('div');
+             ammoEl.className = 'ammo-item';
+             ammoEl.innerHTML = `
+                 <div class="ammo-item-header">
+                     <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
+                     <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
+                 </div>
+                 <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
+                 <div class="ammo-item-source">来源：${escapeHtml(ammo.sourceBlockName)}</div>
+                 ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
+                 <div class="ammo-item-actions">
+                     <button class="btn btn-small btn-primary" onclick="useAmmo('${ammo.id}')">使用</button>
+                     <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
+                     <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
+                 </div>
+             `;
+             container.appendChild(ammoEl);
+         });
+     }
+     
+     // 按类型筛选弹药
+     function filterAmmoByType(type) {
+         currentAmmoFilter.type = type;
+         
+         // 更新按钮状态
+         document.querySelectorAll('[id^="filterAmmo"]').forEach(btn => {
+             btn.classList.remove('btn-primary');
+             btn.classList.add('btn-secondary');
+         });
+         document.getElementById(`filterAmmo${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.remove('btn-secondary');
+         document.getElementById(`filterAmmo${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.add('btn-primary');
+         
+         renderAmmoLibrary();
+     }
+     
+     // 使用弹药
+     function useAmmo(ammoId) {
+         const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+         if (!ammo) return;
+         
+         // 增加使用次数
+         ammo.useCount++;
+         saveData();
+         
+         // 复制到剪贴板
+         navigator.clipboard.writeText(ammo.content).then(() => {
+             showToast('已复制到剪贴板，可以粘贴使用');
+             renderAmmoLibrary();
+         }).catch(err => {
+             console.error('复制失败:', err);
+             showToast('复制失败');
+         });
+     }
+     
+     // 编辑弹药
+     function editAmmo(ammoId) {
+         const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+         if (!ammo) return;
+         
+         const newContent = prompt('编辑弹药内容:', ammo.content);
+         if (newContent !== null && newContent.trim()) {
+             ammo.content = newContent.trim();
+             saveData();
+             renderAmmoLibrary();
+             showToast('修改成功');
+         }
+     }
+     
+     // 删除弹药
+     function deleteAmmo(ammoId) {
+         if (!confirm('确定要删除这个弹药吗？')) return;
+         
+         data.ammoLibrary = data.ammoLibrary.filter(a => a.id !== ammoId);
+         saveData();
+         renderAmmoLibrary();
+         showToast('已删除');
+     }
+     
+     // 处理感受输入，显示智能推荐
+     let ammoSuggestionTimer = null;
+     function handleFeelingInput(textarea) {
+         const content = textarea.value.trim();
+         const container = document.getElementById('ammoSuggestions');
+         
+         // 清除之前的定时器
+         if (ammoSuggestionTimer) {
+             clearTimeout(ammoSuggestionTimer);
+         }
+         
+         // 如果内容太少，不显示推荐
+         if (content.length < 10) {
+             container.innerHTML = '';
+             return;
+         }
+         
+         // 延迟显示推荐，避免频繁调用
+         ammoSuggestionTimer = setTimeout(() => {
+             showAmmoSuggestions(content);
+         }, 500);
+     }
+     
+     // 显示弹药推荐
+     function showAmmoSuggestions(content) {
+         const container = document.getElementById('ammoSuggestions');
+         
+         // 提取前两句话
+         const sentences = content.split(/[。！？.!?]/).filter(s => s.trim()).slice(0, 2);
+         if (sentences.length === 0) {
+             container.innerHTML = '';
+             return;
+         }
+         
+         const searchText = sentences.join(' ');
+         
+         // 搜索相关弹药
+         const suggestions = data.ammoLibrary.filter(ammo => {
+             const contentLower = ammo.content.toLowerCase();
+             const searchLower = searchText.toLowerCase();
+             
+             // 简单的关键词匹配
+             const keywords = searchLower.split(/\s+/).filter(k => k.length > 1);
+             return keywords.some(keyword => contentLower.includes(keyword));
+         }).slice(0, 3); // 最多显示3个推荐
+         
+         if (suggestions.length === 0) {
+             container.innerHTML = '';
+             return;
+         }
+         
+         // 渲染推荐
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 关联弹药推荐</div>';
+         
+         suggestions.forEach(ammo => {
+             const suggestionEl = document.createElement('div');
+             suggestionEl.className = 'ammo-suggestion';
+             suggestionEl.innerHTML = `
+                 <div class="ammo-suggestion-content">${escapeHtml(ammo.content.substring(0, 60))}${ammo.content.length > 60 ? '...' : ''}</div>
+                 <div class="ammo-suggestion-source">来自：${escapeHtml(ammo.sourceBlockName)}</div>
+             `;
+             suggestionEl.onclick = () => {
+                 // 插入到文本框
+                 const textarea = document.getElementById('feelingContent');
+                 const cursorPos = textarea.selectionStart;
+                 const textBefore = textarea.value.substring(0, cursorPos);
+                 const textAfter = textarea.value.substring(textarea.selectionEnd);
+                 
+                 textarea.value = textBefore + ammo.content + textAfter;
+                 textarea.focus();
+                 
+                 // 增加使用次数
+                 ammo.useCount++;
+                 saveData();
+                 
+                 // 清空推荐
+                 container.innerHTML = '';
+                 
+                 showToast('已插入');
+             };
+             container.appendChild(suggestionEl);
+         });
+     }
+     
+      // 显示AI配置模态框
+      function showAiConfigModal() {
+          document.getElementById('aiEnabled').checked = data.aiConfig.enabled;
+          
+          // 填充各个提供商的API密钥
+          document.getElementById('openaiApiKey').value = data.aiConfig.apiKeys.openai || '';
+          document.getElementById('anthropicApiKey').value = data.aiConfig.apiKeys.anthropic || '';
+          document.getElementById('deepseekApiKey').value = data.aiConfig.apiKeys.deepseek || '';
+          document.getElementById('qwenApiKey').value = data.aiConfig.apiKeys.qwen || '';
+          document.getElementById('zhipuApiKey').value = data.aiConfig.apiKeys.zhipu || '';
+          document.getElementById('baiduApiKey').value = data.aiConfig.apiKeys.baidu || '';
+          document.getElementById('tencentApiKey').value = data.aiConfig.apiKeys.tencent || '';
+          document.getElementById('moonshotApiKey').value = data.aiConfig.apiKeys.moonshot || '';
+          
+          // 填充模型选择器
+          const modelSelect = document.getElementById('aiDefaultModel');
+          modelSelect.innerHTML = '';
+          data.aiConfig.models.forEach(model => {
+              const option = document.createElement('option');
+              option.value = model.id;
+              option.textContent = model.name;
+              if (model.id === data.aiConfig.model) {
+                  option.selected = true;
+              }
+              modelSelect.appendChild(option);
+          });
+          
+          document.getElementById('aiConfigModal').classList.remove('hidden');
+      }
+      
+      // 关闭AI配置模态框
+      function closeAiConfigModal() {
+          document.getElementById('aiConfigModal').classList.add('hidden');
+      }
+      
+      // 切换AI启用状态
+      function toggleAiEnabled() {
+          const enabled = document.getElementById('aiEnabled').checked;
+          // 这里可以添加额外的逻辑
+      }
+      
+      // 保存AI配置
+      function saveAiConfig() {
+          data.aiConfig.enabled = document.getElementById('aiEnabled').checked;
+          data.aiConfig.apiKeys.openai = document.getElementById('openaiApiKey').value.trim();
+          data.aiConfig.apiKeys.anthropic = document.getElementById('anthropicApiKey').value.trim();
+          data.aiConfig.apiKeys.deepseek = document.getElementById('deepseekApiKey').value.trim();
+          data.aiConfig.apiKeys.qwen = document.getElementById('qwenApiKey').value.trim();
+          data.aiConfig.apiKeys.zhipu = document.getElementById('zhipuApiKey').value.trim();
+          data.aiConfig.apiKeys.baidu = document.getElementById('baiduApiKey').value.trim();
+          data.aiConfig.apiKeys.tencent = document.getElementById('tencentApiKey').value.trim();
+          data.aiConfig.apiKeys.moonshot = document.getElementById('moonshotApiKey').value.trim();
+          data.aiConfig.model = document.getElementById('aiDefaultModel').value;
+          
+          saveData();
+          closeAiConfigModal();
+          showToast('AI配置已保存');
+      }
+     
+     // 显示Toast提示
+     function showToast(message) {
+         // 移除旧的toast
+         const oldToast = document.querySelector('.toast-message');
+         if (oldToast) oldToast.remove();
+         
+         // 创建新的toast
+         const toast = document.createElement('div');
+         toast.className = 'toast-message';
+         toast.style.cssText = `
+             position: fixed;
+             bottom: 20px;
+             left: 50%;
+             transform: translateX(-50%);
+             background: var(--text);
+             color: white;
+             padding: 12px 24px;
+             border-radius: 8px;
+             z-index: 2000;
+             animation: fadeIn 0.3s ease-out;
+         `;
+         toast.textContent = message;
+         document.body.appendChild(toast);
+         
+         // 3秒后自动消失
+         setTimeout(() => {
+             toast.style.animation = 'fadeOut 0.3s ease-out';
+             setTimeout(() => toast.remove(), 300);
+         }, 3000);
+     }
+     </script>
 </body>
 </html>
