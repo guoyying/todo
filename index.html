@@ -2143,23 +2143,33 @@
             
             container.appendChild(blockEl);
             
-            // 渲染记录列表
+            // 渲染记录列表：按时间正序排列（最早的在最上面，第 1 次在最上面）
             const recordsContainer = blockEl.querySelector(`#records-${block.id}`);
             if (totalRecords > 0) {
-                block.records.slice().reverse().forEach((record, index) => {
+                // 按时间倒序排序（最新的在前）
+                const sortedRecords = block.records.slice().sort((a, b) => {
+                    return new Date(b.time) - new Date(a.time);
+                });
+                
+                sortedRecords.forEach((record, index) => {
                     const recordEl = document.createElement('div');
                     recordEl.className = 'item feeling-item';
                     recordEl.style.marginBottom = '8px';
                     recordEl.style.padding = '12px';
                     recordEl.style.background = 'var(--bg-secondary)';
                     recordEl.style.borderRadius = '6px';
+                    
+                    // 动态计算次数：总记录数 - 当前索引 = 次数
+                    // 例如：总 5 条，index=0 → 第 5 次，index=4 → 第 1 次
+                    const recordNumber = totalRecords - index;
+                    
                     recordEl.innerHTML = `
                         <div class="item-header">
-                            <span class="item-type feeling">第${totalRecords - index}次</span>
+                            <span class="item-type feeling">第${recordNumber}次</span>
                             <span class="item-time">${fmtTime(record.time)}</span>
                             <div style="display:flex;gap:6px;">
-                                <button class="btn btn-small btn-secondary" onclick="editPracticeRecord('${block.id}', ${totalRecords - index}, this)">编辑</button>
-                                <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, ${totalRecords - index})">删除</button>
+                                <button class="btn btn-small btn-secondary" onclick="editPracticeRecord('${block.id}', '${record.id}', this)">编辑</button>
+                                <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
                             </div>
                         </div>
                         <div class="item-content" style="margin-top:8px;">${record.content}</div>
@@ -2250,14 +2260,17 @@
         }
         
         // 编辑练习记录
-        function editPracticeRecord(blockId, recordNumber, btnElement) {
+        function editPracticeRecord(blockId, recordId, btnElement) {
             const block = data.practiceBlocks.find(b => b.id === blockId);
             if (!block) return;
             
-            const recordIndex = block.records.length - recordNumber;
-            if (recordIndex < 0 || recordIndex >= block.records.length) return;
+            const record = block.records.find(r => r.id === recordId);
+            if (!record) return;
             
-            const record = block.records[recordIndex];
+            // 从内容中提取次数
+            const match = record.content.match(/第 (\d+) 次练习/);
+            const recordNumber = match ? parseInt(match[1]) : 'N';
+            
             const newContent = prompt('编辑练习内容:', record.content.replace(`第${recordNumber}次练习：`, ''));
             if (newContent !== null && newContent.trim()) {
                 record.content = `第${recordNumber}次练习：${newContent.trim()}`;
