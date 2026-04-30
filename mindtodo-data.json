@@ -220,9 +220,9 @@
       "type": "task",
       "content": "拆除马场的光路",
       "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-30T07:35:48.415Z",
+      "updatedAt": "2026-04-30T08:46:11.019Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -233,7 +233,8 @@
           "done": true,
           "placedIn": "slot_moju5h19bscd0"
         }
-      ]
+      ],
+      "doneAt": "2026-04-30T08:46:11.019Z"
     },
     {
       "id": "moi9o3viw17rn",
@@ -307,7 +308,7 @@
       "type": "task",
       "content": "给老公看衣服，生日礼物",
       "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-04-29T07:50:11.007Z",
+      "updatedAt": "2026-04-30T08:46:13.586Z",
       "tags": [
         "老公"
       ],
@@ -319,7 +320,7 @@
           "id": "mojd41e4t3pn0",
           "content": "搜索男士休闲，他喜欢舒服的衣服，千问搜索",
           "estimatedTime": "10min",
-          "done": false,
+          "done": true,
           "placedIn": null
         },
         {
@@ -336,9 +337,9 @@
       "type": "task",
       "content": "定级备案更新",
       "createdAt": "2026-04-29T01:24:25.239Z",
-      "updatedAt": "2026-04-29T01:24:25.239Z",
+      "updatedAt": "2026-04-30T08:46:23.087Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -363,7 +364,8 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-04-30T08:46:23.087Z"
     },
     {
       "id": "mojee5e1p6g2o",
@@ -505,24 +507,26 @@
       "type": "task",
       "content": "看下奥普泰50端口是否关闭or开着的。",
       "createdAt": "2026-04-29T09:52:12.216Z",
-      "updatedAt": "2026-04-29T09:52:12.216Z",
+      "updatedAt": "2026-04-30T08:46:24.548Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-30T08:46:24.547Z"
     },
     {
       "id": "mol65tu38t04p",
       "type": "task",
       "content": "我想感受记录、往期感受也能编辑内容，也能调用ai润色的功能，还有智能推荐功能。另外待办、往期待办可以新增或删除子任务，设置子任务预计时间、编辑子任务内容。",
       "createdAt": "2026-04-30T07:35:25.515Z",
-      "updatedAt": "2026-04-30T07:36:24.517Z",
+      "updatedAt": "2026-04-30T08:46:04.358Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-04-30T08:46:04.358Z"
     }
   ],
   "normalFeelings": [
@@ -833,6 +837,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T07:35:33.987Z"
+    "lastSync": "2026-04-30T08:45:56.948Z"
   }
 }
