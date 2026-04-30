@@ -486,13 +486,14 @@
       "type": "task",
       "content": "看下奥普泰50端口是否关闭or开着的。",
       "createdAt": "2026-04-29T09:52:12.216Z",
-      "updatedAt": "2026-04-30T00:54:02.683Z",
+      "updatedAt": "2026-04-30T02:27:54.988Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mokrsxx907o5s"
+      "placedIn": "slot_mokrsxx907o5s",
+      "doneAt": "2026-04-30T02:27:54.988Z"
     },
     {
       "id": "mokrt1csmj4gi",
@@ -826,6 +827,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T02:17:09.288Z"
+    "lastSync": "2026-04-30T02:17:16.216Z"
   }
 }
