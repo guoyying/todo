@@ -543,18 +543,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-30T01:38:48.946Z"
-    },
-    {
-      "id": "moktm5gh400od",
-      "type": "task",
-      "content": "写下初步的怎么设备退网清理光路",
-      "createdAt": "2026-04-30T01:44:12.065Z",
-      "updatedAt": "2026-04-30T01:44:12.065Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
