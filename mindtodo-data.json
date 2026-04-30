@@ -216,26 +216,6 @@
       "doneAt": "2026-04-28T08:47:34.213Z"
     },
     {
-      "id": "moi9ac06t98ch",
-      "type": "task",
-      "content": "拆除马场的光路",
-      "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-29T09:51:36.391Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moi9ac069jsj7",
-          "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": "slot_moju5h19bscd0"
-        }
-      ]
-    },
-    {
       "id": "moi9o3viw17rn",
       "type": "task",
       "content": "看下炭步的退网单",
