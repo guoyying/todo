@@ -316,7 +316,7 @@
       "type": "task",
       "content": "定级备案更新",
       "createdAt": "2026-04-29T01:24:25.239Z",
-      "updatedAt": "2026-04-30T00:54:00.168Z",
+      "updatedAt": "2026-04-30T01:17:09.396Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -326,22 +326,22 @@
           "id": "mojdgv12h2lan",
           "content": "找到云平台风险评估总结，截图放入报告里",
           "estimatedTime": "20min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_mokrsxx907o5s"
         },
         {
           "id": "mojdgv13f6dry",
           "content": "修改part2的内容",
           "estimatedTime": "9min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_mokrsxx907o5s"
         },
         {
           "id": "mojdgv13dwz3r",
-          "content": "修改工信部网站上、备案报告的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
+          "content": "修改工信部网站上的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
           "estimatedTime": "20min",
           "done": false,
-          "placedIn": "slot_mokrsxx907o5s"
+          "placedIn": null
         }
       ]
     },
@@ -787,6 +787,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T00:54:43.688Z"
+    "lastSync": "2026-04-30T01:10:03.729Z"
   }
 }
