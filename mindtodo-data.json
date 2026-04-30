@@ -316,7 +316,7 @@
       "type": "task",
       "content": "定级备案更新",
       "createdAt": "2026-04-29T01:24:25.239Z",
-      "updatedAt": "2026-04-29T01:24:25.239Z",
+      "updatedAt": "2026-04-30T00:54:00.168Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -327,21 +327,21 @@
           "content": "找到云平台风险评估总结，截图放入报告里",
           "estimatedTime": "20min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mokrsxx907o5s"
         },
         {
           "id": "mojdgv13f6dry",
           "content": "修改part2的内容",
           "estimatedTime": "9min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mokrsxx907o5s"
         },
         {
           "id": "mojdgv13dwz3r",
           "content": "修改工信部网站上、备案报告的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
           "estimatedTime": "20min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mokrsxx907o5s"
         }
       ]
     },
@@ -485,10 +485,23 @@
       "type": "task",
       "content": "看下奥普泰50端口是否关闭or开着的。",
       "createdAt": "2026-04-29T09:52:12.216Z",
-      "updatedAt": "2026-04-29T09:52:12.216Z",
+      "updatedAt": "2026-04-30T00:54:02.683Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mokrsxx907o5s"
+    },
+    {
+      "id": "mokrt1csmj4gi",
+      "type": "task",
+      "content": "退网过单",
+      "createdAt": "2026-04-30T00:53:34.108Z",
+      "updatedAt": "2026-04-30T00:53:49.266Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "50min",
       "unknown": false,
       "subtasks": []
     }
@@ -573,7 +586,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mokrsxx907o5s",
+      "name": "上午做"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -757,6 +775,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-29T15:26:49.903Z"
+    "lastSync": "2026-04-30T00:50:15.056Z"
   }
 }
