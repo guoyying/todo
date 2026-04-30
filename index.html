@@ -965,7 +965,7 @@
                     <select id="blockNameSelect" onchange="handleBlockNameSelect(this)" style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
                         <option value="">-- 选择已有板块 --</option>
                     </select>
-                    <input type="text" id="blockName" placeholder="或输入新名称" style="flex:1;" oninput="handleBlockNameInput(this);clearBlockNameSelect()">
+                    <input type="text" id="blockName" placeholder="或输入新名称" style="flex:1;" oninput="clearBlockNameSelect()">
                 </div>
             </div>
             
@@ -980,7 +980,7 @@
         <div class="task-input-area" id="taskArea">
             <div class="input-group">
                 <label>想做的事</label>
-                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." oninput="handleTaskInput(this)" onkeypress="if(event.key==='Enter' && !event.shiftKey) { event.preventDefault(); saveTask(); }"></textarea>
+                <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." onkeypress="if(event.key==='Enter' && !event.shiftKey) { event.preventDefault(); saveTask(); }"></textarea>
             </div>
             <div class="input-group">
                 <label>预计完成时间</label>
@@ -1125,8 +1125,9 @@
         <div class="modal">
             <h3>编辑</h3>
             <div class="input-group">
-                <textarea id="editContent" rows="4"></textarea>
+                <textarea id="editContent" rows="4" oninput="handleEditContentInput(this)"></textarea>
             </div>
+            <div id="editContentSuggestions" style="margin-top:8px;"></div>
             <div class="modal-actions">
                 <button class="btn btn-secondary" onclick="closeEditModal()">取消</button>
                 <button class="btn btn-primary" onclick="saveEdit()">保存</button>
@@ -1282,8 +1283,8 @@
      </div>
  
      <!-- 弹药库侧拉面板 -->
-     <div class="modal-overlay hidden" id="ammoLibraryPanel">
-         <div class="modal" style="max-width:500px;width:90%;max-height:85vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);">
+     <div class="modal-overlay hidden" id="ammoLibraryPanel" onclick="closeAmmoLibraryPanel()">
+         <div class="modal" style="max-width:500px;width:90%;max-height:85vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
              <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:16px;border-bottom:1px solid var(--border);">
                  <h3 style="margin:0;">💎 弹药库</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
@@ -1423,73 +1424,7 @@
          title: '🌿 心事与任务',
          activeTab: 'feeling', // 'feeling' 或 'task'
          expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
-         ammoLibrary: [ // 弹药库 [{id, content, type, sourceBlockId, sourceRecordId, sourceBlockName, createdAt, useCount, tags}]
-             // 情感表达类弹药
-             {id: 'ammo_001', content: '保持积极乐观的心态', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感管理', createdAt: '2026-04-25T10:00:00.000Z', useCount: 15, tags: ['积极', '乐观', '心态']},
-             {id: 'ammo_002', content: '开心', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-20T10:00:00.000Z', useCount: 25, tags: ['情感', '积极']},
-             {id: 'ammo_003', content: '感到焦虑时，深呼吸放松身心', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情绪调节', createdAt: '2026-04-23T10:00:00.000Z', useCount: 14, tags: ['焦虑', '放松', '调节']},
-             {id: 'ammo_004', content: '面对挑战时保持冷静和理性', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情绪管理', createdAt: '2026-04-24T10:00:00.000Z', useCount: 6, tags: ['挑战', '冷静', '理性']},
-             {id: 'ammo_005', content: '想要', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-22T10:00:00.000Z', useCount: 18, tags: ['愿望', '期待']},
-             
-             // 学习成长类弹药
-             {id: 'ammo_006', content: '学习新技能是成长的重要途径', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '个人成长', createdAt: '2026-04-26T10:00:00.000Z', useCount: 8, tags: ['学习', '成长', '技能']},
-             {id: 'ammo_007', content: '制定学习计划，循序渐进地提升能力', type: 'paragraph', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '学习方法', createdAt: '2026-04-27T10:00:00.000Z', useCount: 12, tags: ['计划', '学习', '方法']},
-             {id: 'ammo_008', content: '提高专业技能，增强竞争力', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '职业发展', createdAt: '2026-04-28T10:00:00.000Z', useCount: 9, tags: ['技能', '职业', '竞争力']},
-             
-             // 行动执行类弹药
-             {id: 'ammo_009', content: '完成', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '行动词汇', createdAt: '2026-04-21T10:00:00.000Z', useCount: 20, tags: ['行动', '完成']},
-             {id: 'ammo_010', content: '开始', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '行动词汇', createdAt: '2026-04-19T10:00:00.000Z', useCount: 16, tags: ['行动', '开始']},
-             {id: 'ammo_011', content: '计划', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '行动词汇', createdAt: '2026-04-18T10:00:00.000Z', useCount: 22, tags: ['行动', '计划']},
-             {id: 'ammo_012', content: '解决', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '行动词汇', createdAt: '2026-04-17T10:00:00.000Z', useCount: 14, tags: ['行动', '解决']},
-             
-             // 心态调节类弹药
-             {id: 'ammo_013', content: '平静', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-16T10:00:00.000Z', useCount: 19, tags: ['情感', '平静']},
-             {id: 'ammo_014', content: '放松', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-15T10:00:00.000Z', useCount: 17, tags: ['情感', '放松']},
-             {id: 'ammo_015', content: '接受', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-14T10:00:00.000Z', useCount: 11, tags: ['情感', '接受']},
-             {id: 'ammo_016', content: '理解', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '情感词汇', createdAt: '2026-04-13T10:00:00.000Z', useCount: 13, tags: ['情感', '理解']},
-             
-             // 综合表达类弹药
-             {id: 'ammo_017', content: '面对工作中的挑战，我需要保持冷静，制定合理的计划来解决问题', type: 'paragraph', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '综合表达', createdAt: '2026-04-29T10:00:00.000Z', useCount: 5, tags: ['工作', '挑战', '冷静', '计划', '解决']},
-             {id: 'ammo_018', content: '我感到很开心，想要学习新的技能来提升自己', type: 'paragraph', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '综合表达', createdAt: '2026-04-29T11:00:00.000Z', useCount: 7, tags: ['开心', '学习', '技能', '提升']},
-             
-             // 时间管理类弹药
-             {id: 'ammo_019', content: '2 小时', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间管理', createdAt: '2026-04-29T12:00:00.000Z', useCount: 10, tags: ['时间', '小时', '管理']},
-             {id: 'ammo_020', content: '30 分钟', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间管理', createdAt: '2026-04-29T12:00:00.000Z', useCount: 15, tags: ['时间', '分钟', '管理']},
-             {id: 'ammo_021', content: '1 小时', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间管理', createdAt: '2026-04-29T12:00:00.000Z', useCount: 12, tags: ['时间', '小时', '管理']},
-             {id: 'ammo_022', content: '15 分钟', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间管理', createdAt: '2026-04-29T12:00:00.000Z', useCount: 8, tags: ['时间', '分钟', '管理']},
-             {id: 'ammo_023', content: '今天下午', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间段', createdAt: '2026-04-29T12:00:00.000Z', useCount: 6, tags: ['时间', '下午', '今天']},
-             {id: 'ammo_024', content: '本周内', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间段', createdAt: '2026-04-29T12:00:00.000Z', useCount: 5, tags: ['时间', '本周', '内']},
-             {id: 'ammo_025', content: '明天', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间段', createdAt: '2026-04-29T12:00:00.000Z', useCount: 7, tags: ['时间', '明天']},
-             {id: 'ammo_026', content: '下周', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '时间段', createdAt: '2026-04-29T12:00:00.000Z', useCount: 4, tags: ['时间', '下周']},
-             
-             // 板块名称类弹药
-             {id: 'ammo_027', content: '情感管理', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 3, tags: ['板块', '情感', '管理']},
-             {id: 'ammo_028', content: '个人成长', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 2, tags: ['板块', '个人', '成长']},
-             {id: 'ammo_029', content: '学习方法', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 2, tags: ['板块', '学习', '方法']},
-             {id: 'ammo_030', content: '职业发展', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 2, tags: ['板块', '职业', '发展']},
-             {id: 'ammo_031', content: '情绪调节', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 2, tags: ['板块', '情绪', '调节']},
-             {id: 'ammo_032', content: '时间管理', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '板块名称', createdAt: '2026-04-29T12:00:00.000Z', useCount: 2, tags: ['板块', '时间', 'management']},
-             
-             // 练习内容类弹药
-             {id: 'ammo_033', content: '练习', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 20, tags: ['练习', '行动', '成长']},
-             {id: 'ammo_034', content: '坚持练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 15, tags: ['练习', '坚持', '成长']},
-             {id: 'ammo_035', content: '每天练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 12, tags: ['练习', '每天', '习惯']},
-             {id: 'ammo_036', content: '持续练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 10, tags: ['练习', '持续', '进步']},
-             {id: 'ammo_037', content: '认真练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 8, tags: ['练习', '认真', '专注']},
-             {id: 'ammo_038', content: '专注练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 9, tags: ['练习', '专注', '效率']},
-             {id: 'ammo_039', content: '记录练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 7, tags: ['练习', '记录', '总结']},
-             {id: 'ammo_040', content: '完成练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 11, tags: ['练习', '完成', '成就']},
-             {id: 'ammo_041', content: '开始练习', type: 'sentence', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 13, tags: ['练习', '开始', '行动']},
-             {id: 'ammo_042', content: '练习记录', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 6, tags: ['练习', '记录', '总结']},
-             {id: 'ammo_043', content: '练习内容', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 5, tags: ['练习', '内容', '计划']},
-             {id: 'ammo_044', content: '练习计划', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 4, tags: ['练习', '计划', '安排']},
-             {id: 'ammo_045', content: '练习目标', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 3, tags: ['练习', '目标', '方向']},
-             {id: 'ammo_046', content: '练习成果', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 2, tags: ['练习', '成果', '收获']},
-             {id: 'ammo_047', content: '练习心得', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 2, tags: ['练习', '心得', '感悟']},
-             {id: 'ammo_048', content: '练习总结', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 2, tags: ['练习', '总结', '反思']},
-             {id: 'ammo_049', content: '练习进步', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 2, tags: ['练习', '进步', '提升']},
-             {id: 'ammo_050', content: '练习提升', type: 'word', sourceBlockId: null, sourceRecordId: null, sourceBlockName: '练习内容', createdAt: '2026-04-29T13:00:00.000Z', useCount: 2, tags: ['练习', '提升', '成长']}
-         ],
+         ammoLibrary: [], // 弹药库 - 用户个人创建的表达库，从练习记录和感受记录中收集
            aiConfig: { // AI配置
                enabled: false,
                apiKeys: { // 多个提供商的API密钥
@@ -2717,11 +2652,7 @@
                 <div class="practice-records" id="records-${block.id}" style="display:${isCollapsed ? 'none' : 'block'};margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
                     ${totalRecords === 0 ? '<div class="empty-tip">暂无练习记录</div>' : ''}
                 </div>
-                ${!isArchived ? `<div style="margin-top:12px;${isCollapsed ? 'display:none;' : ''}">
-                    <input type="text" class="input" placeholder="记录练习内容..." id="new-record-${block.id}" onkeypress="if(event.key==='Enter')addPracticeRecord('${block.id}')" oninput="handleRecordPracticeInput(this, '${block.id}')" style="flex:1;">
-                    <button class="btn btn-small btn-primary" style="margin-left:8px;" onclick="addPracticeRecord('${block.id}')">记录练习</button>
-                    <div id="new-record-suggestions-${block.id}" style="margin-top:8px;"></div>
-                </div>` : ''}
+                ${!isArchived ? `` : ''}
             `;
             
             container.appendChild(blockEl);
@@ -3393,6 +3324,11 @@
               delete textarea.dataset.recordNumber;
               // 清理任务编辑数据
               editingId = null;
+              // 清理智能推荐
+              const suggestionsContainer = document.getElementById('editContentSuggestions');
+              if (suggestionsContainer) {
+                  suggestionsContainer.innerHTML = '';
+              }
               // 隐藏模态框
               document.getElementById('editModal').classList.add('hidden');
           }
@@ -5486,6 +5422,57 @@
      }
      
      /**
+      * 提取核心词汇（名词、动词等有意义的词）
+      * @param {string} text - 输入文本
+      * @returns {Array} - 核心词汇数组
+      */
+     function extractCoreWords(text) {
+         const coreWords = [];
+         
+         // 常见核心词汇列表（名词、动词）
+         const commonCoreWords = [
+             // 效率相关
+             '效率', '提升', '提高', '改善', '优化', '进步',
+             // 情绪相关
+             '开心', '快乐', '难过', '焦虑', '担心', '紧张', '平静', '放松',
+             // 工作相关
+             '工作', '学习', '任务', '目标', '计划', '完成', '开始', '结束',
+             // 时间相关
+             '时间', '今天', '明天', '昨天', '现在', '以后', '之前',
+             // 能力相关
+             '能力', '技能', '水平', '质量', '效果', '成果',
+             // 思考相关
+             '思考', '想法', '观点', '理解', '认识', '意识',
+             // 行动相关
+             '行动', '执行', '实施', '操作', '处理', '解决',
+             // 状态相关
+             '状态', '情况', '状况', '问题', '困难', '挑战'
+         ];
+         
+         // 检查文本中是否包含这些核心词汇
+         commonCoreWords.forEach(word => {
+             if (text.includes(word)) {
+                 coreWords.push(word);
+             }
+         });
+         
+         // 提取2-3字的连续汉字作为候选核心词
+         const candidates = text.match(/[\u4e00-\u9fa5]{2,3}/g) || [];
+         
+         // 过滤掉一些常见的无意义词
+         const stopWords = ['这个', '那个', '什么', '怎么', '这样', '那样', '可以', '应该', '需要', '想要', '觉得', '感到', '认为'];
+         
+         candidates.forEach(candidate => {
+             if (!stopWords.includes(candidate) && !coreWords.includes(candidate)) {
+                 coreWords.push(candidate);
+             }
+         });
+         
+         // 去重并返回
+         return [...new Set(coreWords)];
+     }
+     
+     /**
       * 计算文本相似度（基于编辑距离）
       * @param {string} str1 - 字符串1
       * @param {string} str2 - 字符串2
@@ -5526,113 +5513,250 @@
      }
      
      /**
-      * 智能匹配弹药（基于分词和相似度）
+      * 智能匹配弹药（增强版 - 包含关系匹配）
       * @param {string} content - 用户输入内容
       * @param {Array} ammoLibrary - 弹药库数组
-      * @returns {Array} - 匹配的弹药数组，按相关度排序
+      * @returns {Array} - 匹配的弹药数组
       */
      function intelligentAmmoMatch(content, ammoLibrary) {
          if (!content || !ammoLibrary || ammoLibrary.length === 0) {
              return [];
          }
          
-         // 对输入内容进行分词
-         const tokens = chineseTokenize(content);
-         if (tokens.length === 0) {
+         const contentTrimmed = content.trim();
+         const contentLower = contentTrimmed.toLowerCase();
+         
+         // 提取输入内容中所有2-4个连续的汉字
+         const chinesePatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+         
+         // 额外提取所有2个连续的汉字（确保不遗漏关键词）
+         const twoCharPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2}/g) || [];
+         
+         // 合并所有模式，去重
+         const allPatterns = [...new Set([...chinesePatterns, ...twoCharPatterns])];
+         
+         if (allPatterns.length === 0) {
              return [];
          }
          
-         // 计算每个弹药的相关度分数
-         const scoredAmmo = ammoLibrary.map(ammo => {
-             let score = 0;
-             const ammoContent = ammo.content.toLowerCase();
-             const ammoTags = (ammo.tags || []).join(' ').toLowerCase();
-             const ammoSource = (ammo.sourceBlockName || '').toLowerCase();
-             
-             // 策略1: 完全匹配（分数最高）
-             if (ammoContent.includes(content) || content.includes(ammo.content)) {
-                 score += 100;
-             }
-             
-             // 策略2: 分词匹配（每个匹配的词加分数）
-             tokens.forEach(token => {
-                 const tokenLower = token.toLowerCase();
-                 if (ammoContent.includes(tokenLower)) {
-                     score += 20 * (token.length / 2); // 长词权重更高
-                 }
-                 if (ammoTags.includes(tokenLower)) {
-                     score += 15 * (token.length / 2);
-                 }
-                 if (ammoSource.includes(tokenLower)) {
-                     score += 10 * (token.length / 2);
+         console.log('提取到的汉字模式:', allPatterns);
+         console.log('输入内容:', contentTrimmed);
+         
+         // 查找匹配的弹药，使用评分系统
+         const matchedAmmoMap = new Map(); // 使用Map避免重复，并记录最高分
+         
+         // 策略1: 检查弹药内容是否包含输入中的汉字模式
+         allPatterns.forEach(pattern => {
+             ammoLibrary.forEach(ammo => {
+                 const ammoContentLower = ammo.content.toLowerCase();
+                 
+                 // 检查弹药内容是否包含这个汉字模式
+                 if (ammoContentLower.includes(pattern)) {
+                     const existing = matchedAmmoMap.get(ammo.id);
+                     // 计算匹配分数：模式长度 * 10 + 基础分
+                     const score = pattern.length * 10 + 50;
+                     
+                     if (!existing || score > existing.score) {
+                         matchedAmmoMap.set(ammo.id, {
+                             ...ammo,
+                             matchReason: `弹药包含: ${pattern}`,
+                             score: score,
+                             matchType: 'ammo_contains_input'
+                         });
+                     }
                  }
              });
-             
-             // 策略3: 相似度匹配
-             const similarity = calculateSimilarity(content, ammo.content);
-             if (similarity > 0.3) {
-                 score += similarity * 30;
-             }
-             
-             // 策略4: 使用频率加权
-             score += Math.log(ammo.useCount + 1) * 5;
-             
-             // 策略5: 时间衰减（最近的弹药权重稍高）
-             const daysSinceCreation = (Date.now() - new Date(ammo.createdAt).getTime()) / (1000 * 60 * 60 * 24);
-             if (daysSinceCreation < 30) {
-                 score += 5;
-             }
-             
-             return {
-                 ...ammo,
-                 matchScore: score,
-                 matchReason: getMatchReason(content, ammo, tokens)
-             };
          });
          
-         // 过滤掉分数过低的弹药，并按分数排序
-         return scoredAmmo
-             .filter(ammo => ammo.matchScore > 10)
-             .sort((a, b) => b.matchScore - a.matchScore)
-             .slice(0, 5); // 最多返回5个结果
+         // 策略2: 检查输入内容是否包含弹药内容（完整包含）
+         ammoLibrary.forEach(ammo => {
+             const ammoContentTrimmed = ammo.content.trim();
+             const ammoContentLower = ammoContentTrimmed.toLowerCase();
+             
+             // 如果输入内容完整包含弹药内容
+             if (contentLower.includes(ammoContentLower) && ammoContentTrimmed.length >= 2) {
+                 const existing = matchedAmmoMap.get(ammo.id);
+                 // 完整包含给予更高分数
+                 const score = Math.min(ammoContentTrimmed.length * 5, 100) + 80;
+                 
+                 if (!existing || score > existing.score) {
+                     matchedAmmoMap.set(ammo.id, {
+                         ...ammo,
+                         matchReason: `输入包含弹药内容`,
+                         score: score,
+                         matchType: 'input_contains_ammo'
+                     });
+                 }
+             }
+         });
+         
+         // 策略3: 检查弹药内容是否包含输入内容（完整包含）
+         ammoLibrary.forEach(ammo => {
+             const ammoContentTrimmed = ammo.content.trim();
+             const ammoContentLower = ammoContentTrimmed.toLowerCase();
+             
+             // 如果弹药内容完整包含输入内容
+             if (ammoContentLower.includes(contentLower) && contentTrimmed.length >= 2) {
+                 const existing = matchedAmmoMap.get(ammo.id);
+                 // 完整包含给予更高分数
+                 const score = Math.min(contentTrimmed.length * 5, 100) + 80;
+                 
+                 if (!existing || score > existing.score) {
+                     matchedAmmoMap.set(ammo.id, {
+                         ...ammo,
+                         matchReason: `弹药内容包含输入`,
+                         score: score,
+                         matchType: 'ammo_contains_input_full'
+                     });
+                 }
+             }
+         });
+         
+         // 策略4: 检查部分包含关系（输入内容的一部分在弹药中）
+         if (contentTrimmed.length >= 4) {
+             // 提取输入内容中的较长片段（4-8字）
+             const longPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{4,8}/g) || [];
+             
+             longPatterns.forEach(pattern => {
+                 ammoLibrary.forEach(ammo => {
+                     const ammoContentLower = ammo.content.toLowerCase();
+                     
+                     if (ammoContentLower.includes(pattern)) {
+                         const existing = matchedAmmoMap.get(ammo.id);
+                         // 较长片段匹配给予中等分数
+                         const score = pattern.length * 8 + 60;
+                         
+                         if (!existing || score > existing.score) {
+                             matchedAmmoMap.set(ammo.id, {
+                                 ...ammo,
+                                 matchReason: `包含片段: ${pattern}`,
+                                 score: score,
+                                 matchType: 'partial_match'
+                             });
+                         }
+                     }
+                 });
+             });
+         }
+         
+         // 策略5: 核心词汇匹配（提取输入中的核心名词和动词）
+         const coreWords = extractCoreWords(contentTrimmed);
+         console.log('提取的核心词汇:', coreWords);
+         
+         coreWords.forEach(word => {
+             ammoLibrary.forEach(ammo => {
+                 const ammoContentLower = ammo.content.toLowerCase();
+                 
+                 // 检查弹药内容是否包含这个核心词汇
+                 if (ammoContentLower.includes(word)) {
+                     const existing = matchedAmmoMap.get(ammo.id);
+                     // 核心词汇匹配给予较高分数
+                     const score = word.length * 15 + 70;
+                     
+                     if (!existing || score > existing.score) {
+                         matchedAmmoMap.set(ammo.id, {
+                             ...ammo,
+                             matchReason: `核心词汇: ${word}`,
+                             score: score,
+                             matchType: 'core_word'
+                         });
+                     }
+                 }
+             });
+         });
+         
+         // 策略6: 基于相似度的模糊匹配（针对长度相近的内容）
+         ammoLibrary.forEach(ammo => {
+             const ammoContentTrimmed = ammo.content.trim();
+             const lengthDiff = Math.abs(contentTrimmed.length - ammoContentTrimmed.length);
+             
+             // 只对长度相近的内容进行相似度计算（差异不超过3个字符）
+             if (lengthDiff <= 3 && contentTrimmed.length >= 2 && ammoContentTrimmed.length >= 2) {
+                 const similarity = calculateSimilarity(contentTrimmed, ammoContentTrimmed);
+                 
+                 // 相似度阈值：0.6以上认为相关
+                 if (similarity >= 0.6) {
+                     const existing = matchedAmmoMap.get(ammo.id);
+                     const score = Math.round(similarity * 100);
+                     
+                     if (!existing || score > existing.score) {
+                         matchedAmmoMap.set(ammo.id, {
+                             ...ammo,
+                             matchReason: `相似度: ${Math.round(similarity * 100)}%`,
+                             score: score,
+                             matchType: 'similarity'
+                         });
+                     }
+                 }
+             }
+         });
+         
+         // 转换为数组并按分数排序
+         const matchedAmmo = Array.from(matchedAmmoMap.values())
+             .sort((a, b) => b.score - a.score);
+         
+         console.log('匹配到的弹药数量:', matchedAmmo.length);
+         console.log('匹配结果:', matchedAmmo.map(a => ({
+             content: a.content.substring(0, 20),
+             reason: a.matchReason,
+             score: a.score
+         })));
+         
+         // 返回所有匹配的弹药，最多10个
+         return matchedAmmo.slice(0, 10);
      }
-     
      /**
-      * 获取匹配原因说明
+      * 获取匹配原因说明（增强版）
       * @param {string} content - 用户输入内容
       * @param {Object} ammo - 弹药对象
-      * @param {Array} tokens - 分词结果
+      * @param {Array} tokens - 分词结果（已废弃，保留参数兼容性）
       * @returns {string} - 匹配原因
       */
      function getMatchReason(content, ammo, tokens) {
-         const reasons = [];
-         const ammoContent = ammo.content.toLowerCase();
+         const contentTrimmed = content.trim();
+         const contentLower = contentTrimmed.toLowerCase();
+         const ammoContentLower = ammo.content.toLowerCase();
          
-         // 检查完全匹配
-         if (ammoContent.includes(content) || content.includes(ammo.content)) {
-             reasons.push('完全匹配');
+         // 检查1: 输入内容完整包含弹药内容
+         if (contentLower.includes(ammoContentLower) && ammo.content.trim().length >= 2) {
+             return '输入包含弹药内容';
          }
          
-         // 检查分词匹配
-         const matchedTokens = tokens.filter(token =>
-             ammoContent.includes(token.toLowerCase())
-         );
-         
-         if (matchedTokens.length > 0) {
-             reasons.push(`关键词: ${matchedTokens.slice(0, 3).join(', ')}`);
+         // 检查2: 弹药内容完整包含输入内容
+         if (ammoContentLower.includes(contentLower) && contentTrimmed.length >= 2) {
+             return '弹药内容包含输入';
          }
          
-         // 检查标签匹配
-         if (ammo.tags && ammo.tags.length > 0) {
-             const matchedTags = ammo.tags.filter(tag =>
-                 tokens.some(token => tag.toLowerCase().includes(token.toLowerCase()))
-             );
-             if (matchedTags.length > 0) {
-                 reasons.push(`标签: ${matchedTags.join(', ')}`);
+         // 检查3: 提取输入内容中所有2-4个连续的汉字
+         const chinesePatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
+         
+         // 找到第一个匹配的模式
+         for (const pattern of chinesePatterns) {
+             if (ammoContentLower.includes(pattern)) {
+                 return `弹药包含: ${pattern}`;
              }
          }
          
-         return reasons.length > 0 ? reasons.join(' | ') : '智能推荐';
+         // 检查4: 较长片段匹配
+         if (contentTrimmed.length >= 4) {
+             const longPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{4,8}/g) || [];
+             for (const pattern of longPatterns) {
+                 if (ammoContentLower.includes(pattern)) {
+                     return `包含片段: ${pattern}`;
+                 }
+             }
+         }
+         
+         // 检查5: 相似度匹配
+         const lengthDiff = Math.abs(contentTrimmed.length - ammo.content.trim().length);
+         if (lengthDiff <= 3 && contentTrimmed.length >= 2 && ammo.content.trim().length >= 2) {
+             const similarity = calculateSimilarity(contentTrimmed, ammo.content.trim());
+             if (similarity >= 0.6) {
+                 return `相似度: ${Math.round(similarity * 100)}%`;
+             }
+         }
+         
+         return '匹配';
      }
      
      /**
@@ -5769,6 +5893,29 @@
          // 延迟显示推荐，避免频繁调用
          recordPracticeTimers[blockId] = setTimeout(() => {
              showIntelligentAmmoSuggestions(content, `new-record-suggestions-${blockId}`, `new-record-${blockId}`);
+         }, 500);
+     }
+     
+     // 编辑内容输入框的智能推荐处理（使用中文分词）
+     const editContentTimer = null;
+     function handleEditContentInput(textarea) {
+         const content = textarea.value.trim();
+         const container = document.getElementById('editContentSuggestions');
+         
+         // 清除之前的定时器
+         if (editContentTimer) {
+             clearTimeout(editContentTimer);
+         }
+         
+         // 如果内容太少，不显示推荐
+         if (content.length < 2) {
+             container.innerHTML = '';
+             return;
+         }
+         
+         // 延迟显示推荐，避免频繁调用
+         editContentTimer = setTimeout(() => {
+             showIntelligentAmmoSuggestions(content, 'editContentSuggestions', 'editContent');
          }, 500);
      }
      
