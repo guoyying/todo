@@ -216,6 +216,26 @@
       "doneAt": "2026-04-28T08:47:34.213Z"
     },
     {
+      "id": "moi9ac06t98ch",
+      "type": "task",
+      "content": "拆除马场的光路",
+      "createdAt": "2026-04-28T06:39:36.006Z",
+      "updatedAt": "2026-04-29T09:51:36.391Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moi9ac069jsj7",
+          "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
+          "estimatedTime": "15min",
+          "done": true,
+          "placedIn": "slot_moju5h19bscd0"
+        }
+      ]
+    },
+    {
       "id": "moi9o3viw17rn",
       "type": "task",
       "content": "看下炭步的退网单",
@@ -316,9 +336,9 @@
       "type": "task",
       "content": "定级备案更新",
       "createdAt": "2026-04-29T01:24:25.239Z",
-      "updatedAt": "2026-04-30T01:52:07.147Z",
+      "updatedAt": "2026-04-29T01:24:25.239Z",
       "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -326,25 +346,24 @@
           "id": "mojdgv12h2lan",
           "content": "找到云平台风险评估总结，截图放入报告里",
           "estimatedTime": "20min",
-          "done": true,
-          "placedIn": "slot_mokrsxx907o5s"
+          "done": false,
+          "placedIn": null
         },
         {
           "id": "mojdgv13f6dry",
           "content": "修改part2的内容",
           "estimatedTime": "9min",
-          "done": true,
-          "placedIn": "slot_mokrsxx907o5s"
+          "done": false,
+          "placedIn": null
         },
         {
           "id": "mojdgv13dwz3r",
-          "content": "修改工信部网站上的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
+          "content": "修改工信部网站上、备案报告的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
           "estimatedTime": "20min",
           "done": false,
           "placedIn": null
         }
-      ],
-      "doneAt": "2026-04-30T01:52:07.147Z"
+      ]
     },
     {
       "id": "mojee5e1p6g2o",
@@ -486,114 +505,10 @@
       "type": "task",
       "content": "看下奥普泰50端口是否关闭or开着的。",
       "createdAt": "2026-04-29T09:52:12.216Z",
-      "updatedAt": "2026-04-30T02:27:54.988Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mokrsxx907o5s",
-      "doneAt": "2026-04-30T02:27:54.988Z"
-    },
-    {
-      "id": "mokrt1csmj4gi",
-      "type": "task",
-      "content": "退网过单",
-      "createdAt": "2026-04-30T00:53:34.108Z",
-      "updatedAt": "2026-04-30T00:53:49.266Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "50min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "moksdxjzbdvfw",
-      "type": "task",
-      "content": "思考下虚拟网元迁转的事情",
-      "createdAt": "2026-04-30T01:09:48.959Z",
-      "updatedAt": "2026-04-30T01:09:48.959Z",
+      "updatedAt": "2026-04-29T09:52:12.216Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "moksok7d9tltf",
-      "type": "task",
-      "content": "重画边界图和网络拓扑图命名",
-      "createdAt": "2026-04-30T01:18:04.873Z",
-      "updatedAt": "2026-04-30T01:33:13.332Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-30T01:33:13.332Z"
-    },
-    {
-      "id": "moksoyeh41pr0",
-      "type": "task",
-      "content": "找到所有插图，重命名",
-      "createdAt": "2026-04-30T01:18:23.273Z",
-      "updatedAt": "2026-04-30T01:38:48.946Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-30T01:38:48.946Z"
-    },
-    {
-      "id": "mokusd223wptw",
-      "type": "task",
-      "content": "待办或往期待办，可以新增子任务和子任务预计时间，也可以删除子任务、对子任务进行编辑。",
-      "createdAt": "2026-04-30T02:17:01.466Z",
-      "updatedAt": "2026-04-30T02:17:01.466Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mokvgoefekcvb",
-      "type": "task",
-      "content": "看下退网设备的光路是啥情况",
-      "createdAt": "2026-04-30T02:35:55.911Z",
-      "updatedAt": "2026-04-30T02:43:48.580Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mokvguygupop2",
-      "doneAt": "2026-04-30T02:43:48.580Z"
-    },
-    {
-      "id": "mokvr873belss",
-      "type": "task",
-      "content": "思考怎么跟泳哥说这个事儿。",
-      "createdAt": "2026-04-30T02:44:08.127Z",
-      "updatedAt": "2026-04-30T02:55:50.194Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mokvguygupop2",
-      "doneAt": "2026-04-30T02:55:50.194Z"
-    },
-    {
-      "id": "mokw67othgjj5",
-      "type": "task",
-      "content": "问客资要清单，先确定是什么清单。",
-      "createdAt": "2026-04-30T02:55:47.309Z",
-      "updatedAt": "2026-04-30T02:55:47.309Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
@@ -672,18 +587,18 @@
           "id": "mok7jxifvolyx",
           "content": "第8次练习：自己做小工具有什么意义呢？别人的工具再好也还是别人的。那些微小却持续消耗能量的流程摩擦、再加上别人工具会带来新的适配问题",
           "time": "2026-04-29T15:26:36.903Z"
+        },
+        {
+          "id": "mol3gshp9gk6o",
+          "content": "第9次练习：自己做小工具的意义在于别人的工具再好，也有可能带来新的适配问题。他总归不是百分之百适合自己自然使用习惯。",
+          "time": "2026-04-30T06:19:58.141Z"
         }
       ],
       "archived": false,
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mokvguygupop2",
-      "name": "11点前做"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -727,24 +642,13 @@
       "tags": []
     },
     {
-      "id": "mokveuljnshn6",
-      "content": "拒绝被工具定义，而是反过来定义工具",
+      "id": "mol3hp1o1u2in",
+      "content": "选择自己动手，不是否定他人的智慧，而是对自己“使用舒适度”的诚实守护。",
       "type": "sentence",
       "sourceBlockId": "mojcp6s67l0ow",
-      "sourceRecordId": "mojj9v9i4tlqs",
+      "sourceRecordId": "mol3gshp9gk6o",
       "sourceBlockName": "自己做小工具的意义",
-      "createdAt": "2026-04-30T02:34:30.631Z",
-      "useCount": 0,
-      "tags": []
-    },
-    {
-      "id": "mokvf59qzkd07",
-      "content": "最好的工具，往往不是功能最多的，而是最懂你的",
-      "type": "sentence",
-      "sourceBlockId": "mojcp6s67l0ow",
-      "sourceRecordId": "mojj9v9i4tlqs",
-      "sourceBlockName": "自己做小工具的意义",
-      "createdAt": "2026-04-30T02:34:44.462Z",
+      "createdAt": "2026-04-30T06:20:40.332Z",
       "useCount": 0,
       "tags": []
     }
@@ -889,6 +793,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T02:44:17.722Z"
+    "lastSync": "2026-04-29T15:26:49.903Z"
   }
 }
