@@ -576,13 +576,26 @@
       "type": "task",
       "content": "思考怎么跟泳哥说这个事儿。",
       "createdAt": "2026-04-30T02:44:08.127Z",
-      "updatedAt": "2026-04-30T02:44:10.633Z",
+      "updatedAt": "2026-04-30T02:55:50.194Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mokvguygupop2",
+      "doneAt": "2026-04-30T02:55:50.194Z"
+    },
+    {
+      "id": "mokw67othgjj5",
+      "type": "task",
+      "content": "问客资要清单，先确定是什么清单。",
+      "createdAt": "2026-04-30T02:55:47.309Z",
+      "updatedAt": "2026-04-30T02:55:47.309Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mokvguygupop2"
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -876,6 +889,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T02:36:17.882Z"
+    "lastSync": "2026-04-30T02:44:17.722Z"
   }
 }
