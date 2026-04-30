@@ -551,6 +551,18 @@
       "dueTime": null,
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "molem2pwkq8h9",
+      "type": "task",
+      "content": "买老抽",
+      "createdAt": "2026-04-30T11:32:00.452Z",
+      "updatedAt": "2026-04-30T11:32:00.452Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
