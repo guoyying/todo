@@ -527,6 +527,30 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-30T08:46:04.358Z"
+    },
+    {
+      "id": "mol8s7a83aslu",
+      "type": "task",
+      "content": "找客资要一份光路清单，我要看下跟局内s转o是否包含在内",
+      "createdAt": "2026-04-30T08:48:48.608Z",
+      "updatedAt": "2026-04-30T08:48:48.608Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mol8sh7m9vhc1",
+      "type": "task",
+      "content": "思考下虚拟网元工作从何启动",
+      "createdAt": "2026-04-30T08:49:01.474Z",
+      "updatedAt": "2026-04-30T08:49:01.474Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -823,6 +847,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-04-30T08:46:29.908Z"
+    "lastSync": "2026-04-30T08:47:36.524Z"
   }
 }
