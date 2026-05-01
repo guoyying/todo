@@ -728,7 +728,7 @@
   ],
   "aiConfig": {
     "enabled": true,
-    "model": "deepseek-chat",
+    "model": "hunyuan-standard",
     "models": [
       {
         "id": "gpt-3.5-turbo",
