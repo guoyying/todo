@@ -1212,8 +1212,8 @@
      </div>
  
      <!-- AI润色模态框 -->
-     <div class="modal-overlay hidden" id="aiPolishModal">
-         <div class="modal" style="max-width:1000px;width:95%;">
+     <div class="modal-overlay hidden" id="aiPolishModal" onclick="closeAiPolishModal()">
+         <div class="modal" style="max-width:1000px;width:95%;" onclick="event.stopPropagation()">
              <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                  <h3>✨ AI润色</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
@@ -4659,9 +4659,7 @@
 3. 提炼关键思考和洞察
 4. 价值升华和积极引导
 
-文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
-
-文本：[在此处输入你的文本]`;
+文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。`;
          customPromptInput.value = defaultPromptText;
          
          // 填充模型选择器
@@ -4899,7 +4897,10 @@
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          
          // 隐藏底部操作按钮（仅用于感受记录）
-         document.getElementById('aiPolishFooterActions').classList.add('hidden');
+         const footerActions = document.getElementById('aiPolishFooterActions');
+         if (footerActions) {
+             footerActions.classList.add('hidden');
+         }
          
          // 设置默认提示词到输入框
          const defaultPromptText = `请对以下文本进行阅读理解和共情回应。
@@ -4932,11 +4933,17 @@
      
      // 关闭AI润色模态框
      function closeAiPolishModal() {
-         document.getElementById('aiPolishModal').classList.add('hidden');
+         const modal = document.getElementById('aiPolishModal');
+         if (modal) {
+             modal.classList.add('hidden');
+         }
          hideTextSelectionBubble(); // 隐藏气泡菜单
          
-         // 隐藏底部操作按钮
-         document.getElementById('aiPolishFooterActions').classList.add('hidden');
+         // 隐藏底部操作按钮（如果存在）
+         const footerActions = document.getElementById('aiPolishFooterActions');
+         if (footerActions) {
+             footerActions.classList.add('hidden');
+         }
          
          currentAiContext = {
              blockId: null,
@@ -4985,9 +4992,19 @@
              // 调用AI API进行润色
              const result = await callAiApi(currentAiContext.originalContent, modelId, customPrompt);
              
+             console.log('=== API 返回结果处理 ===');
+             console.log('从 callAiApi 返回的结果:', result);
+             console.log('结果类型:', typeof result);
+             console.log('结果长度:', result.length);
+             console.log('结果前100个字符:', result.substring(0, 100));
+             
              // 显示润色结果（保留换行符）
              currentAiContext.polishedContent = result;
              polishedContentEl.textContent = result; // 使用 textContent 保留换行符
+             
+             console.log('=== 显示到界面的内容 ===');
+             console.log('DOM 元素 textContent:', polishedContentEl.textContent);
+             console.log('DOM 元素 innerHTML:', polishedContentEl.innerHTML);
              
              // 启用复制按钮
              document.getElementById('aiCopyBtn').disabled = false;
@@ -5006,10 +5023,17 @@
      
        // 调用AI API
        async function callAiApi(content, modelId, customPrompt = null) {
+           console.log('=== callAiApi 调用开始 ===');
+           console.log('输入内容:', content);
+           console.log('模型ID:', modelId);
+           console.log('自定义提示词:', customPrompt);
+           
            const model = data.aiConfig.models.find(m => m.id === modelId);
            if (!model) {
                throw new Error('未找到指定的模型');
            }
+           
+           console.log('找到的模型配置:', model);
            
            // 使用自定义提示词或默认提示词
            const defaultPrompt = `请对以下文本进行阅读理解和共情回应。
@@ -5041,11 +5065,17 @@
             // 保存默认提示词到全局变量，供UI显示使用
             window.defaultPrompt = defaultPrompt;
           
+          console.log('最终发送的提示词:', prompt);
+          console.log('提示词长度:', prompt.length);
+          
           if (model.provider === 'openai') {
+              console.log('调用 OpenAI API...');
               return await callOpenAiApi(prompt, modelId);
           } else if (model.provider === 'anthropic') {
+              console.log('调用 Anthropic API...');
               return await callAnthropicApi(prompt, modelId);
           } else if (model.provider === 'deepseek') {
+              console.log('调用 DeepSeek API...');
               return await callDeepSeekApi(prompt, modelId);
           } else if (model.provider === 'qwen') {
               return await callQwenApi(prompt, modelId);
@@ -5087,6 +5117,14 @@
            }
            
            const result = await response.json();
+           console.log('=== OpenAI API 原始返回结果 ===');
+           console.log('完整响应:', JSON.stringify(result, null, 2));
+           console.log('choices 数组:', result.choices);
+           console.log('第一个 choice:', result.choices[0]);
+           console.log('message 对象:', result.choices[0].message);
+           console.log('解码后的内容:', result.choices[0].message.content);
+           console.log('内容类型:', typeof result.choices[0].message.content);
+           console.log('内容长度:', result.choices[0].message.content.length);
            return result.choices[0].message.content;
        }
        
@@ -5115,6 +5153,13 @@
            }
            
            const result = await response.json();
+           console.log('=== Anthropic API 原始返回结果 ===');
+           console.log('完整响应:', JSON.stringify(result, null, 2));
+           console.log('content 数组:', result.content);
+           console.log('第一个 content 块:', result.content[0]);
+           console.log('解码后的内容:', result.content[0].text);
+           console.log('内容类型:', typeof result.content[0].text);
+           console.log('内容长度:', result.content[0].text.length);
            return result.content[0].text;
        }
        
@@ -5143,6 +5188,14 @@
            }
            
            const result = await response.json();
+           console.log('=== DeepSeek API 原始返回结果 ===');
+           console.log('完整响应:', JSON.stringify(result, null, 2));
+           console.log('choices 数组:', result.choices);
+           console.log('第一个 choice:', result.choices[0]);
+           console.log('message 对象:', result.choices[0].message);
+           console.log('解码后的内容:', result.choices[0].message.content);
+           console.log('内容类型:', typeof result.choices[0].message.content);
+           console.log('内容长度:', result.choices[0].message.content.length);
            return result.choices[0].message.content;
        }
        
