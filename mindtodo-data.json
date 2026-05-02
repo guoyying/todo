@@ -698,6 +698,17 @@
       "createdAt": "2026-04-30T06:20:40.332Z",
       "useCount": 0,
       "tags": []
+    },
+    {
+      "id": "monscj08ayhjm",
+      "content": "之前看似不起眼的建议在关键时刻派上了用场",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "AI润色",
+      "createdAt": "2026-05-02T03:32:01.976Z",
+      "useCount": 0,
+      "tags": []
     }
   ],
   "aiConfig": {
