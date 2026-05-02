@@ -308,7 +308,7 @@
       "type": "task",
       "content": "给老公看衣服，生日礼物",
       "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-04-30T08:46:13.586Z",
+      "updatedAt": "2026-05-02T02:43:19.926Z",
       "tags": [
         "老公"
       ],
@@ -316,13 +316,6 @@
       "dueTime": null,
       "unknown": true,
       "subtasks": [
-        {
-          "id": "mojd41e4t3pn0",
-          "content": "搜索男士休闲，他喜欢舒服的衣服，千问搜索",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
         {
           "id": "mojd41e4g2839",
           "content": "淘宝加购3件衣服，可以是同品牌也可以不同品牌。",
@@ -597,13 +590,6 @@
       "tags": [],
       "createdAt": "2026-04-30T07:29:08.680Z",
       "updatedAt": "2026-04-30T07:29:08.680Z"
-    },
-    {
-      "id": "mom7lwbldtwqg",
-      "content": "这是测试",
-      "tags": [],
-      "createdAt": "2026-05-01T01:03:41.025Z",
-      "updatedAt": "2026-05-01T01:03:41.025Z"
     }
   ],
   "practiceBlocks": [
