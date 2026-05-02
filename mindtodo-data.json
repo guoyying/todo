@@ -696,7 +696,7 @@
       "sourceRecordId": "mol3gshp9gk6o",
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-30T06:20:40.332Z",
-      "useCount": 0,
+      "useCount": 1,
       "tags": []
     },
     {
@@ -712,7 +712,7 @@
     },
     {
       "id": "monsi25m4hhdq",
-      "content": "自制工具的价值不仅在于其功能性，更在于它能够激发创造力和自主性",
+      "content": "自制工具的价值不仅在于其功能性，更在于它能守护自主性",
       "type": "sentence",
       "sourceBlockId": "mojcp6s67l0ow",
       "sourceRecordId": "mojvwbv26cb5w",
@@ -862,6 +862,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-02T03:32:53.732Z"
+    "lastSync": "2026-05-02T03:38:39.188Z"
   }
 }
