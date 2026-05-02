@@ -2271,10 +2271,12 @@
                     deleteBtn.style.background = 'var(--danger)';
                     deleteBtn.style.color = 'white';
                     deleteBtn.style.borderColor = 'var(--danger)';
-                    deleteBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        deleteSubtask(item.id, st.id);
-                    };
+                    deleteBtn.style.fontSize = '11px';
+                    deleteBtn.style.padding = '2px 8px';
+                     deleteBtn.onclick = (e) => {
+                         e.stopPropagation();
+                         showDeleteConfirm(`${item.id}:${st.id}`, 'subtask', deleteBtn);
+                     };
                     row.appendChild(deleteBtn);
                     
                     // 如果子任务已放入时间段，显示时间段标签
@@ -2292,6 +2294,7 @@
                 const addSubtaskRow = document.createElement('div');
                 addSubtaskRow.className = 'subtask';
                 addSubtaskRow.style.padding = '8px 0';
+                addSubtaskRow.style.position = 'relative';
                 
                 const addSubtaskBtn = document.createElement('button');
                 addSubtaskBtn.className = 'subtask-place-btn';
@@ -2299,7 +2302,12 @@
                 addSubtaskBtn.style.background = 'var(--primary)';
                 addSubtaskBtn.style.color = 'white';
                 addSubtaskBtn.style.borderColor = 'var(--primary)';
-                addSubtaskBtn.onclick = () => addSubtaskToTask(item.id);
+                addSubtaskBtn.style.fontSize = '12px';
+                addSubtaskBtn.style.padding = '4px 10px';
+                addSubtaskBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    addSubtaskToTask(item.id);
+                };
                 addSubtaskRow.appendChild(addSubtaskBtn);
                 stDiv.appendChild(addSubtaskRow);
                 el.appendChild(stDiv);
@@ -3105,19 +3113,16 @@
                     data.slots = data.slots.filter(s => s.id !== id);
                     msg = '时间段已删除';
                     break;
-                case 'subtask':
-                    // 子任务删除需要特殊处理，这里简化处理
-                    const parentTask = data.tasks.find(i => i.id === id);
-                    if (parentTask && parentTask.subtasks) {
-                        // 这里需要传入子任务 ID，简化处理：假设 id 格式为 'parentId:subId'
-                        const [parentId, subId] = id.split(':');
-                        const pTask = data.tasks.find(i => i.id === parentId);
-                        if (pTask && pTask.subtasks) {
-                            pTask.subtasks = pTask.subtasks.filter(st => st.id !== subId);
-                            msg = '子任务已删除';
-                        }
-                    }
-                    break;
+                 case 'subtask':
+                     // 子任务删除需要特殊处理，id 格式为 'parentId:subId'
+                     const [parentId, subId] = id.split(':');
+                     const pTask = data.tasks.find(i => i.id === parentId);
+                     if (pTask && pTask.subtasks) {
+                         pTask.subtasks = pTask.subtasks.filter(st => st.id !== subId);
+                         pTask.updatedAt = nowStr();
+                         msg = '子任务已删除';
+                     }
+                     break;
                   case 'practice-record':
                       console.log('处理 practice-record 删除:', { id, extraParam });
                       const block = data.practiceBlocks.find(b => b.id === id);
@@ -3480,12 +3485,12 @@
                 placedIn: null
             };
             
-            item.subtasks.push(newSubtask);
-            item.updatedAt = nowStr();
-            saveData();
-            render();
-            showToast('子任务已添加');
-        }
+             item.subtasks.push(newSubtask);
+             item.updatedAt = nowStr();
+             saveData();
+             render();
+             // showToast('子任务已添加'); // 已去除气泡提示
+         }
         
         // 删除子任务
         function deleteSubtask(itemId, subId) {
@@ -3496,7 +3501,7 @@
             if (subIndex === -1) return;
             
             // 确认删除
-            if (confirm('确定要删除这个子任务吗？')) {
+            if (confirm('确定要删除吗？')) {
                 item.subtasks.splice(subIndex, 1);
                 item.updatedAt = nowStr();
                 saveData();
@@ -3530,8 +3535,7 @@
             item.updatedAt = nowStr();
             saveData();
         }
-
-
+        
         function openEdit(id) {
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
