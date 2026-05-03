@@ -1960,35 +1960,6 @@
                 };
                 container.appendChild(span);
             });
-            
-            // 添加"+"按钮
-            const addBtn = document.createElement('button');
-            addBtn.className = 'tag-add';
-            addBtn.textContent = '+';
-            addBtn.title = '添加新标签';
-            addBtn.onclick = () => {
-                const newTag = prompt('输入新标签名称:');
-                if (newTag && newTag.trim()) {
-                    const tag = newTag.trim();
-                    // 添加到 common 标签数组
-                    if (containerId.includes('Task') || containerId.includes('today') || containerId.includes('oldTodo')) {
-                        if (!data.commonTaskTags.includes(tag)) data.commonTaskTags.push(tag);
-                    } else {
-                        if (!data.commonFeelingTags.includes(tag)) data.commonFeelingTags.push(tag);
-                    }
-                    saveData();
-                    if (containerId === 'todayTagFilter') {
-                        renderToday();
-                    } else if (containerId === 'feelingTagFilter') {
-                        renderFeelings();
-                    } else if (containerId === 'oldTodoTagFilter') {
-                        renderOldTodos();
-                    } else if (containerId === 'oldFeelingTagFilter') {
-                        renderOldFeelings();
-                    }
-                }
-            };
-            container.appendChild(addBtn);
         }
         // ============ Save ============
         function saveFeeling() {
