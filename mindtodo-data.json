@@ -308,9 +308,10 @@
       "type": "task",
       "content": "给老公看衣服，生日礼物",
       "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-05-02T02:43:19.926Z",
+      "updatedAt": "2026-05-03T06:50:30.830Z",
       "tags": [
-        "老公"
+        "老公",
+        "表达"
       ],
       "done": false,
       "dueTime": null,
@@ -538,8 +539,10 @@
       "type": "task",
       "content": "思考下虚拟网元工作从何启动",
       "createdAt": "2026-04-30T08:49:01.474Z",
-      "updatedAt": "2026-04-30T08:49:01.474Z",
-      "tags": [],
+      "updatedAt": "2026-05-03T06:50:38.484Z",
+      "tags": [
+        "表达"
+      ],
       "done": false,
       "dueTime": null,
       "unknown": false,
