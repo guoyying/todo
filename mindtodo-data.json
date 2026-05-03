@@ -544,6 +544,18 @@
       "dueTime": null,
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mop12f4o1f8sn",
+      "type": "task",
+      "content": "鸡腿肉3，牛肉，茄子，芹菜，南瓜苗",
+      "createdAt": "2026-05-03T00:23:53.112Z",
+      "updatedAt": "2026-05-03T00:23:53.112Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -764,7 +776,7 @@
   ],
   "aiConfig": {
     "enabled": true,
-    "model": "moonshot-v1-128k",
+    "model": "kimi-k2.6",
     "models": [
       {
         "id": "gpt-3.5-turbo",
