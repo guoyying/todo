@@ -3973,7 +3973,7 @@
                     <h3>${currentTag ? '编辑标签' : '添加标签'}</h3>
                     <div class="input-group">
                         <label>标签名称</label>
-                        <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}" data-current-tag="${currentTag || ''}">
+                        <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}" data-current-tag="${currentTag || ''}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTagEdit('${itemId}', '${type}')}">
                     </div>
                     ${tagsHtml}
                     <div class="modal-actions">
@@ -3985,7 +3985,12 @@
             `;
             document.body.appendChild(modal);
             setTimeout(() => {
-                document.getElementById('tagEditorInput').focus();
+                const input = document.getElementById('tagEditorInput');
+                input.focus();
+                // 选中所有文本，方便直接输入新标签
+                if (currentTag) {
+                    input.select();
+                }
             }, 10);
         }
         
@@ -4030,7 +4035,7 @@
                     <h3>编辑标签</h3>
                     <div class="input-group">
                         <label>标签名称</label>
-                        <input type="text" id="commonTagEditorInput" placeholder="输入标签名称" value="${currentTag}" data-current-tag="${currentTag}">
+                        <input type="text" id="commonTagEditorInput" placeholder="输入标签名称" value="${currentTag}" data-current-tag="${currentTag}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveCommonTagEdit('${containerId}')}">
                     </div>
                     ${tagsHtml}
                     <div class="modal-actions">
@@ -4042,7 +4047,10 @@
             `;
             document.body.appendChild(modal);
             setTimeout(() => {
-                document.getElementById('commonTagEditorInput').focus();
+                const input = document.getElementById('commonTagEditorInput');
+                input.focus();
+                // 选中所有文本，方便直接输入新标签
+                input.select();
             }, 10);
         }
         
