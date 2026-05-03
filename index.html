@@ -624,18 +624,18 @@
         #feelingFilterBar {
             margin-bottom: 12px;
         }
-        .mood-calendar .mood-day.has-record::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
+        .mood-calendar .mood-day.has-record {
             background: var(--primary);
-            font-size: 0;
+            color: white;
         }
         .mood-calendar .mood-day.today {
             border: 2px solid var(--primary);
+            font-weight: bold;
+        }
+        .mood-calendar .mood-day.today.has-record {
+            background: var(--primary);
+            color: white;
+            border: 2px solid #fff;
         }
         .mood-calendar .mood-day.selected {
             background: var(--warning);
@@ -2542,10 +2542,10 @@
             let html = `
                 <div class="mood-calendar-title">
                     <span>📅 ${year}年 ${monthNames[month]}</span>
-                    <div class="mood-calendar-nav">
-                        <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(-1)">◀ 上月</button>
-                        <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(1)">下月 ▶</button>
-                    </div>
+                </div>
+                <div class="mood-calendar-nav">
+                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(-1)" style="width:100%;margin-bottom:4px;">◀ 上月</button>
+                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(1)" style="width:100%;">下月 ▶</button>
                 </div>
                 <div class="mood-calendar" style="gap:2px;">
             `;
@@ -2573,7 +2573,10 @@
                 if (isToday) classes += ' today';
                 if (isSelected) classes += ' selected';
                 
-                html += `<div class="${classes}" onclick="selectMoodDate('${dateKey}', ${hasRecord || 0})">${day}${hasRecord ? `<br><small>${hasRecord}条</small>` : ''}</div>`;
+                // 添加鼠标悬停提示
+                const titleAttr = hasRecord ? `title="${hasRecord}条记录"` : '';
+                
+                html += `<div class="${classes}" ${titleAttr} onclick="selectMoodDate('${dateKey}', ${hasRecord || 0})">${day}</div>`;
             }
             
             html += '</div>';
