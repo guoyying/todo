@@ -1471,7 +1471,6 @@
                   { id: 'hunyuan-pro', name: 'Hunyuan Pro (混元专业版)', provider: 'tencent' },
                    // 月之暗面Kimi模型
                    { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'moonshot' },
-                   { id: 'moonshot-v1-8k', name: 'Kimi 8K', provider: 'moonshot' },
                    { id: 'moonshot-v1-32k', name: 'Kimi 32K', provider: 'moonshot' },
                    { id: 'moonshot-v1-128k', name: 'Kimi 128K', provider: 'moonshot' }
               ]
@@ -1530,79 +1529,7 @@
              }
          }
  
-         // 更新模型列表，确保包含最新的模型
-           // 更新模型列表 - 从代码中刷新更新
-           function updateModelsList() {
-               
-               // 代码中定义的最新模型列表
-               const latestModels = [
-                   // OpenAI 模型
-                   { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', provider: 'openai', enabled: true },
-                   { id: 'gpt-4', name: 'GPT-4', provider: 'openai', enabled: true },
-                   { id: 'gpt-4-turbo', name: 'GPT-4 Turbo', provider: 'openai', enabled: true },
-                   { id: 'gpt-4o', name: 'GPT-4o', provider: 'openai', enabled: true },
-                   { id: 'gpt-4o-mini', name: 'GPT-4o Mini', provider: 'openai', enabled: true },
-                   // Anthropic 模型
-                   { id: 'claude-3-sonnet', name: 'Claude 3 Sonnet', provider: 'anthropic', enabled: true },
-                   { id: 'claude-3-opus', name: 'Claude 3 Opus', provider: 'anthropic', enabled: true },
-                   { id: 'claude-3.5-sonnet', name: 'Claude 3.5 Sonnet', provider: 'anthropic', enabled: true },
-                   // DeepSeek 模型
-                   { id: 'deepseek-chat', name: 'DeepSeek Chat', provider: 'deepseek', enabled: true },
-                   { id: 'deepseek-coder', name: 'DeepSeek Coder', provider: 'deepseek', enabled: true },
-                   // 阿里云千问模型
-                   { id: 'qwen-turbo', name: 'Qwen Turbo (千问极速版)', provider: 'qwen', enabled: true },
-                   { id: 'qwen-plus', name: 'Qwen Plus (千问增强版)', provider: 'qwen', enabled: true },
-                   { id: 'qwen-max', name: 'Qwen Max (千问旗舰版)', provider: 'qwen', enabled: true },
-                   { id: 'qwen-long', name: 'Qwen Long (千问长文本)', provider: 'qwen', enabled: true },
-                   // 智谱AI模型
-                   { id: 'glm-4', name: 'GLM-4', provider: 'zhipu', enabled: true },
-                   { id: 'glm-4-flash', name: 'GLM-4 Flash', provider: 'zhipu', enabled: true },
-                   { id: 'glm-3-turbo', name: 'GLM-3 Turbo', provider: 'zhipu', enabled: true },
-                   // 百度文心一言模型
-                   { id: 'ernie-bot-4', name: 'ERNIE Bot 4.0 (文心一言4.0)', provider: 'baidu', enabled: true },
-                   { id: 'ernie-bot-turbo', name: 'ERNIE Bot Turbo (文心一言Turbo)', provider: 'baidu', enabled: true },
-                   { id: 'ernie-bot', name: 'ERNIE Bot (文心一言)', provider: 'baidu', enabled: true },
-                   // 腾讯混元模型
-                   { id: 'hunyuan-lite', name: 'Hunyuan Lite (混元轻量版)', provider: 'tencent', enabled: true },
-                   { id: 'hunyuan-standard', name: 'Hunyuan Standard (混元标准版)', provider: 'tencent', enabled: true },
-                   { id: 'hunyuan-pro', name: 'Hunyuan Pro (混元专业版)', provider: 'tencent', enabled: true },
-                   // 月之暗面Kimi模型
-                   { id: 'kimi-k2.6', name: 'Kimi K2.6', provider: 'moonshot', enabled: true, isDefault: true },
-                   { id: 'moonshot-v1-8k', name: 'Kimi 8K', provider: 'moonshot', enabled: true },
-                   { id: 'moonshot-v1-32k', name: 'Kimi 32K', provider: 'moonshot', enabled: true },
-                   { id: 'moonshot-v1-128k', name: 'Kimi 128K', provider: 'moonshot', enabled: true }
-               ];
-               
-               // 过滤只启用的模型
-               const enabledModels = latestModels.filter(m => m.enabled !== false);
-               
-               // 检查是否需要更新模型列表
-               const currentModelIds = data.aiConfig.models.map(m => m.id);
-               const latestModelIds = enabledModels.map(m => m.id);
-               
-               // 强制更新模型列表（确保代码中的配置总是优先）
-               console.log('强制从代码更新模型列表');
-               console.log('准备更新的模型列表:', enabledModels.map(m => m.name));
-               console.log('准备更新的模型列表长度:', enabledModels.length);
-               
-               // 用代码中的最新模型列表覆盖localStorage中的旧数据
-               data.aiConfig.models = enabledModels;
-               
-               // 如果代码中指定了默认模型，更新默认模型
-               const defaultModel = enabledModels.find(m => m.isDefault);
-               if (defaultModel) {
-                   data.aiConfig.model = defaultModel.id;
-               }
-               
-               saveData();
-
-               // 立即更新所有模型选择器
-               updateAllModelSelectors();
-               
-               console.log('=== updateModelsList() 函数执行完成 ===');
-           }
-           
-           // 更新所有模型选择器
+            // 更新所有模型选择器
            function updateAllModelSelectors() {
                console.log('开始更新所有模型选择器...');
                console.log('当前模型列表:', data.aiConfig.models.map(m => m.name));
@@ -4654,9 +4581,12 @@
                 applyTitle();
                 render();
                 
-                // 拉取完成后，用代码中的最新模型配置更新模型列表
-                console.log('GitHub拉取完成，开始用代码中的最新配置更新模型列表...');
-                updateModelsList();
+                 // 拉取完成后，直接使用拉取结果作为最新模型配置
+                 console.log('GitHub拉取完成，使用拉取结果作为最新模型配置...');
+                 console.log('当前模型列表:', data.aiConfig.models.map(m => m.name));
+                 
+                 // 立即更新所有模型选择器
+                 updateAllModelSelectors();
                 
                 if (manual) {
                     showBanner('拉取成功', 'success');
@@ -4709,19 +4639,12 @@
         switchMainTab(initialTab);
         // 设置默认感受类型为普通感受
         selectFeelingType('normal');
-        applyTitle();
-        updateGithubStatus();
-        // 刷新页面时自动拉取一次
-        pullFromGithub();
-        
-        // 测试updateModelsList函数是否存在
-        if (typeof updateModelsList === 'function') {
-            updateModelsList(); // 更新模型列表，确保包含最新的模型（内部会自动更新所有模型选择器）
-        } else {
-            console.error('updateModelsList函数不存在！');
-        }
-        
-        // 添加快捷键：Ctrl + Shift + U 触发推送（U for Update/Upload）
+         applyTitle();
+         updateGithubStatus();
+         // 刷新页面时自动拉取一次
+         pullFromGithub();
+         
+         // 添加快捷键：Ctrl + Shift + U 触发推送（U for Update/Upload）
         document.addEventListener('keydown', function(e) {
             // 确保不在输入框中触发
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
@@ -6608,12 +6531,6 @@
           document.getElementById('moonshotApiKey').value = data.aiConfig.apiKeys.moonshot || '';
           
           // 填充模型选择器
-          console.log('AI设置：开始填充模型选择器');
-          console.log('AI设置：data.aiConfig.models对象:', data.aiConfig.models);
-          console.log('AI设置：data.aiConfig.models长度:', data.aiConfig.models.length);
-          console.log('AI设置：当前模型列表:', data.aiConfig.models.map(m => m.name));
-          console.log('AI设置：当前默认模型:', data.aiConfig.model);
-          console.log('AI设置：是否包含Kimi K2.6:', data.aiConfig.models.some(m => m.name === 'Kimi K2.6'));
           const modelSelect = document.getElementById('aiDefaultModel');
           modelSelect.innerHTML = '';
           data.aiConfig.models.forEach(model => {
