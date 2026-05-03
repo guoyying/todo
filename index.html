@@ -4633,7 +4633,7 @@
         // ============ Init ============
          loadData();
          isPageRefresh = true; // 标记为刷新页面，不显示"待推送"提示
-         initVoice();
+         //initVoice();
         // 设置默认选项卡
         const initialTab = data.activeTab || 'feeling';
         switchMainTab(initialTab);
@@ -4959,12 +4959,6 @@
          aiCopyBtn.disabled = true;
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          
-         // 隐藏底部操作按钮（仅用于感受记录）
-         const footerActions = document.getElementById('aiPolishFooterActions');
-         if (footerActions) {
-             footerActions.classList.add('hidden');
-         }
-         
          // 设置默认提示词到输入框
          const defaultPromptText = `请对以下文本进行阅读理解和共情回应。
  
@@ -5001,12 +4995,6 @@
              modal.classList.add('hidden');
          }
          hideTextSelectionBubble(); // 隐藏气泡菜单
-         
-         // 隐藏底部操作按钮（如果存在）
-         const footerActions = document.getElementById('aiPolishFooterActions');
-         if (footerActions) {
-             footerActions.classList.add('hidden');
-         }
          
          currentAiContext = {
              blockId: null,
