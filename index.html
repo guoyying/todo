@@ -1531,13 +1531,9 @@
  
             // 更新所有模型选择器
            function updateAllModelSelectors() {
-               console.log('开始更新所有模型选择器...');
-               console.log('当前模型列表:', data.aiConfig.models.map(m => m.name));
-               console.log('当前默认模型:', data.aiConfig.model);
                
                // 更新AI润色界面的模型选择器
                const aiModelSelect = document.getElementById('aiModelSelect');
-               console.log('AI润色模型选择器元素:', aiModelSelect);
                if (aiModelSelect) {
                    aiModelSelect.innerHTML = '';
                    data.aiConfig.models.forEach(model => {
@@ -1556,7 +1552,6 @@
                
                // 更新AI设置界面的模型选择器
                const aiDefaultModel = document.getElementById('aiDefaultModel');
-               console.log('AI设置模型选择器元素:', aiDefaultModel);
                if (aiDefaultModel) {
                    aiDefaultModel.innerHTML = '';
                    data.aiConfig.models.forEach(model => {
@@ -4562,8 +4557,7 @@
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
                      if (remote.aiConfig.models) {
-                         // 拉取远程模型列表，但随后会用代码中的最新配置覆盖
-                         console.log('从GitHub拉取到模型列表:', remote.aiConfig.models.map(m => m.name));
+                         // 拉取远程模型列表
                          data.aiConfig.models = remote.aiConfig.models;
                      }
                          // 不覆盖本地的 apiKey
@@ -4583,8 +4577,6 @@
                 
                  // 拉取完成后，直接使用拉取结果作为最新模型配置
                  console.log('GitHub拉取完成，使用拉取结果作为最新模型配置...');
-                 console.log('当前模型列表:', data.aiConfig.models.map(m => m.name));
-                 
                  // 立即更新所有模型选择器
                  updateAllModelSelectors();
                 
@@ -4967,9 +4959,7 @@
  3. 提炼关键逻辑
  4. 价值升华
  
- 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
- 
- 文本：[在此处输入你的文本]`;
+ 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。`;
  customPromptInput.value = defaultPromptText;
  
  // 填充模型选择器
