@@ -790,7 +790,7 @@
   ],
   "aiConfig": {
     "enabled": true,
-    "model": "kimi-k2.6",
+    "model": "moonshot-v1-128k",
     "models": [
       {
         "id": "gpt-3.5-turbo",
