@@ -560,9 +560,9 @@
     {
       "id": "mop1gq3bogm9r",
       "type": "task",
-      "content": "我想了解智能匹配的逻辑是什么？",
+      "content": "我想了解智能匹配的逻辑是什么？我还想了解点击AI润色按钮就能执行函数的逻辑是什么？",
       "createdAt": "2026-05-03T00:35:00.503Z",
-      "updatedAt": "2026-05-03T00:35:00.503Z",
+      "updatedAt": "2026-05-03T00:51:00.884Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -966,6 +966,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-03T00:31:17.925Z"
+    "lastSync": "2026-05-03T00:35:05.992Z"
   }
 }
