@@ -1776,19 +1776,23 @@
                 span.className = 'tag' + (selected.includes(tag) ? ' active' : '');
                 const text = document.createElement('span');
                 text.textContent = tag;
-                text.onclick = (e) => { e.stopPropagation(); span.classList.toggle('active'); };
-                // 只有非公共标签才显示删除按钮
-                if (!data.commonTaskTags.includes(tag) && !data.commonFeelingTags.includes(tag)) {
-                    const del = document.createElement('span');
-                    del.className = 'tag-del';
-                    del.textContent = '×';
-                    del.title = '删除标签';
-                    del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
-                    span.appendChild(text);
-                    span.appendChild(del);
-                } else {
-                    span.appendChild(text);
-                }
+                text.style.cursor = 'pointer';
+                text.title = '点击编辑标签';
+                text.onclick = (e) => {
+                    e.stopPropagation();
+                    // 点击标签文本时，打开编辑对话框
+                    showTagEditorForCommonTag(containerId, tag);
+                };
+                
+                // 为所有标签添加删除按钮
+                const del = document.createElement('span');
+                del.className = 'tag-del';
+                del.textContent = '×';
+                del.title = '删除标签';
+                del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
+                span.appendChild(text);
+                span.appendChild(del);
+                
                 el.appendChild(span);
             });
             const editor = document.createElement('div');
@@ -1822,11 +1826,31 @@
         }
 
         function deleteTag(containerId, tag) {
-            // 检查是否有任何任务使用该标签
-            const hasUsage = data.tasks.some(i => i.tags && i.tags.includes(tag));
+            console.log('deleteTag 被调用:', { containerId, tag });
+            
+            // 根据容器类型检查是否有项目使用该标签
+            let hasUsage = false;
+            let usageType = '';
+            let usageCount = 0;
+            
+            if (containerId === 'taskTags') {
+                // 检查任务是否使用该标签
+                hasUsage = data.tasks.some(i => i.tags && i.tags.includes(tag));
+                usageCount = data.tasks.filter(i => i.tags && i.tags.includes(tag)).length;
+                usageType = '任务';
+            } else if (containerId === 'feelingTags') {
+                // 检查感受记录是否使用该标签
+                hasUsage = data.normalFeelings.some(i => i.tags && i.tags.includes(tag));
+                usageCount = data.normalFeelings.filter(i => i.tags && i.tags.includes(tag)).length;
+                usageType = '感受记录';
+            }
+            
+            console.log('标签使用情况:', { hasUsage, usageCount, usageType });
+            
             if (hasUsage) {
-                alert('该标签正在被任务使用，无法删除');
-                return;
+                const confirmed = confirm(`该标签正在被 ${usageCount} 个${usageType}使用，确定要删除吗？\n\n删除后，所有使用该标签的${usageType}都将移除此标签。`);
+                console.log('用户确认:', confirmed);
+                if (!confirmed) return;
             }
             
             // 从 common 标签数组中删除
@@ -1834,8 +1858,15 @@
                 data.commonTaskTags = data.commonTaskTags.filter(t => t !== tag);
             } else if (containerId === 'feelingTags') {
                 data.commonFeelingTags = data.commonFeelingTags.filter(t => t !== tag);
+                // 同时从所有感受记录中移除该标签
+                data.normalFeelings.forEach(feeling => {
+                    if (feeling.tags) {
+                        feeling.tags = feeling.tags.filter(t => t !== tag);
+                    }
+                });
             }
             
+            saveData();
             render();
         }
         
@@ -1848,8 +1879,27 @@
             const tagsArray = Array.isArray(selectedTags) ? selectedTags : (selectedTags ? [selectedTags] : []);
             container.dataset.selectedTags = JSON.stringify(tagsArray);
             
+            // 获取或初始化筛选模式（包含/排除）
+            let filterMode = container.dataset.filterMode || 'include';
+            container.dataset.filterMode = filterMode;
+            
             // 智能显示：只显示当前 items 中存在的标签
             const existingTags = getExistingTags(items);
+            
+            // 添加模式切换按钮
+            const modeBtn = document.createElement('span');
+            modeBtn.className = 'tag-filter-mode';
+            modeBtn.style.cssText = 'margin-right:8px;padding:4px 8px;font-size:11px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--bg);';
+            modeBtn.textContent = filterMode === 'include' ? '🔍 包含' : '🚫 排除';
+            modeBtn.title = filterMode === 'include' ? '点击切换到排除模式' : '点击切换到包含模式';
+            modeBtn.onclick = () => {
+                const newMode = filterMode === 'include' ? 'exclude' : 'include';
+                container.dataset.filterMode = newMode;
+                // 重新渲染标签筛选器
+                const currentTags = JSON.parse(container.dataset.selectedTags || '[]');
+                renderTagFilter(containerId, items, currentTags);
+            };
+            container.appendChild(modeBtn);
             
             // 添加"全部"选项
             const allBtn = document.createElement('span');
@@ -2605,6 +2655,7 @@
             const searchTerm = document.getElementById('feelingSearch')?.value.toLowerCase() || '';
             const selectedTagsStr = document.getElementById('feelingTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('feelingTagFilter')?.dataset.filterMode || 'include';
             
             // 只显示当天创建的感受
             let list = data.normalFeelings.filter(i => isToday(i.createdAt));
@@ -2614,9 +2665,15 @@
                 list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
             }
             
-            // 应用标签过滤（满足任一标签即可）
+            // 应用标签过滤
             if (selectedTags && selectedTags.length > 0) {
-                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                if (filterMode === 'include') {
+                    // 包含模式：显示包含任一选中标签的内容
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    // 排除模式：排除包含任一选中标签的内容
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
             }
             
             document.getElementById('feelingCount').textContent = list.length ? `(${list.length})` : '';
@@ -2696,6 +2753,7 @@
                 const tagsDiv = document.createElement('div');
                 tagsDiv.className = 'item-tags';
                 
+                // 显示所有标签
                 if (item.tags && item.tags.length) {
                     item.tags.forEach(t => {
                         const s = document.createElement('span');
@@ -2708,18 +2766,20 @@
                         };
                         tagsDiv.appendChild(s);
                     });
-                } else {
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+ 添加标签';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        showTagEditor(item.id, null, 'feeling');
-                    };
-                    tagsDiv.appendChild(addTagBtn);
                 }
+                
+                // 始终显示添加标签按钮
+                const addTagBtn = document.createElement('span');
+                addTagBtn.className = 'item-tag';
+                addTagBtn.textContent = '+ 添加标签';
+                addTagBtn.style.cursor = 'pointer';
+                addTagBtn.style.color = 'var(--primary)';
+                addTagBtn.style.marginLeft = '8px';
+                addTagBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    showTagEditor(item.id, null, 'feeling');
+                };
+                tagsDiv.appendChild(addTagBtn);
                 el.appendChild(tagsDiv);
                 
                 const actions = document.createElement('div');
@@ -3230,6 +3290,7 @@
             const searchTerm = document.getElementById('todaySearch')?.value.toLowerCase() || '';
             const selectedTagsStr = document.getElementById('todayTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('todayTagFilter')?.dataset.filterMode || 'include';
             
             // 只显示当天创建且未完成且未放入时间段的待办
             let list = data.tasks.filter(i => {
@@ -3249,9 +3310,15 @@
                 list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
             }
             
-            // 应用标签过滤（满足任一标签即可）
+            // 应用标签过滤
             if (selectedTags && selectedTags.length > 0) {
-                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                if (filterMode === 'include') {
+                    // 包含模式：显示包含任一选中标签的内容
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    // 排除模式：排除包含任一选中标签的内容
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
             }
             
             document.getElementById('todayCount').textContent = list.length ? `(${list.length})` : '';
@@ -3282,6 +3349,7 @@
             const searchTerm = document.getElementById('oldTodoSearch')?.value.toLowerCase() || '';
             const selectedTagsStr = document.getElementById('oldTodoTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('oldTodoTagFilter')?.dataset.filterMode || 'include';
             
             let list = data.tasks.filter(i => {
                 if (!i.done && !i.placedIn && !isToday(i.createdAt)) {
@@ -3295,9 +3363,15 @@
                 list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
             }
             
-            // 应用标签过滤（满足任一标签即可）
+            // 应用标签过滤
             if (selectedTags && selectedTags.length > 0) {
-                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                if (filterMode === 'include') {
+                    // 包含模式：显示包含任一选中标签的内容
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    // 排除模式：排除包含任一选中标签的内容
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
             }
             
             document.getElementById('oldTodoCount').textContent = list.length ? `(${list.length})` : '';
@@ -3320,6 +3394,7 @@
             const searchTerm = document.getElementById('oldFeelingSearch')?.value.toLowerCase() || '';
             const selectedTagsStr = document.getElementById('oldFeelingTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('oldFeelingTagFilter')?.dataset.filterMode || 'include';
             
             let list = data.normalFeelings.filter(i => !isToday(i.createdAt));
             
@@ -3328,9 +3403,15 @@
                 list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
             }
             
-            // 应用标签过滤（满足任一标签即可）
+            // 应用标签过滤
             if (selectedTags && selectedTags.length > 0) {
-                list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                if (filterMode === 'include') {
+                    // 包含模式：显示包含任一选中标签的内容
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    // 排除模式：排除包含任一选中标签的内容
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
             }
             
             document.getElementById('oldFeelingCount').textContent = list.length ? `(${list.length})` : '';
@@ -3410,6 +3491,7 @@
                 const tagsDiv = document.createElement('div');
                 tagsDiv.className = 'item-tags';
                 
+                // 显示所有标签
                 if (item.tags && item.tags.length) {
                     item.tags.forEach(t => {
                         const s = document.createElement('span');
@@ -3422,18 +3504,20 @@
                         };
                         tagsDiv.appendChild(s);
                     });
-                } else {
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+ 添加标签';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        showTagEditor(item.id, null, 'feeling');
-                    };
-                    tagsDiv.appendChild(addTagBtn);
                 }
+                
+                // 始终显示添加标签按钮
+                const addTagBtn = document.createElement('span');
+                addTagBtn.className = 'item-tag';
+                addTagBtn.textContent = '+ 添加标签';
+                addTagBtn.style.cursor = 'pointer';
+                addTagBtn.style.color = 'var(--primary)';
+                addTagBtn.style.marginLeft = '8px';
+                addTagBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    showTagEditor(item.id, null, 'feeling');
+                };
+                tagsDiv.appendChild(addTagBtn);
                 el.appendChild(tagsDiv);
                 
                 const actions = document.createElement('div');
@@ -3863,21 +3947,56 @@
         }
         
         function showTagEditor(itemId, currentTag, type) {
-            const item = data.tasks.find(i => i.id === itemId);
+            // 根据类型从不同的数据源查找项目
+            let item;
+            if (type === 'feeling') {
+                item = data.normalFeelings.find(i => i.id === itemId);
+            } else {
+                item = data.tasks.find(i => i.id === itemId);
+            }
             if (!item) return;
+            
+            // 获取可用的标签列表
+            let availableTags = [];
+            if (type === 'feeling') {
+                availableTags = getFeelingTags();
+            } else {
+                availableTags = getTaskTags();
+            }
+            
+            // 过滤掉当前项目已有的标签
+            const existingTags = item.tags || [];
+            const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
+            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
+            
+            let tagsHtml = '';
+            if (selectableTags.length > 0 && !currentTag) {
+                tagsHtml = `
+                    <div class="input-group">
+                        <label>或选择现有标签</label>
+                        <div class="tags-select" style="display:flex;flex-wrap:wrap;gap:6px;">
+                            ${selectableTags.map(tag => `
+                                <span class="tag" onclick="selectExistingTag('${tag}')" style="cursor:pointer;padding:4px 10px;border:1px solid var(--border);border-radius:12px;font-size:12px;background:var(--bg);">${tag}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
             modal.innerHTML = `
                 <div class="modal">
                     <h3>${currentTag ? '编辑标签' : '添加标签'}</h3>
                     <div class="input-group">
                         <label>标签名称</label>
-                        <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}">
+                        <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}" data-current-tag="${currentTag || ''}">
                     </div>
+                    ${tagsHtml}
                     <div class="modal-actions">
                         <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
                         <button class="btn btn-primary" onclick="saveTagEdit('${itemId}', '${type}')">保存</button>
-                        ${currentTag ? `<button class="btn btn-danger" onclick="deleteTagFromItem('${itemId}', '${currentTag}')">删除</button>` : ''}
+                        ${currentTag ? `<button class="btn btn-danger" onclick="deleteTagFromItem('${itemId}', '${currentTag}', '${type}')">删除</button>` : ''}
                     </div>
                 </div>
             `;
@@ -3887,8 +4006,142 @@
             }, 10);
         }
         
+        function selectExistingTag(tag) {
+            const input = document.getElementById('tagEditorInput');
+            if (input) {
+                input.value = tag;
+            }
+        }
+        
+        function showTagEditorForCommonTag(containerId, currentTag) {
+            // 获取可用的标签列表
+            let availableTags = [];
+            if (containerId === 'feelingTags') {
+                availableTags = getFeelingTags();
+            } else {
+                availableTags = getTaskTags();
+            }
+            
+            // 过滤掉当前标签
+            const selectableTags = availableTags.filter(tag => tag !== currentTag);
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            
+            let tagsHtml = '';
+            if (selectableTags.length > 0) {
+                tagsHtml = `
+                    <div class="input-group">
+                        <label>或选择现有标签</label>
+                        <div class="tags-select" style="display:flex;flex-wrap:wrap;gap:6px;">
+                            ${selectableTags.map(tag => `
+                                <span class="tag" onclick="selectExistingTagForCommon('${tag}')" style="cursor:pointer;padding:4px 10px;border:1px solid var(--border);border-radius:12px;font-size:12px;background:var(--bg);">${tag}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            modal.innerHTML = `
+                <div class="modal">
+                    <h3>编辑标签</h3>
+                    <div class="input-group">
+                        <label>标签名称</label>
+                        <input type="text" id="commonTagEditorInput" placeholder="输入标签名称" value="${currentTag}" data-current-tag="${currentTag}">
+                    </div>
+                    ${tagsHtml}
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
+                        <button class="btn btn-primary" onclick="saveCommonTagEdit('${containerId}')">保存</button>
+                        <button class="btn btn-danger" onclick="deleteTag('${containerId}', '${currentTag}')">删除</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => {
+                document.getElementById('commonTagEditorInput').focus();
+            }, 10);
+        }
+        
+        function selectExistingTagForCommon(tag) {
+            const input = document.getElementById('commonTagEditorInput');
+            if (input) {
+                input.value = tag;
+            }
+        }
+        
+        function saveCommonTagEdit(containerId) {
+            const input = document.getElementById('commonTagEditorInput');
+            const newTag = input.value.trim();
+            const currentTag = input.dataset.currentTag;
+            const modal = input.closest('.modal-overlay');
+            
+            if (!newTag) {
+                alert('标签名称不能为空');
+                return;
+            }
+            
+            if (newTag === currentTag) {
+                modal.remove();
+                return;
+            }
+            
+            // 检查新标签是否已存在
+            let exists = false;
+            if (containerId === 'feelingTags') {
+                exists = getFeelingTags().includes(newTag);
+            } else {
+                exists = getTaskTags().includes(newTag);
+            }
+            
+            if (exists) {
+                alert('该标签已存在');
+                return;
+            }
+            
+            // 更新 common 标签数组
+            if (containerId === 'feelingTags') {
+                const index = data.commonFeelingTags.indexOf(currentTag);
+                if (index !== -1) {
+                    data.commonFeelingTags[index] = newTag;
+                }
+            } else {
+                const index = data.commonTaskTags.indexOf(currentTag);
+                if (index !== -1) {
+                    data.commonTaskTags[index] = newTag;
+                }
+            }
+            
+            // 同步更新所有使用该标签的感受记录或任务
+            if (containerId === 'feelingTags') {
+                data.normalFeelings.forEach(feeling => {
+                    if (feeling.tags && feeling.tags.includes(currentTag)) {
+                        const tagIndex = feeling.tags.indexOf(currentTag);
+                        feeling.tags[tagIndex] = newTag;
+                    }
+                });
+            } else {
+                data.tasks.forEach(task => {
+                    if (task.tags && task.tags.includes(currentTag)) {
+                        const tagIndex = task.tags.indexOf(currentTag);
+                        task.tags[tagIndex] = newTag;
+                    }
+                });
+            }
+            
+            saveData();
+            render();
+            modal.remove();
+        }
+        
         function saveTagEdit(itemId, type) {
-            const item = data.tasks.find(i => i.id === itemId);
+            // 根据类型从不同的数据源查找项目
+            let item;
+            if (type === 'feeling') {
+                item = data.normalFeelings.find(i => i.id === itemId);
+            } else {
+                item = data.tasks.find(i => i.id === itemId);
+            }
             if (!item) return;
             const input = document.getElementById('tagEditorInput');
             const newTag = input.value.trim();
@@ -3899,21 +4152,57 @@
                 return;
             }
             
-            // 添加到对应的 common 标签数组
-            if (type === 'task') {
-                if (!data.commonTaskTags.includes(newTag)) {
-                    data.commonTaskTags.push(newTag);
+            // 检查是否是编辑现有标签
+            const currentTag = input.getAttribute('data-current-tag');
+            
+            if (currentTag && currentTag !== newTag) {
+                // 编辑标签：需要同步更新所有使用该标签的项目
+                if (type === 'feeling') {
+                    // 更新所有感受记录中的标签
+                    data.normalFeelings.forEach(feeling => {
+                        if (feeling.tags && feeling.tags.includes(currentTag)) {
+                            const idx = feeling.tags.indexOf(currentTag);
+                            feeling.tags[idx] = newTag;
+                            feeling.updatedAt = nowStr();
+                        }
+                    });
+                    // 更新 commonFeelingTags 中的标签
+                    const idx = data.commonFeelingTags.indexOf(currentTag);
+                    if (idx !== -1) {
+                        data.commonFeelingTags[idx] = newTag;
+                    }
+                } else {
+                    // 更新所有任务中的标签
+                    data.tasks.forEach(task => {
+                        if (task.tags && task.tags.includes(currentTag)) {
+                            const idx = task.tags.indexOf(currentTag);
+                            task.tags[idx] = newTag;
+                            task.updatedAt = nowStr();
+                        }
+                    });
+                    // 更新 commonTaskTags 中的标签
+                    const idx = data.commonTaskTags.indexOf(currentTag);
+                    if (idx !== -1) {
+                        data.commonTaskTags[idx] = newTag;
+                    }
                 }
-                if (!item.tags) item.tags = [];
-                const idx = item.tags.indexOf(newTag);
-                if (idx === -1) item.tags.push(newTag);
             } else {
-                if (!data.commonFeelingTags.includes(newTag)) {
-                    data.commonFeelingTags.push(newTag);
+                // 添加新标签
+                if (type === 'task') {
+                    if (!data.commonTaskTags.includes(newTag)) {
+                        data.commonTaskTags.push(newTag);
+                    }
+                    if (!item.tags) item.tags = [];
+                    const idx = item.tags.indexOf(newTag);
+                    if (idx === -1) item.tags.push(newTag);
+                } else {
+                    if (!data.commonFeelingTags.includes(newTag)) {
+                        data.commonFeelingTags.push(newTag);
+                    }
+                    if (!item.tags) item.tags = [];
+                    const idx = item.tags.indexOf(newTag);
+                    if (idx === -1) item.tags.push(newTag);
                 }
-                if (!item.tags) item.tags = [];
-                const idx = item.tags.indexOf(newTag);
-                if (idx === -1) item.tags.push(newTag);
             }
             
             item.updatedAt = nowStr();
@@ -3921,8 +4210,14 @@
             modal.remove();
         }
         
-        function deleteTagFromItem(itemId, tag) {
-            const item = data.tasks.find(i => i.id === itemId);
+        function deleteTagFromItem(itemId, tag, type = 'task') {
+            // 根据类型从不同的数据源查找项目
+            let item;
+            if (type === 'feeling') {
+                item = data.normalFeelings.find(i => i.id === itemId);
+            } else {
+                item = data.tasks.find(i => i.id === itemId);
+            }
             if (!item) return;
             item.tags = item.tags.filter(t => t !== tag);
             item.updatedAt = nowStr();
