@@ -546,6 +546,18 @@
       "dueTime": null,
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mopisbd9tszmi",
+      "type": "task",
+      "content": "买鼠标",
+      "createdAt": "2026-05-03T08:39:54.765Z",
+      "updatedAt": "2026-05-03T08:39:54.765Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
