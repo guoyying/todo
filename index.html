@@ -1581,7 +1581,10 @@
         function getTaskTags() {
             const tags = new Set(data.commonTaskTags);
             data.tasks.forEach(i => {
-                if (i.tags) i.tags.forEach(t => tags.add(t));
+                // 只统计未完成的待办任务的标签
+                if (!i.done && i.tags) {
+                    i.tags.forEach(t => tags.add(t));
+                }
             });
             return Array.from(tags);
         }
@@ -1834,9 +1837,9 @@
             let usageCount = 0;
             
             if (containerId === 'taskTags') {
-                // 检查任务是否使用该标签
-                hasUsage = data.tasks.some(i => i.tags && i.tags.includes(tag));
-                usageCount = data.tasks.filter(i => i.tags && i.tags.includes(tag)).length;
+                // 检查未完成的任务是否使用该标签
+                hasUsage = data.tasks.some(i => !i.done && i.tags && i.tags.includes(tag));
+                usageCount = data.tasks.filter(i => !i.done && i.tags && i.tags.includes(tag)).length;
                 usageType = '任务';
             } else if (containerId === 'feelingTags') {
                 // 检查感受记录是否使用该标签
@@ -1856,6 +1859,12 @@
             // 从 common 标签数组中删除
             if (containerId === 'taskTags') {
                 data.commonTaskTags = data.commonTaskTags.filter(t => t !== tag);
+                // 同时从所有未完成的任务中移除该标签
+                data.tasks.forEach(task => {
+                    if (!task.done && task.tags) {
+                        task.tags = task.tags.filter(t => t !== tag);
+                    }
+                });
             } else if (containerId === 'feelingTags') {
                 data.commonFeelingTags = data.commonFeelingTags.filter(t => t !== tag);
                 // 同时从所有感受记录中移除该标签
