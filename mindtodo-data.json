@@ -633,6 +633,13 @@
       "tags": [],
       "createdAt": "2026-05-04T01:40:59.410Z",
       "updatedAt": "2026-05-04T01:40:59.410Z"
+    },
+    {
+      "id": "moqvbgr2wa2cq",
+      "content": "我觉得老梁在空闲的时候看看书，学习挺好的。增长见识。",
+      "tags": [],
+      "createdAt": "2026-05-04T07:18:29.774Z",
+      "updatedAt": "2026-05-04T07:18:29.774Z"
     }
   ],
   "practiceBlocks": [
@@ -795,7 +802,7 @@
       "sourceRecordId": null,
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-02T03:48:06.004Z",
-      "useCount": 0,
+      "useCount": 1,
       "tags": []
     },
     {
