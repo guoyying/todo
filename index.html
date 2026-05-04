@@ -1035,12 +1035,6 @@
         </div>
         <div id="todayList"></div>
 
-        <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
-            ✅ 今日完成 <span class="count" id="doneCount"></span>
-            <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
-        </div>
-        <div id="doneList" class="collapsed"></div>
-        
         <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
             📅 往期待办 <span class="count" id="oldTodoCount"></span>
             <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
@@ -1051,6 +1045,30 @@
                 <div class="tag-filter" id="oldTodoTagFilter"></div>
             </div>
             <div id="oldTodoList"></div>
+        </div>
+        
+        <!-- 今日完成和本周完成并排显示 -->
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="flex: 1; min-width: 0;">
+                <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
+                    ✅ 今日完成 <span class="count" id="doneCount"></span>
+                    <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
+                </div>
+                <div id="doneList" class="collapsed"></div>
+            </div>
+            
+            <div style="flex: 1; min-width: 0;">
+                <div class="section-title" style="cursor:pointer;" onclick="toggleSection('thisWeekDoneList')">
+                    📊 本周完成 <span class="count" id="thisWeekDoneCount"></span>
+                    <span id="thisWeekDoneArrow" style="font-size:12px;margin-left:8px;">▼</span>
+                </div>
+                <div id="thisWeekDoneList" class="collapsed">
+                    <div class="filter-bar" id="thisWeekDoneFilterBar">
+                        <input type="text" id="thisWeekDoneSearch" placeholder="搜索本周完成..." oninput="renderThisWeekCompleted()">
+                        <div class="tag-filter" id="thisWeekDoneTagFilter"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1091,6 +1109,44 @@
                 <div class="tag-filter" id="oldFeelingTagFilter"></div>
             </div>
             <div id="oldFeelingList"></div>
+        </div>
+    </div>
+
+    <!-- AI汇总模态框 -->
+    <div class="modal-overlay hidden" id="aiSummaryModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>💡 AI汇总</h3>
+                <span class="close" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="type-select" style="margin-bottom: 16px;">
+                    <div class="type-btn active" id="summaryTodayBtn" onclick="switchSummaryTab('today')">今日完成</div>
+                    <div class="type-btn" id="summaryThisWeekBtn" onclick="switchSummaryTab('thisWeek')">本周完成</div>
+                </div>
+                
+                <!-- 提示词编辑区域 -->
+                <div style="margin-bottom: 16px;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                        <label style="font-weight:500;font-size:14px;">📝 提示词</label>
+                        <button class="btn btn-small btn-secondary" onclick="resetSummaryPrompt()">恢复默认</button>
+                    </div>
+                    <textarea id="summaryPromptInput"
+                        style="width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;line-height:1.5;resize:vertical;"
+                        placeholder="输入自定义提示词..."></textarea>
+                </div>
+                
+                <div style="display:flex;gap:8px;margin-bottom:16px;">
+                    <button class="btn btn-primary" onclick="generateAISummary(currentSummaryType)" style="flex:1;">🚀 生成汇总</button>
+                    <button class="btn btn-secondary" onclick="togglePromptArea()">📋 显示/隐藏提示词</button>
+                </div>
+                
+                <div id="aiSummaryContent" style="white-space: pre-wrap; line-height: 1.6; font-size: 14px;max-height:500px;overflow-y:auto;padding:12px;background:var(--bg-light);border-radius:6px;"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">关闭</button>
+                <button class="btn btn-primary" onclick="copyAISummary()">复制</button>
+            </div>
         </div>
     </div>
 
@@ -1581,8 +1637,8 @@
         function getTaskTags() {
             const tags = new Set(data.commonTaskTags);
             data.tasks.forEach(i => {
-                // 只统计未完成的待办任务的标签
-                if (!i.done && i.tags) {
+                // 统计所有任务的标签（包括已完成和未完成）
+                if (i.tags) {
                     i.tags.forEach(t => tags.add(t));
                 }
             });
@@ -1837,9 +1893,9 @@
             let usageCount = 0;
             
             if (containerId === 'taskTags') {
-                // 检查未完成的任务是否使用该标签
-                hasUsage = data.tasks.some(i => !i.done && i.tags && i.tags.includes(tag));
-                usageCount = data.tasks.filter(i => !i.done && i.tags && i.tags.includes(tag)).length;
+                // 检查所有任务是否使用该标签（包括已完成和未完成）
+                hasUsage = data.tasks.some(i => i.tags && i.tags.includes(tag));
+                usageCount = data.tasks.filter(i => i.tags && i.tags.includes(tag)).length;
                 usageType = '任务';
             } else if (containerId === 'feelingTags') {
                 // 检查感受记录是否使用该标签
@@ -1859,9 +1915,9 @@
             // 从 common 标签数组中删除
             if (containerId === 'taskTags') {
                 data.commonTaskTags = data.commonTaskTags.filter(t => t !== tag);
-                // 同时从所有未完成的任务中移除该标签
+                // 同时从所有任务中移除该标签（包括已完成和未完成）
                 data.tasks.forEach(task => {
-                    if (!task.done && task.tags) {
+                    if (task.tags) {
                         task.tags = task.tags.filter(t => t !== tag);
                     }
                 });
@@ -2102,6 +2158,7 @@
                 renderToday();
                 renderOldTodos();
                 renderDone();
+                renderThisWeekCompleted();
             }
             
             checkUpdateStatus();
@@ -2245,16 +2302,52 @@
             }
             el.appendChild(contentDiv);
 
-            if (item.tags && item.tags.length) {
-                const tagsDiv = document.createElement('div');
-                tagsDiv.className = 'item-tags';
-                item.tags.forEach(t => {
-                    const s = document.createElement('span');
-                    s.className = 'item-tag';
-                    s.textContent = t;
-                    tagsDiv.appendChild(s);
-                });
-                el.appendChild(tagsDiv);
+            // 只对非编辑状态的任务（已完成或不可编辑的任务）显示标签
+            if (!(options.editable && item.type === 'task' && !item.done)) {
+                if (item.tags && item.tags.length) {
+                    const tagsDiv = document.createElement('div');
+                    tagsDiv.className = 'item-tags';
+                    item.tags.forEach(t => {
+                        const s = document.createElement('span');
+                        s.className = 'item-tag';
+                        s.textContent = t;
+                        s.style.cursor = 'pointer';
+                        s.onclick = (e) => {
+                            e.stopPropagation();
+                            showTagEditor(item.id, t, 'task');
+                        };
+                        tagsDiv.appendChild(s);
+                    });
+                    
+                    // 添加标签按钮
+                    const addTagBtn = document.createElement('span');
+                    addTagBtn.className = 'item-tag';
+                    addTagBtn.textContent = '+';
+                    addTagBtn.style.cursor = 'pointer';
+                    addTagBtn.style.color = 'var(--primary)';
+                    addTagBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        showTagEditor(item.id, null, 'task');
+                    };
+                    tagsDiv.appendChild(addTagBtn);
+                    
+                    el.appendChild(tagsDiv);
+                } else if (item.type === 'task') {
+                    // 如果没有标签，显示添加标签按钮
+                    const tagsDiv = document.createElement('div');
+                    tagsDiv.className = 'item-tags';
+                    const addTagBtn = document.createElement('span');
+                    addTagBtn.className = 'item-tag';
+                    addTagBtn.textContent = '+ 添加标签';
+                    addTagBtn.style.cursor = 'pointer';
+                    addTagBtn.style.color = 'var(--primary)';
+                    addTagBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        showTagEditor(item.id, null, 'task');
+                    };
+                    tagsDiv.appendChild(addTagBtn);
+                    el.appendChild(tagsDiv);
+                }
             }
 
             if (item.type === 'task') {
@@ -2360,26 +2453,28 @@
                     stDiv.appendChild(row);
                 });
                 
-                // 添加子任务按钮
-                const addSubtaskRow = document.createElement('div');
-                addSubtaskRow.className = 'subtask';
-                addSubtaskRow.style.padding = '8px 0';
-                addSubtaskRow.style.position = 'relative';
-                
-                const addSubtaskBtn = document.createElement('button');
-                addSubtaskBtn.className = 'subtask-place-btn';
-                addSubtaskBtn.textContent = '+ 添加子任务';
-                addSubtaskBtn.style.background = 'var(--primary)';
-                addSubtaskBtn.style.color = 'white';
-                addSubtaskBtn.style.borderColor = 'var(--primary)';
-                addSubtaskBtn.style.fontSize = '12px';
-                addSubtaskBtn.style.padding = '4px 10px';
-                addSubtaskBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    addSubtaskToTask(item.id);
-                };
-                addSubtaskRow.appendChild(addSubtaskBtn);
-                stDiv.appendChild(addSubtaskRow);
+                // 添加子任务按钮（根据选项决定是否显示）
+                if (options.showAddSubtask !== false) {
+                    const addSubtaskRow = document.createElement('div');
+                    addSubtaskRow.className = 'subtask';
+                    addSubtaskRow.style.padding = '8px 0';
+                    addSubtaskRow.style.position = 'relative';
+                    
+                    const addSubtaskBtn = document.createElement('button');
+                    addSubtaskBtn.className = 'subtask-place-btn';
+                    addSubtaskBtn.textContent = '+ 添加子任务';
+                    addSubtaskBtn.style.background = 'var(--primary)';
+                    addSubtaskBtn.style.color = 'white';
+                    addSubtaskBtn.style.borderColor = 'var(--primary)';
+                    addSubtaskBtn.style.fontSize = '12px';
+                    addSubtaskBtn.style.padding = '4px 10px';
+                    addSubtaskBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        addSubtaskToTask(item.id);
+                    };
+                    addSubtaskRow.appendChild(addSubtaskBtn);
+                    stDiv.appendChild(addSubtaskRow);
+                }
                 el.appendChild(stDiv);
             }
 
@@ -3324,6 +3419,79 @@
             }
         }
 
+        // ============ 本周完成模块 ============
+        
+        function getThisWeekRange() {
+            const now = new Date();
+            const day = now.getDay(); // 0=周日, 1=周一, ...
+            const diff = day === 0 ? 6 : day - 1; // 周日=6, 其他=day-1
+            
+            const startOfWeek = new Date(now);
+            startOfWeek.setDate(now.getDate() - diff);
+            startOfWeek.setHours(0, 0, 0, 0);
+            
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 6);
+            endOfWeek.setHours(23, 59, 59, 999);
+            
+            return { start: startOfWeek, end: endOfWeek };
+        }
+        
+        function getThisWeekCompletedTasks() {
+            const { start, end } = getThisWeekRange();
+            return data.tasks.filter(task =>
+                task.done &&
+                new Date(task.updatedAt) >= start &&
+                new Date(task.updatedAt) <= end
+            );
+        }
+        
+        function renderThisWeekCompleted() {
+            const container = document.getElementById('thisWeekDoneList');
+            container.innerHTML = '';
+            
+            // 获取筛选条件
+            const searchTerm = document.getElementById('thisWeekDoneSearch')?.value.toLowerCase() || '';
+            const selectedTagsStr = document.getElementById('thisWeekDoneTagFilter')?.dataset.selectedTags || '[]';
+            const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('thisWeekDoneTagFilter')?.dataset.filterMode || 'include';
+            
+            // 获取本周完成的任务
+            let list = getThisWeekCompletedTasks();
+            
+            // 应用搜索过滤
+            if (searchTerm) {
+                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+            }
+            
+            // 应用标签过滤
+            if (selectedTags && selectedTags.length > 0) {
+                if (filterMode === 'include') {
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
+            }
+            
+            document.getElementById('thisWeekDoneCount').textContent = list.length ? `(${list.length})` : '';
+            if (list.length === 0) {
+                container.innerHTML = '<div class="empty-tip">本周暂无完成任务</div>';
+                return;
+            }
+            
+            // 添加AI汇总按钮
+            const aiSummaryBtn = document.createElement('div');
+            aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
+            aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'thisWeek\')">📊 AI汇总</button>';
+            container.appendChild(aiSummaryBtn);
+            
+            // 渲染标签筛选器
+            renderTagFilter('thisWeekDoneTagFilter', list, selectedTags);
+            
+            // 渲染任务列表（不显示添加子任务按钮，但显示标签）
+            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
+        }
+
         function renderOldTodos() {
             const container = document.getElementById('oldTodoList');
             container.innerHTML = '';
@@ -3533,7 +3701,17 @@
                 container.innerHTML = '<div class="empty-tip">今天还没有完成的事项</div>';
                 return;
             }
-            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true})));
+            
+            // 添加AI汇总按钮
+            if (list.length > 0) {
+                const aiSummaryBtn = document.createElement('div');
+                aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
+                aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'today\')">📊 AI汇总</button>';
+                container.appendChild(aiSummaryBtn);
+            }
+            
+            // 渲染已完成任务（不显示添加子任务按钮，但显示标签）
+            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
         }
 
         function renderHistory() {
@@ -3555,10 +3733,24 @@
         function toggleDone(id) {
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
-            item.done = !item.done;
-            item.doneAt = item.done ? nowStr() : null;
-            item.updatedAt = nowStr();
-            saveData(); render();
+            
+            // 如果任务从未完成变为完成，弹出标签选择对话框
+            if (!item.done) {
+                item.done = true;
+                item.doneAt = nowStr();
+                item.updatedAt = nowStr();
+                saveData();
+                
+                // 弹出标签选择对话框
+                showTagEditor(id, null, 'task');
+                render();
+            } else {
+                // 如果任务从完成变为未完成，直接切换状态
+                item.done = false;
+                item.doneAt = null;
+                item.updatedAt = nowStr();
+                saveData(); render();
+            }
         }
 
         function toggleSubtask(itemId, subId) {
@@ -6871,6 +7063,223 @@
              setTimeout(() => toast.remove(), 300);
          }, 3000);
      }
+ 
+     // ============ AI汇总功能 ============
+     
+     // 当前汇总类型
+     let currentSummaryType = 'today';
+     
+     // 显示AI汇总模态框
+     function showAISummary(type) {
+         const modal = document.getElementById('aiSummaryModal');
+         const content = document.getElementById('aiSummaryContent');
+         const promptInput = document.getElementById('summaryPromptInput');
+         
+         // 切换标签页
+         switchSummaryTab(type);
+         
+         // 初始化提示词
+         if (!promptInput.value) {
+             promptInput.value = getDefaultSummaryPrompt();
+         }
+         
+         modal.classList.remove('hidden');
+         
+         // 自动生成汇总
+         generateAISummary(type);
+     }
+     
+     // 获取默认提示词
+     function getDefaultSummaryPrompt() {
+         return `请根据以下任务列表，生成一份智能汇总报告：
+
+ 汇总要求：
+ 1. 统计任务总数、标签分布
+ 2. 按标签分类展示任务（每个标签下列出具体任务）
+ 3. 分析任务类型、时间分布
+ 4. 提供工作效率评估和建议
+ 5. 使用简洁、友好的语言
+ 6. 使用emoji增加可读性（如📊、🏷️、💡等）
+ 7. 该分段的分段，该用小标题的小标题
+ 8. 文本输出，不要有黑体字转为文本的*之类的
+
+ 请生成一份结构清晰、内容丰富的汇总报告。`;
+     }
+     
+     // 恢复默认提示词
+     function resetSummaryPrompt() {
+         const promptInput = document.getElementById('summaryPromptInput');
+         promptInput.value = getDefaultSummaryPrompt();
+         showToast('已恢复默认提示词');
+     }
+     
+     // 切换提示词区域显示/隐藏
+     function togglePromptArea() {
+         const promptInput = document.getElementById('summaryPromptInput');
+         const promptLabel = promptInput.previousElementSibling;
+         if (promptInput.style.display === 'none') {
+             promptInput.style.display = 'block';
+             promptLabel.style.display = 'flex';
+         } else {
+             promptInput.style.display = 'none';
+             promptLabel.style.display = 'none';
+         }
+     }
+     
+     // 切换汇总标签页
+     function switchSummaryTab(type) {
+         const todayBtn = document.getElementById('summaryTodayBtn');
+         const thisWeekBtn = document.getElementById('summaryThisWeekBtn');
+         
+         if (type === 'today') {
+             todayBtn.classList.add('active');
+             thisWeekBtn.classList.remove('active');
+         } else {
+             todayBtn.classList.remove('active');
+             thisWeekBtn.classList.add('active');
+         }
+         
+         // 生成汇总
+         generateAISummary(type);
+     }
+     
+     // 生成AI汇总
+     async function generateAISummary(type) {
+         const content = document.getElementById('aiSummaryContent');
+         const promptInput = document.getElementById('summaryPromptInput');
+         
+         // 更新当前汇总类型
+         currentSummaryType = type;
+         
+         // 获取任务列表
+         let tasks = [];
+         if (type === 'today') {
+             // 今日完成的任务
+             tasks = data.tasks.filter(t => t.done && isToday(t.updatedAt));
+         } else {
+             // 本周完成的任务
+             tasks = getThisWeekCompletedTasks();
+         }
+         
+         if (tasks.length === 0) {
+             content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无完成任务</div>';
+             return;
+         }
+         
+         // 显示加载状态
+         content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇总...</p></div>';
+         
+         try {
+             // 获取自定义提示词
+             const customPrompt = promptInput.value.trim();
+             
+             // 构建完整提示词（任务数据 + 自定义提示词）
+             const taskData = buildTaskData(tasks, type);
+             const fullPrompt = `${taskData}\n\n${customPrompt}`;
+             
+             // 调用AI API
+             const result = await callAiApi(fullPrompt, data.aiConfig.model, null);
+             
+             // 显示结果
+             content.textContent = result;
+             
+         } catch (error) {
+             console.error('AI汇总失败:', error);
+             content.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">汇总失败：${error.message}</div>`;
+         }
+     }
+     
+     // 构建任务数据文本
+     function buildTaskData(tasks, type) {
+         const typeText = type === 'today' ? '今日' : '本周';
+         const dateText = type === 'today' ? fmtTime(new Date()) : `${fmtTime(getThisWeekRange().start)} ~ ${fmtTime(getThisWeekRange().end)}`;
+         
+         // 统计标签
+         const tagStats = {};
+         tasks.forEach(task => {
+             if (task.tags) {
+                 task.tags.forEach(tag => {
+                     tagStats[tag] = (tagStats[tag] || 0) + 1;
+                 });
+             }
+         });
+         
+         // 构建任务列表文本
+         const tasksText = tasks.map((task, index) => {
+             const tags = task.tags ? task.tags.join(', ') : '无标签';
+             const time = fmtTime(task.updatedAt);
+             return `${index + 1}. ${task.content}\n   标签: [${tags}]\n   完成时间: ${time}`;
+         }).join('\n\n');
+         
+         // 构建任务数据文本
+         const taskData = `时间范围：${dateText}\n任务总数：${tasks.length}个\n\n任务列表：\n${tasksText}`;
+         
+         return taskData;
+     }
+     
+     // 构建汇总提示词
+     function buildSummaryPrompt(tasks, type) {
+         const typeText = type === 'today' ? '今日' : '本周';
+         const dateText = type === 'today' ? fmtTime(new Date()) : `${fmtTime(getThisWeekRange().start)} ~ ${fmtTime(getThisWeekRange().end)}`;
+         
+         // 统计标签
+         const tagStats = {};
+         tasks.forEach(task => {
+             if (task.tags) {
+                 task.tags.forEach(tag => {
+                     tagStats[tag] = (tagStats[tag] || 0) + 1;
+                 });
+             }
+         });
+         
+         // 构建任务列表文本
+         const tasksText = tasks.map((task, index) => {
+             const tags = task.tags ? task.tags.join(', ') : '无标签';
+             const time = fmtTime(task.updatedAt);
+             return `${index + 1}. ${task.content}\n   标签: [${tags}]\n   完成时间: ${time}`;
+         }).join('\n\n');
+         
+         // 构建提示词
+         const prompt = `请根据以下${typeText}完成的任务列表，生成一份智能汇总报告：
+ 
+ 时间范围：${dateText}
+ 任务总数：${tasks.length}个
+ 
+ 任务列表：
+ ${tasksText}
+ 
+ 汇总要求：
+ 1. 统计任务总数、标签分布
+ 2. 按标签分类展示任务（每个标签下列出具体任务）
+ 3. 分析任务类型、时间分布
+ 4. 提供工作效率评估和建议
+ 5. 使用简洁、友好的语言
+ 6. 使用emoji增加可读性（如📊、🏷️、💡等）
+ 7. 该分段的分段，该用小标题的小标题
+ 8. 文本输出，不要有黑体字转为文本的*之类的
+ 
+ 请生成一份结构清晰、内容丰富的汇总报告。`;
+         
+         return prompt;
+     }
+     
+     // 复制AI汇总内容
+     function copyAISummary() {
+         const content = document.getElementById('aiSummaryContent');
+         const text = content.textContent;
+         
+         if (!text) {
+             showToast('没有可复制的内容');
+             return;
+         }
+         
+         navigator.clipboard.writeText(text).then(() => {
+             showToast('已复制到剪贴板');
+         }).catch(err => {
+             console.error('复制失败:', err);
+             showToast('复制失败');
+         });
+     }
      </script>
-</body>
-</html>
+ </body>
+ </html>
