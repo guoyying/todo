@@ -546,6 +546,18 @@
       "dueTime": null,
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moraekn86q89z",
+      "type": "task",
+      "content": "mac mini卖掉",
+      "createdAt": "2026-05-04T14:20:49.028Z",
+      "updatedAt": "2026-05-04T14:20:49.028Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
