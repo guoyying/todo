@@ -2639,11 +2639,34 @@
                     });
                 });
                 simpleTasks.forEach(i => {
-                    allInSlot.push({kind:'item', item:i});
-                    // 计算普通任务预计时间（支持 min 格式）
-                    if (i.dueTime) {
-                        const num = extractTimeNumber(i.dueTime);
-                        if (num !== null) totalEstimatedTime += num;
+                    // 如果任务包含子任务，将任务和子任务作为一个整体
+                    if (i.subtasks && i.subtasks.length > 0) {
+                        const undoneSubtasks = i.subtasks.filter(st => !st.done);
+                        allInSlot.push({
+                            kind: 'taskWithSubtasks',
+                            item: i,
+                            subtasks: undoneSubtasks
+                        });
+                        // 计算任务预计时间（支持 min 格式）
+                        if (i.dueTime) {
+                            const num = extractTimeNumber(i.dueTime);
+                            if (num !== null) totalEstimatedTime += num;
+                        }
+                        // 计算子任务预计时间
+                        undoneSubtasks.forEach(st => {
+                            if (st.estimatedTime) {
+                                const num = extractTimeNumber(st.estimatedTime);
+                                if (num !== null) totalEstimatedTime += num;
+                            }
+                        });
+                    } else {
+                        // 没有子任务的普通任务，直接显示
+                        allInSlot.push({kind:'item', item:i});
+                        // 计算普通任务预计时间（支持 min 格式）
+                        if (i.dueTime) {
+                            const num = extractTimeNumber(i.dueTime);
+                            if (num !== null) totalEstimatedTime += num;
+                        }
                     }
                 });
                 slotTotal += allInSlot.length;
@@ -2669,8 +2692,14 @@
                             }
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
+                            // 只有单独放入子任务时才显示"来自：xxx"
+                            const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
+                            // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
+                            const returnAction = entry.fromWholeTask
+                                ? `removeFromSlotSimple('${entry.parent.id}')`
+                                : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
                             wrapper.innerHTML = `
-                                <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>
+                                ${fromLabel}
                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
                                     <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
                                     <input type="text" class="edit-input" value="${entry.sub.content.replace(/"/g, '&quot;')}"
@@ -2682,7 +2711,48 @@
                                         style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
                                 </div>
                                 <div class="item-actions" style="opacity:1;">
-                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlot('${entry.parent.id}', '${entry.sub.id}')">返回待办</button>
+                                    <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
+                                </div>
+                            `;
+                            slotEl.appendChild(wrapper);
+                        } else if (entry.kind === 'taskWithSubtasks') {
+                            // 显示包含子任务的任务（任务和子任务在一个框内）
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'item task-item';
+                            
+                            // 构建任务和子任务的HTML
+                            let subtasksHtml = '';
+                            entry.subtasks.forEach(st => {
+                                subtasksHtml += `
+                                    <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
+                                        <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.item.id}','${st.id}')"></span>
+                                        <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
+                                            onchange="updateSubtaskInSlot('${entry.item.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
+                                            style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                        <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
+                                            onchange="updateSubtaskTimeInSlot('${entry.item.id}', '${st.id}', this.value)"
+                                            placeholder="预计时间"
+                                            style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
+                                    </div>
+                                `;
+                            });
+                            
+                            wrapper.innerHTML = `
+                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                    <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
+                                    <input type="text" class="edit-input" value="${entry.item.content.replace(/"/g, '&quot;')}"
+                                        onchange="updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')"
+                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                    <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
+                                        onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
+                                        placeholder="预计时间"
+                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
+                                </div>
+                                <div class="subtask-list">
+                                    ${subtasksHtml}
+                                </div>
+                                <div class="item-actions" style="opacity:1;">
+                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -2695,7 +2765,6 @@
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
                             wrapper.innerHTML = `
-                                <div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.item.content}</div>
                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
                                     <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
                                     <input type="text" class="edit-input" value="${entry.item.content.replace(/"/g, '&quot;')}"
@@ -3499,7 +3568,14 @@
                         return true;
                     }
                     // 普通任务，只显示未放入时间段的
-                    return !i.placedIn;
+                    if (i.placedIn) {
+                        return false;
+                    }
+                    // 如果任务包含子任务，检查是否有子任务被放入时间段
+                    if (i.subtasks && i.subtasks.some(st => st.placedIn && !st.done)) {
+                        return false;
+                    }
+                    return true;
                 }
                 return false;
             });
@@ -3624,7 +3700,15 @@
             const filterMode = document.getElementById('oldTodoTagFilter')?.dataset.filterMode || 'include';
             
             let list = data.tasks.filter(i => {
-                if (!i.done && !i.placedIn && !isToday(i.createdAt)) {
+                if (!i.done && !isToday(i.createdAt)) {
+                    // 如果任务本身被放入时间段，不显示
+                    if (i.placedIn) {
+                        return false;
+                    }
+                    // 如果任务包含子任务，检查是否有子任务被放入时间段
+                    if (i.subtasks && i.subtasks.some(st => st.placedIn && !st.done)) {
+                        return false;
+                    }
                     return true;
                 }
                 return false;
@@ -3880,6 +3964,15 @@
             const st = item.subtasks.find(s => s.id === subId);
             if (!st) return;
             st.done = !st.done;
+            
+            // 检查是否所有子任务都已完成，如果是则将父任务标记为完成
+            const allSubtasksDone = item.subtasks.every(s => s.done);
+            if (allSubtasksDone) {
+                item.done = true;
+            } else {
+                item.done = false;
+            }
+            
             item.updatedAt = nowStr();
             saveData(); render();
         }
