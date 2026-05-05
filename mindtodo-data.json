@@ -304,20 +304,6 @@
       "doneAt": "2026-04-29T03:48:04.080Z"
     },
     {
-      "id": "mojd41e4l04hj",
-      "type": "task",
-      "content": "给老公看手机，生日礼物",
-      "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-05-05T12:20:50.467Z",
-      "tags": [
-        "老公"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": []
-    },
-    {
       "id": "mojdgv13c8v8p",
       "type": "task",
       "content": "定级备案更新",
@@ -647,6 +633,18 @@
       "subtasks": [],
       "placedIn": "slot_mosmiucdr4zr9",
       "doneAt": "2026-05-05T13:23:41.015Z"
+    },
+    {
+      "id": "mosodmjpkbp8e",
+      "type": "task",
+      "content": "给老公看手机，生日礼物",
+      "createdAt": "2026-05-05T13:39:45.637Z",
+      "updatedAt": "2026-05-05T13:39:57.387Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1112,6 +1110,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-05T13:31:49.325Z"
+    "lastSync": "2026-05-05T13:32:39.186Z"
   }
 }
