@@ -306,24 +306,16 @@
     {
       "id": "mojd41e4l04hj",
       "type": "task",
-      "content": "给老公看衣服，生日礼物",
+      "content": "给老公看手机，生日礼物",
       "createdAt": "2026-04-29T01:14:26.956Z",
-      "updatedAt": "2026-05-03T07:04:59.657Z",
+      "updatedAt": "2026-05-05T12:20:50.467Z",
       "tags": [
         "老公"
       ],
       "done": false,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mojd41e4g2839",
-          "content": "淘宝加购3件衣服，可以是同品牌也可以不同品牌。",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "subtasks": []
     },
     {
       "id": "mojdgv13c8v8p",
@@ -1106,6 +1098,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-05T12:19:36.916Z"
+    "lastSync": "2026-05-05T12:20:01.118Z"
   }
 }
