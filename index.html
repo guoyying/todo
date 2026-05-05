@@ -5911,19 +5911,6 @@
              
              // 保存默认提示词到全局变量，供UI显示使用
              window.defaultPrompt = defaultPrompt;
-             
-             // 输出实际发送给API的提示词
-             console.log('=== 发送给API的提示词 ===');
-             console.log('是否使用自定义提示词:', !!customPrompt);
-             if (customPrompt) {
-                 console.log('自定义提示词内容:', customPrompt);
-                 console.log('实际发送的prompt:', prompt);
-             } else {
-                 console.log('默认提示词内容:', defaultPrompt);
-                 console.log('实际发送的prompt:', prompt);
-             }
-             console.log('提示词长度:', prompt.length);
-             console.log('提示词前200字符:', prompt.substring(0, 200));
            
           if (model.provider === 'openai') {
               console.log('调用 OpenAI API...');
