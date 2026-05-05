@@ -584,6 +584,8 @@
             height: 100%;
             box-sizing: border-box;
             overflow: hidden;
+            text-align: center;
+            line-height: 1.2;
         }
         .mood-calendar .mood-day:hover {
             transform: scale(1.1);
@@ -649,16 +651,22 @@
             font-weight: 600;
             margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            text-align: center;
         }
         .mood-calendar-nav {
             display: flex;
             gap: 8px;
+            align-items: stretch;
         }
         .mood-calendar-nav button {
             padding: 2px 8px;
             font-size: 12px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .collapsed {
             display: none !important;
@@ -1112,9 +1120,9 @@
         </div>
     </div>
 
-    <!-- AI汇总模态框 -->
-    <div class="modal-overlay hidden" id="aiSummaryModal">
-        <div class="modal" style="max-width: 700px;">
+     <!-- AI汇总模态框 -->
+     <div class="modal-overlay hidden" id="aiSummaryModal" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">
+         <div class="modal" style="max-width: 700px;" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>💡 AI汇总</h3>
                 <span class="close" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">&times;</span>
@@ -1123,6 +1131,14 @@
                 <div class="type-select" style="margin-bottom: 16px;">
                     <div class="type-btn active" id="summaryTodayBtn" onclick="switchSummaryTab('today')">今日完成</div>
                     <div class="type-btn" id="summaryThisWeekBtn" onclick="switchSummaryTab('thisWeek')">本周完成</div>
+                </div>
+                
+                <!-- 模型选择器 -->
+                <div style="margin-bottom: 16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">🤖 选择模型</label>
+                    <select id="summaryModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                        <!-- 动态生成模型选项 -->
+                    </select>
                 </div>
                 
                 <!-- 提示词编辑区域 -->
@@ -1493,7 +1509,7 @@
                    tencent: '',
                    moonshot: ''
                },
-                model: 'moonshot-k2.6', // 默认模型
+                model: 'kimi-k2.6', // 默认模型
                models: [ // 支持的模型列表
                   // OpenAI 模型
                   { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', provider: 'openai' },
@@ -2639,8 +2655,8 @@
                     <span>📅 ${year}年 ${monthNames[month]}</span>
                 </div>
                 <div class="mood-calendar-nav">
-                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(-1)" style="width:100%;margin-bottom:4px;">◀ 上月</button>
-                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(1)" style="width:100%;">下月 ▶</button>
+                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(-1)" style="width:100%;margin-bottom:4px;display:flex;align-items:center;justify-content:center;"><span>◀ 上月</span></button>
+                    <button class="btn btn-small btn-secondary" onclick="changeCalendarMonth(1)" style="width:100%;display:flex;align-items:center;justify-content:center;"><span>下月 ▶</span></button>
                 </div>
                 <div class="mood-calendar" style="gap:2px;">
             `;
@@ -5209,9 +5225,9 @@
          
          // 设置文本选择监听器
          setupAiResultSelectionListener();
-     }
-     
-     // 显示感受记录的智能推荐弹药
+         }
+         
+         // 显示感受记录的智能推荐弹药
      function showFeelingAmmoSuggestion(feelingId) {
          const feeling = data.normalFeelings.find(f => f.id === feelingId);
          if (!feeling) return;
@@ -5542,11 +5558,6 @@
      
        // 调用AI API
        async function callAiApi(content, modelId, customPrompt = null) {
-           console.log('=== callAiApi 调用开始 ===');
-           console.log('输入内容:', content);
-           console.log('模型ID:', modelId);
-           console.log('自定义提示词:', customPrompt);
-           
            const model = data.aiConfig.models.find(m => m.id === modelId);
            if (!model) {
                throw new Error('未找到指定的模型');
@@ -5556,37 +5567,35 @@
            
            // 使用自定义提示词或默认提示词
            const defaultPrompt = `请对以下文本进行阅读理解和共情回应。
-  
-  1. 识别核心意图
-  2. 共情与确认
-  3. 提炼关键逻辑
-  4. 价值升华
-  
-  文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
-  
-  文本：${content}`;
-            
-            // 处理自定义提示词：如果包含占位符，则替换为实际内容
-            let prompt;
-            if (customPrompt) {
-                // 检查是否包含占位符
-                if (customPrompt.includes('[在此处输入你的文本]') || customPrompt.includes('文本：')) {
-                    // 替换占位符为实际内容
-                    prompt = customPrompt.replace(/\[在此处输入你的文本\]/g, content).replace(/文本：[^\n]*$/gm, `文本：${content}`);
-                } else {
-                    // 如果没有占位符，直接追加内容
-                    prompt = customPrompt + `\n\n文本：${content}`;
-                }
-            } else {
-                prompt = defaultPrompt;
-            }
-            
-            // 保存默认提示词到全局变量，供UI显示使用
-            window.defaultPrompt = defaultPrompt;
-          
-          console.log('最终发送的提示词:', prompt);
-          console.log('提示词长度:', prompt.length);
-          
+   
+   1. 识别核心意图
+   2. 共情与确认
+   3. 提炼关键逻辑
+   4. 价值升华
+   
+   文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
+   
+   文本：${content}`;
+              
+             // 处理提示词
+             let prompt;
+             if (customPrompt) {
+                 // 如果提供了自定义提示词，直接使用（content已经是完整的提示词）
+                 prompt = content;
+             } else {
+                 // 检查content是否已经是完整的提示词（包含任务数据等）
+                 if (content.includes('任务列表') || content.includes('时间范围')) {
+                     // 如果content已经是完整的提示词，直接使用
+                     prompt = content;
+                 } else {
+                     // 否则使用默认提示词
+                     prompt = defaultPrompt;
+                 }
+             }
+             
+             // 保存默认提示词到全局变量，供UI显示使用
+             window.defaultPrompt = defaultPrompt;
+           
           if (model.provider === 'openai') {
               console.log('调用 OpenAI API...');
               return await callOpenAiApi(prompt, modelId);
@@ -7069,25 +7078,38 @@
      // 当前汇总类型
      let currentSummaryType = 'today';
      
-     // 显示AI汇总模态框
-     function showAISummary(type) {
-         const modal = document.getElementById('aiSummaryModal');
-         const content = document.getElementById('aiSummaryContent');
-         const promptInput = document.getElementById('summaryPromptInput');
-         
-         // 切换标签页
-         switchSummaryTab(type);
-         
-         // 初始化提示词
-         if (!promptInput.value) {
-             promptInput.value = getDefaultSummaryPrompt();
-         }
-         
-         modal.classList.remove('hidden');
-         
-         // 自动生成汇总
-         generateAISummary(type);
-     }
+      // 显示AI汇总模态框
+      function showAISummary(type) {
+          const modal = document.getElementById('aiSummaryModal');
+          const content = document.getElementById('aiSummaryContent');
+          const promptInput = document.getElementById('summaryPromptInput');
+          const modelSelect = document.getElementById('summaryModelSelect');
+          
+          // 切换标签页
+          switchSummaryTab(type);
+          
+          // 初始化提示词
+          if (!promptInput.value) {
+              promptInput.value = getDefaultSummaryPrompt();
+          }
+          
+          // 填充模型选择器
+          modelSelect.innerHTML = '';
+          data.aiConfig.models.forEach(model => {
+              const option = document.createElement('option');
+              option.value = model.id;
+              option.textContent = model.name;
+              if (model.id === data.aiConfig.model) {
+                  option.selected = true;
+              }
+              modelSelect.appendChild(option);
+           });
+           
+            modal.classList.remove('hidden');
+            
+            // 自动生成汇总
+            generateAISummary(type);
+      }
      
      // 获取默认提示词
      function getDefaultSummaryPrompt() {
@@ -7126,68 +7148,79 @@
          }
      }
      
-     // 切换汇总标签页
-     function switchSummaryTab(type) {
-         const todayBtn = document.getElementById('summaryTodayBtn');
-         const thisWeekBtn = document.getElementById('summaryThisWeekBtn');
-         
-         if (type === 'today') {
-             todayBtn.classList.add('active');
-             thisWeekBtn.classList.remove('active');
-         } else {
-             todayBtn.classList.remove('active');
-             thisWeekBtn.classList.add('active');
-         }
-         
-         // 生成汇总
-         generateAISummary(type);
-     }
+      // 切换汇总标签页
+      function switchSummaryTab(type) {
+          const todayBtn = document.getElementById('summaryTodayBtn');
+          const thisWeekBtn = document.getElementById('summaryThisWeekBtn');
+          
+          if (type === 'today') {
+              todayBtn.classList.add('active');
+              thisWeekBtn.classList.remove('active');
+          } else {
+              todayBtn.classList.remove('active');
+              thisWeekBtn.classList.add('active');
+          }
+          
+          // 更新当前汇总类型
+          currentSummaryType = type;
+      }
      
-     // 生成AI汇总
-     async function generateAISummary(type) {
-         const content = document.getElementById('aiSummaryContent');
-         const promptInput = document.getElementById('summaryPromptInput');
-         
-         // 更新当前汇总类型
-         currentSummaryType = type;
-         
-         // 获取任务列表
-         let tasks = [];
-         if (type === 'today') {
-             // 今日完成的任务
-             tasks = data.tasks.filter(t => t.done && isToday(t.updatedAt));
-         } else {
-             // 本周完成的任务
-             tasks = getThisWeekCompletedTasks();
-         }
-         
-         if (tasks.length === 0) {
-             content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无完成任务</div>';
-             return;
-         }
-         
-         // 显示加载状态
-         content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇总...</p></div>';
-         
-         try {
-             // 获取自定义提示词
-             const customPrompt = promptInput.value.trim();
-             
-             // 构建完整提示词（任务数据 + 自定义提示词）
-             const taskData = buildTaskData(tasks, type);
-             const fullPrompt = `${taskData}\n\n${customPrompt}`;
-             
-             // 调用AI API
-             const result = await callAiApi(fullPrompt, data.aiConfig.model, null);
-             
-             // 显示结果
-             content.textContent = result;
-             
-         } catch (error) {
-             console.error('AI汇总失败:', error);
-             content.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">汇总失败：${error.message}</div>`;
-         }
-     }
+      // 生成AI汇总
+      async function generateAISummary(type) {
+          const content = document.getElementById('aiSummaryContent');
+          const promptInput = document.getElementById('summaryPromptInput');
+          const modelSelect = document.getElementById('summaryModelSelect');
+          
+          // 更新当前汇总类型
+          currentSummaryType = type;
+          
+          // 获取任务列表
+          let tasks = [];
+          if (type === 'today') {
+              // 今日完成的任务
+              tasks = data.tasks.filter(t => t.done && isToday(t.updatedAt));
+          } else {
+              // 本周完成的任务
+              tasks = getThisWeekCompletedTasks();
+          }
+          
+          if (tasks.length === 0) {
+              content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无完成任务</div>';
+              return;
+          }
+          
+          // 显示加载状态
+          content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇总...</p></div>';
+          
+          try {
+               // 等待模型选择器初始化完成
+               await new Promise(resolve => setTimeout(resolve, 100));
+               
+               // 获取自定义提示词
+               const customPrompt = promptInput.value.trim();
+               
+               // 构建完整提示词（任务数据 + 自定义提示词）
+               const taskData = buildTaskData(tasks, type);
+               const fullPrompt = `${taskData}\n\n${customPrompt}`;
+               
+               // 获取选择的模型
+               const selectedModel = modelSelect.value;
+               
+               // 调试信息
+               console.log('AI汇总 - 选择的模型:', selectedModel);
+               console.log('AI汇总 - 模型选择器选项数量:', modelSelect.options.length);
+               
+               // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
+               const result = await callAiApi(fullPrompt, selectedModel, 'custom');
+               
+               // 显示结果
+               content.textContent = result;
+              
+          } catch (error) {
+              console.error('AI汇总失败:', error);
+              content.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">汇总失败：${error.message}</div>`;
+          }
+      }
      
      // 构建任务数据文本
      function buildTaskData(tasks, type) {
