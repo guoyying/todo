@@ -561,6 +561,18 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-05T00:17:03.002Z"
+    },
+    {
+      "id": "mos7t936tnwjf",
+      "type": "task",
+      "content": "将旧电脑的转换器和云电脑搬过来",
+      "createdAt": "2026-05-05T05:56:01.218Z",
+      "updatedAt": "2026-05-05T05:56:01.218Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
