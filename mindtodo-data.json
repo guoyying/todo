@@ -651,12 +651,15 @@
       "type": "task",
       "content": "买电脑包",
       "createdAt": "2026-05-05T13:52:08.522Z",
-      "updatedAt": "2026-05-05T13:52:08.522Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-05T15:02:40.829Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-05T15:02:38.625Z"
     },
     {
       "id": "mosqa9cabdtdt",
@@ -798,6 +801,13 @@
       "tags": [],
       "createdAt": "2026-05-05T13:31:42.555Z",
       "updatedAt": "2026-05-05T13:31:42.555Z"
+    },
+    {
+      "id": "mosre180jr5df",
+      "content": "老公打麻将，说10.30结束，10.45问说还有3把最快10分钟结束。我其实已经不悦了，觉得他没有尽力控制时间，想着我没关系就多玩会儿。但也有可能是其他原因，不一定是我所想的。",
+      "tags": [],
+      "createdAt": "2026-05-05T15:04:03.504Z",
+      "updatedAt": "2026-05-05T15:04:03.504Z"
     }
   ],
   "practiceBlocks": [
