@@ -567,14 +567,15 @@
       "type": "task",
       "content": "将旧电脑的转换器和云电脑搬过来",
       "createdAt": "2026-05-05T05:56:01.218Z",
-      "updatedAt": "2026-05-05T08:13:00.212Z",
+      "updatedAt": "2026-05-05T12:09:01.060Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-05T12:09:01.060Z"
     },
     {
       "id": "mosaior1x5qjt",
@@ -596,6 +597,34 @@
       "content": "买防晒衣",
       "createdAt": "2026-05-05T08:12:50.256Z",
       "updatedAt": "2026-05-05T08:13:05.211Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mosl4rxn9qd4l",
+      "type": "task",
+      "content": "将东西放进冰箱",
+      "createdAt": "2026-05-05T12:08:53.867Z",
+      "updatedAt": "2026-05-05T12:08:53.868Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mosl99fvhn2p0",
+      "type": "task",
+      "content": "收衣服（干的就收）",
+      "createdAt": "2026-05-05T12:12:23.179Z",
+      "updatedAt": "2026-05-05T12:12:23.179Z",
       "tags": [
         "生活"
       ],
@@ -708,6 +737,15 @@
       "tags": [],
       "createdAt": "2026-05-05T07:32:18.450Z",
       "updatedAt": "2026-05-05T07:32:18.450Z"
+    },
+    {
+      "id": "moslfkx3ehtpf",
+      "content": "沈奕斐：一个人给他权力，是要承担责任的，否则这就叫溺爱和纵容。\n守住框架，细节做主。他知道有些事情就是这样，不需要花精力去谈判。同时在框架内部，他的选择是真实被尊重的。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-05T12:17:17.991Z",
+      "updatedAt": "2026-05-05T12:18:27.025Z"
     }
   ],
   "practiceBlocks": [
