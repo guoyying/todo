@@ -573,6 +573,18 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mosaior1x5qjt",
+      "type": "task",
+      "content": "在汇总一下手头的钱",
+      "createdAt": "2026-05-05T07:11:47.150Z",
+      "updatedAt": "2026-05-05T07:11:47.150Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
