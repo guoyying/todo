@@ -1110,6 +1110,7 @@
                 <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
             </div>
             <button class="btn btn-small btn-secondary" onclick="console.log('点击了批量迁移'); showMigrationModal()">批量迁移</button>
+            <button class="btn btn-small btn-primary" onclick="showOldFeelingSummaryModal()">往期汇总</button>
         </div>
         <div id="oldFeelingWrapper" class="collapsed">
             <div class="filter-bar" id="oldFeelingFilterBar">
@@ -1274,6 +1275,90 @@
                 <button class="btn btn-secondary" onclick="closeMigrationModal()">取消</button>
                 <button class="btn btn-primary" onclick="executeMigration()">开始迁移</button>
              </div>
+         </div>
+     </div>
+ 
+     <!-- 往期汇总模态框 -->
+     <div class="modal-overlay hidden" id="oldFeelingSummaryModal" onclick="document.getElementById('oldFeelingSummaryModal').classList.add('hidden')">
+         <div class="modal" style="max-width:900px;width:95%;" onclick="event.stopPropagation()">
+             <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                 <h3>💭 往期感受汇总</h3>
+                 <button class="btn btn-small btn-secondary" onclick="document.getElementById('oldFeelingSummaryModal').classList.add('hidden')">关闭</button>
+             </div>
+              <div class="modal-body" style="display:flex;gap:16px;max-height:80vh;">
+                  <!-- 左列：控制面板 -->
+                  <div style="flex:0 0 320px;display:flex;flex-direction:column;min-width:0;padding-right:16px;border-right:1px solid var(--border);">
+                      <!-- 汇总方式选择 -->
+                      <div style="margin-bottom:20px;">
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>汇总方式：</strong></label>
+                          <div style="display:flex;gap:15px;">
+                              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                  <input type="radio" name="summaryType" value="tag" checked onchange="toggleSummaryType()">
+                                  按标签汇总
+                              </label>
+                              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                  <input type="radio" name="summaryType" value="time" onchange="toggleSummaryType()">
+                                  按时间范围汇总
+                              </label>
+                          </div>
+                      </div>
+   
+                      <!-- 按标签汇总选项 -->
+                      <div id="tagSummaryOptions" style="margin-bottom:20px;">
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>选择标签：</strong></label>
+                          <div id="tagSelectContainer" style="display:flex;flex-wrap:wrap;gap:8px;">
+                              <!-- 动态生成标签选择 -->
+                          </div>
+                      </div>
+   
+                      <!-- 按时间范围汇总选项 -->
+                      <div id="timeSummaryOptions" style="display:none;margin-bottom:20px;">
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>时间范围：</strong></label>
+                          <div style="display:flex;gap:10px;align-items:center;">
+                              <input type="date" id="startDate" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;">
+                              <span>至</span>
+                              <input type="date" id="endDate" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;">
+                          </div>
+                      </div>
+   
+                      <!-- 模型选择 -->
+                      <div style="margin-bottom:20px;">
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>🤖 选择模型：</strong></label>
+                          <select id="oldFeelingSummaryModelSelect" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;">
+                              <!-- 动态生成模型选项 -->
+                          </select>
+                      </div>
+   
+                      <!-- 提示词编辑 -->
+                      <div style="margin-bottom:20px;">
+                          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                              <label style="font-weight:600;"><strong>📝 提示词：</strong></label>
+                              <div style="display:flex;gap:8px;">
+                                  <button class="btn btn-small btn-secondary" onclick="toggleOldFeelingSummaryPrompt()">显示/隐藏</button>
+                                  <button class="btn btn-small btn-secondary" onclick="resetOldFeelingSummaryPrompt()">恢复默认</button>
+                              </div>
+                          </div>
+                          <textarea id="oldFeelingSummaryPromptInput" rows="6" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;display:none;"></textarea>
+                      </div>
+   
+                      <!-- 操作按钮 -->
+                      <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--border);">
+                          <div style="display:flex;flex-direction:column;gap:10px;">
+                              <button class="btn btn-primary" onclick="generateOldFeelingSummary()">🚀 生成汇总</button>
+                              <button class="btn btn-secondary" onclick="copyOldFeelingSummary()">复制结果</button>
+                          </div>
+                      </div>
+                  </div>
+   
+                  <!-- 右列：汇总结果 -->
+                  <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+                      <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>📊 汇总结果：</strong></label>
+                      <div id="oldFeelingSummaryContent" style="flex:1;min-height:400px;overflow-y:auto;padding:15px;background:var(--bg);border-radius:8px;border:1px solid var(--border);white-space:pre-wrap;line-height:1.6;"></div>
+                  </div>
+              </div>
+              <div class="modal-footer" style="display:none;">
+                  <!-- 隐藏原有的footer，按钮已移到左列 -->
+              </div>
          </div>
      </div>
  
@@ -4984,7 +5069,243 @@
             render();
             saveData();
         }
-
+ 
+        // ============ 往期汇总功能 ============
+        
+        // 显示往期汇总模态框
+        function showOldFeelingSummaryModal() {
+            const modal = document.getElementById('oldFeelingSummaryModal');
+            const tagSelectContainer = document.getElementById('tagSelectContainer');
+            const modelSelect = document.getElementById('oldFeelingSummaryModelSelect');
+            const promptInput = document.getElementById('oldFeelingSummaryPromptInput');
+            const content = document.getElementById('oldFeelingSummaryContent');
+            
+            // 获取往期感受
+            const oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
+            
+            if (oldFeelings.length === 0) {
+                alert('没有可汇总的往期感受记录。');
+                return;
+            }
+            
+            // 收集所有标签
+            const allTags = new Set();
+            oldFeelings.forEach(f => {
+                if (f.tags && f.tags.length > 0) {
+                    f.tags.forEach(tag => allTags.add(tag));
+                }
+            });
+            
+            // 生成标签选择
+            tagSelectContainer.innerHTML = '';
+            if (allTags.size === 0) {
+                tagSelectContainer.innerHTML = '<span style="color:var(--text-secondary);">暂无标签</span>';
+            } else {
+                allTags.forEach(tag => {
+                    const label = document.createElement('label');
+                    label.style.cssText = 'display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:var(--bg);border:1px solid var(--border);border-radius:20px;cursor:pointer;font-size:13px;';
+                    label.innerHTML = `
+                        <input type="checkbox" value="${tag}" class="tag-checkbox" checked>
+                        ${tag}
+                    `;
+                    tagSelectContainer.appendChild(label);
+                });
+            }
+            
+            // 填充模型选择器
+            modelSelect.innerHTML = '';
+            data.aiConfig.models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = model.name;
+                if (model.id === data.aiConfig.model) {
+                    option.selected = true;
+                }
+                modelSelect.appendChild(option);
+            });
+            
+            // 初始化提示词
+            if (!promptInput.value) {
+                promptInput.value = getDefaultOldFeelingSummaryPrompt();
+            }
+            
+            // 清空汇总内容
+            content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">点击"🚀 生成汇总"按钮开始生成汇总报告</div>';
+            
+            // 设置默认时间范围（最近30天）
+            const today = new Date();
+            const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+            document.getElementById('endDate').value = today.toISOString().split('T')[0];
+            document.getElementById('startDate').value = thirtyDaysAgo.toISOString().split('T')[0];
+            
+            modal.classList.remove('hidden');
+        }
+        
+        // 切换汇总类型
+        function toggleSummaryType() {
+            const type = document.querySelector('input[name="summaryType"]:checked').value;
+            const tagOptions = document.getElementById('tagSummaryOptions');
+            const timeOptions = document.getElementById('timeSummaryOptions');
+            
+            if (type === 'tag') {
+                tagOptions.style.display = 'block';
+                timeOptions.style.display = 'none';
+            } else {
+                tagOptions.style.display = 'none';
+                timeOptions.style.display = 'block';
+            }
+        }
+        
+        // 获取默认提示词
+        function getDefaultOldFeelingSummaryPrompt() {
+            return `请根据以下往期感受记录，生成一份智能汇总报告：
+ 
+ 汇总要求：
+ 1. 统计感受总数、标签分布
+ 2. 按标签分类展示感受（每个标签下列出具体感受）
+ 3. 分析情绪变化趋势、时间分布
+ 4. 提炼关键主题和洞察
+ 5. 提供情绪管理建议
+ 6. 使用简洁、友好的语言
+ 7. 使用emoji增加可读性（如性（如💭、🏷️、💡等）
+ 8. 该分段的分段，该用小标题的小标题
+ 9. 文本输出，不要有黑体字转为文本的*之类的
+ 
+ 请生成一份结构清晰、内容丰富的汇总报告。`;
+        }
+        
+        // 切换提示词显示/隐藏
+        function toggleOldFeelingSummaryPrompt() {
+            const promptInput = document.getElementById('oldFeelingSummaryPromptInput');
+            if (promptInput.style.display === 'none') {
+                promptInput.style.display = 'block';
+            } else {
+                promptInput.style.display = 'none';
+            }
+        }
+        
+        // 恢复默认提示词
+        function resetOldFeelingSummaryPrompt() {
+            document.getElementById('oldFeelingSummaryPromptInput').value = getDefaultOldFeelingSummaryPrompt();
+        }
+        
+        // 生成往期汇总
+        async function generateOldFeelingSummary() {
+            const content = document.getElementById('oldFeelingSummaryContent');
+            const promptInput = document.getElementById('oldFeelingSummaryPromptInput');
+            const modelSelect = document.getElementById('oldFeelingSummaryModelSelect');
+            
+            // 获取汇总类型
+            const summaryType = document.querySelector('input[name="summaryType"]:checked').value;
+            
+            // 获取往期感受
+            let oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
+            
+            // 根据汇总类型筛选感受
+            if (summaryType === 'tag') {
+                // 按标签汇总
+                const selectedTags = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(cb => cb.value);
+                if (selectedTags.length === 0) {
+                    alert('请至少选择一个标签。');
+                    return;
+                }
+                oldFeelings = oldFeelings.filter(f =>
+                    f.tags && f.tags.some(tag => selectedTags.includes(tag))
+                );
+            } else {
+                // 按时间范围汇总
+                const startDate = document.getElementById('startDate').value;
+                const endDate = document.getElementById('endDate').value;
+                
+                if (!startDate || !endDate) {
+                    alert('请选择时间范围。');
+                    return;
+                }
+                
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                end.setHours(23, 59, 59, 999); // 设置为当天的最后一刻
+                
+                oldFeelings = oldFeelings.filter(f => {
+                    const feelingDate = new Date(f.createdAt);
+                    return feelingDate >= start && feelingDate <= end;
+                });
+            }
+            
+            if (oldFeelings.length === 0) {
+                content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">没有符合条件的感受记录</div>';
+                return;
+            }
+            
+            // 显示加载状态
+            content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇总...</p></div>';
+            
+            try {
+                // 等待模型选择器初始化完成
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // 获取自定义提示词
+                const customPrompt = promptInput.value.trim();
+                
+                // 构建完整提示词（感受数据 + 自定义提示词）
+                const feelingData = buildOldFeelingData(oldFeelings, summaryType);
+                const fullPrompt = `${feelingData}\n\n${customPrompt}`;
+                
+                // 获取选择的模型
+                const selectedModel = modelSelect.value;
+                
+                // 调试信息
+                console.log('往期汇总 - 选择的模型:', selectedModel);
+                console.log('往期汇总 - 模型选择器选项数量:', modelSelect.options.length);
+                
+                // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
+                const result = await callAiApi(fullPrompt, selectedModel, 'custom');
+                
+                // 显示结果
+                content.textContent = result;
+                
+            } catch (error) {
+                console.error('往期汇总失败:', error);
+                content.innerHTML = `<div style="text-align:center;padding:40px;color:var(--danger);">汇总失败：${error.message}</div>`;
+            }
+        }
+        
+        // 构建往期感受数据
+        function buildOldFeelingData(feelings, summaryType) {
+            const typeText = summaryType === 'tag' ? '按标签' : '按时间范围';
+            const dateText = summaryType === 'tag' ? '所有时间' :
+                           `${document.getElementById('startDate').value} ~ ${document.getElementById('endDate').value}`;
+            
+            // 构建感受列表文本
+            const feelingsText = feelings.map((feeling, index) => {
+                const tags = feeling.tags ? feeling.tags.join(', ') : '无标签';
+                const time = fmtTime(feeling.createdAt);
+                const content = feeling.content.substring(0, 100) + (feeling.content.length > 100 ? '...' : '');
+                return `${index + 1}. ${content}\n   标签: [${tags}]\n   时间: ${time}`;
+            }).join('\n\n');
+            
+            // 构建感受数据文本
+            const feelingData = `汇总方式：${typeText}\n时间范围：${dateText}\n感受总数：${feelings.length}条\n\n感受列表：\n${feelingsText}`;
+            
+            return feelingData;
+        }
+        
+        // 复制汇总结果
+        function copyOldFeelingSummary() {
+            const content = document.getElementById('oldFeelingSummaryContent').textContent;
+            if (!content) {
+                alert('没有可复制的内容。');
+                return;
+            }
+            
+            navigator.clipboard.writeText(content).then(() => {
+                alert('汇总结果已复制到剪贴板。');
+            }).catch(err => {
+                console.error('复制失败:', err);
+                alert('复制失败，请手动复制。');
+            });
+        }
+ 
         function base64ToUtf8(str) {
             try {
                 const binary = atob(str);
@@ -5575,8 +5896,8 @@
              // 处理提示词
              let prompt;
              if (customPrompt) {
-                 // 如果提供了自定义提示词，直接使用（content已经是完整的提示词）
-                 prompt = content;
+                 // 如果提供了自定义提示词，将自定义提示词与原始文本结合
+                 prompt = `${customPrompt}\n\n文本：${content}`;
              } else {
                  // 检查content是否已经是完整的提示词（包含任务数据等）
                  if (content.includes('任务列表') || content.includes('时间范围')) {
@@ -5590,6 +5911,19 @@
              
              // 保存默认提示词到全局变量，供UI显示使用
              window.defaultPrompt = defaultPrompt;
+             
+             // 输出实际发送给API的提示词
+             console.log('=== 发送给API的提示词 ===');
+             console.log('是否使用自定义提示词:', !!customPrompt);
+             if (customPrompt) {
+                 console.log('自定义提示词内容:', customPrompt);
+                 console.log('实际发送的prompt:', prompt);
+             } else {
+                 console.log('默认提示词内容:', defaultPrompt);
+                 console.log('实际发送的prompt:', prompt);
+             }
+             console.log('提示词长度:', prompt.length);
+             console.log('提示词前200字符:', prompt.substring(0, 200));
            
           if (model.provider === 'openai') {
               console.log('调用 OpenAI API...');
