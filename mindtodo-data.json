@@ -597,18 +597,18 @@
       "type": "task",
       "content": "买防晒衣",
       "createdAt": "2026-05-05T08:12:50.256Z",
-      "updatedAt": "2026-05-05T12:49:05.968Z",
+      "updatedAt": "2026-05-05T13:17:11.142Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [
         {
           "id": "1777983578473",
           "content": "xhs搜索：防晒衣牌子",
-          "done": false,
+          "done": true,
           "estimatedTime": "10min",
           "placedIn": "slot_mosmiucdr4zr9"
         }
