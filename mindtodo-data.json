@@ -604,14 +604,22 @@
       "type": "task",
       "content": "买防晒衣",
       "createdAt": "2026-05-05T08:12:50.256Z",
-      "updatedAt": "2026-05-05T08:13:05.211Z",
+      "updatedAt": "2026-05-05T12:19:54.454Z",
       "tags": [
         "生活"
       ],
       "done": false,
       "dueTime": null,
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1777983578473",
+          "content": "xhs搜索：防晒衣牌子",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mosl4rxn9qd4l",
@@ -1098,6 +1106,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-05T12:18:45.677Z"
+    "lastSync": "2026-05-05T12:19:36.916Z"
   }
 }
