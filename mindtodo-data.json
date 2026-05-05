@@ -574,11 +574,11 @@
       "type": "task",
       "content": "在汇总一下手头的钱",
       "createdAt": "2026-05-05T07:11:47.150Z",
-      "updatedAt": "2026-05-05T12:47:54.316Z",
+      "updatedAt": "2026-05-05T13:28:34.996Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [
@@ -590,7 +590,8 @@
           "placedIn": null
         }
       ],
-      "placedIn": "slot_mosmiucdr4zr9"
+      "placedIn": "slot_mosmiucdr4zr9",
+      "doneAt": "2026-05-05T13:28:34.996Z"
     },
     {
       "id": "moscp77zt2f23",
