@@ -574,7 +574,7 @@
       "type": "task",
       "content": "在汇总一下手头的钱",
       "createdAt": "2026-05-05T07:11:47.150Z",
-      "updatedAt": "2026-05-05T12:19:29.357Z",
+      "updatedAt": "2026-05-05T12:47:54.316Z",
       "tags": [
         "生活"
       ],
@@ -589,19 +589,20 @@
           "estimatedTime": "",
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": "slot_mosmiucdr4zr9"
     },
     {
       "id": "moscp77zt2f23",
       "type": "task",
       "content": "买防晒衣",
       "createdAt": "2026-05-05T08:12:50.256Z",
-      "updatedAt": "2026-05-05T12:19:54.454Z",
+      "updatedAt": "2026-05-05T12:48:13.996Z",
       "tags": [
         "生活"
       ],
       "done": false,
-      "dueTime": null,
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": [
         {
@@ -611,35 +612,38 @@
           "estimatedTime": "10min",
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": "slot_mosmiucdr4zr9"
     },
     {
       "id": "mosl4rxn9qd4l",
       "type": "task",
       "content": "将东西放进冰箱",
       "createdAt": "2026-05-05T12:08:53.867Z",
-      "updatedAt": "2026-05-05T12:08:53.868Z",
+      "updatedAt": "2026-05-05T12:48:18.971Z",
       "tags": [
         "生活"
       ],
       "done": false,
-      "dueTime": null,
+      "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mosmiucdr4zr9"
     },
     {
       "id": "mosl99fvhn2p0",
       "type": "task",
       "content": "收衣服（干的就收）",
       "createdAt": "2026-05-05T12:12:23.179Z",
-      "updatedAt": "2026-05-05T12:12:23.179Z",
+      "updatedAt": "2026-05-05T12:48:22.672Z",
       "tags": [
         "生活"
       ],
       "done": false,
-      "dueTime": null,
+      "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mosmiucdr4zr9"
     }
   ],
   "normalFeelings": [
@@ -821,7 +825,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mosmiucdr4zr9",
+      "name": "9点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -1098,6 +1107,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-05T12:20:54.031Z"
+    "lastSync": "2026-05-05T12:24:26.575Z"
   }
 }
