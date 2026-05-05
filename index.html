@@ -1932,11 +1932,36 @@
                 const text = document.createElement('span');
                 text.textContent = tag;
                 text.style.cursor = 'pointer';
-                text.title = '点击编辑标签';
+                text.title = '单击选中/取消选中，双击编辑标签';
+                
+                // 用于区分单击和双击
+                let clickTimeout = null;
+                
                 text.onclick = (e) => {
                     e.stopPropagation();
-                    // 点击标签文本时，打开编辑对话框
-                    showTagEditorForCommonTag(containerId, tag);
+                    // 如果已经有待处理的单击事件，说明这是双击
+                    if (clickTimeout) {
+                        clearTimeout(clickTimeout);
+                        clickTimeout = null;
+                        // 双击：打开编辑对话框
+                        showTagEditorForCommonTag(containerId, tag);
+                    } else {
+                        // 单击：延迟执行，等待是否会有第二次点击
+                        clickTimeout = setTimeout(() => {
+                            clickTimeout = null;
+                            // 切换选中状态
+                            const isSelected = selected.includes(tag);
+                            if (isSelected) {
+                                // 取消选中
+                                selected = selected.filter(t => t !== tag);
+                            } else {
+                                // 选中
+                                selected.push(tag);
+                            }
+                            // 重新渲染标签
+                            renderTags(containerId, selected);
+                        }, 250); // 250ms延迟，足够区分单击和双击
+                    }
                 };
                 
                 // 为所有标签添加删除按钮
