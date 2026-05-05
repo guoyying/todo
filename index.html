@@ -1124,15 +1124,10 @@
      <div class="modal-overlay hidden" id="aiSummaryModal" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">
          <div class="modal" style="max-width: 700px;" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3>💡 AI汇总</h3>
+                <h3 id="aiSummaryTitle">💡 AI汇总</h3>
                 <span class="close" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">&times;</span>
             </div>
             <div class="modal-body">
-                <div class="type-select" style="margin-bottom: 16px;">
-                    <div class="type-btn active" id="summaryTodayBtn" onclick="switchSummaryTab('today')">今日完成</div>
-                    <div class="type-btn" id="summaryThisWeekBtn" onclick="switchSummaryTab('thisWeek')">本周完成</div>
-                </div>
-                
                 <!-- 模型选择器 -->
                 <div style="margin-bottom: 16px;">
                     <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">🤖 选择模型</label>
@@ -7078,38 +7073,46 @@
      // 当前汇总类型
      let currentSummaryType = 'today';
      
-      // 显示AI汇总模态框
-      function showAISummary(type) {
-          const modal = document.getElementById('aiSummaryModal');
-          const content = document.getElementById('aiSummaryContent');
-          const promptInput = document.getElementById('summaryPromptInput');
-          const modelSelect = document.getElementById('summaryModelSelect');
-          
-          // 切换标签页
-          switchSummaryTab(type);
-          
-          // 初始化提示词
-          if (!promptInput.value) {
-              promptInput.value = getDefaultSummaryPrompt();
-          }
-          
-          // 填充模型选择器
-          modelSelect.innerHTML = '';
-          data.aiConfig.models.forEach(model => {
-              const option = document.createElement('option');
-              option.value = model.id;
-              option.textContent = model.name;
-              if (model.id === data.aiConfig.model) {
-                  option.selected = true;
-              }
-              modelSelect.appendChild(option);
+       // 显示AI汇总模态框
+       function showAISummary(type) {
+           const modal = document.getElementById('aiSummaryModal');
+           const content = document.getElementById('aiSummaryContent');
+           const promptInput = document.getElementById('summaryPromptInput');
+           const modelSelect = document.getElementById('summaryModelSelect');
+           const title = document.getElementById('aiSummaryTitle');
+           
+           // 更新标题
+           if (type === 'today') {
+               title.textContent = '💡 今日完成汇总';
+           } else {
+               title.textContent = '💡 本周完成汇总';
+           }
+           
+           // 更新当前汇总类型
+           currentSummaryType = type;
+           
+           // 初始化提示词
+           if (!promptInput.value) {
+               promptInput.value = getDefaultSummaryPrompt();
+           }
+           
+           // 填充模型选择器
+           modelSelect.innerHTML = '';
+           data.aiConfig.models.forEach(model => {
+               const option = document.createElement('option');
+               option.value = model.id;
+               option.textContent = model.name;
+               if (model.id === data.aiConfig.model) {
+                   option.selected = true;
+               }
+               modelSelect.appendChild(option);
            });
            
-            modal.classList.remove('hidden');
-            
-            // 自动生成汇总
-            generateAISummary(type);
-      }
+           modal.classList.remove('hidden');
+           
+           // 自动生成汇总
+           generateAISummary(type);
+       }
      
      // 获取默认提示词
      function getDefaultSummaryPrompt() {
