@@ -723,7 +723,7 @@
       "type": "task",
       "content": "下班前更新下4月退网成效",
       "createdAt": "2026-05-06T01:06:36.889Z",
-      "updatedAt": "2026-05-06T01:06:36.889Z",
+      "updatedAt": "2026-05-06T01:56:17.060Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -734,9 +734,21 @@
           "content": "看下要填写什么字段",
           "estimatedTime": "5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moten4pz99gkp"
         }
       ]
+    },
+    {
+      "id": "motepar1juzpu",
+      "type": "task",
+      "content": "问下rpa什么进度了，包含润色",
+      "createdAt": "2026-05-06T01:56:40.237Z",
+      "updatedAt": "2026-05-06T01:56:40.237Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -941,7 +953,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moten4pz99gkp",
+      "name": "十点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
