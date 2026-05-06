@@ -933,6 +933,18 @@
       "dueTime": "3min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "motrp8f698o7d",
+      "type": "task",
+      "content": "1、退网工作数字化管理，写一下目前进度、未来怎么做",
+      "createdAt": "2026-05-06T08:00:32.226Z",
+      "updatedAt": "2026-05-06T08:00:32.226Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1419,6 +1431,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T07:40:29.055Z"
+    "lastSync": "2026-05-06T07:56:27.238Z"
   }
 }
