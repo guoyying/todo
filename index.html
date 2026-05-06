@@ -833,37 +833,90 @@
           }
           
           /* 移动设备响应式样式 */
-          @media (max-width: 768px) {
-              /* AI润色模态框移动端优化 */
-              #aiPolishModal .modal {
-                  width: 95% !important;
-                  max-width: none !important;
-                  margin: 10px auto !important;
-              }
-              
-              #aiPolishModal .modal-body {
-                  flex-direction: column !important;
-                  gap: 12px !important;
-                  max-height: 85vh !important;
-              }
-              
-              /* 左侧控制面板在移动端改为全宽 */
-              #aiPolishModal .modal-body > div:first-child {
-                  flex: none !important;
-                  width: 100% !important;
-                  padding-right: 0 !important;
-                  border-right: none !important;
-                  border-bottom: 1px solid var(--border) !important;
-                  padding-bottom: 12px !important;
-                  max-height: 40vh !important;
-                  overflow-y: auto !important;
-              }
-              
-              /* 右侧润色结果在移动端改为全宽 */
-              #aiPolishModal .modal-body > div:nth-child(2) {
-                  flex: none !important;
-                  width: 100% !important;
-              }
+           @media (max-width: 768px) {
+               /* AI润色模态框移动端优化 */
+               #aiPolishModal .modal {
+                   width: 95% !important;
+                   max-width: none !important;
+                   margin: 10px auto !important;
+               }
+               
+               #aiPolishModal .modal-body {
+                   flex-direction: column !important;
+                   gap: 12px !important;
+                   max-height: 85vh !important;
+               }
+               
+               /* 左侧控制面板在移动端改为全宽 */
+               #aiPolishModal .modal-body > div:first-child {
+                   flex: none !important;
+                   width: 100% !important;
+                   padding-right: 0 !important;
+                   border-right: none !important;
+                   border-bottom: 1px solid var(--border) !important;
+                   padding-bottom: 12px !important;
+                   max-height: 40vh !important;
+                   overflow-y: auto !important;
+               }
+               
+               /* 右侧润色结果在移动端改为全宽 */
+               #aiPolishModal .modal-body > div:nth-child(2) {
+                   flex: none !important;
+                   width: 100% !important;
+               }
+               
+               /* 往期汇总模态框移动端优化 */
+               #oldFeelingSummaryModal .modal {
+                   width: 95% !important;
+                   max-width: none !important;
+                   margin: 10px auto !important;
+                   max-height: 90vh !important;
+               }
+               
+               #oldFeelingSummaryModal .modal-body {
+                   flex-direction: column !important;
+                   gap: 12px !important;
+                   max-height: 85vh !important;
+               }
+               
+               /* 左侧控制面板在移动端改为全宽 */
+               #oldFeelingSummaryModal .modal-body > div:first-child {
+                   flex: none !important;
+                   width: 100% !important;
+                   padding-right: 0 !important;
+                   border-right: none !important;
+                   border-bottom: 1px solid var(--border) !important;
+                   padding-bottom: 12px !important;
+                   max-height: 40vh !important;
+                   overflow-y: auto !important;
+               }
+               
+               /* 右侧汇总结果在移动端改为全宽 */
+               #oldFeelingSummaryModal .modal-body > div:nth-child(2) {
+                   flex: none !important;
+                   width: 100% !important;
+                   min-height: 300px !important;
+               }
+               
+               /* 汇总结果内容区域移动端优化 */
+               #oldFeelingSummaryContent {
+                   min-height: 300px !important;
+                   max-height: 40vh !important;
+                   font-size: 14px !important;
+                   padding: 12px !important;
+               }
+               
+               /* 标签选择容器移动端优化 */
+               #tagSelectContainer {
+                   max-height: 120px !important;
+                   overflow-y: auto !important;
+               }
+               
+               /* 提示词输入框移动端优化 */
+               #oldFeelingSummaryPromptInput {
+                   min-height: 80px !important;
+                   font-size: 13px !important;
+               }
               
               /* 润色结果区域移动端优化 */
               #aiPolishedContent {
