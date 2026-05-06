@@ -1287,19 +1287,23 @@
       "tags": [],
       "digestion": {
         "whyMakesSense": "其实最根本的还是自身要有一颗想变好，想优化流程的心。这样才能再重复的工作中发现可以优化的地方。",
-        "solvesProblem": "就是说一项工作反复做，正式发现优化空间的过程。",
+        "solvesProblem": "就是说一项工作反复做，正是发现优化空间的过程。",
         "cases": [
           {
-            "id": "motuwrlqoiaow",
+            "id": "motwjgk5kjkg7",
             "situation": "在跟进退网工作的过程中，我要重复核查设备业务情况。我发现了很多不同类型的问题。",
             "action": "针对不同的问题去找不同的解决办法",
             "result": "知道了不同的业务情况怎么核对"
           }
         ],
-        "rewrites": [],
-        "scenarios": []
+        "rewrites": [
+          "就是说重复的工作并非机械的循环，而是很多细节要在多次做的过程中才能被发现"
+        ],
+        "scenarios": [
+          "一般需要重复做的事情才是有优化意义的"
+        ]
       },
-      "digestionProgress": 0.6
+      "digestionProgress": 1
     },
     {
       "id": "monsyhh6vz1ui",
@@ -1480,6 +1484,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T09:20:55.137Z"
+    "lastSync": "2026-05-06T10:09:46.625Z"
   }
 }
