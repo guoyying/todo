@@ -886,7 +886,7 @@
       "type": "task",
       "content": "梳理退网设备了",
       "createdAt": "2026-05-06T07:13:08.541Z",
-      "updatedAt": "2026-05-06T08:24:03.611Z",
+      "updatedAt": "2026-05-06T09:04:27.172Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -896,18 +896,18 @@
           "id": "motq0a7xbyfkl",
           "content": "整理800M设备",
           "estimatedTime": "25min",
-          "done": false,
-          "placedIn": "slot_motshzlqgod6o"
+          "done": true,
+          "placedIn": null
         },
         {
           "id": "motq0a7x4d94b",
           "content": "写一下退网可以从哪些角度出发-退网进度、800M的等等",
           "estimatedTime": "8min",
           "done": false,
-          "placedIn": "slot_motshzlqgod6o"
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_motshzlqgod6o"
+      "placedIn": null
     },
     {
       "id": "motq0ud4id8ad",
