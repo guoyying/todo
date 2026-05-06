@@ -789,7 +789,7 @@
       "type": "task",
       "content": "虚拟网元工作推进",
       "createdAt": "2026-05-06T02:23:23.875Z",
-      "updatedAt": "2026-05-06T02:42:23.041Z",
+      "updatedAt": "2026-05-06T08:24:01.240Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -800,17 +800,17 @@
           "content": "问泳哥提交给政企部哪位？",
           "estimatedTime": "3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_motshzlqgod6o"
         },
         {
           "id": "motfno4if7dgz",
           "content": "问对方需要怎样的格式？",
           "estimatedTime": "3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_motshzlqgod6o"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_motshzlqgod6o"
     },
     {
       "id": "motg86pbu6sus",
@@ -886,7 +886,7 @@
       "type": "task",
       "content": "梳理退网设备了",
       "createdAt": "2026-05-06T07:13:08.541Z",
-      "updatedAt": "2026-05-06T07:40:20.713Z",
+      "updatedAt": "2026-05-06T08:24:03.611Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -897,17 +897,17 @@
           "content": "整理800M设备",
           "estimatedTime": "25min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_motshzlqgod6o"
         },
         {
           "id": "motq0a7x4d94b",
           "content": "写一下退网可以从哪些角度出发-退网进度、800M的等等",
           "estimatedTime": "8min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_motshzlqgod6o"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_motshzlqgod6o"
     },
     {
       "id": "motq0ud4id8ad",
@@ -928,12 +928,13 @@
       "type": "task",
       "content": "看下算力的总设备数量",
       "createdAt": "2026-05-06T07:13:57.421Z",
-      "updatedAt": "2026-05-06T07:13:57.421Z",
+      "updatedAt": "2026-05-06T08:24:05.406Z",
       "tags": [],
       "done": false,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_motshzlqgod6o"
     },
     {
       "id": "motrp8f698o7d",
@@ -1150,7 +1151,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_motshzlqgod6o",
+      "name": "五点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
