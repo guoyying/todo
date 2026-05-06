@@ -1557,35 +1557,104 @@
                   
                   <!-- 新增弹药表单 -->
                   <div id="addAmmoForm" class="hidden" style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
-                      <div style="margin-bottom:12px;">
-                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
-                          <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="handleNewAmmoInput(this)"></textarea>
-                          <div id="newAmmoSuggestions" style="margin-top:8px;"></div>
-                      </div>
-                      <div style="margin-bottom:12px;">
-                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">类型</label>
-                          <select id="newAmmoType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                              <option value="word">词汇</option>
-                              <option value="sentence">句子</option>
-                              <option value="paragraph">段落</option>
-                          </select>
-                      </div>
-                      <div style="margin-bottom:12px;">
-                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
-                          <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                      </div>
-                      <div style="display:flex;gap:8px;">
-                          <button class="btn btn-primary" onclick="addNewAmmo()">保存</button>
-                          <button class="btn btn-secondary" onclick="hideAddAmmoForm()">取消</button>
-                      </div>
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
+                           <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="handleNewAmmoInput(this)"></textarea>
+                           <div id="newAmmoSuggestions" style="margin-top:8px;"></div>
+                       </div>
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">类型</label>
+                           <select id="newAmmoType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                               <option value="word">词汇</option>
+                               <option value="sentence">句子</option>
+                               <option value="paragraph">段落</option>
+                           </select>
+                       </div>
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
+                           <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                       </div>
+                       
+                       <!-- 消化笔记区域 -->
+                       <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+                           <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">📝 消化笔记（可选）</div>
+                           
+                           <div style="margin-bottom:12px;">
+                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">为什么有道理?</label>
+                               <textarea id="newAmmoWhyMakesSense" rows="2" placeholder="这句话为什么有道理?它的核心观点是什么?" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:12px;">
+                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">解决了什么问题?</label>
+                               <textarea id="newAmmoSolvesProblem" rows="2" placeholder="这句话能解决什么问题?适用于什么场景?" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:12px;">
+                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">个人案例</label>
+                               <textarea id="newAmmoCase" rows="2" placeholder="你亲身经历或观察到的案例（情境、行动、结果）" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:12px;">
+                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">我的改写</label>
+                               <textarea id="newAmmoRewrite" rows="2" placeholder="用自己的话重新表达这句话" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:12px;">
+                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">应用场景（用逗号分隔）</label>
+                               <input type="text" id="newAmmoScenarios" placeholder="如：工作,学习,人际关系" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                           </div>
+                       </div>
+                       
+                       <div style="display:flex;gap:8px;margin-top:16px;">
+                           <button class="btn btn-primary" onclick="addNewAmmo()">保存</button>
+                           <button class="btn btn-secondary" onclick="hideAddAmmoForm()">取消</button>
+                       </div>
                   </div>
                   
-                  <div id="ammoLibraryList">
-                      <!-- 动态生成弹药列表 -->
-                  </div>
-              </div>
-         </div>
-     </div>
+                   <div id="ammoLibraryList">
+                       <!-- 动态生成弹药列表 -->
+                   </div>
+                   
+                   <!-- 编辑消化笔记表单 -->
+                   <div id="editDigestionForm" class="hidden" style="margin-top:16px;padding:16px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                       <h4 style="margin:0 0 12px 0;font-size:15px;">编辑消化笔记</h4>
+                       <input type="hidden" id="editDigestionAmmoId">
+                       
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">为什么有道理?</label>
+                           <textarea id="editDigestionWhyMakesSense" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                       </div>
+                       
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">解决了什么问题?</label>
+                           <textarea id="editDigestionSolvesProblem" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                       </div>
+                       
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">个人案例</label>
+                           <div id="editDigestionCases"></div>
+                           <button class="btn btn-small btn-secondary" onclick="addDigestionCase()" style="margin-top:8px;">+ 添加案例</button>
+                       </div>
+                       
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">我的改写</label>
+                           <div id="editDigestionRewrites"></div>
+                           <button class="btn btn-small btn-secondary" onclick="addDigestionRewrite()" style="margin-top:8px;">+ 添加改写</button>
+                       </div>
+                       
+                       <div style="margin-bottom:12px;">
+                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">应用场景（用逗号分隔）</label>
+                           <input type="text" id="editDigestionScenarios" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                       </div>
+                       
+                       <div style="display:flex;gap:8px;">
+                           <button class="btn btn-primary" onclick="saveDigestionNotes()">保存</button>
+                           <button class="btn btn-secondary" onclick="hideEditDigestionForm()">取消</button>
+                       </div>
+                   </div>
+               </div>
+          </div>
+      </div>
  
      <!-- AI配置模态框 -->
       <div class="modal-overlay hidden" id="aiConfigModal">
@@ -1765,7 +1834,30 @@
                      data.title = parsed.title || data.title;
                      data.activeTab = parsed.activeTab || 'feeling';
                       data.ammoLibrary = parsed.ammoLibrary || [];
-                       if (parsed.aiConfig) {
+                      
+                      // 迁移弹药库数据,为旧数据添加消化字段
+                      if (data.ammoLibrary && data.ammoLibrary.length > 0) {
+                          data.ammoLibrary = data.ammoLibrary.map(ammo => {
+                              // 如果没有 digestion 字段,添加默认值
+                              if (!ammo.digestion) {
+                                  ammo.digestion = {
+                                      whyMakesSense: '',
+                                      solvesProblem: '',
+                                      cases: [],
+                                      rewrites: [],
+                                      scenarios: [],
+                                      usageHistory: []
+                                  };
+                              }
+                              // 如果没有 digestionProgress 字段,添加默认值
+                              if (ammo.digestionProgress === undefined) {
+                                  ammo.digestionProgress = 0;
+                              }
+                              return ammo;
+                          });
+                      }
+                      
+                        if (parsed.aiConfig) {
                            // 合并aiConfig,确保apiKeys正确合并
                            data.aiConfig.enabled = parsed.aiConfig.enabled !== undefined ? parsed.aiConfig.enabled : data.aiConfig.enabled;
                            data.aiConfig.model = parsed.aiConfig.model || data.aiConfig.model;
@@ -6753,15 +6845,298 @@
          container.appendChild(ammoEl);
      }
      
-     // 获取类型名称
-     function getTypeName(type) {
-         const typeNames = {
-             'word': '词汇',
-             'sentence': '句子',
-             'paragraph': '段落'
-         };
-         return typeNames[type] || type;
-     }
+      // 获取类型名称
+      function getTypeName(type) {
+          const typeNames = {
+              'word': '词汇',
+              'sentence': '句子',
+              'paragraph': '段落'
+          };
+          return typeNames[type] || type;
+      }
+      
+      // 生成消化笔记HTML
+      function generateDigestionHtml(ammo) {
+          const digestion = ammo.digestion || {};
+          let html = '';
+          
+          if (digestion.whyMakesSense) {
+              html += `<div style="margin-bottom:8px;"><strong>为什么有道理?</strong><br/>${escapeHtml(digestion.whyMakesSense)}</div>`;
+          }
+          
+          if (digestion.solvesProblem) {
+              html += `<div style="margin-bottom:8px;"><strong>解决了什么问题?</strong><br/>${escapeHtml(digestion.solvesProblem)}</div>`;
+          }
+          
+          if (digestion.cases && digestion.cases.length > 0) {
+              html += `<div style="margin-bottom:8px;"><strong>个人案例:</strong>`;
+              digestion.cases.forEach((c, index) => {
+                  html += `<div style="margin-left:12px;margin-top:4px;">案例${index + 1}: ${escapeHtml(c.situation)}</div>`;
+              });
+              html += `</div>`;
+          }
+          
+          if (digestion.rewrites && digestion.rewrites.length > 0) {
+              html += `<div style="margin-bottom:8px;"><strong>我的改写:</strong>`;
+              digestion.rewrites.forEach((r, index) => {
+                  html += `<div style="margin-left:12px;margin-top:4px;">${index + 1}. ${escapeHtml(r)}</div>`;
+              });
+              html += `</div>`;
+          }
+          
+          if (digestion.scenarios && digestion.scenarios.length > 0) {
+              html += `<div style="margin-bottom:8px;"><strong>应用场景:</strong> ${digestion.scenarios.map(s => `<span class="ammo-item-tag">${s}</span>`).join(' ')}</div>`;
+          }
+          
+          if (digestion.usageHistory && digestion.usageHistory.length > 0) {
+              html += `<div style="margin-bottom:8px;"><strong>使用记录:</strong>`;
+              digestion.usageHistory.forEach((h, index) => {
+                  html += `<div style="margin-left:12px;margin-top:4px;font-size:12px;color:var(--text-secondary);">${h.date}: ${escapeHtml(h.scenario)} - ${escapeHtml(h.effect)}</div>`;
+              });
+              html += `</div>`;
+          }
+          
+          if (!html) {
+              html = '<div style="color:var(--text-secondary);">暂无消化笔记</div>';
+          }
+          
+          return html;
+      }
+      
+       // 切换消化笔记显示
+       function toggleDigestionSection(ammoId) {
+           const content = document.getElementById(`digestion-content-${ammoId}`);
+           const icon = document.getElementById(`digestion-toggle-icon-${ammoId}`);
+           
+           if (content.classList.contains('hidden')) {
+               content.classList.remove('hidden');
+               icon.textContent = '▲';
+           } else {
+               content.classList.add('hidden');
+               icon.textContent = '▼';
+           }
+       }
+       
+       // 显示编辑消化笔记表单
+       function showEditDigestionForm(ammoId) {
+           const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+           if (!ammo) return;
+           
+           const digestion = ammo.digestion || {};
+           
+           // 填充表单
+           document.getElementById('editDigestionAmmoId').value = ammoId;
+           document.getElementById('editDigestionWhyMakesSense').value = digestion.whyMakesSense || '';
+           document.getElementById('editDigestionSolvesProblem').value = digestion.solvesProblem || '';
+           document.getElementById('editDigestionScenarios').value = (digestion.scenarios || []).join(', ');
+           
+           // 渲染案例
+           renderDigestionCases(digestion.cases || []);
+           
+           // 渲染改写
+           renderDigestionRewrites(digestion.rewrites || []);
+           
+           // 显示表单
+           document.getElementById('editDigestionForm').classList.remove('hidden');
+           
+           // 滚动到表单
+           document.getElementById('editDigestionForm').scrollIntoView({ behavior: 'smooth' });
+       }
+       
+       // 隐藏编辑消化笔记表单
+       function hideEditDigestionForm() {
+           document.getElementById('editDigestionForm').classList.add('hidden');
+       }
+       
+       // 渲染案例列表
+       function renderDigestionCases(cases) {
+           const container = document.getElementById('editDigestionCases');
+           container.innerHTML = '';
+           
+           cases.forEach((c, index) => {
+               const caseEl = document.createElement('div');
+               caseEl.style.marginBottom = '8px';
+               caseEl.style.padding = '8px';
+               caseEl.style.background = 'var(--card)';
+               caseEl.style.borderRadius = '6px';
+               caseEl.innerHTML = `
+                   <div style="margin-bottom:4px;"><strong>案例 ${index + 1}</strong></div>
+                   <div style="margin-bottom:4px;">
+                       <label style="font-size:12px;color:var(--text-secondary);">情境:</label>
+                       <input type="text" class="case-situation" value="${escapeHtml(c.situation || '')}" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+                   </div>
+                   <div style="margin-bottom:4px;">
+                       <label style="font-size:12px;color:var(--text-secondary);">行动:</label>
+                       <input type="text" class="case-action" value="${escapeHtml(c.action || '')}" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+                   </div>
+                   <div>
+                       <label style="font-size:12px;color:var(--text-secondary);">结果:</label>
+                       <input type="text" class="case-result" value="${escapeHtml(c.result || '')}" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+                   </div>
+                   <button class="btn btn-small btn-danger" onclick="removeDigestionCase(${index})" style="margin-top:4px;">删除案例</button>
+               `;
+               container.appendChild(caseEl);
+           });
+       }
+       
+       // 添加案例
+       function addDigestionCase() {
+           const container = document.getElementById('editDigestionCases');
+           const index = container.children.length;
+           
+           const caseEl = document.createElement('div');
+           caseEl.style.marginBottom = '8px';
+           caseEl.style.padding = '8px';
+           caseEl.style.background = 'var(--card)';
+           caseEl.style.borderRadius = '6px';
+           caseEl.innerHTML = `
+               <div style="margin-bottom:4px;"><strong>案例 ${index + 1}</strong></div>
+               <div style="margin-bottom:4px;">
+                   <label style="font-size:12px;color:var(--text-secondary);">情境:</label>
+                   <input type="text" class="case-situation" placeholder="当时发生了什么?" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+               </div>
+               <div style="margin-bottom:4px;">
+                   <label style="font-size:12px;color:var(--text-secondary);">行动:</label>
+                   <input type="text" class="case-action" placeholder="你做了什么?" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+               </div>
+               <div>
+                   <label style="font-size:12px;color:var(--text-secondary);">结果:</label>
+                   <input type="text" class="case-result" placeholder="发生了什么变化?" style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;margin-top:2px;">
+               </div>
+               <button class="btn btn-small btn-danger" onclick="removeDigestionCase(${index})" style="margin-top:4px;">删除案例</button>
+           `;
+           container.appendChild(caseEl);
+       }
+       
+       // 删除案例
+       function removeDigestionCase(index) {
+           const container = document.getElementById('editDigestionCases');
+           container.children[index].remove();
+           
+           // 重新编号
+           Array.from(container.children).forEach((el, i) => {
+               el.querySelector('strong').textContent = `案例 ${i + 1}`;
+               const deleteBtn = el.querySelector('button');
+               deleteBtn.onclick = () => removeDigestionCase(i);
+           });
+       }
+       
+       // 渲染改写列表
+       function renderDigestionRewrites(rewrites) {
+           const container = document.getElementById('editDigestionRewrites');
+           container.innerHTML = '';
+           
+           rewrites.forEach((r, index) => {
+               const rewriteEl = document.createElement('div');
+               rewriteEl.style.marginBottom = '8px';
+               rewriteEl.style.display = 'flex';
+               rewriteEl.style.gap = '8px';
+               rewriteEl.innerHTML = `
+                   <input type="text" class="rewrite-text" value="${escapeHtml(r)}" style="flex:1;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;">
+                   <button class="btn btn-small btn-danger" onclick="removeDigestionRewrite(${index})">删除</button>
+               `;
+               container.appendChild(rewriteEl);
+           });
+       }
+       
+       // 添加改写
+       function addDigestionRewrite() {
+           const container = document.getElementById('editDigestionRewrites');
+           const index = container.children.length;
+           
+           const rewriteEl = document.createElement('div');
+           rewriteEl.style.marginBottom = '8px';
+           rewriteEl.style.display = 'flex';
+           rewriteEl.style.gap = '8px';
+           rewriteEl.innerHTML = `
+               <input type="text" class="rewrite-text" placeholder="用自己的话改写..." style="flex:1;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:13px;">
+               <button class="btn btn-small btn-danger" onclick="removeDigestionRewrite(${index})">删除</button>
+           `;
+           container.appendChild(rewriteEl);
+       }
+       
+       // 删除改写
+       function removeDigestionRewrite(index) {
+           const container = document.getElementById('editDigestionRewrites');
+           container.children[index].remove();
+           
+           // 重新编号
+           Array.from(container.children).forEach((el, i) => {
+               const deleteBtn = el.querySelector('button');
+               deleteBtn.onclick = () => removeDigestionRewrite(i);
+           });
+       }
+       
+       // 保存消化笔记
+       function saveDigestionNotes() {
+           const ammoId = document.getElementById('editDigestionAmmoId').value;
+           const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+           if (!ammo) return;
+           
+           // 获取表单数据
+           const whyMakesSense = document.getElementById('editDigestionWhyMakesSense').value.trim();
+           const solvesProblem = document.getElementById('editDigestionSolvesProblem').value.trim();
+           const scenariosInput = document.getElementById('editDigestionScenarios').value;
+           const scenarios = scenariosInput ? scenariosInput.split(',').map(s => s.trim()).filter(s => s) : [];
+           
+           // 获取案例
+           const cases = [];
+           document.querySelectorAll('#editDigestionCases > div').forEach(caseEl => {
+               const situation = caseEl.querySelector('.case-situation').value.trim();
+               const action = caseEl.querySelector('.case-action').value.trim();
+               const result = caseEl.querySelector('.case-result').value.trim();
+               if (situation) {
+                   cases.push({
+                       id: genId(),
+                       situation,
+                       action,
+                       result
+                   });
+               }
+           });
+           
+           // 获取改写
+           const rewrites = [];
+           document.querySelectorAll('#editDigestionRewrites > div').forEach(rewriteEl => {
+               const text = rewriteEl.querySelector('.rewrite-text').value.trim();
+               if (text) {
+                   rewrites.push(text);
+               }
+           });
+           
+           // 计算消化进度
+           let digestionProgress = 0;
+           const totalFields = 5;
+           let filledFields = 0;
+           if (whyMakesSense) filledFields++;
+           if (solvesProblem) filledFields++;
+           if (cases.length > 0) filledFields++;
+           if (rewrites.length > 0) filledFields++;
+           if (scenarios.length > 0) filledFields++;
+           digestionProgress = filledFields / totalFields;
+           
+           // 更新弹药数据
+           if (!ammo.digestion) {
+               ammo.digestion = {};
+           }
+           ammo.digestion.whyMakesSense = whyMakesSense;
+           ammo.digestion.solvesProblem = solvesProblem;
+           ammo.digestion.cases = cases;
+           ammo.digestion.rewrites = rewrites;
+           ammo.digestion.scenarios = scenarios;
+           ammo.digestionProgress = digestionProgress;
+           
+           // 保存数据
+           saveData();
+           
+           // 重新渲染
+           renderAmmoLibrary();
+           
+           // 隐藏表单
+           hideEditDigestionForm();
+           
+           showToast('消化笔记已保存');
+       }
      
      // 显示弹药库侧拉面板
      function showAmmoLibraryPanel() {
@@ -6788,42 +7163,81 @@
       }
       
       // 手动新增弹药
-      function addNewAmmo() {
-          const content = document.getElementById('newAmmoContent').value.trim();
-          const type = document.getElementById('newAmmoType').value;
-          const tagsInput = document.getElementById('newAmmoTags').value;
-          const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
-          
-          if (!content) {
-              showToast('请输入弹药内容');
-              return;
-          }
-          
-          // 创建弹药项
-          const ammoItem = {
-              id: genId(),
-              content: content,
-              type: type,
-              sourceBlockId: null,
-              sourceRecordId: null,
-              sourceBlockName: '手动添加',
-              createdAt: nowStr(),
-              useCount: 0,
-              tags: tags
-          };
-          
-          // 添加到弹药库
-          data.ammoLibrary.push(ammoItem);
-          saveData();
-          
-          // 重新渲染弹药库
-          renderAmmoLibrary();
-          
-          // 隐藏表单并清空输入
-          hideAddAmmoForm();
-          
-          showToast('已添加到弹药库');
-      }
+       function addNewAmmo() {
+           const content = document.getElementById('newAmmoContent').value.trim();
+           const type = document.getElementById('newAmmoType').value;
+           const tagsInput = document.getElementById('newAmmoTags').value;
+           const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
+           
+           // 获取消化笔记
+           const whyMakesSense = document.getElementById('newAmmoWhyMakesSense').value.trim();
+           const solvesProblem = document.getElementById('newAmmoSolvesProblem').value.trim();
+           const caseText = document.getElementById('newAmmoCase').value.trim();
+           const rewriteText = document.getElementById('newAmmoRewrite').value.trim();
+           const scenariosInput = document.getElementById('newAmmoScenarios').value;
+           const scenarios = scenariosInput ? scenariosInput.split(',').map(s => s.trim()).filter(s => s) : [];
+           
+           if (!content) {
+               showToast('请输入弹药内容');
+               return;
+           }
+           
+           // 计算消化进度
+           let digestionProgress = 0;
+           const totalFields = 5; // whyMakesSense, solvesProblem, case, rewrite, scenarios
+           let filledFields = 0;
+           if (whyMakesSense) filledFields++;
+           if (solvesProblem) filledFields++;
+           if (caseText) filledFields++;
+           if (rewriteText) filledFields++;
+           if (scenarios.length > 0) filledFields++;
+           digestionProgress = filledFields / totalFields;
+           
+           // 处理案例
+           const cases = caseText ? [{
+               id: genId(),
+               situation: caseText,
+               action: '',
+               result: ''
+           }] : [];
+           
+           // 处理改写
+           const rewrites = rewriteText ? [rewriteText] : [];
+           
+           // 创建弹药项
+           const ammoItem = {
+               id: genId(),
+               content: content,
+               type: type,
+               sourceBlockId: null,
+               sourceRecordId: null,
+               sourceBlockName: '手动添加',
+               createdAt: nowStr(),
+               useCount: 0,
+               tags: tags,
+               digestion: {
+                   whyMakesSense: whyMakesSense,
+                   solvesProblem: solvesProblem,
+                   cases: cases,
+                   rewrites: rewrites,
+                   scenarios: scenarios,
+                   usageHistory: []
+               },
+               digestionProgress: digestionProgress
+           };
+           
+           // 添加到弹药库
+           data.ammoLibrary.push(ammoItem);
+           saveData();
+           
+           // 重新渲染弹药库
+           renderAmmoLibrary();
+           
+           // 隐藏表单并清空输入
+           hideAddAmmoForm();
+           
+           showToast('已添加到弹药库');
+       }
      
      // 渲染弹药库
      function renderAmmoLibrary() {
@@ -6862,25 +7276,54 @@
              return;
          }
          
-         filteredAmmo.forEach(ammo => {
-             const ammoEl = document.createElement('div');
-             ammoEl.className = 'ammo-item';
-             ammoEl.innerHTML = `
-                 <div class="ammo-item-header">
-                     <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
-                     <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
-                 </div>
-                 <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
-                 <div class="ammo-item-source">来源：${escapeHtml(ammo.sourceBlockName)}</div>
-                 ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
-                 <div class="ammo-item-actions">
-                     <button class="btn btn-small btn-primary" onclick="useAmmo('${ammo.id}')">使用</button>
-                     <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
-                     <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
-                 </div>
-             `;
-             container.appendChild(ammoEl);
-         });
+          filteredAmmo.forEach(ammo => {
+              const ammoEl = document.createElement('div');
+              ammoEl.className = 'ammo-item';
+              
+              // 获取消化进度
+              const digestionProgress = ammo.digestionProgress || 0;
+              const progressPercent = Math.round(digestionProgress * 100);
+              const progressColor = digestionProgress === 1 ? 'var(--success)' :
+                                   digestionProgress >= 0.6 ? 'var(--warning)' : 'var(--text-secondary)';
+              const progressIcon = digestionProgress === 1 ? '🟢' :
+                                digestionProgress >= 0.6 ? '🟡' : '🔴';
+              
+              // 生成消化笔记HTML
+              const digestionHtml = generateDigestionHtml(ammo);
+              
+              ammoEl.innerHTML = `
+                  <div class="ammo-item-header">
+                      <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
+                      <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
+                      <span style="font-size:11px;color:${progressColor};margin-left:8px;">${progressIcon} 消化${progressPercent}%</span>
+                  </div>
+                  <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
+                  <div class="ammo-item-source">来源：${escapeHtml(ammo.sourceBlockName)}</div>
+                  ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
+                  
+                  <!-- 消化笔记区域 -->
+                  <div class="ammo-digestion-section" id="digestion-${ammo.id}">
+                      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+                          <button class="btn btn-small btn-secondary" onclick="toggleDigestionSection('${ammo.id}')" style="width:100%;text-align:left;">
+                              <span id="digestion-toggle-icon-${ammo.id}">▼</span> 消化笔记
+                          </button>
+                          <div id="digestion-content-${ammo.id}" class="hidden" style="margin-top:8px;padding:8px;background:var(--bg);border-radius:6px;font-size:13px;">
+                              ${digestionHtml}
+                              <div style="margin-top:8px;">
+                                  <button class="btn btn-small btn-primary" onclick="showEditDigestionForm('${ammo.id}')">编辑消化笔记</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="ammo-item-actions">
+                      <button class="btn btn-small btn-primary" onclick="useAmmo('${ammo.id}')">使用</button>
+                      <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
+                      <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
+                  </div>
+              `;
+              container.appendChild(ammoEl);
+          });
      }
      
      // 按类型筛选弹药
@@ -6899,23 +7342,45 @@
      }
      
      // 使用弹药
-     function useAmmo(ammoId) {
-         const ammo = data.ammoLibrary.find(a => a.id === ammoId);
-         if (!ammo) return;
-         
-         // 增加使用次数
-         ammo.useCount++;
-         saveData();
-         
-         // 复制到剪贴板
-         navigator.clipboard.writeText(ammo.content).then(() => {
-             showToast('已复制到剪贴板，可以粘贴使用');
-             renderAmmoLibrary();
-         }).catch(err => {
-             console.error('复制失败:', err);
-             showToast('复制失败');
-         });
-     }
+      function useAmmo(ammoId) {
+          const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+          if (!ammo) return;
+          
+          // 增加使用次数
+          ammo.useCount++;
+          
+          // 添加使用记录
+          if (!ammo.digestion) {
+              ammo.digestion = {};
+          }
+          if (!ammo.digestion.usageHistory) {
+              ammo.digestion.usageHistory = [];
+          }
+          
+          // 添加使用记录
+          const usageRecord = {
+              date: nowStr(),
+              scenario: '复制使用',
+              effect: ''
+          };
+          ammo.digestion.usageHistory.unshift(usageRecord);
+          
+          // 限制使用记录数量,只保留最近20条
+          if (ammo.digestion.usageHistory.length > 20) {
+              ammo.digestion.usageHistory = ammo.digestion.usageHistory.slice(0, 20);
+          }
+          
+          saveData();
+          
+          // 复制到剪贴板
+          navigator.clipboard.writeText(ammo.content).then(() => {
+              showToast('已复制到剪贴板，可以粘贴使用');
+              renderAmmoLibrary();
+          }).catch(err => {
+              console.error('复制失败:', err);
+              showToast('复制失败');
+          });
+      }
      
      // 编辑弹药
      function editAmmo(ammoId) {
