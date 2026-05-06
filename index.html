@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>心事与任务</title>
     <style>
         :root {
@@ -31,6 +31,118 @@
             max-width: 900px;
             margin: 0 auto;
         }
+        
+        /* 响应式设计 - 手机端优化 */
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .github-bar {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .btn-small {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+            
+            h1 {
+                font-size: 18px;
+            }
+            
+             h2 {
+                 font-size: 16px;
+             }
+             
+             h3 {
+                 font-size: 14px;
+             }
+             
+             /* 弹药库面板移动端优化 */
+             #ammoLibraryPanel .modal {
+                 width: 100% !important;
+                 max-width: 100% !important;
+                 border-radius: 0 !important;
+             }
+             
+             #ammoLibraryPanel .modal-body {
+                 flex-direction: column !important;
+                 padding: 12px !important;
+             }
+             
+             .ammo-list-panel {
+                 border-bottom: 1px solid var(--border);
+                 padding-bottom: 12px;
+                 margin-bottom: 12px;
+             }
+             
+             .digestion-notes-panel {
+                 border-left: none !important;
+                 padding-left: 0 !important;
+                 border-top: 1px solid var(--border);
+                 padding-top: 12px;
+             }
+             
+             /* 弹药卡片移动端优化 */
+             .ammo-item {
+                 padding: 12px !important;
+                 margin-bottom: 8px !important;
+             }
+             
+             .ammo-item-content {
+                 font-size: 14px !important;
+             }
+             
+             .ammo-item-source {
+                 font-size: 12px !important;
+             }
+             
+             .ammo-item-tag {
+                 font-size: 11px !important;
+             }
+             
+             /* 消化笔记移动端优化 */
+             .digestion-section {
+                 padding: 12px !important;
+             }
+             
+             .digestion-item {
+                 padding: 10px !important;
+                 margin-bottom: 8px !important;
+             }
+             
+             /* 场景练习移动端优化 */
+             .scenario-practice-record {
+                 padding: 10px !important;
+                 margin-bottom: 8px !important;
+             }
+             
+             .scenario-practice-content {
+                 font-size: 13px !important;
+             }
+             
+             /* 按钮组移动端优化 */
+             .btn-group {
+                 flex-direction: column !important;
+                 gap: 6px !important;
+             }
+             
+             .btn-group .btn {
+                 width: 100% !important;
+             }
+         }
         .header {
             display: flex;
             justify-content: space-between;
@@ -1587,24 +1699,27 @@
  
      <!-- 弹药库侧拉面板 -->
      <div class="modal-overlay hidden" id="ammoLibraryPanel" onclick="closeAmmoLibraryPanel()">
-                    <div class="modal" style="max-width:1200px;width:95%;max-height:90vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
-                       <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:16px;border-bottom:1px solid var(--border);">
-                           <h3 style="margin:0;">💎 弹药库</h3>
-                           <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
-                       </div>
-                        <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;display:flex;gap:16px;">
-                            <!-- 左侧：弹药列表 -->
-                            <div style="flex:1;min-width:0;overflow-y:auto;">
-                                <div style="margin-bottom:16px;">
-                                    <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                                </div>
-                                <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
-                                    <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
-                                    <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
-                                    <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
-                                    <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
-                                    <button class="btn btn-small btn-primary" onclick="showAddAmmoForm()">+ 新增弹药</button>
-                                                  </div>
+                              <div class="modal" style="max-width:1200px;width:95%;max-height:90vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
+                                  <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:16px;border-bottom:1px solid var(--border);">
+                                      <div style="display:flex;align-items:center;gap:12px;">
+                                          <button id="backToAmmoListBtn" class="btn btn-small btn-secondary hidden" onclick="backToAmmoList()">← 返回</button>
+                                          <h3 style="margin:0;">💎 弹药库</h3>
+                                      </div>
+                                      <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
+                                  </div>
+                                  <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;display:flex;gap:16px;flex-direction:row;">
+                                      <!-- 左侧：弹药列表 -->
+                                      <div class="ammo-list-panel" style="flex:1;min-width:0;overflow-y:auto;">
+                                          <div style="margin-bottom:16px;">
+                                              <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                          </div>
+                                          <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
+                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
+                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
+                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
+                                              <button class="btn btn-small btn-primary" onclick="showAddAmmoForm()">+ 新增弹药</button>
+                                          </div>
                                                   
                                                   <!-- 新增弹药表单 -->
                                                   <div id="addAmmoForm" class="hidden" style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
@@ -1698,7 +1813,7 @@
                                     </div>
                                     
                                     <!-- 右侧：消化笔记 -->
-                                    <div id="digestionNotesPanel" style="flex:1;min-width:0;border-left:1px solid var(--border);padding-left:16px;overflow-y:auto;">
+                                    <div id="digestionNotesPanel" class="digestion-notes-panel" style="flex:1;min-width:0;border-left:1px solid var(--border);padding-left:16px;overflow-y:auto;">
                                         <div id="digestionNotesContent">
                                             <div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">
                                                 <div style="font-size:48px;margin-bottom:16px;">📝</div>
@@ -7092,34 +7207,48 @@
               showDigestionNotesPanel(ammoId);
           }
           
-          // 显示消化笔记面板
-          function showDigestionNotesPanel(ammoId) {
-              const ammo = data.ammoLibrary.find(a => a.id === ammoId);
-              if (!ammo) return;
-              
-              const content = document.getElementById('digestionNotesContent');
-              
-              // 生成消化笔记内容
-              const digestionHtml = generateDigestionHtml(ammo);
-              
-              // 添加编辑按钮
-              const editButton = `
-                  <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-                      <div style="margin-bottom:12px;">
-                          <strong style="font-size:16px;">${ammo.content}</strong>
-                      </div>
-                      <div style="color:var(--text-secondary);font-size:13px;margin-bottom:12px;">
-                          类型: ${ammo.type} | 来源: ${ammo.source || '无'}
-                      </div>
-                      <button class="btn btn-primary" onclick="showEditDigestionForm('${ammoId}')">✏️ 编辑消化笔记</button>
-                  </div>
-                  <div class="digestion-content-display">
-                      ${digestionHtml}
-                  </div>
-              `;
-              
-              content.innerHTML = editButton;
-          }
+           // 显示消化笔记面板
+           function showDigestionNotesPanel(ammoId) {
+               const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+               if (!ammo) return;
+               
+               const content = document.getElementById('digestionNotesContent');
+               
+               // 生成消化笔记内容
+               const digestionHtml = generateDigestionHtml(ammo);
+               
+               // 添加编辑按钮
+               const editButton = `
+                   <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+                       <div style="margin-bottom:12px;">
+                           <strong style="font-size:16px;">${ammo.content}</strong>
+                       </div>
+                       <div style="color:var(--text-secondary);font-size:13px;margin-bottom:12px;">
+                           类型: ${ammo.type} | 来源: ${ammo.source || '无'}
+                       </div>
+                       <button class="btn btn-primary" onclick="showEditDigestionForm('${ammoId}')">✏️ 编辑消化笔记</button>
+                   </div>
+                   <div class="digestion-content-display">
+                       ${digestionHtml}
+                   </div>
+               `;
+               
+               content.innerHTML = editButton;
+               
+               // 手机端：显示返回按钮，隐藏弹药列表
+               if (window.innerWidth <= 768) {
+                   document.getElementById('backToAmmoListBtn').classList.remove('hidden');
+                   document.querySelector('.ammo-list-panel').style.display = 'none';
+                   document.querySelector('.digestion-notes-panel').style.display = 'block';
+               }
+           }
+           
+           // 返回弹药列表（手机端）
+           function backToAmmoList() {
+               document.getElementById('backToAmmoListBtn').classList.add('hidden');
+               document.querySelector('.ammo-list-panel').style.display = 'block';
+               document.querySelector('.digestion-notes-panel').style.display = 'none';
+           }
        
        // 显示编辑消化笔记表单
        function showEditDigestionForm(ammoId) {
@@ -7430,10 +7559,14 @@
          renderAmmoLibrary();
      }
      
-      // 关闭弹药库侧拉面板
-      function closeAmmoLibraryPanel() {
-          document.getElementById('ammoLibraryPanel').classList.add('hidden');
-      }
+       // 关闭弹药库侧拉面板
+       function closeAmmoLibraryPanel() {
+           document.getElementById('ammoLibraryPanel').classList.add('hidden');
+           // 重置手机端显示状态
+           document.getElementById('backToAmmoListBtn').classList.add('hidden');
+           document.querySelector('.ammo-list-panel').style.display = 'block';
+           document.querySelector('.digestion-notes-panel').style.display = 'block';
+       }
       
       // 显示新增弹药表单
       function showAddAmmoForm() {
