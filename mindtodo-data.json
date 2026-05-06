@@ -725,7 +725,7 @@
       "type": "task",
       "content": "下班前更新下4月退网成效",
       "createdAt": "2026-05-06T01:06:36.889Z",
-      "updatedAt": "2026-05-06T01:56:17.060Z",
+      "updatedAt": "2026-05-06T02:14:44.731Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -735,10 +735,18 @@
           "id": "motcwxcpahez5",
           "content": "看下要填写什么字段",
           "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778033602462",
+          "content": "写一下怎么做这个数据，大概步骤。到todo拆解里。写完放到子任务这里",
           "done": false,
-          "placedIn": "slot_moten4pz99gkp"
+          "estimatedTime": "4min",
+          "placedIn": null
         }
-      ]
+      ],
+      "doneAt": null
     },
     {
       "id": "motepar1juzpu",
@@ -1237,6 +1245,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T01:56:46.649Z"
+    "lastSync": "2026-05-06T01:57:29.510Z"
   }
 }
