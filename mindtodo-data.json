@@ -829,12 +829,20 @@
       "type": "task",
       "content": "打印标签、去拿",
       "createdAt": "2026-05-06T02:40:33.743Z",
-      "updatedAt": "2026-05-06T02:40:33.743Z",
+      "updatedAt": "2026-05-06T06:09:55.350Z",
       "tags": [],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1778047780616",
+          "content": "先等回复看他拿还是我拿",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
