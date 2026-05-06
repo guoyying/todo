@@ -2629,6 +2629,11 @@
                 }
                 
                 item.subtasks.forEach(st => {
+                    // 只显示未放入时间段的子任务，或已完成的子任务
+                    if (st.placedIn && !st.done) {
+                        return; // 跳过已放入时间段且未完成的子任务
+                    }
+                    
                     // 显示所有子任务，但已放入时间段或已完成的显示方式不同
                     const row = document.createElement('div');
                     row.className = 'subtask' + (st.done ? ' done' : '');
@@ -2650,6 +2655,10 @@
                     contentInput.style.fontSize = '13px';
                     contentInput.style.fontFamily = 'inherit';
                     contentInput.style.padding = '2px';
+                    if (st.done) {
+                        contentInput.style.textDecoration = 'line-through';
+                        contentInput.style.color = 'var(--text-secondary)';
+                    }
                     contentInput.onchange = (e) => {
                         st.content = e.target.value.trim();
                         item.updatedAt = nowStr();
@@ -2673,6 +2682,10 @@
                     timeInput.style.borderRadius = '4px';
                     timeInput.style.padding = '2px 6px';
                     timeInput.style.fontSize = '12px';
+                    if (st.done) {
+                        timeInput.style.textDecoration = 'line-through';
+                        timeInput.style.color = 'var(--text-secondary)';
+                    }
                     timeInput.onchange = (e) => {
                         st.estimatedTime = e.target.value.trim();
                         item.updatedAt = nowStr();
@@ -2750,7 +2763,7 @@
             const actions = document.createElement('div');
             actions.className = 'item-actions';
             let actionButtons = '';
-            if (item.type === 'task' && !item.unknown && !item.placedIn && !item.done) {
+            if (item.type === 'task' && !item.placedIn && !item.done) {
                 actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
             }
             actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
@@ -2776,17 +2789,40 @@
                 const allInSlot = [];
                 let totalEstimatedTime = 0;
                 
+                // 按任务分组子任务
+                const taskGroups = new Map();
                 placed.forEach(i => {
-                    i.subtasks.filter(st => st.placedIn === slot.id && !st.done).forEach(st => {
-                        allInSlot.push({kind:'sub', parent:i, sub:st});
-                        // 计算子任务预计时间（支持 min 格式）
-                        if (st.estimatedTime) {
-                            const num = extractTimeNumber(st.estimatedTime);
-                            if (num !== null) totalEstimatedTime += num;
-                        }
+                    const undoneSubtasksInSlot = i.subtasks.filter(st => st.placedIn === slot.id && !st.done);
+                    if (undoneSubtasksInSlot.length > 0) {
+                        taskGroups.set(i.id, {
+                            task: i,
+                            subtasks: undoneSubtasksInSlot
+                        });
+                        // 计算子任务预计时间
+                        undoneSubtasksInSlot.forEach(st => {
+                            if (st.estimatedTime) {
+                                const num = extractTimeNumber(st.estimatedTime);
+                                if (num !== null) totalEstimatedTime += num;
+                            }
+                        });
+                    }
+                });
+                
+                // 添加分组后的子任务
+                taskGroups.forEach((group, taskId) => {
+                    allInSlot.push({
+                        kind: 'taskGroup',
+                        task: group.task,
+                        subtasks: group.subtasks
                     });
                 });
+                
                 simpleTasks.forEach(i => {
+                    // 如果任务已经在taskGroups中,跳过(避免重复)
+                    if (taskGroups.has(i.id)) {
+                        return;
+                    }
+                    
                     // 如果任务包含子任务，将任务和子任务作为一个整体
                     if (i.subtasks && i.subtasks.length > 0) {
                         const undoneSubtasks = i.subtasks.filter(st => !st.done);
@@ -2832,34 +2868,44 @@
                     slotEl.innerHTML += '<div class="empty-tip">暂无任务</div>';
                 } else {
                     allInSlot.forEach(entry => {
-                        if (entry.kind === 'sub') {
-                            // 显示子任务预计时间
-                            let subTimeDisplay = '';
-                            if (entry.sub.estimatedTime) {
-                                subTimeDisplay = ` | 预计：${entry.sub.estimatedTime}`;
-                            }
+                        if (entry.kind === 'taskGroup') {
+                            // 显示任务分组（同属于一个任务的子任务放在一个框内）
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
-                            // 只有单独放入子任务时才显示"来自：xxx"
-                            const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
-                            // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
-                            const returnAction = entry.fromWholeTask
-                                ? `removeFromSlotSimple('${entry.parent.id}')`
-                                : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
+                            
+                            // 构建子任务HTML
+                            let subtasksHtml = '';
+                            entry.subtasks.forEach(st => {
+                                subtasksHtml += `
+                                    <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
+                                        <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.task.id}','${st.id}')"></span>
+                                        <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
+                                            onchange="updateSubtaskInSlot('${entry.task.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
+                                            style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                        <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
+                                            onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
+                                            placeholder="预计时间"
+                                            style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
+                                    </div>
+                                `;
+                            });
+                            
                             wrapper.innerHTML = `
-                                ${fromLabel}
                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
-                                    <input type="text" class="edit-input" value="${entry.sub.content.replace(/"/g, '&quot;')}"
-                                        onchange="updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')"
-                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                    <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
-                                        onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
+                                    <span class="checkbox" onclick="toggleDone('${entry.task.id}')"></span>
+                                    <input type="text" class="edit-input" value="${entry.task.content.replace(/"/g, '&quot;')}"
+                                        onchange="updateTaskInSlot('${entry.task.id}', this.value, '${entry.task.dueTime || ''}')"
+                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                    <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
+                                        onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
                                         placeholder="预计时间"
-                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
+                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
+                                </div>
+                                <div class="subtask-list">
+                                    ${subtasksHtml}
                                 </div>
                                 <div class="item-actions" style="opacity:1;">
-                                    <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
+                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}')">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -3720,8 +3766,20 @@
                         return false;
                     }
                     // 如果任务包含子任务，检查是否有子任务被放入时间段
-                    if (i.subtasks && i.subtasks.some(st => st.placedIn && !st.done)) {
-                        return false;
+                    if (i.subtasks && i.subtasks.length > 0) {
+                        // 检查是否有未完成的子任务在时间段中
+                        const hasUndoneInSlot = i.subtasks.some(st => st.placedIn && !st.done);
+                        // 检查是否有已完成的子任务
+                        const hasDoneSubtasks = i.subtasks.some(st => st.done);
+                        // 检查是否有未放入时间段的子任务
+                        const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn && !st.done);
+                        
+                        // 如果所有子任务都在时间段且都未完成，不显示
+                        if (!hasUnplacedSubtasks && !hasDoneSubtasks && hasUndoneInSlot) {
+                            return false;
+                        }
+                        // 如果有未放入的子任务或有已完成的子任务，显示
+                        return hasUnplacedSubtasks || hasDoneSubtasks;
                     }
                     return true;
                 }
@@ -3854,8 +3912,20 @@
                         return false;
                     }
                     // 如果任务包含子任务，检查是否有子任务被放入时间段
-                    if (i.subtasks && i.subtasks.some(st => st.placedIn && !st.done)) {
-                        return false;
+                    if (i.subtasks && i.subtasks.length > 0) {
+                        // 检查是否有未完成的子任务在时间段中
+                        const hasUndoneInSlot = i.subtasks.some(st => st.placedIn && !st.done);
+                        // 检查是否有已完成的子任务
+                        const hasDoneSubtasks = i.subtasks.some(st => st.done);
+                        // 检查是否有未放入时间段的子任务
+                        const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn && !st.done);
+                        
+                        // 如果所有子任务都在时间段且都未完成，不显示
+                        if (!hasUnplacedSubtasks && !hasDoneSubtasks && hasUndoneInSlot) {
+                            return false;
+                        }
+                        // 如果有未放入的子任务或有已完成的子任务，显示
+                        return hasUnplacedSubtasks || hasDoneSubtasks;
                     }
                     return true;
                 }
@@ -4112,6 +4182,11 @@
             const st = item.subtasks.find(s => s.id === subId);
             if (!st) return;
             st.done = !st.done;
+            
+            // 如果子任务被标记为完成，且在时间段中，则从时间段移除
+            if (st.done && st.placedIn) {
+                st.placedIn = null;
+            }
             
             // 检查是否所有子任务都已完成，如果是则将父任务标记为完成
             const allSubtasksDone = item.subtasks.every(s => s.done);
@@ -4452,6 +4527,14 @@
                     const item = data.tasks.find(i => i.id === itemId);
                     if (item) {
                         item.placedIn = slot.id;
+                        // 如果任务有子任务,也将所有未完成的子任务放入同一个时间段
+                        if (item.subtasks && item.subtasks.length > 0) {
+                            item.subtasks.forEach(st => {
+                                if (!st.done) {
+                                    st.placedIn = slot.id;
+                                }
+                            });
+                        }
                         item.updatedAt = nowStr();
                         saveData(); render();
                     }
@@ -4476,6 +4559,14 @@
                 // 保存撤销信息
                 data.lastUndo = { type: 'item', itemId, slotId: item.placedIn };
                 item.placedIn = null;
+                
+                // 如果任务有子任务,也将所有子任务的placedIn设置为null
+                if (item.subtasks && item.subtasks.length > 0) {
+                    item.subtasks.forEach(st => {
+                        st.placedIn = null;
+                    });
+                }
+                
                 item.updatedAt = nowStr();
                 saveData(); render();
                 // 显示气泡提示
