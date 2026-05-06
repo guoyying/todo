@@ -5141,6 +5141,10 @@
 
         async function pushToGithub() {
             if (!data.github) { showGithubConfig(); return; }
+            
+            // 显示加载气泡
+            const loadingBanner = showBanner('⏳ 正在推送数据...', '#2196f3', 0);
+            
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
              // 创建要推送的数据副本，移除敏感信息
@@ -5191,70 +5195,79 @@
                     headers: {'Authorization': `token ${token}`, 'Content-Type': 'application/json'},
                     body: JSON.stringify(body)
                 });
-                if (res.status === 401 || res.status === 403) {
-                    showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
-                    showGithubConfig();
-                    return;
-                }
-                if (res.status === 409) {
-                    const reason = sha
-                        ? '文件可能已被其他设备修改，sha 不匹配。'
-                        : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
-                    showBanner('❌ 推送失败 (409): ' + reason, '#f44336', 5000);
-                    return;
-                }
-                if (res.status === 422) {
-                    const err = await res.json().catch(() => ({}));
-                    showBanner('❌ 推送失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
-                    return;
-                }
-                if (res.ok) {
-                    data.github.lastSync = nowStr();
-                    saveData();
-                    checkUpdateStatus();
-                    // 推送成功后自动隐藏提示
-                    setTimeout(() => {
-                        const banner = document.getElementById('updateBanner');
-                        if (banner) banner.classList.remove('show');
-                    }, 100);
-                    // 显示成功气泡，自动消失
-                    showBanner('✅ 推送成功！', '#4caf50', 2000);
-                } else {
-                    // 显示失败气泡，自动消失
-                    showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
-                }
-            } catch(e) {
-                showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
-            }
+                 if (res.status === 401 || res.status === 403) {
+                     hideBanner(loadingBanner);
+                     showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                     showGithubConfig();
+                     return;
+                 }
+                 if (res.status === 409) {
+                     hideBanner(loadingBanner);
+                     const reason = sha
+                         ? '文件可能已被其他设备修改，sha 不匹配。'
+                         : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
+                     showBanner('❌ 推送失败 (409): ' + reason, '#f44336', 5000);
+                     return;
+                 }
+                 if (res.status === 422) {
+                     hideBanner(loadingBanner);
+                     const err = await res.json().catch(() => ({}));
+                     showBanner('❌ 推送失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
+                     return;
+                 }
+                 if (res.ok) {
+                     hideBanner(loadingBanner);
+                     data.github.lastSync = nowStr();
+                     saveData();
+                     checkUpdateStatus();
+                     // 推送成功后自动隐藏提示
+                     setTimeout(() => {
+                         const banner = document.getElementById('updateBanner');
+                         if (banner) banner.classList.remove('show');
+                     }, 100);
+                     // 显示成功气泡，自动消失
+                     showBanner('✅ 推送成功！', '#4caf50', 2000);
+                 } else {
+                     hideBanner(loadingBanner);
+                     // 显示失败气泡，自动消失
+                     showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
+                 }
+             } catch(e) {
+                 hideBanner(loadingBanner);
+                 showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
+             }
         }
 
-        async function pushHtmlToGithub(input) {
-            if (!data.github) {
-                alert('请先配置 GitHub 信息');
-                showGithubConfig();
-                input.value = '';
-                return;
-            }
-
-            const file = input.files[0];
-            if (!file) {
-                input.value = '';
-                return;
-            }
-
-            if (!file.name.endsWith('.html')) {
-                alert('请选择 HTML 文件');
-                input.value = '';
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = async function(e) {
-                const htmlContent = e.target.result;
-                const {username, repo, token} = data.github;
-                const path = 'index.html';
-                const content = utf8ToBase64(htmlContent);
-                const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
+         async function pushHtmlToGithub(input) {
+             if (!data.github) {
+                 alert('请先配置 GitHub 信息');
+                 showGithubConfig();
+                 input.value = '';
+                 return;
+             }
+ 
+             const file = input.files[0];
+             if (!file) {
+                 input.value = '';
+                 return;
+             }
+ 
+             if (!file.name.endsWith('.html')) {
+                 alert('请选择 HTML 文件');
+                 input.value = '';
+                 return;
+             }
+ 
+             // 显示加载气泡
+             const loadingBanner = showBanner('⏳ 正在推送 HTML...', '#2196f3', 0);
+ 
+             const reader = new FileReader();
+             reader.onload = async function(e) {
+                 const htmlContent = e.target.result;
+                 const {username, repo, token} = data.github;
+                 const path = 'index.html';
+                 const content = utf8ToBase64(htmlContent);
+                 const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
                 
                 let sha = null;
                 try {
@@ -5278,61 +5291,80 @@
                         body: JSON.stringify(body)
                     });
 
-                    if (res.status === 401 || res.status === 403) {
-                        showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
-                        showGithubConfig();
-                        input.value = '';
-                        return;
-                    }
-
-                    if (res.status === 409) {
-                        showBanner('❌ 推送失败：文件冲突，请刷新页面后重试', '#f44336', 3000);
-                        input.value = '';
-                        return;
-                    }
-
-                    if (res.ok) {
-                        // 增加版本号
-                        if (!data.github.version) data.github.version = 1;
-                        data.github.version++;
-                        data.github.lastSync = nowStr();
-                        saveData();
-                        
-                        showBanner('✅ HTML 推送成功！请等待 1-2 分钟让 GitHub Pages 更新', '#4caf50', 4000);
-                        input.value = '';
-                    } else {
-                        showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
-                        input.value = '';
-                    }
-                } catch(e) {
-                    showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
-                    input.value = '';
-                }
+                     if (res.status === 401 || res.status === 403) {
+                         hideBanner(loadingBanner);
+                         showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                         showGithubConfig();
+                         input.value = '';
+                         return;
+                     }
+ 
+                     if (res.status === 409) {
+                         hideBanner(loadingBanner);
+                         showBanner('❌ 推送失败：文件冲突，请刷新页面后重试', '#f44336', 3000);
+                         input.value = '';
+                         return;
+                     }
+ 
+                     if (res.ok) {
+                         hideBanner(loadingBanner);
+                         // 增加版本号
+                         if (!data.github.version) data.github.version = 1;
+                         data.github.version++;
+                         data.github.lastSync = nowStr();
+                         saveData();
+                         
+                         showBanner('✅ HTML 推送成功！请等待 1-2 分钟让 GitHub Pages 更新', '#4caf50', 4000);
+                         input.value = '';
+                     } else {
+                         hideBanner(loadingBanner);
+                         showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
+                         input.value = '';
+                     }
+                 } catch(e) {
+                     hideBanner(loadingBanner);
+                     showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
+                     input.value = '';
+                 }
             };
             reader.readAsText(file);
         }
 
-         function showBanner(message, color, duration = 3000) {
-             // 颜色名称映射
-             const colorMap = {
-                 'success': '#4caf50',
-                 'error': '#f44336',
-                 'warning': '#ff9800',
-                 'info': '#2196f3'
-             };
-             
-             // 如果是颜色名称，转换为实际颜色值
-             const bgColor = colorMap[color] || color;
-             
-             const banner = document.createElement('div');
-             banner.className = 'update-banner show';
-             banner.style.backgroundColor = bgColor;
-             banner.innerHTML = message;
-             document.body.insertBefore(banner, document.body.firstChild);
-             setTimeout(() => {
-                 banner.remove();
-             }, duration);
-         }
+          function showBanner(message, color, duration = 3000) {
+              // 颜色名称映射
+              const colorMap = {
+                  'success': '#4caf50',
+                  'error': '#f44336',
+                  'warning': '#ff9800',
+                  'info': '#2196f3'
+              };
+              
+              // 如果是颜色名称，转换为实际颜色值
+              const bgColor = colorMap[color] || color;
+              
+              const banner = document.createElement('div');
+              banner.className = 'update-banner show';
+              banner.style.backgroundColor = bgColor;
+              banner.innerHTML = message;
+              document.body.insertBefore(banner, document.body.firstChild);
+              
+              // 如果 duration 为 0，不自动隐藏，返回 banner 元素
+              if (duration === 0) {
+                  return banner;
+              }
+              
+              setTimeout(() => {
+                  banner.remove();
+              }, duration);
+              
+              return banner;
+          }
+          
+          function hideBanner(banner) {
+              if (banner && banner.parentNode) {
+                  banner.remove();
+              }
+          }
 
         // ============ 批量迁移功能 ============
         let migrationSelected = [];
@@ -5746,39 +5778,47 @@
             }
         }
 
-        async function pullFromGithub(manual=false) {
-            if (!data.github) { if (manual) showGithubConfig(); return; }
-            const {username, repo, token} = data.github;
-            const path = 'mindtodo-data.json';
-            try {
+         async function pullFromGithub(manual=false) {
+             if (!data.github) { if (manual) showGithubConfig(); return; }
+             
+             // 显示加载气泡
+             const loadingBanner = showBanner('⏳ 正在拉取数据...', '#2196f3', 0);
+             
+             const {username, repo, token} = data.github;
+             const path = 'mindtodo-data.json';
+             try {
                 // 添加版本号参数强制刷新缓存
                 const cacheBuster = data.github.version ? '?v=' + data.github.version : '';
                 const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}${cacheBuster}`, {
                     headers: {Authorization: `token ${token}`}
                 });
-                if (res.status === 401) {
-                    const msg = 'Token 已过期，请重新配置';
-                    if (manual) { alert(msg); showGithubConfig(); }
-                    else { showBanner(msg, 'error'); data.github = null; saveData(); }
-                    return;
-                }
-                if (res.status === 404) {
-                    if (manual) alert('远程暂无数据文件');
-                    else showBanner('远程暂无数据文件', 'info');
-                    data.firstLoaded = true; saveData(); return;
-                }
-                if (res.status === 409) {
-                    const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
-                    if (manual) alert(msg);
-                    else showBanner(msg, 'error');
-                    return;
-                }
-                if (!res.ok) {
-                    const msg = '拉取失败：HTTP ' + res.status;
-                    if (manual) alert(msg);
-                    else showBanner(msg, 'error');
-                    data.firstLoaded = true; saveData(); return;
-                }
+                 if (res.status === 401) {
+                     hideBanner(loadingBanner);
+                     const msg = 'Token 已过期，请重新配置';
+                     if (manual) { alert(msg); showGithubConfig(); }
+                     else { showBanner(msg, 'error'); data.github = null; saveData(); }
+                     return;
+                 }
+                 if (res.status === 404) {
+                     hideBanner(loadingBanner);
+                     if (manual) alert('远程暂无数据文件');
+                     else showBanner('远程暂无数据文件', 'info');
+                     data.firstLoaded = true; saveData(); return;
+                 }
+                 if (res.status === 409) {
+                     hideBanner(loadingBanner);
+                     const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
+                     if (manual) alert(msg);
+                     else showBanner(msg, 'error');
+                     return;
+                 }
+                 if (!res.ok) {
+                     hideBanner(loadingBanner);
+                     const msg = '拉取失败：HTTP ' + res.status;
+                     if (manual) alert(msg);
+                     else showBanner(msg, 'error');
+                     data.firstLoaded = true; saveData(); return;
+                 }
                 const info = await res.json();
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
@@ -5817,21 +5857,23 @@
                  // 立即更新所有模型选择器
                  updateAllModelSelectors();
                 
-                if (manual) {
-                    showBanner('拉取成功', 'success');
-                } else {
-                    showBanner('自动拉取成功', 'success');
-                }
-            } catch(e) {
-                const msg = '拉取失败：' + (e.message || '网络错误');
-                if (manual) {
-                    alert(msg);
-                } else {
-                    showBanner(msg, 'error');
-                }
-                data.firstLoaded = true;
-                saveData();
-            }
+                 hideBanner(loadingBanner);
+                 if (manual) {
+                     showBanner('拉取成功', 'success');
+                 } else {
+                     showBanner('自动拉取成功', 'success');
+                 }
+             } catch(e) {
+                 hideBanner(loadingBanner);
+                 const msg = '拉取失败：' + (e.message || '网络错误');
+                 if (manual) {
+                     alert(msg);
+                 } else {
+                     showBanner(msg, 'error');
+                 }
+                 data.firstLoaded = true;
+                 saveData();
+             }
         }
 
         // ============ Helper Functions ============
