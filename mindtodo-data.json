@@ -1154,12 +1154,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_motshzlqgod6o",
-      "name": "五点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -1444,6 +1439,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T08:24:12.534Z"
+    "lastSync": "2026-05-06T09:04:38.871Z"
   }
 }
