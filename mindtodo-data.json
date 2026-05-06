@@ -737,7 +737,7 @@
       "type": "task",
       "content": "下班前更新下4月退网成效",
       "createdAt": "2026-05-06T01:06:36.889Z",
-      "updatedAt": "2026-05-06T03:04:15.946Z",
+      "updatedAt": "2026-05-06T03:51:36.228Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -760,7 +760,7 @@
         {
           "id": "1778034535574",
           "content": "更新美哥的退网表格。",
-          "done": false,
+          "done": true,
           "estimatedTime": "14min",
           "placedIn": null
         },
@@ -769,7 +769,7 @@
           "content": "点击3月最晚那天，记录退网数据（网元名称、退网状态）---记录最新的退网数据--到excel表里。",
           "done": false,
           "estimatedTime": "10min",
-          "placedIn": "slot_motg8y6v1i2nw"
+          "placedIn": null
         },
         {
           "id": "1778036575784",
@@ -1061,12 +1061,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_motg8y6v1i2nw",
-      "name": "11点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
