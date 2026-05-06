@@ -677,9 +677,9 @@
       "type": "task",
       "content": "沈奕斐的内容还蛮有用的，想学",
       "createdAt": "2026-05-05T14:33:07.786Z",
-      "updatedAt": "2026-05-06T00:59:29.321Z",
+      "updatedAt": "2026-05-06T01:07:11.591Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -687,7 +687,7 @@
           "id": "mosqa9c9uge4b",
           "content": "制定一个学习计划，放到notes里",
           "estimatedTime": "15min",
-          "done": false,
+          "done": true,
           "placedIn": "slot_motcmxf4o6qv5"
         }
       ]
@@ -697,15 +697,23 @@
       "type": "task",
       "content": "春夏交替单穿的衬衫多买2件。米色和棕色上衣买了替换夏天穿。",
       "createdAt": "2026-05-06T00:26:12.556Z",
-      "updatedAt": "2026-05-06T00:58:53.496Z",
+      "updatedAt": "2026-05-06T01:14:19.681Z",
       "tags": [
         "生活"
       ],
       "done": false,
       "dueTime": null,
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_motcmxf4o6qv5"
+      "subtasks": [
+        {
+          "id": "1778029986965",
+          "content": "小红书写下3套风格不同的衬衫搭配，包括上下装颜色",
+          "done": false,
+          "estimatedTime": "15min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     },
     {
       "id": "motcwxcppkjqx",
@@ -1205,6 +1213,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T00:59:34.390Z"
+    "lastSync": "2026-05-06T01:06:41.823Z"
   }
 }
