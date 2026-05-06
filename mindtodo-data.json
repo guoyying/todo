@@ -528,15 +528,16 @@
       "type": "task",
       "content": "思考下虚拟网元工作从何启动",
       "createdAt": "2026-04-30T08:49:01.474Z",
-      "updatedAt": "2026-05-06T01:57:21.433Z",
+      "updatedAt": "2026-05-06T02:22:15.677Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moten4pz99gkp"
+      "placedIn": null,
+      "doneAt": "2026-05-06T02:22:15.677Z"
     },
     {
       "id": "moraekn86q89z",
@@ -770,6 +771,33 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "motfno4jix7ru",
+      "type": "task",
+      "content": "虚拟网元工作推进",
+      "createdAt": "2026-05-06T02:23:23.875Z",
+      "updatedAt": "2026-05-06T02:23:23.875Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "motfno4ij7ms1",
+          "content": "问泳哥提交给政企部哪位？",
+          "estimatedTime": "3min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "motfno4if7dgz",
+          "content": "问对方需要怎样的格式？",
+          "estimatedTime": "3min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -1256,6 +1284,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T02:14:51.397Z"
+    "lastSync": "2026-05-06T02:21:00.891Z"
   }
 }
