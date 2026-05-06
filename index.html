@@ -343,6 +343,49 @@
             from { transform: translateY(100px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        /* 验证提示气泡样式 */
+        .validation-toast {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 10px 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #856404;
+            white-space: nowrap;
+            animation: fadeInDown 0.3s ease-out;
+            margin-bottom: 8px;
+        }
+        .validation-toast.show {
+            display: flex;
+        }
+        .validation-toast::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #ffc107;
+        }
+        @keyframes fadeInDown {
+            from { transform: translateX(-50%) translateY(-10px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+        /* 提交按钮容器相对定位，用于定位提示气泡 */
+        .submit-btn-wrapper {
+            position: relative;
+            display: inline-block;
+        }
         .slot .item { margin-bottom: 8px; padding: 10px; font-size: 13px; }
         .slot .item-actions { opacity: 1; }
         .slot-delete { cursor: pointer; color: var(--text-secondary); font-size: 12px; }
@@ -1076,7 +1119,13 @@
                 <label>标签</label>
                 <div class="tags-select" id="taskTags"></div>
             </div>
-            <button class="btn btn-primary" onclick="saveTask()">添加任务</button>
+            <div class="submit-btn-wrapper">
+                <button class="btn btn-primary" onclick="saveTask()">添加任务</button>
+                <div class="validation-toast" id="validationToast">
+                    <span>⚠️</span>
+                    <span id="validationMessage"></span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2270,16 +2319,48 @@
             if (!content) return;
             const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
             let dueTime = null;
+            
+            // 验证逻辑
             if (!unknown) {
+                // 已知时间：必须填写预计时间
                 let v = document.getElementById('taskDueTime').value.trim();
-                if (v) {
-                    // 如果是纯数字，自动添加"min"后缀
-                    if (/^\d+$/.test(v)) {
-                        v = v + 'min';
+                if (!v) {
+                    showValidationToast('请填写预计完成时间');
+                    document.getElementById('taskDueTime').focus();
+                    return;
+                }
+                // 如果是纯数字，自动添加"min"后缀
+                if (/^\d+$/.test(v)) {
+                    v = v + 'min';
+                }
+                dueTime = v;
+            } else {
+                // 未知时间：必须填写至少一个子任务，且该子任务必须有预计时间
+                const subtaskInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-input'));
+                const timeInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-time'));
+                
+                // 检查是否有至少一个子任务
+                const hasSubtask = subtaskInputs.some(input => input.value.trim());
+                if (!hasSubtask) {
+                    showValidationToast('请至少填写一个子任务');
+                    subtaskInputs[0].focus();
+                    return;
+                }
+                
+                // 检查每个子任务是否都有预计时间
+                for (let i = 0; i < subtaskInputs.length; i++) {
+                    const subtaskContent = subtaskInputs[i].value.trim();
+                    if (subtaskContent) {
+                        const timeValue = i < timeInputs.length ? timeInputs[i].value.trim() : '';
+                        if (!timeValue) {
+                            showValidationToast(`子任务 "${subtaskContent}" 需要填写预计时间`);
+                            timeInputs[i].focus();
+                            return;
+                        }
                     }
-                    dueTime = v;
                 }
             }
+            
             let subtasks = [];
             if (unknown) {
                 const subtaskInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-input'));
@@ -2309,6 +2390,20 @@
             toggleDueType();
             renderTags('taskTags');
             saveData(); render();
+        }
+
+        // 显示验证提示气泡
+        function showValidationToast(message) {
+            const toast = document.getElementById('validationToast');
+            const messageEl = document.getElementById('validationMessage');
+            
+            messageEl.textContent = message;
+            toast.classList.add('show');
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
         // ============ Render ============
