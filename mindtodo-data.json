@@ -709,30 +709,6 @@
       ]
     },
     {
-      "id": "motbgyq2a9rdf",
-      "type": "task",
-      "content": "春夏交替单穿的衬衫多买2件。米色和棕色上衣买了替换夏天穿。",
-      "createdAt": "2026-05-06T00:26:12.556Z",
-      "updatedAt": "2026-05-06T02:27:22.299Z",
-      "tags": [
-        "生活"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778030522236",
-          "content": "淘宝找这些衣服，价格筛选",
-          "done": false,
-          "estimatedTime": "15min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": null
-    },
-    {
       "id": "motcwxcppkjqx",
       "type": "task",
       "content": "下班前更新下4月退网成效",
