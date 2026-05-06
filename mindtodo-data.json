@@ -970,6 +970,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "motwbceycr5ey",
+      "type": "task",
+      "content": "写下今晚的计划",
+      "createdAt": "2026-05-06T10:09:42.298Z",
+      "updatedAt": "2026-05-06T10:09:42.298Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
