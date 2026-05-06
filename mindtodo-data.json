@@ -680,6 +680,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "motbgyq2a9rdf",
+      "type": "task",
+      "content": "春夏交替单穿的衬衫多买2件。米色和棕色上衣买了替换夏天穿。",
+      "createdAt": "2026-05-06T00:26:12.556Z",
+      "updatedAt": "2026-05-06T00:26:12.556Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
