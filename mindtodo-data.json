@@ -984,6 +984,18 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mou42ud233l7x",
+      "type": "task",
+      "content": "手机端的弹药库面板太大了，小点儿，不要超过显示内容的边界太多。",
+      "createdAt": "2026-05-06T13:47:02.584Z",
+      "updatedAt": "2026-05-06T13:47:02.584Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
