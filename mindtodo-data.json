@@ -713,7 +713,7 @@
       "type": "task",
       "content": "春夏交替单穿的衬衫多买2件。米色和棕色上衣买了替换夏天穿。",
       "createdAt": "2026-05-06T00:26:12.556Z",
-      "updatedAt": "2026-05-06T01:52:55.817Z",
+      "updatedAt": "2026-05-06T02:27:22.299Z",
       "tags": [
         "生活"
       ],
@@ -737,7 +737,7 @@
       "type": "task",
       "content": "下班前更新下4月退网成效",
       "createdAt": "2026-05-06T01:06:36.889Z",
-      "updatedAt": "2026-05-06T02:14:44.731Z",
+      "updatedAt": "2026-05-06T02:29:34.908Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -753,8 +753,22 @@
         {
           "id": "1778033602462",
           "content": "写一下怎么做这个数据，大概步骤。到todo拆解里。写完放到子任务这里",
-          "done": false,
+          "done": true,
           "estimatedTime": "4min",
+          "placedIn": null
+        },
+        {
+          "id": "1778034535574",
+          "content": "更新美哥的退网表格。",
+          "done": false,
+          "estimatedTime": "14min",
+          "placedIn": null
+        },
+        {
+          "id": "1778034567291",
+          "content": "点击3月最晚那天，记录退网数据（网元名称、退网状态）---记录最新的退网数据--到excel表里。",
+          "done": false,
+          "estimatedTime": "10min",
           "placedIn": null
         }
       ],
@@ -777,7 +791,7 @@
       "type": "task",
       "content": "虚拟网元工作推进",
       "createdAt": "2026-05-06T02:23:23.875Z",
-      "updatedAt": "2026-05-06T02:23:23.875Z",
+      "updatedAt": "2026-05-06T02:27:33.315Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -797,7 +811,8 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": null
     }
   ],
   "normalFeelings": [
