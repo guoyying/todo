@@ -504,26 +504,28 @@
       "type": "task",
       "content": "找客资要一份光路清单，我要看下跟局内s转o是否包含在内",
       "createdAt": "2026-04-30T08:48:48.608Z",
-      "updatedAt": "2026-04-30T08:48:48.608Z",
+      "updatedAt": "2026-05-06T01:57:15.292Z",
       "tags": [],
       "done": false,
-      "dueTime": null,
+      "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moten4pz99gkp"
     },
     {
       "id": "mol8sh7m9vhc1",
       "type": "task",
       "content": "思考下虚拟网元工作从何启动",
       "createdAt": "2026-04-30T08:49:01.474Z",
-      "updatedAt": "2026-05-03T07:10:36.107Z",
+      "updatedAt": "2026-05-06T01:57:21.433Z",
       "tags": [
         "退网"
       ],
       "done": false,
-      "dueTime": null,
+      "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_moten4pz99gkp"
     },
     {
       "id": "moraekn86q89z",
@@ -1235,6 +1237,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T01:22:41.299Z"
+    "lastSync": "2026-05-06T01:56:46.649Z"
   }
 }
