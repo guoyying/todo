@@ -528,7 +528,7 @@
       "type": "task",
       "content": "思考下虚拟网元工作从何启动",
       "createdAt": "2026-04-30T08:49:01.474Z",
-      "updatedAt": "2026-05-06T02:22:15.677Z",
+      "updatedAt": "2026-05-06T02:38:47.677Z",
       "tags": [
         "退网"
       ],
@@ -537,7 +537,7 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null,
-      "doneAt": "2026-05-06T02:22:15.677Z"
+      "doneAt": "2026-05-06T02:38:47.677Z"
     },
     {
       "id": "moraekn86q89z",
@@ -777,9 +777,9 @@
     {
       "id": "motepar1juzpu",
       "type": "task",
-      "content": "问下rpa什么进度了，包含润色",
+      "content": "RPA工作",
       "createdAt": "2026-05-06T01:56:40.237Z",
-      "updatedAt": "2026-05-06T02:33:43.106Z",
+      "updatedAt": "2026-05-06T02:37:51.039Z",
       "tags": [
         "RPA"
       ],
@@ -825,6 +825,18 @@
         }
       ],
       "placedIn": null
+    },
+    {
+      "id": "motg86pbu6sus",
+      "type": "task",
+      "content": "将团员评议表放到一个文件夹里头。",
+      "createdAt": "2026-05-06T02:39:21.071Z",
+      "updatedAt": "2026-05-06T02:39:21.071Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1029,12 +1041,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_moten4pz99gkp",
-      "name": "十点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
