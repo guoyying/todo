@@ -765,12 +765,12 @@
       "type": "task",
       "content": "RPA工作",
       "createdAt": "2026-05-06T01:56:40.237Z",
-      "updatedAt": "2026-05-06T03:56:44.038Z",
+      "updatedAt": "2026-05-06T07:28:01.943Z",
       "tags": [
         "RPA"
       ],
       "done": false,
-      "dueTime": "5min",
+      "dueTime": "",
       "unknown": false,
       "subtasks": [
         {
@@ -872,19 +872,20 @@
       "type": "task",
       "content": "考虑要不要把去培训的内容分享到群里",
       "createdAt": "2026-05-06T07:09:42.179Z",
-      "updatedAt": "2026-05-06T07:09:42.179Z",
+      "updatedAt": "2026-05-06T07:40:00.801Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_motqym1ihfyvk"
     },
     {
       "id": "motq0a7x9kz46",
       "type": "task",
       "content": "梳理退网设备了",
       "createdAt": "2026-05-06T07:13:08.541Z",
-      "updatedAt": "2026-05-06T07:13:08.541Z",
+      "updatedAt": "2026-05-06T07:40:20.713Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -904,19 +905,21 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": null
     },
     {
       "id": "motq0ud4id8ad",
       "type": "task",
       "content": "捋一下几个本周目标，没关注的几个进度，看怎么推进",
       "createdAt": "2026-05-06T07:13:34.648Z",
-      "updatedAt": "2026-05-06T07:13:34.648Z",
+      "updatedAt": "2026-05-06T07:40:11.690Z",
       "tags": [],
       "done": false,
       "dueTime": "13min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_motqym1ihfyvk"
     },
     {
       "id": "motq1bxpp7gs5",
@@ -1133,7 +1136,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_motqym1ihfyvk",
+      "name": "4点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -1410,6 +1418,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-06T07:25:59.345Z"
+    "lastSync": "2026-05-06T07:26:49.754Z"
   }
 }
