@@ -639,14 +639,23 @@
       "type": "task",
       "content": "给老公看手机，生日礼物",
       "createdAt": "2026-05-05T13:39:45.637Z",
-      "updatedAt": "2026-05-06T00:26:28.644Z",
+      "updatedAt": "2026-05-06T00:59:14.695Z",
       "tags": [
         "生活"
       ],
       "done": false,
       "dueTime": "",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1778029139253",
+          "content": "写下我的想法感受",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": "slot_motcmxf4o6qv5"
     },
     {
       "id": "mosotjrelqtf9",
@@ -668,7 +677,7 @@
       "type": "task",
       "content": "沈奕斐的内容还蛮有用的，想学",
       "createdAt": "2026-05-05T14:33:07.786Z",
-      "updatedAt": "2026-05-05T14:33:07.786Z",
+      "updatedAt": "2026-05-06T00:59:29.321Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -679,7 +688,7 @@
           "content": "制定一个学习计划，放到notes里",
           "estimatedTime": "15min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_motcmxf4o6qv5"
         }
       ]
     },
@@ -688,14 +697,15 @@
       "type": "task",
       "content": "春夏交替单穿的衬衫多买2件。米色和棕色上衣买了替换夏天穿。",
       "createdAt": "2026-05-06T00:26:12.556Z",
-      "updatedAt": "2026-05-06T00:26:12.556Z",
+      "updatedAt": "2026-05-06T00:58:53.496Z",
       "tags": [
         "生活"
       ],
       "done": false,
       "dueTime": null,
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_motcmxf4o6qv5"
     }
   ],
   "normalFeelings": [
@@ -893,7 +903,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_motcmxf4o6qv5",
+      "name": "9点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
