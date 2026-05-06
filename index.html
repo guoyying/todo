@@ -7301,20 +7301,21 @@
               // 获取消化进度
               const digestionProgress = ammo.digestionProgress || 0;
               const progressPercent = Math.round(digestionProgress * 100);
-              const progressColor = digestionProgress === 1 ? 'var(--success)' :
-                                   digestionProgress >= 0.6 ? 'var(--warning)' : 'var(--text-secondary)';
-              const progressIcon = digestionProgress === 1 ? '🟢' :
-                                digestionProgress >= 0.6 ? '🟡' : '🔴';
-              
-              // 生成消化笔记HTML
-              const digestionHtml = generateDigestionHtml(ammo);
-              
-              ammoEl.innerHTML = `
-                  <div class="ammo-item-header">
-                      <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
-                      <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
-                      <span style="font-size:11px;color:${progressColor};margin-left:8px;">${progressIcon} 消化${progressPercent}%</span>
-                  </div>
+                const progressColor = digestionProgress === 1 ? 'var(--success)' :
+                                     digestionProgress >= 0.6 ? 'var(--warning)' : 'var(--text-secondary)';
+                const progressIcon = digestionProgress === 1 ? '💚' :
+                                  digestionProgress >= 0.6 ? '💛' : 
+                                  digestionProgress < 0.6 ? '🧡' : '';
+                
+                // 生成消化笔记HTML
+                const digestionHtml = generateDigestionHtml(ammo);
+                
+                ammoEl.innerHTML = `
+                    <div class="ammo-item-header">
+                        <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
+                        <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
+                        <span style="font-size:11px;color:${progressColor};margin-left:8px;">${progressIcon} 消化${progressPercent}%</span>
+                    </div>
                   <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
                   <div class="ammo-item-source">来源：${escapeHtml(ammo.sourceBlockName)}</div>
                   ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
