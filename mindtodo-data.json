@@ -1246,7 +1246,15 @@
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-02T03:48:06.004Z",
       "useCount": 1,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "其实最根本的还是自身要有一颗想变好，想优化流程的心。这样才能再重复的工作中发现可以优化的地方。",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": []
+      },
+      "digestionProgress": 0.2
     },
     {
       "id": "monsyhh6vz1ui",
