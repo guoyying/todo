@@ -2628,15 +2628,15 @@
                     item.subtasks = [];
                 }
                 
-                item.subtasks.forEach(st => {
-                    // 只显示未放入时间段的子任务，或已完成的子任务
-                    if (st.placedIn && !st.done) {
-                        return; // 跳过已放入时间段且未完成的子任务
-                    }
-                    
-                    // 显示所有子任务，但已放入时间段或已完成的显示方式不同
-                    const row = document.createElement('div');
-                    row.className = 'subtask' + (st.done ? ' done' : '');
+                  item.subtasks.forEach(st => {
+                      // 只显示未放入时间段的子任务（包括已完成的）
+                      if (st.placedIn) {
+                          return; // 跳过已放入时间段的子任务
+                      }
+                      
+                      // 显示所有子任务，但已放入时间段或已完成的显示方式不同
+                      const row = document.createElement('div');
+                      row.className = 'subtask' + (st.done ? ' done' : '');
                     
                     // 复选框
                     const cb = document.createElement('span');
@@ -2655,10 +2655,6 @@
                     contentInput.style.fontSize = '13px';
                     contentInput.style.fontFamily = 'inherit';
                     contentInput.style.padding = '2px';
-                    if (st.done) {
-                        contentInput.style.textDecoration = 'line-through';
-                        contentInput.style.color = 'var(--text-secondary)';
-                    }
                     contentInput.onchange = (e) => {
                         st.content = e.target.value.trim();
                         item.updatedAt = nowStr();
@@ -2682,10 +2678,6 @@
                     timeInput.style.borderRadius = '4px';
                     timeInput.style.padding = '2px 6px';
                     timeInput.style.fontSize = '12px';
-                    if (st.done) {
-                        timeInput.style.textDecoration = 'line-through';
-                        timeInput.style.color = 'var(--text-secondary)';
-                    }
                     timeInput.onchange = (e) => {
                         st.estimatedTime = e.target.value.trim();
                         item.updatedAt = nowStr();
@@ -2762,70 +2754,68 @@
 
             const actions = document.createElement('div');
             actions.className = 'item-actions';
-            let actionButtons = '';
-            if (item.type === 'task' && !item.placedIn && !item.done) {
-                actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
-            }
-            actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
+             let actionButtons = '';
+             if (item.type === 'task' && !item.placedIn && !item.done) {
+                 actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
+             }
+             actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
             actions.innerHTML = actionButtons;
             el.appendChild(actions);
 
             return el;
         }
 
-        function renderSlots() {
-            const container = document.getElementById('timeSlots');
-            container.innerHTML = '';
-            let slotTotal = 0;
-             data.slots.forEach(slot => {
-                 // 显示所有任务的子任务（包括未知任务和普通任务）
-                 const placed = data.tasks.filter(i =>
-                     i.subtasks &&
-                     i.subtasks.some(st => st.placedIn === slot.id && !st.done)
-                 );
-                 const simpleTasks = data.tasks.filter(i =>
-                     !i.done && i.placedIn === slot.id
-                 );
-                const allInSlot = [];
-                let totalEstimatedTime = 0;
-                
-                // 按任务分组子任务
-                const taskGroups = new Map();
-                placed.forEach(i => {
-                    const undoneSubtasksInSlot = i.subtasks.filter(st => st.placedIn === slot.id && !st.done);
-                    if (undoneSubtasksInSlot.length > 0) {
-                        taskGroups.set(i.id, {
-                            task: i,
-                            subtasks: undoneSubtasksInSlot
-                        });
-                        // 计算子任务预计时间
-                        undoneSubtasksInSlot.forEach(st => {
-                            if (st.estimatedTime) {
-                                const num = extractTimeNumber(st.estimatedTime);
-                                if (num !== null) totalEstimatedTime += num;
-                            }
-                        });
-                    }
-                });
-                
-                // 添加分组后的子任务
-                taskGroups.forEach((group, taskId) => {
-                    allInSlot.push({
-                        kind: 'taskGroup',
-                        task: group.task,
-                        subtasks: group.subtasks
-                    });
-                });
-                
-                simpleTasks.forEach(i => {
-                    // 如果任务已经在taskGroups中,跳过(避免重复)
-                    if (taskGroups.has(i.id)) {
-                        return;
-                    }
-                    
-                    // 如果任务包含子任务，将任务和子任务作为一个整体
-                    if (i.subtasks && i.subtasks.length > 0) {
-                        const undoneSubtasks = i.subtasks.filter(st => !st.done);
+         function renderSlots() {
+             const container = document.getElementById('timeSlots');
+             container.innerHTML = '';
+             let slotTotal = 0;
+              data.slots.forEach(slot => {
+                  // 显示所有任务的子任务（包括未知任务和普通任务）
+                  const placed = data.tasks.filter(i =>
+                      i.subtasks &&
+                      i.subtasks.some(st => st.placedIn === slot.id && !st.done)
+                  );
+                  // 获取直接放在时间段中的任务，但排除那些已经有子任务在时间段中的任务
+                  const simpleTasks = data.tasks.filter(i =>
+                      !i.done &&
+                      i.placedIn === slot.id &&
+                      !placed.some(p => p.id === i.id)  // 排除已经有子任务在时间段中的任务
+                  );
+                 const allInSlot = [];
+                 let totalEstimatedTime = 0;
+                 
+                 // 按任务分组子任务
+                 const taskGroups = new Map();
+                 placed.forEach(i => {
+                     const undoneSubtasksInSlot = i.subtasks.filter(st => st.placedIn === slot.id && !st.done);
+                     if (undoneSubtasksInSlot.length > 0) {
+                         taskGroups.set(i.id, {
+                             task: i,
+                             subtasks: undoneSubtasksInSlot
+                         });
+                         // 计算子任务预计时间
+                         undoneSubtasksInSlot.forEach(st => {
+                             if (st.estimatedTime) {
+                                 const num = extractTimeNumber(st.estimatedTime);
+                                 if (num !== null) totalEstimatedTime += num;
+                             }
+                         });
+                     }
+                 });
+                 
+                 // 添加分组后的子任务
+                 taskGroups.forEach((group, taskId) => {
+                     allInSlot.push({
+                         kind: 'taskGroup',
+                         task: group.task,
+                         subtasks: group.subtasks
+                     });
+                 });
+                 
+                 simpleTasks.forEach(i => {
+                     // 如果任务包含子任务，将任务和子任务作为一个整体
+                     if (i.subtasks && i.subtasks.length > 0) {
+                         const undoneSubtasks = i.subtasks.filter(st => !st.done);
                         allInSlot.push({
                             kind: 'taskWithSubtasks',
                             item: i,
@@ -2867,45 +2857,76 @@
                 if (allInSlot.length === 0) {
                     slotEl.innerHTML += '<div class="empty-tip">暂无任务</div>';
                 } else {
-                    allInSlot.forEach(entry => {
-                        if (entry.kind === 'taskGroup') {
-                            // 显示任务分组（同属于一个任务的子任务放在一个框内）
+                     allInSlot.forEach(entry => {
+                         if (entry.kind === 'taskGroup') {
+                             // 显示任务分组（同属于一个任务的子任务放在一个框内）
+                             const wrapper = document.createElement('div');
+                             wrapper.className = 'item task-item';
+                             
+                             // 构建子任务HTML
+                             let subtasksHtml = '';
+                             entry.subtasks.forEach(st => {
+                                 subtasksHtml += `
+                                     <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
+                                         <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.task.id}','${st.id}')"></span>
+                                         <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
+                                             onchange="updateSubtaskInSlot('${entry.task.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
+                                             style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                         <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
+                                             onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
+                                             placeholder="预计时间"
+                                             style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
+                                     </div>
+                                 `;
+                             });
+                             
+                             wrapper.innerHTML = `
+                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                     <span class="checkbox" onclick="toggleDone('${entry.task.id}')"></span>
+                                     <input type="text" class="edit-input" value="${entry.task.content.replace(/"/g, '&quot;')}"
+                                         onchange="updateTaskInSlot('${entry.task.id}', this.value, '${entry.task.dueTime || ''}')"
+                                         style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                     <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
+                                         onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
+                                         placeholder="预计时间"
+                                         style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
+                                 </div>
+                                 <div class="subtask-list">
+                                     ${subtasksHtml}
+                                 </div>
+                                 <div class="item-actions" style="opacity:1;">
+                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}')">返回待办</button>
+                                 </div>
+                             `;
+                             slotEl.appendChild(wrapper);
+                         } else if (entry.kind === 'sub') {
+                            // 显示子任务预计时间
+                            let subTimeDisplay = '';
+                            if (entry.sub.estimatedTime) {
+                                subTimeDisplay = ` | 预计：${entry.sub.estimatedTime}`;
+                            }
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
-                            
-                            // 构建子任务HTML
-                            let subtasksHtml = '';
-                            entry.subtasks.forEach(st => {
-                                subtasksHtml += `
-                                    <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
-                                        <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.task.id}','${st.id}')"></span>
-                                        <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
-                                            onchange="updateSubtaskInSlot('${entry.task.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
-                                            style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                        <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
-                                            onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
-                                            placeholder="预计时间"
-                                            style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
-                                    </div>
-                                `;
-                            });
-                            
+                            // 只有单独放入子任务时才显示"来自：xxx"
+                            const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
+                            // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
+                            const returnAction = entry.fromWholeTask
+                                ? `removeFromSlotSimple('${entry.parent.id}')`
+                                : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
                             wrapper.innerHTML = `
+                                ${fromLabel}
                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span class="checkbox" onclick="toggleDone('${entry.task.id}')"></span>
-                                    <input type="text" class="edit-input" value="${entry.task.content.replace(/"/g, '&quot;')}"
-                                        onchange="updateTaskInSlot('${entry.task.id}', this.value, '${entry.task.dueTime || ''}')"
-                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                    <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
-                                        onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
+                                    <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
+                                    <input type="text" class="edit-input" value="${entry.sub.content.replace(/"/g, '&quot;')}"
+                                        onchange="updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')"
+                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
+                                    <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
+                                        onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
                                         placeholder="预计时间"
-                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
-                                </div>
-                                <div class="subtask-list">
-                                    ${subtasksHtml}
+                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
                                 </div>
                                 <div class="item-actions" style="opacity:1;">
-                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}')">返回待办</button>
+                                    <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -3752,39 +3773,31 @@
             const searchTerm = document.getElementById('todaySearch')?.value.toLowerCase() || '';
             const selectedTagsStr = document.getElementById('todayTagFilter')?.dataset.selectedTags || '[]';
             const selectedTags = JSON.parse(selectedTagsStr);
-            const filterMode = document.getElementById('todayTagFilter')?.dataset.filterMode || 'include';
-            
-            // 只显示当天创建且未完成且未放入时间段的待办
-            let list = data.tasks.filter(i => {
-                if (!i.done && isToday(i.createdAt)) {
-                    if (i.unknown) {
-                        // 未知时间的任务，显示父任务（但只显示未放入时间段的子任务）
-                        return true;
-                    }
-                    // 普通任务，只显示未放入时间段的
-                    if (i.placedIn) {
-                        return false;
-                    }
-                    // 如果任务包含子任务，检查是否有子任务被放入时间段
-                    if (i.subtasks && i.subtasks.length > 0) {
-                        // 检查是否有未完成的子任务在时间段中
-                        const hasUndoneInSlot = i.subtasks.some(st => st.placedIn && !st.done);
-                        // 检查是否有已完成的子任务
-                        const hasDoneSubtasks = i.subtasks.some(st => st.done);
-                        // 检查是否有未放入时间段的子任务
-                        const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn && !st.done);
-                        
-                        // 如果所有子任务都在时间段且都未完成，不显示
-                        if (!hasUnplacedSubtasks && !hasDoneSubtasks && hasUndoneInSlot) {
-                            return false;
-                        }
-                        // 如果有未放入的子任务或有已完成的子任务，显示
-                        return hasUnplacedSubtasks || hasDoneSubtasks;
-                    }
-                    return true;
-                }
-                return false;
-            });
+             const filterMode = document.getElementById('todayTagFilter')?.dataset.filterMode || 'include';
+             
+             // 只显示当天创建且未完成且未放入时间段的待办
+             let list = data.tasks.filter(i => {
+                 if (!i.done && isToday(i.createdAt)) {
+                     // 普通任务，只显示未放入时间段的
+                     if (i.placedIn) {
+                         return false;
+                     }
+                      // 如果任务包含子任务，检查是否有子任务被放入时间段
+                      if (i.subtasks && i.subtasks.length > 0) {
+                          // 检查是否有未放入时间段的子任务（包括已完成的）
+                          const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn);
+                          
+                          // 如果所有子任务都在时间段中，不显示任务
+                          if (!hasUnplacedSubtasks) {
+                              return false;
+                          }
+                          // 如果有未放入的子任务，显示任务
+                          return true;
+                      }
+                     return true;
+                 }
+                 return false;
+             });
             
             // 应用搜索过滤
             if (searchTerm) {
@@ -3911,22 +3924,18 @@
                     if (i.placedIn) {
                         return false;
                     }
-                    // 如果任务包含子任务，检查是否有子任务被放入时间段
-                    if (i.subtasks && i.subtasks.length > 0) {
-                        // 检查是否有未完成的子任务在时间段中
-                        const hasUndoneInSlot = i.subtasks.some(st => st.placedIn && !st.done);
-                        // 检查是否有已完成的子任务
-                        const hasDoneSubtasks = i.subtasks.some(st => st.done);
-                        // 检查是否有未放入时间段的子任务
-                        const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn && !st.done);
-                        
-                        // 如果所有子任务都在时间段且都未完成，不显示
-                        if (!hasUnplacedSubtasks && !hasDoneSubtasks && hasUndoneInSlot) {
-                            return false;
-                        }
-                        // 如果有未放入的子任务或有已完成的子任务，显示
-                        return hasUnplacedSubtasks || hasDoneSubtasks;
-                    }
+                     // 如果任务包含子任务，检查是否有子任务被放入时间段
+                     if (i.subtasks && i.subtasks.length > 0) {
+                         // 检查是否有未放入时间段的子任务（包括已完成的）
+                         const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn);
+                         
+                         // 如果所有子任务都在时间段中，不显示任务
+                         if (!hasUnplacedSubtasks) {
+                             return false;
+                         }
+                         // 如果有未放入的子任务，显示任务
+                         return true;
+                     }
                     return true;
                 }
                 return false;
@@ -4188,13 +4197,17 @@
                 st.placedIn = null;
             }
             
-            // 检查是否所有子任务都已完成，如果是则将父任务标记为完成
+            // 检查是否所有子任务都已完成
             const allSubtasksDone = item.subtasks.every(s => s.done);
             if (allSubtasksDone) {
-                item.done = true;
-            } else {
-                item.done = false;
+                // 如果所有子任务都完成，将任务从时间段中移除
+                if (item.placedIn) {
+                    item.placedIn = null;
+                }
             }
+            
+            // 不再自动将父任务标记为完成
+            // 任务的完成状态只能在待办/往期待办中手动标记
             
             item.updatedAt = nowStr();
             saveData(); render();
@@ -4514,53 +4527,55 @@
             }
         }
 
-        function showTaskPlaceMenu(e, itemId) {
-            const existing = document.querySelector('.place-select-overlay');
-            if (existing) existing.remove();
-            const menu = document.createElement('div');
-            menu.className = 'place-select-overlay';
-            data.slots.forEach(slot => {
-                const opt = document.createElement('div');
-                opt.className = 'place-option';
-                opt.textContent = slot.name;
-                opt.onclick = () => {
-                    const item = data.tasks.find(i => i.id === itemId);
-                    if (item) {
-                        item.placedIn = slot.id;
-                        // 如果任务有子任务,也将所有未完成的子任务放入同一个时间段
-                        if (item.subtasks && item.subtasks.length > 0) {
-                            item.subtasks.forEach(st => {
-                                if (!st.done) {
-                                    st.placedIn = slot.id;
-                                }
-                            });
-                        }
-                        item.updatedAt = nowStr();
-                        saveData(); render();
-                    }
-                    menu.remove();
-                };
-                menu.appendChild(opt);
-            });
-            document.body.appendChild(menu);
-            const rect = e.target.getBoundingClientRect();
-            menu.style.top = (rect.bottom + window.scrollY) + 'px';
-            menu.style.left = (rect.left + window.scrollX) + 'px';
-            setTimeout(() => {
-                document.addEventListener('click', function handler(ev) {
-                    if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener('click', handler); }
-                }, {once:true});
-            }, 10);
-        }
+         function showTaskPlaceMenu(e, itemId) {
+             const existing = document.querySelector('.place-select-overlay');
+             if (existing) existing.remove();
+             const menu = document.createElement('div');
+             menu.className = 'place-select-overlay';
+             data.slots.forEach(slot => {
+                 const opt = document.createElement('div');
+                 opt.className = 'place-option';
+                 opt.textContent = slot.name;
+                 opt.onclick = () => {
+                     const item = data.tasks.find(i => i.id === itemId);
+                     if (item) {
+                         item.placedIn = slot.id;
+                         // 如果任务有子任务,也将所有未完成的子任务放入同一个时间段
+                         if (item.subtasks && item.subtasks.length > 0) {
+                             item.subtasks.forEach(st => {
+                                 if (!st.done) {
+                                     st.placedIn = slot.id;
+                                 }
+                             });
+                         }
+                         item.updatedAt = nowStr();
+                         saveData(); render();
+                     }
+                     menu.remove();
+                 };
+                 menu.appendChild(opt);
+             });
+             document.body.appendChild(menu);
+             const rect = e.target.getBoundingClientRect();
+             menu.style.top = (rect.bottom + window.scrollY) + 'px';
+             menu.style.left = (rect.left + window.scrollX) + 'px';
+             setTimeout(() => {
+                 document.addEventListener('click', function handler(ev) {
+                     if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener('click', handler); }
+                 }, {once:true});
+             }, 10);
+         }
 
         function removeFromSlotSimple(itemId) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 保存撤销信息
                 data.lastUndo = { type: 'item', itemId, slotId: item.placedIn };
+                
+                // 清除任务的 placedIn
                 item.placedIn = null;
                 
-                // 如果任务有子任务,也将所有子任务的placedIn设置为null
+                // 如果任务有子任务，也清除所有子任务的 placedIn
                 if (item.subtasks && item.subtasks.length > 0) {
                     item.subtasks.forEach(st => {
                         st.placedIn = null;
