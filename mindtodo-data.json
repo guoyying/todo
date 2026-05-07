@@ -1473,7 +1473,18 @@
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-30T06:20:40.332Z",
       "useCount": 1,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "scenarioPractices": [
+          {
+            "id": "movem3iukxjcn",
+            "frameworkType": "star",
+            "framework": "STAR法则",
+            "content": "微小的自定义，能撬动巨大的效率杠杆。",
+            "createdAt": "2026-05-07T11:29:43.254Z"
+          }
+        ]
+      }
     },
     {
       "id": "monscj08ayhjm",
