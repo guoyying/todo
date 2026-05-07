@@ -765,7 +765,7 @@
       "type": "task",
       "content": "RPA工作",
       "createdAt": "2026-05-06T01:56:40.237Z",
-      "updatedAt": "2026-05-06T07:28:01.943Z",
+      "updatedAt": "2026-05-07T08:09:58.313Z",
       "tags": [
         "RPA"
       ],
@@ -778,10 +778,10 @@
           "content": "运行程序测试",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": null
+          "placedIn": "slot_mov7h38ze6emv"
         }
       ],
-      "placedIn": null,
+      "placedIn": "slot_mov7h38ze6emv",
       "doneAt": null
     },
     {
@@ -1151,12 +1151,12 @@
     {
       "id": "mov69iyp6el5s",
       "type": "task",
-      "content": "琐碎的退网工作：联系龚工、熟悉下补环的东西",
+      "content": "琐碎的退网工作：熟悉下补环的东西",
       "createdAt": "2026-05-07T07:35:59.810Z",
-      "updatedAt": "2026-05-07T07:35:59.810Z",
+      "updatedAt": "2026-05-07T08:07:45.059Z",
       "tags": [],
       "done": false,
-      "dueTime": "15min",
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
@@ -1365,8 +1365,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mov5i94zdrc59",
-      "name": "3点半前"
+      "id": "slot_mov7h38ze6emv",
+      "name": "4点半前"
     }
   ],
   "tags": [
