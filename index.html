@@ -70,68 +70,165 @@
                  font-size: 14px;
              }
              
-             /* 弹药库面板移动端优化 */
-             #ammoLibraryPanel .modal {
-                 width: 100% !important;
-                 max-width: 100% !important;
-                 border-radius: 0 !important;
-             }
-             
-             #ammoLibraryPanel .modal-body {
-                 flex-direction: column !important;
-                 padding: 12px !important;
-             }
-             
-             .ammo-list-panel {
-                 border-bottom: 1px solid var(--border);
-                 padding-bottom: 12px;
-                 margin-bottom: 12px;
-             }
-             
-             .digestion-notes-panel {
-                 border-left: none !important;
-                 padding-left: 0 !important;
-                 border-top: 1px solid var(--border);
-                 padding-top: 12px;
-             }
+               /* 弹药库面板移动端优化 */
+                #ammoLibraryPanel .modal {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    border-radius: 0 !important;
+                    max-height: 100vh !important;
+                    height: auto !important;
+                }
+                
+                #ammoLibraryPanel .modal-header {
+                    padding: 8px 12px !important;
+                    margin-bottom: 6px !important;
+                }
+                
+                #ammoLibraryPanel .modal-body {
+                    flex-direction: column !important;
+                    padding: 6px 12px !important;
+                    gap: 6px !important;
+                    max-height: calc(100vh - 50px) !important;
+                    height: auto !important;
+                }
+                
+                .ammo-list-panel {
+                    border-bottom: 1px solid var(--border);
+                    padding-bottom: 6px;
+                    margin-bottom: 6px;
+                    max-height: 45vh !important;
+                    overflow-y: auto !important;
+                }
+                
+                .digestion-notes-panel {
+                    border-left: none !important;
+                    padding-left: 0 !important;
+                    border-top: 1px solid var(--border);
+                    padding-top: 6px;
+                    max-height: 45vh !important;
+                    overflow-y: auto !important;
+                }
+              
+              /* 搜索框优化 */
+              #ammoSearchInput {
+                  padding: 6px 8px !important;
+                  font-size: 13px !important;
+              }
+              
+              /* 按钮组优化 */
+              .ammo-list-panel > div:nth-child(2) {
+                  gap: 6px !important;
+                  margin-bottom: 8px !important;
+              }
+              
+              .ammo-list-panel > div:nth-child(2) .btn {
+                  padding: 4px 8px !important;
+                  font-size: 11px !important;
+              }
              
              /* 弹药卡片移动端优化 */
-             .ammo-item {
-                 padding: 12px !important;
-                 margin-bottom: 8px !important;
-             }
-             
-             .ammo-item-content {
-                 font-size: 14px !important;
-             }
-             
-             .ammo-item-source {
-                 font-size: 12px !important;
-             }
-             
-             .ammo-item-tag {
-                 font-size: 11px !important;
-             }
-             
-             /* 消化笔记移动端优化 */
-             .digestion-section {
-                 padding: 12px !important;
-             }
-             
-             .digestion-item {
-                 padding: 10px !important;
-                 margin-bottom: 8px !important;
-             }
-             
-             /* 场景练习移动端优化 */
-             .scenario-practice-record {
-                 padding: 10px !important;
-                 margin-bottom: 8px !important;
-             }
-             
-             .scenario-practice-content {
-                 font-size: 13px !important;
-             }
+              .ammo-item {
+                  padding: 8px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .ammo-item-header {
+                  margin-bottom: 6px !important;
+              }
+              
+              .ammo-item-content {
+                  font-size: 13px !important;
+                  line-height: 1.5 !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .ammo-item-source {
+                  font-size: 11px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .ammo-item-tags {
+                  gap: 4px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .ammo-item-tag {
+                  font-size: 10px !important;
+                  padding: 2px 6px !important;
+              }
+              
+              .ammo-item-actions {
+                  gap: 4px !important;
+              }
+              
+              .ammo-item-actions .btn {
+                  padding: 3px 6px !important;
+                  font-size: 10px !important;
+              }
+              
+              /* 消化笔记移动端优化 */
+              .digestion-section {
+                  padding: 8px !important;
+              }
+              
+              .digestion-item {
+                  padding: 6px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .digestion-item-label {
+                  font-size: 11px !important;
+                  margin-bottom: 4px !important;
+              }
+              
+              .digestion-item-content {
+                  font-size: 12px !important;
+              }
+              
+              /* 场景练习移动端优化 */
+              .scenario-practice-record {
+                  padding: 6px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .scenario-practice-header {
+                  margin-bottom: 4px !important;
+              }
+              
+              .scenario-practice-content {
+                  font-size: 12px !important;
+                  line-height: 1.5 !important;
+              }
+              
+              .scenario-practice-time {
+                  font-size: 10px !important;
+              }
+              
+              /* 应用场景卡片移动端优化 */
+              .scenario-card {
+                  padding: 6px !important;
+                  margin-bottom: 6px !important;
+              }
+              
+              .scenario-card-title {
+                  font-size: 12px !important;
+                  margin-bottom: 4px !important;
+              }
+              
+              .scenario-card-reference {
+                  font-size: 11px !important;
+              }
+              
+              /* 表单元素移动端优化 */
+              textarea, input, select {
+                  font-size: 13px !important;
+                  padding: 6px 8px !important;
+              }
+              
+              .form-label {
+                  font-size: 11px !important;
+                  margin-bottom: 4px !important;
+              }
              
              /* 按钮组移动端优化 */
              .btn-group {
@@ -910,9 +1007,9 @@
           .ammo-item {
               background: var(--card);
              border: 1px solid var(--border);
-             border-radius: 8px;
-             padding: 12px;
-             margin-bottom: 10px;
+             border-radius: 6px;
+             padding: 6px 8px;
+             margin-bottom: 6px;
              transition: all 0.2s;
          }
          .ammo-item:hover {
@@ -922,12 +1019,12 @@
              display: flex;
              justify-content: space-between;
              align-items: center;
-             margin-bottom: 8px;
+             margin-bottom: 6px;
          }
          .ammo-item-type {
-             font-size: 11px;
-             padding: 2px 8px;
-             border-radius: 12px;
+             font-size: 10px;
+             padding: 2px 6px;
+             border-radius: 10px;
              font-weight: 500;
          }
          .ammo-item-type.word {
@@ -943,31 +1040,31 @@
              color: var(--primary);
          }
          .ammo-item-content {
-             font-size: 14px;
-             line-height: 1.6;
-             margin-bottom: 8px;
+             font-size: 13px;
+             line-height: 1.5;
+             margin-bottom: 6px;
          }
          .ammo-item-source {
-             font-size: 12px;
+             font-size: 11px;
              color: var(--text-secondary);
-             margin-bottom: 8px;
+             margin-bottom: 6px;
          }
          .ammo-item-tags {
              display: flex;
              flex-wrap: wrap;
-             gap: 4px;
-             margin-bottom: 8px;
+             gap: 3px;
+             margin-bottom: 6px;
          }
          .ammo-item-tag {
-             font-size: 11px;
-             padding: 2px 8px;
-             border-radius: 10px;
+             font-size: 10px;
+             padding: 2px 6px;
+             border-radius: 8px;
              background: var(--bg);
              color: var(--text-secondary);
          }
          .ammo-item-actions {
              display: flex;
-             gap: 6px;
+             gap: 4px;
              opacity: 0;
              transition: opacity 0.2s;
          }
@@ -1699,21 +1796,21 @@
  
      <!-- 弹药库侧拉面板 -->
      <div class="modal-overlay hidden" id="ammoLibraryPanel" onclick="closeAmmoLibraryPanel()">
-                              <div class="modal" style="max-width:1200px;width:95%;max-height:90vh;position:fixed;right:0;top:0;height:100%;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
-                                  <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:16px;border-bottom:1px solid var(--border);">
-                                      <div style="display:flex;align-items:center;gap:12px;">
-                                          <button id="backToAmmoListBtn" class="btn btn-small btn-secondary hidden" onclick="backToAmmoList()">← 返回</button>
-                                          <h3 style="margin:0;">💎 弹药库</h3>
-                                      </div>
-                                      <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
-                                  </div>
-                                  <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;display:flex;gap:16px;flex-direction:row;">
+                                 <div class="modal" style="max-width:1200px;width:auto;max-height:90vh;position:fixed;right:0;top:0;height:auto;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
+                                     <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:8px 16px;border-bottom:1px solid var(--border);">
+                                         <div style="display:flex;align-items:center;gap:12px;">
+                                             <button id="backToAmmoListBtn" class="btn btn-small btn-secondary hidden" onclick="backToAmmoList()">← 返回</button>
+                                             <h3 style="margin:0;">💎 弹药库</h3>
+                                         </div>
+                                          <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
+                                     </div>
+                                     <div class="modal-body" style="padding:8px 16px;overflow:auto;flex:1;display:flex;gap:8px;flex-direction:row;max-height:calc(90vh - 60px);">
                                       <!-- 左侧：弹药列表 -->
-                                      <div class="ammo-list-panel" style="flex:1;min-width:0;overflow-y:auto;">
-                                          <div style="margin-bottom:16px;">
-                                              <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                      <div class="ammo-list-panel" style="flex:1.5;min-width:0;overflow-y:auto;padding-right:8px;padding-bottom:0;">
+                                          <div style="margin-bottom:10px;">
+                                              <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                           </div>
-                                          <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+                                          <div style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap;">
                                               <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
                                               <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
                                               <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
@@ -1722,24 +1819,24 @@
                                           </div>
                                                   
                                                   <!-- 新增弹药表单 -->
-                                                  <div id="addAmmoForm" class="hidden" style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
-                       <div style="margin-bottom:12px;">
-                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
-                           <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="handleNewAmmoInput(this)"></textarea>
-                           <div id="newAmmoSuggestions" style="margin-top:8px;"></div>
-                       </div>
-                       <div style="margin-bottom:12px;">
-                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">类型</label>
-                           <select id="newAmmoType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                               <option value="word">词汇</option>
-                               <option value="sentence">句子</option>
-                               <option value="paragraph">段落</option>
-                           </select>
-                       </div>
-                       <div style="margin-bottom:12px;">
-                           <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
-                           <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                       </div>
+                                                   <div id="addAmmoForm" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
+                            <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="handleNewAmmoInput(this)"></textarea>
+                            <div id="newAmmoSuggestions" style="margin-top:6px;"></div>
+                        </div>
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">类型</label>
+                            <select id="newAmmoType" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                <option value="word">词汇</option>
+                                <option value="sentence">句子</option>
+                                <option value="paragraph">段落</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
+                            <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                        </div>
                        
                         <!-- 消化笔记区域 -->
                         <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
@@ -1807,17 +1904,17 @@
                        </div>
                                     </div>
                                      
-                                     <div id="ammoLibraryList">
+                                     <div id="ammoLibraryList" style="padding-bottom:0;margin-bottom:0;">
                                          <!-- 动态生成弹药列表 -->
                                      </div>
                                     </div>
                                     
                                     <!-- 右侧：消化笔记 -->
-                                    <div id="digestionNotesPanel" class="digestion-notes-panel" style="flex:1;min-width:0;border-left:1px solid var(--border);padding-left:16px;overflow-y:auto;">
-                                        <div id="digestionNotesContent">
-                                            <div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">
-                                                <div style="font-size:48px;margin-bottom:16px;">📝</div>
-                                                <div>点击左侧弹药查看消化笔记</div>
+                                    <div id="digestionNotesPanel" class="digestion-notes-panel" style="flex:1;min-width:0;border-left:1px solid var(--border);padding-left:12px;padding-bottom:0;overflow-y:auto;font-size:13px;">
+                                        <div id="digestionNotesContent" style="padding-bottom:0;margin-bottom:0;font-size:13px;">
+                                            <div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">
+                                                <div style="font-size:36px;margin-bottom:12px;">📝</div>
+                                                <div style="font-size:13px;">点击左侧弹药查看消化笔记</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2007,30 +2104,60 @@
                       
                        // 迁移弹药库数据,为旧数据添加消化字段
                        if (data.ammoLibrary && data.ammoLibrary.length > 0) {
-                           data.ammoLibrary = data.ammoLibrary.map(ammo => {
-                               // 如果没有 digestion 字段,添加默认值
-                               if (!ammo.digestion) {
-                                   ammo.digestion = {
-                                       whyMakesSense: '',
-                                       solvesProblem: '',
-                                       cases: [],
-                                       rewrites: [],
-                                       scenarios: [],
-                                       usageHistory: [],
-                                       scenarioPractices: [] // 新增场景练习记录字段
-                                   };
-                               } else {
-                                   // 如果有 digestion 字段但没有 scenarioPractices 字段,添加默认值
-                                   if (!ammo.digestion.scenarioPractices) {
-                                       ammo.digestion.scenarioPractices = [];
-                                   }
-                               }
-                               // 如果没有 digestionProgress 字段,添加默认值
-                               if (ammo.digestionProgress === undefined) {
-                                   ammo.digestionProgress = 0;
-                               }
-                               return ammo;
-                           });
+                            data.ammoLibrary = data.ammoLibrary.map(ammo => {
+                                // 如果没有 digestion 字段,添加默认值
+                                if (!ammo.digestion) {
+                                    ammo.digestion = {
+                                        whyMakesSense: '',
+                                        solvesProblem: '',
+                                        cases: [],
+                                        rewrites: [],
+                                        scenarios: [],
+                                        usageHistory: [],
+                                        scenarioPractices: [] // 新增场景练习记录字段
+                                    };
+                                } else {
+                                    // 如果有 digestion 字段但没有 scenarioPractices 字段,添加默认值
+                                    if (!ammo.digestion.scenarioPractices) {
+                                        ammo.digestion.scenarioPractices = [];
+                                    }
+                                    
+                                    // 兼容旧的应用场景格式（字符串）
+                                    if (ammo.digestion.scenarios && typeof ammo.digestion.scenarios === 'string') {
+                                        const oldScenarios = ammo.digestion.scenarios.split(',').map(s => s.trim()).filter(s => s);
+                                        ammo.digestion.scenarios = oldScenarios.map(scenario => ({
+                                            scenario: scenario,
+                                            reference: ''
+                                        }));
+                                    }
+                                    
+                                    // 兼容旧的场景练习格式（scenarioType）
+                                    if (ammo.digestion.scenarioPractices && ammo.digestion.scenarioPractices.length > 0) {
+                                        ammo.digestion.scenarioPractices = ammo.digestion.scenarioPractices.map(practice => {
+                                            if (practice.scenarioType && !practice.frameworkType) {
+                                                // 将旧的 scenarioType 映射到新的 frameworkType
+                                                const scenarioTypeMap = {
+                                                    'report': { framework: '汇报场景', frameworkType: 'report' },
+                                                    'communication': { framework: '日常交流', frameworkType: 'communication' },
+                                                    'presentation': { framework: '演讲展示', frameworkType: 'presentation' }
+                                                };
+                                                const mapped = scenarioTypeMap[practice.scenarioType] || { framework: '自定义场景', frameworkType: 'custom' };
+                                                return {
+                                                    ...practice,
+                                                    framework: mapped.framework,
+                                                    frameworkType: mapped.frameworkType
+                                                };
+                                            }
+                                            return practice;
+                                        });
+                                    }
+                                }
+                                // 如果没有 digestionProgress 字段,添加默认值
+                                if (ammo.digestionProgress === undefined) {
+                                    ammo.digestionProgress = 0;
+                                }
+                                return ammo;
+                            });
                        }
                       
                         if (parsed.aiConfig) {
@@ -7151,52 +7278,63 @@
           let html = '';
           
           if (digestion.whyMakesSense) {
-              html += `<div style="margin-bottom:8px;"><strong>为什么有道理?</strong><br/>${escapeHtml(digestion.whyMakesSense)}</div>`;
+              html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">为什么有道理?</strong><br/>${escapeHtml(digestion.whyMakesSense)}</div>`;
           }
           
           if (digestion.solvesProblem) {
-              html += `<div style="margin-bottom:8px;"><strong>解决了什么问题?</strong><br/>${escapeHtml(digestion.solvesProblem)}</div>`;
+              html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">解决了什么问题?</strong><br/>${escapeHtml(digestion.solvesProblem)}</div>`;
           }
           
           if (digestion.cases && digestion.cases.length > 0) {
-              html += `<div style="margin-bottom:8px;"><strong>个人案例:</strong>`;
+              html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">个人案例:</strong>`;
               digestion.cases.forEach((c, index) => {
-                  html += `<div style="margin-left:12px;margin-top:4px;">案例${index + 1}: ${escapeHtml(c.situation)}</div>`;
+                  html += `<div style="margin-left:10px;margin-top:3px;font-size:12px;">案例${index + 1}: ${escapeHtml(c.situation)}</div>`;
               });
               html += `</div>`;
           }
           
           if (digestion.rewrites && digestion.rewrites.length > 0) {
-              html += `<div style="margin-bottom:8px;"><strong>我的改写:</strong>`;
+              html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">我的改写:</strong>`;
               digestion.rewrites.forEach((r, index) => {
-                  html += `<div style="margin-left:12px;margin-top:4px;">${index + 1}. ${escapeHtml(r)}</div>`;
+                  html += `<div style="margin-left:10px;margin-top:3px;font-size:12px;">${index + 1}. ${escapeHtml(r)}</div>`;
               });
               html += `</div>`;
           }
           
-          if (digestion.scenarios && digestion.scenarios.length > 0) {
-              html += `<div style="margin-bottom:8px;"><strong>应用场景:</strong> ${digestion.scenarios.map(s => `<span class="ammo-item-tag">${s}</span>`).join(' ')}</div>`;
-          }
+           if (digestion.scenarios && digestion.scenarios.length > 0) {
+               html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">应用场景:</strong>`;
+               digestion.scenarios.forEach((s, index) => {
+                   const scenarioText = typeof s === 'string' ? s : s.scenario;
+                   const referenceText = typeof s === 'string' ? '' : s.reference;
+                   html += `<div class="scenario-card" style="margin-left:10px;margin-top:3px;padding:6px;background:var(--bg);border-radius:4px;border:1px solid var(--border);">`;
+                   html += `<div class="scenario-card-title" style="font-weight:500;margin-bottom:3px;font-size:12px;">${index + 1}. ${escapeHtml(scenarioText)}</div>`;
+                   if (referenceText) {
+                       html += `<div class="scenario-card-reference" style="color:var(--text-secondary);font-size:11px;">💡 ${escapeHtml(referenceText)}</div>`;
+                   }
+                   html += `</div>`;
+               });
+               html += `</div>`;
+           }
           
            if (digestion.usageHistory && digestion.usageHistory.length > 0) {
-               html += `<div style="margin-bottom:8px;"><strong>使用记录:</strong>`;
+               html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">使用记录:</strong>`;
                digestion.usageHistory.forEach((h, index) => {
-                   html += `<div style="margin-left:12px;margin-top:4px;font-size:12px;color:var(--text-secondary);">${h.date}: ${escapeHtml(h.scenario)} - ${escapeHtml(h.effect)}</div>`;
+                   html += `<div style="margin-left:10px;margin-top:3px;font-size:11px;color:var(--text-secondary);">${h.date}: ${escapeHtml(h.scenario)} - ${escapeHtml(h.effect)}</div>`;
                });
                html += `</div>`;
            }
            
            // 场景练习记录
            if (digestion.scenarioPractices && digestion.scenarioPractices.length > 0) {
-                html += `<div style="margin-bottom:8px;"><strong>🎭 场景练习记录:</strong>`;
-                html += `<div id="scenario-practices-${ammo.id}" style="margin-left:12px;margin-top:4px;">`;
+                html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">🎭 场景练习记录:</strong>`;
+                html += `<div id="scenario-practices-${ammo.id}" style="margin-left:10px;margin-top:3px;">`;
                 html += renderScenarioPracticeRecords(digestion.scenarioPractices, ammo.id);
                html += `</div>`;
                html += `</div>`;
            }
            
            if (!html) {
-               html = '<div style="color:var(--text-secondary);">暂无消化笔记</div>';
+               html = '<div style="color:var(--text-secondary);font-size:13px;">暂无消化笔记</div>';
            }
            
            return html;
@@ -7219,16 +7357,16 @@
                
                // 添加编辑按钮
                const editButton = `
-                   <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-                       <div style="margin-bottom:12px;">
-                           <strong style="font-size:16px;">${ammo.content}</strong>
+                   <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                       <div style="margin-bottom:8px;">
+                           <strong style="font-size:14px;">${ammo.content}</strong>
                        </div>
-                       <div style="color:var(--text-secondary);font-size:13px;margin-bottom:12px;">
+                       <div style="color:var(--text-secondary);font-size:12px;margin-bottom:8px;">
                            类型: ${ammo.type} | 来源: ${ammo.source || '无'}
                        </div>
                        <button class="btn btn-primary" onclick="showEditDigestionForm('${ammoId}')">✏️ 编辑消化笔记</button>
                    </div>
-                   <div class="digestion-content-display">
+                   <div class="digestion-content-display" style="font-size:13px;">
                        ${digestionHtml}
                    </div>
                `;
@@ -7248,10 +7386,259 @@
                document.getElementById('backToAmmoListBtn').classList.add('hidden');
                document.querySelector('.ammo-list-panel').style.display = 'block';
                document.querySelector('.digestion-notes-panel').style.display = 'none';
-           }
-       
-       // 显示编辑消化笔记表单
-       function showEditDigestionForm(ammoId) {
+            }
+
+         // 渲染应用场景（编辑模式）
+         function renderScenariosForEdit(scenarios, ammoId) {
+             if (!scenarios || scenarios.length === 0) {
+                 return '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">暂无应用场景，点击下方按钮AI生成</div>';
+             }
+             
+             let html = '';
+             scenarios.forEach((s, index) => {
+                 const scenarioText = typeof s === 'string' ? s : s.scenario;
+                 const referenceText = typeof s === 'string' ? '' : s.reference;
+                 html += `
+                     <div class="scenario-card" style="margin-bottom:8px;padding:8px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
+                         <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px;">
+                             <strong style="font-size:13px;">${index + 1}. ${escapeHtml(scenarioText)}</strong>
+                             <button class="btn btn-small btn-secondary" onclick="deleteScenario('${ammoId}', ${index})" style="padding:2px 6px;font-size:10px;">删除</button>
+                         </div>
+                         ${referenceText ? `<div style="color:var(--text-secondary);font-size:12px;">💡 ${escapeHtml(referenceText)}</div>` : ''}
+                     </div>
+                 `;
+             });
+             return html;
+         }
+         
+         // 渲染表达框架（编辑模式）
+         function renderFrameworksForEdit(ammoId) {
+             const frameworks = [
+                 { type: 'prep', name: 'PREP结构', icon: '📊', description: '观点-理由-例子-观点' },
+                 { type: 'star', name: 'STAR法则', icon: '⭐', description: '情境-任务-行动-结果' },
+                 { type: 'pyramid', name: '金字塔原理', icon: '🔺', description: '结论先行-以上统下-归类分组-逻辑递进' },
+                 { type: 'report', name: '汇报场景', icon: '📊', description: '结构化工作汇报' },
+                 { type: 'communication', name: '日常交流', icon: '💬', description: '自然流畅的对话' },
+                 { type: 'presentation', name: '演讲展示', icon: '🎤', description: '吸引人的演讲' }
+             ];
+             
+             let html = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">';
+             frameworks.forEach(fw => {
+                 html += `
+                     <button class="btn btn-small btn-secondary" onclick="selectFramework('${ammoId}', '${fw.type}', '${fw.name}')" style="padding:4px 8px;font-size:11px;">
+                         ${fw.icon} ${fw.name}
+                     </button>
+                 `;
+             });
+             html += '</div>';
+             html += '<div style="font-size:11px;color:var(--text-secondary);">点击选择一个表达框架开始练习</div>';
+             return html;
+         }
+         
+         // 选择表达框架
+         function selectFramework(ammoId, frameworkType, frameworkName) {
+             const promptArea = document.getElementById(`editScenarioPromptArea-${ammoId}`);
+             const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
+             
+                          // 获取框架提示
+                          const frameworkPrompts = {
+                              'prep': `PREP结构练习
+             
+             1. P - Point（观点）（30秒）
+                用这个弹药表达你的核心观点
+                "我认为..."
+             
+             2. R - Reason（理由）（1分钟）
+                解释为什么这个观点重要
+                "这是因为..."
+             
+             3. E - Example（例子）（1分钟）
+                举一个具体的例子来支撑
+                "比如..."
+             
+             4. P - Point（观点）（30秒）
+                重新强调你的观点
+                "所以，我认为..."`,
+                              
+                              'star': `STAR法则练习
+             
+             1. S - Situation（情境）（30秒）
+                描述当时的背景情况
+                "当时的情况是..."
+             
+             2. T - Task（任务）（30秒）
+                说明你面临的任务或挑战
+                "我需要..."
+             
+             3. A - Action（行动）（1分钟）
+                描述你采取的具体行动
+                "用这个弹药来表达：[在这里使用你的弹药内容]"
+                "我采取了..."
+             
+             4. R - Result（结果）（30秒）
+                说明行动带来的结果
+                "最终..."`,
+                              
+                              'pyramid': `金字塔原理练习
+             
+             1. 结论先行（30秒）
+                直接说出核心结论
+                "用这个弹药来表达：[在这里使用你的弹药内容]"
+                "我的结论是..."
+             
+             2. 以上统下（1分钟）
+                用2-3个论点支撑结论
+                "第一...第二...第三..."
+             
+             3. 归类分组（1分钟）
+                将相关论点归类
+                "这些论点可以分为..."
+             
+             4. 逻辑递进（30秒）
+                按照逻辑顺序组织
+                "因此..."`,
+                              
+                              'report': `汇报场景练习
+             
+             1. 开场白（20秒）
+                "各位领导/同事，今天我想汇报的是..."
+             
+             2. 现状分析（1分钟）
+                "用这个弹药来表达：[在这里使用你的弹药内容]"
+             
+             3. 解决方案（1分钟）
+                "基于以上分析，我建议..."
+             
+             4. 预期成果（30秒）
+                "实施这个方案后，我们预期..."`,
+                              
+                              'communication': `日常交流练习
+             
+             1. 自然开场（15秒）
+                "对了，最近我有个想法想和你聊聊..."
+             
+             2. 表达观点（45秒）
+                "用这个弹药来表达：[在这里使用你的弹药内容]"
+             
+             3. 举例说明（30秒）
+                "举个例子，就像上次..."
+             
+             4. 寻求反馈（30秒）
+                "你怎么看这个问题？"`,
+                              
+                              'presentation': `演讲展示练习
+             
+             1. 引人入胜的开场（30秒）
+                "想象一下，如果..."
+             
+             2. 问题呈现（45秒）
+                "我们经常面临这样的困境..."
+             
+             3. 核心观点阐述（1.5分钟）
+                "用这个弹药来表达：[在这里使用你的弹药内容]"
+             
+             4. 故事支撑（1分钟）
+                "让我给大家讲个故事..."`
+                          };
+             
+             promptDiv.innerHTML = frameworkPrompts[frameworkType] || '请选择一个框架';
+             promptArea.classList.remove('hidden');
+             
+             // 保存当前选择的框架
+             document.getElementById(`editDigestionScenarioType-${ammoId}`).value = frameworkType;
+         }
+         
+         // AI生成应用场景
+         async function generateAIScenarios(ammoId) {
+             const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+             if (!ammo) return;
+             
+             // 检查AI配置
+             if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                 showToast('请先配置AI');
+                 return;
+             }
+             
+             const container = document.getElementById(`editDigestionScenarios-${ammoId}`);
+             container.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成应用场景...</div>';
+             
+             try {
+                 const prompt = `请为以下这句话生成3-5个具体的应用场景，每个场景包含场景名称和参考话术。
+     
+     句子：${ammo.content}
+     
+     请以JSON格式返回，格式如下：
+     [
+       {
+         "scenario": "场景名称",
+         "reference": "在这个场景中如何使用这句话的参考话术"
+       }
+     ]
+     
+     要求：
+     1. 场景要具体、实用
+     2. 参考话术要自然、贴近实际使用
+     3. 覆盖不同的使用场景（工作、学习、生活等）`;
+                 
+                 const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+                 
+                 // 解析AI返回的JSON
+                 let scenarios;
+                 try {
+                     // 尝试提取JSON部分
+                     const jsonMatch = response.match(/\[[\s\S]*\]/);
+                     if (jsonMatch) {
+                         scenarios = JSON.parse(jsonMatch[0]);
+                     } else {
+                         throw new Error('无法解析AI返回的数据');
+                     }
+                 } catch (e) {
+                     console.error('解析AI返回失败:', e);
+                     // 如果解析失败，使用默认场景
+                     scenarios = [
+                         { scenario: '工作汇报', reference: '在周报或月报中引用这句话来总结工作成果' },
+                         { scenario: '团队沟通', reference: '在团队讨论时用这句话来表达观点' },
+                         { scenario: '个人反思', reference: '在写日记或自我反思时使用这句话' }
+                     ];
+                 }
+                 
+                 // 更新弹药数据
+                 if (!ammo.digestion) {
+                     ammo.digestion = {};
+                 }
+                 ammo.digestion.scenarios = scenarios;
+                 
+                 // 重新渲染
+                 container.innerHTML = renderScenariosForEdit(scenarios, ammoId);
+                 
+                 // 保存数据
+                 saveData();
+                 
+             } catch (error) {
+                 console.error('AI生成应用场景失败:', error);
+                 container.innerHTML = '<div style="color:var(--danger);font-size:12px;padding:8px;">❌ AI生成失败，请稍后重试</div>';
+             }
+         }
+         
+         // 删除应用场景
+         function deleteScenario(ammoId, index) {
+             const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+             if (!ammo || !ammo.digestion || !ammo.digestion.scenarios) return;
+             
+             if (!confirm('确定要删除这个应用场景吗？')) return;
+             
+             ammo.digestion.scenarios.splice(index, 1);
+             
+             // 重新渲染
+             const container = document.getElementById(`editDigestionScenarios-${ammoId}`);
+             container.innerHTML = renderScenariosForEdit(ammo.digestion.scenarios, ammoId);
+             
+             // 保存数据
+             saveData();
+         }
+
+         // 显示编辑消化笔记表单
+         function showEditDigestionForm(ammoId) {
            const ammo = data.ammoLibrary.find(a => a.id === ammoId);
            if (!ammo) return;
            
@@ -7288,27 +7675,28 @@
                        <button class="btn btn-small btn-secondary" onclick="addDigestionRewrite('${ammoId}')" style="margin-top:8px;">+ 添加改写</button>
                    </div>
                    
-                    <div style="margin-bottom:12px;">
-                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">应用场景（用逗号分隔）</label>
-                        <input type="text" id="editDigestionScenarios-${ammoId}" value="${escapeHtml((digestion.scenarios || []).join(', '))}" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                    </div>
-                    
-                    <!-- 场景练习添加区域 -->
-                    <div style="margin-bottom:12px;padding-top:12px;border-top:1px solid var(--border);">
-                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎭 添加场景练习</label>
-                        <select id="editDigestionScenarioType-${ammoId}" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;" onchange="updateEditScenarioPrompt('${ammoId}')">
-                            <option value="">-- 选择场景 --</option>
-                            <option value="report">📊 汇报场景</option>
-                            <option value="communication">💬 日常交流</option>
-                            <option value="presentation">🎤 演讲展示</option>
-                        </select>
-                        <div id="editScenarioPromptArea-${ammoId}" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);">
-                            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 提示：</div>
-                            <div id="editScenarioPrompt-${ammoId}" style="font-size:12px;line-height:1.5;"></div>
-                        </div>
-                        <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据提示进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;"></textarea>
-                        <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
-                    </div>
+                     <div style="margin-bottom:12px;">
+                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎯 应用场景</label>
+                         <div id="editDigestionScenarios-${ammoId}">
+                             ${renderScenariosForEdit(digestion.scenarios || [], ammoId)}
+                         </div>
+                         <button class="btn btn-small btn-primary" onclick="generateAIScenarios('${ammoId}')" style="margin-top:8px;">✨ AI生成应用场景</button>
+                     </div>
+                     
+                     <!-- 场景练习添加区域 -->
+                     <div style="margin-bottom:12px;padding-top:12px;border-top:1px solid var(--border);">
+                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎭 添加场景练习</label>
+                         <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
+                         <div id="editDigestionFrameworks-${ammoId}">
+                             ${renderFrameworksForEdit(ammoId)}
+                         </div>
+                         <div id="editScenarioPromptArea-${ammoId}" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);">
+                             <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 提示：</div>
+                             <div id="editScenarioPrompt-${ammoId}" style="font-size:12px;line-height:1.5;"></div>
+                         </div>
+                         <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据提示进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;"></textarea>
+                         <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
+                     </div>
                     
                     <div style="display:flex;gap:8px;">
                         <button class="btn btn-primary" onclick="saveDigestionNotes('${ammoId}')">保存</button>
@@ -7332,15 +7720,15 @@
                          </div>
                          <button class="btn btn-secondary" onclick="showDigestionNotesPanel('${ammoId}')">← 返回查看</button>
                      </div>
-                 `;
-                 
-                 content.innerHTML = headerHtml + formHtml;
-                 
-                 // 渲染案例和改写
-                 renderDigestionCases(digestion.cases || [], ammoId);
-                 renderDigestionRewrites(digestion.rewrites || [], ammoId);
-             }
-         }
+                                  `;
+                                  
+                                  content.innerHTML = headerHtml + formHtml;
+                                  
+                                  // 渲染案例和改写
+                                  renderDigestionCases(digestion.cases || [], ammoId);
+                                  renderDigestionRewrites(digestion.rewrites || [], ammoId);
+                              }
+          }
        
         // 隐藏编辑消化笔记表单
         function hideEditDigestionForm() {
@@ -7645,31 +8033,47 @@
            window.currentScenarioPractice = null;
        }
        
-        // 渲染场景练习记录
-        function renderScenarioPracticeRecords(practices, ammoId) {
-            if (!practices || practices.length === 0) {
-                return '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">暂无练习记录</div>';
-            }
-            
-            let html = '';
-            practices.forEach(practice => {
-                const scenario = scenarioConfig[practice.scenarioType] || { name: practice.scenarioName, icon: '📝' };
-                html += `
-                    <div class="scenario-practice-record">
-                        <div class="scenario-practice-header">
-                            <span class="scenario-practice-type">${scenario.icon} ${scenario.name}</span>
-                            <span class="scenario-practice-time">${formatDateTime(practice.createdAt)}</span>
-                        </div>
-                        <div class="scenario-practice-content">${escapeHtml(practice.content)}</div>
-                        <div class="scenario-practice-actions">
-                            <button class="btn btn-small btn-secondary" onclick="deleteScenarioPractice('${practice.id}', '${ammoId}')">删除</button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            return html;
-        }
+         // 渲染场景练习记录
+         function renderScenarioPracticeRecords(practices, ammoId) {
+             if (!practices || practices.length === 0) {
+                 return '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">暂无练习记录</div>';
+             }
+             
+             let html = '';
+             practices.forEach(practice => {
+                 // 兼容新旧数据格式
+                 const frameworkName = practice.framework || practice.scenarioName || '自定义场景';
+                 const frameworkIcon = getFrameworkIcon(practice.frameworkType || practice.scenarioType);
+                 html += `
+                     <div class="scenario-practice-record">
+                         <div class="scenario-practice-header">
+                             <span class="scenario-practice-type">${frameworkIcon} ${frameworkName}</span>
+                             <span class="scenario-practice-time">${formatDateTime(practice.createdAt)}</span>
+                         </div>
+                         <div class="scenario-practice-content">${escapeHtml(practice.content)}</div>
+                         <div class="scenario-practice-actions">
+                             <button class="btn btn-small btn-secondary" onclick="deleteScenarioPractice('${practice.id}', '${ammoId}')">删除</button>
+                         </div>
+                     </div>
+                 `;
+             });
+             
+             return html;
+         }
+         
+         // 获取框架图标
+         function getFrameworkIcon(frameworkType) {
+             const iconMap = {
+                 'prep': '📊',
+                 'star': '⭐',
+                 'pyramid': '🔺',
+                 'report': '📊',
+                 'communication': '💬',
+                 'presentation': '🎤',
+                 'custom': '📝'
+             };
+             return iconMap[frameworkType] || '📝';
+         }
        
        // 删除场景练习记录
        function deleteScenarioPractice(practiceId, ammoId) {
@@ -7713,46 +8117,56 @@
            promptArea.classList.remove('hidden');
        }
        
-       // 添加场景练习记录到消化笔记
-       function addScenarioPracticeToDigestion(ammoId) {
-           const scenarioType = document.getElementById(`editDigestionScenarioType-${ammoId}`).value;
-           const practiceContent = document.getElementById(`editDigestionPracticeContent-${ammoId}`).value.trim();
-           
-           if (!scenarioType) {
-               showToast('请先选择场景');
-               return;
-           }
-           
-           if (!practiceContent) {
-               showToast('请输入练习内容');
-               return;
-           }
-           
-           const ammo = data.ammoLibrary.find(a => a.id === ammoId);
-           if (!ammo) return;
-           
-           if (!ammo.digestion) {
-               ammo.digestion = {};
-           }
-           
-           if (!ammo.digestion.scenarioPractices) {
-               ammo.digestion.scenarioPractices = [];
-           }
-           
-           // 创建练习记录
-           const practiceRecord = {
-               id: genId(),
-               scenarioType: scenarioType,
-               scenarioName: scenarioConfig[scenarioType].name,
-               content: practiceContent,
-               createdAt: nowStr()
-           };
-           
-            // 添加到练习记录
-            ammo.digestion.scenarioPractices.push(practiceRecord);
+        // 添加场景练习记录到消化笔记
+        function addScenarioPracticeToDigestion(ammoId) {
+            const frameworkType = document.getElementById(`editDigestionScenarioType-${ammoId}`).value;
+            const practiceContent = document.getElementById(`editDigestionPracticeContent-${ammoId}`).value.trim();
             
-            // 保存数据
-            saveData();
+            if (!frameworkType) {
+                showToast('请先选择表达框架');
+                return;
+            }
+            
+            if (!practiceContent) {
+                showToast('请输入练习内容');
+                return;
+            }
+            
+            const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+            if (!ammo) return;
+            
+            if (!ammo.digestion) {
+                ammo.digestion = {};
+            }
+            
+            if (!ammo.digestion.scenarioPractices) {
+                ammo.digestion.scenarioPractices = [];
+            }
+            
+            // 获取框架名称
+            const frameworkNames = {
+                'prep': 'PREP结构',
+                'star': 'STAR法则',
+                'pyramid': '金字塔原理',
+                'report': '汇报场景',
+                'communication': '日常交流',
+                'presentation': '演讲展示'
+            };
+            
+            // 创建练习记录
+            const practiceRecord = {
+                id: genId(),
+                frameworkType: frameworkType,
+                framework: frameworkNames[frameworkType] || '自定义框架',
+                content: practiceContent,
+                createdAt: nowStr()
+            };
+            
+             // 添加到练习记录
+             ammo.digestion.scenarioPractices.push(practiceRecord);
+             
+             // 保存数据
+             saveData();
             
             // 清空输入
             document.getElementById(`editDigestionScenarioType-${ammoId}`).value = '';
