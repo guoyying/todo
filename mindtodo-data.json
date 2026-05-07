@@ -1039,13 +1039,14 @@
       "type": "task",
       "content": "隐患单回复",
       "createdAt": "2026-05-07T02:40:55.984Z",
-      "updatedAt": "2026-05-07T08:46:26.664Z",
+      "updatedAt": "2026-05-07T08:51:42.799Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mov8s1zzu3jy4"
+      "placedIn": "slot_mov8s1zzu3jy4",
+      "doneAt": "2026-05-07T08:51:42.799Z"
     },
     {
       "id": "mouw52k0c2qjk",
@@ -1147,15 +1148,23 @@
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
       "createdAt": "2026-05-07T07:13:59.266Z",
-      "updatedAt": "2026-05-07T08:46:31.730Z",
+      "updatedAt": "2026-05-07T09:04:59.386Z",
       "tags": [
         "光路资源核查"
       ],
       "done": false,
-      "dueTime": "10min",
+      "dueTime": "",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mov8s1zzu3jy4"
+      "subtasks": [
+        {
+          "id": "1778144680655",
+          "content": "vlookup匹配一下s转o和客资的清单",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     },
     {
       "id": "mov69iyp6el5s",
@@ -1721,6 +1730,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T08:46:15.830Z"
+    "lastSync": "2026-05-07T08:46:43.207Z"
   }
 }
