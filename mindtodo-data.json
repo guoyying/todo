@@ -1059,7 +1059,7 @@
       "type": "task",
       "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
       "createdAt": "2026-05-07T06:21:01.691Z",
-      "updatedAt": "2026-05-07T06:21:01.691Z",
+      "updatedAt": "2026-05-07T06:54:14.369Z",
       "tags": [
         "退网"
       ],
@@ -1071,14 +1071,14 @@
           "id": "mov3l46z10mjc",
           "content": "梳理800M可退设备情况（多少个是已提醒县分但还没上单的）",
           "estimatedTime": "10min",
-          "done": false,
+          "done": true,
           "placedIn": null
         },
         {
           "id": "mov3l46z1b5gx",
           "content": "梳理每个县分距离二季度还有多少台；",
           "estimatedTime": "6min",
-          "done": false,
+          "done": true,
           "placedIn": null
         },
         {
@@ -1087,8 +1087,16 @@
           "estimatedTime": "20min",
           "done": false,
           "placedIn": null
+        },
+        {
+          "id": "1778136810754",
+          "content": "写一下可行todo方法：梳理正常计划退网流程的，提醒县分推进单子",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
         }
-      ]
+      ],
+      "placedIn": null
     }
   ],
   "normalFeelings": [
