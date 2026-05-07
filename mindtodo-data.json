@@ -789,9 +789,11 @@
       "type": "task",
       "content": "虚拟网元工作推进",
       "createdAt": "2026-05-06T02:23:23.875Z",
-      "updatedAt": "2026-05-07T02:16:59.780Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-07T02:28:06.826Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -804,20 +806,21 @@
         },
         {
           "id": "1778059262279",
-          "content": "将清单发给政企部看下",
-          "done": false,
+          "content": "将清单发给政企部看下，我得先润色下表述。",
+          "done": true,
           "estimatedTime": "5min",
           "placedIn": null
         },
         {
           "id": "1778120201599",
           "content": "我觉得得先捋一下几种情况和解决办法",
-          "done": false,
+          "done": true,
           "estimatedTime": "9min",
-          "placedIn": "slot_mouun0yqsiit6"
+          "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-07T02:28:02.393Z"
     },
     {
       "id": "motg86pbu6sus",
@@ -1515,6 +1518,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T02:10:56.703Z"
+    "lastSync": "2026-05-07T02:17:04.770Z"
   }
 }
