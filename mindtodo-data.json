@@ -1117,8 +1117,10 @@
       "type": "task",
       "content": "退网数字化：我想对每个县分的设备情况（多少个有效的计划退网、800M可退、零业务）做一个管控表。这样不用每次都筛选。比如我希望呈现：天河：二季度还差xx个。有效计划退网数量xx个，上次流程时间分别为xx。800M可退设备xx个……",
       "createdAt": "2026-05-07T07:11:03.667Z",
-      "updatedAt": "2026-05-07T07:11:03.667Z",
-      "tags": [],
+      "updatedAt": "2026-05-07T07:14:29.696Z",
+      "tags": [
+        "退网"
+      ],
       "done": false,
       "dueTime": null,
       "unknown": true,
@@ -1137,8 +1139,10 @@
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
       "createdAt": "2026-05-07T07:13:59.266Z",
-      "updatedAt": "2026-05-07T07:13:59.266Z",
-      "tags": [],
+      "updatedAt": "2026-05-07T07:14:25.532Z",
+      "tags": [
+        "光路资源核查"
+      ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
@@ -1658,6 +1662,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T07:11:09.232Z"
+    "lastSync": "2026-05-07T07:14:04.808Z"
   }
 }
