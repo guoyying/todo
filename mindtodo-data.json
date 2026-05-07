@@ -1111,6 +1111,26 @@
       "dueTime": "3min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mov5dgj7dhzck",
+      "type": "task",
+      "content": "退网数字化：我想对每个县分的设备情况（多少个有效的计划退网、800M可退、零业务）做一个管控表。这样不用每次都筛选。比如我希望呈现：天河：二季度还差xx个。有效计划退网数量xx个，上次流程时间分别为xx。800M可退设备xx个……",
+      "createdAt": "2026-05-07T07:11:03.667Z",
+      "updatedAt": "2026-05-07T07:11:03.667Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mov5dgj76decz",
+          "content": "写一下，看能不能融入到我的退网工具里头",
+          "estimatedTime": "8min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -1626,6 +1646,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T07:06:07.538Z"
+    "lastSync": "2026-05-07T07:07:24.315Z"
   }
 }
