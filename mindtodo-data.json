@@ -977,15 +977,16 @@
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-05-07T00:55:04.260Z",
-      "updatedAt": "2026-05-07T00:58:40.669Z",
+      "updatedAt": "2026-05-07T01:45:34.057Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "30min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mous12lou03le"
+      "placedIn": "slot_mous12lou03le",
+      "doneAt": "2026-05-07T01:45:34.057Z"
     }
   ],
   "normalFeelings": [
@@ -1190,12 +1191,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mous12lou03le",
-      "name": "9点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
