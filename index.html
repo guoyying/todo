@@ -185,7 +185,7 @@
                   font-size: 12px !important;
               }
               
-              /* 场景练习移动端优化 */
+              /* 表达框架练习移动端优化 */
               .scenario-practice-record {
                   padding: 6px !important;
                   margin-bottom: 6px !important;
@@ -1842,28 +1842,30 @@
                         <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
                             <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">📝 消化笔记（可选）</div>
                             
-                            <!-- 场景练习模块 -->
+                            <!-- 表达框架练习模块 -->
                             <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
-                                <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">🎭 场景练习</div>
+                                <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">🎭 表达框架练习</div>
                                 
                                 <div style="margin-bottom:12px;">
-                                    <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">选择场景</label>
+                                    <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">选择表达框架</label>
                                     <select id="newAmmoScenarioType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" onchange="updateScenarioPrompt()">
-                                        <option value="">-- 请选择场景 --</option>
-                                        <option value="report">📊 汇报场景</option>
-                                        <option value="communication">💬 日常交流</option>
-                                        <option value="presentation">🎤 演讲展示</option>
+                                        <option value="">-- 请选择表达框架 --</option>
+                                        <option value="prep">📊 PREP结构</option>
+                                        <option value="feeling">❤️ 感受事实期待</option>
+                                        <option value="star">⭐ STAR法则</option>
+                                        <option value="kiss">💋 KISS原则</option>
+                                        <option value="pyramid">🔺 金字塔原理</option>
                                     </select>
                                 </div>
                                 
                                 <div id="scenarioPromptArea" class="hidden" style="margin-bottom:12px;padding:12px;background:var(--primary-light);border-radius:8px;border:1px solid var(--primary);">
-                                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">💡 结构化表达提示：</div>
+                                     <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">💡 表达框架提示：</div>
                                     <div id="scenarioPrompt" style="font-size:13px;line-height:1.6;"></div>
                                 </div>
                                 
                                 <div id="scenarioPracticeArea" class="hidden" style="margin-bottom:12px;">
                                     <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">你的表达练习</label>
-                                    <textarea id="newAmmoPracticeContent" rows="4" placeholder="根据提示，尝试用这个弹药进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                                     <textarea id="newAmmoPracticeContent" rows="4" placeholder="根据框架提示，尝试用这个弹药进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                 </div>
                                 
                                 <div id="scenarioActions" class="hidden" style="display:flex;gap:8px;">
@@ -2114,7 +2116,7 @@
                                         rewrites: [],
                                         scenarios: [],
                                         usageHistory: [],
-                                        scenarioPractices: [] // 新增场景练习记录字段
+                                        scenarioPractices: [] // 新增表达框架练习记录字段
                                     };
                                 } else {
                                     // 如果有 digestion 字段但没有 scenarioPractices 字段,添加默认值
@@ -2131,17 +2133,17 @@
                                         }));
                                     }
                                     
-                                    // 兼容旧的场景练习格式（scenarioType）
+                                     // 兼容旧的表达框架练习格式（scenarioType）
                                     if (ammo.digestion.scenarioPractices && ammo.digestion.scenarioPractices.length > 0) {
                                         ammo.digestion.scenarioPractices = ammo.digestion.scenarioPractices.map(practice => {
                                             if (practice.scenarioType && !practice.frameworkType) {
                                                 // 将旧的 scenarioType 映射到新的 frameworkType
                                                 const scenarioTypeMap = {
-                                                    'report': { framework: '汇报场景', frameworkType: 'report' },
-                                                    'communication': { framework: '日常交流', frameworkType: 'communication' },
-                                                    'presentation': { framework: '演讲展示', frameworkType: 'presentation' }
+                                                    'report': { framework: 'PREP结构', frameworkType: 'prep' },
+                                                    'communication': { framework: '感受事实期待', frameworkType: 'feeling' },
+                                                    'presentation': { framework: 'STAR法则', frameworkType: 'star' }
                                                 };
-                                                const mapped = scenarioTypeMap[practice.scenarioType] || { framework: '自定义场景', frameworkType: 'custom' };
+                                                const mapped = scenarioTypeMap[practice.scenarioType] || { framework: '自定义框架', frameworkType: 'custom' };
                                                 return {
                                                     ...practice,
                                                     framework: mapped.framework,
@@ -6298,65 +6300,110 @@
           searchTerm: ''
       };
       
-      // 场景练习配置
+      // 表达框架练习配置
       const scenarioConfig = {
-          report: {
-              name: '汇报场景',
+          prep: {
+              name: 'PREP结构',
               icon: '📊',
-              prompt: `请按照以下结构进行汇报练习：
+              prompt: `请按照以下结构进行PREP表达练习：
 
-1. **背景介绍**（30秒）
-   - 简要说明汇报的背景和目的
+1. **P - Point（观点）**（30秒）
+   - 用这个弹药表达你的核心观点
+   - "我认为..."
 
-2. **核心内容**（2分钟）
-   - 使用这个弹药表达核心观点
-   - 结合具体数据或案例支撑
+2. **R - Reason（理由）**（1分钟）
+   - 解释为什么这个观点重要
+   - "这是因为..."
 
-3. **行动计划**（1分钟）
-   - 基于这个弹药，提出下一步行动建议
+3. **E - Example（例子）**（1分钟）
+   - 举一个具体的例子来支撑
+   - "比如..."
 
-4. **预期效果**（30秒）
-   - 说明实施后的预期成果`
+4. **P - Point（观点）**（30秒）
+   - 重新强调你的观点
+   - "所以，我认为..."`
           },
-          communication: {
-              name: '日常交流',
-              icon: '💬',
-              prompt: `请按照以下结构进行日常交流练习：
+          feeling: {
+              name: '感受事实期待',
+              icon: '❤️',
+              prompt: `请按照以下结构进行感受事实期待表达练习：
 
-1. **开场引入**（15秒）
-   - 自然地引出话题
+1. **感受**（30秒）
+   - 表达你的真实感受
+   - "我感到..."
 
-2. **观点表达**（1分钟）
-   - 用这个弹药表达你的观点
-   - 注意语气和表情
+2. **事实**（1分钟）
+   - 用这个弹药描述客观事实
+   - "具体的情况是..."
 
-3. **举例说明**（30秒）
-   - 结合生活或工作中的例子
-
-4. **互动回应**（15秒）
-   - 预设对方的可能回应并准备回答`
+3. **期待**（30秒）
+   - 清晰表达你的期望
+   - "我希望..."`
           },
-          presentation: {
-              name: '演讲展示',
-              icon: '🎤',
-              prompt: `请按照以下结构进行演讲练习：
+          star: {
+              name: 'STAR法则',
+              icon: '⭐',
+              prompt: `请按照以下结构进行STAR表达练习：
 
-1. **吸引注意**（20秒）
-   - 用一个引人入胜的开场
+1. **S - Situation（情境）**（30秒）
+   - 描述当时的背景情况
+   - "当时的情况是..."
 
-2. **核心观点**（2分钟）
-   - 清晰地使用这个弹药表达核心观点
-   - 使用肢体语言增强表达
+2. **T - Task（任务）**（30秒）
+   - 说明你面临的任务或挑战
+   - "我需要..."
 
-3. **故事支撑**（1分钟）
-   - 用一个生动的故事来支撑观点
+3. **A - Action（行动）**（1分钟）
+   - 描述你采取的具体行动
+   - "用这个弹药来表达：[在这里使用你的弹药内容]"
+   - "我采取了..."
 
-4. **号召行动**（30秒）
-   - 以有力的结尾号召听众行动`
+4. **R - Result（结果）**（30秒）
+   - 说明行动带来的结果
+   - "最终..."`
+          },
+          kiss: {
+              name: 'KISS原则',
+              icon: '💋',
+              prompt: `请按照以下结构进行KISS表达练习：
+
+1. **简单开场**（20秒）
+   - 直接切入主题
+   - "我想说的是..."
+
+2. **核心表达**（1分钟）
+   - 用这个弹药简洁地表达核心观点
+   - "简单来说..."
+
+3. **避免复杂**（30秒）
+   - 不使用专业术语和复杂表达
+   - "换句话说..."`
+          },
+          pyramid: {
+              name: '金字塔原理',
+              icon: '🔺',
+              prompt: `请按照以下结构进行金字塔原理表达练习：
+
+1. **结论先行**（30秒）
+   - 直接说出核心结论
+   - "用这个弹药来表达：[在这里使用你的弹药内容]"
+   - "我的结论是..."
+
+2. **以上统下**（1分钟）
+   - 用2-3个论点支撑结论
+   - "第一...第二...第三..."
+
+3. **归类分组**（1分钟）
+   - 将相关论点归类
+   - "这些论点可以分为..."
+
+4. **逻辑递进**（30秒）
+   - 按照逻辑顺序组织
+   - "因此..."`
           }
       };
       
-      // 当前正在编辑的弹药ID（用于场景练习）
+      // 当前正在编辑的弹药ID（用于表达框架练习）
       let currentEditingAmmoId = null;
      
      // 打开感受记录的AI润色模态框
@@ -7324,9 +7371,9 @@
                html += `</div>`;
            }
            
-           // 场景练习记录
+           // 表达框架练习记录
            if (digestion.scenarioPractices && digestion.scenarioPractices.length > 0) {
-                html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">🎭 场景练习记录:</strong>`;
+                html += `<div style="margin-bottom:6px;font-size:13px;"><strong style="font-size:13px;">🎭 表达框架练习记录:</strong>`;
                 html += `<div id="scenario-practices-${ammo.id}" style="margin-left:10px;margin-top:3px;">`;
                 html += renderScenarioPracticeRecords(digestion.scenarioPractices, ammo.id);
                html += `</div>`;
@@ -7415,11 +7462,10 @@
          function renderFrameworksForEdit(ammoId) {
              const frameworks = [
                  { type: 'prep', name: 'PREP结构', icon: '📊', description: '观点-理由-例子-观点' },
+                 { type: 'feeling', name: '感受事实期待', icon: '❤️', description: '感受-事实-期待' },
                  { type: 'star', name: 'STAR法则', icon: '⭐', description: '情境-任务-行动-结果' },
-                 { type: 'pyramid', name: '金字塔原理', icon: '🔺', description: '结论先行-以上统下-归类分组-逻辑递进' },
-                 { type: 'report', name: '汇报场景', icon: '📊', description: '结构化工作汇报' },
-                 { type: 'communication', name: '日常交流', icon: '💬', description: '自然流畅的对话' },
-                 { type: 'presentation', name: '演讲展示', icon: '🎤', description: '吸引人的演讲' }
+                 { type: 'kiss', name: 'KISS原则', icon: '💋', description: '保持简单直接' },
+                 { type: 'pyramid', name: '金字塔原理', icon: '🔺', description: '结论先行-以上统下-归类分组-逻辑递进' }
              ];
              
              let html = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">';
@@ -7435,118 +7481,67 @@
              return html;
          }
          
-         // 选择表达框架
-         function selectFramework(ammoId, frameworkType, frameworkName) {
-             const promptArea = document.getElementById(`editScenarioPromptArea-${ammoId}`);
-             const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
-             
-                          // 获取框架提示
-                          const frameworkPrompts = {
-                              'prep': `PREP结构练习
-             
-             1. P - Point（观点）（30秒）
-                用这个弹药表达你的核心观点
-                "我认为..."
-             
-             2. R - Reason（理由）（1分钟）
-                解释为什么这个观点重要
-                "这是因为..."
-             
-             3. E - Example（例子）（1分钟）
-                举一个具体的例子来支撑
-                "比如..."
-             
-             4. P - Point（观点）（30秒）
-                重新强调你的观点
-                "所以，我认为..."`,
-                              
-                              'star': `STAR法则练习
-             
-             1. S - Situation（情境）（30秒）
-                描述当时的背景情况
-                "当时的情况是..."
-             
-             2. T - Task（任务）（30秒）
-                说明你面临的任务或挑战
-                "我需要..."
-             
-             3. A - Action（行动）（1分钟）
-                描述你采取的具体行动
-                "用这个弹药来表达：[在这里使用你的弹药内容]"
-                "我采取了..."
-             
-             4. R - Result（结果）（30秒）
-                说明行动带来的结果
-                "最终..."`,
-                              
-                              'pyramid': `金字塔原理练习
-             
-             1. 结论先行（30秒）
-                直接说出核心结论
-                "用这个弹药来表达：[在这里使用你的弹药内容]"
-                "我的结论是..."
-             
-             2. 以上统下（1分钟）
-                用2-3个论点支撑结论
-                "第一...第二...第三..."
-             
-             3. 归类分组（1分钟）
-                将相关论点归类
-                "这些论点可以分为..."
-             
-             4. 逻辑递进（30秒）
-                按照逻辑顺序组织
-                "因此..."`,
-                              
-                              'report': `汇报场景练习
-             
-             1. 开场白（20秒）
-                "各位领导/同事，今天我想汇报的是..."
-             
-             2. 现状分析（1分钟）
-                "用这个弹药来表达：[在这里使用你的弹药内容]"
-             
-             3. 解决方案（1分钟）
-                "基于以上分析，我建议..."
-             
-             4. 预期成果（30秒）
-                "实施这个方案后，我们预期..."`,
-                              
-                              'communication': `日常交流练习
-             
-             1. 自然开场（15秒）
-                "对了，最近我有个想法想和你聊聊..."
-             
-             2. 表达观点（45秒）
-                "用这个弹药来表达：[在这里使用你的弹药内容]"
-             
-             3. 举例说明（30秒）
-                "举个例子，就像上次..."
-             
-             4. 寻求反馈（30秒）
-                "你怎么看这个问题？"`,
-                              
-                              'presentation': `演讲展示练习
-             
-             1. 引人入胜的开场（30秒）
-                "想象一下，如果..."
-             
-             2. 问题呈现（45秒）
-                "我们经常面临这样的困境..."
-             
-             3. 核心观点阐述（1.5分钟）
-                "用这个弹药来表达：[在这里使用你的弹药内容]"
-             
-             4. 故事支撑（1分钟）
-                "让我给大家讲个故事..."`
-                          };
-             
-             promptDiv.innerHTML = frameworkPrompts[frameworkType] || '请选择一个框架';
-             promptArea.classList.remove('hidden');
-             
-             // 保存当前选择的框架
-             document.getElementById(`editDigestionScenarioType-${ammoId}`).value = frameworkType;
-         }
+          // 选择表达框架
+          function selectFramework(ammoId, frameworkType, frameworkName) {
+              const promptArea = document.getElementById(`editScenarioPromptArea-${ammoId}`);
+              const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
+              
+              // 显示加载状态
+              promptDiv.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成参考句式...</div>';
+              promptArea.classList.remove('hidden');
+              
+              // 保存当前选择的框架
+              document.getElementById(`editDigestionScenarioType-${ammoId}`).value = frameworkType;
+              
+              // 调用AI生成参考句式
+              generateFrameworkReference(ammoId, frameworkType, frameworkName);
+          }
+          
+          // AI生成表达框架参考句式
+          async function generateFrameworkReference(ammoId, frameworkType, frameworkName) {
+              const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+              if (!ammo) return;
+              
+              // 检查AI配置
+              if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                  const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
+                  promptDiv.innerHTML = '<div style="color:var(--danger);font-size:12px;padding:8px;">⚠️ 请先配置AI功能</div>';
+                  return;
+              }
+              
+              const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
+              
+              // 框架描述
+              const frameworkDescriptions = {
+                  'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
+                  'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
+                  'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
+                  'kiss': 'KISS原则（Keep It Simple, Stupid - 保持简单直接）',
+                  'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
+              };
+              
+              try {
+                  const prompt = `请根据以下表达框架，为这句话生成具体的参考句式和表达示例。
+ 
+ 表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
+ 
+ 这句话：${ammo.content}
+
+约束条件与要求：
+素材融合： 必须将这句话自然地融入到框架句式中。
+场景化： 为框架设定一个具体的适用场景（如面试、复盘、指导下属等），让句式更具实操性。
+语言风格： 保持专业、有洞察力，同时兼具文学性和画面感。`;
+                  
+                  const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+                  
+                  // 显示AI生成的参考句式
+                  promptDiv.innerHTML = response.replace(/\n/g, '<br/>');
+                  
+              } catch (error) {
+                  console.error('AI生成参考句式失败:', error);
+                  promptDiv.innerHTML = `<div style="color:var(--danger);font-size:12px;padding:8px;">❌ 生成失败：${error.message}</div>`;
+              }
+          }
          
          // AI生成应用场景
          async function generateAIScenarios(ammoId) {
@@ -7683,20 +7678,20 @@
                          <button class="btn btn-small btn-primary" onclick="generateAIScenarios('${ammoId}')" style="margin-top:8px;">✨ AI生成应用场景</button>
                      </div>
                      
-                     <!-- 场景练习添加区域 -->
-                     <div style="margin-bottom:12px;padding-top:12px;border-top:1px solid var(--border);">
-                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎭 添加场景练习</label>
-                         <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
-                         <div id="editDigestionFrameworks-${ammoId}">
-                             ${renderFrameworksForEdit(ammoId)}
-                         </div>
-                         <div id="editScenarioPromptArea-${ammoId}" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);">
-                             <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 提示：</div>
-                             <div id="editScenarioPrompt-${ammoId}" style="font-size:12px;line-height:1.5;"></div>
-                         </div>
-                         <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据提示进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;"></textarea>
-                         <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
-                     </div>
+                      <!-- 表达框架练习添加区域 -->
+                      <div style="margin-bottom:12px;padding-top:12px;border-top:1px solid var(--border);">
+                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎭 添加表达框架练习</label>
+                          <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
+                          <div id="editDigestionFrameworks-${ammoId}">
+                              ${renderFrameworksForEdit(ammoId)}
+                          </div>
+                          <div id="editScenarioPromptArea-${ammoId}" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);">
+                              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 框架提示：</div>
+                              <div id="editScenarioPrompt-${ammoId}" style="font-size:12px;line-height:1.5;"></div>
+                          </div>
+                          <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据框架提示进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;"></textarea>
+                          <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
+                      </div>
                     
                     <div style="display:flex;gap:8px;">
                         <button class="btn btn-primary" onclick="saveDigestionNotes('${ammoId}')">保存</button>
@@ -7967,17 +7962,18 @@
            document.getElementById('addAmmoForm').classList.add('hidden');
            document.getElementById('newAmmoContent').value = '';
            document.getElementById('newAmmoTags').value = '';
-           // 清空场景练习相关字段
+           // 清空表达框架练习相关字段
            clearScenarioPractice();
        }
        
-       // 更新场景提示
+       // 更新表达框架提示
        function updateScenarioPrompt() {
            const scenarioType = document.getElementById('newAmmoScenarioType').value;
            const promptArea = document.getElementById('scenarioPromptArea');
            const practiceArea = document.getElementById('scenarioPracticeArea');
            const actionsArea = document.getElementById('scenarioActions');
            const promptContent = document.getElementById('scenarioPrompt');
+           const ammoContent = document.getElementById('newAmmoContent').value.trim();
            
            if (!scenarioType || !scenarioConfig[scenarioType]) {
                promptArea.classList.add('hidden');
@@ -7986,20 +7982,89 @@
                return;
            }
            
-           const scenario = scenarioConfig[scenarioType];
-           promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
            promptArea.classList.remove('hidden');
            practiceArea.classList.remove('hidden');
            actionsArea.classList.remove('hidden');
+           
+           // 如果有弹药内容，调用AI生成参考句式
+           if (ammoContent) {
+               generateFrameworkReferenceForNewAmmo(scenarioType, ammoContent);
+           } else {
+               // 如果没有弹药内容，显示默认提示
+               const scenario = scenarioConfig[scenarioType];
+               promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
+           }
        }
        
-       // 保存场景练习记录
+       // 为新弹药生成表达框架参考句式
+       async function generateFrameworkReferenceForNewAmmo(frameworkType, ammoContent) {
+           const promptContent = document.getElementById('scenarioPrompt');
+           
+           // 检查AI配置
+           if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+               const scenario = scenarioConfig[frameworkType];
+               promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
+               return;
+           }
+           
+           // 显示加载状态
+           promptContent.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成参考句式...</div>';
+           
+           const frameworkName = scenarioConfig[frameworkType].name;
+           
+           // 框架描述
+           const frameworkDescriptions = {
+               'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
+               'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
+               'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
+               'kiss': 'KISS原则（Keep It Simple, Stupid - 保持简单直接）',
+               'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
+           };
+           
+           try {
+               const prompt = `请根据以下表达框架，为这句话生成具体的参考句式和表达示例。
+ 
+ 表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
+ 
+ 这句话：${ammoContent}
+ 
+ 请按照以下格式生成参考句式：
+ 
+ 1. **框架结构说明**
+    简要说明这个框架的核心要点和使用场景
+ 
+ 2. **参考句式**
+    根据这句话，提供2-3个不同场景下的具体表达示例，每个示例都要严格按照框架结构来组织
+ 
+ 3. **表达技巧**
+    提供使用这个框架时的实用技巧和注意事项
+ 
+ 要求：
+ 1. 参考句式要具体、实用，贴近实际使用场景
+ 2. 每个示例都要清晰标注框架的各个部分
+ 3. 表达要自然流畅，避免生硬
+ 4. 提供不同场景下的变体（如工作、学习、生活等）`;
+               
+               const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+               
+               // 显示AI生成的参考句式
+               promptContent.innerHTML = response.replace(/\n/g, '<br/>');
+               
+           } catch (error) {
+               console.error('AI生成参考句式失败:', error);
+               // 如果AI调用失败，显示默认提示
+               const scenario = scenarioConfig[frameworkType];
+               promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
+           }
+       }
+       
+       // 保存表达框架练习记录
        function saveScenarioPractice() {
            const scenarioType = document.getElementById('newAmmoScenarioType').value;
            const practiceContent = document.getElementById('newAmmoPracticeContent').value.trim();
            
            if (!scenarioType) {
-               showToast('请先选择场景');
+               showToast('请先选择表达框架');
                return;
            }
            
@@ -8023,7 +8088,7 @@
            showToast('练习记录已保存，请继续填写弹药信息并保存');
        }
        
-       // 清空场景练习
+       // 清空表达框架练习
        function clearScenarioPractice() {
            document.getElementById('newAmmoScenarioType').value = '';
            document.getElementById('newAmmoPracticeContent').value = '';
@@ -8033,7 +8098,7 @@
            window.currentScenarioPractice = null;
        }
        
-         // 渲染场景练习记录
+         // 渲染表达框架练习记录
          function renderScenarioPracticeRecords(practices, ammoId) {
              if (!practices || practices.length === 0) {
                  return '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">暂无练习记录</div>';
@@ -8042,7 +8107,7 @@
              let html = '';
              practices.forEach(practice => {
                  // 兼容新旧数据格式
-                 const frameworkName = practice.framework || practice.scenarioName || '自定义场景';
+                 const frameworkName = practice.framework || practice.scenarioName || '自定义框架';
                  const frameworkIcon = getFrameworkIcon(practice.frameworkType || practice.scenarioType);
                  html += `
                      <div class="scenario-practice-record">
@@ -8061,21 +8126,23 @@
              return html;
          }
          
-         // 获取框架图标
-         function getFrameworkIcon(frameworkType) {
-             const iconMap = {
-                 'prep': '📊',
-                 'star': '⭐',
-                 'pyramid': '🔺',
-                 'report': '📊',
-                 'communication': '💬',
-                 'presentation': '🎤',
-                 'custom': '📝'
-             };
-             return iconMap[frameworkType] || '📝';
-         }
+          // 获取框架图标
+          function getFrameworkIcon(frameworkType) {
+              const iconMap = {
+                  'prep': '📊',
+                  'feeling': '❤️',
+                  'star': '⭐',
+                  'kiss': '💋',
+                  'pyramid': '🔺',
+                  'report': '📊',
+                  'communication': '💬',
+                  'presentation': '🎤',
+                  'custom': '📝'
+              };
+              return iconMap[frameworkType] || '📝';
+          }
        
-       // 删除场景练习记录
+       // 删除表达框架练习记录
        function deleteScenarioPractice(practiceId, ammoId) {
            if (!confirm('确定要删除这条练习记录吗？')) return;
            
@@ -8092,7 +8159,7 @@
             // 重新渲染弹药库
             renderAmmoLibrary();
             
-            // 更新侧拉面板中的场景练习记录显示
+             // 更新侧拉面板中的表达框架练习记录显示
             const practicesContainer = document.getElementById(`scenario-practices-${ammoId}`);
             if (practicesContainer) {
                 practicesContainer.innerHTML = renderScenarioPracticeRecords(ammo.digestion.scenarioPractices, ammoId);
@@ -8101,7 +8168,7 @@
             showToast('已删除练习记录');
         }
        
-       // 更新编辑表单中的场景提示
+       // 更新编辑表单中的表达框架提示
        function updateEditScenarioPrompt(ammoId) {
            const scenarioType = document.getElementById(`editDigestionScenarioType-${ammoId}`).value;
            const promptArea = document.getElementById(`editScenarioPromptArea-${ammoId}`);
@@ -8117,7 +8184,7 @@
            promptArea.classList.remove('hidden');
        }
        
-        // 添加场景练习记录到消化笔记
+        // 添加表达框架练习记录到消化笔记
         function addScenarioPracticeToDigestion(ammoId) {
             const frameworkType = document.getElementById(`editDigestionScenarioType-${ammoId}`).value;
             const practiceContent = document.getElementById(`editDigestionPracticeContent-${ammoId}`).value.trim();
@@ -8144,14 +8211,13 @@
             }
             
             // 获取框架名称
-            const frameworkNames = {
-                'prep': 'PREP结构',
-                'star': 'STAR法则',
-                'pyramid': '金字塔原理',
-                'report': '汇报场景',
-                'communication': '日常交流',
-                'presentation': '演讲展示'
-            };
+             const frameworkNames = {
+                 'prep': 'PREP结构',
+                 'feeling': '感受事实期待',
+                 'star': 'STAR法则',
+                 'kiss': 'KISS原则',
+                 'pyramid': '金字塔原理'
+             };
             
             // 创建练习记录
             const practiceRecord = {
@@ -8176,7 +8242,7 @@
             // 重新渲染弹药库
             renderAmmoLibrary();
             
-            // 在编辑表单中更新场景练习记录显示
+             // 在编辑表单中更新表达框架练习记录显示
             const practicesContainer = document.getElementById(`scenario-practices-${ammoId}`);
             if (practicesContainer) {
                 practicesContainer.innerHTML = renderScenarioPracticeRecords(ammo.digestion.scenarioPractices, ammoId);
@@ -8227,7 +8293,7 @@
             // 处理改写
             const rewrites = rewriteText ? [rewriteText] : [];
             
-            // 处理场景练习记录
+             // 处理表达框架练习记录
             let scenarioPractices = [];
             if (window.currentScenarioPractice) {
                 scenarioPractices = [window.currentScenarioPractice];
@@ -8252,7 +8318,7 @@
                     rewrites: rewrites,
                     scenarios: scenarios,
                     usageHistory: [],
-                    scenarioPractices: scenarioPractices // 新增场景练习记录
+                     scenarioPractices: scenarioPractices // 新增表达框架练习记录
                 },
                 digestionProgress: digestionProgress
             };
@@ -9048,28 +9114,43 @@
          });
      }
      
-     // 新增弹药内容输入框的智能推荐处理（使用中文分词）
-     let newAmmoSuggestionTimer = null;
-     function handleNewAmmoInput(textarea) {
-         const content = textarea.value.trim();
-         const container = document.getElementById('newAmmoSuggestions');
-         
-         // 清除之前的定时器
-         if (newAmmoSuggestionTimer) {
-             clearTimeout(newAmmoSuggestionTimer);
-         }
-         
-         // 如果内容太少，不显示推荐
-         if (content.length < 2) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 延迟显示推荐，避免频繁调用
-         newAmmoSuggestionTimer = setTimeout(() => {
-             showIntelligentAmmoSuggestions(content, 'newAmmoSuggestions', 'newAmmoContent');
-         }, 500);
-     }
+      // 新增弹药内容输入框的智能推荐处理（使用中文分词）
+      let newAmmoSuggestionTimer = null;
+      let newAmmoFrameworkTimer = null;
+      function handleNewAmmoInput(textarea) {
+          const content = textarea.value.trim();
+          const container = document.getElementById('newAmmoSuggestions');
+          
+          // 清除之前的定时器
+          if (newAmmoSuggestionTimer) {
+              clearTimeout(newAmmoSuggestionTimer);
+          }
+          
+          // 如果内容太少，不显示推荐
+          if (content.length < 2) {
+              container.innerHTML = '';
+              return;
+          }
+          
+          // 延迟显示推荐，避免频繁调用
+          newAmmoSuggestionTimer = setTimeout(() => {
+              showIntelligentAmmoSuggestions(content, 'newAmmoSuggestions', 'newAmmoContent');
+          }, 500);
+          
+          // 如果已经选择了表达框架，更新参考句式
+          const scenarioType = document.getElementById('newAmmoScenarioType').value;
+          if (scenarioType && content.length > 5) {
+              // 清除之前的定时器
+              if (newAmmoFrameworkTimer) {
+                  clearTimeout(newAmmoFrameworkTimer);
+              }
+              
+              // 延迟更新框架参考句式，避免频繁调用AI
+              newAmmoFrameworkTimer = setTimeout(() => {
+                  generateFrameworkReferenceForNewAmmo(scenarioType, content);
+              }, 1000);
+          }
+      }
      
      // 新增练习内容输入框的智能推荐处理（使用中文分词）
      const quickPracticeTimers = {};
