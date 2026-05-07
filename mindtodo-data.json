@@ -1186,6 +1186,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mov8rs0z4io8v",
+      "type": "task",
+      "content": "我现在有点emo，写一下想法",
+      "createdAt": "2026-05-07T08:46:10.595Z",
+      "updatedAt": "2026-05-07T08:46:10.595Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1390,12 +1402,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mov7h38ze6emv",
-      "name": "4点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -1706,6 +1713,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T08:10:04.109Z"
+    "lastSync": "2026-05-07T08:41:18.287Z"
   }
 }
