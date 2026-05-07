@@ -7509,6 +7509,9 @@
                   return;
               }
               
+              // 输出调用的模型信息
+              console.log('🎯 AI生成表达框架参考句式 - 调用模型:', data.aiConfig.model);
+              
               const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
               
               // 框架描述
@@ -7522,15 +7525,15 @@
               
               try {
                   const prompt = `请根据以下表达框架，为这句话生成具体的参考句式和表达示例。
- 
- 表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
- 
- 这句话：${ammo.content}
-
-约束条件与要求：
-素材融合： 必须将这句话自然地融入到框架句式中。
-场景化： 为框架设定一个具体的适用场景（如面试、复盘、指导下属等），让句式更具实操性。
-语言风格： 保持专业、有洞察力，同时兼具文学性和画面感。`;
+  
+  表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
+  
+  这句话：${ammo.content}
+  
+  约束条件与要求：
+  素材融合： 必须将这句话自然地融入到框架句式中。
+  场景化： 为框架设定一个具体的适用场景（如面试、复盘、指导下属等），让句式更具实操性。
+  语言风格： 保持专业、有洞察力，同时兼具文学性和画面感。`;
                   
                   const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                   
@@ -7554,11 +7557,14 @@
                  return;
              }
              
+             // 输出调用的模型信息
+             console.log('🤖 AI生成应用场景 - 调用模型:', data.aiConfig.model);
+             
              const container = document.getElementById(`editDigestionScenarios-${ammoId}`);
              container.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成应用场景...</div>';
              
              try {
-                 const prompt = `请为以下这句话生成3-5个具体的应用场景，每个场景包含场景名称和参考话术。
+                 const prompt = `请为以下这句话生成3个具体的应用场景，每个场景包含场景名称和参考话术。
      
      句子：${ammo.content}
      
@@ -7996,33 +8002,38 @@
            }
        }
        
-       // 为新弹药生成表达框架参考句式
-       async function generateFrameworkReferenceForNewAmmo(frameworkType, ammoContent) {
-           const promptContent = document.getElementById('scenarioPrompt');
-           
-           // 检查AI配置
-           if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
-               const scenario = scenarioConfig[frameworkType];
-               promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
-               return;
-           }
-           
-           // 显示加载状态
-           promptContent.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成参考句式...</div>';
-           
-           const frameworkName = scenarioConfig[frameworkType].name;
-           
-           // 框架描述
-           const frameworkDescriptions = {
-               'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
-               'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
-               'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
-               'kiss': 'KISS原则（Keep It Simple, Stupid - 保持简单直接）',
-               'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
-           };
-           
-           try {
-               const prompt = `请根据以下表达框架，为这句话生成具体的参考句式和表达示例。
+        // 为新弹药生成表达框架参考句式
+        async function generateFrameworkReferenceForNewAmmo(frameworkType, ammoContent) {
+            const promptContent = document.getElementById('scenarioPrompt');
+            
+            // 检查AI配置
+            if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                const scenario = scenarioConfig[frameworkType];
+                promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
+                return;
+            }
+            
+            // 输出调用的模型信息
+            console.log('🎯 AI生成表达框架参考句式（新弹药） - 调用模型:', data.aiConfig.model);
+            console.log('📝 弹药内容:', ammoContent);
+            console.log('🏗️ 表达框架:', scenarioConfig[frameworkType].name, '(', frameworkType, ')');
+            
+            // 显示加载状态
+            promptContent.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成参考句式...</div>';
+            
+            const frameworkName = scenarioConfig[frameworkType].name;
+            
+            // 框架描述
+            const frameworkDescriptions = {
+                'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
+                'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
+                'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
+                'kiss': 'KISS原则（Keep It Simple, Stupid - 保持简单直接）',
+                'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
+            };
+            
+            try {
+                const prompt = `请根据以下表达框架，为这句话生成具体的参考句式和表达示例。
  
  表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
  
@@ -8044,8 +8055,8 @@
  2. 每个示例都要清晰标注框架的各个部分
  3. 表达要自然流畅，避免生硬
  4. 提供不同场景下的变体（如工作、学习、生活等）`;
-               
-               const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+                
+                const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                
                // 显示AI生成的参考句式
                promptContent.innerHTML = response.replace(/\n/g, '<br/>');
