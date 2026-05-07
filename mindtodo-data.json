@@ -1190,6 +1190,26 @@
         }
       ],
       "doneAt": "2026-05-07T09:47:34.204Z"
+    },
+    {
+      "id": "movb57dgs2cma",
+      "type": "task",
+      "content": "千问有提示词参考，继续润色下。",
+      "createdAt": "2026-05-07T09:52:36.244Z",
+      "updatedAt": "2026-05-07T09:52:36.244Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "movb57dgv9bcz",
+          "content": "对提示词，写一下哪些地方要我补充的",
+          "estimatedTime": "3min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -1712,6 +1732,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T09:25:57.304Z"
+    "lastSync": "2026-05-07T09:48:36.381Z"
   }
 }
