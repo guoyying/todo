@@ -1068,7 +1068,7 @@
       "type": "task",
       "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
       "createdAt": "2026-05-07T06:21:01.691Z",
-      "updatedAt": "2026-05-07T07:29:00.549Z",
+      "updatedAt": "2026-05-07T09:25:43.361Z",
       "tags": [
         "退网"
       ],
@@ -1102,7 +1102,7 @@
           "content": "将所有计划退网的设备实物ID弄出来，资源系统导出表格，筛选出有用的。",
           "done": false,
           "estimatedTime": "9min",
-          "placedIn": null
+          "placedIn": "slot_mova6ivtc8apa"
         }
       ],
       "placedIn": null
@@ -1148,11 +1148,11 @@
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
       "createdAt": "2026-05-07T07:13:59.266Z",
-      "updatedAt": "2026-05-07T09:10:18.029Z",
+      "updatedAt": "2026-05-07T09:25:10.001Z",
       "tags": [
         "光路资源核查"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "subtasks": [
@@ -1164,7 +1164,8 @@
           "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:25:10.001Z"
     },
     {
       "id": "mov69iyp6el5s",
@@ -1185,7 +1186,7 @@
       "type": "task",
       "content": "看下白云提到的几台设备",
       "createdAt": "2026-05-07T08:41:10.054Z",
-      "updatedAt": "2026-05-07T08:41:10.054Z",
+      "updatedAt": "2026-05-07T09:25:48.418Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1196,21 +1197,9 @@
           "content": "选其中一台看激活业务情况",
           "estimatedTime": "15min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mova6ivtc8apa"
         }
       ]
-    },
-    {
-      "id": "mov8rs0z4io8v",
-      "type": "task",
-      "content": "我现在有点emo，写一下想法",
-      "createdAt": "2026-05-07T08:46:10.595Z",
-      "updatedAt": "2026-05-07T08:46:10.595Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1422,7 +1411,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mova6ivtc8apa",
+      "name": "下班前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -1733,6 +1727,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T09:21:00.289Z"
+    "lastSync": "2026-05-07T09:21:39.312Z"
   }
 }
