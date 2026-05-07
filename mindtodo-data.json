@@ -956,7 +956,7 @@
       "type": "task",
       "content": "定级备案的名称",
       "createdAt": "2026-05-06T09:33:50.227Z",
-      "updatedAt": "2026-05-06T09:33:50.227Z",
+      "updatedAt": "2026-05-07T00:58:37.894Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -969,21 +969,23 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": null
     },
     {
       "id": "mourxxl032m4d",
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-05-07T00:55:04.260Z",
-      "updatedAt": "2026-05-07T00:55:04.260Z",
+      "updatedAt": "2026-05-07T00:58:40.669Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "30min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mous12lou03le"
     }
   ],
   "normalFeelings": [
@@ -1188,7 +1190,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mous12lou03le",
+      "name": "9点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -1484,6 +1491,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T00:54:48.150Z"
+    "lastSync": "2026-05-07T00:55:08.359Z"
   }
 }
