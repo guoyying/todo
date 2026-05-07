@@ -1017,6 +1017,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mouw52k0c2qjk",
+      "type": "task",
+      "content": "有这几个表达框架选择：PREP、感受事实期待、STAR、KISS、金字塔原理。我想点击某个框架，ai围绕这个主题，提供这个框架的参考句式。",
+      "createdAt": "2026-05-07T02:52:35.760Z",
+      "updatedAt": "2026-05-07T02:52:35.760Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1537,6 +1549,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T02:30:56.666Z"
+    "lastSync": "2026-05-07T02:41:02.919Z"
   }
 }
