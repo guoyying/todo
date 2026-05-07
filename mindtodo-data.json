@@ -1148,7 +1148,7 @@
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
       "createdAt": "2026-05-07T07:13:59.266Z",
-      "updatedAt": "2026-05-07T09:05:16.267Z",
+      "updatedAt": "2026-05-07T09:10:18.029Z",
       "tags": [
         "光路资源核查"
       ],
@@ -1159,9 +1159,9 @@
         {
           "id": "1778144680655",
           "content": "vlookup匹配一下s转o和客资的清单",
-          "done": false,
+          "done": true,
           "estimatedTime": "5min",
-          "placedIn": "slot_mov8s1zzu3jy4"
+          "placedIn": null
         }
       ],
       "placedIn": null
@@ -1171,13 +1171,14 @@
       "type": "task",
       "content": "琐碎的退网工作：熟悉下补环的东西",
       "createdAt": "2026-05-07T07:35:59.810Z",
-      "updatedAt": "2026-05-07T09:05:11.207Z",
+      "updatedAt": "2026-05-07T09:15:10.441Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:15:10.440Z"
     },
     {
       "id": "mov8lc4mp5b3u",
@@ -1730,6 +1731,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T09:05:06.684Z"
+    "lastSync": "2026-05-07T09:05:22.758Z"
   }
 }
