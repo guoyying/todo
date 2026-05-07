@@ -896,7 +896,7 @@
       "type": "task",
       "content": "梳理退网设备了",
       "createdAt": "2026-05-06T07:13:08.541Z",
-      "updatedAt": "2026-05-07T02:10:42.231Z",
+      "updatedAt": "2026-05-07T02:33:41.874Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -913,8 +913,8 @@
           "id": "motq0a7x4d94b",
           "content": "写一下退网可以从哪些角度出发-退网进度、800M的等等",
           "estimatedTime": "8min",
-          "done": false,
-          "placedIn": "slot_mouun0yqsiit6"
+          "done": true,
+          "placedIn": null
         }
       ],
       "placedIn": null
@@ -1005,6 +1005,18 @@
       "subtasks": [],
       "placedIn": "slot_mous12lou03le",
       "doneAt": "2026-05-07T01:45:34.057Z"
+    },
+    {
+      "id": "mouvq2lswcdqe",
+      "type": "task",
+      "content": "隐患单回复",
+      "createdAt": "2026-05-07T02:40:55.984Z",
+      "updatedAt": "2026-05-07T02:40:55.984Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1525,6 +1537,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T02:28:14.131Z"
+    "lastSync": "2026-05-07T02:30:56.666Z"
   }
 }
