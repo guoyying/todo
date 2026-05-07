@@ -789,11 +789,11 @@
       "type": "task",
       "content": "虚拟网元工作推进",
       "createdAt": "2026-05-06T02:23:23.875Z",
-      "updatedAt": "2026-05-07T02:28:06.826Z",
+      "updatedAt": "2026-05-07T02:54:04.483Z",
       "tags": [
         "退网"
       ],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -817,10 +817,17 @@
           "done": true,
           "estimatedTime": "9min",
           "placedIn": null
+        },
+        {
+          "id": "1778122425571",
+          "content": "理解+回复黄工的话，写出todo",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": null
         }
       ],
       "placedIn": null,
-      "doneAt": "2026-05-07T02:28:02.393Z"
+      "doneAt": null
     },
     {
       "id": "motg86pbu6sus",
@@ -1555,6 +1562,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T02:52:43.683Z"
+    "lastSync": "2026-05-07T02:53:32.989Z"
   }
 }
