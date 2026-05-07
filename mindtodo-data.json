@@ -765,11 +765,11 @@
       "type": "task",
       "content": "RPA工作",
       "createdAt": "2026-05-06T01:56:40.237Z",
-      "updatedAt": "2026-05-07T08:40:42.202Z",
+      "updatedAt": "2026-05-07T09:48:12.213Z",
       "tags": [
         "RPA"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "subtasks": [
@@ -779,17 +779,10 @@
           "done": true,
           "estimatedTime": "20min",
           "placedIn": null
-        },
-        {
-          "id": "1778142860818",
-          "content": "新子任务",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
         }
       ],
       "placedIn": null,
-      "doneAt": null
+      "doneAt": "2026-05-07T09:48:08.729Z"
     },
     {
       "id": "motfno4jix7ru",
@@ -1068,11 +1061,11 @@
       "type": "task",
       "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
       "createdAt": "2026-05-07T06:21:01.691Z",
-      "updatedAt": "2026-05-07T09:25:43.361Z",
+      "updatedAt": "2026-05-07T09:48:23.250Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1096,16 +1089,10 @@
           "estimatedTime": "20min",
           "done": true,
           "placedIn": null
-        },
-        {
-          "id": "1778136810754",
-          "content": "将所有计划退网的设备实物ID弄出来，资源系统导出表格，筛选出有用的。",
-          "done": false,
-          "estimatedTime": "9min",
-          "placedIn": "slot_mova6ivtc8apa"
         }
       ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:48:23.250Z"
     },
     {
       "id": "mov56z2jv6oqy",
@@ -1186,9 +1173,11 @@
       "type": "task",
       "content": "看下白云提到的几台设备",
       "createdAt": "2026-05-07T08:41:10.054Z",
-      "updatedAt": "2026-05-07T09:25:48.418Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-07T09:47:43.132Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1196,10 +1185,11 @@
           "id": "mov8lc4mih33q",
           "content": "选其中一台看激活业务情况",
           "estimatedTime": "15min",
-          "done": false,
-          "placedIn": "slot_mova6ivtc8apa"
+          "done": true,
+          "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-07T09:47:34.204Z"
     }
   ],
   "normalFeelings": [
@@ -1411,12 +1401,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mova6ivtc8apa",
-      "name": "下班前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -1727,6 +1712,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-07T09:21:39.312Z"
+    "lastSync": "2026-05-07T09:25:57.304Z"
   }
 }
