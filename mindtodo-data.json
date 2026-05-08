@@ -1726,6 +1726,15 @@
       ],
       "createdAt": "2026-05-08T12:13:08.953Z",
       "updatedAt": "2026-05-08T12:13:08.953Z"
+    },
+    {
+      "id": "moxkc8loxmhb6",
+      "content": "1. 存在感与认可：你希望自己的工作被看见，价值被肯定，而不是在角落里默默付出。\n2. 归属感与支持：你渴望成为团队协同网络中的一个节点，而不是孤岛。你需要来自领导和同事的资源支持和情感连接。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-08T23:45:33.324Z",
+      "updatedAt": "2026-05-08T23:45:39.584Z"
     }
   ],
   "practiceBlocks": [
@@ -1866,17 +1875,6 @@
       "sourceRecordId": null,
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-02T03:32:01.976Z",
-      "useCount": 0,
-      "tags": []
-    },
-    {
-      "id": "monsi25m4hhdq",
-      "content": "自制工具的价值不仅在于其功能性，更在于它能守护自主性",
-      "type": "sentence",
-      "sourceBlockId": "mojcp6s67l0ow",
-      "sourceRecordId": "mojvwbv26cb5w",
-      "sourceBlockName": "自己做小工具的意义",
-      "createdAt": "2026-05-02T03:36:20.075Z",
       "useCount": 0,
       "tags": []
     },
@@ -2111,6 +2109,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T23:41:00.426Z"
+    "lastSync": "2026-05-08T23:41:21.865Z"
   }
 }
