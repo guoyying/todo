@@ -6073,8 +6073,12 @@
                 // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
                 const result = await callAiApi(fullPrompt, selectedModel, 'custom');
                 
-                // 显示结果
-                content.textContent = result;
+                // 处理Markdown格式并显示结果
+                let formattedResult = result
+                    .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
+                    .replace(/\n/g, '<br/>');  // 换行
+                content.innerHTML = formattedResult;
                 
             } catch (error) {
                 console.error('往期汇总失败:', error);
@@ -6781,9 +6785,13 @@
              console.log('结果长度:', result.length);
              console.log('结果前100个字符:', result.substring(0, 100));
              
-             // 显示润色结果（保留换行符）
+             // 处理Markdown格式并显示润色结果
              currentAiContext.polishedContent = result;
-             polishedContentEl.textContent = result; // 使用 textContent 保留换行符
+             let formattedResult = result
+                 .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
+                 .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
+                 .replace(/\n/g, '<br/>');  // 换行
+             polishedContentEl.innerHTML = formattedResult;
              
              console.log('=== 显示到界面的内容 ===');
              console.log('DOM 元素 textContent:', polishedContentEl.textContent);
