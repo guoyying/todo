@@ -1344,12 +1344,11 @@
       "type": "task",
       "content": "光路资源梳理一遍来龙去脉，写下接下来要做的事",
       "createdAt": "2026-05-08T01:13:20.221Z",
-      "updatedAt": "2026-05-08T07:23:26.549Z",
+      "updatedAt": "2026-05-08T10:21:21.920Z",
       "tags": [
-        "光路资源核查",
-        "等待反馈"
+        "光路资源核查"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
       "subtasks": [
@@ -1367,7 +1366,8 @@
           "estimatedTime": "5min",
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-08T10:21:10.964Z"
     },
     {
       "id": "mowap0ro1cw3w",
@@ -1469,9 +1469,11 @@
       "type": "task",
       "content": "盘一下白云和增城的可退网设备",
       "createdAt": "2026-05-08T07:43:35.849Z",
-      "updatedAt": "2026-05-08T08:58:35.167Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-08T10:20:56.335Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1485,12 +1487,13 @@
         {
           "id": "1778230702559",
           "content": "盘一下增城可退网的设备",
-          "done": false,
+          "done": true,
           "estimatedTime": "15min",
           "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-08T10:20:54.092Z"
     },
     {
       "id": "mowlzbyxoi794",
@@ -1504,18 +1507,6 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null
-    },
-    {
-      "id": "mowql2rbdpn8u",
-      "type": "task",
-      "content": "写一下我脑子里的想法",
-      "createdAt": "2026-05-08T09:52:37.175Z",
-      "updatedAt": "2026-05-08T09:52:37.175Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "4min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
