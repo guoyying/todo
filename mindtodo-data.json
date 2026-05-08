@@ -1099,25 +1099,26 @@
       "type": "task",
       "content": "我想了解ai反馈呈现有##和**的原因，能不能代码做个转换不要这些符号。",
       "createdAt": "2026-05-07T07:06:01.099Z",
-      "updatedAt": "2026-05-07T12:46:02.055Z",
+      "updatedAt": "2026-05-08T00:49:01.335Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-08T00:49:01.335Z"
     },
     {
       "id": "mov5dgj7dhzck",
       "type": "task",
       "content": "退网数字化：我想对每个县分的设备情况（多少个有效的计划退网、800M可退、零业务）做一个管控表。这样不用每次都筛选。比如我希望呈现：天河：二季度还差xx个。有效计划退网数量xx个，上次流程时间分别为xx。800M可退设备xx个……",
       "createdAt": "2026-05-07T07:11:03.667Z",
-      "updatedAt": "2026-05-07T07:14:29.696Z",
+      "updatedAt": "2026-05-08T00:49:08.904Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1128,7 +1129,8 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-08T00:49:08.904Z"
     },
     {
       "id": "mov5h80y7lmsh",
@@ -1196,9 +1198,11 @@
       "type": "task",
       "content": "千问有提示词参考，继续润色下。理解我所记录内容的本质，并将道理应用到我关注的场景中。",
       "createdAt": "2026-05-07T09:52:36.244Z",
-      "updatedAt": "2026-05-07T12:45:34.683Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-08T00:49:06.964Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1209,7 +1213,20 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-08T00:49:04.823Z"
+    },
+    {
+      "id": "mow76h05nk0m9",
+      "type": "task",
+      "content": "给零食毕妤欣",
+      "createdAt": "2026-05-08T00:49:23.093Z",
+      "updatedAt": "2026-05-08T00:49:23.093Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
