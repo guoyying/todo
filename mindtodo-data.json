@@ -1233,7 +1233,7 @@
       "type": "task",
       "content": "梳理在册团员名单。",
       "createdAt": "2026-05-08T00:57:15.166Z",
-      "updatedAt": "2026-05-08T00:57:15.166Z",
+      "updatedAt": "2026-05-08T01:09:06.988Z",
       "tags": [
         "团支部"
       ],
@@ -1246,9 +1246,23 @@
           "content": "去网站看下无线的转过来了没",
           "estimatedTime": "5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mow7vqicjo8hm"
         }
-      ]
+      ],
+      "placedIn": "slot_mow7vqicjo8hm"
+    },
+    {
+      "id": "mow7vlwdhj4jj",
+      "type": "task",
+      "content": "我要花3分钟写一下今天想做什么。",
+      "createdAt": "2026-05-08T01:08:55.837Z",
+      "updatedAt": "2026-05-08T01:09:08.752Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mow7vqicjo8hm"
     }
   ],
   "normalFeelings": [
@@ -1460,7 +1474,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mow7vqicjo8hm",
+      "name": "9点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
