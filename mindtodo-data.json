@@ -1350,9 +1350,11 @@
       "type": "task",
       "content": "天河设备处理",
       "createdAt": "2026-05-08T02:27:47.364Z",
-      "updatedAt": "2026-05-08T02:29:39.675Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-08T02:39:02.704Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1367,10 +1369,11 @@
           "id": "mowap0ro9su1h",
           "content": "屏蔽告警",
           "estimatedTime": "8min",
-          "done": false,
-          "placedIn": "slot_mowar7lmny89b"
+          "done": true,
+          "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-08T02:38:57.647Z"
     },
     {
       "id": "mowau8jfhbpmu",
@@ -1925,6 +1928,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T02:29:48.999Z"
+    "lastSync": "2026-05-08T02:31:55.523Z"
   }
 }
