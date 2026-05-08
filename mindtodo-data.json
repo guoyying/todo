@@ -1234,9 +1234,10 @@
       "type": "task",
       "content": "梳理在册团员名单。",
       "createdAt": "2026-05-08T00:57:15.166Z",
-      "updatedAt": "2026-05-08T02:24:40.278Z",
+      "updatedAt": "2026-05-08T02:50:49.358Z",
       "tags": [
-        "团支部"
+        "团支部",
+        "等待反馈"
       ],
       "done": false,
       "dueTime": null,
@@ -1254,6 +1255,13 @@
           "content": "问黄工",
           "done": true,
           "estimatedTime": "3min",
+          "placedIn": null
+        },
+        {
+          "id": "1778207968607",
+          "content": "给出现在综维优的名单",
+          "done": true,
+          "estimatedTime": "8min",
           "placedIn": null
         }
       ],
@@ -1928,6 +1936,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T02:31:55.523Z"
+    "lastSync": "2026-05-08T02:39:07.565Z"
   }
 }
