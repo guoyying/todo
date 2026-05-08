@@ -1462,7 +1462,7 @@
       "type": "task",
       "content": "盘一下白云和增城的可退网设备",
       "createdAt": "2026-05-08T07:43:35.849Z",
-      "updatedAt": "2026-05-08T07:43:35.849Z",
+      "updatedAt": "2026-05-08T07:48:54.411Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1473,21 +1473,23 @@
           "content": "筛选白云的设备，看下800M和可退网的数量有多少",
           "estimatedTime": "15min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mowm5x71legy7"
         }
-      ]
+      ],
+      "placedIn": "slot_mowm5x71legy7"
     },
     {
       "id": "mowlzbyxoi794",
       "type": "task",
       "content": "退网进度表，我也想要推进能推的",
       "createdAt": "2026-05-08T07:43:44.218Z",
-      "updatedAt": "2026-05-08T07:43:44.218Z",
+      "updatedAt": "2026-05-08T07:48:55.787Z",
       "tags": [],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mowm5x71legy7"
     }
   ],
   "normalFeelings": [
@@ -1699,7 +1701,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mowm5x71legy7",
+      "name": "3点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2017,6 +2024,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T07:23:47.476Z"
+    "lastSync": "2026-05-08T07:43:52.843Z"
   }
 }
