@@ -1359,11 +1359,11 @@
       "type": "task",
       "content": "天河设备处理",
       "createdAt": "2026-05-08T02:27:47.364Z",
-      "updatedAt": "2026-05-08T06:07:43.684Z",
+      "updatedAt": "2026-05-08T06:28:55.222Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1384,28 +1384,30 @@
         {
           "id": "1778210994922",
           "content": "我得想想，暂时不能退网的设备放在哪里、怎么放。写出一段话",
-          "done": false,
+          "done": true,
           "estimatedTime": "3min",
           "placedIn": null
         },
         {
           "id": "1778220434817",
           "content": "计划退网那台设备也标注在设备核查工具里头",
-          "done": false,
+          "done": true,
           "estimatedTime": "3min",
           "placedIn": null
         }
       ],
-      "doneAt": null
+      "doneAt": "2026-05-08T06:28:55.222Z"
     },
     {
       "id": "mowau8jfhbpmu",
       "type": "task",
       "content": "企微填表：云网租电压降",
       "createdAt": "2026-05-08T02:31:50.715Z",
-      "updatedAt": "2026-05-08T02:31:50.715Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-08T06:28:50.303Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1413,10 +1415,19 @@
           "id": "mowau8jfw451m",
           "content": "看下表格要填什么东西，预估时间并写下接下来动作",
           "estimatedTime": "4min",
-          "done": false,
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778221169065",
+          "content": "要将节电费那个打开，然后",
+          "done": true,
+          "estimatedTime": "",
           "placedIn": null
         }
-      ]
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-08T06:28:48.539Z"
     }
   ],
   "normalFeelings": [
@@ -1628,7 +1639,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mowimdr0mh1xr",
+      "name": "2点半前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -1946,6 +1962,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T03:31:34.075Z"
+    "lastSync": "2026-05-08T06:07:49.950Z"
   }
 }
