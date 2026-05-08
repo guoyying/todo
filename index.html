@@ -7559,8 +7559,12 @@
                   
                   const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                   
-                  // 显示AI生成的参考句式
-                  promptDiv.innerHTML = response.replace(/\n/g, '<br/>');
+                  // 处理Markdown格式并显示AI生成的参考句式
+                  let formattedResponse = response
+                      .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
+                      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
+                      .replace(/\n/g, '<br/>');  // 换行
+                  promptDiv.innerHTML = formattedResponse;
                   
               } catch (error) {
                   console.error('AI生成参考句式失败:', error);
@@ -8108,8 +8112,12 @@
                 
                 const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                
-               // 显示AI生成的参考句式
-               promptContent.innerHTML = response.replace(/\n/g, '<br/>');
+               // 处理Markdown格式并显示AI生成的参考句式
+               let formattedResponse = response
+                   .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
+                   .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
+                   .replace(/\n/g, '<br/>');  // 换行
+               promptContent.innerHTML = formattedResponse;
                
            } catch (error) {
                console.error('AI生成参考句式失败:', error);
