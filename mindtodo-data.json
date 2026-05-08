@@ -1443,6 +1443,51 @@
       ],
       "placedIn": null,
       "doneAt": "2026-05-08T06:28:48.539Z"
+    },
+    {
+      "id": "mowlvgan00mqk",
+      "type": "task",
+      "content": "花3分钟写一下下午做些什么吧",
+      "createdAt": "2026-05-08T07:40:43.199Z",
+      "updatedAt": "2026-05-08T07:43:46.824Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-08T07:43:46.824Z"
+    },
+    {
+      "id": "mowlz5ihs6lee",
+      "type": "task",
+      "content": "盘一下白云和增城的可退网设备",
+      "createdAt": "2026-05-08T07:43:35.849Z",
+      "updatedAt": "2026-05-08T07:43:35.849Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mowlz5ihauco1",
+          "content": "筛选白云的设备，看下800M和可退网的数量有多少",
+          "estimatedTime": "15min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "mowlzbyxoi794",
+      "type": "task",
+      "content": "退网进度表，我也想要推进能推的",
+      "createdAt": "2026-05-08T07:43:44.218Z",
+      "updatedAt": "2026-05-08T07:43:44.218Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1972,6 +2017,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T07:05:27.733Z"
+    "lastSync": "2026-05-08T07:23:47.476Z"
   }
 }
