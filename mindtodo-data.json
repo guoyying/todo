@@ -1221,12 +1221,13 @@
       "type": "task",
       "content": "给零食毕妤欣",
       "createdAt": "2026-05-08T00:49:23.093Z",
-      "updatedAt": "2026-05-08T00:49:23.093Z",
+      "updatedAt": "2026-05-08T02:30:02.259Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mowar7lmny89b"
     },
     {
       "id": "mow7gl9a1etz8",
@@ -1368,6 +1369,26 @@
           "estimatedTime": "8min",
           "done": false,
           "placedIn": "slot_mowar7lmny89b"
+        }
+      ]
+    },
+    {
+      "id": "mowau8jfhbpmu",
+      "type": "task",
+      "content": "企微填表：云网租电压降",
+      "createdAt": "2026-05-08T02:31:50.715Z",
+      "updatedAt": "2026-05-08T02:31:50.715Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mowau8jfw451m",
+          "content": "看下表格要填什么东西，预估时间并写下接下来动作",
+          "estimatedTime": "4min",
+          "done": false,
+          "placedIn": null
         }
       ]
     }
@@ -1904,6 +1925,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-08T02:27:51.194Z"
+    "lastSync": "2026-05-08T02:29:48.999Z"
   }
 }
