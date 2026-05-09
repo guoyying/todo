@@ -1702,9 +1702,11 @@
       "type": "task",
       "content": "荔湾的退网处理：查看几台设备是否关电、屏蔽今日芳村设备告警。",
       "createdAt": "2026-05-09T03:38:34.598Z",
-      "updatedAt": "2026-05-09T03:38:34.598Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-09T04:01:43.780Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1712,17 +1714,18 @@
           "id": "moxsnwme4esn7",
           "content": "查看几台设备是否关电",
           "estimatedTime": "5min",
-          "done": false,
+          "done": true,
           "placedIn": null
         },
         {
           "id": "moxsnwmejzzsh",
           "content": "屏蔽今日芳村设备告警",
           "estimatedTime": "3min",
-          "done": false,
+          "done": true,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-09T04:01:42.050Z"
     }
   ],
   "normalFeelings": [
