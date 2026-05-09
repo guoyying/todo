@@ -1491,28 +1491,25 @@
             <div id="oldTodoList"></div>
         </div>
         
-        <!-- 今日完成和本周完成并排显示 -->
-        <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="flex: 1; min-width: 0;">
-                <div class="section-title" style="cursor:pointer;" onclick="toggleSection('doneList')">
-                    ✅ 今日完成 <span class="count" id="doneCount"></span>
-                    <span id="doneArrow" style="font-size:12px;margin-left:8px;">▼</span>
-                </div>
-                <div id="doneList" class="collapsed"></div>
+        <!-- 已完成模块 -->
+        <div>
+            <div class="section-title" style="cursor:pointer;" onclick="toggleSection('completedList')">
+                ✅ 已完成 <span class="count" id="completedCount"></span>
+                <span id="completedArrow" style="font-size:12px;margin-left:8px;">▼</span>
             </div>
-            
-            <div style="flex: 1; min-width: 0;">
-                <div class="section-title" style="cursor:pointer;" onclick="toggleSection('thisWeekDoneList')">
-                    📊 本周完成 <span class="count" id="thisWeekDoneCount"></span>
-                    <span id="thisWeekDoneArrow" style="font-size:12px;margin-left:8px;">▼</span>
-                </div>
-                <div id="thisWeekDoneList" class="collapsed">
-                    <div class="filter-bar" id="thisWeekDoneFilterBar">
-                        <input type="text" id="thisWeekDoneSearch" placeholder="搜索本周完成..." oninput="renderThisWeekCompleted()">
-                        <div class="tag-filter" id="thisWeekDoneTagFilter"></div>
-                    </div>
-                </div>
+            <!-- 筛选栏默认隐藏，点击标题后显示 -->
+            <div class="filter-bar" id="completedFilterBar" style="margin-top:8px;display:none;">
+                <input type="text" id="completedSearch" placeholder="搜索已完成..." oninput="renderCompleted()">
+                <select id="completedTimeFilter" onchange="renderCompleted()" style="margin-left:8px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
+                    <option value="all">全部时间</option>
+                    <option value="today">今日</option>
+                    <option value="thisWeek">本周</option>
+                    <option value="thisMonth">本月</option>
+                </select>
+                <div class="tag-filter" id="completedTagFilter"></div>
             </div>
+            <!-- 任务列表可折叠 -->
+            <div id="completedList" class="collapsed"></div>
         </div>
     </div>
 
@@ -1559,37 +1556,136 @@
 
      <!-- AI汇总模态框 -->
      <div class="modal-overlay hidden" id="aiSummaryModal" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">
-         <div class="modal" style="max-width: 700px;" onclick="event.stopPropagation()">
+         <div class="modal" style="max-width: 800px;" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 id="aiSummaryTitle">💡 AI汇总</h3>
                 <span class="close" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">&times;</span>
             </div>
             <div class="modal-body">
-                <!-- 模型选择器 -->
-                <div style="margin-bottom: 16px;">
-                    <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">🤖 选择模型</label>
-                    <select id="summaryModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                        <!-- 动态生成模型选项 -->
-                    </select>
+                <!-- 选项卡 -->
+                <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
+                    <button id="summaryTabBtn" class="btn btn-small btn-primary" onclick="switchSummaryTab('summary')">📊 汇总</button>
+                    <button id="reportTabBtn" class="btn btn-small btn-secondary" onclick="switchSummaryTab('report')">🎤 AI汇报</button>
                 </div>
                 
-                <!-- 提示词编辑区域 -->
-                <div style="margin-bottom: 16px;">
-                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-                        <label style="font-weight:500;font-size:14px;">📝 提示词</label>
-                        <button class="btn btn-small btn-secondary" onclick="resetSummaryPrompt()">恢复默认</button>
+                <!-- 汇总选项卡内容 -->
+                <div id="summaryTabContent">
+                    <!-- 模型选择器 -->
+                    <div style="margin-bottom: 16px;">
+                        <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">🤖 选择模型</label>
+                        <select id="summaryModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                            <!-- 动态生成模型选项 -->
+                        </select>
                     </div>
-                    <textarea id="summaryPromptInput"
-                        style="width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;line-height:1.5;resize:vertical;"
-                        placeholder="输入自定义提示词..."></textarea>
+                    
+                    <!-- 提示词编辑区域 -->
+                    <div style="margin-bottom: 16px;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                            <label style="font-weight:500;font-size:14px;">📝 提示词</label>
+                            <button class="btn btn-small btn-secondary" onclick="resetSummaryPrompt()">恢复默认</button>
+                        </div>
+                        <textarea id="summaryPromptInput"
+                            style="width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;line-height:1.5;resize:vertical;"
+                            placeholder="输入自定义提示词..."></textarea>
+                    </div>
+                    
+                    <div style="display:flex;gap:8px;margin-bottom:16px;">
+                        <button class="btn btn-primary" onclick="generateAISummary(currentSummaryType)" style="flex:1;">🚀 生成汇总</button>
+                        <button class="btn btn-secondary" onclick="togglePromptArea()">📋 显示/隐藏提示词</button>
+                    </div>
+                    
+                    <div id="aiSummaryContent" style="line-height: 1.6; font-size: 14px;max-height:500px;overflow-y:auto;padding:12px;background:var(--bg-light);border-radius:6px;"></div>
+                    <style>
+                        #aiSummaryContent p {
+                            margin: 8px 0;
+                        }
+                        #aiSummaryContent h1, #aiSummaryContent h2, #aiSummaryContent h3, #aiSummaryContent h4, #aiSummaryContent h5, #aiSummaryContent h6 {
+                            margin: 12px 0 8px 0;
+                        }
+                        #aiSummaryContent ul, #aiSummaryContent ol {
+                            margin: 8px 0;
+                            padding-left: 20px;
+                        }
+                        #aiSummaryContent li {
+                            margin: 4px 0;
+                        }
+                        #aiSummaryContent strong {
+                            font-weight: 600;
+                        }
+                        #aiSummaryContent em {
+                            font-style: italic;
+                        }
+                    </style>
                 </div>
                 
-                <div style="display:flex;gap:8px;margin-bottom:16px;">
-                    <button class="btn btn-primary" onclick="generateAISummary(currentSummaryType)" style="flex:1;">🚀 生成汇总</button>
-                    <button class="btn btn-secondary" onclick="togglePromptArea()">📋 显示/隐藏提示词</button>
+                <!-- AI汇报选项卡内容 -->
+                <div id="reportTabContent" style="display:none;">
+                    <!-- 模型选择器 -->
+                    <div style="margin-bottom: 16px;">
+                        <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">🤖 选择模型</label>
+                        <select id="reportModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                            <!-- 动态生成模型选项 -->
+                        </select>
+                    </div>
+                    
+                    <!-- 工作内容输入区域 -->
+                    <div id="workItemsContainer">
+                        <div class="work-item" style="margin-bottom:16px;padding:12px;background:var(--bg-light);border-radius:6px;">
+                            <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">工作内容 1</label>
+                            <textarea class="work-content-input" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;margin-bottom:8px;" placeholder="请输入工作内容..."></textarea>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                <label style="font-size:12px;color:var(--text-secondary);">汇报类型：</label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType1" value="A" checked> A. 请求指点方向
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType1" value="B"> B. 请求方案判断
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType1" value="C"> C. 请求领导核查
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="work-item" style="margin-bottom:16px;padding:12px;background:var(--bg-light);border-radius:6px;">
+                            <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">工作内容 2</label>
+                            <textarea class="work-content-input" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;margin-bottom:8px;" placeholder="请输入工作内容..."></textarea>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                <label style="font-size:12px;color:var(--text-secondary);">汇报类型：</label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType2" value="A" checked> A. 请求指点方向
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType2" value="B"> B. 请求方案判断
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType2" value="C"> C. 请求领导核查
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="work-item" style="margin-bottom:16px;padding:12px;background:var(--bg-light);border-radius:6px;">
+                            <label style="display:block;margin-bottom:8px;font-weight:500;font-size:14px;">工作内容 3</label>
+                            <textarea class="work-content-input" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;margin-bottom:8px;" placeholder="请输入工作内容..."></textarea>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                <label style="font-size:12px;color:var(--text-secondary);">汇报类型：</label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType3" value="A" checked> A. 请求指点方向
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType3" value="B"> B. 请求方案判断
+                                </label>
+                                <label style="font-size:12px;cursor:pointer;">
+                                    <input type="radio" name="reportType3" value="C"> C. 请求领导核查
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="generateAIReport()" style="width:100%;margin-top:16px;">🎤 生成汇报话术</button>
+                    
+                    <div id="aiReportContent" style="white-space: pre-wrap; line-height: 1.6; font-size: 14px;max-height:500px;overflow-y:auto;padding:12px;background:var(--bg-light);border-radius:6px;margin-top:16px;"></div>
                 </div>
-                
-                <div id="aiSummaryContent" style="white-space: pre-wrap; line-height: 1.6; font-size: 14px;max-height:500px;overflow-y:auto;padding:12px;background:var(--bg-light);border-radius:6px;"></div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="document.getElementById('aiSummaryModal').classList.add('hidden')">关闭</button>
@@ -2687,6 +2783,8 @@
                     renderOldTodos();
                 } else if (containerId === 'oldFeelingTagFilter') {
                     renderOldFeelings();
+                } else if (containerId === 'completedTagFilter') {
+                    renderCompleted();
                 }
             };
             container.appendChild(allBtn);
@@ -2718,6 +2816,8 @@
                         renderOldTodos();
                     } else if (containerId === 'oldFeelingTagFilter') {
                         renderOldFeelings();
+                    } else if (containerId === 'completedTagFilter') {
+                        renderCompleted();
                     }
                 };
                 container.appendChild(span);
@@ -2909,8 +3009,7 @@
                 renderSlots();
                 renderToday();
                 renderOldTodos();
-                renderDone();
-                renderThisWeekCompleted();
+                renderCompleted();
             }
             
             checkUpdateStatus();
@@ -4435,52 +4534,6 @@
             );
         }
         
-        function renderThisWeekCompleted() {
-            const container = document.getElementById('thisWeekDoneList');
-            container.innerHTML = '';
-            
-            // 获取筛选条件
-            const searchTerm = document.getElementById('thisWeekDoneSearch')?.value.toLowerCase() || '';
-            const selectedTagsStr = document.getElementById('thisWeekDoneTagFilter')?.dataset.selectedTags || '[]';
-            const selectedTags = JSON.parse(selectedTagsStr);
-            const filterMode = document.getElementById('thisWeekDoneTagFilter')?.dataset.filterMode || 'include';
-            
-            // 获取本周完成的任务
-            let list = getThisWeekCompletedTasks();
-            
-            // 应用搜索过滤
-            if (searchTerm) {
-                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
-            }
-            
-            // 应用标签过滤
-            if (selectedTags && selectedTags.length > 0) {
-                if (filterMode === 'include') {
-                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
-                } else {
-                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
-                }
-            }
-            
-            document.getElementById('thisWeekDoneCount').textContent = list.length ? `(${list.length})` : '';
-            if (list.length === 0) {
-                container.innerHTML = '<div class="empty-tip">本周暂无完成任务</div>';
-                return;
-            }
-            
-            // 添加AI汇总按钮
-            const aiSummaryBtn = document.createElement('div');
-            aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
-            aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'thisWeek\')">📊 AI汇总</button>';
-            container.appendChild(aiSummaryBtn);
-            
-            // 渲染标签筛选器
-            renderTagFilter('thisWeekDoneTagFilter', list, selectedTags);
-            
-            // 渲染任务列表（不显示添加子任务按钮，但显示标签）
-            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
-        }
-
         function renderOldTodos() {
             const container = document.getElementById('oldTodoList');
             container.innerHTML = '';
@@ -4697,25 +4750,67 @@
             }
         }
 
-        function renderDone() {
-            const container = document.getElementById('doneList');
+        function renderCompleted() {
+            const container = document.getElementById('completedList');
             container.innerHTML = '';
-            const list = data.tasks.filter(i => i.done && isToday(i.doneAt || i.updatedAt));
-            document.getElementById('doneCount').textContent = list.length ? `(${list.length})` : '';
+            
+            // 获取筛选条件
+            const searchTerm = document.getElementById('completedSearch')?.value.toLowerCase() || '';
+            const timeFilter = document.getElementById('completedTimeFilter')?.value || 'all';
+            const selectedTagsStr = document.getElementById('completedTagFilter')?.dataset.selectedTags || '[]';
+            const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('completedTagFilter')?.dataset.filterMode || 'include';
+            
+            // 获取所有已完成的任务
+            let list = data.tasks.filter(i => i.done);
+            
+            // 应用时间筛选
+            if (timeFilter === 'today') {
+                list = list.filter(i => isToday(i.doneAt || i.updatedAt));
+            } else if (timeFilter === 'thisWeek') {
+                list = list.filter(i => {
+                    const doneDate = new Date(i.doneAt || i.updatedAt);
+                    const weekRange = getThisWeekRange();
+                    return doneDate >= weekRange.start && doneDate <= weekRange.end;
+                });
+            } else if (timeFilter === 'thisMonth') {
+                list = list.filter(i => {
+                    const doneDate = new Date(i.doneAt || i.updatedAt);
+                    const now = new Date();
+                    return doneDate.getMonth() === now.getMonth() && doneDate.getFullYear() === now.getFullYear();
+                });
+            }
+            
+            // 应用搜索过滤
+            if (searchTerm) {
+                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+            }
+            
+            // 应用标签过滤
+            if (selectedTags && selectedTags.length > 0) {
+                if (filterMode === 'include') {
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
+            }
+            
+            document.getElementById('completedCount').textContent = list.length ? `(${list.length})` : '';
             if (list.length === 0) {
-                container.innerHTML = '<div class="empty-tip">今天还没有完成的事项</div>';
+                container.innerHTML = '<div class="empty-tip">暂无已完成任务</div>';
                 return;
             }
             
-            // 添加AI汇总按钮
-            if (list.length > 0) {
-                const aiSummaryBtn = document.createElement('div');
-                aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
-                aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'today\')">📊 AI汇总</button>';
-                container.appendChild(aiSummaryBtn);
-            }
+            // 渲染标签筛选器（在filter-bar中）
+            renderTagFilter('completedTagFilter', list, selectedTags);
             
-            // 渲染已完成任务（不显示添加子任务按钮，但显示标签）
+            // 添加AI汇总按钮
+            const aiSummaryBtn = document.createElement('div');
+            aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
+            aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'completed\')">📊 AI汇总</button>';
+            container.appendChild(aiSummaryBtn);
+            
+            // 渲染任务列表（不显示添加子任务按钮，但显示标签）
             list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
         }
 
@@ -5550,7 +5645,13 @@
         // 折叠/展开今日完成
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
-            const arrow = document.getElementById(sectionId === 'doneList' ? 'doneArrow' : '');
+            let arrowId = '';
+            if (sectionId === 'doneList') {
+                arrowId = 'doneArrow';
+            } else if (sectionId === 'completedList') {
+                arrowId = 'completedArrow';
+            }
+            const arrow = arrowId ? document.getElementById(arrowId) : null;
             
             if (!section) return;
             
@@ -5558,9 +5659,23 @@
             if (isCollapsed) {
                 section.classList.remove('collapsed');
                 if (arrow) arrow.textContent = '▼';
+                // 如果是已完成模块，同时显示筛选栏
+                if (sectionId === 'completedList') {
+                    const filterBar = document.getElementById('completedFilterBar');
+                    if (filterBar) {
+                        filterBar.style.display = 'flex';
+                    }
+                }
             } else {
                 section.classList.add('collapsed');
                 if (arrow) arrow.textContent = '▶';
+                // 如果是已完成模块，同时隐藏筛选栏
+                if (sectionId === 'completedList') {
+                    const filterBar = document.getElementById('completedFilterBar');
+                    if (filterBar) {
+                        filterBar.style.display = 'none';
+                    }
+                }
             }
         }
         
@@ -10054,8 +10169,10 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 更新标题
            if (type === 'today') {
                title.textContent = '💡 今日完成汇总';
-           } else {
+           } else if (type === 'thisWeek') {
                title.textContent = '💡 本周完成汇总';
+           } else if (type === 'completed') {
+               title.textContent = '💡 已完成汇总';
            }
            
            // 更新当前汇总类型
@@ -10080,8 +10197,8 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            modal.classList.remove('hidden');
            
-           // 自动生成汇总
-           generateAISummary(type);
+           // 不再自动生成汇总，等待用户点击按钮
+           // generateAISummary(type);
        }
      
      // 获取默认提示词
@@ -10123,21 +10240,167 @@ ${ammoToAnalyze.map((ammo, index) =>
      
       // 切换汇总标签页
       function switchSummaryTab(type) {
-          const todayBtn = document.getElementById('summaryTodayBtn');
-          const thisWeekBtn = document.getElementById('summaryThisWeekBtn');
+          const summaryTabBtn = document.getElementById('summaryTabBtn');
+          const reportTabBtn = document.getElementById('reportTabBtn');
+          const summaryTabContent = document.getElementById('summaryTabContent');
+          const reportTabContent = document.getElementById('reportTabContent');
           
-          if (type === 'today') {
-              todayBtn.classList.add('active');
-              thisWeekBtn.classList.remove('active');
+          if (type === 'summary') {
+              summaryTabBtn.classList.remove('btn-secondary');
+              summaryTabBtn.classList.add('btn-primary');
+              reportTabBtn.classList.remove('btn-primary');
+              reportTabBtn.classList.add('btn-secondary');
+              summaryTabContent.style.display = 'block';
+              reportTabContent.style.display = 'none';
           } else {
-              todayBtn.classList.remove('active');
-              thisWeekBtn.classList.add('active');
+              summaryTabBtn.classList.remove('btn-primary');
+              summaryTabBtn.classList.add('btn-secondary');
+              reportTabBtn.classList.remove('btn-secondary');
+              reportTabBtn.classList.add('btn-primary');
+              summaryTabContent.style.display = 'none';
+              reportTabContent.style.display = 'block';
+              
+              // 初始化汇报模型选择器
+              initReportModelSelect();
+          }
+      }
+      
+      // 初始化汇报模型选择器
+      function initReportModelSelect() {
+          const modelSelect = document.getElementById('reportModelSelect');
+          if (modelSelect.options.length > 0) return; // 已经初始化过
+          
+          modelSelect.innerHTML = '';
+          data.aiConfig.models.forEach(model => {
+              const option = document.createElement('option');
+              option.value = model.id;
+              option.textContent = model.name;
+              if (model.id === data.aiConfig.model) {
+                  option.selected = true;
+              }
+              modelSelect.appendChild(option);
+          });
+      }
+      
+      // 生成AI汇报
+      async function generateAIReport() {
+          const content = document.getElementById('aiReportContent');
+          const modelSelect = document.getElementById('reportModelSelect');
+          
+          // 获取工作内容
+          const workItems = [];
+          for (let i = 1; i <= 3; i++) {
+              const workContent = document.querySelector(`.work-item:nth-child(${i}) .work-content-input`).value.trim();
+              const reportType = document.querySelector(`input[name="reportType${i}"]:checked`).value;
+              
+              if (workContent) {
+                  workItems.push({
+                      content: workContent,
+                      type: reportType
+                  });
+              }
           }
           
-          // 更新当前汇总类型
-          currentSummaryType = type;
+          if (workItems.length === 0) {
+              content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">请至少输入一个工作内容</div>';
+              return;
+          }
+          
+          // 显示加载状态
+          content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇报话术...</p></div>';
+          
+          try {
+              // 构建提示词
+              const prompt = buildReportPrompt(workItems);
+              
+              // 获取选择的模型
+              const selectedModel = modelSelect.value;
+              
+              // 调用AI API
+              const result = await callAiApi(prompt, selectedModel, 'custom');
+              
+              // 显示结果（将Markdown转换为HTML）
+              content.innerHTML = markdownToHtml(result);
+          } catch (error) {
+              console.error('AI汇报生成失败:', error);
+              content.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">生成失败：${error.message}</div>`;
+          }
+      }
+      
+      // 构建汇报提示词
+      function buildReportPrompt(workItems) {
+          const typeDescriptions = {
+              'A': '请求指点方向：遇到卡点，需要领导指点突破口。',
+              'B': '请求方案判断：准备了A方案（优点，缺点）和B方案（优点，缺点），个人倾向【A/B】，请领导判断。',
+              'C': '请求领导核查：目前进展顺利，但希望领导从更高层面，帮忙核查盲区。'
+          };
+          
+          let prompt = '请根据以下工作内容，生成一份3分钟口头汇报参考话术：\n\n';
+          
+          workItems.forEach((item, index) => {
+              prompt += `工作内容${index + 1}：\n`;
+              prompt += `${item.content}\n`;
+              prompt += `汇报类型：${typeDescriptions[item.type]}\n\n`;
+          });
+          
+          prompt += `汇报要求：\n`;
+          prompt += `1. 总时长控制在3分钟左右\n`;
+          prompt += `2. 语言简洁、专业、有逻辑\n`;
+          prompt += `3. 突出重点，避免冗余\n`;
+          prompt += `4. 根据不同的汇报类型，采用不同的表达方式\n`;
+          prompt += `5. 使用适当的过渡词，让汇报更流畅\n`;
+          prompt += `6. 结尾要有明确的行动请求或总结\n`;
+          prompt += `7. 使用emoji增加可读性（如📋、💡、🎯等）\n`;
+          
+          return prompt;
       }
      
+      // 获取筛选后的已完成任务
+      function getFilteredCompletedTasks() {
+          // 获取筛选条件
+          const searchTerm = document.getElementById('completedSearch')?.value.toLowerCase() || '';
+          const timeFilter = document.getElementById('completedTimeFilter')?.value || 'all';
+          const selectedTagsStr = document.getElementById('completedTagFilter')?.dataset.selectedTags || '[]';
+          const selectedTags = JSON.parse(selectedTagsStr);
+          const filterMode = document.getElementById('completedTagFilter')?.dataset.filterMode || 'include';
+          
+          // 获取所有已完成的任务
+          let list = data.tasks.filter(i => i.done);
+          
+          // 应用时间筛选
+          if (timeFilter === 'today') {
+              list = list.filter(i => isToday(i.doneAt || i.updatedAt));
+          } else if (timeFilter === 'thisWeek') {
+              list = list.filter(i => {
+                  const doneDate = new Date(i.doneAt || i.updatedAt);
+                  const weekRange = getThisWeekRange();
+                  return doneDate >= weekRange.start && doneDate <= weekRange.end;
+              });
+          } else if (timeFilter === 'thisMonth') {
+              list = list.filter(i => {
+                  const doneDate = new Date(i.doneAt || i.updatedAt);
+                  const now = new Date();
+                  return doneDate.getMonth() === now.getMonth() && doneDate.getFullYear() === now.getFullYear();
+              });
+          }
+          
+          // 应用搜索过滤
+          if (searchTerm) {
+              list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+          }
+          
+          // 应用标签过滤
+          if (selectedTags && selectedTags.length > 0) {
+              if (filterMode === 'include') {
+                  list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+              } else {
+                  list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+              }
+          }
+          
+          return list;
+      }
+      
       // 生成AI汇总
       async function generateAISummary(type) {
           const content = document.getElementById('aiSummaryContent');
@@ -10147,18 +10410,11 @@ ${ammoToAnalyze.map((ammo, index) =>
           // 更新当前汇总类型
           currentSummaryType = type;
           
-          // 获取任务列表
-          let tasks = [];
-          if (type === 'today') {
-              // 今日完成的任务
-              tasks = data.tasks.filter(t => t.done && isToday(t.updatedAt));
-          } else {
-              // 本周完成的任务
-              tasks = getThisWeekCompletedTasks();
-          }
+          // 从筛选后的已完成任务中获取数据
+          let tasks = getFilteredCompletedTasks();
           
           if (tasks.length === 0) {
-              content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无完成任务</div>';
+              content.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无符合条件的已完成任务</div>';
               return;
           }
           
@@ -10197,8 +10453,30 @@ ${ammoToAnalyze.map((ammo, index) =>
      
      // 构建任务数据文本
      function buildTaskData(tasks, type) {
-         const typeText = type === 'today' ? '今日' : '本周';
-         const dateText = type === 'today' ? fmtTime(new Date()) : `${fmtTime(getThisWeekRange().start)} ~ ${fmtTime(getThisWeekRange().end)}`;
+         let typeText = '已完成';
+         let dateText = '全部时间';
+         
+         if (type === 'today') {
+             typeText = '今日';
+             dateText = fmtTime(new Date());
+         } else if (type === 'thisWeek') {
+             typeText = '本周';
+             dateText = `${fmtTime(getThisWeekRange().start)} ~ ${fmtTime(getThisWeekRange().end)}`;
+         } else if (type === 'completed') {
+             // 获取当前筛选条件
+             const timeFilter = document.getElementById('completedTimeFilter')?.value || 'all';
+             if (timeFilter === 'today') {
+                 typeText = '今日';
+                 dateText = fmtTime(new Date());
+             } else if (timeFilter === 'thisWeek') {
+                 typeText = '本周';
+                 dateText = `${fmtTime(getThisWeekRange().start)} ~ ${fmtTime(getThisWeekRange().end)}`;
+             } else if (timeFilter === 'thisMonth') {
+                 typeText = '本月';
+                 const now = new Date();
+                 dateText = `${now.getFullYear()}年${now.getMonth() + 1}月`;
+             }
+         }
          
          // 统计标签
          const tagStats = {};
@@ -10329,11 +10607,18 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 转换分隔线（--- 或 ***）
          html = html.replace(/^[-*]{3,}\s*$/gm, '<hr style="border:none;border-top:1px solid #ddd;margin:16px 0;">');
          
-         // 转换换行（将\n转换为<br>，除了在pre和code标签中）
-         html = html.replace(/\n/g, '<br>');
-         
-         // 清理多余的<br>
-         html = html.replace(/(<br>){3,}/g, '<br><br>');
+         // 转换换行（更智能地处理换行）
+         // 先将连续的空行（2个或更多\n）替换为段落分隔符
+         html = html.replace(/\n{2,}/g, '</p><p>');
+         // 将单个\n替换为空格（在同一行内）
+         html = html.replace(/\n/g, ' ');
+         // 将段落分隔符转换为实际的段落标签
+         html = '<p>' + html + '</p>';
+         // 清理空的段落标签
+         html = html.replace(/<p>\s*<\/p>/g, '');
+         // 清理段落标签内的多余空格
+         html = html.replace(/<p>\s+/g, '<p>');
+         html = html.replace(/\s+<\/p>/g, '</p>');
          
          return html;
      }
