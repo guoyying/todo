@@ -1405,11 +1405,14 @@
             </div>
             
             <div class="input-group">
-                <label>标签</label>
-                <div class="tags-select" id="feelingTags"></div>
-            </div>
-            
-            <button class="btn btn-primary" onclick="saveFeeling()">记录</button>
+               <label>标签</label>
+               <div class="tags-select" id="feelingTags"></div>
+           </div>
+           
+           <div style="display:flex;gap:8px;align-items:center;">
+               <button class="btn btn-primary" onclick="saveFeeling()">记录</button>
+               <button class="btn btn-small btn-secondary" onclick="showCommunicationChecklist()" style="padding:4px 8px;font-size:12px;opacity:0.7;" title="关系问题沟通清单">📋</button>
+           </div>
         </div>
 
         <div class="task-input-area" id="taskArea">
@@ -6042,6 +6045,271 @@
         }
  
         // ============ 往期汇总功能 ============
+        
+        // 显示关系问题沟通清单
+        function showCommunicationChecklist() {
+            // 生成唯一ID
+            const checklistId = 'checklist_' + Date.now();
+            
+            const modal = document.createElement('div');
+            modal.id = 'communicationChecklistModal';
+            modal.className = 'modal-overlay';
+            modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;z-index:2000;';
+            
+            // 点击遮罩关闭
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeCommunicationChecklist();
+                }
+            });
+            
+            modal.innerHTML = `
+                <div class="modal" style="background:var(--card);border-radius:var(--radius);padding:16px;max-width:650px;width:90%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow);">
+                    <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">
+                        <h3 style="font-size:15px;margin:0;color:var(--text);">📋 关系问题沟通清单</h3>
+                        <button class="btn btn-small btn-secondary" onclick="closeCommunicationChecklist()" style="padding:3px 6px;font-size:11px;">关闭</button>
+                    </div>
+                    
+                    <div style="font-size:11px;color:var(--text-secondary);margin-bottom:10px;line-height:1.5;">
+                        当你因对方行为感到不适，并想进行有效沟通时，请严格按此顺序执行：
+                    </div>
+                    
+                    <!-- 显示历史记录 -->
+                    <div id="${checklistId}_history" style="margin-bottom:12px;"></div>
+                    
+                    <div id="${checklistId}_container" style="display:flex;flex-direction:column;gap:10px;">
+                        <!-- 第一步 -->
+                        <div class="checklist-item" data-step="1" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--primary);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="1" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--primary);font-size:12px;">第一步：自我准备（情绪管理）</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div style="margin-bottom:4px;"><strong>问自己：</strong>我现在能平静地说话吗？如果不行，先给自己10分钟冷静。</div>
+                                        <div><strong>目标：</strong>确保沟通目的是"解决问题"，而不是"发泄情绪"。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的回答：</label>
+                                <textarea class="step-answer" data-step="1" rows="2" placeholder="记录你的思考和状态..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- 第二步 -->
+                        <div class="checklist-item" data-step="2" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--task);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="2" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--task);font-size:12px;">第二步：观察与定义（事实+感受）</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div style="margin-bottom:4px;"><strong>问自己：</strong></div>
+                                        <div style="margin-left:12px;margin-bottom:2px;">• 他具体做了什么？（例：本周已外出两次，还在安排第三次。）</div>
+                                        <div style="margin-left:12px;">• 这件事给我的核心感受是什么？（例：我感觉他不重视和我的相处，我去不去都无所谓。）</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的回答：</label>
+                                <textarea class="step-answer" data-step="2" rows="2" placeholder="记录具体事实和你的感受..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- 第三步 -->
+                        <div class="checklist-item" data-step="3" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--feeling);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="3" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第三步：发起沟通（用框架表达）</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div>使用下面的 "FERA表达框架"，平静地陈述你的观察和感受。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的表达内容：</label>
+                                <textarea class="step-answer" data-step="3" rows="3" placeholder="使用FERA框架记录你的表达..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- 第四步 -->
+                        <div class="checklist-item" data-step="4" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--primary);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="4" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--primary);font-size:12px;">第四步：倾听与确认（了解动机）</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div style="margin-bottom:4px;"><strong>问对方：</strong>"我想了解一下，你当时是怎么考虑的？"（例：你为什么觉得这周还能安排第三次？）</div>
+                                        <div><strong>目标：</strong>听到他的真实想法，避免误解。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">对方的回答：</label>
+                                <textarea class="step-answer" data-step="4" rows="2" placeholder="记录对方的真实想法..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- 第五步 -->
+                        <div class="checklist-item" data-step="5" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--task);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="5" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--task);font-size:12px;">第五步：提出期待与请求（明确需求）</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div style="margin-bottom:4px;"><strong>告诉他：</strong></div>
+                                        <div style="margin-left:12px;margin-bottom:2px;">• 你的做法，给我的感受是：（例："你当时那样做，让我觉得你并不在意我们的相处时间。"）</div>
+                                        <div style="margin-left:12px;">• 我喜欢的方式是什么？（例："我希望我们每周能有固定的二人时间，其他安排能提前和我商量。"）</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的表达内容：</label>
+                                <textarea class="step-answer" data-step="5" rows="2" placeholder="记录你的期待和请求..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- 第六步 -->
+                        <div class="checklist-item" data-step="6" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--feeling);">
+                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                <input type="checkbox" class="step-checkbox" data-step="6" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <div style="flex:1;">
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第六步：达成共识与闭环</div>
+                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
+                                        <div style="margin-bottom:4px;"><strong>明确核心需求：</strong>向他强调你最终需要的是什么。</div>
+                                        <div style="margin-bottom:4px;"><strong>标准话术：</strong>"我更需要你诚恳认真的回应态度。只要让我感觉你是真的听进去了、在想怎么改，哪怕问题还在，我的情绪也会很快过去，不会焦虑地憋在心里。"</div>
+                                        <div><strong>目标：</strong>为本次沟通设定一个清晰的、以"诚恳态度"为标准的成功标志。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-left:23px;">
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">最终共识：</label>
+                                <textarea class="step-answer" data-step="6" rows="2" placeholder="记录达成的共识和结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:center;">
+                        <button class="btn btn-secondary" onclick="closeCommunicationChecklist()" style="padding:6px 16px;font-size:12px;">取消</button>
+                        <button class="btn btn-primary" onclick="saveCommunicationChecklist('${checklistId}')" style="padding:6px 16px;font-size:12px;">保存清单</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // 加载并显示历史记录
+            loadChecklistHistory(checklistId);
+        }
+        
+        // 关闭沟通清单
+        function closeCommunicationChecklist() {
+            const modal = document.getElementById('communicationChecklistModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        // 保存沟通清单
+        function saveCommunicationChecklist(checklistId) {
+            const container = document.getElementById(checklistId + '_container');
+            if (!container) return;
+            
+            // 收集所有步骤的数据
+            const steps = [];
+            const checkboxes = container.querySelectorAll('.step-checkbox');
+            const answers = container.querySelectorAll('.step-answer');
+            
+            checkboxes.forEach((checkbox, index) => {
+                const stepNum = parseInt(checkbox.dataset.step);
+                const answer = answers[index] ? answers[index].value.trim() : '';
+                
+                steps.push({
+                    step: stepNum,
+                    completed: checkbox.checked,
+                    answer: answer
+                });
+            });
+            
+            // 创建清单记录
+            const checklistRecord = {
+                id: checklistId.replace('checklist_', ''),
+                type: 'communication_checklist',
+                title: '关系问题沟通清单',
+                createdAt: new Date().toISOString(),
+                steps: steps,
+                allCompleted: steps.every(s => s.completed)
+            };
+            
+            // 保存到数据中
+            if (!data.communicationChecklists) {
+                data.communicationChecklists = [];
+            }
+            data.communicationChecklists.push(checklistRecord);
+            
+            // 保存到本地存储
+            saveData();
+            
+            // 显示成功提示
+            showToast('沟通清单已保存');
+            
+            // 关闭弹窗
+            closeCommunicationChecklist();
+            
+            // 刷新显示
+            renderCommunicationChecklists();
+        }
+        
+        // 加载清单历史记录
+        function loadChecklistHistory(checklistId) {
+            const historyContainer = document.getElementById(checklistId + '_history');
+            if (!historyContainer) return;
+            
+            if (!data.communicationChecklists || data.communicationChecklists.length === 0) {
+                historyContainer.innerHTML = '';
+                return;
+            }
+            
+            // 按时间倒序排列，显示最近3条记录
+            const recentChecklists = data.communicationChecklists
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .slice(0, 3);
+            
+            let historyHtml = '<div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">📝 最近记录：</div>';
+            
+            recentChecklists.forEach(checklist => {
+                const date = new Date(checklist.createdAt);
+                const dateStr = `${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
+                const completedSteps = checklist.steps.filter(s => s.completed).length;
+                const totalSteps = checklist.steps.length;
+                
+                historyHtml += `
+                    <div style="background:var(--bg);padding:8px;border-radius:6px;margin-bottom:6px;border-left:3px solid ${checklist.allCompleted ? 'var(--primary)' : '#ccc'};">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                            <span style="font-size:11px;color:var(--text);font-weight:500;">${dateStr}</span>
+                            <span style="font-size:10px;color:${checklist.allCompleted ? 'var(--primary)' : 'var(--text-secondary)'};">
+                                ${checklist.allCompleted ? '✅ 已完成' : `⏳ ${completedSteps}/${totalSteps}`}
+                            </span>
+                        </div>
+                        ${checklist.steps.some(s => s.answer && s.answer.trim()) ?
+                            `<div style="font-size:10px;color:var(--text-secondary);margin-top:4px;">
+                                ${checklist.steps.filter(s => s.answer && s.answer.trim()).slice(0, 2).map(s =>
+                                    `<div style="margin-bottom:2px;">• ${s.answer.substring(0, 30)}${s.answer.length > 30 ? '...' : ''}</div>`
+                                ).join('')}
+                            </div>` : ''
+                        }
+                    </div>
+                `;
+            });
+            
+            historyContainer.innerHTML = historyHtml;
+        }
+        
+        // 渲染已保存的沟通清单
+        function renderCommunicationChecklists() {
+            // 这个函数可以在需要时扩展，用于显示历史清单记录
+            console.log('已保存的沟通清单数量:', data.communicationChecklists ? data.communicationChecklists.length : 0);
+        }
         
         // 显示往期汇总模态框
         function showOldFeelingSummaryModal() {
