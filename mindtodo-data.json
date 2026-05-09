@@ -1541,7 +1541,7 @@
       "type": "task",
       "content": "动作一：发起一次“微型同步”（今天下班前完成）• 目标：主动与一位工作有潜在交集的同事建立连接。• 话术：“XX，我最近在做[你的工作]，看到你也在做[ta的工作]，感觉中间可能有能对齐/协作的地方。方便用5分钟快速对一下吗？ 听听你的进展，也看看我这边有什么能支持你的。”• 为什么有效：这并非求助，而是“协作邀约”，姿态平等，且为未来深度配合埋下伏笔。动作二：进行一次“非正式汇报”（明天上午完成）• 目标：向领导刷一次存在感，同步进展并试探需求。• 话术：“领导，关于[你手头的项目]，目前进展到[具体阶段]。我特别想把它和咱们团队的[XX大目标]结合得更紧一点，您看方向上有什么建议，或者近期有什么需要我重点支持的吗？”• 为什么有效：表明你心系团队目标，而不仅是自己的一亩三分地，同时把领导拉入你的“智囊团”。",
       "createdAt": "2026-05-08T23:47:00.397Z",
-      "updatedAt": "2026-05-09T01:01:41.506Z",
+      "updatedAt": "2026-05-09T01:35:20.251Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1552,9 +1552,10 @@
           "content": "做任务1，想一下场景 跟ai提问这个场景",
           "estimatedTime": "3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moxo95g0smca3"
         }
-      ]
+      ],
+      "placedIn": "slot_moxo95g0smca3"
     },
     {
       "id": "moxmwr6yo7r0c",
@@ -1595,7 +1596,7 @@
       "type": "task",
       "content": "元宝有几个需要拆解todo的",
       "createdAt": "2026-05-09T01:07:54.545Z",
-      "updatedAt": "2026-05-09T01:07:54.545Z",
+      "updatedAt": "2026-05-09T01:35:14.361Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1606,9 +1607,10 @@
           "content": "分为工作和情感。情感先拆解",
           "estimatedTime": "5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_moxo95g0smca3"
         }
-      ]
+      ],
+      "placedIn": "slot_moxo95g0smca3"
     }
   ],
   "normalFeelings": [
@@ -1865,7 +1867,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_moxo95g0smca3",
+      "name": "10点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2172,6 +2179,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-09T01:07:58.715Z"
+    "lastSync": "2026-05-09T01:28:28.935Z"
   }
 }
