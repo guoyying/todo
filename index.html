@@ -551,7 +551,7 @@
         }
         .subtask .checkbox { width: 16px; height: 16px; }
         .subtask.done { text-decoration: line-through; color: var(--text-secondary); }
-        .subtask input {
+        .subtask input:not(.edit-time) {
             flex: 1;
             border: none;
             background: transparent;
@@ -3210,9 +3210,10 @@
                     // 预计时间编辑框
                     const timeInput = document.createElement('input');
                     timeInput.type = 'text';
+                    timeInput.className = 'edit-time';
                     timeInput.value = st.estimatedTime || '';
                     timeInput.placeholder = '预计时间';
-                    timeInput.style.width = '80px';
+                    timeInput.style.width = '40px';
                     timeInput.style.marginLeft = '8px';
                     timeInput.style.border = '1px solid var(--border)';
                     timeInput.style.borderRadius = '4px';
