@@ -1540,12 +1540,13 @@
       "type": "task",
       "content": "写一下我脑子里现在的想法到元宝。",
       "createdAt": "2026-05-08T23:41:17.232Z",
-      "updatedAt": "2026-05-08T23:41:17.232Z",
+      "updatedAt": "2026-05-09T00:56:02.318Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-09T00:56:02.318Z"
     },
     {
       "id": "moxke3sdff3id",
@@ -1566,6 +1567,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "moxmwr6yo7r0c",
+      "type": "task",
+      "content": "做网管补环准备",
+      "createdAt": "2026-05-09T00:57:29.770Z",
+      "updatedAt": "2026-05-09T00:57:29.770Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
