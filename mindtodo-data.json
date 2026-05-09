@@ -1512,18 +1512,6 @@
       "doneAt": "2026-05-08T10:41:23.542Z"
     },
     {
-      "id": "mowsc5resgqum",
-      "type": "task",
-      "content": "网管补环",
-      "createdAt": "2026-05-08T10:41:40.394Z",
-      "updatedAt": "2026-05-08T10:41:40.394Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "moxk69drtuu9g",
       "type": "task",
       "content": "10点开会关于资产的",
@@ -1573,13 +1561,14 @@
       "type": "task",
       "content": "做网管补环准备",
       "createdAt": "2026-05-09T00:57:29.770Z",
-      "updatedAt": "2026-05-09T01:04:09.396Z",
+      "updatedAt": "2026-05-09T01:28:08.154Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moxn58xdow5rj"
+      "placedIn": "slot_moxn58xdow5rj",
+      "doneAt": "2026-05-09T01:28:08.154Z"
     },
     {
       "id": "moxn2pvyb74hr",
@@ -1876,12 +1865,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_moxn58xdow5rj",
-      "name": "9点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2188,6 +2172,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-09T01:02:11.899Z"
+    "lastSync": "2026-05-09T01:07:58.715Z"
   }
 }
