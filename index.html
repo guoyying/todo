@@ -1434,15 +1434,15 @@
                 <div class="unknown-subtasks hidden" id="unknownSubtasks">
                     <div class="subtask">
                         <input type="text" placeholder="子任务 1" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
                         <input type="text" placeholder="子任务 2" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
                         <input type="text" placeholder="子任务 3" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:120px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                 </div>
             </div>
@@ -3003,7 +3003,7 @@
                     timeInput.type = 'text';
                     timeInput.value = item.dueTime || '';
                     timeInput.placeholder = '预计时间';
-                    timeInput.style.width = '100px';
+                    timeInput.style.width = '60px';
                     timeInput.style.marginLeft = '8px';
                     timeInput.style.border = '1px solid var(--border)';
                     timeInput.style.borderRadius = '4px';
@@ -3213,7 +3213,7 @@
                     timeInput.className = 'edit-time';
                     timeInput.value = st.estimatedTime || '';
                     timeInput.placeholder = '预计时间';
-                    timeInput.style.width = '40px';
+                    timeInput.style.width = '60px';
                     timeInput.style.marginLeft = '8px';
                     timeInput.style.border = '1px solid var(--border)';
                     timeInput.style.borderRadius = '4px';
@@ -3447,7 +3447,7 @@
                                            <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
                                                onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
                                                placeholder="预计时间"
-                                               style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
+                                               style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
                                        </div>
                                    `;
                                });
@@ -3460,7 +3460,7 @@
                                        <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
                                            onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
                                            placeholder="预计时间"
-                                           style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
+                                           style="width:60px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
                                    </div>
                                  <div class="subtask-list">
                                      ${subtasksHtml}
@@ -3493,7 +3493,7 @@
                                       <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
                                           onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
                                           placeholder="预计时间"
-                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
+                                          style="width:60px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
                                   </div>
                                 <div class="item-actions" style="opacity:1;">
                                     <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
@@ -6487,17 +6487,17 @@
    - "所以，我认为..."`
           },
           feeling: {
-              name: '感受事实期待',
+              name: '事实感受期待',
               icon: '❤️',
               prompt: `请按照以下结构进行感受事实期待表达练习：
 
-1. 感受（30秒）
-   - 表达你的真实感受
-   - "我感到..."
-
-2. 事实（1分钟）
+1. 事实（1分钟）
    - 用这个弹药描述客观事实
    - "具体的情况是..."
+
+2. 感受（30秒）
+   - 表达你的真实感受
+   - "我感到..."
 
 3. 期待（30秒）
    - 清晰表达你的期望
@@ -7633,7 +7633,7 @@
          function renderFrameworksForEdit(ammoId) {
              const frameworks = [
                  { type: 'prep', name: 'PREP结构', icon: '📊', description: '观点-理由-例子-观点' },
-                 { type: 'feeling', name: '感受事实期待', icon: '❤️', description: '感受-事实-期待' },
+                 { type: 'feeling', name: '感受事实期待', icon: '❤️', description: '事实-感受-期待' },
                  { type: 'star', name: 'STAR法则', icon: '⭐', description: '情境-任务-行动-结果' },
                  { type: 'kiss', name: 'KISS原则', icon: '💋', description: '保持-改进-开始-停止' },
                  { type: 'pyramid', name: '金字塔原理', icon: '🔺', description: '结论先行-以上统下-归类分组-逻辑递进' }
@@ -7698,22 +7698,19 @@
                   const prompt = `【角色设定】你现在是一位资深的职场沟通与个人成长教练，擅长运用各种经典的表达框架（如 PREP、STAR、金字塔原理、非暴力沟通等）来帮助他人提升逻辑思维和表达能力。
 
 【你的任务要求】
-请你依据我以下的期待，设定2个相关参考场景，并结合这句话的内容，为我定制表达框架的具体参考句式
+请你依据我以下的期待，设定2个相关参考场景，并结合这句话的内容，为我定制表达框架的具体参考句式。参考场景可以多元化,包含具体做法。
 
 【期待】
 我的期待是那种“向内求”的、很踏实的生活智慧：
-1. 生活与工作的“优化师” 
+1. 自我提升
 - 核心诉求： 提升效率，捕捉可改善的细节并优化。
 - 理想状态： 喜欢主动做调整，让日常运转更舒适、更顺手。
-2. 亲密关系的“觉察者”
-- 核心诉求： 在即将生气或产生误解时，能按下“暂停键”。
-- 理想状态： 先冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
-3. 职场进阶的“实干家” 
+2. 相处
+- 核心诉求： 有解决相处沟通问题的框架
+- 理想状态： 能基于框架冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
+3. 工作 
 - 核心诉求： 获得领导与同事的认可，拥有肉眼可见的个人进步。
 - 理想状态： 即使工作量大，也能有条不紊地从容搞定，忙而不乱。
-4. 自我与家庭的“平衡者” 
-- 核心诉求： 在家庭付出与收获之间找到平衡，感受到被爱；与自己相处时多一份从容淡定。
-- 理想状态： 内心安稳，既享受家人的温暖，也拥有自洽的松弛感。
 简单来说，你希望成为一个“对外高效有序，对内温柔坚定”的人。
 
 【输出要求】
@@ -7757,7 +7754,7 @@
              container.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成应用场景...</div>';
              
              try {
-                 const prompt = `请为以下这句话生成3个具体的应用场景，每个场景包含场景名称和参考话术。
+                 const prompt = `请提炼以下这句话的本质，生成2个具体的应用场景，每个场景包含场景名称和参考话术。应用场景可以多元化。
      
      句子：${ammo.content}
      
@@ -7769,27 +7766,21 @@
        }
      ]
      
-【我的期待】
+【期待】
 我的期待是那种“向内求”的、很踏实的生活智慧：
-1. 生活与工作的“优化师” 
+1. 自我提升
 - 核心诉求： 提升效率，捕捉可改善的细节并优化。
 - 理想状态： 喜欢主动做调整，让日常运转更舒适、更顺手。
-
-2. 亲密关系的“觉察者”
-- 核心诉求： 在即将生气或产生误解时，能按下“暂停键”。
-- 理想状态： 先冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
-
-3. 职场进阶的“实干家” 
+2. 相处
+- 核心诉求： 有解决相处沟通问题的框架
+- 理想状态： 能基于框架冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
+3. 工作 
 - 核心诉求： 获得领导与同事的认可，拥有肉眼可见的个人进步。
 - 理想状态： 即使工作量大，也能有条不紊地从容搞定，忙而不乱。
-
-4. 自我与家庭的“平衡者” 
-- 核心诉求： 在家庭付出与收获之间找到平衡，感受到被爱；与自己相处时多一份从容淡定。
-- 理想状态： 内心安稳，既享受家人的温暖，也拥有自洽的松弛感。
 简单来说，你希望成为一个“对外高效有序，对内温柔坚定”的人。
 
      要求：
-     1. 场景要具体、实用
+     1. 场景要具体、实用、精炼
      2. 参考话术要自然、贴近实际使用
      3. 场景选择参考上述【我的期待】`;
                  
@@ -8249,22 +8240,19 @@
                 【角色设定】你现在是一位资深的职场沟通与个人成长教练，擅长运用各种经典的表达框架（如 PREP、STAR、金字塔原理、非暴力沟通等）来帮助他人提升逻辑思维和表达能力。
 
 【你的任务要求】
-请你依据我以下的期待，设定2个相关参考场景，并结合这句话的内容，为我定制表达框架的具体参考句式
+请你依据我以下的期待，设定2个相关参考场景，并结合这句话的内容，为我定制表达框架的具体参考句式。参考场景可以多元化,包含具体做法。
 
 【期待】
 我的期待是那种“向内求”的、很踏实的生活智慧：
-1. 生活与工作的“优化师” 
+1. 自我提升
 - 核心诉求： 提升效率，捕捉可改善的细节并优化。
 - 理想状态： 喜欢主动做调整，让日常运转更舒适、更顺手。
-2. 亲密关系的“觉察者”
-- 核心诉求： 在即将生气或产生误解时，能按下“暂停键”。
-- 理想状态： 先冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
-3. 职场进阶的“实干家” 
+2. 相处
+- 核心诉求： 有解决相处沟通问题的框架
+- 理想状态： 能基于框架冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
+3. 工作 
 - 核心诉求： 获得领导与同事的认可，拥有肉眼可见的个人进步。
 - 理想状态： 即使工作量大，也能有条不紊地从容搞定，忙而不乱。
-4. 自我与家庭的“平衡者” 
-- 核心诉求： 在家庭付出与收获之间找到平衡，感受到被爱；与自己相处时多一份从容淡定。
-- 理想状态： 内心安稳，既享受家人的温暖，也拥有自洽的松弛感。
 简单来说，你希望成为一个“对外高效有序，对内温柔坚定”的人。
 
 【输出要求】
