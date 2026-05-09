@@ -8705,8 +8705,10 @@
          showToast('已删除');
      }
      
-     // 处理感受输入，显示智能推荐（使用中文分词）
+     // 处理感受输入，显示智能推荐按钮（使用AI分析弹药库本质）
      let ammoSuggestionTimer = null;
+     let aiAnalysisTimer = null;
+     
      function handleFeelingInput(textarea) {
          const content = textarea.value.trim();
          const container = document.getElementById('ammoSuggestions');
@@ -8717,20 +8719,53 @@
          if (ammoSuggestionTimer) {
              clearTimeout(ammoSuggestionTimer);
          }
+         if (aiAnalysisTimer) {
+             clearTimeout(aiAnalysisTimer);
+         }
          
-         // 如果内容太少，不显示推荐
+         // 如果内容太少，不显示推荐按钮
          if (content.length < 2) {
              container.innerHTML = '';
              return;
          }
          
-         console.log('准备显示推荐，内容长度:', content.length);
+         console.log('准备显示推荐按钮，内容长度:', content.length);
          
-         // 延迟显示推荐，避免频繁调用
+         // 延迟显示推荐按钮，避免频繁更新
          ammoSuggestionTimer = setTimeout(() => {
-             console.log('定时器触发，调用智能匹配');
-             showIntelligentAmmoSuggestions(content, 'ammoSuggestions', 'feelingContent');
+             console.log('定时器触发，显示AI推荐按钮');
+             showAIRecommendButton(content, 'ammoSuggestions', 'feelingContent');
          }, 500);
+     }
+     
+     // 显示AI推荐按钮
+     function showAIRecommendButton(content, containerId, targetInputId) {
+         const container = document.getElementById(containerId);
+         if (!container) return;
+         
+         container.innerHTML = `
+             <button class="btn btn-small btn-primary" onclick="triggerAIRecommendation('${containerId}', '${targetInputId}')" style="width:100%;margin-top:8px;">
+                 🤖 AI智能弹药推荐
+             </button>
+         `;
+         
+         // 保存当前内容到容器属性，供点击时使用
+         container.dataset.currentContent = content;
+     }
+     
+     // 触发AI推荐
+     async function triggerAIRecommendation(containerId, targetInputId) {
+         const container = document.getElementById(containerId);
+         if (!container) return;
+         
+         const content = container.dataset.currentContent || '';
+         if (!content) {
+             showToast('请先输入感受内容');
+             return;
+         }
+         
+         // 调用AI增强推荐
+         await showAIEnhancedAmmoSuggestions(content, containerId, targetInputId);
      }
      
      // 通用的弹药推荐显示函数
@@ -9274,8 +9309,200 @@
       * 显示智能弹药推荐（使用中文分词）
       * @param {string} content - 用户输入内容
       * @param {string} containerId - 容器ID
-      * @param {string} targetInputId - 目标输入框ID
+     * @param {string} targetInputId - 目标输入框ID
       */
+     
+     // AI增强的智能弹药推荐
+     async function showAIEnhancedAmmoSuggestions(content, containerId, targetInputId) {
+         const container = document.getElementById(containerId);
+         if (!container) {
+             console.log('容器不存在:', containerId);
+             return;
+         }
+         
+         console.log('开始AI增强智能匹配:', content);
+         console.log('弹药库数量:', data.ammoLibrary.length);
+         
+         // 显示加载状态
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI正在分析弹药库...</div>';
+         
+         try {
+             // 先使用传统算法进行快速匹配
+             const traditionalSuggestions = intelligentAmmoMatch(content, data.ammoLibrary);
+             
+             // 如果弹药库不为空且有AI配置，尝试AI分析
+             let aiEnhancedSuggestions = [];
+             
+             if (data.ammoLibrary.length > 0 && data.aiConfig && data.aiConfig.model) {
+                 try {
+                     // 调用AI分析弹药库本质并推荐
+                     aiEnhancedSuggestions = await analyzeAmmoLibraryAndRecommend(content);
+                 } catch (aiError) {
+                     console.log('AI分析失败，使用传统算法:', aiError);
+                 }
+             }
+             
+             // 合并推荐结果，AI推荐的优先级更高
+             const allSuggestions = mergeSuggestions(traditionalSuggestions, aiEnhancedSuggestions);
+             
+             console.log('最终推荐结果数量:', allSuggestions.length);
+             
+             if (allSuggestions.length === 0) {
+                 container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 暂无相关推荐</div>';
+                 return;
+             }
+             
+             // 渲染推荐
+              container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI智能弹药推荐</div>';
+
+              allSuggestions.slice(0, 3).forEach((ammo, index) => {
+                 const suggestionEl = document.createElement('div');
+                 suggestionEl.className = 'ammo-suggestion';
+                 suggestionEl.style.borderLeft = `3px solid ${index === 0 ? 'var(--primary)' : '#ccc'}`;
+                 
+                 // 如果有AI分析结果，显示本质分析
+                 const essenceInfo = ammo.essence ?
+                     `<div style="font-size:10px;color:var(--primary);margin-top:2px;">✨ 本质: ${escapeHtml(ammo.essence.substring(0, 30))}${ammo.essence.length > 30 ? '...' : ''}</div>` : '';
+                 
+                 suggestionEl.innerHTML = `
+                     <div class="ammo-suggestion-content">${escapeHtml(ammo.content.substring(0, 60))}${ammo.content.length > 60 ? '...' : ''}</div>
+                     ${essenceInfo}
+                     <div class="ammo-suggestion-source">
+                         ${escapeHtml(ammo.sourceBlockName)}
+                         <span style="color:var(--text-secondary);font-size:10px;">| ${ammo.matchReason}</span>
+                     </div>
+                 `;
+                 
+                 suggestionEl.onclick = () => {
+                     // 插入到目标文本框
+                     const targetInput = document.getElementById(targetInputId);
+                     if (targetInput) {
+                         const cursorPos = targetInput.selectionStart;
+                         const textBefore = targetInput.value.substring(0, cursorPos);
+                         const textAfter = targetInput.value.substring(targetInput.selectionEnd);
+                         
+                         targetInput.value = textBefore + ammo.content + textAfter;
+                         targetInput.focus();
+                         
+                         // 增加使用次数
+                         const originalAmmo = data.ammoLibrary.find(a => a.id === ammo.id);
+                         if (originalAmmo) {
+                             originalAmmo.useCount++;
+                             saveData();
+                         }
+                         
+                         // 清空推荐
+                         container.innerHTML = '';
+                         
+                         showToast('已插入');
+                     }
+                 };
+                 container.appendChild(suggestionEl);
+             });
+             
+         } catch (error) {
+             console.error('智能推荐出错:', error);
+             container.innerHTML = '<div style="font-size:12px;color:var(--danger);margin-bottom:4px;">❌ 推荐失败，请稍后重试</div>';
+         }
+     }
+     
+     // 分析弹药库本质并推荐
+     async function analyzeAmmoLibraryAndRecommend(userFeeling) {
+         // 如果弹药库为空，返回空数组
+         if (!data.ammoLibrary || data.ammoLibrary.length === 0) {
+             return [];
+         }
+                   // 限制分析的弹药数量，避免token过多
+                   const ammoToAnalyze = data.ammoLibrary.slice(0, 15);
+         
+                   // 构建AI提示词
+         const prompt = `你是一个专业的心理咨询师和沟通专家。请分析以下弹药库记录的本质（核心想表达的东西），然后根据用户的感受内容做智能推荐。
+
+【用户当前感受】
+${userFeeling}
+
+【弹药库记录】
+${ammoToAnalyze.map((ammo, index) =>
+    `${index + 1}. 内容: ${ammo.content}\n   来源: ${ammo.sourceBlockName}\n   使用次数: ${ammo.useCount || 0}`
+).join('\n\n')}
+
+【任务要求】
+1. 分析每条弹药库记录的本质（核心想表达的东西，比如：情感需求、沟通模式、心理状态等）
+2. 根据用户的当前感受，找出最相关的3-5条弹药库记录
+3. 为每条推荐记录说明推荐理由
+
+【输出格式】
+请以JSON格式输出，格式如下：
+{
+  "recommendations": [
+    {
+      "index": 弹药库记录序号(从1开始),
+      "essence": "本质分析（20字以内）",
+      "reason": "推荐理由（30字以内）",
+      "relevance": 相关度分数(0-100)
+    }
+  ]
+}
+
+只输出JSON，不要有其他内容。`;
+
+         try {
+             // 调用AI API
+             const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+             
+             // 解析AI返回的JSON
+             const aiResult = JSON.parse(response);
+             
+             if (!aiResult.recommendations || !Array.isArray(aiResult.recommendations)) {
+                 console.log('AI返回格式不正确');
+                 return [];
+             }
+             
+             // 将AI推荐结果转换为弹药对象
+             const enhancedRecommendations = aiResult.recommendations
+                 .filter(rec => rec.index >= 1 && rec.index <= ammoToAnalyze.length)
+                 .map(rec => {
+                     const originalAmmo = ammoToAnalyze[rec.index - 1];
+                     return {
+                         ...originalAmmo,
+                         essence: rec.essence,
+                         matchReason: rec.reason,
+                         score: rec.relevance,
+                         matchType: 'ai_analysis'
+                     };
+                 })
+                 .sort((a, b) => b.score - a.score); // 按相关度排序
+             
+             console.log('AI推荐结果:', enhancedRecommendations);
+             return enhancedRecommendations;
+             
+         } catch (error) {
+             console.error('AI分析弹药库失败:', error);
+             return [];
+         }
+     }
+     
+     // 合并传统算法和AI推荐的弹药
+     function mergeSuggestions(traditional, aiEnhanced) {
+         const mergedMap = new Map();
+         
+         // 先添加AI推荐的结果（优先级更高）
+         aiEnhanced.forEach(ammo => {
+             mergedMap.set(ammo.id, ammo);
+         });
+         
+         // 再添加传统算法的结果，避免重复
+         traditional.forEach(ammo => {
+             if (!mergedMap.has(ammo.id)) {
+                 mergedMap.set(ammo.id, ammo);
+             }
+         });
+         
+         // 转换为数组并按分数排序
+         return Array.from(mergedMap.values()).sort((a, b) => b.score - a.score);
+     }
+     
+     // 保留原有的showIntelligentAmmoSuggestions函数用于其他地方
      function showIntelligentAmmoSuggestions(content, containerId, targetInputId) {
          const container = document.getElementById(containerId);
          if (!container) {
