@@ -1758,6 +1758,26 @@
       "dueTime": "30min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "moxy2bjieqtdl",
+      "type": "task",
+      "content": "我想做这样的事，跟领导口头汇报工作我会说哪些-》提炼表达框架；请同事帮忙我会说哪些-》提炼表达框架",
+      "createdAt": "2026-05-09T06:09:45.198Z",
+      "updatedAt": "2026-05-09T06:09:45.198Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxy2bji2aq79",
+          "content": "先写跟领导汇报工作我会说哪些。凌乱也无所谓，丢给ai生成。",
+          "estimatedTime": "9min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
