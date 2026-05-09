@@ -38,6 +38,73 @@
                 padding: 12px;
             }
             
+            /* 手机端所有文字内容强制换行 */
+            .item-content {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            .ammo-item-content {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            .digestion-item-content {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            .scenario-card-title {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            .scenario-card-reference {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            .scenario-practice-content {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            /* 手机端输入框强制换行 */
+            input[type="text"], textarea {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            /* 手机端时间段任务板输入框换行 */
+            .slot input[type="text"] {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
+            /* 手机端子任务输入框换行 */
+            .subtask input[type="text"] {
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+            }
+            
             .header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -428,14 +495,15 @@
         .item-type.feeling { background: var(--feeling-light); color: #8b5a5a; }
         .item-type.task { background: var(--task-light); color: #5a7090; }
         .item-time { font-size: 12px; color: var(--text-secondary); }
-        .item-content {
-            font-size: 14px;
-            margin: 6px 0;
-            white-space: normal;
-            word-break: break-word;
-            overflow-wrap: break-word;
-            line-height: 1.5;
-        }
+         .item-content {
+             font-size: 14px;
+             margin: 6px 0;
+             white-space: normal;
+             word-break: break-word;
+             overflow-wrap: break-word;
+             line-height: 1.6;
+             max-width: 800px;
+         }
         .item-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
         .item-tag {
             font-size: 11px;
@@ -596,6 +664,7 @@
             display: inline-block;
         }
         .slot .item { margin-bottom: 8px; padding: 10px; font-size: 13px; }
+        .slot .item-content { white-space: normal; word-break: break-word; overflow-wrap: break-word; line-height: 1.6; max-width: 800px; }
         .slot .item-actions { opacity: 1; }
         .slot-delete { cursor: pointer; color: var(--text-secondary); font-size: 12px; }
         .slot-delete:hover { color: var(--danger); }
@@ -1043,6 +1112,10 @@
              font-size: 15px;
              line-height: 1.6;
              margin-bottom: 6px;
+             white-space: normal;
+             word-break: break-word;
+             overflow-wrap: break-word;
+             max-width: 800px;
          }
          .ammo-item-source {
              font-size: 11px;
@@ -2873,27 +2946,57 @@
                 cb.onclick = () => toggleDone(item.id);
                 contentDiv.appendChild(cb);
             }
-            if (options.editable && item.type === 'task' && !item.done) {
-                const textInput = document.createElement('input');
-                textInput.type = 'text';
-                textInput.value = item.content;
-                textInput.style.flex = '1';
-                textInput.style.border = 'none';
-                textInput.style.background = 'transparent';
-                textInput.style.fontSize = '14px';
-                textInput.style.fontFamily = 'inherit';
-                textInput.style.padding = '2px';
-                textInput.onchange = (e) => {
-                    item.content = e.target.value;
-                    item.updatedAt = nowStr();
-                    saveData();
-                };
-                textInput.onblur = (e) => {
-                    item.content = e.target.value;
-                    item.updatedAt = nowStr();
-                    saveData();
-                };
-                contentDiv.appendChild(textInput);
+              if (options.editable && item.type === 'task' && !item.done) {
+                  // 根据内容长度决定使用input还是textarea
+                  const useTextarea = item.content.length > 50;
+                  let textInput;
+                  
+                  if (useTextarea) {
+                      textInput = document.createElement('textarea');
+                      textInput.value = item.content;
+                      textInput.style.flex = '1';
+                      textInput.style.border = 'none';
+                      textInput.style.background = 'transparent';
+                      textInput.style.fontSize = '14px';
+                      textInput.style.fontFamily = 'inherit';
+                      textInput.style.padding = '2px';
+                      textInput.style.resize = 'vertical';
+                      textInput.style.minHeight = '24px';
+                      textInput.style.maxHeight = '200px';
+                      textInput.style.overflow = 'auto';
+                      textInput.style.whiteSpace = 'pre-wrap';
+                      textInput.style.wordBreak = 'break-word';
+                      textInput.style.overflowWrap = 'break-word';
+                      textInput.style.lineHeight = '1.6';
+                      textInput.style.maxWidth = '800px';
+                  } else {
+                      textInput = document.createElement('input');
+                      textInput.type = 'text';
+                      textInput.value = item.content;
+                      textInput.style.flex = '1';
+                      textInput.style.border = 'none';
+                      textInput.style.background = 'transparent';
+                      textInput.style.fontSize = '14px';
+                      textInput.style.fontFamily = 'inherit';
+                      textInput.style.padding = '2px';
+                      textInput.style.whiteSpace = 'normal';
+                      textInput.style.wordBreak = 'break-word';
+                      textInput.style.overflowWrap = 'break-word';
+                      textInput.style.lineHeight = '1.6';
+                      textInput.style.maxWidth = '800px';
+                  }
+                  
+                  textInput.onchange = (e) => {
+                      item.content = e.target.value;
+                      item.updatedAt = nowStr();
+                      saveData();
+                  };
+                  textInput.onblur = (e) => {
+                      item.content = e.target.value;
+                      item.updatedAt = nowStr();
+                      saveData();
+                  };
+                  contentDiv.appendChild(textInput);
                 
                 if (!item.unknown) {
                     const timeInput = document.createElement('input');
@@ -3053,28 +3156,57 @@
                     cb.onclick = (e) => { e.stopPropagation(); toggleSubtask(item.id, st.id); };
                     row.appendChild(cb);
                     
-                    // 子任务内容编辑框
-                    const contentInput = document.createElement('input');
-                    contentInput.type = 'text';
-                    contentInput.value = st.content;
-                    contentInput.style.flex = '1';
-                    contentInput.style.border = 'none';
-                    contentInput.style.background = 'transparent';
-                    contentInput.style.fontSize = '13px';
-                    contentInput.style.fontFamily = 'inherit';
-                    contentInput.style.padding = '2px';
-                    contentInput.onchange = (e) => {
-                        st.content = e.target.value.trim();
-                        item.updatedAt = nowStr();
-                        saveData();
-                    };
-                    contentInput.onblur = (e) => {
-                        st.content = e.target.value.trim();
-                        item.updatedAt = nowStr();
-                        saveData();
-                    };
-                    row.appendChild(contentInput);
-                    
+                      // 子任务内容编辑框
+                      // 根据内容长度决定使用input还是textarea
+                      const useTextarea = st.content.length > 50;
+                      let contentInput;
+                      
+                      if (useTextarea) {
+                          contentInput = document.createElement('textarea');
+                          contentInput.value = st.content;
+                          contentInput.style.flex = '1';
+                          contentInput.style.border = 'none';
+                          contentInput.style.background = 'transparent';
+                          contentInput.style.fontSize = '13px';
+                          contentInput.style.fontFamily = 'inherit';
+                          contentInput.style.padding = '2px';
+                          contentInput.style.resize = 'vertical';
+                          contentInput.style.minHeight = '20px';
+                          contentInput.style.maxHeight = '150px';
+                          contentInput.style.overflow = 'auto';
+                          contentInput.style.whiteSpace = 'pre-wrap';
+                          contentInput.style.wordBreak = 'break-word';
+                          contentInput.style.overflowWrap = 'break-word';
+                          contentInput.style.lineHeight = '1.6';
+                          contentInput.style.maxWidth = '600px';
+                      } else {
+                          contentInput = document.createElement('input');
+                          contentInput.type = 'text';
+                          contentInput.value = st.content;
+                          contentInput.style.flex = '1';
+                          contentInput.style.border = 'none';
+                          contentInput.style.background = 'transparent';
+                          contentInput.style.fontSize = '13px';
+                          contentInput.style.fontFamily = 'inherit';
+                          contentInput.style.padding = '2px';
+                          contentInput.style.whiteSpace = 'normal';
+                          contentInput.style.wordBreak = 'break-word';
+                          contentInput.style.overflowWrap = 'break-word';
+                          contentInput.style.lineHeight = '1.6';
+                          contentInput.style.maxWidth = '600px';
+                      }
+                      
+                      contentInput.onchange = (e) => {
+                          st.content = e.target.value.trim();
+                          item.updatedAt = nowStr();
+                          saveData();
+                      };
+                      contentInput.onblur = (e) => {
+                          st.content = e.target.value.trim();
+                          item.updatedAt = nowStr();
+                          saveData();
+                      };
+                      row.appendChild(contentInput);
                     // 预计时间编辑框
                     const timeInput = document.createElement('input');
                     timeInput.type = 'text';
@@ -3173,7 +3305,39 @@
             return el;
         }
 
-         function renderSlots() {
+         // 根据内容长度生成输入框HTML
+         function generateInputHtml(content, onChange, extraStyles = '') {
+             const useTextarea = content.length > 50;
+             const escapedContent = content.replace(/"/g, '&quot;');
+             
+             if (useTextarea) {
+                 return `<textarea class="edit-input"
+                     onchange="${onChange}"
+                     style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;max-height:150px;resize:vertical;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:600px;flex:1;${extraStyles}">${escapedContent}</textarea>`;
+             } else {
+                 return `<input type="text" class="edit-input" value="${escapedContent}"
+                     onchange="${onChange}"
+                     style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:600px;flex:1;${extraStyles}"/>`;
+             }
+         }
+         
+         // 根据内容长度生成任务输入框HTML
+         function generateTaskInputHtml(content, onChange, extraStyles = '') {
+             const useTextarea = content.length > 50;
+             const escapedContent = content.replace(/"/g, '&quot;');
+             
+             if (useTextarea) {
+                 return `<textarea class="edit-input"
+                     onchange="${onChange}"
+                     style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;max-height:200px;resize:vertical;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:800px;flex:1;${extraStyles}">${escapedContent}</textarea>`;
+             } else {
+                 return `<input type="text" class="edit-input" value="${escapedContent}"
+                     onchange="${onChange}"
+                     style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:800px;flex:1;${extraStyles}"/>`;
+             }
+         }
+ 
+          function renderSlots() {
              const container = document.getElementById('timeSlots');
              container.innerHTML = '';
              let slotTotal = 0;
@@ -3271,34 +3435,32 @@
                              const wrapper = document.createElement('div');
                              wrapper.className = 'item task-item';
                              
-                             // 构建子任务HTML
-                             let subtasksHtml = '';
-                             entry.subtasks.forEach(st => {
-                                 subtasksHtml += `
-                                     <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
-                                         <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.task.id}','${st.id}')"></span>
-                                         <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
-                                             onchange="updateSubtaskInSlot('${entry.task.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
-                                             style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                         <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
-                                             onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
-                                             placeholder="预计时间"
-                                             style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
-                                     </div>
-                                 `;
-                             });
+                               // 构建子任务HTML
+                               let subtasksHtml = '';
+                               entry.subtasks.forEach(st => {
+                                   const inputHtml = generateInputHtml(st.content, `updateSubtaskInSlot('${entry.task.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')`);
+                                   subtasksHtml += `
+                                       <div class="subtask" style="display:flex;align-items:start;gap:8px;padding:4px 0;margin-left:24px;">
+                                           <span class="checkbox" style="width:16px;height:16px;margin-top:4px;" onclick="toggleSubtaskDone('${entry.task.id}','${st.id}')"></span>
+                                           ${inputHtml}
+                                           <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
+                                               onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
+                                               placeholder="预计时间"
+                                               style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
+                                       </div>
+                                   `;
+                               });
                              
-                             wrapper.innerHTML = `
-                                 <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                     <span class="checkbox" onclick="toggleDone('${entry.task.id}')"></span>
-                                     <input type="text" class="edit-input" value="${entry.task.content.replace(/"/g, '&quot;')}"
-                                         onchange="updateTaskInSlot('${entry.task.id}', this.value, '${entry.task.dueTime || ''}')"
-                                         style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                     <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
-                                         onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
-                                         placeholder="预计时间"
-                                         style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
-                                 </div>
+                               const taskInputHtml = generateTaskInputHtml(entry.task.content, `updateTaskInSlot('${entry.task.id}', this.value, '${entry.task.dueTime || ''}')`);
+                               wrapper.innerHTML = `
+                                   <div class="item-content" style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                       <span class="checkbox" style="margin-top:6px;" onclick="toggleDone('${entry.task.id}')"></span>
+                                       ${taskInputHtml}
+                                       <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
+                                           onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
+                                           placeholder="预计时间"
+                                           style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
+                                   </div>
                                  <div class="subtask-list">
                                      ${subtasksHtml}
                                  </div>
@@ -3313,26 +3475,25 @@
                             if (entry.sub.estimatedTime) {
                                 subTimeDisplay = ` | 预计：${entry.sub.estimatedTime}`;
                             }
-                            const wrapper = document.createElement('div');
-                            wrapper.className = 'item task-item';
-                            // 只有单独放入子任务时才显示"来自：xxx"
-                            const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
-                            // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
-                            const returnAction = entry.fromWholeTask
-                                ? `removeFromSlotSimple('${entry.parent.id}')`
-                                : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
-                            wrapper.innerHTML = `
-                                ${fromLabel}
-                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span class="checkbox" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
-                                    <input type="text" class="edit-input" value="${entry.sub.content.replace(/"/g, '&quot;')}"
-                                        onchange="updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')"
-                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                    <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
-                                        onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
-                                        placeholder="预计时间"
-                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
-                                </div>
+                             const wrapper = document.createElement('div');
+                             wrapper.className = 'item task-item';
+                             // 只有单独放入子任务时才显示"来自：xxx"
+                             const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
+                             // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
+                             const returnAction = entry.fromWholeTask
+                                 ? `removeFromSlotSimple('${entry.parent.id}')`
+                                 : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
+                             const subInputHtml = generateInputHtml(entry.sub.content, `updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')`);
+                              wrapper.innerHTML = `
+                                  ${fromLabel}
+                                  <div class="item-content" style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                      <span class="checkbox" style="margin-top:6px;" onclick="toggleSubtaskDone('${entry.parent.id}','${entry.sub.id}')"></span>
+                                      ${subInputHtml}
+                                      <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
+                                          onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
+                                          placeholder="预计时间"
+                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
+                                  </div>
                                 <div class="item-actions" style="opacity:1;">
                                     <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
                                 </div>
@@ -3343,34 +3504,32 @@
                             const wrapper = document.createElement('div');
                             wrapper.className = 'item task-item';
                             
-                            // 构建任务和子任务的HTML
-                            let subtasksHtml = '';
-                            entry.subtasks.forEach(st => {
-                                subtasksHtml += `
-                                    <div class="subtask" style="display:flex;align-items:center;gap:8px;padding:4px 0;margin-left:24px;">
-                                        <span class="checkbox" style="width:16px;height:16px;" onclick="toggleSubtaskDone('${entry.item.id}','${st.id}')"></span>
-                                        <input type="text" class="edit-input" value="${st.content.replace(/"/g, '&quot;')}"
-                                            onchange="updateSubtaskInSlot('${entry.item.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')"
-                                            style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                        <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
-                                            onchange="updateSubtaskTimeInSlot('${entry.item.id}', '${st.id}', this.value)"
-                                            placeholder="预计时间"
-                                            style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;"/>
-                                    </div>
-                                `;
-                            });
+                              // 构建任务和子任务的HTML
+                              let subtasksHtml = '';
+                              entry.subtasks.forEach(st => {
+                                  const inputHtml = generateInputHtml(st.content, `updateSubtaskInSlot('${entry.item.id}', '${st.id}', this.value, '${st.estimatedTime || ''}')`);
+                                  subtasksHtml += `
+                                      <div class="subtask" style="display:flex;align-items:start;gap:8px;padding:4px 0;margin-left:24px;">
+                                          <span class="checkbox" style="width:16px;height:16px;margin-top:4px;" onclick="toggleSubtaskDone('${entry.item.id}','${st.id}')"></span>
+                                          ${inputHtml}
+                                          <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
+                                              onchange="updateSubtaskTimeInSlot('${entry.item.id}', '${st.id}', this.value)"
+                                              placeholder="预计时间"
+                                              style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
+                                      </div>
+                                  `;
+                              });
                             
-                            wrapper.innerHTML = `
-                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
-                                    <input type="text" class="edit-input" value="${entry.item.content.replace(/"/g, '&quot;')}"
-                                        onchange="updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')"
-                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                    <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
-                                        onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
-                                        placeholder="预计时间"
-                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;"/>
-                                </div>
+                              const taskInputHtml = generateTaskInputHtml(entry.item.content, `updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')`);
+                              wrapper.innerHTML = `
+                                  <div class="item-content" style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                      <span class="checkbox" style="margin-top:6px;" onclick="toggleDone('${entry.item.id}')"></span>
+                                      ${taskInputHtml}
+                                      <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
+                                          onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
+                                          placeholder="预计时间"
+                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
+                                  </div>
                                 <div class="subtask-list">
                                     ${subtasksHtml}
                                 </div>
@@ -3385,19 +3544,18 @@
                             if (entry.item.dueTime) {
                                 taskTimeDisplay = ` | 预计：${entry.item.dueTime}`;
                             }
-                            const wrapper = document.createElement('div');
-                            wrapper.className = 'item task-item';
-                            wrapper.innerHTML = `
-                                <div class="item-content" style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span class="checkbox" onclick="toggleDone('${entry.item.id}')"></span>
-                                    <input type="text" class="edit-input" value="${entry.item.content.replace(/"/g, '&quot;')}"
-                                        onchange="updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')"
-                                        style="border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;white-space:normal;word-break:break-word;overflow-wrap:break-word;width:100%;"/>
-                                    <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
-                                        onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
-                                        placeholder="预计时间"
-                                        style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;"/>
-                                </div>
+                             const wrapper = document.createElement('div');
+                             wrapper.className = 'item task-item';
+                             const taskInputHtml = generateTaskInputHtml(entry.item.content, `updateTaskInSlot('${entry.item.id}', this.value, '${entry.item.dueTime || ''}')`);
+                              wrapper.innerHTML = `
+                                  <div class="item-content" style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
+                                      <span class="checkbox" style="margin-top:6px;" onclick="toggleDone('${entry.item.id}')"></span>
+                                      ${taskInputHtml}
+                                      <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
+                                          onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
+                                          placeholder="预计时间"
+                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
+                                  </div>
                                 <div class="item-actions" style="opacity:1;">
                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
                                 </div>
