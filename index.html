@@ -1628,9 +1628,8 @@
         <div class="modal">
             <h3>编辑</h3>
             <div class="input-group">
-                <textarea id="editContent" rows="4" oninput="handleEditContentInput(this)"></textarea>
+                <textarea id="editContent" rows="4"></textarea>
             </div>
-            <div id="editContentSuggestions" style="margin-top:8px;"></div>
             <div class="modal-actions">
                 <button class="btn btn-secondary" onclick="closeEditModal()">取消</button>
                 <button class="btn btn-primary" onclick="saveEdit()">保存</button>
@@ -3077,10 +3076,14 @@
                 // 显示父任务内容
                 const textSpan = document.createElement('span');
                 textSpan.textContent = item.content;
+                textSpan.style.cursor = 'pointer';
+                textSpan.onclick = () => openEdit(item.id);
                 contentDiv.appendChild(textSpan);
             } else {
                 const textSpan = document.createElement('span');
                 textSpan.textContent = item.content;
+                textSpan.style.cursor = 'pointer';
+                textSpan.onclick = () => openEdit(item.id);
                 contentDiv.appendChild(textSpan);
             }
             el.appendChild(contentDiv);
@@ -10183,8 +10186,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
                const result = await callAiApi(fullPrompt, selectedModel, 'custom');
                
-               // 显示结果
-               content.textContent = result;
+               // 显示结果（将Markdown转换为HTML）
+               content.innerHTML = markdownToHtml(result);
               
           } catch (error) {
               console.error('AI汇总失败:', error);
@@ -10264,6 +10267,75 @@ ${ammoToAnalyze.map((ammo, index) =>
  请生成一份结构清晰、内容丰富的汇总报告。`;
          
          return prompt;
+     }
+     
+     // 将Markdown转换为HTML
+     function markdownToHtml(markdown) {
+         if (!markdown) return '';
+         
+         let html = markdown;
+         
+         // 转义HTML特殊字符（防止XSS）
+         html = html.replace(/&/g, '&amp;');
+         html = html.replace(/</g, '&lt;');
+         html = html.replace(/>/g, '&gt;');
+         
+         // 转换标题（#）
+         html = html.replace(/^#{6}\s+(.+)$/gm, '<h6 style="font-size:14px;font-weight:600;margin:8px 0;">$1</h6>');
+         html = html.replace(/^#{5}\s+(.+)$/gm, '<h5 style="font-size:15px;font-weight:600;margin:10px 0;">$1</h5>');
+         html = html.replace(/^#{4}\s+(.+)$/gm, '<h4 style="font-size:16px;font-weight:600;margin:12px 0;">$1</h4>');
+         html = html.replace(/^#{3}\s+(.+)$/gm, '<h3 style="font-size:18px;font-weight:600;margin:14px 0;">$1</h3>');
+         html = html.replace(/^#{2}\s+(.+)$/gm, '<h2 style="font-size:20px;font-weight:600;margin:16px 0;">$1</h2>');
+         html = html.replace(/^#{1}\s+(.+)$/gm, '<h1 style="font-size:22px;font-weight:600;margin:18px 0;">$1</h1>');
+         
+         // 转换粗体（** 或 __）
+         html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+         html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
+         
+         // 转换斜体（* 或 _）
+         html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+         html = html.replace(/_(.+?)_/g, '<em>$1</em>');
+         
+         // 转换删除线（~~）
+         html = html.replace(/~~(.+?)~~/g, '<del>$1</del>');
+         
+         // 转换代码块（```）
+         html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(match, lang, code) {
+             return '<pre style="background:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto;margin:10px 0;"><code>' + code.trim() + '</code></pre>';
+         });
+         
+         // 转换行内代码（`）
+         html = html.replace(/`([^`]+)`/g, '<code style="background:#f5f5f5;padding:2px 6px;border-radius:3px;font-family:monospace;">$1</code>');
+         
+         // 转换链接 [text](url)
+         html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--primary);">$1</a>');
+         
+         // 转换图片 ![alt](url)
+         html = html.replace(/!\[([^\]]*)\]\(([^\)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;height:auto;margin:10px 0;">');
+         
+         // 转换引用（>）
+         html = html.replace(/^>\s+(.+)$/gm, '<blockquote style="border-left:4px solid var(--primary);padding-left:12px;margin:10px 0;color:var(--text-secondary);">$1</blockquote>');
+         
+         // 转换无序列表（- 或 * 或 +）
+         html = html.replace(/^[-*+]\s+(.+)$/gm, '<li style="margin:4px 0;">$1</li>');
+         // 将连续的li包裹在ul中
+         html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, function(match) {
+             return '<ul style="margin:8px 0;padding-left:20px;">' + match + '</ul>';
+         });
+         
+         // 转换有序列表（数字.）
+         html = html.replace(/^\d+\.\s+(.+)$/gm, '<li style="margin:4px 0;">$1</li>');
+         
+         // 转换分隔线（--- 或 ***）
+         html = html.replace(/^[-*]{3,}\s*$/gm, '<hr style="border:none;border-top:1px solid #ddd;margin:16px 0;">');
+         
+         // 转换换行（将\n转换为<br>，除了在pre和code标签中）
+         html = html.replace(/\n/g, '<br>');
+         
+         // 清理多余的<br>
+         html = html.replace(/(<br>){3,}/g, '<br><br>');
+         
+         return html;
      }
      
      // 复制AI汇总内容
