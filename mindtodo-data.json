@@ -1613,9 +1613,9 @@
       "type": "task",
       "content": "元宝有几个需要拆解todo的",
       "createdAt": "2026-05-09T01:07:54.545Z",
-      "updatedAt": "2026-05-09T03:23:00.900Z",
+      "updatedAt": "2026-05-09T03:26:46.370Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1629,12 +1629,13 @@
         {
           "id": "1778290725729",
           "content": "拆解1个工作的",
-          "done": false,
+          "done": true,
           "estimatedTime": "5min",
-          "placedIn": "slot_moxrzbfounw5y"
+          "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-09T03:26:43.530Z"
     },
     {
       "id": "moxopdphukqim",
@@ -2266,6 +2267,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-09T03:23:13.196Z"
+    "lastSync": "2026-05-09T03:26:27.038Z"
   }
 }
