@@ -1584,9 +1584,9 @@
       "type": "task",
       "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
       "createdAt": "2026-05-09T01:02:08.014Z",
-      "updatedAt": "2026-05-09T02:35:19.495Z",
+      "updatedAt": "2026-05-09T02:43:51.292Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1594,11 +1594,12 @@
           "id": "moxn2pvy7s6es",
           "content": "思考下记录在哪里。",
           "estimatedTime": "5min",
-          "done": false,
-          "placedIn": "slot_moxqefnt5mwxd"
+          "done": true,
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_moxqefnt5mwxd"
+      "placedIn": null,
+      "doneAt": "2026-05-09T02:43:48.746Z"
     },
     {
       "id": "moxna59t5glan",
@@ -1646,15 +1647,16 @@
       "type": "task",
       "content": "上午发固网清单。就是把节电费excel导出来发给对方。",
       "createdAt": "2026-05-09T01:56:57.108Z",
-      "updatedAt": "2026-05-09T02:35:17.109Z",
+      "updatedAt": "2026-05-09T02:47:18.855Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moxqefnt5mwxd"
+      "placedIn": "slot_moxqefnt5mwxd",
+      "doneAt": "2026-05-09T02:47:18.855Z"
     }
   ],
   "normalFeelings": [
@@ -1844,6 +1846,15 @@
       ],
       "createdAt": "2026-05-08T23:45:33.324Z",
       "updatedAt": "2026-05-08T23:45:39.584Z"
+    },
+    {
+      "id": "moxqvsj8wowka",
+      "content": "去实体店，柜姐会推荐合适的口红。比如我想要滋润的、持久的口红。这次推荐了水漾217，之前没试过的色。不错",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-09T02:48:43.316Z",
+      "updatedAt": "2026-05-09T02:48:43.316Z"
     }
   ],
   "practiceBlocks": [
@@ -2223,6 +2234,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-09T02:34:57.097Z"
+    "lastSync": "2026-05-09T02:35:35.529Z"
   }
 }
