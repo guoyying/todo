@@ -1634,13 +1634,16 @@
       "type": "task",
       "content": "我想手机端浏览器显示文字（时间段任务板、待办、往期待办、子任务、感受、往期感受、弹药库、今日完成、本周完成等）能换行显示，不要一句话一溜长。另外电脑端网页显示，我希望时间段任务板、待办、往期待办、子任务）也能换行显示，不要一句话一溜长",
       "createdAt": "2026-05-09T01:47:44.933Z",
-      "updatedAt": "2026-05-09T02:49:01.637Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-09T03:14:16.184Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_moxqefnt5mwxd"
+      "placedIn": "slot_moxqefnt5mwxd",
+      "doneAt": "2026-05-09T03:14:14.024Z"
     },
     {
       "id": "moxp17ro3mux3",
@@ -1934,12 +1937,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_moxqefnt5mwxd",
-      "name": "11点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
