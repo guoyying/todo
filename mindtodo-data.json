@@ -2140,22 +2140,7 @@
             "reference": "团队刚换了项目管理软件，大家为了熟悉操作反而耽误了进度。工具本身可能带来新的适配问题，不如我们先暂停一下，一起梳理最常用的几个功能，形成统一的使用习惯，避免让工具变成新的沟通障碍。"
           }
         ],
-        "scenarioPractices": [
-          {
-            "id": "mozt51w31s7vs",
-            "frameworkType": "prep",
-            "framework": "PREP结构",
-            "content": "123",
-            "createdAt": "2026-05-10T13:27:26.931Z"
-          },
-          {
-            "id": "mozt5l4oi0blg",
-            "frameworkType": "prep",
-            "framework": "PREP结构",
-            "content": "123",
-            "createdAt": "2026-05-10T13:27:51.864Z"
-          }
-        ],
+        "scenarioPractices": [],
         "whyMakesSense": "",
         "solvesProblem": "",
         "cases": [],
