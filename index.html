@@ -4159,11 +4159,10 @@
                   
                   // 保持板块展开状态
                   data.expandedBlocks[blockId] = true;
-                  
+                   
                   toggleQuickAdd(blockId); // 关闭快速添加区域
                   saveData();
                   render();
-                  showBanner('练习记录已添加', 'success');
               }
           }
         
@@ -8130,7 +8129,7 @@ ${behaviorDescription}
                      <div class="scenario-card" style="margin-bottom:8px;padding:8px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
                          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px;">
                              <strong style="font-size:13px;">${index + 1}. ${escapeHtml(scenarioText)}</strong>
-                             <button class="btn btn-small btn-secondary" onclick="deleteScenario('${ammoId}', ${index})" style="padding:2px 6px;font-size:10px;">删除</button>
+                             <button class="btn btn-small btn-secondary" onclick="deleteScenario('${ammoId}', ${index}, this)" style="padding:2px 6px;font-size:10px;">删除</button>
                          </div>
                          ${referenceText ? `<div style="color:var(--text-secondary);font-size:12px;">💡 ${escapeHtml(referenceText)}</div>` : ''}
                      </div>
@@ -8337,20 +8336,20 @@ ${behaviorDescription}
          }
          
          // 删除应用场景
-         function deleteScenario(ammoId, index) {
+         function deleteScenario(ammoId, index, targetElement) {
              const ammo = data.ammoLibrary.find(a => a.id === ammoId);
              if (!ammo || !ammo.digestion || !ammo.digestion.scenarios) return;
              
-             if (!confirm('确定要删除这个应用场景吗？')) return;
-             
-             ammo.digestion.scenarios.splice(index, 1);
-             
-             // 重新渲染
-             const container = document.getElementById(`editDigestionScenarios-${ammoId}`);
-             container.innerHTML = renderScenariosForEdit(ammo.digestion.scenarios, ammoId);
-             
-             // 保存数据
-             saveData();
+             showDeleteConfirmBubble('确定要删除这个应用场景吗？', function() {
+                 ammo.digestion.scenarios.splice(index, 1);
+                 
+                 // 重新渲染
+                 const container = document.getElementById(`editDigestionScenarios-${ammoId}`);
+                 container.innerHTML = renderScenariosForEdit(ammo.digestion.scenarios, ammoId);
+                 
+                 // 保存数据
+                 saveData();
+             }, targetElement);
          }
 
          // 显示编辑消化笔记表单
@@ -8378,6 +8377,7 @@ ${behaviorDescription}
                <div id="editDigestionForm-${ammoId}" class="edit-digestion-form">
                    <h4>编辑消化笔记</h4>
                    <input type="hidden" id="editDigestionAmmoId-${ammoId}" value="${ammoId}">
+                   <input type="hidden" id="editPracticeId-${ammoId}" value="">
                    
                    <div style="margin-bottom:16px;">
                        <label>为什么有道理?</label>
@@ -8421,7 +8421,12 @@ ${behaviorDescription}
                            <div id="editScenarioPrompt-${ammoId}"></div>
                        </div>
                        <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据框架提示进行表达练习..."></textarea>
-                       <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
+                       <button class="btn btn-small btn-secondary" id="addPracticeBtn-${ammoId}" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
+                       
+                       <!-- 已添加的练习记录显示区域 -->
+                       <div id="editScenarioPractices-${ammoId}" style="margin-top:12px;">
+                           ${renderScenarioPracticesForEdit(digestion.scenarioPractices || [], ammoId)}
+                       </div>
                    </div>
                    
                    <div style="display:flex;gap:12px;margin-top:24px;">
@@ -8434,8 +8439,7 @@ ${behaviorDescription}
              // 将表单插入到右侧面板中
              const content = document.getElementById('digestionNotesContent');
              if (content) {
-                 // 保留弹药信息头部
-                 const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+                 // 保留弹药信息头部（使用函数开头已声明的ammo变量）
                  const headerHtml = `
                      <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
                          <div style="margin-bottom:12px;">
@@ -8451,6 +8455,27 @@ ${behaviorDescription}
                                   renderDigestionRewrites(digestion.rewrites || [], ammoId);
                               }
           }
+
+        // 渲染表达框架练习记录（编辑表单中）
+        function renderScenarioPracticesForEdit(practices, ammoId) {
+            if (!practices || practices.length === 0) {
+                return '<div style="font-size:12px;color:var(--text-secondary);padding:8px;background:var(--bg);border-radius:6px;">暂无练习记录</div>';
+            }
+            
+            return practices.map(practice => `
+                <div class="scenario-practice-record" id="practice-record-${practice.id}" style="background:var(--bg);padding:8px;margin-bottom:6px;border-radius:6px;border-left:3px solid var(--primary);">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                        <span style="font-size:11px;color:var(--text);font-weight:500;">${escapeHtml(practice.framework)}</span>
+                        <span style="font-size:10px;color:var(--text-secondary);">${formatDateTime(practice.createdAt)}</span>
+                    </div>
+                    <div class="scenario-practice-content" style="font-size:13px;color:var(--text);line-height:1.5;">${escapeHtml(practice.content)}</div>
+                    <div style="display:flex;gap:4px;margin-top:4px;">
+                        <button class="btn btn-small" style="padding:2px 6px;font-size:10px;background:var(--primary);color:white;border:none;" onclick="editScenarioPractice('${ammoId}', '${practice.id}')">编辑</button>
+                        <button class="btn btn-small" style="padding:2px 6px;font-size:10px;background:var(--danger);color:white;border:none;" onclick="deleteScenarioPractice('${practice.id}', '${ammoId}', this)">删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
        
         // 隐藏编辑消化笔记表单
         function hideEditDigestionForm() {
@@ -8618,8 +8643,9 @@ ${behaviorDescription}
            // 获取表单数据
            const whyMakesSense = document.getElementById(`editDigestionWhyMakesSense-${ammoId}`).value.trim();
            const solvesProblem = document.getElementById(`editDigestionSolvesProblem-${ammoId}`).value.trim();
-           const scenariosInput = document.getElementById(`editDigestionScenarios-${ammoId}`).value;
-           const scenarios = scenariosInput ? scenariosInput.split(',').map(s => s.trim()).filter(s => s) : [];
+           
+           // 获取应用场景（从已生成的场景数据中获取，而不是从input获取）
+           const scenarios = ammo.digestion && ammo.digestion.scenarios ? ammo.digestion.scenarios : [];
            
            // 获取案例
            const cases = [];
@@ -8666,6 +8692,10 @@ ${behaviorDescription}
            ammo.digestion.cases = cases;
            ammo.digestion.rewrites = rewrites;
            ammo.digestion.scenarios = scenarios;
+           // 保留练习记录（已经在添加时保存到数据中）
+           if (!ammo.digestion.scenarioPractices) {
+               ammo.digestion.scenarioPractices = [];
+           }
            ammo.digestionProgress = digestionProgress;
            
             // 保存数据
@@ -8710,10 +8740,56 @@ ${behaviorDescription}
        // 关闭弹药库侧拉面板
        function closeAmmoLibraryPanel() {
            closeModal('ammoLibraryPanel');
+           
+           // 重置面板状态
+           resetAmmoLibraryPanelState();
+       }
+       
+       // 重置弹药库面板状态
+       function resetAmmoLibraryPanelState() {
            // 重置手机端显示状态
-           document.getElementById('backToAmmoListBtn').classList.add('hidden');
-           document.querySelector('.ammo-list-panel').style.display = 'block';
-           document.querySelector('.digestion-notes-panel').style.display = 'block';
+           const backToAmmoListBtn = document.getElementById('backToAmmoListBtn');
+           if (backToAmmoListBtn) {
+               backToAmmoListBtn.classList.add('hidden');
+           }
+           
+           // 重置左右分栏布局
+           const ammoListPanel = document.querySelector('.ammo-list-panel');
+           const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
+           
+           if (ammoListPanel) {
+               ammoListPanel.style.display = 'block';
+           }
+           
+           if (digestionNotesPanel) {
+               digestionNotesPanel.style.display = 'block';
+               digestionNotesPanel.style.borderLeft = '1px solid var(--border)';
+               digestionNotesPanel.style.paddingLeft = '12px';
+           }
+           
+           // 清空消化笔记面板内容
+           const digestionNotesContent = document.getElementById('digestionNotesContent');
+           if (digestionNotesContent) {
+               digestionNotesContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
+           }
+           
+           // 清空搜索框
+           const searchInput = document.getElementById('ammoSearchInput');
+           if (searchInput) {
+               searchInput.value = '';
+           }
+           
+           // 清空标签筛选
+           const tagFilter = document.getElementById('ammoTagFilter');
+           if (tagFilter) {
+               tagFilter.value = 'all';
+           }
+           
+           // 清空类型筛选
+           const typeFilter = document.getElementById('ammoTypeFilter');
+           if (typeFilter) {
+               typeFilter.value = 'all';
+           }
        }
       
       // 显示新增弹药表单
@@ -8899,7 +8975,7 @@ ${behaviorDescription}
                          </div>
                          <div class="scenario-practice-content">${escapeHtml(practice.content)}</div>
                          <div class="scenario-practice-actions">
-                             <button class="btn btn-small btn-secondary" onclick="deleteScenarioPractice('${practice.id}', '${ammoId}')">删除</button>
+                             <button class="btn btn-small btn-secondary" onclick="deleteScenarioPractice('${practice.id}', '${ammoId}', this)">删除</button>
                          </div>
                      </div>
                  `;
@@ -8924,31 +9000,130 @@ ${behaviorDescription}
               return iconMap[frameworkType] || '📝';
           }
        
-       // 删除表达框架练习记录
-       function deleteScenarioPractice(practiceId, ammoId) {
-           if (!confirm('确定要删除这条练习记录吗？')) return;
-           
-           const ammo = data.ammoLibrary.find(a => a.id === ammoId);
-           if (!ammo || !ammo.digestion) return;
-           
-           if (!ammo.digestion.scenarioPractices) {
-               ammo.digestion.scenarioPractices = [];
+       // 显示删除确认气泡（使用与待办删除按钮相同的样式）
+       function showDeleteConfirmBubble(message, callback, targetElement) {
+           if (!targetElement || !targetElement.parentElement) {
+               // 如果没有提供目标元素，使用传统的 confirm 弹窗
+               if (!confirm(message)) return;
+               callback();
+               return;
            }
            
-            ammo.digestion.scenarioPractices = ammo.digestion.scenarioPractices.filter(p => p.id !== practiceId);
-            saveData();
-            
-            // 重新渲染弹药库
-            renderAmmoLibrary();
-            
-             // 更新侧拉面板中的表达框架练习记录显示
-            const practicesContainer = document.getElementById(`scenario-practices-${ammoId}`);
-            if (practicesContainer) {
-                practicesContainer.innerHTML = renderScenarioPracticeRecords(ammo.digestion.scenarioPractices, ammoId);
-            }
-            
-            showToast('已删除练习记录');
-        }
+           const container = targetElement.parentElement;
+           // 检查是否已经有确认提示，避免重复添加
+           if (container.querySelector('.delete-confirm')) return;
+           
+           const confirmDiv = document.createElement('div');
+           confirmDiv.className = 'delete-confirm';
+           
+           const messageSpan = document.createElement('span');
+           messageSpan.textContent = message;
+           confirmDiv.appendChild(messageSpan);
+           
+           const confirmBtn = document.createElement('button');
+           confirmBtn.className = 'btn btn-small btn-danger';
+           confirmBtn.textContent = '确认';
+           confirmBtn.onclick = function() {
+               callback();
+               confirmDiv.remove();
+           };
+           confirmDiv.appendChild(confirmBtn);
+           
+           const cancelBtn = document.createElement('button');
+           cancelBtn.className = 'btn btn-small btn-secondary';
+           cancelBtn.textContent = '取消';
+           cancelBtn.onclick = function() {
+               confirmDiv.remove();
+           };
+           confirmDiv.appendChild(cancelBtn);
+           
+           container.appendChild(confirmDiv);
+           
+           // 3 秒后自动消失
+           setTimeout(() => {
+               if (confirmDiv.parentElement) {
+                   confirmDiv.remove();
+               }
+           }, 3000);
+       }
+       
+       // 删除表达框架练习记录（弹药库列表中调用）
+       function deleteScenarioPractice(practiceId, ammoId, targetElement) {
+           showDeleteConfirmBubble('确定要删除这条练习记录吗？', function() {
+               const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+               if (!ammo || !ammo.digestion) return;
+               
+               if (!ammo.digestion.scenarioPractices) {
+                   ammo.digestion.scenarioPractices = [];
+               }
+               
+               ammo.digestion.scenarioPractices = ammo.digestion.scenarioPractices.filter(p => p.id !== practiceId);
+               saveData();
+               
+               // 重新渲染弹药库
+               renderAmmoLibrary();
+               
+               // 更新侧拉面板中的表达框架练习记录显示
+               const practicesContainer = document.getElementById(`scenario-practices-${ammoId}`);
+               if (practicesContainer) {
+                   practicesContainer.innerHTML = renderScenarioPracticeRecords(ammo.digestion.scenarioPractices, ammoId);
+               }
+               
+               // 如果编辑表单打开，也更新编辑表单中的显示
+               const editPracticesContainer = document.getElementById(`editScenarioPractices-${ammoId}`);
+               if (editPracticesContainer) {
+                   editPracticesContainer.innerHTML = renderScenarioPracticesForEdit(ammo.digestion.scenarioPractices, ammoId);
+               }
+           }, targetElement);
+       }
+       
+       // 编辑表达框架练习记录
+       function editScenarioPractice(ammoId, practiceId) {
+           const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+           if (!ammo || !ammo.digestion || !ammo.digestion.scenarioPractices) return;
+           
+           const practice = ammo.digestion.scenarioPractices.find(p => p.id === practiceId);
+           if (!practice) return;
+           
+           // 设置框架类型
+           const frameworkSelect = document.getElementById(`editDigestionScenarioType-${ammoId}`);
+           if (frameworkSelect) {
+               frameworkSelect.value = practice.frameworkType || '';
+               // 触发框架提示更新
+               updateEditScenarioPrompt(ammoId);
+           }
+           
+           // 设置练习内容
+           const contentInput = document.getElementById(`editDigestionPracticeContent-${ammoId}`);
+           if (contentInput) {
+               contentInput.value = practice.content;
+           }
+           
+           // 保存当前正在编辑的练习记录ID
+           const practiceIdInput = document.getElementById(`editPracticeId-${ammoId}`);
+           if (practiceIdInput) {
+               practiceIdInput.value = practiceId;
+           }
+           
+           // 滚动到编辑区域
+           const editArea = document.getElementById(`editDigestionScenarioType-${ammoId}`);
+           if (editArea) {
+               editArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+           }
+           
+           // 聚焦到内容输入框
+           if (contentInput) {
+               contentInput.focus();
+           }
+           
+           // 更新按钮文本
+           const addBtn = document.getElementById(`addPracticeBtn-${ammoId}`);
+           if (addBtn) {
+               addBtn.textContent = '💾 保存修改';
+           }
+           
+           showToast('正在编辑练习记录');
+       }
        
        // 更新编辑表单中的表达框架提示
        function updateEditScenarioPrompt(ammoId) {
@@ -8970,11 +9145,7 @@ ${behaviorDescription}
         function addScenarioPracticeToDigestion(ammoId) {
             const frameworkType = document.getElementById(`editDigestionScenarioType-${ammoId}`).value;
             const practiceContent = document.getElementById(`editDigestionPracticeContent-${ammoId}`).value.trim();
-            
-            if (!frameworkType) {
-                showToast('请先选择表达框架');
-                return;
-            }
+            const editingPracticeId = document.getElementById(`editPracticeId-${ammoId}`).value;
             
             if (!practiceContent) {
                 showToast('请输入练习内容');
@@ -8999,40 +9170,58 @@ ${behaviorDescription}
                  'star': 'STAR法则',
                  'kiss': 'KISS原则',
                  'pyramid': '金字塔原理'
-             };
-            
-            // 创建练习记录
-            const practiceRecord = {
-                id: genId(),
-                frameworkType: frameworkType,
-                framework: frameworkNames[frameworkType] || '自定义框架',
-                content: practiceContent,
-                createdAt: nowStr()
             };
             
-             // 添加到练习记录
-             ammo.digestion.scenarioPractices.push(practiceRecord);
+            if (editingPracticeId) {
+                // 编辑现有练习记录
+                const practiceIndex = ammo.digestion.scenarioPractices.findIndex(p => p.id === editingPracticeId);
+                if (practiceIndex !== -1) {
+                    ammo.digestion.scenarioPractices[practiceIndex].frameworkType = frameworkType || 'custom';
+                    ammo.digestion.scenarioPractices[practiceIndex].framework = frameworkType ? (frameworkNames[frameworkType] || '自定义框架') : '自由练习';
+                    ammo.digestion.scenarioPractices[practiceIndex].content = practiceContent;
+                    // 不更新createdAt，保留原始创建时间
+                    showToast('练习记录已更新');
+                }
+            } else {
+                // 新增练习记录
+                const practiceRecord = {
+                    id: genId(),
+                    frameworkType: frameworkType || 'custom',
+                    framework: frameworkType ? (frameworkNames[frameworkType] || '自定义框架') : '自由练习',
+                    content: practiceContent,
+                    createdAt: nowStr()
+                };
+                
+                // 添加到练习记录
+                ammo.digestion.scenarioPractices.push(practiceRecord);
+            }
              
              // 保存数据
              saveData();
             
-            // 清空输入
-            document.getElementById(`editDigestionScenarioType-${ammoId}`).value = '';
+            // 清空练习内容输入框和编辑ID（保留框架选择，方便连续添加）
             document.getElementById(`editDigestionPracticeContent-${ammoId}`).value = '';
-            document.getElementById(`editScenarioPromptArea-${ammoId}`).classList.add('hidden');
-            
-            // 重新渲染弹药库
-            renderAmmoLibrary();
-            
-             // 在编辑表单中更新表达框架练习记录显示
-            const practicesContainer = document.getElementById(`scenario-practices-${ammoId}`);
-            if (practicesContainer) {
-                practicesContainer.innerHTML = renderScenarioPracticeRecords(ammo.digestion.scenarioPractices, ammoId);
+            document.getElementById(`editPracticeId-${ammoId}`).value = '';
+            // 恢复按钮文本
+            const addBtn = document.getElementById(`addPracticeBtn-${ammoId}`);
+            if (addBtn) {
+                addBtn.textContent = '+ 添加练习记录';
+            }
+            // 如果没有选择框架，则隐藏提示区域
+            if (!frameworkType) {
+                document.getElementById(`editScenarioPromptArea-${ammoId}`).classList.add('hidden');
             }
             
-            showToast('练习记录已添加');
+            // 在编辑表单中更新表达框架练习记录显示
+            const practicesContainer = document.getElementById(`editScenarioPractices-${ammoId}`);
+            if (practicesContainer) {
+                practicesContainer.innerHTML = renderScenarioPracticesForEdit(ammo.digestion.scenarioPractices, ammoId);
+            }
+            
+            // 重新渲染弹药库（如果容器存在）
+            renderAmmoLibrary();
         }
-      
+
       // 手动新增弹药
        function addNewAmmo() {
            const content = document.getElementById('newAmmoContent').value.trim();
@@ -9116,6 +9305,8 @@ ${behaviorDescription}
      // 渲染弹药库
      function renderAmmoLibrary() {
          const container = document.getElementById('ammoLibraryList');
+         if (!container) return; // 如果容器不存在，直接返回
+         
          const searchTerm = document.getElementById('ammoSearchInput').value.toLowerCase();
          
          // 筛选弹药
