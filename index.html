@@ -1312,8 +1312,20 @@
                    border-right: none !important;
                    border-bottom: 1px solid var(--border) !important;
                    padding-bottom: 12px !important;
-                   max-height: 40vh !important;
+                   max-height: 50vh !important;
                    overflow-y: auto !important;
+                   position: relative !important;
+               }
+               
+               /* 确保操作按钮在移动端始终可见 */
+               #oldFeelingSummaryModal .modal-body > div:first-child > div:last-child {
+                   position: sticky !important;
+                   bottom: 0 !important;
+                   background: var(--card) !important;
+                   padding-top: 12px !important;
+                   margin-top: 12px !important;
+                   z-index: 10 !important;
+                   border-top: 1px solid var(--border) !important;
                }
                
                /* 右侧汇总结果在移动端改为全宽 */
