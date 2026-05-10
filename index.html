@@ -779,85 +779,7 @@
         }
         .hidden { display: none !important; }
 
-        /* 编辑弹药弹窗样式 */
-        #editAmmoModal .modal {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            color: white;
-            box-shadow: 0 20px 60px rgba(17, 153, 142, 0.3);
-        }
-
-        #editAmmoModal .modal h3 {
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        #editAmmoModal .input-group label {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        #editAmmoModal textarea {
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            padding: 12px 14px;
-            font-size: 14px;
-            color: #333;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        #editAmmoModal textarea:focus {
-            outline: none;
-            border-color: #fff;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
-        }
-
-        #editAmmoModal textarea::placeholder {
-            color: #999;
-        }
-
-        #editAmmoModal .modal-actions {
-            margin-top: 24px;
-            gap: 12px;
-        }
-
-        #editAmmoModal .btn {
-            border-radius: 8px;
-            font-weight: 500;
-            padding: 10px 20px;
-            transition: all 0.3s;
-        }
-
-        #editAmmoModal .btn-primary {
-            background: white;
-            color: #11998e;
-            border: none;
-        }
-
-        #editAmmoModal .btn-primary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        #editAmmoModal .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        #editAmmoModal .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        .task-mode, .feeling-mode {
+.task-mode, .feeling-mode {
             display: none;
         }
         .task-mode.active {
@@ -6366,50 +6288,49 @@
                             <div style="margin-left:23px;">
                                 <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的回答：</label>
                                 <textarea class="step-answer" data-step="2" rows="2" placeholder="记录具体事实和你的感受..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                <button class="btn btn-small btn-primary" onclick="analyzeBehaviorWithAI('${checklistId}')" style="margin-top:6px;padding:4px 10px;font-size:11px;">✨ AI分析行为和感受</button>
+                                <div id="aiAnalysisResult-${checklistId}" style="margin-top:8px;padding:8px;background:var(--primary-light);border-radius:4px;border:1px solid var(--primary);display:none;"></div>
                             </div>
                         </div>
                         
                         <!-- 第三步 -->
-                        <div class="checklist-item" data-step="3" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--feeling);">
+                        <div class="checklist-item" data-step="3" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--primary);">
                             <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
                                 <input type="checkbox" class="step-checkbox" data-step="3" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
                                 <div style="flex:1;">
-                                    <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第三步：发起沟通（用框架表达）</div>
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--primary);font-size:12px;">第三步：倾听与对照分析</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
-                                        <div>使用下面的 "FERA表达框架"，平静地陈述你的观察和感受。</div>
+                                        <div style="margin-bottom:4px;"><strong>问对方：</strong>"我想了解一下，你当时是怎么考虑的？"（例：你为什么觉得这周还能安排第三次？）</div>
+                                        <div><strong>目标：</strong>听到他的真实想法，与你的猜测进行对照分析。</div>
                                     </div>
                                 </div>
                             </div>
                             <div style="margin-left:23px;">
-                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的表达内容：</label>
-                                <textarea class="step-answer" data-step="3" rows="3" placeholder="使用FERA框架记录你的表达..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">对照分析：</label>
+                                <table style="width:100%;border-collapse:collapse;margin-top:4px;font-size:11px;">
+                                    <tr>
+                                        <td style="padding:6px;border:1px solid var(--border);background:var(--bg);width:48%;vertical-align:top;">
+                                            <div style="font-weight:600;margin-bottom:4px;color:var(--text-secondary);">我的猜测</div>
+                                            <textarea class="step-answer" data-step="3a" rows="3" placeholder="记录你之前猜测的原因..." style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:10px;resize:vertical;"></textarea>
+                                        </td>
+                                        <td style="padding:6px;border:1px solid var(--border);background:var(--bg);width:4%;vertical-align:middle;text-align:center;color:var(--text-secondary);">
+                                            VS
+                                        </td>
+                                        <td style="padding:6px;border:1px solid var(--border);background:var(--bg);width:48%;vertical-align:top;">
+                                            <div style="font-weight:600;margin-bottom:4px;color:var(--text-secondary);">实际动机</div>
+                                            <textarea class="step-answer" data-step="3b" rows="3" placeholder="记录对方实际说的动机..." style="width:100%;padding:4px;border:1px solid var(--border);border-radius:4px;font-size:10px;resize:vertical;"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                         
                         <!-- 第四步 -->
-                        <div class="checklist-item" data-step="4" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--primary);">
+                        <div class="checklist-item" data-step="4" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--task);">
                             <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
                                 <input type="checkbox" class="step-checkbox" data-step="4" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
                                 <div style="flex:1;">
-                                    <div style="font-weight:600;margin-bottom:4px;color:var(--primary);font-size:12px;">第四步：倾听与确认（了解动机）</div>
-                                    <div style="line-height:1.5;color:var(--text);font-size:11px;">
-                                        <div style="margin-bottom:4px;"><strong>问对方：</strong>"我想了解一下，你当时是怎么考虑的？"（例：你为什么觉得这周还能安排第三次？）</div>
-                                        <div><strong>目标：</strong>听到他的真实想法，避免误解。</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="margin-left:23px;">
-                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">对方的回答：</label>
-                                <textarea class="step-answer" data-step="4" rows="2" placeholder="记录对方的真实想法..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
-                            </div>
-                        </div>
-                        
-                        <!-- 第五步 -->
-                        <div class="checklist-item" data-step="5" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--task);">
-                            <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
-                                <input type="checkbox" class="step-checkbox" data-step="5" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
-                                <div style="flex:1;">
-                                    <div style="font-weight:600;margin-bottom:4px;color:var(--task);font-size:12px;">第五步：提出期待与请求（明确需求）</div>
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--task);font-size:12px;">第四步：提出期待与请求（明确需求）</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
                                         <div style="margin-bottom:4px;"><strong>告诉他：</strong></div>
                                         <div style="margin-left:12px;margin-bottom:2px;">• 你的做法，给我的感受是：（例："你当时那样做，让我觉得你并不在意我们的相处时间。"）</div>
@@ -6419,16 +6340,16 @@
                             </div>
                             <div style="margin-left:23px;">
                                 <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的表达内容：</label>
-                                <textarea class="step-answer" data-step="5" rows="2" placeholder="记录你的期待和请求..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                <textarea class="step-answer" data-step="4" rows="2" placeholder="记录你的期待和请求..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
                             </div>
                         </div>
                         
-                        <!-- 第六步 -->
-                        <div class="checklist-item" data-step="6" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--feeling);">
+                        <!-- 第五步 -->
+                        <div class="checklist-item" data-step="5" style="background:var(--bg);padding:10px;border-radius:6px;border-left:3px solid var(--feeling);">
                             <div style="display:flex;align-items:start;gap:8px;margin-bottom:8px;">
-                                <input type="checkbox" class="step-checkbox" data-step="6" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
+                                <input type="checkbox" class="step-checkbox" data-step="5" style="margin-top:3px;width:15px;height:15px;cursor:pointer;">
                                 <div style="flex:1;">
-                                    <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第六步：达成共识与闭环</div>
+                                    <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第五步：达成共识与闭环</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
                                         <div style="margin-bottom:4px;"><strong>明确核心需求：</strong>向他强调你最终需要的是什么。</div>
                                         <div style="margin-bottom:4px;"><strong>标准话术：</strong>"我更需要你诚恳认真的回应态度。只要让我感觉你是真的听进去了、在想怎么改，哪怕问题还在，我的情绪也会很快过去，不会焦虑地憋在心里。"</div>
@@ -6438,7 +6359,7 @@
                             </div>
                             <div style="margin-left:23px;">
                                 <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">最终共识：</label>
-                                <textarea class="step-answer" data-step="6" rows="2" placeholder="记录达成的共识和结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                <textarea class="step-answer" data-step="5" rows="2" placeholder="记录达成的共识和结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -6476,7 +6397,18 @@
             
             checkboxes.forEach((checkbox, index) => {
                 const stepNum = parseInt(checkbox.dataset.step);
-                const answer = answers[index] ? answers[index].value.trim() : '';
+                let answer = '';
+                
+                // 第三步有两个输入框（我的猜测、实际动机）
+                if (stepNum === 3) {
+                    const answer3a = container.querySelector('.step-answer[data-step="3a"]');
+                    const answer3b = container.querySelector('.step-answer[data-step="3b"]');
+                    if (answer3a && answer3b) {
+                        answer = `我的猜测：${answer3a.value.trim()}\n实际动机：${answer3b.value.trim()}`;
+                    }
+                } else {
+                    answer = answers[index] ? answers[index].value.trim() : '';
+                }
                 
                 steps.push({
                     step: stepNum,
@@ -6557,6 +6489,65 @@
             });
             
             historyContainer.innerHTML = historyHtml;
+        }
+        
+        // AI分析对方行为
+        async function analyzeBehaviorWithAI(checklistId) {
+            // 获取第二步的回答
+            const step2Answer = document.querySelector(`.step-answer[data-step="2"]`);
+            if (!step2Answer || !step2Answer.value.trim()) {
+                alert('请先完成第二步的观察与定义');
+                return;
+            }
+            
+            const behaviorDescription = step2Answer.value.trim();
+            const resultContainer = document.getElementById(`aiAnalysisResult-${checklistId}`);
+            
+            // 显示加载状态
+            resultContainer.style.display = 'block';
+            resultContainer.innerHTML = '<div style="text-align:center;padding:10px;">🔄 AI正在分析...</div>';
+            
+            // 检查AI配置
+            if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                resultContainer.innerHTML = '<div style="color:var(--text-secondary);padding:10px;">⚠️ 请先配置AI模型</div>';
+                return;
+            }
+            
+            try {
+                const prompt = `请分析以下关系问题中的对方行为，从积极的角度（往好处想）分析对方可能的动机和原因，并帮助用户精准表达自己的感受。
+
+用户描述的行为和感受：
+${behaviorDescription}
+
+请按以下格式输出：
+
+## 🤔 对方可能的原因（往好处想）
+[从积极角度分析对方可能的动机，列出2-3个可能性]
+
+## 💬 精准表达感受
+[帮助用户用更准确、更温和的方式表达自己的感受，使用"我"开头的表达方式]
+
+## ✨ 沟通建议
+[给出1-2条具体的沟通建议]`;
+                
+                const response = await callAI(prompt);
+                
+                if (response) {
+                    // 格式化输出
+                    const formattedResponse = response
+                        .replace(/## 🤔 对方可能的原因（往好处想）/g, '<div style="font-weight:600;margin-bottom:6px;color:var(--primary);">🤔 对方可能的原因（往好处想）</div>')
+                        .replace(/## 💬 精准表达感受/g, '<div style="font-weight:600;margin-bottom:6px;margin-top:12px;color:var(--feeling);">💬 精准表达感受</div>')
+                        .replace(/## ✨ 沟通建议/g, '<div style="font-weight:600;margin-bottom:6px;margin-top:12px;color:var(--task);">✨ 沟通建议</div>')
+                        .replace(/\n/g, '<br/>');
+                    
+                    resultContainer.innerHTML = `<div style="font-size:11px;line-height:1.6;">${formattedResponse}</div>`;
+                } else {
+                    resultContainer.innerHTML = '<div style="color:var(--text-secondary);padding:10px;">⚠️ AI分析失败，请重试</div>';
+                }
+            } catch (error) {
+                console.error('AI分析失败:', error);
+                resultContainer.innerHTML = '<div style="color:var(--text-secondary);padding:10px;">⚠️ AI分析失败，请重试</div>';
+            }
         }
         
         // 渲染已保存的沟通清单
