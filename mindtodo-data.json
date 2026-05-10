@@ -2128,7 +2128,40 @@
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-29T14:55:09.401Z",
       "useCount": 1,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "scenarios": [
+          {
+            "scenario": "自我提升：新工具带来的效率反思",
+            "reference": "最近用了一个新的时间管理App，但发现它复杂的分类反而让我花了更多时间去整理任务。工具本身可能带来新的适配问题，看来我需要回归简单的手账本，或者只保留App里最核心的清单功能，让工具真正服务于我的节奏。"
+          },
+          {
+            "scenario": "工作：引入新协作平台后的沟通调整",
+            "reference": "团队刚换了项目管理软件，大家为了熟悉操作反而耽误了进度。工具本身可能带来新的适配问题，不如我们先暂停一下，一起梳理最常用的几个功能，形成统一的使用习惯，避免让工具变成新的沟通障碍。"
+          }
+        ],
+        "scenarioPractices": [
+          {
+            "id": "mozt51w31s7vs",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "123",
+            "createdAt": "2026-05-10T13:27:26.931Z"
+          },
+          {
+            "id": "mozt5l4oi0blg",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "123",
+            "createdAt": "2026-05-10T13:27:51.864Z"
+          }
+        ],
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": []
+      },
+      "digestionProgress": 0.2
     },
     {
       "id": "mol3hp1o1u2in",
