@@ -197,6 +197,20 @@
               .ammo-item {
                   padding: 8px !important;
                   margin-bottom: 6px !important;
+                  flex-direction: row !important;
+              }
+              
+              .ammo-digestion-indicator {
+                  width: 28px !important;
+                  padding: 6px 0 !important;
+              }
+              
+              .ammo-digestion-icon {
+                  font-size: 18px !important;
+              }
+              
+              .ammo-digestion-progress {
+                  font-size: 9px !important;
               }
               
               .ammo-item-header {
@@ -764,6 +778,85 @@
             margin-top: 20px;
         }
         .hidden { display: none !important; }
+
+        /* 编辑弹药弹窗样式 */
+        #editAmmoModal .modal {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            box-shadow: 0 20px 60px rgba(17, 153, 142, 0.3);
+        }
+
+        #editAmmoModal .modal h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #editAmmoModal .input-group label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        #editAmmoModal textarea {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        #editAmmoModal textarea:focus {
+            outline: none;
+            border-color: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        #editAmmoModal textarea::placeholder {
+            color: #999;
+        }
+
+        #editAmmoModal .modal-actions {
+            margin-top: 24px;
+            gap: 12px;
+        }
+
+        #editAmmoModal .btn {
+            border-radius: 8px;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+
+        #editAmmoModal .btn-primary {
+            background: white;
+            color: #11998e;
+            border: none;
+        }
+
+        #editAmmoModal .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #editAmmoModal .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #editAmmoModal .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
         .task-mode, .feeling-mode {
             display: none;
         }
@@ -1080,6 +1173,42 @@
              padding: 6px 8px;
              margin-bottom: 6px;
              transition: all 0.2s;
+             display: flex;
+             gap: 8px;
+             align-items: flex-start;
+         }
+         
+         .ammo-digestion-indicator {
+             flex-shrink: 0;
+             width: 24px;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 4px;
+             cursor: pointer;
+             padding: 4px 0;
+             border-radius: 4px;
+             transition: background 0.2s;
+         }
+         
+         .ammo-digestion-indicator:hover {
+             background: var(--bg);
+         }
+         
+         .ammo-digestion-icon {
+             font-size: 16px;
+             line-height: 1;
+         }
+         
+         .ammo-digestion-progress {
+             font-size: 10px;
+             color: var(--text-secondary);
+             font-weight: 600;
+         }
+         
+         .ammo-main-content {
+             flex: 1;
+             min-width: 0;
          }
          .ammo-item:hover {
              box-shadow: var(--shadow);
@@ -1167,8 +1296,8 @@
              font-size: 11px;
              opacity: 0.8;
          }
-         
-          /* 文本选择高亮 */
+
+           /* 文本选择高亮 */
           ::selection {
               background: rgba(107, 142, 107, 0.4);
               color: #1a331a;
@@ -1980,10 +2109,6 @@
                                               <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                           </div>
                                           <div style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap;">
-                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('all')" id="filterAmmoAll">全部</button>
-                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('word')" id="filterAmmoWord">词汇</button>
-                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('sentence')" id="filterAmmoSentence">句子</button>
-                                              <button class="btn btn-small btn-secondary" onclick="filterAmmoByType('paragraph')" id="filterAmmoParagraph">段落</button>
                                               <button class="btn btn-small btn-primary" onclick="showAddAmmoForm()">+ 新增弹药</button>
                                           </div>
                                                   
@@ -1991,16 +2116,7 @@
                                                    <div id="addAmmoForm" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
                         <div style="margin-bottom:10px;">
                             <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
-                            <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="handleNewAmmoInput(this)"></textarea>
-                            <div id="newAmmoSuggestions" style="margin-top:6px;"></div>
-                        </div>
-                        <div style="margin-bottom:10px;">
-                            <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">类型</label>
-                            <select id="newAmmoType" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                                <option value="word">词汇</option>
-                                <option value="sentence">句子</option>
-                                <option value="paragraph">段落</option>
-                            </select>
+                            <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                         </div>
                         <div style="margin-bottom:10px;">
                             <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
@@ -2094,6 +2210,21 @@
                             </div>
                  </div>
             
+                <!-- 编辑弹药弹窗 -->
+                <div class="modal-overlay hidden" id="editAmmoModal">
+                    <div class="modal" style="max-width:500px;">
+                        <h3>✏️ 编辑弹药</h3>
+                        <div class="input-group">
+                            <label>弹药内容</label>
+                            <textarea id="editAmmoContent" rows="4" placeholder="请输入弹药内容..."></textarea>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="closeEditAmmoModal()">取消</button>
+                            <button class="btn btn-primary" onclick="saveEditAmmo()">保存</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- AI配置模态框 -->
                  <div class="modal-overlay hidden" id="aiConfigModal">
           <div class="modal" style="max-width:600px;">
@@ -6850,7 +6981,6 @@
      
       // 当前弹药库筛选状态
       let currentAmmoFilter = {
-          type: 'all',
           searchTerm: ''
       };
       
@@ -7030,17 +7160,9 @@
          }
          
          // 显示感受记录的智能推荐弹药
-     function showFeelingAmmoSuggestion(feelingId) {
+     async function showFeelingAmmoSuggestion(feelingId) {
          const feeling = data.normalFeelings.find(f => f.id === feelingId);
          if (!feeling) return;
-         
-         // 基于感受内容智能推荐弹药
-         const suggestions = generateAmmoSuggestions(feeling.content);
-         
-         if (suggestions.length === 0) {
-             showToast('暂无相关推荐');
-             return;
-         }
          
          // 创建推荐模态框
          const modal = document.createElement('div');
@@ -7048,7 +7170,7 @@
          modal.innerHTML = `
              <div class="modal">
                  <h3>💡 智能推荐弹药</h3>
-                 <div style="margin-bottom:12px;color:var(--text-secondary);font-size:13px;">基于您的感受内容推荐以下弹药：</div>
+                 <div id="feelingAmmoSuggestionsLoading" style="margin-bottom:12px;color:var(--text-secondary);font-size:13px;">🤖 AI正在分析弹药库本质...</div>
                  <div id="feelingAmmoSuggestions" style="max-height:400px;overflow-y:auto;"></div>
                  <div class="modal-actions">
                      <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">关闭</button>
@@ -7057,6 +7179,21 @@
          `;
          document.body.appendChild(modal);
          
+         // 基于感受内容智能推荐弹药
+         const suggestions = await generateAmmoSuggestions(feeling.content);
+         
+         // 隐藏加载状态
+         const loadingEl = document.getElementById('feelingAmmoSuggestionsLoading');
+         if (loadingEl) loadingEl.style.display = 'none';
+         
+         if (suggestions.length === 0) {
+             const container = document.getElementById('feelingAmmoSuggestions');
+             if (container) {
+                 container.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-secondary);">暂无相关推荐</div>';
+             }
+             return;
+         }
+         
          // 渲染推荐弹药
          const container = document.getElementById('feelingAmmoSuggestions');
          suggestions.forEach(ammo => {
@@ -7064,7 +7201,7 @@
              ammoEl.className = 'ammo-suggestion';
              ammoEl.innerHTML = `
                  <div class="ammo-suggestion-content">${ammo.content}</div>
-                 <div class="ammo-suggestion-source">${ammo.type} | ${ammo.tags ? ammo.tags.join(', ') : '无标签'}</div>
+                 <div class="ammo-suggestion-source">${ammo.tags ? ammo.tags.join(', ') : '无标签'}</div>
              `;
              ammoEl.onclick = () => {
                  // 将推荐弹药添加到感受记录的标签中
@@ -7089,56 +7226,32 @@
          });
      }
      
-     // 基于内容生成弹药推荐（输入内容智能匹配）
-     function generateAmmoSuggestions(content) {
-         if (!data.ammunition || data.ammunition.length === 0) {
+     // 基于内容生成弹药推荐（使用AI分析本质）
+     async function generateAmmoSuggestions(content) {
+         if (!data.ammoLibrary || data.ammoLibrary.length === 0) {
              return [];
          }
          
-         const suggestions = [];
-         const contentLower = content.toLowerCase();
-         
-         // 智能匹配：基于内容关键词和标签匹配
-         data.ammunition.forEach(ammo => {
-             let matchScore = 0;
-             
-             // 检查弹药内容是否包含输入的关键词
-             if (ammo.content) {
-                 const ammoContentLower = ammo.content.toLowerCase();
-                 // 检查输入内容中的每个词是否在弹药内容中
-                 const words = contentLower.split(/\s+/).filter(w => w.length > 1);
-                 words.forEach(word => {
-                     if (ammoContentLower.includes(word)) {
-                         matchScore += 1;
-                     }
-                 });
+         // 使用AI分析弹药库本质并推荐
+         if (data.aiConfig && data.aiConfig.enabled && data.aiConfig.model) {
+             try {
+                 return await analyzeAmmoLibraryAndRecommend(content);
+             } catch (error) {
+                 console.error('AI分析失败:', error);
+                 return [];
              }
-             
-             // 检查标签匹配
-             if (ammo.tags && ammo.tags.length > 0) {
-                 ammo.tags.forEach(tag => {
-                     if (contentLower.includes(tag.toLowerCase())) {
-                         matchScore += 2; // 标签匹配权重更高
-                     }
-                 });
-             }
-             
-             // 只保留有匹配的弹药
-             if (matchScore > 0) {
-                 suggestions.push({ ...ammo, matchScore });
-             }
-         });
+         }
          
-         // 按匹配分数排序
-         suggestions.sort((a, b) => b.matchScore - a.matchScore);
-         
-         // 限制推荐数量
-         return suggestions.slice(0, 5);
+         return [];
      }
      
      // 显示感受的智能匹配弹药提示
-     function showFeelingAmmoSuggestions(feelingId, content, container) {
-         const suggestions = generateAmmoSuggestions(content);
+     async function showFeelingAmmoSuggestions(feelingId, content, container) {
+         // 显示加载状态
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);">🤖 AI正在分析...</div>';
+         container.style.display = 'block';
+         
+         const suggestions = await generateAmmoSuggestions(content);
          
          if (suggestions.length === 0) {
              container.style.display = 'none';
@@ -7152,7 +7265,7 @@
          title.style.fontSize = '12px';
          title.style.color = 'var(--text-secondary)';
          title.style.marginBottom = '6px';
-         title.textContent = '💡 智能匹配弹药：';
+         title.textContent = '🤖 AI智能推荐弹药：';
          container.appendChild(title);
          
          suggestions.forEach(ammo => {
@@ -7177,8 +7290,7 @@
              const metaDiv = document.createElement('div');
              metaDiv.style.fontSize = '11px';
              metaDiv.style.color = 'var(--text-secondary)';
-             const typeText = ammo.type === 'word' ? '词汇' : ammo.type === 'sentence' ? '句子' : '段落';
-             metaDiv.textContent = `${typeText} | ${ammo.tags ? ammo.tags.join(', ') : '无标签'}`;
+             metaDiv.textContent = `${ammo.tags ? ammo.tags.join(', ') : '无标签'}`;
              ammoEl.appendChild(metaDiv);
              
              ammoEl.onmouseover = () => {
@@ -7790,20 +7902,12 @@
      function addAmmoToLibrary(content, type, tagsInput) {
          const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
          
-         // 获取来源信息
-         const block = data.practiceBlocks.find(b => b.id === currentAiContext.blockId);
-         const sourceBlockName = block ? block.name : 'AI润色';
-         
          // 创建弹药项
          const ammoItem = {
              id: genId(),
              content: content,
              type: type,
-             sourceBlockId: currentAiContext.blockId,
-             sourceRecordId: currentAiContext.recordId,
-             sourceBlockName: sourceBlockName,
              createdAt: nowStr(),
-             useCount: 0,
              tags: tags
          };
          
@@ -7852,7 +7956,6 @@
          ammoEl.style.padding = '8px';
          ammoEl.innerHTML = `
              <div class="ammo-item-header">
-                 <span class="ammo-item-type ${ammoItem.type}">${getTypeName(ammoItem.type)}</span>
                  <span style="font-size:11px;color:var(--text-secondary);">刚刚</span>
              </div>
              <div class="ammo-item-content" style="font-size:13px;">${escapeHtml(ammoItem.content.substring(0, 50))}${ammoItem.content.length > 50 ? '...' : ''}</div>
@@ -7861,16 +7964,6 @@
          container.appendChild(ammoEl);
      }
      
-      // 获取类型名称
-      function getTypeName(type) {
-          const typeNames = {
-              'word': '词汇',
-              'sentence': '句子',
-              'paragraph': '段落'
-          };
-          return typeNames[type] || type;
-      }
-      
       // 生成消化笔记HTML
       function generateDigestionHtml(ammo) {
           const digestion = ammo.digestion || {};
@@ -7961,7 +8054,7 @@
                            <strong style="font-size:14px;">${ammo.content}</strong>
                        </div>
                        <div style="color:var(--text-secondary);font-size:12px;margin-bottom:8px;">
-                           类型: ${ammo.type} | 来源: ${ammo.source || '无'}
+                           来源: ${ammo.source || '无'}
                        </div>
                        <button class="btn btn-primary" onclick="showEditDigestionForm('${ammoId}')">✏️ 编辑消化笔记</button>
                    </div>
@@ -8108,7 +8201,9 @@
                   let formattedResponse = response
                       .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
                       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
-                      .replace(/\n/g, '<br/>');  // 换行
+                      .replace(/---/g, '<hr style="margin:4px 0;border:none;border-top:1px solid var(--border);">')  // --- 分隔线
+                      .replace(/\n\s*\n/g, '<br/>')  // 多个连续换行转为单个换行
+                      .replace(/\n/g, ' ');  // 单个换行转为空格
                   promptDiv.innerHTML = formattedResponse;
                   
               } catch (error) {
@@ -8234,59 +8329,59 @@
            
            // 创建编辑表单
            const formHtml = `
-               <div id="editDigestionForm-${ammoId}" class="edit-digestion-form" style="margin-top:16px;padding:16px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
-                   <h4 style="margin:0 0 12px 0;font-size:15px;">编辑消化笔记</h4>
+               <div id="editDigestionForm-${ammoId}" class="edit-digestion-form">
+                   <h4>编辑消化笔记</h4>
                    <input type="hidden" id="editDigestionAmmoId-${ammoId}" value="${ammoId}">
                    
-                   <div style="margin-bottom:12px;">
-                       <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">为什么有道理?</label>
-                       <textarea id="editDigestionWhyMakesSense-${ammoId}" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">${escapeHtml(digestion.whyMakesSense || '')}</textarea>
+                   <div style="margin-bottom:16px;">
+                       <label>为什么有道理?</label>
+                       <textarea id="editDigestionWhyMakesSense-${ammoId}" rows="2" placeholder="这句话为什么有道理？它的核心观点是什么？">${escapeHtml(digestion.whyMakesSense || '')}</textarea>
                    </div>
                    
-                   <div style="margin-bottom:12px;">
-                       <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">解决了什么问题?</label>
-                       <textarea id="editDigestionSolvesProblem-${ammoId}" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">${escapeHtml(digestion.solvesProblem || '')}</textarea>
+                   <div style="margin-bottom:16px;">
+                       <label>解决了什么问题?</label>
+                       <textarea id="editDigestionSolvesProblem-${ammoId}" rows="2" placeholder="这句话能解决什么问题？适用于什么场景？">${escapeHtml(digestion.solvesProblem || '')}</textarea>
                    </div>
                    
-                   <div style="margin-bottom:12px;">
-                       <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">个人案例</label>
+                   <div style="margin-bottom:16px;">
+                       <label>📚 个人案例</label>
                        <div id="editDigestionCases-${ammoId}"></div>
-                       <button class="btn btn-small btn-secondary" onclick="addDigestionCase('${ammoId}')" style="margin-top:8px;">+ 添加案例</button>
+                       <button class="btn btn-small btn-secondary" onclick="addDigestionCase('${ammoId}')">+ 添加案例</button>
                    </div>
                    
-                   <div style="margin-bottom:12px;">
-                       <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">我的改写</label>
+                   <div style="margin-bottom:16px;">
+                       <label>✍️ 我的改写</label>
                        <div id="editDigestionRewrites-${ammoId}"></div>
-                       <button class="btn btn-small btn-secondary" onclick="addDigestionRewrite('${ammoId}')" style="margin-top:8px;">+ 添加改写</button>
+                       <button class="btn btn-small btn-secondary" onclick="addDigestionRewrite('${ammoId}')">+ 添加改写</button>
                    </div>
                    
-                     <div style="margin-bottom:12px;">
-                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎯 应用场景</label>
-                         <div id="editDigestionScenarios-${ammoId}">
-                             ${renderScenariosForEdit(digestion.scenarios || [], ammoId)}
-                         </div>
-                         <button class="btn btn-small btn-primary" onclick="generateAIScenarios('${ammoId}')" style="margin-top:8px;">✨ AI生成应用场景</button>
-                     </div>
-                     
-                      <!-- 表达框架练习添加区域 -->
-                      <div style="margin-bottom:12px;padding-top:12px;border-top:1px solid var(--border);">
-                          <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">🎭 添加表达框架练习</label>
-                          <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
-                          <div id="editDigestionFrameworks-${ammoId}">
-                              ${renderFrameworksForEdit(ammoId)}
-                          </div>
-                          <div id="editScenarioPromptArea-${ammoId}" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);">
-                              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 框架提示：</div>
-                              <div id="editScenarioPrompt-${ammoId}" style="font-size:14px;line-height:1.6;"></div>
-                          </div>
-                          <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据框架提示进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:8px;"></textarea>
-                          <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
-                      </div>
-                    
-                    <div style="display:flex;gap:8px;">
-                        <button class="btn btn-primary" onclick="saveDigestionNotes('${ammoId}')">保存</button>
-                        <button class="btn btn-secondary" onclick="hideEditDigestionForm()">取消</button>
-                    </div>
+                   <div style="margin-bottom:16px;">
+                       <label>🎯 应用场景</label>
+                       <div id="editDigestionScenarios-${ammoId}">
+                           ${renderScenariosForEdit(digestion.scenarios || [], ammoId)}
+                       </div>
+                       <button class="btn btn-small btn-primary" onclick="generateAIScenarios('${ammoId}')">✨ AI生成应用场景</button>
+                   </div>
+                   
+                   <!-- 表达框架练习添加区域 -->
+                   <div style="margin-bottom:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);">
+                       <label>🎭 添加表达框架练习</label>
+                       <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
+                       <div id="editDigestionFrameworks-${ammoId}">
+                           ${renderFrameworksForEdit(ammoId)}
+                       </div>
+                       <div id="editScenarioPromptArea-${ammoId}" class="hidden">
+                           <div style="font-size:12px;color:rgba(255,255,255,0.9);margin-bottom:4px;">💡 框架提示：</div>
+                           <div id="editScenarioPrompt-${ammoId}"></div>
+                       </div>
+                       <textarea id="editDigestionPracticeContent-${ammoId}" rows="3" placeholder="根据框架提示进行表达练习..."></textarea>
+                       <button class="btn btn-small btn-secondary" onclick="addScenarioPracticeToDigestion('${ammoId}')">+ 添加练习记录</button>
+                   </div>
+                   
+                   <div style="display:flex;gap:12px;margin-top:24px;">
+                       <button class="btn btn-primary" onclick="saveDigestionNotes('${ammoId}')">💾 保存</button>
+                       <button class="btn btn-secondary" onclick="hideEditDigestionForm()">✕ 取消</button>
+                   </div>
                </div>
            `;
            
@@ -8301,7 +8396,7 @@
                              <strong style="font-size:16px;">${ammo.content}</strong>
                          </div>
                          <div style="color:var(--text-secondary);font-size:13px;margin-bottom:12px;">
-                             类型: ${ammo.type} | 来源: ${ammo.source || '无'}
+                             来源: ${ammo.source || '无'}
                          </div>
                          <button class="btn btn-secondary" onclick="showDigestionNotesPanel('${ammoId}')">← 返回查看</button>
                      </div>
@@ -8652,7 +8747,9 @@
                let formattedResponse = response
                    .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
-                   .replace(/\n/g, '<br/>');  // 换行
+                   .replace(/---/g, '<hr style="margin:4px 0;border:none;border-top:1px solid var(--border);">')  // --- 分隔线
+                   .replace(/\n\s*\n/g, '<br/>')  // 多个连续换行转为单个换行
+                   .replace(/\n/g, ' ');  // 单个换行转为空格
                promptContent.innerHTML = formattedResponse;
                
            } catch (error) {
@@ -8859,7 +8956,6 @@
       // 手动新增弹药
        function addNewAmmo() {
            const content = document.getElementById('newAmmoContent').value.trim();
-           const type = document.getElementById('newAmmoType').value;
            const tagsInput = document.getElementById('newAmmoTags').value;
            const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
            
@@ -8909,12 +9005,8 @@
             const ammoItem = {
                 id: genId(),
                 content: content,
-                type: type,
-                sourceBlockId: null,
-                sourceRecordId: null,
-                sourceBlockName: '手动添加',
+                type: 'general', // 默认类型
                 createdAt: nowStr(),
-                useCount: 0,
                 tags: tags,
                 digestion: {
                     whyMakesSense: whyMakesSense,
@@ -8948,25 +9040,16 @@
          
          // 筛选弹药
          let filteredAmmo = data.ammoLibrary.filter(ammo => {
-             // 类型筛选
-             if (currentAmmoFilter.type !== 'all' && ammo.type !== currentAmmoFilter.type) {
-                 return false;
-             }
-             
              // 搜索筛选
-             if (searchTerm && !ammo.content.toLowerCase().includes(searchTerm) &&
-                 !ammo.sourceBlockName.toLowerCase().includes(searchTerm)) {
+             if (searchTerm && !ammo.content.toLowerCase().includes(searchTerm)) {
                  return false;
              }
              
              return true;
          });
          
-         // 按使用次数和创建时间排序
+         // 按创建时间排序
          filteredAmmo.sort((a, b) => {
-             if (b.useCount !== a.useCount) {
-                 return b.useCount - a.useCount;
-             }
              return new Date(b.createdAt) - new Date(a.createdAt);
          });
          
@@ -8988,70 +9071,49 @@
                 const progressColor = digestionProgress === 1 ? 'var(--success)' :
                                      digestionProgress >= 0.6 ? 'var(--warning)' : 'var(--text-secondary)';
                 const progressIcon = digestionProgress === 1 ? '💚' :
-                                  digestionProgress >= 0.6 ? '💛' : 
-                                  digestionProgress < 0.6 ? '🧡' : '';
+                                  digestionProgress >= 0.6 ? '💛' :
+                                  digestionProgress < 0.6 ? '🧡' : '🤍';
                 
                 // 生成消化笔记HTML
                 const digestionHtml = generateDigestionHtml(ammo);
                 
                 ammoEl.innerHTML = `
-                    <div class="ammo-item-header">
-                        <span class="ammo-item-type ${ammo.type}">${getTypeName(ammo.type)}</span>
-                        <span style="font-size:11px;color:var(--text-secondary);">使用${ammo.useCount}次</span>
-                        <span style="font-size:11px;color:${progressColor};margin-left:8px;">${progressIcon} 消化${progressPercent}%</span>
-                    </div>
-                  <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
-                  <div class="ammo-item-source">来源：${escapeHtml(ammo.sourceBlockName)}</div>
-                  ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
+                  <!-- 左侧消化笔记指示器 -->
+                  <div class="ammo-digestion-indicator" onclick="toggleDigestionSection('${ammo.id}')" title="点击查看/隐藏消化笔记">
+                      <div class="ammo-digestion-icon">${progressIcon}</div>
+                      <div class="ammo-digestion-progress">${progressPercent}%</div>
+                  </div>
                   
-                  <!-- 消化笔记区域 -->
-                  <div class="ammo-digestion-section" id="digestion-${ammo.id}">
-                      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-                          <button class="btn btn-small btn-secondary" onclick="toggleDigestionSection('${ammo.id}')" style="width:100%;text-align:left;">
-                              <span id="digestion-toggle-icon-${ammo.id}">▼</span> 消化笔记
-                          </button>
-                          <div id="digestion-content-${ammo.id}" class="hidden" style="margin-top:8px;padding:8px;background:var(--bg);border-radius:6px;font-size:13px;">
+                  <!-- 右侧主要内容 -->
+                  <div class="ammo-main-content">
+                      <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
+                      ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
+                      
+                      <!-- 消化笔记区域 -->
+                      <div class="ammo-digestion-section" id="digestion-${ammo.id}">
+                          <div id="digestion-content-${ammo.id}" class="hidden" style="margin-top:8px;padding:8px;background:var(--bg);border-radius:6px;font-size:13px;border:1px solid var(--border);">
                               ${digestionHtml}
                               <div style="margin-top:8px;">
                                   <button class="btn btn-small btn-primary" onclick="showEditDigestionForm('${ammo.id}')">编辑消化笔记</button>
                               </div>
                           </div>
                       </div>
-                  </div>
-                  
-                  <div class="ammo-item-actions">
-                      <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
-                      <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
+                      
+                      <div class="ammo-item-actions">
+                          <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
+                          <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
+                      </div>
                   </div>
               `;
               container.appendChild(ammoEl);
           });
      }
      
-     // 按类型筛选弹药
-     function filterAmmoByType(type) {
-         currentAmmoFilter.type = type;
-         
-         // 更新按钮状态
-         document.querySelectorAll('[id^="filterAmmo"]').forEach(btn => {
-             btn.classList.remove('btn-primary');
-             btn.classList.add('btn-secondary');
-         });
-         document.getElementById(`filterAmmo${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.remove('btn-secondary');
-         document.getElementById(`filterAmmo${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.add('btn-primary');
-         
-         renderAmmoLibrary();
-     }
-     
      // 使用弹药
      function useAmmo(ammoId) {
          const ammo = data.ammoLibrary.find(a => a.id === ammoId);
          if (!ammo) return;
-         
-         // 增加使用次数
-         ammo.useCount++;
-         saveData();
-         
+
          // 复制到剪贴板
          navigator.clipboard.writeText(ammo.content).then(() => {
              showToast('已复制到剪贴板，可以粘贴使用');
@@ -9067,13 +9129,49 @@
          const ammo = data.ammoLibrary.find(a => a.id === ammoId);
          if (!ammo) return;
          
-         const newContent = prompt('编辑弹药内容:', ammo.content);
-         if (newContent !== null && newContent.trim()) {
-             ammo.content = newContent.trim();
-             saveData();
-             renderAmmoLibrary();
-             showToast('修改成功');
+         // 填充弹窗数据
+         document.getElementById('editAmmoContent').value = ammo.content || '';
+         
+         // 保存当前编辑的弹药ID
+         document.getElementById('editAmmoModal').dataset.ammoId = ammoId;
+         
+         // 显示弹窗
+         document.getElementById('editAmmoModal').classList.remove('hidden');
+     }
+     
+     // 关闭编辑弹药弹窗
+     function closeEditAmmoModal() {
+         document.getElementById('editAmmoModal').classList.add('hidden');
+         document.getElementById('editAmmoContent').value = '';
+     }
+     
+     // 保存编辑的弹药
+     function saveEditAmmo() {
+         const modal = document.getElementById('editAmmoModal');
+         const ammoId = modal.dataset.ammoId;
+         
+         if (!ammoId) return;
+         
+         const ammo = data.ammoLibrary.find(a => a.id === ammoId);
+         if (!ammo) return;
+         
+         const newContent = document.getElementById('editAmmoContent').value.trim();
+         if (!newContent) {
+             alert('请输入弹药内容');
+             return;
          }
+         
+         // 更新弹药数据
+         ammo.content = newContent;
+         
+         // 保存数据
+         saveData();
+         renderAmmoLibrary();
+         
+         // 关闭弹窗
+         closeEditAmmoModal();
+         
+         showToast('修改成功');
      }
      
      // 删除弹药
@@ -9133,428 +9231,27 @@
          // 保存当前内容到容器属性，供点击时使用
          container.dataset.currentContent = content;
      }
-     
-     // 触发AI推荐
-     async function triggerAIRecommendation(containerId, targetInputId) {
-         const container = document.getElementById(containerId);
-         if (!container) return;
-         
-         const content = container.dataset.currentContent || '';
-         if (!content) {
-             showToast('请先输入感受内容');
-             return;
-         }
-         
-         // 调用AI增强推荐
-         await showAIEnhancedAmmoSuggestions(content, containerId, targetInputId);
-     }
-     
-     // 通用的弹药推荐显示函数
-     function showAmmoSuggestions(content, containerId, targetInputId) {
-         const container = document.getElementById(containerId);
-         if (!container) return;
-         
-         // 将输入内容按空格分割成关键词
-         const keywords = content.split(/\s+/).filter(k => k.length > 1);
-         if (keywords.length === 0) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 搜索相关弹药
-         const suggestions = data.ammoLibrary.filter(ammo => {
-             const contentLower = ammo.content.toLowerCase();
-             return keywords.some(keyword => contentLower.includes(keyword));
-         }).slice(0, 3); // 最多显示3个推荐
-         
-         if (suggestions.length === 0) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 渲染推荐
-         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 关联弹药推荐</div>';
-         
-         suggestions.forEach(ammo => {
-             const suggestionEl = document.createElement('div');
-             suggestionEl.className = 'ammo-suggestion';
-             suggestionEl.innerHTML = `
-                 <div class="ammo-suggestion-content">${escapeHtml(ammo.content.substring(0, 60))}${ammo.content.length > 60 ? '...' : ''}</div>
-                 <div class="ammo-suggestion-source">来自：${escapeHtml(ammo.sourceBlockName)}</div>
-             `;
-             suggestionEl.onclick = () => {
-                 // 插入到目标文本框
-                 const targetInput = document.getElementById(targetInputId);
-                 if (targetInput) {
-                     const cursorPos = targetInput.selectionStart;
-                     const textBefore = targetInput.value.substring(0, cursorPos);
-                     const textAfter = targetInput.value.substring(targetInput.selectionEnd);
-                     
-                     targetInput.value = textBefore + ammo.content + textAfter;
-                     targetInput.focus();
-                     
-                     // 增加使用次数
-                     ammo.useCount++;
-                     saveData();
-                     
-                     // 清空推荐
-                     container.innerHTML = '';
-                     
-                     showToast('已插入');
-                 }
-             };
-             container.appendChild(suggestionEl);
-         });
-     }
-     
-     // ============ 中文分词智能匹配 ============
-     
-     /**
-      * 提取核心词汇（名词、动词等有意义的词）
-      * @param {string} text - 输入文本
-      * @returns {Array} - 核心词汇数组
-      */
-     function extractCoreWords(text) {
-         const coreWords = [];
-         
-         // 常见核心词汇列表（名词、动词）
-         const commonCoreWords = [
-             // 效率相关
-             '效率', '提升', '提高', '改善', '优化', '进步',
-             // 情绪相关
-             '开心', '快乐', '难过', '焦虑', '担心', '紧张', '平静', '放松',
-             // 工作相关
-             '工作', '学习', '任务', '目标', '计划', '完成', '开始', '结束',
-             // 时间相关
-             '时间', '今天', '明天', '昨天', '现在', '以后', '之前',
-             // 能力相关
-             '能力', '技能', '水平', '质量', '效果', '成果',
-             // 思考相关
-             '思考', '想法', '观点', '理解', '认识', '意识',
-             // 行动相关
-             '行动', '执行', '实施', '操作', '处理', '解决',
-             // 状态相关
-             '状态', '情况', '状况', '问题', '困难', '挑战'
-         ];
-         
-         // 检查文本中是否包含这些核心词汇
-         commonCoreWords.forEach(word => {
-             if (text.includes(word)) {
-                 coreWords.push(word);
-             }
-         });
-         
-         // 提取2-3字的连续汉字作为候选核心词
-         const candidates = text.match(/[\u4e00-\u9fa5]{2,3}/g) || [];
-         
-         // 过滤掉一些常见的无意义词
-         const stopWords = ['这个', '那个', '什么', '怎么', '这样', '那样', '可以', '应该', '需要', '想要', '觉得', '感到', '认为'];
-         
-         candidates.forEach(candidate => {
-             if (!stopWords.includes(candidate) && !coreWords.includes(candidate)) {
-                 coreWords.push(candidate);
-             }
-         });
-         
-         // 去重并返回
-         return [...new Set(coreWords)];
-     }
-     
-     /**
-      * 计算文本相似度（基于编辑距离）
-      * @param {string} str1 - 字符串1
-      * @param {string} str2 - 字符串2
-      * @returns {number} - 相似度分数 (0-1)
-      */
-     function calculateSimilarity(str1, str2) {
-         if (str1 === str2) return 1;
-         if (!str1 || !str2) return 0;
-         
-         const len1 = str1.length;
-         const len2 = str2.length;
-         
-         // 创建编辑距离矩阵
-         const matrix = [];
-         for (let i = 0; i <= len1; i++) {
-             matrix[i] = [i];
-         }
-         for (let j = 0; j <= len2; j++) {
-             matrix[0][j] = j;
-         }
-         
-         // 填充矩阵
-         for (let i = 1; i <= len1; i++) {
-             for (let j = 1; j <= len2; j++) {
-                 const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
-                 matrix[i][j] = Math.min(
-                     matrix[i - 1][j] + 1,     // 删除
-                     matrix[i][j - 1] + 1,     // 插入
-                     matrix[i - 1][j - 1] + cost // 替换
-                 );
-             }
-         }
-         
-         const maxLen = Math.max(len1, len2);
-         const similarity = 1 - (matrix[len1][len2] / maxLen);
-         
-         return similarity;
-     }
-     
-     /**
-      * 智能匹配弹药（增强版 - 包含关系匹配）
-      * @param {string} content - 用户输入内容
-      * @param {Array} ammoLibrary - 弹药库数组
-      * @returns {Array} - 匹配的弹药数组
-      */
-     function intelligentAmmoMatch(content, ammoLibrary) {
-         if (!content || !ammoLibrary || ammoLibrary.length === 0) {
-             return [];
-         }
-         
-         const contentTrimmed = content.trim();
-         const contentLower = contentTrimmed.toLowerCase();
-         
-         // 提取输入内容中所有2-4个连续的汉字
-         const chinesePatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
-         
-         // 额外提取所有2个连续的汉字（确保不遗漏关键词）
-         const twoCharPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2}/g) || [];
-         
-         // 合并所有模式，去重
-         const allPatterns = [...new Set([...chinesePatterns, ...twoCharPatterns])];
-         
-         if (allPatterns.length === 0) {
-             return [];
-         }
-         
-         console.log('提取到的汉字模式:', allPatterns);
-         console.log('输入内容:', contentTrimmed);
-         
-         // 查找匹配的弹药，使用评分系统
-         const matchedAmmoMap = new Map(); // 使用Map避免重复，并记录最高分
-         
-         // 策略1: 检查弹药内容是否包含输入中的汉字模式
-         allPatterns.forEach(pattern => {
-             ammoLibrary.forEach(ammo => {
-                 const ammoContentLower = ammo.content.toLowerCase();
-                 
-                 // 检查弹药内容是否包含这个汉字模式
-                 if (ammoContentLower.includes(pattern)) {
-                     const existing = matchedAmmoMap.get(ammo.id);
-                     // 计算匹配分数：模式长度 * 10 + 基础分
-                     const score = pattern.length * 10 + 50;
-                     
-                     if (!existing || score > existing.score) {
-                         matchedAmmoMap.set(ammo.id, {
-                             ...ammo,
-                             matchReason: `弹药包含: ${pattern}`,
-                             score: score,
-                             matchType: 'ammo_contains_input'
-                         });
-                     }
-                 }
-             });
-         });
-         
-         // 策略2: 检查输入内容是否包含弹药内容（完整包含）
-         ammoLibrary.forEach(ammo => {
-             const ammoContentTrimmed = ammo.content.trim();
-             const ammoContentLower = ammoContentTrimmed.toLowerCase();
-             
-             // 如果输入内容完整包含弹药内容
-             if (contentLower.includes(ammoContentLower) && ammoContentTrimmed.length >= 2) {
-                 const existing = matchedAmmoMap.get(ammo.id);
-                 // 完整包含给予更高分数
-                 const score = Math.min(ammoContentTrimmed.length * 5, 100) + 80;
-                 
-                 if (!existing || score > existing.score) {
-                     matchedAmmoMap.set(ammo.id, {
-                         ...ammo,
-                         matchReason: `输入包含弹药内容`,
-                         score: score,
-                         matchType: 'input_contains_ammo'
-                     });
-                 }
-             }
-         });
-         
-         // 策略3: 检查弹药内容是否包含输入内容（完整包含）
-         ammoLibrary.forEach(ammo => {
-             const ammoContentTrimmed = ammo.content.trim();
-             const ammoContentLower = ammoContentTrimmed.toLowerCase();
-             
-             // 如果弹药内容完整包含输入内容
-             if (ammoContentLower.includes(contentLower) && contentTrimmed.length >= 2) {
-                 const existing = matchedAmmoMap.get(ammo.id);
-                 // 完整包含给予更高分数
-                 const score = Math.min(contentTrimmed.length * 5, 100) + 80;
-                 
-                 if (!existing || score > existing.score) {
-                     matchedAmmoMap.set(ammo.id, {
-                         ...ammo,
-                         matchReason: `弹药内容包含输入`,
-                         score: score,
-                         matchType: 'ammo_contains_input_full'
-                     });
-                 }
-             }
-         });
-         
-         // 策略4: 检查部分包含关系（输入内容的一部分在弹药中）
-         if (contentTrimmed.length >= 4) {
-             // 提取输入内容中的较长片段（4-8字）
-             const longPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{4,8}/g) || [];
-             
-             longPatterns.forEach(pattern => {
-                 ammoLibrary.forEach(ammo => {
-                     const ammoContentLower = ammo.content.toLowerCase();
-                     
-                     if (ammoContentLower.includes(pattern)) {
-                         const existing = matchedAmmoMap.get(ammo.id);
-                         // 较长片段匹配给予中等分数
-                         const score = pattern.length * 8 + 60;
-                         
-                         if (!existing || score > existing.score) {
-                             matchedAmmoMap.set(ammo.id, {
-                                 ...ammo,
-                                 matchReason: `包含片段: ${pattern}`,
-                                 score: score,
-                                 matchType: 'partial_match'
-                             });
-                         }
-                     }
-                 });
-             });
-         }
-         
-         // 策略5: 核心词汇匹配（提取输入中的核心名词和动词）
-         const coreWords = extractCoreWords(contentTrimmed);
-         console.log('提取的核心词汇:', coreWords);
-         
-         coreWords.forEach(word => {
-             ammoLibrary.forEach(ammo => {
-                 const ammoContentLower = ammo.content.toLowerCase();
-                 
-                 // 检查弹药内容是否包含这个核心词汇
-                 if (ammoContentLower.includes(word)) {
-                     const existing = matchedAmmoMap.get(ammo.id);
-                     // 核心词汇匹配给予较高分数
-                     const score = word.length * 15 + 70;
-                     
-                     if (!existing || score > existing.score) {
-                         matchedAmmoMap.set(ammo.id, {
-                             ...ammo,
-                             matchReason: `核心词汇: ${word}`,
-                             score: score,
-                             matchType: 'core_word'
-                         });
-                     }
-                 }
-             });
-         });
-         
-         // 策略6: 基于相似度的模糊匹配（针对长度相近的内容）
-         ammoLibrary.forEach(ammo => {
-             const ammoContentTrimmed = ammo.content.trim();
-             const lengthDiff = Math.abs(contentTrimmed.length - ammoContentTrimmed.length);
-             
-             // 只对长度相近的内容进行相似度计算（差异不超过3个字符）
-             if (lengthDiff <= 3 && contentTrimmed.length >= 2 && ammoContentTrimmed.length >= 2) {
-                 const similarity = calculateSimilarity(contentTrimmed, ammoContentTrimmed);
-                 
-                 // 相似度阈值：0.6以上认为相关
-                 if (similarity >= 0.6) {
-                     const existing = matchedAmmoMap.get(ammo.id);
-                     const score = Math.round(similarity * 100);
-                     
-                     if (!existing || score > existing.score) {
-                         matchedAmmoMap.set(ammo.id, {
-                             ...ammo,
-                             matchReason: `相似度: ${Math.round(similarity * 100)}%`,
-                             score: score,
-                             matchType: 'similarity'
-                         });
-                     }
-                 }
-             }
-         });
-         
-         // 转换为数组并按分数排序
-         const matchedAmmo = Array.from(matchedAmmoMap.values())
-             .sort((a, b) => b.score - a.score);
-         
-         console.log('匹配到的弹药数量:', matchedAmmo.length);
-         console.log('匹配结果:', matchedAmmo.map(a => ({
-             content: a.content.substring(0, 20),
-             reason: a.matchReason,
-             score: a.score
-         })));
-         
-         // 返回所有匹配的弹药，最多10个
-         return matchedAmmo.slice(0, 10);
-     }
-     /**
-      * 获取匹配原因说明（增强版）
-      * @param {string} content - 用户输入内容
-      * @param {Object} ammo - 弹药对象
-      * @param {Array} tokens - 分词结果（已废弃，保留参数兼容性）
-      * @returns {string} - 匹配原因
-      */
-     function getMatchReason(content, ammo, tokens) {
-         const contentTrimmed = content.trim();
-         const contentLower = contentTrimmed.toLowerCase();
-         const ammoContentLower = ammo.content.toLowerCase();
-         
-         // 检查1: 输入内容完整包含弹药内容
-         if (contentLower.includes(ammoContentLower) && ammo.content.trim().length >= 2) {
-             return '输入包含弹药内容';
-         }
-         
-         // 检查2: 弹药内容完整包含输入内容
-         if (ammoContentLower.includes(contentLower) && contentTrimmed.length >= 2) {
-             return '弹药内容包含输入';
-         }
-         
-         // 检查3: 提取输入内容中所有2-4个连续的汉字
-         const chinesePatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{2,4}/g) || [];
-         
-         // 找到第一个匹配的模式
-         for (const pattern of chinesePatterns) {
-             if (ammoContentLower.includes(pattern)) {
-                 return `弹药包含: ${pattern}`;
-             }
-         }
-         
-         // 检查4: 较长片段匹配
-         if (contentTrimmed.length >= 4) {
-             const longPatterns = contentTrimmed.match(/[\u4e00-\u9fa5]{4,8}/g) || [];
-             for (const pattern of longPatterns) {
-                 if (ammoContentLower.includes(pattern)) {
-                     return `包含片段: ${pattern}`;
-                 }
-             }
-         }
-         
-         // 检查5: 相似度匹配
-         const lengthDiff = Math.abs(contentTrimmed.length - ammo.content.trim().length);
-         if (lengthDiff <= 3 && contentTrimmed.length >= 2 && ammo.content.trim().length >= 2) {
-             const similarity = calculateSimilarity(contentTrimmed, ammo.content.trim());
-             if (similarity >= 0.6) {
-                 return `相似度: ${Math.round(similarity * 100)}%`;
-             }
-         }
-         
-         return '匹配';
-     }
-     
-     /**
-      * 显示智能弹药推荐（使用中文分词）
-      * @param {string} content - 用户输入内容
-      * @param {string} containerId - 容器ID
-     * @param {string} targetInputId - 目标输入框ID
-      */
-     
-     // AI增强的智能弹药推荐
+    
+    // 触发AI推荐
+    async function triggerAIRecommendation(containerId, targetInputId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const content = container.dataset.currentContent || '';
+        if (!content) {
+            showToast('请先输入感受内容');
+            return;
+        }
+        
+        // 调用AI增强推荐
+        await showAIEnhancedAmmoSuggestions(content, containerId, targetInputId);
+    }
+    
+    // 传统匹配算法已移除，现在只使用AI分析本质进行推荐
+    
+    // 传统算法辅助函数已移除，现在只使用AI分析本质进行推荐
+    
+    // AI增强的智能弹药推荐（纯AI分析）
      async function showAIEnhancedAmmoSuggestions(content, containerId, targetInputId) {
          const container = document.getElementById(containerId);
          if (!container) {
@@ -9562,34 +9259,33 @@
              return;
          }
          
-         console.log('开始AI增强智能匹配:', content);
+         console.log('开始AI智能匹配:', content);
          console.log('弹药库数量:', data.ammoLibrary.length);
          
          // 显示加载状态
-         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI正在分析弹药库...</div>';
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI正在分析弹药库本质...</div>';
          
          try {
-             // 先使用传统算法进行快速匹配
-             const traditionalSuggestions = intelligentAmmoMatch(content, data.ammoLibrary);
-             
-             // 如果弹药库不为空且有AI配置，尝试AI分析
+             // 只使用AI分析弹药库本质并推荐
              let aiEnhancedSuggestions = [];
              
-             if (data.ammoLibrary.length > 0 && data.aiConfig && data.aiConfig.model) {
+             if (data.ammoLibrary.length > 0 && data.aiConfig && data.aiConfig.enabled && data.aiConfig.model) {
                  try {
                      // 调用AI分析弹药库本质并推荐
                      aiEnhancedSuggestions = await analyzeAmmoLibraryAndRecommend(content);
                  } catch (aiError) {
-                     console.log('AI分析失败，使用传统算法:', aiError);
+                     console.log('AI分析失败:', aiError);
+                     container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">❌ AI分析失败，请检查AI配置</div>';
+                     return;
                  }
+             } else {
+                 container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">⚠️ 请先在设置中启用AI功能</div>';
+                 return;
              }
              
-             // 合并推荐结果，AI推荐的优先级更高
-             const allSuggestions = mergeSuggestions(traditionalSuggestions, aiEnhancedSuggestions);
+             console.log('AI推荐结果数量:', aiEnhancedSuggestions.length);
              
-             console.log('最终推荐结果数量:', allSuggestions.length);
-             
-             if (allSuggestions.length === 0) {
+             if (aiEnhancedSuggestions.length === 0) {
                  container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 暂无相关推荐</div>';
                  return;
              }
@@ -9597,12 +9293,12 @@
              // 渲染推荐
               container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI智能弹药推荐</div>';
 
-              allSuggestions.slice(0, 3).forEach((ammo, index) => {
+              aiEnhancedSuggestions.slice(0, 3).forEach((ammo, index) => {
                  const suggestionEl = document.createElement('div');
                  suggestionEl.className = 'ammo-suggestion';
                  suggestionEl.style.borderLeft = `3px solid ${index === 0 ? 'var(--primary)' : '#ccc'}`;
                  
-                 // 如果有AI分析结果，显示本质分析
+                 // 显示AI分析的本质
                  const essenceInfo = ammo.essence ?
                      `<div style="font-size:10px;color:var(--primary);margin-top:2px;">✨ 本质: ${escapeHtml(ammo.essence.substring(0, 30))}${ammo.essence.length > 30 ? '...' : ''}</div>` : '';
                  
@@ -9610,8 +9306,7 @@
                      <div class="ammo-suggestion-content">${escapeHtml(ammo.content.substring(0, 60))}${ammo.content.length > 60 ? '...' : ''}</div>
                      ${essenceInfo}
                      <div class="ammo-suggestion-source">
-                         ${escapeHtml(ammo.sourceBlockName)}
-                         <span style="color:var(--text-secondary);font-size:10px;">| ${ammo.matchReason}</span>
+                         <span style="color:var(--text-secondary);font-size:10px;">${ammo.matchReason}</span>
                      </div>
                  `;
                  
@@ -9625,13 +9320,6 @@
                          
                          targetInput.value = textBefore + ammo.content + textAfter;
                          targetInput.focus();
-                         
-                         // 增加使用次数
-                         const originalAmmo = data.ammoLibrary.find(a => a.id === ammo.id);
-                         if (originalAmmo) {
-                             originalAmmo.useCount++;
-                             saveData();
-                         }
                          
                          // 清空推荐
                          container.innerHTML = '';
@@ -9665,12 +9353,12 @@ ${userFeeling}
 
 【弹药库记录】
 ${ammoToAnalyze.map((ammo, index) =>
-    `${index + 1}. 内容: ${ammo.content}\n   来源: ${ammo.sourceBlockName}\n   使用次数: ${ammo.useCount || 0}`
+    `${index + 1}. 内容: ${ammo.content}`
 ).join('\n\n')}
 
 【任务要求】
 1. 分析每条弹药库记录的本质（核心想表达的东西，比如：情感需求、沟通模式、心理状态等）
-2. 根据用户的当前感受，找出最相关的3-5条弹药库记录
+2. 根据用户的当前感受，找出最相关的3条弹药库记录
 3. 为每条推荐记录说明推荐理由
 
 【输出格式】
@@ -9724,41 +9412,38 @@ ${ammoToAnalyze.map((ammo, index) =>
          }
      }
      
-     // 合并传统算法和AI推荐的弹药
-     function mergeSuggestions(traditional, aiEnhanced) {
-         const mergedMap = new Map();
-         
-         // 先添加AI推荐的结果（优先级更高）
-         aiEnhanced.forEach(ammo => {
-             mergedMap.set(ammo.id, ammo);
-         });
-         
-         // 再添加传统算法的结果，避免重复
-         traditional.forEach(ammo => {
-             if (!mergedMap.has(ammo.id)) {
-                 mergedMap.set(ammo.id, ammo);
-             }
-         });
-         
-         // 转换为数组并按分数排序
-         return Array.from(mergedMap.values()).sort((a, b) => b.score - a.score);
-     }
+     // 合并函数已移除，现在只使用AI分析本质进行推荐
      
-     // 保留原有的showIntelligentAmmoSuggestions函数用于其他地方
-     function showIntelligentAmmoSuggestions(content, containerId, targetInputId) {
+     // 保留原有的showIntelligentAmmoSuggestions函数用于其他地方（更新为使用AI分析）
+     async function showIntelligentAmmoSuggestions(content, containerId, targetInputId) {
          const container = document.getElementById(containerId);
          if (!container) {
              console.log('容器不存在:', containerId);
              return;
          }
          
-         console.log('开始智能匹配:', content);
+         console.log('开始AI智能匹配:', content);
          console.log('弹药库数量:', data.ammoLibrary.length);
          
-         // 使用智能匹配算法
-         const suggestions = intelligentAmmoMatch(content, data.ammoLibrary);
+         // 显示加载状态
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI正在分析弹药库本质...</div>';
          
-         console.log('匹配结果数量:', suggestions.length);
+         // 使用AI分析弹药库本质
+         let suggestions = [];
+         if (data.aiConfig && data.aiConfig.enabled && data.aiConfig.model) {
+             try {
+                 suggestions = await analyzeAmmoLibraryAndRecommend(content);
+             } catch (error) {
+                 console.error('AI分析失败:', error);
+                 container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">❌ AI分析失败，请检查AI配置</div>';
+                 return;
+             }
+         } else {
+             container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">⚠️ 请先在设置中启用AI功能</div>';
+             return;
+         }
+         
+         console.log('AI推荐结果数量:', suggestions.length);
          
          if (suggestions.length === 0) {
              container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 暂无相关推荐</div>';
@@ -9766,17 +9451,22 @@ ${ammoToAnalyze.map((ammo, index) =>
          }
          
          // 渲染推荐
-         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">💡 智能弹药推荐</div>';
+         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">🤖 AI智能弹药推荐</div>';
          
          suggestions.forEach((ammo, index) => {
              const suggestionEl = document.createElement('div');
              suggestionEl.className = 'ammo-suggestion';
              suggestionEl.style.borderLeft = `3px solid ${index === 0 ? 'var(--primary)' : '#ccc'}`;
+             
+             // 显示AI分析的本质
+             const essenceInfo = ammo.essence ?
+                 `<div style="font-size:10px;color:var(--primary);margin-top:2px;">✨ 本质: ${escapeHtml(ammo.essence.substring(0, 30))}${ammo.essence.length > 30 ? '...' : ''}</div>` : '';
+             
              suggestionEl.innerHTML = `
                  <div class="ammo-suggestion-content">${escapeHtml(ammo.content.substring(0, 60))}${ammo.content.length > 60 ? '...' : ''}</div>
+                 ${essenceInfo}
                  <div class="ammo-suggestion-source">
-                     ${escapeHtml(ammo.sourceBlockName)}
-                     <span style="color:var(--text-secondary);font-size:10px;">| ${ammo.matchReason}</span>
+                     <span style="color:var(--text-secondary);font-size:10px;">${ammo.matchReason}</span>
                  </div>
              `;
              suggestionEl.onclick = () => {
@@ -9790,13 +9480,6 @@ ${ammoToAnalyze.map((ammo, index) =>
                      targetInput.value = textBefore + ammo.content + textAfter;
                      targetInput.focus();
                      
-                     // 增加使用次数
-                     const originalAmmo = data.ammoLibrary.find(a => a.id === ammo.id);
-                     if (originalAmmo) {
-                         originalAmmo.useCount++;
-                         saveData();
-                     }
-                     
                      // 清空推荐
                      container.innerHTML = '';
                      
@@ -9807,117 +9490,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          });
      }
      
-      // 新增弹药内容输入框的智能推荐处理（使用中文分词）
-      let newAmmoSuggestionTimer = null;
-      let newAmmoFrameworkTimer = null;
-      function handleNewAmmoInput(textarea) {
-          const content = textarea.value.trim();
-          const container = document.getElementById('newAmmoSuggestions');
-          
-          // 清除之前的定时器
-          if (newAmmoSuggestionTimer) {
-              clearTimeout(newAmmoSuggestionTimer);
-          }
-          
-          // 如果内容太少，不显示推荐
-          if (content.length < 2) {
-              container.innerHTML = '';
-              return;
-          }
-          
-          // 延迟显示推荐，避免频繁调用
-          newAmmoSuggestionTimer = setTimeout(() => {
-              showIntelligentAmmoSuggestions(content, 'newAmmoSuggestions', 'newAmmoContent');
-          }, 500);
-          
-          // 如果已经选择了表达框架，更新参考句式
-          const scenarioType = document.getElementById('newAmmoScenarioType').value;
-          if (scenarioType && content.length > 5) {
-              // 清除之前的定时器
-              if (newAmmoFrameworkTimer) {
-                  clearTimeout(newAmmoFrameworkTimer);
-              }
-              
-              // 延迟更新框架参考句式，避免频繁调用AI
-              newAmmoFrameworkTimer = setTimeout(() => {
-                  generateFrameworkReferenceForNewAmmo(scenarioType, content);
-              }, 1000);
-          }
-      }
-     
-     // 新增练习内容输入框的智能推荐处理（使用中文分词）
-     const quickPracticeTimers = {};
-     function handleQuickPracticeInput(input, blockId) {
-         const content = input.value.trim();
-         const container = document.getElementById(`quick-input-suggestions-${blockId}`);
-         
-         // 清除之前的定时器
-         if (quickPracticeTimers[blockId]) {
-             clearTimeout(quickPracticeTimers[blockId]);
-         }
-         
-         // 如果内容太少，不显示推荐
-         if (content.length < 2) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 延迟显示推荐，避免频繁调用
-         quickPracticeTimers[blockId] = setTimeout(() => {
-             showIntelligentAmmoSuggestions(content, `quick-input-suggestions-${blockId}`, `quick-input-${blockId}`);
-         }, 500);
-     }
-     
-     // 记录练习内容输入框的智能推荐处理（使用中文分词）
-     const recordPracticeTimers = {};
-     function handleRecordPracticeInput(input, blockId) {
-         const content = input.value.trim();
-         const container = document.getElementById(`new-record-suggestions-${blockId}`);
-         
-         // 清除之前的定时器
-         if (recordPracticeTimers[blockId]) {
-             clearTimeout(recordPracticeTimers[blockId]);
-         }
-         
-         // 如果内容太少，不显示推荐
-         if (content.length < 2) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 延迟显示推荐，避免频繁调用
-         recordPracticeTimers[blockId] = setTimeout(() => {
-             showIntelligentAmmoSuggestions(content, `new-record-suggestions-${blockId}`, `new-record-${blockId}`);
-         }, 500);
-     }
-     
-     // 编辑内容输入框的智能推荐处理（使用中文分词）
-     const editContentTimer = null;
-     function handleEditContentInput(textarea) {
-         const content = textarea.value.trim();
-         const container = document.getElementById('editContentSuggestions');
-         
-         // 清除之前的定时器
-         if (editContentTimer) {
-             clearTimeout(editContentTimer);
-         }
-         
-         // 如果内容太少，不显示推荐
-         if (content.length < 2) {
-             container.innerHTML = '';
-             return;
-         }
-         
-         // 延迟显示推荐，避免频繁调用
-         editContentTimer = setTimeout(() => {
-             showIntelligentAmmoSuggestions(content, 'editContentSuggestions', 'editContent');
-         }, 500);
-     }
-     
-     // 新板块名称输入框的智能推荐处理
-     // 任务预计时间输入框的智能推荐处理
-     // 新时间段名称输入框的智能推荐处理
-      // 显示AI配置模态框
+     // 显示AI配置模态框
       function showAiConfigModal() {
           document.getElementById('aiEnabled').checked = data.aiConfig.enabled;
           
