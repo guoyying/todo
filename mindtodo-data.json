@@ -1764,12 +1764,13 @@
       "type": "task",
       "content": "将开心、难过这些智能推荐相关函数删掉，不需要了。",
       "createdAt": "2026-05-09T23:28:28.364Z",
-      "updatedAt": "2026-05-09T23:28:28.364Z",
+      "updatedAt": "2026-05-10T10:08:19.038Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-10T10:08:19.038Z"
     }
   ],
   "normalFeelings": [
