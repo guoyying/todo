@@ -5848,6 +5848,7 @@
                  commonTags: data.commonTags,
                  title: data.title,
                  ammoLibrary: data.ammoLibrary,
+                 communicationChecklists: data.communicationChecklists,
                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -6859,6 +6860,7 @@ ${behaviorDescription}
                  if (remote.commonTags) data.commonTags = remote.commonTags;
                  if (remote.title) data.title = remote.title;
                  if (remote.ammoLibrary) data.ammoLibrary = remote.ammoLibrary;
+                 if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
