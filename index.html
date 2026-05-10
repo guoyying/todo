@@ -6514,6 +6514,21 @@
                 return;
             }
             
+            // 获取当前选择的模型
+            const modelId = data.aiConfig.model;
+            const model = data.aiConfig.models.find(m => m.id === modelId);
+            if (!model) {
+                resultContainer.innerHTML = '<div style="color:var(--text-secondary);padding:10px;">⚠️ 未找到指定的AI模型</div>';
+                return;
+            }
+            
+            // 检查API密钥
+            const apiKey = data.aiConfig.apiKeys[model.provider];
+            if (!apiKey) {
+                resultContainer.innerHTML = `<div style="color:var(--text-secondary);padding:10px;">⚠️ 请先配置${model.provider}的API密钥</div>`;
+                return;
+            }
+            
             try {
                 const prompt = `请分析以下关系问题中的对方行为，从积极的角度（往好处想）分析对方可能的动机和原因，并帮助用户精准表达自己的感受。
 
@@ -6531,15 +6546,43 @@ ${behaviorDescription}
 ## ✨ 沟通建议
 [给出1-2条具体的沟通建议]`;
                 
-                const response = await callAI(prompt);
+                // 直接调用对应的API函数，绕过callAiApi的提示词处理逻辑
+                let response;
+                if (model.provider === 'openai') {
+                    response = await callOpenAiApi(prompt, modelId);
+                } else if (model.provider === 'anthropic') {
+                    response = await callAnthropicApi(prompt, modelId);
+                } else if (model.provider === 'deepseek') {
+                    response = await callDeepSeekApi(prompt, modelId);
+                } else if (model.provider === 'qwen') {
+                    response = await callQwenApi(prompt, modelId);
+                } else if (model.provider === 'zhipu') {
+                    response = await callZhipuApi(prompt, modelId);
+                } else if (model.provider === 'baidu') {
+                    response = await callBaiduApi(prompt, modelId);
+                } else if (model.provider === 'tencent') {
+                    response = await callTencentApi(prompt, modelId);
+                } else if (model.provider === 'moonshot') {
+                    response = await callMoonshotApi(prompt, modelId);
+                } else {
+                    throw new Error('不支持的AI提供商');
+                }
                 
                 if (response) {
-                    // 格式化输出
-                    const formattedResponse = response
-                        .replace(/## 🤔 对方可能的原因（往好处想）/g, '<div style="font-weight:600;margin-bottom:6px;color:var(--primary);">🤔 对方可能的原因（往好处想）</div>')
-                        .replace(/## 💬 精准表达感受/g, '<div style="font-weight:600;margin-bottom:6px;margin-top:12px;color:var(--feeling);">💬 精准表达感受</div>')
-                        .replace(/## ✨ 沟通建议/g, '<div style="font-weight:600;margin-bottom:6px;margin-top:12px;color:var(--task);">✨ 沟通建议</div>')
-                        .replace(/\n/g, '<br/>');
+                    // 处理Markdown格式并显示分析结果
+                    let formattedResponse = response
+                        // 处理二级标题 ##（包括后面的换行）
+                        .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:13px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')
+                        // 处理粗体 **text**
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                        // 处理无序列表 - item（包括前面的换行）
+                        .replace(/\n\-\s+(.+)$/gm, '<div style="margin-left:16px;padding:2px 0;">• $1</div>')
+                        // 处理有序列表 1. item（包括前面的换行）
+                        .replace(/\n\d+\.\s+(.+)$/gm, '<div style="margin-left:16px;padding:2px 0;">$1</div>')
+                        // 处理段落之间的双换行
+                        .replace(/\n\n+/g, '<br/><br/>')
+                        // 处理剩余的单换行
+                        .replace(/\n/g, ' ');
                     
                     resultContainer.innerHTML = `<div style="font-size:11px;line-height:1.6;">${formattedResponse}</div>`;
                 } else {
@@ -6547,7 +6590,7 @@ ${behaviorDescription}
                 }
             } catch (error) {
                 console.error('AI分析失败:', error);
-                resultContainer.innerHTML = '<div style="color:var(--text-secondary);padding:10px;">⚠️ AI分析失败，请重试</div>';
+                resultContainer.innerHTML = `<div style="color:var(--text-secondary);padding:10px;">⚠️ AI分析失败：${error.message}</div>`;
             }
         }
         
