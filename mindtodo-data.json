@@ -1,0 +1,2435 @@
+{
+  "tasks": [
+    {
+      "id": "mogyvk4d3h2p4",
+      "type": "task",
+      "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
+      "createdAt": "2026-04-27T09:00:24.349Z",
+      "updatedAt": "2026-04-28T02:08:06.192Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mogyvk4dxosrz",
+          "content": "vlookup匹配下哪些退网状态变了，剩下的就是还没处理的10min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "mogyvk4dfsui8",
+          "content": "vlookup下她给的清单，哪些属于我关注的范围4min，然后看下不同设备的状态，写下每种状态的做法8min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-04-28T02:08:06.192Z"
+    },
+    {
+      "id": "mogzhiiyyxzq7",
+      "type": "task",
+      "content": "把这张单弄了",
+      "createdAt": "2026-04-27T09:17:28.714Z",
+      "updatedAt": "2026-04-27T09:29:49.168Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mogzhiiys4mtv",
+          "content": "copy颜色到excel里，对照检查下每一项，写下比对不对的现象10min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-04-27T09:29:49.168Z"
+    },
+    {
+      "id": "moh04z8tojh9w",
+      "type": "task",
+      "content": "给算力提供一季度的清单，给美哥反馈算力的情况",
+      "createdAt": "2026-04-27T09:35:43.469Z",
+      "updatedAt": "2026-04-28T02:08:00.947Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-04-28T02:08:00.947Z"
+    },
+    {
+      "id": "moh05xsby94sa",
+      "type": "task",
+      "content": "黄埔过单4326设备，上传关电照片",
+      "createdAt": "2026-04-27T09:36:28.235Z",
+      "updatedAt": "2026-04-28T09:06:04.358Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "6min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T09:06:04.358Z"
+    },
+    {
+      "id": "moh0gxfu5ti76",
+      "type": "task",
+      "content": "改下退网进度目标，然后通知县分10min",
+      "createdAt": "2026-04-27T09:45:01.002Z",
+      "updatedAt": "2026-04-28T03:43:39.601Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T03:43:39.599Z"
+    },
+    {
+      "id": "mohxo33kpsft2",
+      "type": "task",
+      "content": "更新补环教程",
+      "createdAt": "2026-04-28T01:14:22.256Z",
+      "updatedAt": "2026-04-28T06:31:13.985Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T06:31:13.985Z"
+    },
+    {
+      "id": "mohz1gzo37l7n",
+      "type": "task",
+      "content": "问董工",
+      "createdAt": "2026-04-28T01:52:46.404Z",
+      "updatedAt": "2026-04-28T01:54:48.611Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T01:54:48.611Z"
+    },
+    {
+      "id": "mohzfnkrq6qpi",
+      "type": "task",
+      "content": "确认下一季度的清单是不是同一个退网单的，然后给美哥反馈",
+      "createdAt": "2026-04-28T02:03:48.123Z",
+      "updatedAt": "2026-04-28T02:51:04.457Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T02:51:04.457Z"
+    },
+    {
+      "id": "mohzxu8re666s",
+      "type": "task",
+      "content": "提醒两个人之后退网单给我审核",
+      "createdAt": "2026-04-28T02:17:56.571Z",
+      "updatedAt": "2026-04-28T06:38:09.016Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T06:38:09.016Z"
+    },
+    {
+      "id": "moi30uyzvpp8t",
+      "type": "task",
+      "content": "写给县分的话术，通知目标已更改。然后联系美哥说明算力的情况。",
+      "createdAt": "2026-04-28T03:44:16.331Z",
+      "updatedAt": "2026-04-28T03:54:15.839Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T03:54:15.839Z"
+    },
+    {
+      "id": "moi4ity1j44ix",
+      "type": "task",
+      "content": "好想练习表达啊",
+      "createdAt": "2026-04-28T04:26:14.426Z",
+      "updatedAt": "2026-04-28T05:07:23.776Z",
+      "tags": [
+        "表达"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moi4ity1vb71k",
+          "content": "写一下某场景我想实现什么效果",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-04-28T05:07:23.775Z"
+    },
+    {
+      "id": "moi4sba96rkq7",
+      "type": "task",
+      "content": "确认一下从化给了清单哪些不是SDH设备，然后跟话反馈优先退",
+      "createdAt": "2026-04-28T04:33:36.801Z",
+      "updatedAt": "2026-04-28T06:50:23.479Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T06:50:23.479Z"
+    },
+    {
+      "id": "moi8lzpq5n1po",
+      "type": "task",
+      "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
+      "createdAt": "2026-04-28T06:20:40.334Z",
+      "updatedAt": "2026-04-29T01:38:52.834Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T01:38:52.834Z"
+    },
+    {
+      "id": "moi8moz3kqmea",
+      "type": "task",
+      "content": "需求：可以点击推送，也可以快捷键推送。刷新网页自动拉取一次，随后不自动拉取除非我手动点击。",
+      "createdAt": "2026-04-28T06:21:13.071Z",
+      "updatedAt": "2026-04-28T08:47:34.213Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T08:47:34.213Z"
+    },
+    {
+      "id": "moi9ac06t98ch",
+      "type": "task",
+      "content": "拆除马场的光路",
+      "createdAt": "2026-04-28T06:39:36.006Z",
+      "updatedAt": "2026-04-30T08:46:11.019Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moi9ac069jsj7",
+          "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
+          "estimatedTime": "15min",
+          "done": true,
+          "placedIn": "slot_moju5h19bscd0"
+        }
+      ],
+      "doneAt": "2026-04-30T08:46:11.019Z"
+    },
+    {
+      "id": "moi9o3viw17rn",
+      "type": "task",
+      "content": "看下炭步的退网单",
+      "createdAt": "2026-04-28T06:50:18.654Z",
+      "updatedAt": "2026-04-28T07:08:19.752Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T07:08:19.752Z"
+    },
+    {
+      "id": "moicf3xtre5jy",
+      "type": "task",
+      "content": "更新三级系统资产",
+      "createdAt": "2026-04-28T08:07:17.681Z",
+      "updatedAt": "2026-04-29T01:50:24.192Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "14min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T01:50:24.192Z"
+    },
+    {
+      "id": "moidup8mi1itx",
+      "type": "task",
+      "content": "做好邮件团支部的",
+      "createdAt": "2026-04-28T08:47:24.742Z",
+      "updatedAt": "2026-04-28T09:20:30.968Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-28T09:20:30.968Z"
+    },
+    {
+      "id": "moie9ketq0s8f",
+      "type": "task",
+      "content": "做个800M的透视表，占总数量的多少",
+      "createdAt": "2026-04-28T08:58:58.325Z",
+      "updatedAt": "2026-04-29T01:09:53.764Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-04-29T01:09:53.764Z"
+    },
+    {
+      "id": "mojcyvvoi6czy",
+      "type": "task",
+      "content": "更新美哥周报",
+      "createdAt": "2026-04-29T01:10:26.532Z",
+      "updatedAt": "2026-04-29T03:48:04.081Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "14min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-04-29T03:48:04.080Z"
+    },
+    {
+      "id": "mojdgv13c8v8p",
+      "type": "task",
+      "content": "定级备案更新",
+      "createdAt": "2026-04-29T01:24:25.239Z",
+      "updatedAt": "2026-04-30T08:46:23.087Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mojdgv12h2lan",
+          "content": "找到云平台风险评估总结，截图放入报告里",
+          "estimatedTime": "20min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mojdgv13f6dry",
+          "content": "修改part2的内容",
+          "estimatedTime": "9min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mojdgv13dwz3r",
+          "content": "修改工信部网站上、备案报告的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
+          "estimatedTime": "20min",
+          "done": false,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-04-30T08:46:23.087Z"
+    },
+    {
+      "id": "mojee5e1p6g2o",
+      "type": "task",
+      "content": "60个网元查询资源系统状态，选出退网的",
+      "createdAt": "2026-04-29T01:50:18.313Z",
+      "updatedAt": "2026-04-29T03:54:35.162Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss",
+      "doneAt": "2026-04-29T03:54:35.162Z"
+    },
+    {
+      "id": "mojfclelx6w8l",
+      "type": "task",
+      "content": "退网过单",
+      "createdAt": "2026-04-29T02:17:05.373Z",
+      "updatedAt": "2026-04-29T09:09:35.201Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "30min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T09:09:35.201Z"
+    },
+    {
+      "id": "mojfdbicy03v1",
+      "type": "task",
+      "content": "宝英姐的确认参加培训，我得问泳哥。",
+      "createdAt": "2026-04-29T02:17:39.204Z",
+      "updatedAt": "2026-04-29T02:38:17.154Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss",
+      "doneAt": "2026-04-29T02:38:17.154Z"
+    },
+    {
+      "id": "mojfusqga4dim",
+      "type": "task",
+      "content": "得确认下ppt的数要对的上",
+      "createdAt": "2026-04-29T02:31:14.680Z",
+      "updatedAt": "2026-04-29T02:52:11.059Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mojfdjcpfkmss",
+      "doneAt": "2026-04-29T02:52:11.059Z"
+    },
+    {
+      "id": "moji5jf8now8e",
+      "type": "task",
+      "content": "整理算力的照片和修改越秀设备的归属",
+      "createdAt": "2026-04-29T03:35:35.060Z",
+      "updatedAt": "2026-04-29T07:50:55.405Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "18min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:50:55.405Z"
+    },
+    {
+      "id": "mojihtd6ludni",
+      "type": "task",
+      "content": "整理了批已退网的网关，想下下一步咋整。",
+      "createdAt": "2026-04-29T03:45:07.818Z",
+      "updatedAt": "2026-04-29T03:52:00.273Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T03:52:00.273Z"
+    },
+    {
+      "id": "mojituxlidim3",
+      "type": "task",
+      "content": "soc删除退网资产",
+      "createdAt": "2026-04-29T03:54:29.721Z",
+      "updatedAt": "2026-04-29T07:51:00.523Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "25min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:51:00.523Z"
+    },
+    {
+      "id": "mojj2vudafbt4",
+      "type": "task",
+      "content": "我想在板块练习每一项记录里有个按钮可以记录练习，点击确认之后就记录为第n次。我也希望板块小名称有已有的板块小名称下拉树选择。板块练习，我可以编辑或删除每一次的内容。",
+      "createdAt": "2026-04-29T04:01:30.805Z",
+      "updatedAt": "2026-04-29T07:51:07.189Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-29T07:51:07.189Z"
+    },
+    {
+      "id": "mojrt03hdksx5",
+      "type": "task",
+      "content": "三码过单",
+      "createdAt": "2026-04-29T08:05:46.301Z",
+      "updatedAt": "2026-04-29T09:40:12.701Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moju5h19bscd0",
+      "doneAt": "2026-04-29T09:40:12.701Z"
+    },
+    {
+      "id": "moju3grtuj5bo",
+      "type": "task",
+      "content": "整理下ai做的作品，命名",
+      "createdAt": "2026-04-29T09:09:53.705Z",
+      "updatedAt": "2026-04-29T09:42:46.873Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moju5h19bscd0",
+      "doneAt": "2026-04-29T09:42:46.873Z"
+    },
+    {
+      "id": "mojvlvi0y9l3t",
+      "type": "task",
+      "content": "看下奥普泰50端口是否关闭or开着的。",
+      "createdAt": "2026-04-29T09:52:12.216Z",
+      "updatedAt": "2026-04-30T08:46:24.548Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-30T08:46:24.547Z"
+    },
+    {
+      "id": "mol65tu38t04p",
+      "type": "task",
+      "content": "我想感受记录、往期感受也能编辑内容，也能调用ai润色的功能，还有智能推荐功能。另外待办、往期待办可以新增或删除子任务，设置子任务预计时间、编辑子任务内容。",
+      "createdAt": "2026-04-30T07:35:25.515Z",
+      "updatedAt": "2026-04-30T08:46:04.358Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-04-30T08:46:04.358Z"
+    },
+    {
+      "id": "mol8s7a83aslu",
+      "type": "task",
+      "content": "找客资要一份光路清单，我要看下跟局内s转o是否包含在内",
+      "createdAt": "2026-04-30T08:48:48.608Z",
+      "updatedAt": "2026-05-06T02:20:45.474Z",
+      "tags": [
+        "光路资源核查"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778033763729",
+          "content": "写一下怎么描述我需要的东西",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": "slot_moten4pz99gkp"
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-06T02:20:35.173Z"
+    },
+    {
+      "id": "mol8sh7m9vhc1",
+      "type": "task",
+      "content": "思考下虚拟网元工作从何启动",
+      "createdAt": "2026-04-30T08:49:01.474Z",
+      "updatedAt": "2026-05-06T02:38:47.677Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-06T02:38:47.677Z"
+    },
+    {
+      "id": "moraekn86q89z",
+      "type": "task",
+      "content": "mac mini卖掉",
+      "createdAt": "2026-05-04T14:20:49.028Z",
+      "updatedAt": "2026-05-05T00:17:06.605Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-05T00:17:03.002Z"
+    },
+    {
+      "id": "mos7t936tnwjf",
+      "type": "task",
+      "content": "将旧电脑的转换器和云电脑搬过来",
+      "createdAt": "2026-05-05T05:56:01.218Z",
+      "updatedAt": "2026-05-05T12:09:01.060Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-05T12:09:01.060Z"
+    },
+    {
+      "id": "mosaior1x5qjt",
+      "type": "task",
+      "content": "在汇总一下手头的钱",
+      "createdAt": "2026-05-05T07:11:47.150Z",
+      "updatedAt": "2026-05-05T13:28:34.996Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1777983546116",
+          "content": "看几张卡活期、理财金额，拿纸币记录下来",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "placedIn": "slot_mosmiucdr4zr9",
+      "doneAt": "2026-05-05T13:28:34.996Z"
+    },
+    {
+      "id": "moscp77zt2f23",
+      "type": "task",
+      "content": "买防晒衣",
+      "createdAt": "2026-05-05T08:12:50.256Z",
+      "updatedAt": "2026-05-05T13:17:11.142Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1777983578473",
+          "content": "xhs搜索：防晒衣牌子",
+          "done": true,
+          "estimatedTime": "10min",
+          "placedIn": "slot_mosmiucdr4zr9"
+        }
+      ],
+      "placedIn": null
+    },
+    {
+      "id": "mosl4rxn9qd4l",
+      "type": "task",
+      "content": "将东西放进冰箱",
+      "createdAt": "2026-05-05T12:08:53.867Z",
+      "updatedAt": "2026-05-05T13:23:36.367Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mosmiucdr4zr9",
+      "doneAt": "2026-05-05T13:23:29.914Z"
+    },
+    {
+      "id": "mosl99fvhn2p0",
+      "type": "task",
+      "content": "收衣服（干的就收）",
+      "createdAt": "2026-05-05T12:12:23.179Z",
+      "updatedAt": "2026-05-05T13:23:45.925Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mosmiucdr4zr9",
+      "doneAt": "2026-05-05T13:23:41.015Z"
+    },
+    {
+      "id": "mosodmjpkbp8e",
+      "type": "task",
+      "content": "给老公看手机，生日礼物",
+      "createdAt": "2026-05-05T13:39:45.637Z",
+      "updatedAt": "2026-05-06T01:17:50.702Z",
+      "tags": [
+        "生活",
+        "老公"
+      ],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778029139253",
+          "content": "写下我的想法感受",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": "slot_motcmxf4o6qv5",
+      "doneAt": "2026-05-06T01:17:45.503Z"
+    },
+    {
+      "id": "mosotjrelqtf9",
+      "type": "task",
+      "content": "买电脑包",
+      "createdAt": "2026-05-05T13:52:08.522Z",
+      "updatedAt": "2026-05-05T15:02:40.829Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-05T15:02:38.625Z"
+    },
+    {
+      "id": "mosqa9cabdtdt",
+      "type": "task",
+      "content": "沈奕斐的内容还蛮有用的，想学",
+      "createdAt": "2026-05-05T14:33:07.786Z",
+      "updatedAt": "2026-05-06T01:07:11.591Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mosqa9c9uge4b",
+          "content": "制定一个学习计划，放到notes里",
+          "estimatedTime": "15min",
+          "done": true,
+          "placedIn": "slot_motcmxf4o6qv5"
+        }
+      ]
+    },
+    {
+      "id": "motcwxcppkjqx",
+      "type": "task",
+      "content": "下班前更新下4月退网成效",
+      "createdAt": "2026-05-06T01:06:36.889Z",
+      "updatedAt": "2026-05-06T05:28:24.454Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "motcwxcpahez5",
+          "content": "看下要填写什么字段",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778033602462",
+          "content": "写一下怎么做这个数据，大概步骤。到todo拆解里。写完放到子任务这里",
+          "done": true,
+          "estimatedTime": "4min",
+          "placedIn": null
+        },
+        {
+          "id": "1778034535574",
+          "content": "更新美哥的退网表格。",
+          "done": true,
+          "estimatedTime": "14min",
+          "placedIn": null
+        },
+        {
+          "id": "1778034567291",
+          "content": "点击3月最晚那天，记录退网数据（网元名称、退网状态）---记录最新的退网数据--到excel表里。",
+          "done": true,
+          "estimatedTime": "10min",
+          "placedIn": null
+        },
+        {
+          "id": "1778039697929",
+          "content": "搜索几个设备的功耗",
+          "done": true,
+          "estimatedTime": "8min",
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-06T05:28:22.146Z",
+      "placedIn": null
+    },
+    {
+      "id": "motepar1juzpu",
+      "type": "task",
+      "content": "RPA工作",
+      "createdAt": "2026-05-06T01:56:40.237Z",
+      "updatedAt": "2026-05-07T09:48:12.213Z",
+      "tags": [
+        "RPA"
+      ],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778034808417",
+          "content": "运行程序测试",
+          "done": true,
+          "estimatedTime": "20min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:48:08.729Z"
+    },
+    {
+      "id": "motfno4jix7ru",
+      "type": "task",
+      "content": "虚拟网元工作推进",
+      "createdAt": "2026-05-06T02:23:23.875Z",
+      "updatedAt": "2026-05-07T03:20:22.783Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "motfno4ij7ms1",
+          "content": "问泳哥提交给政企部哪位？",
+          "estimatedTime": "3min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778059262279",
+          "content": "将清单发给政企部看下，我得先润色下表述。",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1778120201599",
+          "content": "我觉得得先捋一下几种情况和解决办法",
+          "done": true,
+          "estimatedTime": "9min",
+          "placedIn": null
+        },
+        {
+          "id": "1778122425571",
+          "content": "理解+回复黄工的话，写出todo",
+          "done": true,
+          "estimatedTime": "10min",
+          "placedIn": null
+        },
+        {
+          "id": "1778123205198",
+          "content": "我得知道哪些是他负责核查的。",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T03:20:22.783Z"
+    },
+    {
+      "id": "motg86pbu6sus",
+      "type": "task",
+      "content": "将团员评议表放到一个文件夹里头。",
+      "createdAt": "2026-05-06T02:39:21.071Z",
+      "updatedAt": "2026-05-06T07:26:41.573Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moto054hzq2qe",
+      "doneAt": "2026-05-06T07:07:56.040Z"
+    },
+    {
+      "id": "motg9qrze4x51",
+      "type": "task",
+      "content": "打印标签、去拿",
+      "createdAt": "2026-05-06T02:40:33.743Z",
+      "updatedAt": "2026-05-06T07:26:31.343Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778047780616",
+          "content": "先等回复看他拿还是我拿",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-06T06:13:11.220Z"
+    },
+    {
+      "id": "moto0mai1cju2",
+      "type": "task",
+      "content": "将退网的设备放进清单里",
+      "createdAt": "2026-05-06T06:17:24.954Z",
+      "updatedAt": "2026-05-06T06:44:32.074Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moto054hzq2qe",
+      "doneAt": "2026-05-06T06:44:29.758Z"
+    },
+    {
+      "id": "motpvuznfwnhk",
+      "type": "task",
+      "content": "考虑要不要把去培训的内容分享到群里",
+      "createdAt": "2026-05-06T07:09:42.179Z",
+      "updatedAt": "2026-05-06T07:55:53.885Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_motqym1ihfyvk",
+      "doneAt": "2026-05-06T07:55:53.885Z"
+    },
+    {
+      "id": "motq0a7x9kz46",
+      "type": "task",
+      "content": "梳理退网设备了",
+      "createdAt": "2026-05-06T07:13:08.541Z",
+      "updatedAt": "2026-05-07T02:53:10.504Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "motq0a7xbyfkl",
+          "content": "整理800M设备",
+          "estimatedTime": "25min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "motq0a7x4d94b",
+          "content": "写一下退网可以从哪些角度出发-退网进度、800M的等等",
+          "estimatedTime": "8min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T02:53:08.017Z"
+    },
+    {
+      "id": "motq0ud4id8ad",
+      "type": "task",
+      "content": "捋一下几个本周目标，没关注的几个进度，看怎么推进",
+      "createdAt": "2026-05-06T07:13:34.648Z",
+      "updatedAt": "2026-05-06T08:01:42.560Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "13min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_motqym1ihfyvk",
+      "doneAt": "2026-05-06T08:01:42.560Z"
+    },
+    {
+      "id": "motq1bxpp7gs5",
+      "type": "task",
+      "content": "看下算力的总设备数量",
+      "createdAt": "2026-05-06T07:13:57.421Z",
+      "updatedAt": "2026-05-06T08:32:56.085Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_motshzlqgod6o",
+      "doneAt": "2026-05-06T08:32:43.952Z"
+    },
+    {
+      "id": "motrp8f698o7d",
+      "type": "task",
+      "content": "1、退网工作数字化管理，写一下目前进度、未来怎么做",
+      "createdAt": "2026-05-06T08:00:32.226Z",
+      "updatedAt": "2026-05-07T02:53:16.748Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-07T02:53:13.943Z"
+    },
+    {
+      "id": "motv17v7xbyck",
+      "type": "task",
+      "content": "定级备案的名称",
+      "createdAt": "2026-05-06T09:33:50.227Z",
+      "updatedAt": "2026-05-07T03:21:20.347Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "motv17v7cl2a2",
+          "content": "看，写下我要做什么",
+          "estimatedTime": "4min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778121047878",
+          "content": "回复",
+          "done": true,
+          "estimatedTime": "3min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T03:21:15.833Z"
+    },
+    {
+      "id": "mourxxl032m4d",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-05-07T00:55:04.260Z",
+      "updatedAt": "2026-05-07T01:45:34.057Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "30min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mous12lou03le",
+      "doneAt": "2026-05-07T01:45:34.057Z"
+    },
+    {
+      "id": "mouvq2lswcdqe",
+      "type": "task",
+      "content": "隐患单回复",
+      "createdAt": "2026-05-07T02:40:55.984Z",
+      "updatedAt": "2026-05-07T08:51:42.799Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mov8s1zzu3jy4",
+      "doneAt": "2026-05-07T08:51:42.799Z"
+    },
+    {
+      "id": "mouw52k0c2qjk",
+      "type": "task",
+      "content": "有这几个表达框架选择：PREP、感受事实期待、STAR、KISS、金字塔原理。我想点击某个框架，ai围绕这个主题，提供这个框架的参考句式。",
+      "createdAt": "2026-05-07T02:52:35.760Z",
+      "updatedAt": "2026-05-07T03:55:06.290Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-07T03:55:00.912Z"
+    },
+    {
+      "id": "mov3l46zy4xwh",
+      "type": "task",
+      "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
+      "createdAt": "2026-05-07T06:21:01.691Z",
+      "updatedAt": "2026-05-07T09:48:23.250Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mov3l46z10mjc",
+          "content": "梳理800M可退设备情况（多少个是已提醒县分但还没上单的）",
+          "estimatedTime": "10min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "mov3l46z1b5gx",
+          "content": "梳理每个县分距离二季度还有多少台；",
+          "estimatedTime": "6min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "mov3l46zftqsp",
+          "content": "退网进度表的要继续跟进",
+          "estimatedTime": "20min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:48:23.250Z"
+    },
+    {
+      "id": "mov56z2jv6oqy",
+      "type": "task",
+      "content": "我想了解ai反馈呈现有##和**的原因，能不能代码做个转换不要这些符号。",
+      "createdAt": "2026-05-07T07:06:01.099Z",
+      "updatedAt": "2026-05-08T00:49:01.335Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-08T00:49:01.335Z"
+    },
+    {
+      "id": "mov5dgj7dhzck",
+      "type": "task",
+      "content": "退网数字化：我想对每个县分的设备情况（多少个有效的计划退网、800M可退、零业务）做一个管控表。这样不用每次都筛选。比如我希望呈现：天河：二季度还差xx个。有效计划退网数量xx个，上次流程时间分别为xx。800M可退设备xx个……",
+      "createdAt": "2026-05-07T07:11:03.667Z",
+      "updatedAt": "2026-05-08T00:49:08.904Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mov5dgj76decz",
+          "content": "写一下，看能不能融入到我的退网工具里头",
+          "estimatedTime": "8min",
+          "done": false,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-08T00:49:08.904Z"
+    },
+    {
+      "id": "mov5h80y7lmsh",
+      "type": "task",
+      "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
+      "createdAt": "2026-05-07T07:13:59.266Z",
+      "updatedAt": "2026-05-07T09:25:10.001Z",
+      "tags": [
+        "光路资源核查"
+      ],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778144680655",
+          "content": "vlookup匹配一下s转o和客资的清单",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:25:10.001Z"
+    },
+    {
+      "id": "mov69iyp6el5s",
+      "type": "task",
+      "content": "琐碎的退网工作：熟悉下补环的东西",
+      "createdAt": "2026-05-07T07:35:59.810Z",
+      "updatedAt": "2026-05-07T09:15:10.441Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-07T09:15:10.440Z"
+    },
+    {
+      "id": "mov8lc4mp5b3u",
+      "type": "task",
+      "content": "看下白云提到的几台设备",
+      "createdAt": "2026-05-07T08:41:10.054Z",
+      "updatedAt": "2026-05-07T09:47:43.132Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mov8lc4mih33q",
+          "content": "选其中一台看激活业务情况",
+          "estimatedTime": "15min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-07T09:47:34.204Z"
+    },
+    {
+      "id": "movb57dgs2cma",
+      "type": "task",
+      "content": "千问有提示词参考，继续润色下。理解我所记录内容的本质，并将道理应用到我关注的场景中。",
+      "createdAt": "2026-05-07T09:52:36.244Z",
+      "updatedAt": "2026-05-08T00:49:06.964Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "movb57dgv9bcz",
+          "content": "对提示词，写一下哪些地方要我补充的",
+          "estimatedTime": "3min",
+          "done": false,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-08T00:49:04.823Z"
+    },
+    {
+      "id": "mow76h05nk0m9",
+      "type": "task",
+      "content": "给零食毕妤欣",
+      "createdAt": "2026-05-08T00:49:23.093Z",
+      "updatedAt": "2026-05-08T03:28:03.276Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mowar7lmny89b",
+      "doneAt": "2026-05-08T03:28:03.276Z"
+    },
+    {
+      "id": "mow7gl9a1etz8",
+      "type": "task",
+      "content": "梳理在册团员名单。",
+      "createdAt": "2026-05-08T00:57:15.166Z",
+      "updatedAt": "2026-05-08T06:57:09.764Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mow7gl9af658x",
+          "content": "去网站看下无线的转过来了没",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778206896242",
+          "content": "问黄工",
+          "done": true,
+          "estimatedTime": "3min",
+          "placedIn": null
+        },
+        {
+          "id": "1778207968607",
+          "content": "给出现在综维优的名单",
+          "done": true,
+          "estimatedTime": "8min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-08T06:57:09.764Z"
+    },
+    {
+      "id": "mow7vlwdhj4jj",
+      "type": "task",
+      "content": "我要花3分钟写一下今天想做什么。",
+      "createdAt": "2026-05-08T01:08:55.837Z",
+      "updatedAt": "2026-05-08T01:13:35.965Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mow7vqicjo8hm",
+      "doneAt": "2026-05-08T01:13:35.965Z"
+    },
+    {
+      "id": "mow80tjiyrqri",
+      "type": "task",
+      "content": "ai问下，找到解决方法：各个县分11个太多了，抓不住重点。不知道从何开始",
+      "createdAt": "2026-05-08T01:12:59.022Z",
+      "updatedAt": "2026-05-08T02:21:24.805Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mow80tji7qblf",
+          "content": "花3分钟写一下需求",
+          "estimatedTime": "3min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778203892627",
+          "content": "打开爬虫文档，从天河开始梳理关注字段",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1778204293307",
+          "content": "看下天河，盘一盘可跟进的设备，遇到问题就记录下来",
+          "done": true,
+          "estimatedTime": "10min",
+          "placedIn": null
+        },
+        {
+          "id": "1778204379145",
+          "content": "看下天河哪些计划退网，是有效的",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1778204400074",
+          "content": "800M可以退，但还没退的",
+          "done": true,
+          "estimatedTime": "2min",
+          "placedIn": null
+        },
+        {
+          "id": "1778204411029",
+          "content": "备注可以退网的",
+          "done": true,
+          "estimatedTime": "4min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-08T02:21:24.805Z"
+    },
+    {
+      "id": "mow819wdo7zu4",
+      "type": "task",
+      "content": "光路资源梳理一遍来龙去脉，写下接下来要做的事",
+      "createdAt": "2026-05-08T01:13:20.221Z",
+      "updatedAt": "2026-05-08T10:21:21.920Z",
+      "tags": [
+        "光路资源核查"
+      ],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778223869890",
+          "content": "梳理下已退网设备的业务情况",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1778223885931",
+          "content": "整理出清单和s转o的清单重合情况，文字版描述",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-08T10:21:10.964Z"
+    },
+    {
+      "id": "mowap0ro1cw3w",
+      "type": "task",
+      "content": "天河设备处理",
+      "createdAt": "2026-05-08T02:27:47.364Z",
+      "updatedAt": "2026-05-08T06:28:55.222Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mowap0rnosxxh",
+          "content": "备注今日提到的几台设备进度",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "mowap0ro9su1h",
+          "content": "屏蔽告警",
+          "estimatedTime": "8min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778210994922",
+          "content": "我得想想，暂时不能退网的设备放在哪里、怎么放。写出一段话",
+          "done": true,
+          "estimatedTime": "3min",
+          "placedIn": null
+        },
+        {
+          "id": "1778220434817",
+          "content": "计划退网那台设备也标注在设备核查工具里头",
+          "done": true,
+          "estimatedTime": "3min",
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-08T06:28:55.222Z"
+    },
+    {
+      "id": "mowau8jfhbpmu",
+      "type": "task",
+      "content": "企微填表：云网租电压降",
+      "createdAt": "2026-05-08T02:31:50.715Z",
+      "updatedAt": "2026-05-08T09:02:34.265Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mowau8jfw451m",
+          "content": "看下表格要填什么东西，预估时间并写下接下来动作",
+          "estimatedTime": "4min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778221169065",
+          "content": "要将节电费那个打开，然后",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1778230737145",
+          "content": "更新",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-08T09:02:34.265Z"
+    },
+    {
+      "id": "mowlvgan00mqk",
+      "type": "task",
+      "content": "花3分钟写一下下午做些什么吧",
+      "createdAt": "2026-05-08T07:40:43.199Z",
+      "updatedAt": "2026-05-08T07:43:46.824Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-08T07:43:46.824Z"
+    },
+    {
+      "id": "mowlz5ihs6lee",
+      "type": "task",
+      "content": "盘一下白云和增城的可退网设备",
+      "createdAt": "2026-05-08T07:43:35.849Z",
+      "updatedAt": "2026-05-08T10:20:56.335Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mowlz5ihauco1",
+          "content": "筛选白云的设备，看下800M和可退网的数量有多少",
+          "estimatedTime": "15min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778230702559",
+          "content": "盘一下增城可退网的设备",
+          "done": true,
+          "estimatedTime": "15min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-08T10:20:54.092Z"
+    },
+    {
+      "id": "mowlzbyxoi794",
+      "type": "task",
+      "content": "退网进度表，我也想要推进能推的",
+      "createdAt": "2026-05-08T07:43:44.218Z",
+      "updatedAt": "2026-05-08T10:41:26.317Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-08T10:41:23.542Z"
+    },
+    {
+      "id": "moxk69drtuu9g",
+      "type": "task",
+      "content": "10点开会关于资产的",
+      "createdAt": "2026-05-08T23:40:54.399Z",
+      "updatedAt": "2026-05-09T02:34:21.798Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "1min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-09T02:34:21.798Z"
+    },
+    {
+      "id": "moxk6r00e4d3r",
+      "type": "task",
+      "content": "写一下我脑子里现在的想法到元宝。",
+      "createdAt": "2026-05-08T23:41:17.232Z",
+      "updatedAt": "2026-05-09T00:56:02.318Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-09T00:56:02.318Z"
+    },
+    {
+      "id": "moxke3sdff3id",
+      "type": "task",
+      "content": "动作一：发起一次“微型同步”（今天下班前完成）• 目标：主动与一位工作有潜在交集的同事建立连接。• 话术：“XX，我最近在做[你的工作]，看到你也在做[ta的工作]，感觉中间可能有能对齐/协作的地方。方便用5分钟快速对一下吗？ 听听你的进展，也看看我这边有什么能支持你的。”• 为什么有效：这并非求助，而是“协作邀约”，姿态平等，且为未来深度配合埋下伏笔。动作二：进行一次“非正式汇报”（明天上午完成）• 目标：向领导刷一次存在感，同步进展并试探需求。• 话术：“领导，关于[你手头的项目]，目前进展到[具体阶段]。我特别想把它和咱们团队的[XX大目标]结合得更紧一点，您看方向上有什么建议，或者近期有什么需要我重点支持的吗？”• 为什么有效：表明你心系团队目标，而不仅是自己的一亩三分地，同时把领导拉入你的“智囊团”。",
+      "createdAt": "2026-05-08T23:47:00.397Z",
+      "updatedAt": "2026-05-09T05:03:54.002Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxke3sd11gt1",
+          "content": "做任务1，想一下场景 跟ai提问这个场景",
+          "estimatedTime": "3min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778291614982",
+          "content": "拆解一下todo：我能想到的是自己做的退网小工具，我不知道跟哪个同事有潜在联系喔。只能说有个同事的s转o，可能能让我加快退网。但她转o的重点不是我这边的sdh设备。能不能优先转少下挂业务的sdh对应的客户端？我可以了解一下。",
+          "done": true,
+          "estimatedTime": "7min",
+          "placedIn": null
+        },
+        {
+          "id": "1778296900694",
+          "content": "将我的意思表达清楚，选择她在的时间。我想知道她客户端转o的清单，上联的sdh设备是哪个。这样我就能知道哪些高值可以重点关注了。",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1778297337970",
+          "content": "我感觉可以固定时间口头领导汇报工作，选择、锻炼表达框架，又能比文字获取更多信息",
+          "done": false,
+          "estimatedTime": "8min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
+    },
+    {
+      "id": "moxmwr6yo7r0c",
+      "type": "task",
+      "content": "做网管补环准备",
+      "createdAt": "2026-05-09T00:57:29.770Z",
+      "updatedAt": "2026-05-09T01:28:08.154Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moxn58xdow5rj",
+      "doneAt": "2026-05-09T01:28:08.154Z"
+    },
+    {
+      "id": "moxn2pvyb74hr",
+      "type": "task",
+      "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
+      "createdAt": "2026-05-09T01:02:08.014Z",
+      "updatedAt": "2026-05-09T02:43:51.292Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxn2pvy7s6es",
+          "content": "思考下记录在哪里。",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-09T02:43:48.746Z"
+    },
+    {
+      "id": "moxna59t5glan",
+      "type": "task",
+      "content": "元宝有几个需要拆解todo的",
+      "createdAt": "2026-05-09T01:07:54.545Z",
+      "updatedAt": "2026-05-09T03:26:46.370Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxna59t1wh42",
+          "content": "分为工作和情感。情感先拆解",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778290725729",
+          "content": "拆解1个工作的",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null,
+      "doneAt": "2026-05-09T03:26:43.530Z"
+    },
+    {
+      "id": "moxopdphukqim",
+      "type": "task",
+      "content": "我想手机端浏览器显示文字（时间段任务板、待办、往期待办、子任务、感受、往期感受、弹药库、今日完成、本周完成等）能换行显示，不要一句话一溜长。另外电脑端网页显示，我希望时间段任务板、待办、往期待办、子任务）也能换行显示，不要一句话一溜长",
+      "createdAt": "2026-05-09T01:47:44.933Z",
+      "updatedAt": "2026-05-09T03:14:16.184Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moxqefnt5mwxd",
+      "doneAt": "2026-05-09T03:14:14.024Z"
+    },
+    {
+      "id": "moxp17ro3mux3",
+      "type": "task",
+      "content": "上午发固网清单。就是把节电费excel导出来发给对方。",
+      "createdAt": "2026-05-09T01:56:57.108Z",
+      "updatedAt": "2026-05-09T02:47:18.855Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_moxqefnt5mwxd",
+      "doneAt": "2026-05-09T02:47:18.855Z"
+    },
+    {
+      "id": "moxqysx4xmlxf",
+      "type": "task",
+      "content": "智能推荐，我想ai分析弹药库记录内容的本质（核心想表达的东西），再依据我输入的感受内容做智能推荐。",
+      "createdAt": "2026-05-09T02:51:03.784Z",
+      "updatedAt": "2026-05-09T05:04:07.591Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778297607807",
+          "content": "",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
+    },
+    {
+      "id": "moxsnwmegvbt5",
+      "type": "task",
+      "content": "荔湾的退网处理：查看几台设备是否关电、屏蔽今日芳村设备告警。",
+      "createdAt": "2026-05-09T03:38:34.598Z",
+      "updatedAt": "2026-05-09T04:01:43.780Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxsnwme4esn7",
+          "content": "查看几台设备是否关电",
+          "estimatedTime": "5min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "moxsnwmejzzsh",
+          "content": "屏蔽今日芳村设备告警",
+          "estimatedTime": "3min",
+          "done": true,
+          "placedIn": null
+        }
+      ],
+      "doneAt": "2026-05-09T04:01:42.050Z"
+    },
+    {
+      "id": "moxvp5eha1sim",
+      "type": "task",
+      "content": "我想之后遇到问题更好的沟通，不让情绪持续那么久。用这次的事情做总结步骤吧",
+      "createdAt": "2026-05-09T05:03:31.481Z",
+      "updatedAt": "2026-05-09T05:27:52.298Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "moxvp5ehxwrw4",
+          "content": "将这段话放到ai，生成todo和表达框架。遇到问题，我关注对方为什么这样做。首先得表达他这样做，我的感受是什么。举个例子吧：他在2次外出后，还觉得第3次没问题想去安排，我觉得他并不关心跟我的相处时间。他对于我去或不去，没什么所谓，并不是特别想带上我，只是说带上我也行。首先得确认他做了什么事，给我什么感受。然后让他解释：为什么还考虑安排第三次-他说：这周没啥事、想着吃了就完事儿了，就回答了我的疑惑。然后是告诉他我喜欢怎么做。最后是希望他有个诚恳的态度，去思考之后要怎么改善。我就没事了。",
+          "estimatedTime": "10min",
+          "done": true,
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "moxwjypy0qbga",
+      "type": "task",
+      "content": "我想将这个todo做成一个核查清单，遇到问题就对着做。关系问题沟通清单（To-Do List）\n当你因对方行为感到不适，并想进行有效沟通时，请严格按此顺序执行：\n✅ 第一步：自我准备（情绪管理）\n问自己：我现在能平静地说话吗？如果不行，先给自己10分钟冷静。\n目标：确保沟通目的是“解决问题”，而不是“发泄情绪”。\n✅ 第二步：观察与定义（事实+感受）\n问自己：\n他具体做了什么？（例：本周已外出两次，还在安排第三次。）\n这件事给我的核心感受是什么？（例：我感觉他不重视和我的相处，我去不去都无所谓。）\n✅ 第三步：发起沟通（用框架表达）\n使用下面的 “FERA表达框架”​ ，平静地陈述你的观察和感受。\n✅ 第四步：倾听与确认（了解动机）\n问对方：“我想了解一下，你当时是怎么考虑的？”（例：你为什么觉得这周还能安排第三次？）\n目标：听到他的真实想法，避免误解。\n✅ 第五步：提出期待与请求（明确需求）\n告诉他：\n你的做法，给我的感受是：（例：“你当时那样做，让我觉得你并不在意我们的相处时间。”）\n我喜欢的方式是什么？（例：“我希望我们每周能有固定的二人时间，其他安排能提前和我商量。”）\n✅ 第六步：达成共识与闭环\n明确核心需求：向他强调你最终需要的是什么。\n标准话术：“我更需要你诚恳认真的回应态度。只要让我感觉你是真的听进去了、在想怎么改，哪怕问题还在，我的情绪也会很快过去，不会焦虑地憋在心里。”\n目标：为本次沟通设定一个清晰的、以“诚恳态度”为标准的成功标志。",
+      "createdAt": "2026-05-09T05:27:29.158Z",
+      "updatedAt": "2026-05-09T05:27:50.978Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "30min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "moyz64ekp2qm4",
+      "type": "task",
+      "content": "将开心、难过这些智能推荐相关函数删掉，不需要了。",
+      "createdAt": "2026-05-09T23:28:28.364Z",
+      "updatedAt": "2026-05-09T23:28:28.364Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
+    }
+  ],
+  "normalFeelings": [
+    {
+      "id": "mogx4tc0pxr8t",
+      "type": "feeling",
+      "content": "ai写代码，发现github的json和issue都能存数据。不一致，却能拓宽视野",
+      "createdAt": "2026-04-27T08:11:36.960Z",
+      "updatedAt": "2026-04-28T05:35:26.925Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false
+    },
+    {
+      "id": "mok2wxvyaf7xo",
+      "content": "我真的觉得挺开心的，之前跟张枝交流有收获，他就将大模型的API接入自己做的网页小工具，我现在也用这个方法，当时我还觉得他这个没什么特别的，但是现在有需求了才发现真香，非常的成化还是要多交流，可能那个时候并不觉得有什么用，但之后真的有这个需要就会想到这个方法",
+      "tags": [
+        "AI"
+      ],
+      "createdAt": "2026-04-29T13:16:45.838Z",
+      "updatedAt": "2026-05-03T07:04:20.212Z"
+    },
+    {
+      "id": "mol47ymrc8xw7",
+      "content": "投资三效：三个维度效益、效果、效率。\n三资：资产（机房设备等有形固定资产）、资源（空调电力、带宽）、资料\n超长光路优化、板卡盘活\n综合业务区、航道、黄埔新城纳入业务区规划",
+      "tags": [],
+      "createdAt": "2026-04-30T06:41:05.811Z",
+      "updatedAt": "2026-05-02T03:34:35.535Z"
+    },
+    {
+      "id": "mol5xr2g5hdu1",
+      "content": "我发现写代码在console输出结果，可以更快知道问题出现在哪里。",
+      "tags": [
+        "AI"
+      ],
+      "createdAt": "2026-04-30T07:29:08.680Z",
+      "updatedAt": "2026-05-03T07:04:30.473Z"
+    },
+    {
+      "id": "monsquv6qmomi",
+      "content": "今天做了鸡蛋灌饼，发现同一件事多做，可以慢慢发现优化点儿，做的越来越快。",
+      "tags": [],
+      "createdAt": "2026-05-02T03:43:10.530Z",
+      "updatedAt": "2026-05-02T03:43:10.530Z"
+    },
+    {
+      "id": "mop1bqjlucfkb",
+      "content": "我还是觉得蛮开心的，这几天写代码开发工具，确实是对网页交互逻辑、模型API调用的机制、通过控制台输出运行反馈。",
+      "tags": [
+        "AI"
+      ],
+      "createdAt": "2026-05-03T00:31:07.809Z",
+      "updatedAt": "2026-05-03T07:04:38.315Z"
+    },
+    {
+      "id": "mop31xb2kbxae",
+      "content": "三角市的酥皮豆沙面包好香，老面包的香。",
+      "tags": [],
+      "createdAt": "2026-05-03T01:19:29.246Z",
+      "updatedAt": "2026-05-03T01:19:29.246Z"
+    },
+    {
+      "id": "mop8zhhfnmg4o",
+      "content": "有点担心，明天请朋友们见我老公。他们都是第一次见面，我担心会冷场尴尬。因为我本人就是比较话少的。",
+      "tags": [],
+      "createdAt": "2026-05-03T04:05:33.123Z",
+      "updatedAt": "2026-05-03T04:05:33.123Z"
+    },
+    {
+      "id": "moqj9fgyjqwzy",
+      "content": "有主体性：把评价视为“信息”而非“判决”。你会问：“你认为‘不好’的具体标准是什么？这个标准我认可吗？”",
+      "tags": [],
+      "createdAt": "2026-05-04T01:40:59.410Z",
+      "updatedAt": "2026-05-04T01:40:59.410Z"
+    },
+    {
+      "id": "moqvbgr2wa2cq",
+      "content": "我觉得老梁在空闲的时候看看书，学习挺好的。增长见识。",
+      "tags": [],
+      "createdAt": "2026-05-04T07:18:29.774Z",
+      "updatedAt": "2026-05-04T07:18:29.774Z"
+    },
+    {
+      "id": "moqxkb7ti74io",
+      "content": "朋友们问我：买房了吗、什么时候认识的、多少平，这些问题我都答不上来。紧张，没准备好",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-04T08:21:21.737Z",
+      "updatedAt": "2026-05-08T06:54:34.707Z"
+    },
+    {
+      "id": "morx08ksyc352",
+      "content": "老公说小欣欣是有想法的，老梁很直爽，麦麦虽然不吭声但也是有想法考虑蛮多的。老申是最老实不吭不哈的。他说小欣欣是外露的，麦麦相比她更加聪明。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-05T00:53:31.372Z",
+      "updatedAt": "2026-05-06T00:04:07.068Z"
+    },
+    {
+      "id": "mosb92turs70j",
+      "content": "我觉得现在老二跟老公的关系并不是太好，如果我能让他们关系更融洽和谐，可能老公也会开心一些吧。",
+      "tags": [],
+      "createdAt": "2026-05-05T07:32:18.450Z",
+      "updatedAt": "2026-05-05T07:32:18.450Z"
+    },
+    {
+      "id": "moslfkx3ehtpf",
+      "content": "沈奕斐：一个人给他权力，是要承担责任的，否则这就叫溺爱和纵容。\n守住框架，细节做主。他知道有些事情就是这样，不需要花精力去谈判。同时在框架内部，他的选择是真实被尊重的。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-05T12:17:17.991Z",
+      "updatedAt": "2026-05-05T12:18:27.025Z"
+    },
+    {
+      "id": "moso39srstxcb",
+      "content": "今天并不想吃东西，中午愣是吃了一碗拉面。晚上老公打麻将，我在家没吃东西，就喝了珍珠牛奶和一块小面包。",
+      "tags": [],
+      "createdAt": "2026-05-05T13:31:42.555Z",
+      "updatedAt": "2026-05-05T13:31:42.555Z"
+    },
+    {
+      "id": "mosre180jr5df",
+      "content": "老公打麻将，说10.30结束，10.45问说还有3把最快10分钟结束。我其实已经不悦了，觉得他没有尽力控制时间，想着我没关系就多玩会儿。但也有可能是其他原因，不一定是我所想的。",
+      "tags": [],
+      "createdAt": "2026-05-05T15:04:03.504Z",
+      "updatedAt": "2026-05-05T15:04:03.504Z"
+    },
+    {
+      "id": "motdtzv87tabf",
+      "content": "我看xhs知道了规则失效、总是商量着来的原因。这对我理解当前跟老公相处模式有帮助。知道有些事该定规则，在框架内有自主权。",
+      "tags": [],
+      "createdAt": "2026-05-06T01:32:19.796Z",
+      "updatedAt": "2026-05-06T01:32:19.796Z"
+    },
+    {
+      "id": "mova0gclxljd8",
+      "content": "今年退网够呛，好难推。特别是天河",
+      "tags": [],
+      "createdAt": "2026-05-07T09:20:54.981Z",
+      "updatedAt": "2026-05-07T09:20:54.981Z"
+    },
+    {
+      "id": "mowt80ahwgi9o",
+      "content": "老公这周一次打麻将到11:00一次去打球，9:00才回来。如果再一次外出吃饭，我就不乐意的。预知感受，之后就越早拒绝。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-08T11:06:26.297Z",
+      "updatedAt": "2026-05-08T11:06:26.297Z"
+    },
+    {
+      "id": "mowun5groljnc",
+      "content": "我不知道自己是不是因为不经常跟领导反馈困难或者交流进度，我总觉得领导的资源精力时间都给其他同事了。但也有可能其他同事所做的工作确实是比我所做工作紧要程度以及需要分配更多的精力去关注，我不知道我不确定，反正现在的感觉就跟以前读研究生一样，老师没有给我分配重要的项目，时间精力资源并没有向我倾斜过更多像是一个默默无闻的打工人一样。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-08T11:46:12.459Z",
+      "updatedAt": "2026-05-08T11:46:12.459Z"
+    },
+    {
+      "id": "mowv2lbm51cx8",
+      "content": "我还是希望借着汇报工作多说话，而不是文字说明，不仅能让领导看见自己的工作，又能锻炼表达",
+      "tags": [
+        "优化类记录"
+      ],
+      "createdAt": "2026-05-08T11:58:12.850Z",
+      "updatedAt": "2026-05-08T11:59:32.648Z"
+    },
+    {
+      "id": "mowvlsrd00y0k",
+      "content": "负惩罚不会损害亲密感",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-08T12:13:08.953Z",
+      "updatedAt": "2026-05-08T12:13:08.953Z"
+    },
+    {
+      "id": "moxkc8loxmhb6",
+      "content": "1. 存在感与认可：你希望自己的工作被看见，价值被肯定，而不是在角落里默默付出。\n2. 归属感与支持：你渴望成为团队协同网络中的一个节点，而不是孤岛。你需要来自领导和同事的资源支持和情感连接。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-08T23:45:33.324Z",
+      "updatedAt": "2026-05-08T23:45:39.584Z"
+    },
+    {
+      "id": "moxqvsj8wowka",
+      "content": "去实体店，柜姐会推荐合适的口红。比如我想要滋润的、持久的口红。这次推荐了水漾217，之前没试过的色。不错",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-09T02:48:43.316Z",
+      "updatedAt": "2026-05-09T02:48:43.316Z"
+    },
+    {
+      "id": "moxs86v8f0k0b",
+      "content": "我提供了“确定性”（默默解决问题），但领导感知到的是“沉默”；他们提供了“互动”（可能暴露了问题），但领导感知到的是“参与”和“掌控”。在职场，经常汇报进程的人，比默默交付结果的人，更容易被感知为“在努力工作”。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-09T03:26:21.380Z",
+      "updatedAt": "2026-05-09T03:26:21.380Z"
+    },
+    {
+      "id": "moy6lzpxccmvh",
+      "content": "自己做AI小工具，真的能帮我实现我想要的东西了，之前总是想练习表达，但就是没有一个成熟的体系，我知道我该不断地框架去练习，但那些方法都太复杂，太多溶于的步骤，导致我坚持不下来，精力不是高效的花在表达上，而是花在这些荣誉的步骤中，所以我没坚持多久就放弃了现在可以自己做小工具，可以知道自己需要哪些功能的功能就丢掉一切都是最顺手的步骤，经历被高效的精准的利用起来了。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-09T10:08:59.926Z",
+      "updatedAt": "2026-05-09T10:08:59.926Z"
+    },
+    {
+      "id": "moyl9phbach26",
+      "content": "吵赢了道理，却输了关系",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-09T16:59:21.024Z",
+      "updatedAt": "2026-05-09T23:20:00.707Z"
+    },
+    {
+      "id": "moz2ikeokgds2",
+      "content": "现在不知道该怎么办，小明约我回家吃饭，我不想去觉得该陪老公，把他留在家不好。但又想到他打麻将、打球和去吃饭时，怎么就没想到经常外出没陪我呢。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-10T01:02:07.824Z",
+      "updatedAt": "2026-05-10T01:02:07.824Z"
+    }
+  ],
+  "practiceBlocks": [
+    {
+      "id": "mojcp6s67l0ow",
+      "name": "自己做小工具的意义",
+      "records": [
+        {
+          "id": "mojcp6s69fmun",
+          "content": "第1次练习：以前是用别人设计好的App或网页，要我们自己去适应对方的功能。使用工具是为了减轻负担，减少复杂步骤如果为了适应对方的工具而增加了不必要的步骤，其实是一种负担，现在可以AI写代码写网页自己要什么功能就做什么功能，没有任何多余的。工具用了趁手就像融入自己的习惯一样，不用消耗任何经历，能够更加精神的把自己精力投入到手头的事情中。",
+          "time": "2026-04-28T05:04:38.557Z",
+          "estimatedTime": "",
+          "updatedAt": "2026-04-29T07:45:49.620Z"
+        },
+        {
+          "id": "mojcp6s6pywmx",
+          "content": "第2次练习：我做这个todo的背景：之前的方法，让我完成任务时很焦虑，脑子里总想着事情，我看小红书说过一句话，固定SOP这句话给我启发，只要无脑执行这个任务经历就不会太多的被消耗。为什么原来的记录方法不能有这样的效果呢？原来的方法需要手动敲击数字动计算总时间手动从待办里面复制粘贴任务，这些细小的动作堆积起来，每一次都要做这些重复的动作，其实很消耗人的，我就用AI发了这个工具复制粘贴的动作用一次点击就能代替，总的来说就是用AI做工具，努力的用点击一次选择就能代替过往两到三步的动作。非核心，但是必要的步骤少了，就有更多的精力投入到真正有意义核心的内容中。",
+          "time": "2026-04-28T05:33:04.877Z",
+          "estimatedTime": "",
+          "updatedAt": "2026-04-29T07:43:53.196Z"
+        },
+        {
+          "id": "mojj9v9i4tlqs",
+          "content": "第3次练习：自己做小工具的意义在于无需花时间去适应别人开发的App的不适合自己的功能。因为自己体验过，所以知道那些步骤是必要，但不是核心的会消耗精力的，比如我将上午要做的事复制粘贴到一个文本框里，每一个是向我都要复制粘贴，那么这个补助就是琐碎的小经历的自己做小工具，就能用一个简单的点击代替复制粘贴的动作。",
+          "tags": [],
+          "time": "2026-04-29T04:06:56.646Z",
+          "updatedAt": "2026-04-29T07:44:02.496Z"
+        },
+        {
+          "id": "mojnmwe4g1n4z",
+          "content": "第4次练习：我们使用工具是为了让自己从繁琐，但是必须做的动作中解放出来别人的工具最好很难面渠道全都满足自己的需求，只能用适应对开发习惯的妥协存在，这其实无形中就增加了学习和适应的成本。自己做小工具，所有步骤都是最适合自己的。",
+          "time": "2026-04-29T06:09:03.100Z",
+          "updatedAt": "2026-04-29T09:18:27.392Z"
+        },
+        {
+          "id": "mojucmjpeimza",
+          "content": "第5次练习：使用工具是为了尽可能大的减少流程损耗。流程损耗是因为工具的限制，而不得不付出，但是又不直接产生价值的动作。比如复制粘贴的动作。使用别人开发的工具可以减少部分流程损耗，但不可避免不是百分百合适自己。这又会带来新的流程损耗。",
+          "time": "2026-04-29T09:17:01.093Z",
+          "updatedAt": "2026-04-29T09:21:01.180Z"
+        },
+        {
+          "id": "mojvwbv26cb5w",
+          "content": "第6次练习：自己做小工具的意义是不用在意别人做的小工具有哪些不适合自己的功能，而要去妥协。自己做的工具，每一个都是必须必要的精品。本来工具的目的就是减少流程损耗的。",
+          "time": "2026-04-29T10:00:19.982Z",
+          "updatedAt": "2026-05-02T03:35:26.881Z"
+        },
+        {
+          "id": "mojw77tv9hnf3",
+          "content": "第7次练习：自己做小工具的意义就在于别人的工具再好也有很多自己用不上，或者是需要额外的消耗趋适应去妥协他的功能自己做小工具，每一个功能都是实用的，性的是最适合自己的，比如别人的工具可能就一两个功能，我喜欢，但是自己做了工具，每一个都是精心选择和设计的。比如你可能喜欢输入完内容之后看车才enter完成提交，但这个App偏偏就只有鼠标点击提交，那你也得适应呀。",
+          "time": "2026-04-29T10:08:47.971Z",
+          "updatedAt": "2026-04-29T10:18:42.462Z"
+        },
+        {
+          "id": "mok7jxifvolyx",
+          "content": "第8次练习：自己做小工具有什么意义呢？别人的工具再好也还是别人的。那些微小却持续消耗能量的流程摩擦、再加上别人工具会带来新的适配问题",
+          "time": "2026-04-29T15:26:36.903Z"
+        },
+        {
+          "id": "mol3gshp9gk6o",
+          "content": "第9次练习：自己做小工具的意义在于别人的工具再好，也有可能带来新的适配问题。他总归不是百分之百适合自己自然使用习惯。",
+          "time": "2026-04-30T06:19:58.141Z"
+        }
+      ],
+      "archived": false,
+      "archivedAt": null
+    }
+  ],
+  "slots": [],
+  "tags": [
+    "家",
+    "自己",
+    "自己做小工具的意义",
+    "做todo的背景"
+  ],
+  "commonTags": [],
+  "title": "🌿 todo",
+  "ammoLibrary": [
+    {
+      "id": "mok2oldcm7i8v",
+      "content": "那些细小的手动操作就像不断被小石子绊倒，虽然每个动作不大，但累积起来会让人感到疲惫和烦躁",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojcp6s6pywmx",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T13:10:16.368Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "mok2ouyqxmxoz",
+      "content": "效率的提升往往不在于更快地完成核心任务，而在于消除那些看似微小却持续消耗能量的“流程摩擦”",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojcp6s6pywmx",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T13:10:28.802Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "mok6fh3td5frj",
+      "content": "工具本身可能带来新的适配问题",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojucmjpeimza",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-29T14:55:09.401Z",
+      "useCount": 1,
+      "tags": []
+    },
+    {
+      "id": "mol3hp1o1u2in",
+      "content": "选择自己动手，不是否定他人的智慧，而是对自己“使用舒适度”的诚实守护。",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mol3gshp9gk6o",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-04-30T06:20:40.332Z",
+      "useCount": 1,
+      "tags": [],
+      "digestion": {
+        "scenarioPractices": [
+          {
+            "id": "movem3iukxjcn",
+            "frameworkType": "star",
+            "framework": "STAR法则",
+            "content": "微小的自定义，能撬动巨大的效率杠杆。",
+            "createdAt": "2026-05-07T11:29:43.254Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "monscj08ayhjm",
+      "content": "之前看似不起眼的建议在关键时刻派上了用场",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "AI润色",
+      "createdAt": "2026-05-02T03:32:01.976Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "monso0kuhdqgy",
+      "content": "过去我们常被标准化工具绑架，不得不学习它们的逻辑、忍受冗余功能",
+      "type": "sentence",
+      "sourceBlockId": "mojcp6s67l0ow",
+      "sourceRecordId": "mojcp6s69fmun",
+      "sourceBlockName": "自己做小工具的意义",
+      "createdAt": "2026-05-02T03:40:57.966Z",
+      "useCount": 0,
+      "tags": [],
+      "digestion": {
+        "scenarios": [
+          {
+            "scenario": "精简个人成长路径",
+            "reference": "过去我常被各种成长方法论绑架，不得不学习它们的逻辑、忍受冗余步骤。现在我更倾向于向内求，只保留那些真正触动我、能优化日常节奏的小习惯，让进步更踏实、更顺手。"
+          },
+          {
+            "scenario": "化解沟通中的情绪对抗",
+            "reference": "过去我们常被情绪化的沟通模式绑架，不得不学习对方的逻辑、忍受冗余的争执。现在我会先冷静下来，用框架探究彼此的真实需求，再开启有效对话，而不是被情绪带着走。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "monsx6uss4mm3",
+      "content": "重复不是机械的循环，而是不断发现优化空间的过程。比如面饼的厚薄、火候的调节、翻面的时机——这些细节只有在反复尝试中才会被看见。",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "AI润色",
+      "createdAt": "2026-05-02T03:48:06.004Z",
+      "useCount": 1,
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "其实最根本的还是自身要有一颗想变好，想优化流程的心。这样才能再重复的工作中发现可以优化的地方。",
+        "solvesProblem": "就是说一项工作反复做，正是发现优化空间的过程。",
+        "cases": [
+          {
+            "id": "motwjgk5kjkg7",
+            "situation": "在跟进退网工作的过程中，我要重复核查设备业务情况。我发现了很多不同类型的问题。",
+            "action": "针对不同的问题去找不同的解决办法",
+            "result": "知道了不同的业务情况怎么核对"
+          }
+        ],
+        "rewrites": [
+          "就是说重复的工作并非机械的循环，而是很多细节要在多次做的过程中才能被发现"
+        ],
+        "scenarios": [
+          {
+            "scenario": "日常习惯优化",
+            "reference": "每天早起后，我都会重复做同样的事——煮咖啡、做早餐。但最近我意识到，重复不是机械的循环，而是不断发现优化空间的过程。比如调整研磨的粗细、控制水温的变化、记录注水的节奏——这些细节只有在反复尝试中才会被看见。于是我开始记录每次的口感，慢慢找到最适合自己的那一杯。"
+          },
+          {
+            "scenario": "与伴侣的沟通复盘",
+            "reference": "每次和伴侣因为小事争执后，我们都会在冷静下来后复盘。我发现，重复不是机械的循环，而是不断发现优化空间的过程。比如我们争吵的导火索、情绪爆发的节点、表达方式的不同——这些细节只有在反复回顾中才会被看见。于是我们约定，每次争执后都记录下三个可改进的点，慢慢就很少再为同样的问题吵架了。"
+          }
+        ]
+      },
+      "digestionProgress": 1
+    },
+    {
+      "id": "monsyhh6vz1ui",
+      "content": "真正的精进都来自“重复中的觉察”。",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "AI润色",
+      "createdAt": "2026-05-02T03:49:06.426Z",
+      "useCount": 0,
+      "tags": []
+    },
+    {
+      "id": "moylasz3el46x",
+      "content": "有些时候，对错并不是最重要的，关系的温度才是",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "AI润色",
+      "createdAt": "2026-05-09T17:00:12.207Z",
+      "useCount": 1,
+      "tags": [],
+      "digestion": {
+        "scenarios": [
+          {
+            "scenario": "自我提升：复盘日常失误",
+            "reference": "今天计划又被打乱了，本来想责怪自己效率低。但转念一想，对错并不是最重要的，关系的温度才是——我更需要关心自己内心的节奏，而不是死磕‘正确’的时间表。明天试着调整优先级，先做让自己舒服的事。"
+          },
+          {
+            "scenario": "工作：与同事意见分歧时",
+            "reference": "刚才我们因为方案细节争执不下，差点吵起来。其实对错并不是最重要的，关系的温度才是——如果因为赢了道理而伤了合作，后面反而更难推进。不如先暂停，说一句‘我们再看看彼此的需求’，等情绪平复再商量。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moz2quze7h3b6",
+      "content": "因为一旦关系变冷，再对的观点也会被抵触；关系温暖时，问题更容易被共同解决。",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "手动添加",
+      "createdAt": "2026-05-10T01:08:34.780Z",
+      "useCount": 0,
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    }
+  ],
+  "aiConfig": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "models": [
+      {
+        "id": "gpt-3.5-turbo",
+        "name": "GPT-3.5 Turbo",
+        "provider": "openai",
+        "enabled": true
+      },
+      {
+        "id": "gpt-4",
+        "name": "GPT-4",
+        "provider": "openai",
+        "enabled": true
+      },
+      {
+        "id": "gpt-4-turbo",
+        "name": "GPT-4 Turbo",
+        "provider": "openai",
+        "enabled": true
+      },
+      {
+        "id": "gpt-4o",
+        "name": "GPT-4o",
+        "provider": "openai",
+        "enabled": true
+      },
+      {
+        "id": "gpt-4o-mini",
+        "name": "GPT-4o Mini",
+        "provider": "openai",
+        "enabled": true
+      },
+      {
+        "id": "claude-3-sonnet",
+        "name": "Claude 3 Sonnet",
+        "provider": "anthropic",
+        "enabled": true
+      },
+      {
+        "id": "claude-3-opus",
+        "name": "Claude 3 Opus",
+        "provider": "anthropic",
+        "enabled": true
+      },
+      {
+        "id": "claude-3.5-sonnet",
+        "name": "Claude 3.5 Sonnet",
+        "provider": "anthropic",
+        "enabled": true
+      },
+      {
+        "id": "deepseek-chat",
+        "name": "DeepSeek Chat",
+        "provider": "deepseek",
+        "enabled": true
+      },
+      {
+        "id": "deepseek-coder",
+        "name": "DeepSeek Coder",
+        "provider": "deepseek",
+        "enabled": true
+      },
+      {
+        "id": "qwen-turbo",
+        "name": "Qwen Turbo (千问极速版)",
+        "provider": "qwen",
+        "enabled": true
+      },
+      {
+        "id": "qwen-plus",
+        "name": "Qwen Plus (千问增强版)",
+        "provider": "qwen",
+        "enabled": true
+      },
+      {
+        "id": "qwen-max",
+        "name": "Qwen Max (千问旗舰版)",
+        "provider": "qwen",
+        "enabled": true
+      },
+      {
+        "id": "qwen-long",
+        "name": "Qwen Long (千问长文本)",
+        "provider": "qwen",
+        "enabled": true
+      },
+      {
+        "id": "glm-4",
+        "name": "GLM-4",
+        "provider": "zhipu",
+        "enabled": true
+      },
+      {
+        "id": "glm-4-flash",
+        "name": "GLM-4 Flash",
+        "provider": "zhipu",
+        "enabled": true
+      },
+      {
+        "id": "glm-3-turbo",
+        "name": "GLM-3 Turbo",
+        "provider": "zhipu",
+        "enabled": true
+      },
+      {
+        "id": "ernie-bot-4",
+        "name": "ERNIE Bot 4.0 (文心一言4.0)",
+        "provider": "baidu",
+        "enabled": true
+      },
+      {
+        "id": "ernie-bot-turbo",
+        "name": "ERNIE Bot Turbo (文心一言Turbo)",
+        "provider": "baidu",
+        "enabled": true
+      },
+      {
+        "id": "ernie-bot",
+        "name": "ERNIE Bot (文心一言)",
+        "provider": "baidu",
+        "enabled": true
+      },
+      {
+        "id": "hunyuan-lite",
+        "name": "Hunyuan Lite (混元轻量版)",
+        "provider": "tencent",
+        "enabled": true
+      },
+      {
+        "id": "hunyuan-standard",
+        "name": "Hunyuan Standard (混元标准版)",
+        "provider": "tencent",
+        "enabled": true
+      },
+      {
+        "id": "hunyuan-pro",
+        "name": "Hunyuan Pro (混元专业版)",
+        "provider": "tencent",
+        "enabled": true
+      },
+      {
+        "id": "kimi-k2.6",
+        "name": "Kimi K2.6",
+        "provider": "moonshot",
+        "enabled": true,
+        "isDefault": true
+      },
+      {
+        "id": "moonshot-v1-32k",
+        "name": "Kimi 32K",
+        "provider": "moonshot",
+        "enabled": true
+      },
+      {
+        "id": "moonshot-v1-128k",
+        "name": "Kimi 128K",
+        "provider": "moonshot",
+        "enabled": true
+      }
+    ]
+  },
+  "github": {
+    "username": "guoyying",
+    "repo": "todo",
+    "issue": "1",
+    "lastSync": "2026-05-10T01:08:46.589Z"
+  }
+}
