@@ -8034,7 +8034,7 @@
       
          // 切换消化笔记显示
           function toggleDigestionSection(ammoId) {
-              showDigestionNotesPanel(ammoId);
+              showEditDigestionForm(ammoId);
           }
           
            // 显示消化笔记面板
@@ -8324,8 +8324,18 @@
            
            const digestion = ammo.digestion || {};
            
-           // 先隐藏任何已打开的编辑表单
-           hideEditDigestionForm();
+           // 隐藏左侧弹药列表，显示编辑表单
+           const ammoListPanel = document.querySelector('.ammo-list-panel');
+           const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
+           
+           if (ammoListPanel) {
+               ammoListPanel.style.display = 'none';
+           }
+           if (digestionNotesPanel) {
+               digestionNotesPanel.style.display = 'block';
+               digestionNotesPanel.style.borderLeft = 'none';
+               digestionNotesPanel.style.paddingLeft = '0';
+           }
            
            // 创建编辑表单
            const formHtml = `
@@ -8395,10 +8405,6 @@
                          <div style="margin-bottom:12px;">
                              <strong style="font-size:16px;">${ammo.content}</strong>
                          </div>
-                         <div style="color:var(--text-secondary);font-size:13px;margin-bottom:12px;">
-                             来源: ${ammo.source || '无'}
-                         </div>
-                         <button class="btn btn-secondary" onclick="showDigestionNotesPanel('${ammoId}')">← 返回查看</button>
                      </div>
                                   `;
                                   
@@ -8412,11 +8418,28 @@
        
         // 隐藏编辑消化笔记表单
         function hideEditDigestionForm() {
-            // 返回查看模式
-            const formEl = document.querySelector('.edit-digestion-form');
-            if (formEl) {
-                const ammoId = formEl.querySelector('input[type="hidden"]').value;
-                showDigestionNotesPanel(ammoId);
+            // 恢复左右分栏布局
+            const ammoListPanel = document.querySelector('.ammo-list-panel');
+            const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
+            
+            if (ammoListPanel) {
+                ammoListPanel.style.display = 'block';
+            }
+            if (digestionNotesPanel) {
+                digestionNotesPanel.style.display = 'block';
+                digestionNotesPanel.style.borderLeft = '1px solid var(--border)';
+                digestionNotesPanel.style.paddingLeft = '12px';
+            }
+            
+            // 清空消化笔记面板内容，回到弹药库列表
+            const content = document.getElementById('digestionNotesContent');
+            if (content) {
+                content.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
+            }
+            
+            // 移动端：返回弹药列表
+            if (window.innerWidth <= 768) {
+                backToAmmoList();
             }
         }
        
@@ -8615,8 +8638,29 @@
             // 重新渲染弹药库
             renderAmmoLibrary();
             
-            // 返回查看模式
-            showDigestionNotesPanel(ammoId);
+            // 恢复左右分栏布局
+            const ammoListPanel = document.querySelector('.ammo-list-panel');
+            const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
+            
+            if (ammoListPanel) {
+                ammoListPanel.style.display = 'block';
+            }
+            if (digestionNotesPanel) {
+                digestionNotesPanel.style.display = 'block';
+                digestionNotesPanel.style.borderLeft = '1px solid var(--border)';
+                digestionNotesPanel.style.paddingLeft = '12px';
+            }
+            
+            // 清空消化笔记面板内容，回到弹药库列表
+            const content = document.getElementById('digestionNotesContent');
+            if (content) {
+                content.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
+            }
+            
+            // 移动端：返回弹药列表
+            if (window.innerWidth <= 768) {
+                backToAmmoList();
+            }
             
             showToast('消化笔记已保存');
         }
