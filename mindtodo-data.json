@@ -2214,20 +2214,41 @@
       "sourceRecordId": null,
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-09T17:00:12.207Z",
-      "useCount": 0,
+      "useCount": 1,
       "tags": [],
       "digestion": {
         "scenarios": [
           {
-            "scenario": "自我反思与情绪调节",
-            "reference": "当我在复盘今天的效率时，发现自己因为一个细节没做好而自责了很久。这时我会对自己说：有些时候，对错并不是最重要的，关系的温度才是——包括我和自己的关系。先接纳这次的不完美，而不是急着批评自己，这样反而更容易找到改进的切入点。"
+            "scenario": "自我提升：复盘日常失误",
+            "reference": "今天计划又被打乱了，本来想责怪自己效率低。但转念一想，对错并不是最重要的，关系的温度才是——我更需要关心自己内心的节奏，而不是死磕‘正确’的时间表。明天试着调整优先级，先做让自己舒服的事。"
           },
           {
-            "scenario": "团队协作中的沟通分歧",
-            "reference": "在项目讨论中，同事提出了一个我不同意的方案，我本想立刻指出逻辑漏洞。但想起这句话，我会先回应：‘这个思路很有意思，虽然我有点不同意见，但咱们先不急着分对错。有些时候，对错并不是最重要的，关系的温度才是。我们先把彼此的想法都听听，再一起看看怎么融合。’这样既保留了合作氛围，也让后续沟通更有效率。"
+            "scenario": "工作：与同事意见分歧时",
+            "reference": "刚才我们因为方案细节争执不下，差点吵起来。其实对错并不是最重要的，关系的温度才是——如果因为赢了道理而伤了合作，后面反而更难推进。不如先暂停，说一句‘我们再看看彼此的需求’，等情绪平复再商量。"
           }
         ]
       }
+    },
+    {
+      "id": "moz2quze7h3b6",
+      "content": "因为一旦关系变冷，再对的观点也会被抵触；关系温暖时，问题更容易被共同解决。",
+      "type": "sentence",
+      "sourceBlockId": null,
+      "sourceRecordId": null,
+      "sourceBlockName": "手动添加",
+      "createdAt": "2026-05-10T01:08:34.780Z",
+      "useCount": 0,
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "aiConfig": {
@@ -2397,6 +2418,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-09T16:59:26.989Z"
+    "lastSync": "2026-05-10T01:02:14.370Z"
   }
 }
