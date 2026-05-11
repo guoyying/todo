@@ -1754,7 +1754,7 @@
       "type": "task",
       "content": "算力32个设备",
       "createdAt": "2026-05-11T09:14:29.487Z",
-      "updatedAt": "2026-05-11T09:14:29.487Z",
+      "updatedAt": "2026-05-11T09:35:01.147Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1765,7 +1765,7 @@
           "content": "资源系统查询退网流水号",
           "estimatedTime": "5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp109ta4tv8gz"
         }
       ]
     },
@@ -1774,12 +1774,13 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-11T09:27:31.514Z",
+      "updatedAt": "2026-05-11T09:35:04.247Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp109ta4tv8gz"
     }
   ],
   "normalFeelings": [
@@ -2101,8 +2102,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mp0zcl7c3uhtl",
-      "name": "5点半前"
+      "id": "slot_mp109ta4tv8gz",
+      "name": "下班前"
     }
   ],
   "tags": [
