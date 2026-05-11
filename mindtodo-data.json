@@ -1761,7 +1761,7 @@
       "type": "task",
       "content": "我发现已完成的清单是乱的，未完好归类的。导致输出的ai工作汇总并没有意义和数据挖掘价值。",
       "createdAt": "2026-05-11T01:13:41.827Z",
-      "updatedAt": "2026-05-11T02:45:02.047Z",
+      "updatedAt": "2026-05-11T02:51:12.622Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1772,6 +1772,13 @@
           "content": "不知道我需要怎样的，可以将吸引我的需求复制下来汇总",
           "done": false,
           "estimatedTime": "8min",
+          "placedIn": null
+        },
+        {
+          "id": "1778467837626",
+          "content": "我有追踪任务的需求，一个大任务（比如crm）完成任务我就看不到了。得看时间节点才行。写一下我的想法",
+          "done": false,
+          "estimatedTime": "3min",
           "placedIn": null
         }
       ]
@@ -2534,6 +2541,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T02:39:09.873Z"
+    "lastSync": "2026-05-11T02:45:05.749Z"
   }
 }
