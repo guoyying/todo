@@ -100,19 +100,6 @@
       "doneAt": "2026-04-28T06:31:13.985Z"
     },
     {
-      "id": "mohz1gzo37l7n",
-      "type": "task",
-      "content": "问董工",
-      "createdAt": "2026-04-28T01:52:46.404Z",
-      "updatedAt": "2026-04-28T01:54:48.611Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T01:54:48.611Z"
-    },
-    {
       "id": "mohzfnkrq6qpi",
       "type": "task",
       "content": "确认下一季度的清单是不是同一个退网单的，然后给美哥反馈",
@@ -124,19 +111,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-28T02:51:04.457Z"
-    },
-    {
-      "id": "mohzxu8re666s",
-      "type": "task",
-      "content": "提醒两个人之后退网单给我审核",
-      "createdAt": "2026-04-28T02:17:56.571Z",
-      "updatedAt": "2026-04-28T06:38:09.016Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T06:38:09.016Z"
     },
     {
       "id": "moi30uyzvpp8t",
@@ -201,19 +175,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-29T01:38:52.834Z"
-    },
-    {
-      "id": "moi8moz3kqmea",
-      "type": "task",
-      "content": "需求：可以点击推送，也可以快捷键推送。刷新网页自动拉取一次，随后不自动拉取除非我手动点击。",
-      "createdAt": "2026-04-28T06:21:13.071Z",
-      "updatedAt": "2026-04-28T08:47:34.213Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T08:47:34.213Z"
     },
     {
       "id": "moi9ac06t98ch",
@@ -1763,19 +1724,6 @@
       "doneAt": "2026-05-10T10:44:14.972Z"
     },
     {
-      "id": "moyz64ekp2qm4",
-      "type": "task",
-      "content": "将开心、难过这些智能推荐相关函数删掉，不需要了。",
-      "createdAt": "2026-05-09T23:28:28.364Z",
-      "updatedAt": "2026-05-10T10:41:19.338Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-10T10:41:19.338Z"
-    },
-    {
       "id": "mozna5j0tmm88",
       "type": "task",
       "content": "将我的意思表达清楚，选择她在的时间。我想知道她客户端转o的清单，上联的sdh设备是哪个。这样我就能知道哪些高值可以重点关注了。",
@@ -2545,6 +2493,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T01:16:19.455Z"
+    "lastSync": "2026-05-11T01:21:28.384Z"
   }
 }
