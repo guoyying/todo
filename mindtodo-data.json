@@ -27,26 +27,6 @@
       "doneAt": "2026-04-28T02:08:06.192Z"
     },
     {
-      "id": "mogzhiiyyxzq7",
-      "type": "task",
-      "content": "把这张单弄了",
-      "createdAt": "2026-04-27T09:17:28.714Z",
-      "updatedAt": "2026-04-27T09:29:49.168Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mogzhiiys4mtv",
-          "content": "copy颜色到excel里，对照检查下每一项，写下比对不对的现象10min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-04-27T09:29:49.168Z"
-    },
-    {
       "id": "moh04z8tojh9w",
       "type": "task",
       "content": "给算力提供一季度的清单，给美哥反馈算力的情况",
@@ -1804,7 +1784,7 @@
       "type": "task",
       "content": "数字化重点项目收集",
       "createdAt": "2026-05-11T01:21:24.903Z",
-      "updatedAt": "2026-05-11T03:18:56.048Z",
+      "updatedAt": "2026-05-11T03:34:00.024Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1819,10 +1799,17 @@
         },
         {
           "id": "1778467108252",
-          "content": "梳理现有的几个项目，想一想要每周通报进度，跟泳哥询问下哪些拿来做合适。",
+          "content": "梳理现有的几个项目",
+          "done": true,
+          "estimatedTime": "10min",
+          "placedIn": null
+        },
+        {
+          "id": "1778470419588",
+          "content": "想一下要不要跟泳哥说，另外想想怎么跟同事说要跟进",
           "done": false,
           "estimatedTime": "10min",
-          "placedIn": "slot_mp0mu6oiih3j0"
+          "placedIn": null
         }
       ],
       "placedIn": null
