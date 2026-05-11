@@ -2308,7 +2308,7 @@
   ],
   "aiConfig": {
     "enabled": true,
-    "model": "deepseek-chat",
+    "model": "moonshot-v1-32k",
     "models": [
       {
         "id": "gpt-3.5-turbo",
