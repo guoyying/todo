@@ -27,20 +27,6 @@
       "doneAt": "2026-04-28T02:08:06.192Z"
     },
     {
-      "id": "moh04z8tojh9w",
-      "type": "task",
-      "content": "给算力提供一季度的清单，给美哥反馈算力的情况",
-      "createdAt": "2026-04-27T09:35:43.469Z",
-      "updatedAt": "2026-04-28T02:08:00.947Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-04-28T02:08:00.947Z"
-    },
-    {
       "id": "moh05xsby94sa",
       "type": "task",
       "content": "黄埔过单4326设备，上传关电照片",
@@ -78,32 +64,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-28T06:31:13.985Z"
-    },
-    {
-      "id": "mohzfnkrq6qpi",
-      "type": "task",
-      "content": "确认下一季度的清单是不是同一个退网单的，然后给美哥反馈",
-      "createdAt": "2026-04-28T02:03:48.123Z",
-      "updatedAt": "2026-04-28T02:51:04.457Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T02:51:04.457Z"
-    },
-    {
-      "id": "moi30uyzvpp8t",
-      "type": "task",
-      "content": "写给县分的话术，通知目标已更改。然后联系美哥说明算力的情况。",
-      "createdAt": "2026-04-28T03:44:16.331Z",
-      "updatedAt": "2026-04-28T03:54:15.839Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T03:54:15.839Z"
     },
     {
       "id": "moi4ity1j44ix",
@@ -337,15 +297,29 @@
     {
       "id": "moji5jf8now8e",
       "type": "task",
-      "content": "整理算力的照片和修改越秀设备的归属",
+      "content": "给美哥更新4月的退网进度，说明算力退网情况。",
       "createdAt": "2026-04-29T03:35:35.060Z",
-      "updatedAt": "2026-04-29T07:50:55.405Z",
-      "tags": [],
+      "updatedAt": "2026-05-11T06:35:13.323Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "dueTime": "18min",
       "unknown": false,
       "subtasks": [],
-      "doneAt": "2026-04-29T07:50:55.405Z"
+      "doneAt": "2026-04-29T07:50:55.405Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "知道了算力进度完成的快，可以说云网部让他们多退点，其他县分就压力少点。",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-11T06:35:13.323Z"
+      }
     },
     {
       "id": "mojihtd6ludni",
@@ -2586,6 +2560,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T06:15:12.980Z"
+    "lastSync": "2026-05-11T06:32:30.778Z"
   }
 }
