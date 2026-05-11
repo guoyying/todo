@@ -1768,7 +1768,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-11T06:15:04.622Z",
+      "updatedAt": "2026-05-11T06:59:39.145Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
@@ -1779,7 +1779,7 @@
           "content": "找几个0业务、1个业务的看看怎么回事",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": "slot_mp0t4bgyeiugd"
+          "placedIn": null
         }
       ],
       "placedIn": null
@@ -1789,7 +1789,7 @@
       "type": "task",
       "content": "今日爬虫+通报",
       "createdAt": "2026-05-11T03:18:11.312Z",
-      "updatedAt": "2026-05-11T06:43:28.629Z",
+      "updatedAt": "2026-05-11T06:58:27.729Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1799,7 +1799,7 @@
           "id": "mp0mte28b4m6k",
           "content": "做通报数据",
           "estimatedTime": "20min",
-          "done": false,
+          "done": true,
           "placedIn": null
         },
         {
@@ -2128,12 +2128,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mp0t4bgyeiugd",
-      "name": "3点前做"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
