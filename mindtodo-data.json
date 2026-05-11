@@ -1687,37 +1687,18 @@
     {
       "id": "mp0mte2817ofc",
       "type": "task",
-      "content": "今日爬虫+通报",
+      "content": "爬虫并做通报。发现算力退了32台我不知道的，跟进处理",
       "createdAt": "2026-05-11T03:18:11.312Z",
-      "updatedAt": "2026-05-11T06:58:27.729Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-11T08:26:46.042Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0mte28b4m6k",
-          "content": "做通报数据",
-          "estimatedTime": "20min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778469546565",
-          "content": "爬虫",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        },
-        {
-          "id": "1778481794569",
-          "content": "算力问下32台设备啥情况",
-          "done": false,
-          "estimatedTime": "10min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-11T08:26:46.042Z",
+      "subtasks": []
     },
     {
       "id": "1778487852060",
@@ -2430,6 +2411,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T06:59:46.307Z"
+    "lastSync": "2026-05-11T08:24:46.114Z"
   }
 }
