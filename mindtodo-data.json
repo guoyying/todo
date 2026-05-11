@@ -295,33 +295,6 @@
       "doneAt": "2026-04-29T02:52:11.059Z"
     },
     {
-      "id": "moji5jf8now8e",
-      "type": "task",
-      "content": "给美哥更新4月的退网进度，说明算力退网情况。",
-      "createdAt": "2026-04-29T03:35:35.060Z",
-      "updatedAt": "2026-05-11T06:35:13.323Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "18min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T07:50:55.405Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "知道了算力进度完成的快，可以说云网部让他们多退点，其他县分就压力少点。",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-11T06:35:13.323Z"
-      }
-    },
-    {
       "id": "mojihtd6ludni",
       "type": "task",
       "content": "整理了批已退网的网关，想下下一步咋整。",
@@ -864,22 +837,6 @@
       "subtasks": [],
       "placedIn": "slot_motqym1ihfyvk",
       "doneAt": "2026-05-06T08:01:42.560Z"
-    },
-    {
-      "id": "motq1bxpp7gs5",
-      "type": "task",
-      "content": "看下算力的总设备数量",
-      "createdAt": "2026-05-06T07:13:57.421Z",
-      "updatedAt": "2026-05-06T08:32:56.085Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_motshzlqgod6o",
-      "doneAt": "2026-05-06T08:32:43.952Z"
     },
     {
       "id": "motrp8f698o7d",
@@ -1806,6 +1763,29 @@
         }
       ],
       "placedIn": null
+    },
+    {
+      "id": "1778486701636",
+      "type": "task",
+      "content": "给美哥更新4月退网进度。算力退网太快，跟进处理",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-05-11T08:05:01.636Z",
+      "createdAt": "2026-05-06T07:13:57.421Z",
+      "updatedAt": "2026-05-11T08:05:01.636Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "可以用云网部名义给他们多些指标，这样其他县分就能轻松点",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-11T08:05:01.636Z"
+      },
+      "subtasks": []
     }
   ],
   "normalFeelings": [
