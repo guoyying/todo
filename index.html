@@ -137,44 +137,30 @@
                  font-size: 14px;
              }
              
-                /* 弹药库面板移动端优化 */
-                 #ammoLibraryPanel .modal {
-                     width: 100% !important;
-                     max-width: 100% !important;
-                     border-radius: 0 !important;
-                     max-height: 95vh !important;
-                     height: auto !important;
-                 }
-                 
-                 #ammoLibraryPanel .modal-header {
-                     padding: 8px 12px !important;
-                     margin-bottom: 6px !important;
-                 }
-                 
-                 #ammoLibraryPanel .modal-body {
-                     flex-direction: column !important;
-                     padding: 6px 12px !important;
-                     gap: 6px !important;
-                     max-height: calc(95vh - 50px) !important;
-                     height: auto !important;
-                 }
-                 
-                 .ammo-list-panel {
-                     border-bottom: 1px solid var(--border);
-                     padding-bottom: 6px;
-                     margin-bottom: 6px;
-                     max-height: none !important;
-                     overflow-y: auto !important;
-                 }
-                 
-                 .digestion-notes-panel {
-                     border-left: none !important;
-                     padding-left: 0 !important;
-                     border-top: 1px solid var(--border);
-                     padding-top: 6px;
-                     max-height: none !important;
-                     overflow-y: auto !important;
-                 }
+                 /* 弹药库面板移动端优化 */
+                  #ammoLibraryPanel .modal {
+                      width: 100% !important;
+                      max-width: 100% !important;
+                      border-radius: 0 !important;
+                      max-height: 95vh !important;
+                      height: auto !important;
+                  }
+                  
+                  #ammoLibraryPanel .modal-header {
+                      padding: 8px 12px !important;
+                      margin-bottom: 6px !important;
+                  }
+                  
+                  #ammoLibraryPanel .modal-body {
+                      padding: 6px 12px !important;
+                      max-height: calc(95vh - 50px) !important;
+                      height: auto !important;
+                  }
+                  
+                  .ammo-list-panel {
+                      max-height: none !important;
+                      overflow-y: auto !important;
+                  }
               
               /* 搜索框优化 */
               #ammoSearchInput {
@@ -2188,18 +2174,8 @@
                                      </div>
                                     </div>
                                     
-                                    <!-- 右侧：消化笔记 -->
-                                    <div id="digestionNotesPanel" class="digestion-notes-panel" style="flex:1;min-width:0;border-left:1px solid var(--border);padding-left:12px;padding-bottom:0;overflow-y:auto;font-size:13px;">
-                                        <div id="digestionNotesContent" style="padding-bottom:0;margin-bottom:0;font-size:13px;">
-                                            <div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">
-                                                <div style="font-size:36px;margin-bottom:12px;">📝</div>
-                                                <div style="font-size:13px;">点击左侧弹药查看消化笔记</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                 </div>
-                            </div>
+                                </div>
+                           </div>
                  </div>
             
                 <!-- 编辑弹药弹窗 -->
@@ -8413,23 +8389,20 @@ ${behaviorDescription}
            
            // 隐藏左侧弹药列表，显示编辑表单
            const ammoListPanel = document.querySelector('.ammo-list-panel');
-           const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
            
            if (ammoListPanel) {
                ammoListPanel.style.display = 'none';
            }
-           if (digestionNotesPanel) {
-               digestionNotesPanel.style.display = 'block';
-               digestionNotesPanel.style.borderLeft = 'none';
-               digestionNotesPanel.style.paddingLeft = '0';
-           }
            
            // 创建编辑表单
            const formHtml = `
-               <div id="editDigestionForm-${ammoId}" class="edit-digestion-form">
-                   <h4>编辑消化笔记</h4>
-                   <input type="hidden" id="editDigestionAmmoId-${ammoId}" value="${ammoId}">
-                   <input type="hidden" id="editPracticeId-${ammoId}" value="">
+                <div id="editDigestionForm-${ammoId}" class="edit-digestion-form">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                        <h4 style="margin:0;">编辑消化笔记</h4>
+                        <button class="btn btn-secondary" onclick="backToAmmoLibraryList()" style="padding:6px 12px;font-size:13px;">🏠 返回弹药库</button>
+                    </div>
+                    <input type="hidden" id="editDigestionAmmoId-${ammoId}" value="${ammoId}">
+                    <input type="hidden" id="editPracticeId-${ammoId}" value="">
                    
                    <div style="margin-bottom:16px;">
                        <label>为什么有道理?</label>
@@ -8489,23 +8462,30 @@ ${behaviorDescription}
            `;
            
              // 将表单插入到右侧面板中
-             const content = document.getElementById('digestionNotesContent');
-             if (content) {
-                 // 保留弹药信息头部（使用函数开头已声明的ammo变量）
-                 const headerHtml = `
-                     <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-                         <div style="margin-bottom:12px;">
-                             <strong style="font-size:16px;">${ammo.content}</strong>
-                         </div>
-                     </div>
-                                  `;
-                                  
-                                  content.innerHTML = headerHtml + formHtml;
-                                  
-                                  // 渲染案例和改写
-                                  renderDigestionCases(digestion.cases || [], ammoId);
-                                  renderDigestionRewrites(digestion.rewrites || [], ammoId);
-                              }
+            // 将表单插入到弹药库面板中
+            const modalBody = document.querySelector('#ammoLibraryPanel .modal-body');
+            if (modalBody) {
+                // 保留弹药信息头部（使用函数开头已声明的ammo变量）
+                const headerHtml = `
+                    <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+                        <div style="margin-bottom:12px;">
+                            <strong style="font-size:16px;">${ammo.content}</strong>
+                        </div>
+                    </div>
+                `;
+                
+                // 创建一个临时容器来显示编辑表单
+                const tempContainer = document.createElement('div');
+                tempContainer.id = 'editDigestionContainer';
+                tempContainer.innerHTML = headerHtml + formHtml;
+                
+                // 将临时容器添加到modal-body中
+                modalBody.appendChild(tempContainer);
+                
+                // 渲染案例和改写
+                renderDigestionCases(digestion.cases || [], ammoId);
+                renderDigestionRewrites(digestion.rewrites || [], ammoId);
+            }
           }
 
         // 渲染表达框架练习记录（编辑表单中）
@@ -8533,21 +8513,15 @@ ${behaviorDescription}
         function hideEditDigestionForm() {
             // 恢复左右分栏布局
             const ammoListPanel = document.querySelector('.ammo-list-panel');
-            const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
             
             if (ammoListPanel) {
                 ammoListPanel.style.display = 'block';
             }
-            if (digestionNotesPanel) {
-                digestionNotesPanel.style.display = 'block';
-                digestionNotesPanel.style.borderLeft = '1px solid var(--border)';
-                digestionNotesPanel.style.paddingLeft = '12px';
-            }
             
-            // 清空消化笔记面板内容，回到弹药库列表
-            const content = document.getElementById('digestionNotesContent');
-            if (content) {
-                content.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
+            // 移除编辑表单容器
+            const editContainer = document.getElementById('editDigestionContainer');
+            if (editContainer) {
+                editContainer.remove();
             }
             
             // 移动端：返回弹药列表
@@ -8555,8 +8529,19 @@ ${behaviorDescription}
                 backToAmmoList();
             }
         }
-       
-       // 渲染案例列表
+        
+        // 返回弹药库记录内容界面
+        function backToAmmoLibraryList() {
+            // 网页版：隐藏编辑表单，显示弹药列表
+            if (window.innerWidth > 768) {
+                hideEditDigestionForm();
+            } else {
+                // 移动端：返回弹药列表
+                backToAmmoList();
+            }
+        }
+        
+        // 渲染案例列表
        function renderDigestionCases(cases, ammoId) {
            const container = document.getElementById(`editDigestionCases-${ammoId}`);
            if (!container) return;
@@ -8772,7 +8757,7 @@ ${behaviorDescription}
             // 清空消化笔记面板内容，回到弹药库列表
             const content = document.getElementById('digestionNotesContent');
             if (content) {
-                content.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
+                content.innerHTML = '';
             }
             
             // 移动端：返回弹药列表
@@ -8805,27 +8790,13 @@ ${behaviorDescription}
                backToAmmoListBtn.classList.add('hidden');
            }
            
-           // 重置左右分栏布局
-           const ammoListPanel = document.querySelector('.ammo-list-panel');
-           const digestionNotesPanel = document.querySelector('.digestion-notes-panel');
-           
-           if (ammoListPanel) {
-               ammoListPanel.style.display = 'block';
-           }
-           
-           if (digestionNotesPanel) {
-               digestionNotesPanel.style.display = 'block';
-               digestionNotesPanel.style.borderLeft = '1px solid var(--border)';
-               digestionNotesPanel.style.paddingLeft = '12px';
-           }
-           
-           // 清空消化笔记面板内容
-           const digestionNotesContent = document.getElementById('digestionNotesContent');
-           if (digestionNotesContent) {
-               digestionNotesContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px 10px;">点击左侧弹药查看消化笔记</div>';
-           }
-           
-           // 清空搜索框
+            // 重置弹药列表显示
+            const ammoListPanel = document.querySelector('.ammo-list-panel');
+            if (ammoListPanel) {
+                ammoListPanel.style.display = 'block';
+            }
+            
+            // 清空搜索框
            const searchInput = document.getElementById('ammoSearchInput');
            if (searchInput) {
                searchInput.value = '';
