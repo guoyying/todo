@@ -1850,6 +1850,7 @@
                             <div style="display:flex;gap:8px;">
                                 <button class="btn btn-small btn-primary" onclick="mergeSelectedTasks()">🔗 合并选中</button>
                                 <button class="btn btn-small btn-secondary" onclick="deleteSelectedTasks()">🗑️ 删除选中</button>
+                                <button class="btn btn-small btn-secondary" onclick="clearSelectedTasks()">❌ 清空选择</button>
                             </div>
                         </div>
                         <!-- 标签筛选 -->
@@ -1883,13 +1884,13 @@
                         
                         <!-- 任务内容编辑 -->
                         <div>
-                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务内容</label>
-                            <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="编辑任务内容..."></textarea>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务内容 <span style="color:var(--danger);">*</span></label>
+                            <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="编辑任务内容...（必填）"></textarea>
                         </div>
                         
                         <!-- 标签选择 -->
                         <div>
-                            <label style="display:block;margin-bottom:6px;font-weight:500;">🏷️ 标签</label>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">🏷️ 标签 <span style="color:var(--danger);">*</span></label>
                             <div id="organizerTags" class="tags-select"></div>
                         </div>
                         
@@ -3124,16 +3125,16 @@
                  renderTagFilter('oldTodoTagFilter', oldTodoTasks, currentTags);
              }
              
-             // 已完成任务筛选器
-             const completedTasks = data.tasks.filter(t => t.done && !t.organization);
-             const completedFilter = document.getElementById('completedTagFilter');
+              // 已完成任务筛选器（包括已整理的任务）
+              const completedTasks = data.tasks.filter(t => t.done);
+              const completedFilter = document.getElementById('completedTagFilter');
              if (completedFilter) {
                  const currentTags = JSON.parse(completedFilter.dataset.selectedTags || '[]');
                  renderTagFilter('completedTagFilter', completedTasks, currentTags);
              }
              
-             // 待整理任务筛选器
-             const pendingTasks = data.tasks.filter(t => t.done && !t.organization);
+              // 待整理任务筛选器（包括已整理的任务）
+              const pendingTasks = data.tasks.filter(t => t.done);
              const pendingFilter = document.getElementById('organizerPendingTagFilter');
              if (pendingFilter) {
                  const currentTags = JSON.parse(pendingFilter.dataset.selectedTags || '[]');
@@ -3281,7 +3282,7 @@
                         renderCompleted();
                     } else if (containerId === 'organizerPendingTagFilter') {
                         // 重新渲染标签筛选器以更新选中状态
-                        const pendingTasks = data.tasks.filter(task => task.done && !task.organization);
+                        const pendingTasks = data.tasks.filter(task => task.done);
                         renderTagFilter(containerId, pendingTasks, currentTags);
                         // 加载待整理任务列表
                         loadPendingTasksList();
@@ -5207,19 +5208,19 @@
             }
         }
 
-        function renderCompleted() {
-            const container = document.getElementById('completedList');
-            container.innerHTML = '';
-            
-            // 获取筛选条件
-            const searchTerm = document.getElementById('completedSearch')?.value.toLowerCase() || '';
-            const timeFilter = document.getElementById('completedTimeFilter')?.value || 'all';
-            const selectedTagsStr = document.getElementById('completedTagFilter')?.dataset.selectedTags || '[]';
-            const selectedTags = JSON.parse(selectedTagsStr);
-            const filterMode = document.getElementById('completedTagFilter')?.dataset.filterMode || 'include';
-            
-            // 获取所有已完成的任务
-            let list = data.tasks.filter(i => i.done);
+         function renderCompleted() {
+             const container = document.getElementById('completedList');
+             container.innerHTML = '';
+             
+             // 获取筛选条件
+             const searchTerm = document.getElementById('completedSearch')?.value.toLowerCase() || '';
+             const timeFilter = document.getElementById('completedTimeFilter')?.value || 'all';
+             const selectedTagsStr = document.getElementById('completedTagFilter')?.dataset.selectedTags || '[]';
+             const selectedTags = JSON.parse(selectedTagsStr);
+             const filterMode = document.getElementById('completedTagFilter')?.dataset.filterMode || 'include';
+             
+             // 获取所有已完成的任务（包括已整理的任务）
+             let list = data.tasks.filter(i => i.done);
             
             // 应用时间筛选
             if (timeFilter === 'today') {
@@ -5443,21 +5444,13 @@
             item.doneAt = nowStr();
             item.updatedAt = nowStr();
             
-            // 从时间段中移除
-            if (item.placedIn) {
-                item.placedIn = null;
-            }
-            
-            saveData();
-            
-            // 关闭对话框
-            const modal = document.getElementById('mandatoryTagModal');
-            if (modal) {
-                modal.remove();
-            }
-            
-            render();
-        }
+             // 从时间段中移除
+             if (item.placedIn) {
+                 item.placedIn = null;
+             }
+             
+             render();
+         }
 
         function toggleSubtask(itemId, subId) {
             const item = data.tasks.find(i => i.id === itemId);
@@ -10445,9 +10438,9 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 清空表单
            clearOrganizerForm();
            
-           // 初始化待整理任务标签筛选器
-           const pendingTasks = data.tasks.filter(task => task.done && !task.organization);
-           renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
+            // 初始化待整理任务标签筛选器（包括已整理的任务）
+            const pendingTasks = data.tasks.filter(task => task.done);
+            renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
            
            // 加载待整理任务列表
            loadPendingTasksList();
@@ -10493,6 +10486,12 @@ ${ammoToAnalyze.map((ammo, index) =>
        function loadPendingTasksList() {
            const container = document.getElementById('pendingTasksContainer');
            
+           // 保存当前已勾选的任务ID
+           const currentlyCheckedTaskIds = new Set();
+           document.querySelectorAll('.pending-task-checkbox:checked').forEach(cb => {
+               currentlyCheckedTaskIds.add(cb.dataset.taskId);
+           });
+           
            // 获取选中的标签
            const tagFilter = document.getElementById('organizerPendingTagFilter');
            const selectedTagsStr = tagFilter?.dataset.selectedTags || '[]';
@@ -10501,8 +10500,8 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 获取筛选模式（包含/排除）
            const filterMode = tagFilter?.dataset.filterMode || 'include';
            
-           // 筛选待整理任务
-           let pendingTasks = data.tasks.filter(task => task.done && !task.organization);
+            // 筛选待整理任务（包括已整理的任务）
+            let pendingTasks = data.tasks.filter(task => task.done);
            
            // 按标签筛选
            if (selectedTags.length > 0) {
@@ -10523,6 +10522,8 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            if (pendingTasks.length === 0) {
                container.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">暂无待整理任务</div>';
+               // 即使没有任务，也要更新选中数量
+               updateSelectedTasksCount();
                return;
            }
            
@@ -10549,8 +10550,11 @@ ${ammoToAnalyze.map((ammo, index) =>
                    ? taskTags.map(tag => `<span class="pending-task-tag-dot" title="${tag}"></span>`).join('')
                    : '';
                
+               // 检查该任务是否之前被勾选过
+               const isChecked = currentlyCheckedTaskIds.has(task.id);
+               
                item.innerHTML = `
-                   <input type="checkbox" class="pending-task-checkbox" data-task-id="${task.id}">
+                   <input type="checkbox" class="pending-task-checkbox" data-task-id="${task.id}" ${isChecked ? 'checked' : ''}>
                    <div class="pending-task-content" title="${task.content}">${task.content}</div>
                    <div class="pending-task-meta">
                        <span class="pending-task-time">${doneTime}</span>
@@ -10601,6 +10605,23 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 清空选中的任务
            document.querySelectorAll('.pending-task-checkbox').forEach(cb => cb.checked = false);
+           updateSelectedTasksCount();
+       }
+       
+       // 清空选中的任务（不清空表单）
+       function clearSelectedTasks() {
+           if (document.querySelectorAll('.pending-task-checkbox:checked').length === 0) {
+               alert('当前没有选中的任务');
+               return;
+           }
+           
+           if (!confirm('确定要清空所有已选中的任务吗？')) {
+               return;
+           }
+           
+           // 清空所有选中的任务
+           document.querySelectorAll('.pending-task-checkbox').forEach(cb => cb.checked = false);
+           updateSelectedTasksCount();
        }
        
        // 合并选中的任务
@@ -10678,12 +10699,17 @@ ${ammoToAnalyze.map((ammo, index) =>
            const taskContent = document.getElementById('organizerTaskContent').value.trim();
            
            if (!taskContent) {
-               alert('请输入任务内容');
+               alert('请输入任务内容（必填）');
                return;
            }
            
-           // 获取选中的标签
+           // 获取选中的标签（必填）
            const selectedTags = getSelectedTags('organizerTags');
+           
+           if (selectedTags.length === 0) {
+               alert('请至少选择一个标签（必填）');
+               return;
+           }
            
            // 获取选中的任务
            const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
@@ -10702,52 +10728,61 @@ ${ammoToAnalyze.map((ammo, index) =>
                return;
            }
            
-           // 更新第一个任务的内容和标签
-           firstTask.content = taskContent;
-           firstTask.tags = selectedTags;
-           firstTask.updatedAt = nowStr();
-           
-           // 保存整理数据（无需填写全部字段）
-           firstTask.organization = {
-               goal: document.getElementById('organizerGoal').value.trim(),
-               completion: document.getElementById('organizerCompletion').value.trim(),
-               skills: document.getElementById('organizerSkills').value.trim(),
-               innovation: document.getElementById('organizerInnovation').value.trim(),
-               success: document.getElementById('organizerSuccess').value.trim(),
-               failure: document.getElementById('organizerFailure').value.trim(),
-               improvement: document.getElementById('organizerImprovement').value.trim(),
-               problems: document.getElementById('organizerProblems').value.trim(),
-               summary: document.getElementById('organizerSummary').value.trim(),
-               organizedAt: nowStr()
+            // 创建新的已完成任务记录
+            const newTask = {
+                id: Date.now().toString(),
+                type: 'task',
+                content: taskContent,
+                tags: selectedTags,
+                done: true,
+                doneAt: nowStr(),
+                createdAt: firstTask.createdAt || nowStr(),
+                updatedAt: nowStr(),
+               // 保存整理数据（其他字段选填）
+               organization: {
+                   goal: document.getElementById('organizerGoal').value.trim(),
+                   completion: document.getElementById('organizerCompletion').value.trim(),
+                   skills: document.getElementById('organizerSkills').value.trim(),
+                   innovation: document.getElementById('organizerInnovation').value.trim(),
+                   success: document.getElementById('organizerSuccess').value.trim(),
+                   failure: document.getElementById('organizerFailure').value.trim(),
+                   improvement: document.getElementById('organizerImprovement').value.trim(),
+                   problems: document.getElementById('organizerProblems').value.trim(),
+                   summary: document.getElementById('organizerSummary').value.trim(),
+                   organizedAt: nowStr()
+               }
            };
            
-           // 如果有多个选中的任务，删除其他任务
-           if (checkboxes.length > 1) {
-               const taskIdsToDelete = [];
-               checkboxes.forEach((cb, index) => {
-                   if (index > 0) { // 跳过第一个任务
-                       taskIdsToDelete.push(cb.dataset.taskId);
-                   }
-               });
-               
-               // 删除其他任务
-               data.tasks = data.tasks.filter(task => !taskIdsToDelete.includes(task.id));
-           }
+           // 收集所有选中的任务ID（包括第一个任务）
+           const taskIdsToDelete = [];
+           checkboxes.forEach(cb => {
+               taskIdsToDelete.push(cb.dataset.taskId);
+           });
            
-           // 清空合并任务ID
-           window.mergedTaskIds = null;
+           // 删除所有选中的原始任务
+           data.tasks = data.tasks.filter(task => !taskIdsToDelete.includes(task.id));
            
-           saveData();
-           
-           // 刷新列表
-           loadPendingTasksList();
-           loadOrganizedTasksList();
-           renderCompleted();
+            // 添加新的已完成任务
+            data.tasks.push(newTask);
+            
+            console.log('新创建的任务:', newTask);
+            console.log('当前所有任务数量:', data.tasks.length);
+            console.log('已整理任务数量:', data.tasks.filter(t => t.done && t.organization).length);
+            
+            // 清空合并任务ID
+            window.mergedTaskIds = null;
+            
+            saveData();
+            
+            // 刷新列表
+            loadPendingTasksList();
+            loadOrganizedTasksList();
+            renderCompleted();
            
            // 清空表单
            clearOrganizerForm();
            
-           alert('整理已保存！');
+           alert('整理已保存！新任务已添加到待整理任务列表和已整理列表中。');
        }
        
         // 加载已整理任务列表
@@ -10755,7 +10790,13 @@ ${ammoToAnalyze.map((ammo, index) =>
                const container = document.getElementById('organizedTasksContainer');
                container.innerHTML = '';
                
+               console.log('加载已整理任务列表...');
+               console.log('所有任务数量:', data.tasks.length);
+               console.log('已完成任务数量:', data.tasks.filter(t => t.done).length);
+               console.log('有organization的任务数量:', data.tasks.filter(t => t.organization).length);
+               
                const organizedTasks = data.tasks.filter(task => task.done && task.organization);
+               console.log('筛选后的已整理任务数量:', organizedTasks.length);
                
                if (organizedTasks.length === 0) {
                    container.innerHTML = '<div style="color:var(--text-secondary);padding:12px;text-align:center;">暂无已整理任务</div>';
