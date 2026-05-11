@@ -1538,19 +1538,7 @@
         }
       ],
       "placedIn": null,
-      "doneAt": "2026-05-10T10:43:37.476Z",
-      "organization": {
-        "goal": "",
-        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-11T06:47:50.104Z"
-      }
+      "doneAt": "2026-05-10T10:43:37.476Z"
     },
     {
       "id": "moxsnwmegvbt5",
@@ -1644,9 +1632,9 @@
     {
       "id": "mp0idakjk65vg",
       "type": "task",
-      "content": "我发现已完成的清单是乱的，未完好归类的。导致输出的ai工作汇总并没有意义和数据挖掘价值。",
+      "content": "优化todo功能",
       "createdAt": "2026-05-11T01:13:41.827Z",
-      "updatedAt": "2026-05-11T06:14:54.063Z",
+      "updatedAt": "2026-05-11T07:24:09.500Z",
       "tags": [
         "AI"
       ],
@@ -1670,7 +1658,19 @@
         }
       ],
       "placedIn": null,
-      "doneAt": "2026-05-11T06:14:51.721Z"
+      "doneAt": "2026-05-11T06:14:51.721Z",
+      "organization": {
+        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
+        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药",
+        "skills": "",
+        "innovation": "",
+        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-11T07:24:09.500Z"
+      }
     },
     {
       "id": "mp0igd8nx1udo",
