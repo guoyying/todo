@@ -1621,18 +1621,6 @@
       "doneAt": "2026-05-10T10:44:14.972Z"
     },
     {
-      "id": "mozna5j0tmm88",
-      "type": "task",
-      "content": "将我的意思表达清楚，选择她在的时间。我想知道她客户端转o的清单，上联的sdh设备是哪个。这样我就能知道哪些高值可以重点关注了。",
-      "createdAt": "2026-05-10T10:43:27.228Z",
-      "updatedAt": "2026-05-10T10:43:27.228Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mp0i2bixw63rq",
       "type": "task",
       "content": "写上周周报",
@@ -2505,6 +2493,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T06:43:38.823Z"
+    "lastSync": "2026-05-11T06:59:46.307Z"
   }
 }
