@@ -5291,16 +5291,9 @@
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             
-            // 如果任务从未完成变为完成，弹出标签选择对话框
+            // 如果任务从未完成变为完成，弹出强制标签选择对话框
             if (!item.done) {
-                item.done = true;
-                item.doneAt = nowStr();
-                item.updatedAt = nowStr();
-                saveData();
-                
-                // 弹出标签选择对话框
-                showTagEditor(id, null, 'task');
-                render();
+                showMandatoryTagEditor(id);
             } else {
                 // 如果任务从完成变为未完成，直接切换状态
                 item.done = false;
@@ -5308,6 +5301,162 @@
                 item.updatedAt = nowStr();
                 saveData(); render();
             }
+        }
+
+        // 强制标签选择对话框
+        function showMandatoryTagEditor(id) {
+            const item = data.tasks.find(i => i.id === id);
+            if (!item) return;
+            
+            // 获取可用的标签列表
+            const availableTags = getTaskTags();
+            
+            // 过滤掉当前项目已有的标签
+            const existingTags = item.tags || [];
+            const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
+            
+            // 检查是否有子任务
+            const hasSubtasks = item.subtasks && item.subtasks.length > 0;
+            const undoneSubtasks = hasSubtasks ? item.subtasks.filter(st => !st.done) : [];
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.id = 'mandatoryTagModal';
+            
+            let subtaskReminder = '';
+            if (hasSubtasks && undoneSubtasks.length > 0) {
+                subtaskReminder = `
+                    <div class="input-group" style="background: var(--feeling-light); padding: 12px; border-radius: 6px; border-left: 4px solid var(--feeling); margin-bottom: 15px;">
+                        <label style="color: var(--danger); font-weight: bold;">⚠️ 该任务包含未完成的子任务</label>
+                        <div style="margin-top: 8px; font-size: 13px; color: var(--text);">
+                            <div style="margin-bottom: 6px;">未完成的子任务：</div>
+                            ${undoneSubtasks.map(st => `<div style="padding: 4px 0; padding-left: 12px; border-left: 2px solid var(--border);">• ${st.content}</div>`).join('')}
+                        </div>
+                        <div style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+                            💡 提示：完成任务后，子任务将被移除。请在下方编辑任务内容，将需要保留的工作整理进去。
+                        </div>
+                    </div>
+                `;
+            }
+            
+            let tagsHtml = '';
+            if (selectableTags.length > 0) {
+                tagsHtml = `
+                    <div class="input-group">
+                        <label>或选择现有标签 <span style="color: var(--danger);">* 必须选择至少一个标签</span></label>
+                        <div class="tags-select" style="display:flex;flex-wrap:wrap;gap:6px;">
+                            ${selectableTags.map(tag => `
+                                <span class="tag" onclick="selectMandatoryTag('${tag}')" style="cursor:pointer;padding:4px 10px;border:1px solid var(--border);border-radius:12px;font-size:12px;background:var(--bg);">${tag}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            modal.innerHTML = `
+                <div class="modal">
+                    <h3>🏷️ 完成任务 <span style="color: var(--danger);">* 必选</span></h3>
+                    ${subtaskReminder}
+                    <div class="input-group">
+                        <label>任务内容 <span style="color: var(--danger);">* 必填</span></label>
+                        <textarea id="taskContentInput"
+                            placeholder="请输入任务内容，整理需要保留的工作"
+                            style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; line-height: 1.6; resize: vertical;">${item.content}</textarea>
+                    </div>
+                    <div class="input-group">
+                        <label>输入新标签 <span style="color: var(--danger);">* 必填</span></label>
+                        <input type="text" id="mandatoryTagInput" placeholder="输入标签名称" onkeydown="if(event.key==='Enter'){event.preventDefault();saveMandatoryTag('${id}')}" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px;">
+                    </div>
+                    ${tagsHtml}
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" onclick="cancelMandatoryTag('${id}')">取消</button>
+                        <button class="btn btn-primary" onclick="saveMandatoryTag('${id}')">完成</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => {
+                const input = document.getElementById('mandatoryTagInput');
+                input.focus();
+            }, 10);
+        }
+
+        // 选择强制标签
+        function selectMandatoryTag(tag) {
+            const input = document.getElementById('mandatoryTagInput');
+            if (input) {
+                input.value = tag;
+            }
+        }
+
+        // 取消强制标签选择
+        function cancelMandatoryTag(id) {
+            const modal = document.getElementById('mandatoryTagModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // 保存强制标签并完成任务
+        function saveMandatoryTag(id) {
+            const item = data.tasks.find(i => i.id === id);
+            if (!item) return;
+            
+            const tagInput = document.getElementById('mandatoryTagInput');
+            const newTag = tagInput ? tagInput.value.trim() : '';
+            
+            // 获取编辑后的任务内容
+            const contentInput = document.getElementById('taskContentInput');
+            const newContent = contentInput ? contentInput.value.trim() : '';
+            
+            // 验证任务内容必填
+            if (!newContent) {
+                alert('请输入任务内容！');
+                return;
+            }
+            
+            // 验证必须选择或输入标签
+            if (!newTag) {
+                alert('请选择或输入标签！');
+                return;
+            }
+            
+            // 更新任务内容
+            item.content = newContent;
+            
+            // 添加标签
+            if (!data.commonTaskTags.includes(newTag)) {
+                data.commonTaskTags.push(newTag);
+            }
+            if (!item.tags) item.tags = [];
+            if (!item.tags.includes(newTag)) {
+                item.tags.push(newTag);
+            }
+            
+            // 如果任务有子任务，删除子任务（不自动合并内容）
+            if (item.subtasks && item.subtasks.length > 0) {
+                delete item.subtasks;
+            }
+            
+            // 标记任务为完成
+            item.done = true;
+            item.doneAt = nowStr();
+            item.updatedAt = nowStr();
+            
+            // 从时间段中移除
+            if (item.placedIn) {
+                item.placedIn = null;
+            }
+            
+            saveData();
+            
+            // 关闭对话框
+            const modal = document.getElementById('mandatoryTagModal');
+            if (modal) {
+                modal.remove();
+            }
+            
+            render();
         }
 
         function toggleSubtask(itemId, subId) {
