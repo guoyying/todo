@@ -1786,6 +1786,26 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp0i2bixw63rq",
+      "type": "task",
+      "content": "写上周周报",
+      "createdAt": "2026-05-11T01:05:09.849Z",
+      "updatedAt": "2026-05-11T01:05:09.849Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp0i2bixq8w16",
+          "content": "先ai汇总下，写下觉得可以的句子",
+          "estimatedTime": "8min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
