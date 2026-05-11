@@ -1259,6 +1259,64 @@
           
           /* 移动设备响应式样式 */
            @media (max-width: 768px) {
+               /* AI汇总模态框移动端优化 */
+               #aiSummaryModal .modal {
+                   width: 95% !important;
+                   max-width: none !important;
+                   margin: 10px auto !important;
+                   max-height: 90vh !important;
+               }
+               
+               #aiSummaryModal .modal-body {
+                   flex-direction: column !important;
+                   gap: 12px !important;
+                   max-height: 85vh !important;
+               }
+               
+               /* 左侧控制面板在移动端改为全宽 */
+               #aiSummaryModal .modal-body > div:first-child {
+                   flex: none !important;
+                   width: 100% !important;
+                   padding-right: 0 !important;
+                   border-right: none !important;
+                   border-bottom: 1px solid var(--border) !important;
+                   padding-bottom: 12px !important;
+                   max-height: 40vh !important;
+                   overflow-y: auto !important;
+               }
+               
+               /* 右侧汇总结果在移动端改为全宽 */
+               #aiSummaryModal .modal-body > div:nth-child(2) {
+                   flex: none !important;
+                   width: 100% !important;
+               }
+               
+               /* 汇总结果内容区域移动端优化 */
+               #aiSummaryContent {
+                   min-height: 300px !important;
+                   max-height: 40vh !important;
+                   font-size: 14px !important;
+                   padding: 12px !important;
+               }
+               
+               /* 模型选择器移动端优化 */
+               #summaryModelSelect {
+                   font-size: 13px !important;
+                   padding: 8px !important;
+               }
+               
+               /* 提示词输入框移动端优化 */
+               #summaryPromptInput {
+                   min-height: 80px !important;
+                   font-size: 13px !important;
+               }
+               
+               /* 按钮移动端优化 */
+               #aiSummaryModal .btn {
+                   padding: 8px 12px !important;
+                   font-size: 13px !important;
+               }
+               
                /* AI润色模态框移动端优化 */
                #aiPolishModal .modal {
                    width: 95% !important;
