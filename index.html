@@ -1267,29 +1267,35 @@
                    max-height: 90vh !important;
                }
                
-               #aiSummaryModal .modal-body {
-                   flex-direction: column !important;
-                   gap: 12px !important;
-                   max-height: 85vh !important;
-               }
-               
-               /* 左侧控制面板在移动端改为全宽 */
-               #aiSummaryModal .modal-body > div:first-child {
-                   flex: none !important;
-                   width: 100% !important;
-                   padding-right: 0 !important;
-                   border-right: none !important;
-                   border-bottom: 1px solid var(--border) !important;
-                   padding-bottom: 12px !important;
-                   max-height: 40vh !important;
-                   overflow-y: auto !important;
-               }
-               
-               /* 右侧汇总结果在移动端改为全宽 */
-               #aiSummaryModal .modal-body > div:nth-child(2) {
-                   flex: none !important;
-                   width: 100% !important;
-               }
+                #aiSummaryModal .modal-body {
+                    flex-direction: column !important;
+                    gap: 12px !important;
+                    max-height: 85vh !important;
+                }
+                
+                /* 汇总选项卡内容在移动端改为垂直布局 */
+                #summaryTabContent {
+                    flex-direction: column !important;
+                    gap: 12px !important;
+                }
+                
+                /* 左侧控制面板在移动端改为全宽 */
+                #summaryTabContent > div:first-child {
+                    flex: none !important;
+                    width: 100% !important;
+                    padding-right: 0 !important;
+                    border-right: none !important;
+                    border-bottom: 1px solid var(--border) !important;
+                    padding-bottom: 12px !important;
+                    max-height: 40vh !important;
+                    overflow-y: auto !important;
+                }
+                
+                /* 右侧汇总结果在移动端改为全宽 */
+                #summaryTabContent > div:nth-child(2) {
+                    flex: none !important;
+                    width: 100% !important;
+                }
                
                /* 汇总结果内容区域移动端优化 */
                #aiSummaryContent {
@@ -2432,7 +2438,7 @@
                                                 // 将旧的 scenarioType 映射到新的 frameworkType
                                                 const scenarioTypeMap = {
                                                     'report': { framework: 'PREP结构', frameworkType: 'prep' },
-                                                    'communication': { framework: '感受事实期待', frameworkType: 'feeling' },
+                                                    'communication': { framework: '事实感受期待', frameworkType: 'feeling' },
                                                     'presentation': { framework: 'STAR法则', frameworkType: 'star' }
                                                 };
                                                 const mapped = scenarioTypeMap[practice.scenarioType] || { framework: '自定义框架', frameworkType: 'custom' };
@@ -6761,14 +6767,10 @@ ${behaviorDescription}
  1. 统计感受总数、标签分布
  2. 按标签分类展示感受（每个标签下列出具体感受）
  3. 分析情绪变化趋势、时间分布
- 4. 提炼关键主题和洞察
- 5. 提供情绪管理建议
- 6. 使用简洁、友好的语言
- 7. 使用emoji增加可读性（如性（如💭、🏷️、💡等）
- 8. 该分段的分段，该用小标题的小标题
- 9. 文本输出，不要有黑体字转为文本的*之类的
+ 4. 依据感受内容给出简短的分析本质
+ 5. 使用emoji增加可读性（如性（如💭、🏷️、💡等）
  
- 请生成一份结构清晰、内容丰富的汇总报告。`;
+ 请生成一份结构清晰、精炼的汇总报告。`;
         }
         
         // 切换提示词显示/隐藏
@@ -7243,9 +7245,7 @@ ${behaviorDescription}
 1. 识别核心情绪和意图
 2. 共情与确认感受
 3. 提炼关键思考和洞察
-4. 价值升华和积极引导
-
-文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。`;
+4. 价值升华和积极引导`;
          customPromptInput.value = defaultPromptText;
          
          // 填充模型选择器
