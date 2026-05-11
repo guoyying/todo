@@ -191,20 +191,6 @@
       "doneAt": "2026-04-29T01:09:53.764Z"
     },
     {
-      "id": "mojcyvvoi6czy",
-      "type": "task",
-      "content": "更新美哥周报",
-      "createdAt": "2026-04-29T01:10:26.532Z",
-      "updatedAt": "2026-04-29T03:48:04.081Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "14min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-04-29T03:48:04.080Z"
-    },
-    {
       "id": "mojdgv13c8v8p",
       "type": "task",
       "content": "定级备案更新",
@@ -792,37 +778,6 @@
       "subtasks": [],
       "placedIn": "slot_motqym1ihfyvk",
       "doneAt": "2026-05-06T07:55:53.885Z"
-    },
-    {
-      "id": "motq0a7x9kz46",
-      "type": "task",
-      "content": "梳理退网设备了",
-      "createdAt": "2026-05-06T07:13:08.541Z",
-      "updatedAt": "2026-05-07T02:53:10.504Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "motq0a7xbyfkl",
-          "content": "整理800M设备",
-          "estimatedTime": "25min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "motq0a7x4d94b",
-          "content": "写一下退网可以从哪些角度出发-退网进度、800M的等等",
-          "estimatedTime": "8min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-07T02:53:08.017Z"
     },
     {
       "id": "motq0ud4id8ad",
@@ -1765,14 +1720,16 @@
       "placedIn": null
     },
     {
-      "id": "1778486701636",
+      "id": "1778487852060",
       "type": "task",
-      "content": "给美哥更新4月退网进度。算力退网太快，跟进处理",
-      "tags": [],
+      "content": "给美哥更新4月退网进度；NOC 4月退网成效",
+      "tags": [
+        "退网"
+      ],
       "done": true,
-      "doneAt": "2026-05-11T08:05:01.636Z",
+      "doneAt": "2026-05-11T08:24:12.060Z",
       "createdAt": "2026-05-06T07:13:57.421Z",
-      "updatedAt": "2026-05-11T08:05:01.636Z",
+      "updatedAt": "2026-05-11T08:24:12.060Z",
       "organization": {
         "goal": "",
         "completion": "",
@@ -1780,10 +1737,10 @@
         "innovation": "",
         "success": "可以用云网部名义给他们多些指标，这样其他县分就能轻松点",
         "failure": "",
-        "improvement": "",
+        "improvement": "总是要更新表格，节电清单，功率，每次都要花时间梳理。可以整理需要填写哪些表格。",
         "problems": "",
         "summary": "",
-        "organizedAt": "2026-05-11T08:05:01.636Z"
+        "organizedAt": "2026-05-11T08:24:12.060Z"
       },
       "subtasks": []
     }
