@@ -419,29 +419,30 @@
             gap: 6px;
             margin-top: 6px;
         }
-        .tag {
-            padding: 3px 8px 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            user-select: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .tag .tag-del {
-            font-size: 11px;
-            width: 14px;
-            height: 14px;
-            line-height: 14px;
-            text-align: center;
-            border-radius: 50%;
-            color: var(--text-secondary);
-            cursor: pointer;
-            display: inline-block;
-        }
+         .tag {
+             padding: 3px 10px 3px 8px;
+             border-radius: 20px;
+             font-size: 12px;
+             cursor: pointer;
+             border: 1px solid var(--border);
+             background: var(--bg);
+             user-select: none;
+             display: inline-flex;
+             align-items: center;
+             gap: 4px;
+         }
+         .tag .tag-del {
+             font-size: 11px;
+             width: 14px;
+             height: 14px;
+             line-height: 14px;
+             text-align: center;
+             border-radius: 50%;
+             color: var(--text-secondary);
+             cursor: pointer;
+             display: inline-block;
+             margin-left: 2px;
+         }
         .tag .tag-del:hover { background: var(--danger); color: white; }
         .tag.active {
             background: var(--primary);
@@ -569,6 +570,109 @@
             flex-direction: column;
             gap: 12px;
             margin-top: 12px;
+        }
+        
+        /* 极简列表式样式 - 待整理任务 */
+        .pending-task-item {
+            display: flex;
+            align-items: center;
+            padding: 3px 6px !important;
+            margin-bottom: 0 !important;
+            background: var(--card) !important;
+            border: none !important;
+            border-bottom: 1px dashed var(--border) !important;
+            border-radius: 0 !important;
+            gap: 4px !important;
+            min-height: 22px !important;
+            transition: background 0.15s;
+        }
+        
+        .pending-task-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        .pending-task-item:hover {
+            background: var(--primary-light) !important;
+        }
+        
+        .pending-task-checkbox {
+            width: 12px !important;
+            height: 12px !important;
+            margin: 0 !important;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        
+        .pending-task-content {
+            flex: 1;
+            min-width: 0;
+            max-width: 500px;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            margin: 0 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            word-break: break-all !important;
+            line-height: 1.2 !important;
+        }
+        
+        .pending-task-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        
+        .pending-task-time {
+            font-size: 9px !important;
+            color: var(--text-secondary) !important;
+            white-space: nowrap !important;
+        }
+        
+        .pending-task-tags {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+        
+        .pending-task-tag-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--task);
+            flex-shrink: 0;
+            cursor: help;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .pending-task-tag-dot:hover {
+            z-index: 10;
+        }
+        
+        /* 标签提示框 */
+        .pending-task-tag-dot::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-4px);
+            background: var(--text);
+            color: var(--card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            margin-bottom: 4px;
+        }
+        
+        .pending-task-tag-dot:hover::after {
+            opacity: 1;
         }
         .slot {
             background: var(--card);
@@ -1304,11 +1408,66 @@
                }
                
                /* 按钮移动端优化 */
-               #aiSummaryModal .btn {
+               #aiPolishModal .btn {
                    padding: 8px 12px !important;
                    font-size: 13px !important;
                }
                
+               /* 任务整理模态框移动端优化 */
+               #taskOrganizerModal .modal {
+                   width: 95% !important;
+                   max-width: none !important;
+                   margin: 10px auto !important;
+                   max-height: 90vh !important;
+               }
+               
+               #taskOrganizerModal .modal-body {
+                   padding: 12px !important;
+                   max-height: 85vh !important;
+               }
+               
+               /* 整理表单移动端改为单列布局 */
+               #taskOrganizerForm > div:nth-child(5) {
+                   grid-template-columns: 1fr !important;
+                   gap: 12px !important;
+               }
+               
+               /* 输入框移动端优化 */
+               #taskOrganizerModal textarea {
+                   font-size: 13px !important;
+                   padding: 8px !important;
+               }
+               
+               #taskOrganizerModal select {
+                   font-size: 13px !important;
+                   padding: 8px !important;
+               }
+               
+               /* 按钮移动端优化 */
+               #taskOrganizerModal .btn {
+                   padding: 6px 10px !important;
+                   font-size: 12px !important;
+               }
+               
+               /* 待整理任务列表移动端优化 */
+               #pendingTasksContainer {
+                   max-height: 200px !important;
+               }
+                               /* 已整理任务列表移动端优化 */
+                               #organizedTasksContainer {
+                                   max-height: 300px !important;
+                               }
+                               
+                               /* 已整理任务项样式 - 覆盖.item样式 */
+                               #organizedTasksContainer .organized-task-item {
+                                   background: transparent !important;
+                                   border: none !important;
+                                   border-radius: 0 !important;
+                                   padding: 4px 0 !important;
+                                   margin-bottom: 0 !important;
+                                   box-shadow: none !important;
+                                   border-left: none !important;
+                               }
                /* AI润色模态框移动端优化 */
                #aiPolishModal .modal {
                    width: 95% !important;
@@ -1620,6 +1779,7 @@
                     <option value="thisMonth">本月</option>
                 </select>
                 <div class="tag-filter" id="completedTagFilter"></div>
+                <button class="btn btn-small btn-primary" onclick="showTaskOrganizer()" style="margin-left:8px;">📋 整理</button>
             </div>
             <!-- 任务列表可折叠 -->
             <div id="completedList" class="collapsed"></div>
@@ -1664,6 +1824,147 @@
                 <div class="tag-filter" id="oldFeelingTagFilter"></div>
             </div>
             <div id="oldFeelingList"></div>
+        </div>
+    </div>
+
+    <!-- 任务整理模态框 -->
+    <div class="modal-overlay hidden" id="taskOrganizerModal" onclick="closeModal('taskOrganizerModal')">
+        <div class="modal" style="max-width: 1000px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>📋 已完成任务整理</h3>
+                <span class="close" onclick="closeModal('taskOrganizerModal')">&times;</span>
+            </div>
+            <div class="modal-body" style="max-height:85vh;">
+                <!-- 选项卡 -->
+                <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
+                    <button id="organizerTabBtn" class="btn btn-small btn-primary" onclick="switchOrganizerTab('organizer')">📝 整理任务</button>
+                    <button id="organizedTabBtn" class="btn btn-small btn-secondary" onclick="switchOrganizerTab('organized')">✅ 已整理</button>
+                </div>
+                
+                <!-- 整理任务选项卡 -->
+                <div id="organizerTabContent">
+                    <!-- 待整理任务列表 -->
+                    <div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <div style="font-weight:500;">📋 待整理任务</div>
+                            <div style="display:flex;gap:8px;">
+                                <button class="btn btn-small btn-primary" onclick="mergeSelectedTasks()">🔗 合并选中</button>
+                                <button class="btn btn-small btn-secondary" onclick="deleteSelectedTasks()">🗑️ 删除选中</button>
+                            </div>
+                        </div>
+                        <!-- 标签筛选 -->
+                        <div style="margin-bottom:12px;padding:8px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">🏷️ 按标签筛选</div>
+                            <div id="organizerPendingTagFilter" class="tag-filter"></div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <button class="btn btn-small btn-secondary" onclick="togglePendingTasksTree()" id="pendingTasksToggleBtn">📂 展开/收起</button>
+                                <span style="font-size:12px;color:var(--text-secondary);">已选择 <span id="selectedTasksCount">0</span> 个任务</span>
+                                <span style="font-size:12px;color:var(--text-secondary);">|</span>
+                                <span style="font-size:12px;color:var(--text-secondary);">显示 <span id="filteredTasksCount">0</span> 个任务</span>
+                            </div>
+                            <div id="pendingTasksContainer" style="max-height:250px;overflow-y:auto;padding:4px;background:var(--bg);border-radius:6px;border:1px solid var(--border);display:none;">
+                                <div style="color:var(--text-secondary);text-align:center;padding:20px;">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 整理表单 -->
+                    <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:16px;">
+                        <!-- 合并任务信息 -->
+                        <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
+                            <div style="font-weight:500;margin-bottom:8px;">🔗 合并任务信息</div>
+                            <div id="mergedTaskContent" style="margin-bottom:8px;"></div>
+                            <div style="font-size:12px;color:var(--text-secondary);">
+                                包含任务数：<span id="mergedTaskCount">0</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 任务内容编辑 -->
+                        <div>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务内容</label>
+                            <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="编辑任务内容..."></textarea>
+                        </div>
+                        
+                        <!-- 标签选择 -->
+                        <div>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">🏷️ 标签</label>
+                            <div id="organizerTags" class="tags-select"></div>
+                        </div>
+                        
+                        <!-- 整理字段 -->
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                            <!-- 左列 -->
+                            <div style="display:flex;flex-direction:column;gap:12px;">
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🎯 目标</label>
+                                    <textarea id="organizerGoal" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="任务的目标是什么？"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✅ 完成情况（量化指标）</label>
+                                    <textarea id="organizerCompletion" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="完成的量化指标，如：完成度100%、节省时间2小时等"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">📚 学到的技能/知识</label>
+                                    <textarea id="organizerSkills" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="学到了什么新技能或知识？"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">💡 创新的做法/想法</label>
+                                    <textarea id="organizerInnovation" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="有什么创新的做法或想法？"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- 右列 -->
+                            <div style="display:flex;flex-direction:column;gap:12px;">
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✨ 成功经验</label>
+                                    <textarea id="organizerSuccess" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="哪些做法是成功的？"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">❌ 失败教训</label>
+                                    <textarea id="organizerFailure" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？有什么教训？"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🔧 改进建议</label>
+                                    <textarea id="organizerImprovement" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="下次如何改进？"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🤔 遇到问题</label>
+                                    <textarea id="organizerProblems" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 经验总结 -->
+                        <div>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 经验总结</label>
+                            <textarea id="organizerSummary" rows="4" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="综合以上内容，总结这个任务的经验和收获"></textarea>
+                        </div>
+                        
+                        <!-- 操作按钮 -->
+                        <div style="display:flex;gap:8px;">
+                            <button class="btn btn-primary" onclick="saveTaskOrganizer()" style="flex:1;">💾 保存整理</button>
+                            <button class="btn btn-secondary" onclick="clearOrganizerForm()" style="flex:1;">🗑️ 清空表单</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 已整理选项卡 -->
+                <div id="organizedTabContent" style="display:none;">
+                    <div style="display:flex;gap:8px;margin-bottom:16px;">
+                        <button class="btn btn-secondary" onclick="exportTaskOrganizer()" style="flex:1;">📤 导出</button>
+                        <button class="btn btn-secondary" onclick="clearTaskOrganizer()" style="flex:1;">🗑️ 清空</button>
+                    </div>
+                    <div id="organizedTasksContainer" style="max-height:500px;overflow-y:auto;"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2710,6 +3011,8 @@
                 allTags = getTaskTags();
             } else if (containerId === 'feelingTags') {
                 allTags = getFeelingTags();
+            } else if (containerId === 'organizerTags') {
+                allTags = getTaskTags(); // 整理功能使用任务标签
             }
             
             allTags.forEach(tag => {
@@ -2750,14 +3053,17 @@
                     }
                 };
                 
-                // 为所有标签添加删除按钮
-                const del = document.createElement('span');
-                del.className = 'tag-del';
-                del.textContent = '×';
-                del.title = '删除标签';
-                del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
-                span.appendChild(text);
-                span.appendChild(del);
+                  // 先添加文本
+                  span.appendChild(text);
+                  // 为所有标签添加删除按钮（整理界面不显示删除按钮）
+                  if (containerId !== 'organizerTags') {
+                      const del = document.createElement('span');
+                      del.className = 'tag-del';
+                      del.textContent = '×';
+                      del.title = '删除标签';
+                      del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
+                      span.appendChild(del);
+                  }
                 
                 el.appendChild(span);
             });
@@ -2773,23 +3079,67 @@
                 const textSpan = el.querySelector('span:first-child');
                 return textSpan ? textSpan.textContent : el.textContent.replace('×', '').trim();
             });
-        }
-
-        function addTag(containerId) {
-            const input = document.getElementById(containerId + 'New');
-            const v = input.value.trim();
-            if (!v) return;
-            
-            // 添加到 common 标签数组（作为公共标签）
-            if (containerId === 'taskTags') {
-                if (!data.commonTaskTags.includes(v)) data.commonTaskTags.push(v);
-            } else if (containerId === 'feelingTags') {
-                if (!data.commonFeelingTags.includes(v)) data.commonFeelingTags.push(v);
-            }
-            
-            input.value = '';
-            render();
-        }
+         }
+ 
+         function addTag(containerId) {
+             const input = document.getElementById(containerId + 'New');
+             const v = input.value.trim();
+             if (!v) return;
+             
+             // 添加到 common 标签数组（作为公共标签）
+             if (containerId === 'taskTags' || containerId === 'organizerTags') {
+                 if (!data.commonTaskTags.includes(v)) data.commonTaskTags.push(v);
+             } else if (containerId === 'feelingTags') {
+                 if (!data.commonFeelingTags.includes(v)) data.commonFeelingTags.push(v);
+             }
+             
+             input.value = '';
+             // 重新渲染标签选择器以显示新添加的标签
+             renderTags(containerId);
+             
+             // 如果是在整理界面添加标签,需要更新所有相关的标签筛选器
+             if (containerId === 'organizerTags') {
+                 // 更新待办、往期待办、已完成的标签筛选器
+                 updateAllTagFilters();
+             }
+             
+             saveData();
+         }
+         
+         // 更新所有标签筛选器
+         function updateAllTagFilters() {
+             // 待办任务筛选器
+             const todayTasks = data.tasks.filter(t => !t.done && !t.organization);
+             const todayFilter = document.getElementById('todayTagFilter');
+             if (todayFilter) {
+                 const currentTags = JSON.parse(todayFilter.dataset.selectedTags || '[]');
+                 renderTagFilter('todayTagFilter', todayTasks, currentTags);
+             }
+             
+             // 往期待办筛选器
+             const oldTodoTasks = data.tasks.filter(t => !t.done && !t.organization);
+             const oldTodoFilter = document.getElementById('oldTodoTagFilter');
+             if (oldTodoFilter) {
+                 const currentTags = JSON.parse(oldTodoFilter.dataset.selectedTags || '[]');
+                 renderTagFilter('oldTodoTagFilter', oldTodoTasks, currentTags);
+             }
+             
+             // 已完成任务筛选器
+             const completedTasks = data.tasks.filter(t => t.done && !t.organization);
+             const completedFilter = document.getElementById('completedTagFilter');
+             if (completedFilter) {
+                 const currentTags = JSON.parse(completedFilter.dataset.selectedTags || '[]');
+                 renderTagFilter('completedTagFilter', completedTasks, currentTags);
+             }
+             
+             // 待整理任务筛选器
+             const pendingTasks = data.tasks.filter(t => t.done && !t.organization);
+             const pendingFilter = document.getElementById('organizerPendingTagFilter');
+             if (pendingFilter) {
+                 const currentTags = JSON.parse(pendingFilter.dataset.selectedTags || '[]');
+                 renderTagFilter('organizerPendingTagFilter', pendingTasks, currentTags);
+             }
+         }
 
         function deleteTag(containerId, tag) {
             console.log('deleteTag 被调用:', { containerId, tag });
@@ -2876,7 +3226,9 @@
             // 添加"全部"选项
             const allBtn = document.createElement('span');
             allBtn.className = 'tag' + (tagsArray.length === 0 ? ' active' : '');
-            allBtn.style.opacity = tagsArray.length === 0 ? '1' : '0.6';
+            if (tagsArray.length > 0) {
+                allBtn.style.opacity = '0.6';
+            }
             allBtn.textContent = '全部';
             allBtn.onclick = () => {
                 container.dataset.selectedTags = '[]';
@@ -2890,6 +3242,8 @@
                     renderOldFeelings();
                 } else if (containerId === 'completedTagFilter') {
                     renderCompleted();
+                } else if (containerId === 'organizerPendingTagFilter') {
+                    loadPendingTasksList();
                 }
             };
             container.appendChild(allBtn);
@@ -2899,7 +3253,9 @@
                 const span = document.createElement('span');
                 const isSelected = tagsArray.includes(tag);
                 span.className = 'tag' + (isSelected ? ' active' : '');
-                span.style.opacity = isSelected ? '1' : '0.7';
+                if (!isSelected) {
+                    span.style.opacity = '0.7';
+                }
                 span.textContent = tag;
                 span.onclick = (e) => {
                     e.stopPropagation();
@@ -2923,6 +3279,12 @@
                         renderOldFeelings();
                     } else if (containerId === 'completedTagFilter') {
                         renderCompleted();
+                    } else if (containerId === 'organizerPendingTagFilter') {
+                        // 重新渲染标签筛选器以更新选中状态
+                        const pendingTasks = data.tasks.filter(task => task.done && !task.organization);
+                        renderTagFilter(containerId, pendingTasks, currentTags);
+                        // 加载待整理任务列表
+                        loadPendingTasksList();
                     }
                 };
                 container.appendChild(span);
@@ -9925,6 +10287,462 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 不再自动生成汇总，等待用户点击按钮
            // generateAISummary(type);
+       }
+       
+       // 显示任务整理模态框
+       function showTaskOrganizer() {
+           const modal = document.getElementById('taskOrganizerModal');
+           
+           // 清空表单
+           clearOrganizerForm();
+           
+           // 初始化待整理任务标签筛选器
+           const pendingTasks = data.tasks.filter(task => task.done && !task.organization);
+           renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
+           
+           // 加载待整理任务列表
+           loadPendingTasksList();
+           
+           // 加载已整理的任务列表
+           loadOrganizedTasksList();
+           
+           // 初始化标签选择器（使用renderTags函数）
+           renderTags('organizerTags', []);
+           
+           // 默认显示整理任务选项卡
+           switchOrganizerTab('organizer');
+           
+           modal.classList.remove('hidden');
+       }
+       
+       // 切换整理选项卡
+       function switchOrganizerTab(tab) {
+           const organizerTab = document.getElementById('organizerTabContent');
+           const organizedTab = document.getElementById('organizedTabContent');
+           const organizerBtn = document.getElementById('organizerTabBtn');
+           const organizedBtn = document.getElementById('organizedTabBtn');
+           
+           if (tab === 'organizer') {
+               organizerTab.style.display = 'block';
+               organizedTab.style.display = 'none';
+               organizerBtn.classList.remove('btn-secondary');
+               organizerBtn.classList.add('btn-primary');
+               organizedBtn.classList.remove('btn-primary');
+               organizedBtn.classList.add('btn-secondary');
+           } else {
+               organizerTab.style.display = 'none';
+               organizedTab.style.display = 'block';
+               organizerBtn.classList.remove('btn-primary');
+               organizerBtn.classList.add('btn-secondary');
+               organizedBtn.classList.remove('btn-secondary');
+               organizedBtn.classList.add('btn-primary');
+           }
+       }
+       
+       // 加载待整理任务列表
+       // 加载待整理任务列表
+       function loadPendingTasksList() {
+           const container = document.getElementById('pendingTasksContainer');
+           
+           // 获取选中的标签
+           const tagFilter = document.getElementById('organizerPendingTagFilter');
+           const selectedTagsStr = tagFilter?.dataset.selectedTags || '[]';
+           const selectedTags = JSON.parse(selectedTagsStr);
+           
+           // 获取筛选模式（包含/排除）
+           const filterMode = tagFilter?.dataset.filterMode || 'include';
+           
+           // 筛选待整理任务
+           let pendingTasks = data.tasks.filter(task => task.done && !task.organization);
+           
+           // 按标签筛选
+           if (selectedTags.length > 0) {
+               pendingTasks = pendingTasks.filter(task => {
+                   const taskTags = task.tags || [];
+                   if (filterMode === 'include') {
+                       // 包含模式：任务必须包含选中的标签
+                       return selectedTags.some(tag => taskTags.includes(tag));
+                   } else {
+                       // 排除模式：任务不能包含选中的标签
+                       return !selectedTags.some(tag => taskTags.includes(tag));
+                   }
+               });
+           }
+           
+           // 更新筛选后的任务数量
+           document.getElementById('filteredTasksCount').textContent = pendingTasks.length;
+           
+           if (pendingTasks.length === 0) {
+               container.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">暂无待整理任务</div>';
+               return;
+           }
+           
+           // 按完成时间排序（最新的在前）
+           pendingTasks.sort((a, b) => {
+               const timeA = a.doneAt ? new Date(a.doneAt).getTime() : 0;
+               const timeB = b.doneAt ? new Date(b.doneAt).getTime() : 0;
+               return timeB - timeA;
+           });
+           
+           container.innerHTML = '';
+           
+           // 直接显示任务列表 - 极简列表式
+           pendingTasks.forEach(task => {
+               const item = document.createElement('div');
+               item.className = 'pending-task-item';
+               
+               // 显示任务时间（简化格式）
+               const doneTime = task.doneAt ? formatDateTime(task.doneAt) : '未知';
+               
+               // 显示任务标签（用小圆点表示）
+               const taskTags = task.tags || [];
+               const tagsDots = taskTags.length > 0
+                   ? taskTags.map(tag => `<span class="pending-task-tag-dot" title="${tag}"></span>`).join('')
+                   : '';
+               
+               item.innerHTML = `
+                   <input type="checkbox" class="pending-task-checkbox" data-task-id="${task.id}">
+                   <div class="pending-task-content" title="${task.content}">${task.content}</div>
+                   <div class="pending-task-meta">
+                       <span class="pending-task-time">${doneTime}</span>
+                       <div class="pending-task-tags">${tagsDots}</div>
+                   </div>
+               `;
+               
+               container.appendChild(item);
+           });
+           
+           // 添加复选框变化监听
+           updateSelectedTasksCount();
+           document.querySelectorAll('.pending-task-checkbox').forEach(cb => {
+               cb.addEventListener('change', updateSelectedTasksCount);
+           });
+       }
+       
+       // 更新选中任务数量
+       function updateSelectedTasksCount() {
+           const count = document.querySelectorAll('.pending-task-checkbox:checked').length;
+           document.getElementById('selectedTasksCount').textContent = count;
+       }
+       
+       // 展开/收起待整理任务树
+       function togglePendingTasksTree() {
+           const container = document.getElementById('pendingTasksContainer');
+           const isHidden = container.style.display === 'none';
+           container.style.display = isHidden ? 'block' : 'none';
+           document.getElementById('pendingTasksToggleBtn').textContent = isHidden ? '📂 收起' : '📂 展开';
+       }
+       
+       // 清空整理表单
+       function clearOrganizerForm() {
+           document.getElementById('organizerTaskContent').value = '';
+           document.getElementById('organizerGoal').value = '';
+           document.getElementById('organizerCompletion').value = '';
+           document.getElementById('organizerSkills').value = '';
+           document.getElementById('organizerInnovation').value = '';
+           document.getElementById('organizerSuccess').value = '';
+           document.getElementById('organizerFailure').value = '';
+           document.getElementById('organizerImprovement').value = '';
+           document.getElementById('organizerProblems').value = '';
+           document.getElementById('organizerSummary').value = '';
+           document.getElementById('mergedTaskInfo').style.display = 'none';
+           
+           // 清空标签选择
+           renderTags('organizerTags', []);
+           
+           // 清空选中的任务
+           document.querySelectorAll('.pending-task-checkbox').forEach(cb => cb.checked = false);
+       }
+       
+       // 合并选中的任务
+       function mergeSelectedTasks() {
+           const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
+           
+           if (checkboxes.length === 0) {
+               alert('请先选择要合并的任务');
+               return;
+           }
+           
+           if (checkboxes.length === 1) {
+               alert('请选择至少两个任务进行合并');
+               return;
+           }
+           
+           const selectedTasks = [];
+           checkboxes.forEach(cb => {
+               const taskId = cb.dataset.taskId;
+               const task = data.tasks.find(t => t.id === taskId);
+               if (task) {
+                   selectedTasks.push(task);
+               }
+           });
+           
+           // 合并任务内容
+           const mergedContent = selectedTasks.map(t => t.content).join('\n');
+           
+           // 显示合并信息
+           document.getElementById('mergedTaskInfo').style.display = 'block';
+           document.getElementById('mergedTaskContent').textContent = mergedContent.substring(0, 200) + (mergedContent.length > 200 ? '...' : '');
+           document.getElementById('mergedTaskCount').textContent = selectedTasks.length;
+           
+           // 不自动填充到编辑框，让用户自己编辑
+           document.getElementById('organizerTaskContent').value = '';
+           
+           // 保存选中的任务ID
+           window.mergedTaskIds = selectedTasks.map(t => t.id);
+       }
+       
+       // 删除选中的任务
+       function deleteSelectedTasks() {
+           const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
+           
+           if (checkboxes.length === 0) {
+               alert('请先选择要删除的任务');
+               return;
+           }
+           
+           if (!confirm(`确定要删除选中的 ${checkboxes.length} 个任务吗？此操作不可恢复！`)) {
+               return;
+           }
+           
+           const taskIds = [];
+           checkboxes.forEach(cb => {
+               taskIds.push(cb.dataset.taskId);
+           });
+           
+           // 从数据中删除任务
+           data.tasks = data.tasks.filter(task => !taskIds.includes(task.id));
+           
+           saveData();
+           
+           // 刷新待整理任务列表
+           loadPendingTasksList();
+           
+           // 刷新已完成列表
+           renderCompleted();
+           
+           alert(`已删除 ${taskIds.length} 个任务`);
+       }
+       
+       // 保存任务整理
+       function saveTaskOrganizer() {
+           const taskContent = document.getElementById('organizerTaskContent').value.trim();
+           
+           if (!taskContent) {
+               alert('请输入任务内容');
+               return;
+           }
+           
+           // 获取选中的标签
+           const selectedTags = getSelectedTags('organizerTags');
+           
+           // 获取选中的任务
+           const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
+           
+           if (checkboxes.length === 0) {
+               alert('请先选择要整理的任务');
+               return;
+           }
+           
+           // 获取第一个选中的任务（用于保留原始信息）
+           const firstTaskId = checkboxes[0].dataset.taskId;
+           const firstTask = data.tasks.find(t => t.id === firstTaskId);
+           
+           if (!firstTask) {
+               alert('任务不存在');
+               return;
+           }
+           
+           // 更新第一个任务的内容和标签
+           firstTask.content = taskContent;
+           firstTask.tags = selectedTags;
+           firstTask.updatedAt = nowStr();
+           
+           // 保存整理数据（无需填写全部字段）
+           firstTask.organization = {
+               goal: document.getElementById('organizerGoal').value.trim(),
+               completion: document.getElementById('organizerCompletion').value.trim(),
+               skills: document.getElementById('organizerSkills').value.trim(),
+               innovation: document.getElementById('organizerInnovation').value.trim(),
+               success: document.getElementById('organizerSuccess').value.trim(),
+               failure: document.getElementById('organizerFailure').value.trim(),
+               improvement: document.getElementById('organizerImprovement').value.trim(),
+               problems: document.getElementById('organizerProblems').value.trim(),
+               summary: document.getElementById('organizerSummary').value.trim(),
+               organizedAt: nowStr()
+           };
+           
+           // 如果有多个选中的任务，删除其他任务
+           if (checkboxes.length > 1) {
+               const taskIdsToDelete = [];
+               checkboxes.forEach((cb, index) => {
+                   if (index > 0) { // 跳过第一个任务
+                       taskIdsToDelete.push(cb.dataset.taskId);
+                   }
+               });
+               
+               // 删除其他任务
+               data.tasks = data.tasks.filter(task => !taskIdsToDelete.includes(task.id));
+           }
+           
+           // 清空合并任务ID
+           window.mergedTaskIds = null;
+           
+           saveData();
+           
+           // 刷新列表
+           loadPendingTasksList();
+           loadOrganizedTasksList();
+           renderCompleted();
+           
+           // 清空表单
+           clearOrganizerForm();
+           
+           alert('整理已保存！');
+       }
+       
+        // 加载已整理任务列表
+           function loadOrganizedTasksList() {
+               const container = document.getElementById('organizedTasksContainer');
+               container.innerHTML = '';
+               
+               const organizedTasks = data.tasks.filter(task => task.done && task.organization);
+               
+               if (organizedTasks.length === 0) {
+                   container.innerHTML = '<div style="color:var(--text-secondary);padding:12px;text-align:center;">暂无已整理任务</div>';
+                   return;
+               }
+               
+               organizedTasks.forEach(task => {
+                   const item = document.createElement('div');
+                   // 使用更强的内联样式覆盖所有可能的CSS
+                   item.style.cssText = 'padding:4px 0 !important;font-size:13px !important;display:flex !important;align-items:center !important;gap:8px !important;background:transparent !important;border:none !important;border-radius:0 !important;margin-bottom:0 !important;box-shadow:none !important;border-left:none !important;';
+                   
+                   const doneDate = task.doneAt ? new Date(task.doneAt).toLocaleDateString('zh-CN') : '未知';
+                   
+                   // 显示标签
+                   let tagsHtml = '';
+                   if (task.tags && task.tags.length > 0) {
+                       tagsHtml = task.tags.map(tag => `<span class="tag" style="font-size:10px;padding:1px 4px;margin-right:2px;">${tag}</span>`).join('');
+                   }
+                   
+                   item.innerHTML = `
+                       <span style="flex:1;word-break:break-word;">${task.content} ${tagsHtml}</span>
+                       <span style="color:var(--text-secondary);font-size:12px;white-space:nowrap;">${doneDate}</span>
+                       <button class="btn btn-small btn-secondary" onclick="viewOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">查看</button>
+                       <button class="btn btn-small btn-secondary" onclick="deleteOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">删除</button>
+                   `;
+                   
+                   container.appendChild(item);
+               });
+           }
+       
+       // 查看已整理任务
+       function viewOrganizedTask(taskId) {
+           const task = data.tasks.find(t => t.id === taskId);
+           if (!task || !task.organization) return;
+           
+           // 切换到整理任务选项卡
+           switchOrganizerTab('organizer');
+           
+           // 填充表单
+           document.getElementById('organizerTaskContent').value = task.content;
+           document.getElementById('organizerGoal').value = task.organization.goal || '';
+           document.getElementById('organizerCompletion').value = task.organization.completion || '';
+           document.getElementById('organizerSkills').value = task.organization.skills || '';
+           document.getElementById('organizerInnovation').value = task.organization.innovation || '';
+           document.getElementById('organizerSuccess').value = task.organization.success || '';
+           document.getElementById('organizerFailure').value = task.organization.failure || '';
+           document.getElementById('organizerImprovement').value = task.organization.improvement || '';
+           document.getElementById('organizerProblems').value = task.organization.problems || '';
+           document.getElementById('organizerSummary').value = task.organization.summary || '';
+           
+           // 设置标签（使用renderTags函数）
+           const taskTags = task.tags || [];
+           renderTags('organizerTags', taskTags);
+           
+           // 隐藏合并信息
+           document.getElementById('mergedTaskInfo').style.display = 'none';
+           
+           // 清空合并任务ID
+           window.mergedTaskIds = null;
+       }
+       
+       // 删除已整理任务
+       function deleteOrganizedTask(taskId) {
+           if (!confirm('确定要删除这个任务的整理数据吗？')) return;
+           
+           const task = data.tasks.find(t => t.id === taskId);
+           if (task) {
+               delete task.organization;
+               saveData();
+               loadOrganizedTasksList();
+               loadPendingTasksList();
+               renderCompleted();
+           }
+       }
+       
+       // 导出任务整理
+       function exportTaskOrganizer() {
+           const organizedTasks = data.tasks.filter(task => task.done && task.organization);
+           
+           if (organizedTasks.length === 0) {
+               alert('暂无已整理任务可导出');
+               return;
+           }
+           
+           let markdown = '# 已完成任务整理报告\n\n';
+           markdown += `导出时间：${new Date().toLocaleString('zh-CN')}\n\n`;
+           markdown += `整理任务数：${organizedTasks.length}\n\n`;
+           markdown += '---\n\n';
+           
+           organizedTasks.forEach((task, index) => {
+               const org = task.organization;
+               const doneDate = task.doneAt ? new Date(task.doneAt).toLocaleDateString('zh-CN') : '未知';
+               
+               markdown += `## ${index + 1}. ${task.content}\n\n`;
+               markdown += `**完成时间：** ${doneDate}\n\n`;
+               
+               if (org.goal) markdown += `**🎯 目标：** ${org.goal}\n\n`;
+               if (org.completion) markdown += `**✅ 完成情况：** ${org.completion}\n\n`;
+               if (org.skills) markdown += `**📚 学到的技能/知识：** ${org.skills}\n\n`;
+               if (org.innovation) markdown += `**💡 创新的做法/想法：** ${org.innovation}\n\n`;
+               if (org.success) markdown += `**✨ 成功经验：** ${org.success}\n\n`;
+               if (org.failure) markdown += `**❌ 失败教训：** ${org.failure}\n\n`;
+               if (org.improvement) markdown += `**🔧 改进建议：** ${org.improvement}\n\n`;
+               if (org.problems) markdown += `**🤔 遇到问题：** ${org.problems}\n\n`;
+               if (org.summary) markdown += `**📝 经验总结：** ${org.summary}\n\n`;
+               
+               markdown += '---\n\n';
+           });
+           
+           // 创建下载链接
+           const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
+           const url = URL.createObjectURL(blob);
+           const a = document.createElement('a');
+           a.href = url;
+           a.download = `已完成任务整理_${new Date().toLocaleDateString('zh-CN')}.md`;
+           document.body.appendChild(a);
+           a.click();
+           document.body.removeChild(a);
+           URL.revokeObjectURL(url);
+       }
+       
+       // 清空任务整理
+       function clearTaskOrganizer() {
+           if (!confirm('确定要清空所有整理数据吗？此操作不可恢复！')) return;
+           
+           data.tasks.forEach(task => {
+               if (task.organization) {
+                   delete task.organization;
+               }
+           });
+           
+           saveData();
+           clearOrganizerForm();
+           loadOrganizedTasksList();
+           
+           alert('所有整理数据已清空');
        }
      
      // 获取默认提示词
