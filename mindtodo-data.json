@@ -2337,7 +2337,22 @@
         "solvesProblem": "",
         "cases": [],
         "rewrites": [],
-        "scenarioPractices": []
+        "scenarioPractices": [
+          {
+            "id": "mp1cqbvdi1dnn",
+            "frameworkType": "pyramid",
+            "framework": "金字塔原理",
+            "content": "从“寻找静态的平衡点”转向“建立动态的调节能力”",
+            "createdAt": "2026-05-11T15:23:38.521Z"
+          },
+          {
+            "id": "mp1csgtar129g",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "真正的掌控感来自于我们应对变化时自我迭代的能力，而非一开始就找到“正确答案”",
+            "createdAt": "2026-05-11T15:25:18.238Z"
+          }
+        ]
       },
       "digestionProgress": 0.2
     }
