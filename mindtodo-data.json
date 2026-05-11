@@ -1760,6 +1760,26 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp0zjlkf6wikr",
+      "type": "task",
+      "content": "算力32个设备",
+      "createdAt": "2026-05-11T09:14:29.487Z",
+      "updatedAt": "2026-05-11T09:14:29.487Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp0zjlkfi1dqr",
+          "content": "资源系统查询退网流水号",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2497,6 +2517,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T09:13:30.667Z"
+    "lastSync": "2026-05-11T09:14:07.771Z"
   }
 }
