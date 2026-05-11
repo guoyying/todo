@@ -1826,6 +1826,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp0igd8nx1udo",
+      "type": "task",
+      "content": "天河那个800M微波局的设备跟进，问下那个同事。",
+      "createdAt": "2026-05-11T01:16:05.255Z",
+      "updatedAt": "2026-05-11T01:16:15.896Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2513,6 +2525,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T01:05:12.679Z"
+    "lastSync": "2026-05-11T01:13:45.583Z"
   }
 }
