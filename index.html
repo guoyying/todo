@@ -688,37 +688,40 @@
         /* 气泡提示样式 */
         .undo-toast {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 12px 16px;
+            padding: 8px 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 12px;
-            animation: slideInUp 0.3s ease-out;
+            gap: 8px;
+            animation: fadeIn 0.3s ease-out;
+            white-space: nowrap;
         }
         .undo-toast.show {
             display: flex;
         }
         .undo-toast-message {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text);
         }
         .undo-toast-btn {
-            padding: 6px 12px;
+            padding: 4px 10px;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
         }
         .undo-toast-btn:hover {
             opacity: 0.9;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes slideInUp {
             from { transform: translateY(100px); opacity: 0; }
@@ -4030,7 +4033,7 @@
                                      ${subtasksHtml}
                                  </div>
                                  <div class="item-actions" style="opacity:1;">
-                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}')">返回待办</button>
+                                      <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}', this)">返回待办</button>
                                  </div>
                              `;
                              slotEl.appendChild(wrapper);
@@ -4045,9 +4048,9 @@
                              // 只有单独放入子任务时才显示"来自：xxx"
                              const fromLabel = entry.fromWholeTask ? '' : `<div style="font-size:12px;color:var(--text-secondary);margin-bottom:2px;">来自：${entry.parent.content}</div>`;
                              // 如果是来自整个任务的子任务，点击返回待办应该返回整个任务
-                             const returnAction = entry.fromWholeTask
-                                 ? `removeFromSlotSimple('${entry.parent.id}')`
-                                 : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}')`;
+                              const returnAction = entry.fromWholeTask
+                                  ? `removeFromSlotSimple('${entry.parent.id}', this)`
+                                  : `removeFromSlot('${entry.parent.id}', '${entry.sub.id}', this)`;
                              const subInputHtml = generateInputHtml(entry.sub.content, `updateSubtaskInSlot('${entry.parent.id}', '${entry.sub.id}', this.value, '${entry.sub.estimatedTime || ''}')`);
                               wrapper.innerHTML = `
                                   ${fromLabel}
@@ -4099,7 +4102,7 @@
                                     ${subtasksHtml}
                                 </div>
                                 <div class="item-actions" style="opacity:1;">
-                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
+                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}', this)">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -4122,7 +4125,7 @@
                                           style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
                                   </div>
                                 <div class="item-actions" style="opacity:1;">
-                                    <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}')">返回待办</button>
+                                     <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}', this)">返回待办</button>
                                 </div>
                             `;
                             slotEl.appendChild(wrapper);
@@ -5449,6 +5452,12 @@
                  item.placedIn = null;
              }
              
+             // 关闭弹窗
+             const modal = document.getElementById('mandatoryTagModal');
+             if (modal) {
+                 modal.remove();
+             }
+             
              render();
          }
 
@@ -5668,7 +5677,7 @@
             }, 10);
         }
 
-        function removeFromSlot(itemId, subId) {
+        function removeFromSlot(itemId, subId, buttonElement) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item && item.subtasks) {
                 const st = item.subtasks.find(s => s.id === subId);
@@ -5677,9 +5686,15 @@
                     data.lastUndo = { type: 'sub', itemId, subId, slotId: st.placedIn };
                     st.placedIn = null;
                     item.updatedAt = nowStr();
-                    saveData(); render();
-                    // 显示气泡提示
-                    showUndoToast('sub', itemId, subId);
+                     // 保存按钮位置信息（在 render() 之前）
+                     const buttonRect = buttonElement ? buttonElement.getBoundingClientRect() : null;
+                     
+                     saveData(); render();
+                     
+                     // 显示气泡提示
+                     if (buttonRect) {
+                         showUndoToast('sub', itemId, subId, { getBoundingClientRect: () => buttonRect });
+                     }
                 }
             }
         }
@@ -5721,13 +5736,14 @@
              messageEl.textContent = message;
              
              if (showUndo && undoCallback) {
+                 btn.style.visibility = 'visible';
                  btn.style.display = 'inline-flex';
                  btn.onclick = () => {
                      undoCallback();
                      toast.classList.add('hidden');
                  };
              } else {
-                 btn.style.display = 'none';
+                 btn.style.visibility = 'hidden';
              }
              
              toast.classList.remove('hidden');
@@ -5738,20 +5754,48 @@
              // 指定时间后自动消失
              toastTimer = setTimeout(() => {
                  toast.classList.add('hidden');
-                 btn.style.display = 'inline-flex'; // 恢复撤销按钮显示
              }, duration);
          }
  
          // 显示撤销提示气泡
-         function showUndoToast(type, itemId, subId) {
-             showToast('已返回待办，点击撤销恢复', {
-                 duration: 5000,
-                 showUndo: true,
-                 undoCallback: () => {
-                     undoRemoveFromSlot(type, itemId, subId, data.lastUndo?.slotId);
-                 }
-             });
-        }
+         function showUndoToast(type, itemId, subId, buttonElement) {
+             if (!buttonElement) return;
+             
+             const toast = document.getElementById('undoToast');
+             const messageEl = document.getElementById('undoToastMessage');
+             const btn = document.getElementById('undoToastBtn');
+             
+             // 设置消息
+             messageEl.textContent = '已返回待办，点击撤销恢复';
+             
+             // 设置撤销按钮点击事件
+             btn.onclick = () => {
+                 undoRemoveFromSlot(type, itemId, subId, data.lastUndo?.slotId);
+                 toast.classList.add('hidden');
+             };
+             
+             // 显示撤销按钮
+             btn.style.visibility = 'visible';
+             btn.style.display = 'inline-flex';
+             
+              // 计算位置：在按钮上方显示
+              const buttonRect = buttonElement.getBoundingClientRect();
+              
+              toast.style.position = 'fixed';
+              toast.style.left = buttonRect.left + 'px';
+              toast.style.top = (buttonRect.top - 50) + 'px';
+             
+             // 显示气泡
+             toast.classList.remove('hidden');
+             
+             // 清除之前的定时器
+             if (toastTimer) clearTimeout(toastTimer);
+             
+             // 5秒后自动消失
+             toastTimer = setTimeout(() => {
+                 toast.classList.add('hidden');
+             }, 5000);
+         }
 
         // ============ 时间段任务板任务编辑函数 ============
         function updateTaskInSlot(itemId, newContent, newDueTime) {
@@ -5841,7 +5885,7 @@
              }, 10);
          }
 
-        function removeFromSlotSimple(itemId) {
+        function removeFromSlotSimple(itemId, buttonElement) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 保存撤销信息
@@ -5857,10 +5901,16 @@
                     });
                 }
                 
+                // 保存按钮位置信息（在 render() 之前）
+                const buttonRect = buttonElement ? buttonElement.getBoundingClientRect() : null;
+                
                 item.updatedAt = nowStr();
                 saveData(); render();
+                
                 // 显示气泡提示
-                showUndoToast('item', itemId, null);
+                if (buttonRect) {
+                    showUndoToast('item', itemId, null, { getBoundingClientRect: () => buttonRect });
+                }
             }
         }
         
