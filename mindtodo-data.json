@@ -1686,30 +1686,18 @@
     {
       "id": "mp0ybhgz6swqe",
       "type": "task",
-      "content": "用新工具试一下验收",
+      "content": "RPA测试，顺便验收工程单。",
       "createdAt": "2026-05-11T08:40:11.315Z",
-      "updatedAt": "2026-05-11T09:14:00.265Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-11T09:27:16.384Z",
+      "tags": [
+        "RPA"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0ybhgzrx3kp",
-          "content": "保存文件，然后打开登录，大概15min一单",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778490103696",
-          "content": "复制之前的模板，自己核对一下",
-          "done": false,
-          "estimatedTime": "14min",
-          "placedIn": "slot_mp0zcl7c3uhtl"
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-11T09:27:16.384Z",
+      "subtasks": []
     },
     {
       "id": "mp0ydigevfkvj",
@@ -1780,6 +1768,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp100cze2tyfe",
+      "type": "task",
+      "content": "2张网安单",
+      "createdAt": "2026-05-11T09:27:31.514Z",
+      "updatedAt": "2026-05-11T09:27:31.514Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2517,6 +2517,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T09:14:07.771Z"
+    "lastSync": "2026-05-11T09:14:34.576Z"
   }
 }
