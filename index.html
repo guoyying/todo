@@ -8140,9 +8140,12 @@ ${behaviorDescription}
            function backToAmmoList() {
                document.getElementById('backToAmmoListBtn').classList.add('hidden');
                document.querySelector('.ammo-list-panel').style.display = 'block';
-               document.querySelector('.digestion-notes-panel').style.display = 'none';
-            }
-
+               // 移除编辑表单容器
+               const editContainer = document.getElementById('editDigestionContainer');
+               if (editContainer) {
+                   editContainer.remove();
+               }
+           }
          // 渲染应用场景（编辑模式）
          function renderScenariosForEdit(scenarios, ammoId) {
              if (!scenarios || scenarios.length === 0) {
