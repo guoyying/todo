@@ -727,29 +727,6 @@
       "doneAt": "2026-05-06T07:07:56.040Z"
     },
     {
-      "id": "motg9qrze4x51",
-      "type": "task",
-      "content": "打印标签、去拿",
-      "createdAt": "2026-05-06T02:40:33.743Z",
-      "updatedAt": "2026-05-06T07:26:31.343Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778047780616",
-          "content": "先等回复看他拿还是我拿",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-06T06:13:11.220Z"
-    },
-    {
       "id": "moto0mai1cju2",
       "type": "task",
       "content": "将退网的设备放进清单里",
@@ -1601,51 +1578,18 @@
     {
       "id": "mp0in7vrfknc7",
       "type": "task",
-      "content": "数字化重点项目收集",
+      "content": "数字化重点项目收集：跟泳哥确认报什么项目。",
       "createdAt": "2026-05-11T01:21:24.903Z",
-      "updatedAt": "2026-05-11T06:32:25.994Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-11T08:34:01.011Z",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0in7vqyld3p",
-          "content": "已了解要做什么",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778467108252",
-          "content": "梳理现有的几个项目",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        },
-        {
-          "id": "1778470419588",
-          "content": "想一下要不要跟泳哥说，另外想想怎么跟同事说要跟进",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        },
-        {
-          "id": "1778480305823",
-          "content": "将跟泳哥和同事说的想法转化为todo，话术，deepseek润色",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        },
-        {
-          "id": "1778481141907",
-          "content": "xx，中心有个数字化重点项目收集工作，你的项目xx在清单里头，要求之后每周更新项目进度。到时我会提醒你更新的。",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-11T08:34:01.011Z",
+      "subtasks": []
     },
     {
       "id": "mp0jhmgugve90",
@@ -1723,6 +1667,20 @@
         "summary": "",
         "organizedAt": "2026-05-11T08:24:12.060Z"
       },
+      "subtasks": []
+    },
+    {
+      "id": "mp0y2ltr4outq",
+      "type": "task",
+      "content": "xx，中心有个数字化重点项目收集工作，你的项目xx在清单里头，要求之后每周更新项目进度。到时我会提醒你更新的。",
+      "createdAt": "2026-05-11T08:33:17.055Z",
+      "updatedAt": "2026-05-11T08:34:14.591Z",
+      "tags": [
+        "等待反馈"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
       "subtasks": []
     }
   ],
