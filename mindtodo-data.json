@@ -1740,9 +1740,9 @@
       "type": "task",
       "content": "写上周周报",
       "createdAt": "2026-05-11T01:05:09.849Z",
-      "updatedAt": "2026-05-11T01:05:09.849Z",
+      "updatedAt": "2026-05-11T01:44:16.795Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1753,7 +1753,8 @@
           "done": false,
           "placedIn": null
         }
-      ]
+      ],
+      "doneAt": "2026-05-11T01:44:16.795Z"
     },
     {
       "id": "mp0idakjk65vg",
@@ -1806,6 +1807,30 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp0jhmgugve90",
+      "type": "task",
+      "content": "退网，梳理三个机楼的设备及退网状态、数量；",
+      "createdAt": "2026-05-11T01:45:03.486Z",
+      "updatedAt": "2026-05-11T01:45:03.486Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mp0ji3a3cqst2",
+      "type": "task",
+      "content": "捋一下目前0业务清单。找出少量业务的清单",
+      "createdAt": "2026-05-11T01:45:25.275Z",
+      "updatedAt": "2026-05-11T01:45:25.275Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
