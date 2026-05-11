@@ -957,21 +957,6 @@
       "doneAt": "2026-05-07T08:51:42.799Z"
     },
     {
-      "id": "mouw52k0c2qjk",
-      "type": "task",
-      "content": "有这几个表达框架选择：PREP、感受事实期待、STAR、KISS、金字塔原理。我想点击某个框架，ai围绕这个主题，提供这个框架的参考句式。",
-      "createdAt": "2026-05-07T02:52:35.760Z",
-      "updatedAt": "2026-05-07T03:55:06.290Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-07T03:55:00.912Z"
-    },
-    {
       "id": "mov3l46zy4xwh",
       "type": "task",
       "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
@@ -1008,21 +993,6 @@
       ],
       "placedIn": null,
       "doneAt": "2026-05-07T09:48:23.250Z"
-    },
-    {
-      "id": "mov56z2jv6oqy",
-      "type": "task",
-      "content": "我想了解ai反馈呈现有##和**的原因，能不能代码做个转换不要这些符号。",
-      "createdAt": "2026-05-07T07:06:01.099Z",
-      "updatedAt": "2026-05-08T00:49:01.335Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-08T00:49:01.335Z"
     },
     {
       "id": "mov5dgj7dhzck",
@@ -1107,29 +1077,6 @@
         }
       ],
       "doneAt": "2026-05-07T09:47:34.204Z"
-    },
-    {
-      "id": "movb57dgs2cma",
-      "type": "task",
-      "content": "千问有提示词参考，继续润色下。理解我所记录内容的本质，并将道理应用到我关注的场景中。",
-      "createdAt": "2026-05-07T09:52:36.244Z",
-      "updatedAt": "2026-05-08T00:49:06.964Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "movb57dgv9bcz",
-          "content": "对提示词，写一下哪些地方要我补充的",
-          "estimatedTime": "3min",
-          "done": false,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-08T00:49:04.823Z"
     },
     {
       "id": "mow76h05nk0m9",
@@ -1554,22 +1501,6 @@
       "doneAt": "2026-05-09T03:26:43.530Z"
     },
     {
-      "id": "moxopdphukqim",
-      "type": "task",
-      "content": "我想手机端浏览器显示文字（时间段任务板、待办、往期待办、子任务、感受、往期感受、弹药库、今日完成、本周完成等）能换行显示，不要一句话一溜长。另外电脑端网页显示，我希望时间段任务板、待办、往期待办、子任务）也能换行显示，不要一句话一溜长",
-      "createdAt": "2026-05-09T01:47:44.933Z",
-      "updatedAt": "2026-05-09T03:14:16.184Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moxqefnt5mwxd",
-      "doneAt": "2026-05-09T03:14:14.024Z"
-    },
-    {
       "id": "moxp17ro3mux3",
       "type": "task",
       "content": "上午发固网清单。就是把节电费excel导出来发给对方。",
@@ -1588,9 +1519,9 @@
     {
       "id": "moxqysx4xmlxf",
       "type": "task",
-      "content": "智能推荐，我想ai分析弹药库记录内容的本质（核心想表达的东西），再依据我输入的感受内容做智能推荐。",
+      "content": "优化todo功能",
       "createdAt": "2026-05-09T02:51:03.784Z",
-      "updatedAt": "2026-05-10T10:43:39.213Z",
+      "updatedAt": "2026-05-11T06:48:16.119Z",
       "tags": [
         "AI"
       ],
@@ -1607,7 +1538,19 @@
         }
       ],
       "placedIn": null,
-      "doneAt": "2026-05-10T10:43:37.476Z"
+      "doneAt": "2026-05-10T10:43:37.476Z",
+      "organization": {
+        "goal": "",
+        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-11T06:47:50.104Z"
+      }
     },
     {
       "id": "moxsnwmegvbt5",
@@ -2567,6 +2510,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T06:37:23.675Z"
+    "lastSync": "2026-05-11T06:43:38.823Z"
   }
 }
