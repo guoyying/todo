@@ -2422,7 +2422,6 @@
                                         <option value="feeling">❤️ 感受事实期待</option>
                                         <option value="star">⭐ STAR法则</option>
                                         <option value="kiss">💋 KISS原则</option>
-                                        <option value="pyramid">🔺 金字塔原理</option>
                                     </select>
                                 </div>
                                 
@@ -7694,28 +7693,6 @@ ${behaviorDescription}
    - 用这个弹药表达应该停止做的事情
    - "我们应该停止..."`
           },
-          pyramid: {
-              name: '金字塔原理',
-              icon: '🔺',
-              prompt: `请按照以下结构进行金字塔原理表达练习：
-
-1. 结论先行（30秒）
-   - 直接说出核心结论
-   - "用这个弹药来表达：[在这里使用你的弹药内容]"
-   - "我的结论是..."
-
-2. 以上统下（1分钟）
-   - 用2-3个论点支撑结论
-   - "第一...第二...第三..."
-
-3. 归类分组（1分钟）
-   - 将相关论点归类
-   - "这些论点可以分为..."
-
-4. 逻辑递进（30秒）
-   - 按照逻辑顺序组织
-   - "因此..."`
-          }
       };
       
       // 当前正在编辑的弹药ID（用于表达框架练习）
@@ -8730,7 +8707,6 @@ ${behaviorDescription}
                  { type: 'feeling', name: '感受事实期待', icon: '❤️', description: '事实-感受-期待' },
                  { type: 'star', name: 'STAR法则', icon: '⭐', description: '情境-任务-行动-结果' },
                  { type: 'kiss', name: 'KISS原则', icon: '💋', description: '保持-改进-开始-停止' },
-                 { type: 'pyramid', name: '金字塔原理', icon: '🔺', description: '结论先行-以上统下-归类分组-逻辑递进' }
              ];
              
              let html = '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">';
@@ -8767,12 +8743,12 @@ ${behaviorDescription}
               const ammo = data.ammoLibrary.find(a => a.id === ammoId);
               if (!ammo) return;
               
-              // 检查AI配置
-              if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
-                  const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
-                  promptDiv.innerHTML = '<div style="color:var(--danger);font-size:12px;padding:8px;">⚠️ 请先配置AI功能</div>';
-                  return;
-              }
+               // 检查AI配置
+               if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                   const promptDiv = document.getElementById(`editScenarioPrompt-${ammoId}`);
+                   promptDiv.innerHTML = '<div style="color:var(--danger);font-size:12px;padding:8px;line-height:1.6;">⚠️ 请先配置AI功能</div>';
+                   return;
+               }
               
               // 输出调用的模型信息
               console.log('🎯 AI生成表达框架参考句式 - 调用模型:', data.aiConfig.model);
@@ -8784,48 +8760,32 @@ ${behaviorDescription}
                   'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
                   'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
                   'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
-                  'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）',
-                  'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
+                  'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）'
               };
               
               try {
-                  const prompt = `【【角色设定】你现在是一位资深的个人成长教练，擅长运用各种经典的表达框架（如 PREP、STAR、金字塔原理、非暴力沟通等）来帮助他人提升逻辑思维和表达能力。
-
-表达框架：${frameworkName}（${frameworkDescriptions[frameworkType]}）
-  
-  这句话：${ammo.content}
-
-【你的任务要求】
-请你提炼这句话的本质，结合我下述的期待，设定2个相关具体场景，为我定制表达框架的具体参考句式
-
-【期待】
-我的期待是那种“向内求”的、很踏实的生活智慧：
-1. 自我提升
-- 核心诉求： 提升效率，捕捉可改善的细节并优化。
-- 理想状态： 喜欢主动做调整，让日常运转更舒适、更顺手。
-2. 相处
-- 核心诉求： 有解决相处沟通问题的框架
-- 理想状态： 能基于框架冷静下来探究原因，再开启有效沟通，而不是被情绪带着走。
-3. 工作 
-- 核心诉求： 获得领导与同事的认可，拥有肉眼可见的个人进步。
-- 理想状态： 即使工作量大，也能有条不紊地从容搞定，忙而不乱。
-简单来说，我希望成为一个“对外高效有序，对内温柔坚定”的人。`;
+                  const prompt = `请100字写下对这句话的理解：${ammo.content}。结合我的性格推测关注场景，将这句话的本质道理用到场景中。用表达框架${frameworkName}（${frameworkDescriptions[frameworkType]}）输出。
+【我的性格】1. 自我提升：关注效率提升，捕捉可改善的细节并优化。喜欢主动做调整，让日常运转更舒适、更顺手。2. 相处：拥有解决相处沟通问题的框架，能基于框架冷静下来探究原因，再开启有效沟通。3.工作：获得领导与同事的认可，拥有肉眼可见的个人进步。有条不紊地应对工作内容，忙而不乱。`;
                   
                   const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                   
-                  // 处理Markdown格式并显示AI生成的参考句式
-                  let formattedResponse = response
-                      .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
-                      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
-                      .replace(/---/g, '<hr style="margin:4px 0;border:none;border-top:1px solid var(--border);">')  // --- 分隔线
-                      .replace(/\n\s*\n/g, '<br/>')  // 多个连续换行转为单个换行
-                      .replace(/\n/g, ' ');  // 单个换行转为空格
-                  promptDiv.innerHTML = formattedResponse;
+                   // 处理Markdown格式并显示AI生成的参考句式
+                   let formattedResponse = response
+                       .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:14px;color:var(--primary);display:block;margin:10px 0 6px 0;padding-bottom:4px;border-bottom:1px solid var(--border);">$1</strong>')  // ## 标题
+                       .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text);">$1</strong>')  // **粗体**
+                       .replace(/-\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">• $1</div>')  // - 列表项
+                       .replace(/\d+\.\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">$1</div>')  // 数字列表
+                       .replace(/---/g, '<hr style="margin:8px 0;border:none;border-top:1px dashed var(--border);">')  // --- 分隔线
+                       .replace(/\n\s*\n/g, '<div style="margin:8px 0;"></div>')  // 多个连续换行转为间距
+                       .replace(/\n/g, ' ');  // 单个换行转为空格
+                   
+                   // 包装在容器中以控制整体样式
+                   promptDiv.innerHTML = `<div style="font-size:13px;line-height:1.6;color:var(--text);">${formattedResponse}</div>`;
                   
-              } catch (error) {
-                  console.error('AI生成参考句式失败:', error);
-                  promptDiv.innerHTML = `<div style="color:var(--danger);font-size:12px;padding:8px;">❌ 生成失败：${error.message}</div>`;
-              }
+               } catch (error) {
+                   console.error('AI生成参考句式失败:', error);
+                   promptDiv.innerHTML = `<div style="color:var(--danger);font-size:12px;padding:8px;line-height:1.6;">❌ 生成失败：${error.message}</div>`;
+               }
           }
          
          // AI生成应用场景
@@ -8869,7 +8829,6 @@ ${behaviorDescription}
 3. 工作 
 - 核心诉求： 获得领导与同事的认可，拥有肉眼可见的个人进步。
 - 理想状态： 即使工作量大，也能有条不紊地从容搞定，忙而不乱。
-简单来说，你希望成为一个“对外高效有序，对内温柔坚定”的人。
 
      要求：
      1. 场景要具体、实用、精炼
@@ -9417,14 +9376,19 @@ ${behaviorDescription}
         async function generateFrameworkReferenceForNewAmmo(frameworkType, ammoContent) {
             const promptContent = document.getElementById('scenarioPrompt');
             
-            // 检查AI配置
-            if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
-                const scenario = scenarioConfig[frameworkType];
-                promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
-                return;
-            }
-            
-            // 输出调用的模型信息
+              // 检查AI配置
+              if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+                  const scenario = scenarioConfig[frameworkType];
+                  const formattedPrompt = scenario.prompt
+                      .replace(/^(\d+\.\s*[^\n]+)$/gm, '<strong style="font-size:13px;color:var(--primary);display:block;margin:10px 0 6px 0;padding-bottom:4px;border-bottom:1px solid var(--border);">$1</strong>')
+                      .replace(/^([A-Z]\s*-\s*[^\n]+)$/gm, '<strong style="font-size:12px;color:var(--text);display:block;margin:6px 0 4px 0;">$1</strong>')
+                      .replace(/^-\s+"([^"]+)"$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;font-style:italic;">"$1"</div>')
+                      .replace(/\n/g, '<br/>');
+                   promptContent.innerHTML = `<div style="font-size:12px;line-height:1.6;color:var(--text);">${formattedPrompt}</div>`;
+                   return;
+               }
+             
+             // 输出调用的模型信息
             console.log('🎯 AI生成表达框架参考句式（新弹药） - 调用模型:', data.aiConfig.model);
             console.log('📝 弹药内容:', ammoContent);
             console.log('🏗️ 表达框架:', scenarioConfig[frameworkType].name, '(', frameworkType, ')');
@@ -9439,8 +9403,7 @@ ${behaviorDescription}
                 'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
                 'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
                 'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
-                'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）',
-                'pyramid': '金字塔原理（结论先行-以上统下-归类分组-逻辑递进）'
+                'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）'
             };
             
             try {
@@ -9475,22 +9438,31 @@ ${behaviorDescription}
                 
                 const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                
-               // 处理Markdown格式并显示AI生成的参考句式
-               let formattedResponse = response
-                   .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
-                   .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
-                   .replace(/---/g, '<hr style="margin:4px 0;border:none;border-top:1px solid var(--border);">')  // --- 分隔线
-                   .replace(/\n\s*\n/g, '<br/>')  // 多个连续换行转为单个换行
-                   .replace(/\n/g, ' ');  // 单个换行转为空格
-               promptContent.innerHTML = formattedResponse;
-               
-           } catch (error) {
-               console.error('AI生成参考句式失败:', error);
-               // 如果AI调用失败，显示默认提示
-               const scenario = scenarioConfig[frameworkType];
-               promptContent.innerHTML = scenario.prompt.replace(/\n/g, '<br/>');
-           }
-       }
+                // 处理Markdown格式并显示AI生成的参考句式
+                let formattedResponse = response
+                    .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:13px;color:var(--primary);display:block;margin:10px 0 6px 0;padding-bottom:4px;border-bottom:1px solid var(--border);">$1</strong>')  // ## 标题
+                    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text);">$1</strong>')  // **粗体**
+                    .replace(/-\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">• $1</div>')  // - 列表项
+                    .replace(/\d+\.\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">$1</div>')  // 数字列表
+                    .replace(/---/g, '<hr style="margin:8px 0;border:none;border-top:1px dashed var(--border);">')  // --- 分隔线
+                    .replace(/\n\s*\n/g, '<div style="margin:8px 0;"></div>')  // 多个连续换行转为间距
+                    .replace(/\n/g, ' ');  // 单个换行转为空格
+                
+                 // 包装在容器中以控制整体样式
+                 promptContent.innerHTML = `<div style="font-size:12px;line-height:1.6;color:var(--text);">${formattedResponse}</div>`;
+                
+            } catch (error) {
+                console.error('AI生成参考句式失败:', error);
+                // 如果AI调用失败，显示默认提示
+                const scenario = scenarioConfig[frameworkType];
+                const formattedPrompt = scenario.prompt
+                    .replace(/^(\d+\.\s*[^\n]+)$/gm, '<strong style="font-size:13px;color:var(--primary);display:block;margin:10px 0 6px 0;padding-bottom:4px;border-bottom:1px solid var(--border);">$1</strong>')
+                    .replace(/^([A-Z]\s*-\s*[^\n]+)$/gm, '<strong style="font-size:12px;color:var(--text);display:block;margin:6px 0 4px 0;">$1</strong>')
+                    .replace(/^-\s+"([^"]+)"$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;font-style:italic;">"$1"</div>')
+                    .replace(/\n/g, '<br/>');
+                promptContent.innerHTML = `<div style="font-size:12px;line-height:1.6;color:var(--text);">${formattedPrompt}</div>`;
+            }
+        }
        
        // 保存表达框架练习记录
        function saveScenarioPractice() {
@@ -9744,8 +9716,7 @@ ${behaviorDescription}
                  'prep': 'PREP结构',
                  'feeling': '感受事实期待',
                  'star': 'STAR法则',
-                 'kiss': 'KISS原则',
-                 'pyramid': '金字塔原理'
+                 'kiss': 'KISS原则'
             };
             
             if (editingPracticeId) {
