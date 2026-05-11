@@ -1733,7 +1733,7 @@
                     <!-- 右列：汇总结果 -->
                     <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
                         <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>📊 汇总结果：</strong></label>
-                        <div id="aiSummaryContent" style="flex:1;min-height:400px;overflow-y:auto;padding:15px;background:var(--bg);border-radius:8px;border:1px solid var(--border);line-height:1.6;font-size:14px;"></div>
+                        <div id="aiSummaryContent" style="flex:1;min-height:400px;overflow-y:auto;padding:15px;background:var(--bg);border-radius:8px;border:1px solid var(--border);line-height:1.6;font-size:13px;"></div>
                         <style>
                             #aiSummaryContent p {
                                 margin: 8px 0;
@@ -2006,7 +2006,7 @@
                   <!-- 右列：汇总结果 -->
                   <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
                       <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>📊 汇总结果：</strong></label>
-                      <div id="oldFeelingSummaryContent" style="flex:1;min-height:400px;overflow-y:auto;padding:15px;background:var(--bg);border-radius:8px;border:1px solid var(--border);line-height:1.6;"></div>
+                      <div id="oldFeelingSummaryContent" style="flex:1;min-height:400px;overflow-y:auto;padding:15px;background:var(--bg);border-radius:8px;border:1px solid var(--border);line-height:1.6;font-size:13px;"></div>
                   </div>
               </div>
               <div class="modal-footer" style="display:none;">
@@ -2067,24 +2067,18 @@
                  <div style="flex:1;display:flex;flex-direction:column;min-width:0;position:relative;">
                      <div style="margin-bottom:12px;">
                          <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">润色结果 <small style="color:var(--text-secondary);font-weight:normal;">(选择文本后点击"💎"按钮添加到弹药库)</small></label>
-                          <div id="aiPolishedContent" style="padding:16px;background:var(--primary-light);border-radius:8px;font-size:15px;line-height:1.8;min-height:300px;max-height:calc(80vh - 100px);overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-ms-user-select:text;word-wrap:break-word;position:relative;">
+                           <div id="aiPolishedContent" style="padding:16px;background:var(--primary-light);border-radius:8px;font-size:13px;line-height:1.6;min-height:300px;max-height:calc(80vh - 100px);overflow-y:auto;border:1px solid var(--primary);user-select:text;-webkit-user-select:text;-ms-user-select:text;word-wrap:break-word;position:relative;">
                              <div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>
                          </div>
                      </div>
                  </div>
                  
-                 <!-- 文本选择气泡菜单 -->
-                 <div id="textSelectionBubble" class="hidden" style="position:absolute;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;display:flex;align-items:center;gap:8px;">
-                     <span style="font-size:12px;color:var(--text-secondary);">添加到弹药库</span>
-                     <select id="bubbleAmmoType" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
-                         <option value="word">词汇</option>
-                         <option value="sentence">句子</option>
-                         <option value="paragraph">段落</option>
-                     </select>
-                     <input type="text" id="bubbleAmmoTags" placeholder="标签" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;width:80px;">
-                     <button class="btn btn-primary btn-small" onclick="addSelectedTextViaBubble()">💎</button>
-                     <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
-                 </div>
+                  <!-- 文本选择气泡菜单 -->
+                  <div id="textSelectionBubble" class="hidden" style="position:absolute;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;display:flex;align-items:center;gap:8px;">
+                      <span style="font-size:12px;color:var(--text-secondary);">添加到弹药库</span>
+                      <button class="btn btn-primary btn-small" onclick="addSelectedTextViaBubble()">💎</button>
+                      <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
+                  </div>
                  
              </div>
          </div>
@@ -7241,7 +7235,8 @@ ${behaviorDescription}
 1. 识别核心情绪和意图
 2. 共情与确认感受
 3. 提炼关键思考和洞察
-4. 价值升华和积极引导`;
+4. 价值升华和积极引导
+5. 使用emoji增加可读性（如性（如💭、🏷️、💡等）`;
          customPromptInput.value = defaultPromptText;
          
          // 填充模型选择器
@@ -7467,8 +7462,7 @@ ${behaviorDescription}
  2. 共情与确认
  3. 提炼关键逻辑
  4. 价值升华
- 
- 文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。`;
+ 5. 使用emoji增加可读性（如性（如💭、🏷️、💡等）`;
  customPromptInput.value = defaultPromptText;
  
  // 填充模型选择器
@@ -7542,15 +7536,11 @@ ${behaviorDescription}
              console.log('从 callAiApi 返回的结果:', result);
              console.log('结果类型:', typeof result);
              console.log('结果长度:', result.length);
-             console.log('结果前100个字符:', result.substring(0, 100));
-             
-             // 处理Markdown格式并显示润色结果
-             currentAiContext.polishedContent = result;
-             let formattedResult = result
-                 .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:15px;color:var(--text);display:block;margin:8px 0 4px 0;">$1</strong>')  // ## 标题
-                 .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
-                 .replace(/\n/g, '<br/>');  // 换行
-             polishedContentEl.innerHTML = formattedResult;
+              console.log('结果前100个字符:', result.substring(0, 100));
+              
+              // 处理Markdown格式并显示润色结果
+              currentAiContext.polishedContent = result;
+              polishedContentEl.innerHTML = markdownToHtml(result);
              
              console.log('=== 显示到界面的内容 ===');
              console.log('DOM 元素 textContent:', polishedContentEl.textContent);
@@ -7587,8 +7577,7 @@ ${behaviorDescription}
    2. 共情与确认
    3. 提炼关键逻辑
    4. 价值升华
-   
-   文本输出，不要有黑体字转为文本的*之类的。该分段的分段，该用小标题的小标题。
+   5.使用emoji增加可读性（如性（如💭、🏷️、💡等）
    
    文本：${content}`;
               
@@ -7985,11 +7974,8 @@ ${behaviorDescription}
              return;
          }
          
-         const type = document.getElementById('bubbleAmmoType').value;
-         const tags = document.getElementById('bubbleAmmoTags').value.trim();
-         
-         // 添加到弹药库
-         addAmmoToLibrary(selectedText, type, tags);
+         // 添加到弹药库（不指定类型和标签）
+         addAmmoToLibrary(selectedText, null, null);
          
          // 隐藏气泡
          hideTextSelectionBubble();
