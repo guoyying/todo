@@ -1741,9 +1741,11 @@
       "type": "task",
       "content": "我发现已完成的清单是乱的，未完好归类的。导致输出的ai工作汇总并没有意义和数据挖掘价值。",
       "createdAt": "2026-05-11T01:13:41.827Z",
-      "updatedAt": "2026-05-11T03:01:21.310Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-11T06:14:54.063Z",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -1757,13 +1759,13 @@
         {
           "id": "1778467837626",
           "content": "我有追踪任务的需求，一个大任务（比如crm）完成任务我就看不到了。得看时间节点才行。写一下我的想法",
-          "done": false,
+          "done": true,
           "estimatedTime": "3min",
           "placedIn": null
         }
       ],
       "placedIn": null,
-      "doneAt": null
+      "doneAt": "2026-05-11T06:14:51.721Z"
     },
     {
       "id": "mp0igd8nx1udo",
@@ -1784,7 +1786,7 @@
       "type": "task",
       "content": "数字化重点项目收集",
       "createdAt": "2026-05-11T01:21:24.903Z",
-      "updatedAt": "2026-05-11T03:34:00.024Z",
+      "updatedAt": "2026-05-11T06:14:58.112Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1809,7 +1811,7 @@
           "content": "想一下要不要跟泳哥说，另外想想怎么跟同事说要跟进",
           "done": false,
           "estimatedTime": "10min",
-          "placedIn": null
+          "placedIn": "slot_mp0t4bgyeiugd"
         }
       ],
       "placedIn": null
@@ -1835,7 +1837,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-11T03:51:07.525Z",
+      "updatedAt": "2026-05-11T06:15:04.622Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
@@ -1846,7 +1848,7 @@
           "content": "找几个0业务、1个业务的看看怎么回事",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": null
+          "placedIn": "slot_mp0t4bgyeiugd"
         }
       ],
       "placedIn": null
@@ -1856,7 +1858,7 @@
       "type": "task",
       "content": "今日爬虫+通报",
       "createdAt": "2026-05-11T03:18:11.312Z",
-      "updatedAt": "2026-05-11T03:39:23.238Z",
+      "updatedAt": "2026-05-11T06:15:07.180Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1867,7 +1869,7 @@
           "content": "做通报数据",
           "estimatedTime": "20min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp0t4bgyeiugd"
         },
         {
           "id": "1778469546565",
@@ -2190,8 +2192,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mp0mu6oiih3j0",
-      "name": "吃饭前做"
+      "id": "slot_mp0t4bgyeiugd",
+      "name": "3点前做"
     }
   ],
   "tags": [
