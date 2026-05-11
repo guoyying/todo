@@ -2317,13 +2317,6 @@
       "digestionProgress": 0
     },
     {
-      "id": "mp0ynbjt7ruuk",
-      "content": "敢于指出问题，并观察对方的回应，是检验关系健康度的好方法。你老公的积极改变，说明你们的沟通模式有升级的潜力",
-      "type": null,
-      "createdAt": "2026-05-11T08:49:23.513Z",
-      "tags": []
-    },
-    {
       "id": "mp0ynm1945yc4",
       "content": "亲密关系里没有完美的平衡，但有不断调整的智慧",
       "type": null,
@@ -2351,7 +2344,7 @@
   ],
   "aiConfig": {
     "enabled": true,
-    "model": "moonshot-v1-32k",
+    "model": "deepseek-chat",
     "models": [
       {
         "id": "gpt-3.5-turbo",
