@@ -1794,7 +1794,7 @@
       "type": "task",
       "content": "核查c网基站的，哪些还没退",
       "createdAt": "2026-05-12T06:13:58.444Z",
-      "updatedAt": "2026-05-12T06:25:33.840Z",
+      "updatedAt": "2026-05-12T07:33:54.734Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
@@ -1805,10 +1805,10 @@
           "content": "比对下89个非局端的退网情况",
           "done": false,
           "estimatedTime": "5min",
-          "placedIn": null
+          "placedIn": "slot_mp2be1p1jkrza"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mp2be1p1jkrza"
     },
     {
       "id": "mp2a89egksppd",
@@ -2166,7 +2166,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp2be1p1jkrza",
+      "name": "4点前做"
+    }
+  ],
   "tags": [
     "家",
     "自己",
