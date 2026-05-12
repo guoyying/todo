@@ -1674,7 +1674,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-12T06:18:14.142Z",
+      "updatedAt": "2026-05-12T06:18:31.264Z",
       "tags": [
         "AI"
       ],
@@ -2606,6 +2606,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T06:18:18.799Z"
+    "lastSync": "2026-05-12T06:18:26.187Z"
   }
 }
