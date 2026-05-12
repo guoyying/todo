@@ -1656,17 +1656,18 @@
     {
       "id": "mp0ydigevfkvj",
       "type": "task",
-      "content": "将521个业务整理下发给黄海燕",
+      "content": "CRM跟进：发清单给黄洁华",
       "createdAt": "2026-05-11T08:41:45.902Z",
-      "updatedAt": "2026-05-12T03:40:08.856Z",
+      "updatedAt": "2026-05-12T03:54:03.131Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mp231f5ptjcpi"
+      "placedIn": null,
+      "doneAt": "2026-05-12T03:54:03.131Z"
     },
     {
       "id": "mp0zi4pysih94",
@@ -2120,12 +2121,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mp231f5ptjcpi",
-      "name": "吃饭前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2561,6 +2557,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T03:39:58.530Z"
+    "lastSync": "2026-05-12T03:40:13.871Z"
   }
 }
