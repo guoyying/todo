@@ -4760,6 +4760,7 @@
                 if (type === 'block') msg = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
                 if (type === 'slot') msg = '删除这个时间段？其中的任务会回到待办。';
                 if (type === 'practice-record') msg = `确定要删除第${extraParam}次练习记录吗？`;
+                if (type === 'ammo') msg = '确定要删除这个弹药吗？';
                 if (!confirm(msg)) return;
                 executeDelete(id, type, extraParam);
                 return;
@@ -4774,7 +4775,13 @@
              confirmDiv.className = 'delete-confirm';
              
              const messageSpan = document.createElement('span');
-             messageSpan.textContent = '确定要删除吗？';
+             // 根据类型设置不同的消息
+             let message = '确定要删除吗？';
+             if (type === 'block') message = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
+             if (type === 'slot') message = '删除这个时间段？其中的任务会回到待办。';
+             if (type === 'practice-record') message = `确定要删除第${extraParam}次练习记录吗？`;
+             if (type === 'ammo') message = '确定要删除这个弹药吗？';
+             messageSpan.textContent = message;
              confirmDiv.appendChild(messageSpan);
              
                const confirmBtn = document.createElement('button');
@@ -4870,10 +4877,19 @@
                           console.log('板块不存在或 extraParam 为空');
                       }
                     break;
+                case 'ammo':
+                    data.ammoLibrary = data.ammoLibrary.filter(a => a.id !== id);
+                    msg = '弹药已删除';
+                    break;
             }
             if (msg) {
                 saveData();
-                render();
+                // 对于弹药删除，使用 renderAmmoLibrary 而不是 render
+                if (type === 'ammo') {
+                    renderAmmoLibrary();
+                } else {
+                    render();
+                }
                 showBanner(msg, 'success');
             }
         }
@@ -10173,27 +10189,12 @@ ${behaviorDescription}
                       
                       <div class="ammo-item-actions">
                           <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
-                          <button class="btn btn-small btn-danger" onclick="deleteAmmo('${ammo.id}')">删除</button>
+                          <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${ammo.id}', 'ammo', this)">删除</button>
                       </div>
                   </div>
               `;
               container.appendChild(ammoEl);
           });
-     }
-     
-     // 使用弹药
-     function useAmmo(ammoId) {
-         const ammo = data.ammoLibrary.find(a => a.id === ammoId);
-         if (!ammo) return;
-
-         // 复制到剪贴板
-         navigator.clipboard.writeText(ammo.content).then(() => {
-             showToast('已复制到剪贴板，可以粘贴使用');
-             renderAmmoLibrary();
-         }).catch(err => {
-             console.error('复制失败:', err);
-             showToast('复制失败');
-         });
      }
      
      // 编辑弹药
@@ -10244,16 +10245,6 @@ ${behaviorDescription}
          closeEditAmmoModal();
          
          showToast('修改成功');
-     }
-     
-     // 删除弹药
-     function deleteAmmo(ammoId) {
-         if (!confirm('确定要删除这个弹药吗？')) return;
-         
-         data.ammoLibrary = data.ammoLibrary.filter(a => a.id !== ammoId);
-         saveData();
-         renderAmmoLibrary();
-         showToast('已删除');
      }
      
      // 处理感受输入，显示智能推荐按钮（使用AI分析弹药库本质）
