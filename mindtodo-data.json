@@ -1859,13 +1859,21 @@
       "type": "task",
       "content": "想一下设备核查怎么定期更新数据",
       "createdAt": "2026-05-12T08:37:23.836Z",
-      "updatedAt": "2026-05-12T08:49:54.237Z",
+      "updatedAt": "2026-05-12T09:18:10.241Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp2dmsho2lpmb"
+      "subtasks": [
+        {
+          "id": "1778577482544",
+          "content": "写一下我的需求",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2690,6 +2698,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T08:49:47.291Z"
+    "lastSync": "2026-05-12T08:50:00.361Z"
   }
 }
