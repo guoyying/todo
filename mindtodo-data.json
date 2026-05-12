@@ -1809,6 +1809,26 @@
         }
       ],
       "placedIn": null
+    },
+    {
+      "id": "mp2a89egksppd",
+      "type": "task",
+      "content": "我想知道总监的ppt用哪个平台做的",
+      "createdAt": "2026-05-12T07:01:22.456Z",
+      "updatedAt": "2026-05-12T07:01:22.456Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp2a89egklfst",
+          "content": "试试找个文档，试试千问",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2137,12 +2157,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mp28ivpvbn5xj",
-      "name": "2点半前做"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
