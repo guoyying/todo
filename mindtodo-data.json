@@ -1764,13 +1764,28 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-12T02:48:54.961Z",
+      "updatedAt": "2026-05-12T03:10:39.261Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp2170qbfmi3e"
+      "subtasks": [
+        {
+          "id": "1778555415473",
+          "content": "零容忍签纸",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1778555429095",
+          "content": "主机漏洞扫描结果",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     },
     {
       "id": "mp208v0rw6xe1",
