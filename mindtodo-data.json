@@ -1580,10 +1580,10 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-12T07:34:16.443Z",
+      "updatedAt": "2026-05-12T07:53:34.913Z",
       "tags": [],
       "done": false,
-      "dueTime": "5min",
+      "dueTime": "",
       "unknown": false,
       "subtasks": [
         {
@@ -1825,6 +1825,18 @@
         }
       ],
       "placedIn": null
+    },
+    {
+      "id": "mp2c6h498s2px",
+      "type": "task",
+      "content": "过天河退网单",
+      "createdAt": "2026-05-12T07:55:58.377Z",
+      "updatedAt": "2026-05-12T07:55:58.377Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "25min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2649,6 +2661,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T07:34:38.755Z"
+    "lastSync": "2026-05-12T07:51:45.161Z"
   }
 }
