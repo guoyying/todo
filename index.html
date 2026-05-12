@@ -2589,6 +2589,7 @@
          activeTab: 'feeling', // 'feeling' 或 'task'
          expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
          ammoLibrary: [], // 弹药库 - 用户个人创建的表达库，从练习记录和感受记录中收集
+         recentFocuses: [], // 近期关注的事 [{id, content, createdAt}]
            aiConfig: { // AI配置
                enabled: false,
                apiKeys: { // 多个提供商的API密钥
@@ -6437,30 +6438,31 @@
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
              // 创建要推送的数据副本，移除敏感信息
-             const dataToPush = {
-                 tasks: data.tasks,
-                 normalFeelings: data.normalFeelings,
-                 practiceBlocks: data.practiceBlocks,
-                 slots: data.slots,
-                 tags: data.tags,
-                 commonTags: data.commonTags,
-                 title: data.title,
-                 ammoLibrary: data.ammoLibrary,
-                 communicationChecklists: data.communicationChecklists,
-                 aiConfig: {
-                     enabled: data.aiConfig.enabled,
-                     model: data.aiConfig.model,
-                     models: data.aiConfig.models
-                     // 不包含 apiKey
-                 },
-                 github: {
-                     username: data.github.username,
-                     repo: data.github.repo,
-                     issue: data.github.issue,
-                     lastSync: data.github.lastSync
-                     // 不包含 token
-                 }
-             };
+              const dataToPush = {
+                  tasks: data.tasks,
+                  normalFeelings: data.normalFeelings,
+                  practiceBlocks: data.practiceBlocks,
+                  slots: data.slots,
+                  tags: data.tags,
+                  commonTags: data.commonTags,
+                  title: data.title,
+                  ammoLibrary: data.ammoLibrary,
+                  communicationChecklists: data.communicationChecklists,
+                  recentFocuses: data.recentFocuses,
+                  aiConfig: {
+                      enabled: data.aiConfig.enabled,
+                      model: data.aiConfig.model,
+                      models: data.aiConfig.models
+                      // 不包含 apiKey
+                  },
+                  github: {
+                      username: data.github.username,
+                      repo: data.github.repo,
+                      issue: data.github.issue,
+                      lastSync: data.github.lastSync
+                      // 不包含 token
+                  }
+              };
             const content = utf8ToBase64(JSON.stringify(dataToPush, null, 2));
             const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
             let sha = null;
@@ -7485,15 +7487,16 @@ ${behaviorDescription}
                 const info = await res.json();
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
-                 if (remote.tasks) data.tasks = remote.tasks;
-                 if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
-                 if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
-                 if (remote.slots) data.slots = remote.slots;
-                 if (remote.tags) data.tags = remote.tags;
-                 if (remote.commonTags) data.commonTags = remote.commonTags;
-                 if (remote.title) data.title = remote.title;
-                 if (remote.ammoLibrary) data.ammoLibrary = remote.ammoLibrary;
-                 if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
+                  if (remote.tasks) data.tasks = remote.tasks;
+                  if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
+                  if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
+                  if (remote.slots) data.slots = remote.slots;
+                  if (remote.tags) data.tags = remote.tags;
+                  if (remote.commonTags) data.commonTags = remote.commonTags;
+                  if (remote.title) data.title = remote.title;
+                  if (remote.ammoLibrary) data.ammoLibrary = remote.ammoLibrary;
+                  if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
+                  if (remote.recentFocuses) data.recentFocuses = remote.recentFocuses;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
@@ -8718,6 +8721,38 @@ ${behaviorDescription}
                  `;
              });
              html += '</div>';
+             
+             // 添加近期关注的事选择区域
+             html += '<div style="margin-top:12px;padding:8px;background:rgba(255,255,255,0.1);border-radius:8px;">';
+             html += '<div style="font-size:11px;color:rgba(255,255,255,0.9);margin-bottom:6px;">🎯 近期关注的事（可选）：</div>';
+             
+             // 渲染近期关注的事列表
+             if (data.recentFocuses && data.recentFocuses.length > 0) {
+                 html += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;">';
+                 data.recentFocuses.forEach(focus => {
+                     html += `
+                         <label style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:rgba(255,255,255,0.15);border-radius:12px;font-size:10px;cursor:pointer;">
+                             <input type="checkbox" class="recent-focus-checkbox" data-ammo-id="${ammoId}" data-focus-id="${focus.id}" style="margin:0;">
+                             <span style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${focus.content}</span>
+                         </label>
+                     `;
+                 });
+                 html += '</div>';
+             } else {
+                 html += '<div style="font-size:10px;color:rgba(255,255,255,0.6);margin-bottom:6px;">暂无近期关注的事</div>';
+             }
+             
+             // 添加新关注按钮
+             html += `
+                 <button class="btn btn-small" onclick="showAddRecentFocusDialog('${ammoId}')" style="padding:3px 8px;font-size:10px;background:rgba(255,255,255,0.2);">
+                     ➕ 添加关注
+                 </button>
+                 <button class="btn btn-small" onclick="showManageRecentFocusesDialog('${ammoId}')" style="padding:3px 8px;font-size:10px;background:rgba(255,255,255,0.2);">
+                     ⚙️ 管理
+                 </button>
+             `;
+             html += '</div>';
+             
              html += '<div style="font-size:11px;color:var(--text-secondary);">点击选择一个表达框架开始练习</div>';
              return html;
          }
@@ -8763,11 +8798,24 @@ ${behaviorDescription}
                   'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）'
               };
               
-              try {
-                  const prompt = `请100字写下对这句话的理解：${ammo.content}。结合我的性格推测关注场景，将这句话的本质道理用到场景中。用表达框架${frameworkName}（${frameworkDescriptions[frameworkType]}）输出。
-【我的性格】1. 自我提升：关注效率提升，捕捉可改善的细节并优化。喜欢主动做调整，让日常运转更舒适、更顺手。2. 相处：拥有解决相处沟通问题的框架，能基于框架冷静下来探究原因，再开启有效沟通。3.工作：获得领导与同事的认可，拥有肉眼可见的个人进步。有条不紊地应对工作内容，忙而不乱。`;
-                  
-                  const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+                            try {
+                                // 获取选中的近期关注的事
+                                const selectedFocuses = [];
+                                const checkboxes = document.querySelectorAll(`.recent-focus-checkbox[data-ammo-id="${ammoId}"]:checked`);
+                                checkboxes.forEach(cb => {
+                                    const focusId = cb.getAttribute('data-focus-id');
+                                    const focus = data.recentFocuses.find(f => f.id === focusId);
+                                    if (focus) selectedFocuses.push(focus.content);
+                                });
+                                
+                                let focusContext = '';
+                                if (selectedFocuses.length > 0) {
+                                    focusContext = `\n\n【近期关注的事】\n${selectedFocuses.map((f, i) => `${i + 1}. ${f}`).join('\n')}`;
+                                }
+                                
+                                const prompt = `请一句话写下对这句话的理解：${ammo.content}。将对这句话的解读及近期关注的事:${focusContext}结合起来，提供一个解决办法，用表达框架${frameworkName}（${frameworkDescriptions[frameworkType]}）输出。`;
+                                
+                                const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                   
                    // 处理Markdown格式并显示AI生成的参考句式
                    let formattedResponse = response
@@ -8786,9 +8834,186 @@ ${behaviorDescription}
                    console.error('AI生成参考句式失败:', error);
                    promptDiv.innerHTML = `<div style="color:var(--danger);font-size:12px;padding:8px;line-height:1.6;">❌ 生成失败：${error.message}</div>`;
                }
+           }
+          
+          // 显示添加近期关注的事对话框
+          function showAddRecentFocusDialog(ammoId) {
+              const dialog = document.createElement('div');
+              dialog.id = 'addRecentFocusDialog';
+              dialog.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:10000;';
+              dialog.innerHTML = `
+                  <div style="background:var(--card);padding:20px;border-radius:12px;width:90%;max-width:400px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+                      <h3 style="margin:0 0 16px 0;font-size:16px;color:var(--text);">添加近期关注的事</h3>
+                      <textarea id="newFocusContent" rows="3" placeholder="请输入你近期关注的事情..." style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;resize:vertical;margin-bottom:12px;"></textarea>
+                      <div style="display:flex;gap:8px;justify-content:flex-end;">
+                          <button class="btn btn-secondary" onclick="closeAddRecentFocusDialog()" style="padding:8px 16px;">取消</button>
+                          <button class="btn btn-primary" onclick="addRecentFocus('${ammoId}')" style="padding:8px 16px;">添加</button>
+                      </div>
+                  </div>
+              `;
+              document.body.appendChild(dialog);
+              document.getElementById('newFocusContent').focus();
           }
-         
-         // AI生成应用场景
+          
+          // 关闭添加对话框
+          function closeAddRecentFocusDialog() {
+              const dialog = document.getElementById('addRecentFocusDialog');
+              if (dialog) dialog.remove();
+          }
+          
+          // 添加近期关注的事
+          function addRecentFocus(ammoId) {
+              const content = document.getElementById('newFocusContent').value.trim();
+              if (!content) {
+                  showBanner('请输入内容', 'error');
+                  return;
+              }
+              
+              const newFocus = {
+                  id: Date.now().toString(),
+                  content: content,
+                  createdAt: new Date().toISOString()
+              };
+              
+              data.recentFocuses.push(newFocus);
+              saveData();
+              
+              closeAddRecentFocusDialog();
+              
+              // 刷新UI
+              const frameworksDiv = document.getElementById(`editDigestionFrameworks-${ammoId}`);
+              if (frameworksDiv) {
+                  frameworksDiv.innerHTML = renderFrameworksForEdit(ammoId);
+              }
+              
+              showBanner('✅ 添加成功！', '#4caf50', 2000);
+          }
+          
+          // 显示管理近期关注的事对话框
+          function showManageRecentFocusesDialog(ammoId) {
+              const dialog = document.createElement('div');
+              dialog.id = 'manageRecentFocusesDialog';
+              dialog.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:10000;';
+              
+              let focusesHtml = '';
+              if (data.recentFocuses && data.recentFocuses.length > 0) {
+                  focusesHtml = data.recentFocuses.map(focus => `
+                      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
+                          <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                          <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
+                      </div>
+                  `).join('');
+              } else {
+                  focusesHtml = '<div style="text-align:center;padding:20px;color:var(--text-secondary);font-size:13px;">暂无近期关注的事</div>';
+              }
+              
+              dialog.innerHTML = `
+                  <div style="background:var(--card);padding:20px;border-radius:12px;width:90%;max-width:500px;max-height:80vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+                      <h3 style="margin:0 0 16px 0;font-size:16px;color:var(--text);">管理近期关注的事</h3>
+                      <div id="recentFocusesList">${focusesHtml}</div>
+                      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+                          <button class="btn btn-primary" onclick="closeManageRecentFocusesDialog()" style="padding:8px 16px;">关闭</button>
+                      </div>
+                  </div>
+              `;
+              document.body.appendChild(dialog);
+          }
+          
+          // 关闭管理对话框
+          function closeManageRecentFocusesDialog() {
+              const dialog = document.getElementById('manageRecentFocusesDialog');
+              if (dialog) dialog.remove();
+          }
+          
+          // 删除近期关注的事
+          let deletedFocus = null;
+          function deleteRecentFocus(focusId, ammoId) {
+              const focusIndex = data.recentFocuses.findIndex(f => f.id === focusId);
+              if (focusIndex === -1) return;
+              
+              // 保存被删除的关注事项
+              deletedFocus = data.recentFocuses[focusIndex];
+              
+              // 从数组中删除
+              data.recentFocuses.splice(focusIndex, 1);
+              saveData();
+              
+              // 刷新管理对话框
+              const listDiv = document.getElementById('recentFocusesList');
+              if (listDiv) {
+                  if (data.recentFocuses.length > 0) {
+                      listDiv.innerHTML = data.recentFocuses.map(focus => `
+                          <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
+                              <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                              <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
+                          </div>
+                      `).join('');
+                  } else {
+                      listDiv.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-secondary);font-size:13px;">暂无近期关注的事</div>';
+                  }
+              }
+              
+              // 刷新主UI
+              const frameworksDiv = document.getElementById(`editDigestionFrameworks-${ammoId}`);
+              if (frameworksDiv) {
+                  frameworksDiv.innerHTML = renderFrameworksForEdit(ammoId);
+              }
+              
+              // 显示撤销提示
+              showUndoToast('已删除关注事项', () => {
+                  // 撤销删除
+                  if (deletedFocus) {
+                      data.recentFocuses.push(deletedFocus);
+                      saveData();
+                      
+                      // 刷新管理对话框
+                      const listDiv = document.getElementById('recentFocusesList');
+                      if (listDiv) {
+                          listDiv.innerHTML = data.recentFocuses.map(focus => `
+                              <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
+                                  <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                                  <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
+                              </div>
+                          `).join('');
+                      }
+                      
+                      // 刷新主UI
+                      const frameworksDiv = document.getElementById(`editDigestionFrameworks-${ammoId}`);
+                      if (frameworksDiv) {
+                          frameworksDiv.innerHTML = renderFrameworksForEdit(ammoId);
+                      }
+                      
+                      showBanner('✅ 已撤销删除', '#4caf50', 2000);
+                  }
+              });
+          }
+          
+          // 显示撤销提示
+          function showUndoToast(message, undoCallback) {
+              const toast = document.createElement('div');
+              toast.id = 'undoToast';
+              toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 20px;border-radius:8px;display:flex;align-items:center;gap:12px;z-index:10001;font-size:13px;';
+              toast.innerHTML = `
+                  <span>${message}</span>
+                  <button id="undoButton" style="background:var(--primary);color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">撤销</button>
+              `;
+              document.body.appendChild(toast);
+              
+              const undoButton = document.getElementById('undoButton');
+              undoButton.onclick = () => {
+                  undoCallback();
+                  toast.remove();
+              };
+              
+              // 5秒后自动消失
+              setTimeout(() => {
+                  if (toast && toast.parentNode) {
+                      toast.remove();
+                  }
+              }, 5000);
+          }
+          
+          // AI生成应用场景
          async function generateAIScenarios(ammoId) {
              const ammo = data.ammoLibrary.find(a => a.id === ammoId);
              if (!ammo) return;
