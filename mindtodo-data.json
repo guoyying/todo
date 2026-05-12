@@ -1698,25 +1698,11 @@
       "subtasks": []
     },
     {
-      "id": "mp0z5e0wortgp",
-      "type": "task",
-      "content": "优化：检查下弹药库ai生成应用场景的提示词，我想包含‘提炼这句话的本质“。点击撤销恢复，并没有这个撤销按钮。另外点击已完成任务后，弹出完成任务框，点击完成后窗口不会关闭。",
-      "createdAt": "2026-05-11T09:03:26.528Z",
-      "updatedAt": "2026-05-11T09:56:42.052Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mp0zi4pysih94",
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-11T09:13:50.123Z",
+      "updatedAt": "2026-05-12T02:15:22.665Z",
       "tags": [
         "AI"
       ],
@@ -1729,6 +1715,13 @@
           "content": "先了解html结构吧，css的用途、其他板块等",
           "estimatedTime": "10min",
           "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "1778552105888",
+          "content": "了解删除待办、撤销返回气泡的逻辑",
+          "done": false,
+          "estimatedTime": "20min",
           "placedIn": null
         }
       ]
