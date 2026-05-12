@@ -1656,22 +1656,17 @@
     {
       "id": "mp0y2ltr4outq",
       "type": "task",
-      "content": "xx，中心有个数字化重点项目收集工作，你的项目xx在清单里头，要求之后每周更新项目进度。到时我会提醒你更新的。",
+      "content": "中心数字化项目收集，我告知华姐和晓华。然后填写共享文档",
       "createdAt": "2026-05-11T08:33:17.055Z",
-      "updatedAt": "2026-05-12T02:49:04.173Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-12T03:37:37.869Z",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778552141201",
-          "content": "怎么跟同事说，起到知晓作用，又不会显得很正式很严肃",
-          "done": false,
-          "estimatedTime": "5min",
-          "placedIn": "slot_mp2170qbfmi3e"
-        }
-      ]
+      "doneAt": "2026-05-12T03:37:37.869Z",
+      "subtasks": []
     },
     {
       "id": "mp0ybhgz6swqe",
