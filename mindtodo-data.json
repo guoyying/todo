@@ -1793,6 +1793,18 @@
         "organizedAt": "2026-05-12T03:38:32.853Z"
       },
       "subtasks": []
+    },
+    {
+      "id": "mp28jay4b6krh",
+      "type": "task",
+      "content": "核查c网基站的，哪些还没退",
+      "createdAt": "2026-05-12T06:13:58.444Z",
+      "updatedAt": "2026-05-12T06:13:58.444Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2121,7 +2133,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp28ivpvbn5xj",
+      "name": "2点半前做"
+    }
+  ],
   "tags": [
     "家",
     "自己",
