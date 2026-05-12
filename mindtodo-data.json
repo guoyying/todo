@@ -1681,7 +1681,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-12T09:26:48.765Z",
+      "updatedAt": "2026-05-12T09:54:23.707Z",
       "tags": [
         "AI"
       ],
@@ -1727,7 +1727,7 @@
         {
           "id": "1778577952970",
           "content": "撤销返回任务的气泡，能不能显示时间缩短？对应哪个修改函数？",
-          "done": false,
+          "done": true,
           "estimatedTime": "3",
           "placedIn": null
         }
