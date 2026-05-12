@@ -1735,29 +1735,17 @@
     {
       "id": "mp0zjlkf6wikr",
       "type": "task",
-      "content": "算力32个设备",
+      "content": "整理算力下电照片",
       "createdAt": "2026-05-11T09:14:29.487Z",
-      "updatedAt": "2026-05-12T02:48:48.111Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-12T03:21:40.432Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0zjlkfi1dqr",
-          "content": "资源系统查询退网流水号",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778493165316",
-          "content": "重新捋一下关电照片，对应4张单的",
-          "done": false,
-          "estimatedTime": "15min",
-          "placedIn": "slot_mp2170qbfmi3e"
-        }
-      ]
+      "doneAt": "2026-05-12T03:21:40.432Z",
+      "subtasks": []
     },
     {
       "id": "mp100cze2tyfe",
@@ -1792,7 +1780,7 @@
       "type": "task",
       "content": "1、新增弹药只保留输入内容框，其他的输入项不需要了；2、试试showtoast换其他款式；",
       "createdAt": "2026-05-12T02:21:54.315Z",
-      "updatedAt": "2026-05-12T02:48:36.064Z",
+      "updatedAt": "2026-05-12T03:22:04.954Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
@@ -2567,6 +2555,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T03:15:33.379Z"
+    "lastSync": "2026-05-12T03:17:11.261Z"
   }
 }
