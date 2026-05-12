@@ -1560,22 +1560,6 @@
       "doneAt": "2026-05-11T02:42:00.432Z"
     },
     {
-      "id": "mp0in7vrfknc7",
-      "type": "task",
-      "content": "数字化重点项目收集：跟泳哥确认报什么项目。",
-      "createdAt": "2026-05-11T01:21:24.903Z",
-      "updatedAt": "2026-05-11T08:34:01.011Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-11T08:34:01.011Z",
-      "subtasks": []
-    },
-    {
       "id": "mp0jhmgugve90",
       "type": "task",
       "content": "退网，梳理三个机楼的设备及退网状态、数量；",
@@ -1651,21 +1635,6 @@
         "summary": "",
         "organizedAt": "2026-05-11T08:24:12.060Z"
       },
-      "subtasks": []
-    },
-    {
-      "id": "mp0y2ltr4outq",
-      "type": "task",
-      "content": "中心数字化项目收集，我告知华姐和晓华。然后填写共享文档",
-      "createdAt": "2026-05-11T08:33:17.055Z",
-      "updatedAt": "2026-05-12T03:37:37.869Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "doneAt": "2026-05-12T03:37:37.869Z",
       "subtasks": []
     },
     {
@@ -1792,6 +1761,31 @@
       "done": false,
       "dueTime": "8min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1778557112853",
+      "type": "task",
+      "content": "5.11：中心数字化项目收集-确认报什么项目、告知华姐和晓华",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
+      "doneAt": "2026-05-12T03:38:32.853Z",
+      "createdAt": "2026-05-11T08:33:17.055Z",
+      "updatedAt": "2026-05-12T03:38:32.853Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-12T03:38:32.853Z"
+      },
       "subtasks": []
     }
   ],
@@ -2562,6 +2556,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T03:17:11.261Z"
+    "lastSync": "2026-05-12T03:37:41.332Z"
   }
 }
