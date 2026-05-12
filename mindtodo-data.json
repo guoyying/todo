@@ -2378,6 +2378,42 @@
       "digestionProgress": 0.2
     }
   ],
+  "communicationChecklists": [
+    {
+      "id": "1778563761980",
+      "type": "communication_checklist",
+      "title": "关系问题沟通清单",
+      "createdAt": "2026-05-12T06:06:38.818Z",
+      "steps": [
+        {
+          "step": 1,
+          "completed": false,
+          "answer": "就是想不开想不通。有点郁闷"
+        },
+        {
+          "step": 2,
+          "completed": false,
+          "answer": "他说：朋友都很会做人的，知道我对儿子好，儿子开心我就开心，所以请他吃饭比请我吃饭效果更好。\n这是他跟前妻的儿子，他这样说我会觉得儿子对他来说很重要。另外暗示我做的不够好，我也应该对儿子好让他高兴。"
+        },
+        {
+          "step": 3,
+          "completed": false,
+          "answer": "我的猜测：你是在表达对我目前做法的满意，还是希望我更多关注儿子\n实际动机："
+        },
+        {
+          "step": 4,
+          "completed": false,
+          "answer": ""
+        },
+        {
+          "step": 5,
+          "completed": false,
+          "answer": ""
+        }
+      ],
+      "allCompleted": false
+    }
+  ],
   "recentFocuses": [
     {
       "id": "1778554561938",
