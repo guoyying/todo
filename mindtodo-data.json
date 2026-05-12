@@ -1772,6 +1772,18 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null
+    },
+    {
+      "id": "mp1wxwixggpu5",
+      "type": "task",
+      "content": "写下我想表达的东西",
+      "createdAt": "2026-05-12T00:49:24.201Z",
+      "updatedAt": "2026-05-12T00:49:24.202Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
