@@ -2366,6 +2366,13 @@
       "digestionProgress": 0.2
     }
   ],
+  "recentFocuses": [
+    {
+      "id": "1778554561938",
+      "content": "我想练习表达",
+      "createdAt": "2026-05-12T02:56:01.938Z"
+    }
+  ],
   "aiConfig": {
     "enabled": true,
     "model": "deepseek-chat",
