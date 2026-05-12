@@ -4033,7 +4033,7 @@
                                      ${subtasksHtml}
                                  </div>
                                  <div class="item-actions" style="opacity:1;">
-                                      <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.task.id}', this)">返回待办</button>
+                                      <button class="btn btn-secondary btn-small" onclick="removeFromSlotTaskGroup('${entry.task.id}', '${entry.subtasks[0].placedIn}', this)">返回待办</button>
                                  </div>
                              `;
                              slotEl.appendChild(wrapper);
@@ -5885,6 +5885,32 @@
              }, 10);
          }
 
+        function removeFromSlotTaskGroup(itemId, slotId, buttonElement) {
+            const item = data.tasks.find(i => i.id === itemId);
+            if (item) {
+                // 保存撤销信息（使用传入的 slotId，而不是 item.placedIn）
+                data.lastUndo = { type: 'item', itemId, slotId: slotId };
+                
+                // 清除所有子任务的 placedIn
+                if (item.subtasks && item.subtasks.length > 0) {
+                    item.subtasks.forEach(st => {
+                        st.placedIn = null;
+                    });
+                }
+                
+                // 保存按钮位置信息（在 render() 之前）
+                const buttonRect = buttonElement ? buttonElement.getBoundingClientRect() : null;
+                
+                item.updatedAt = nowStr();
+                saveData(); render();
+                
+                // 显示气泡提示
+                if (buttonRect) {
+                    showUndoToast('item', itemId, null, { getBoundingClientRect: () => buttonRect });
+                }
+            }
+        }
+ 
         function removeFromSlotSimple(itemId, buttonElement) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
