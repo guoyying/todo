@@ -1658,14 +1658,20 @@
       "type": "task",
       "content": "xx，中心有个数字化重点项目收集工作，你的项目xx在清单里头，要求之后每周更新项目进度。到时我会提醒你更新的。",
       "createdAt": "2026-05-11T08:33:17.055Z",
-      "updatedAt": "2026-05-11T08:34:14.591Z",
-      "tags": [
-        "等待反馈"
-      ],
+      "updatedAt": "2026-05-12T02:16:13.567Z",
+      "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1778552141201",
+          "content": "怎么跟同事说，起到知晓作用，又不会显得很正式很严肃",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mp0ybhgz6swqe",
@@ -2513,6 +2519,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-11T15:35:29.048Z"
+    "lastSync": "2026-05-12T02:15:25.127Z"
   }
 }
