@@ -5791,10 +5791,10 @@
              // 清除之前的定时器
              if (toastTimer) clearTimeout(toastTimer);
              
-             // 5秒后自动消失
+             // 3秒后自动消失
              toastTimer = setTimeout(() => {
                  toast.classList.add('hidden');
-             }, 5000);
+             }, 1500);
          }
 
         // ============ 时间段任务板任务编辑函数 ============
@@ -5890,6 +5890,9 @@
             if (item) {
                 // 保存撤销信息（使用传入的 slotId，而不是 item.placedIn）
                 data.lastUndo = { type: 'item', itemId, slotId: slotId };
+                
+                // 清除父任务的 placedIn（确保父任务也被移除）
+                item.placedIn = null;
                 
                 // 清除所有子任务的 placedIn
                 if (item.subtasks && item.subtasks.length > 0) {
