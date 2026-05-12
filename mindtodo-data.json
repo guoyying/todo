@@ -1786,6 +1786,18 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp22ge0vvdlaq",
+      "type": "task",
+      "content": "跟总监说明天上午",
+      "createdAt": "2026-05-12T03:23:44.767Z",
+      "updatedAt": "2026-05-12T03:23:44.767Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
