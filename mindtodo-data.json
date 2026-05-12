@@ -1853,27 +1853,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-12T08:49:39.633Z"
-    },
-    {
-      "id": "mp2dnqwss152t",
-      "type": "task",
-      "content": "想一下设备核查怎么定期更新数据",
-      "createdAt": "2026-05-12T08:37:23.836Z",
-      "updatedAt": "2026-05-12T09:18:10.241Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778577482544",
-          "content": "写一下我的需求",
-          "done": false,
-          "estimatedTime": "5min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2698,6 +2677,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T08:50:00.361Z"
+    "lastSync": "2026-05-12T09:18:14.041Z"
   }
 }
