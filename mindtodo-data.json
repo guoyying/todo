@@ -1794,13 +1794,21 @@
       "type": "task",
       "content": "核查c网基站的，哪些还没退",
       "createdAt": "2026-05-12T06:13:58.444Z",
-      "updatedAt": "2026-05-12T06:18:21.886Z",
+      "updatedAt": "2026-05-12T06:25:33.840Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp28ivpvbn5xj"
+      "subtasks": [
+        {
+          "id": "1778567120023",
+          "content": "比对下89个非局端的退网情况",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2606,6 +2614,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T06:18:26.187Z"
+    "lastSync": "2026-05-12T06:18:36.668Z"
   }
 }
