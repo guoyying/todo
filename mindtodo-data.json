@@ -1674,7 +1674,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-12T02:15:22.665Z",
+      "updatedAt": "2026-05-12T06:17:06.946Z",
       "tags": [
         "AI"
       ],
@@ -1694,6 +1694,20 @@
           "content": "了解删除待办、撤销返回气泡的逻辑",
           "done": false,
           "estimatedTime": "20min",
+          "placedIn": null
+        },
+        {
+          "id": "1778566603555",
+          "content": "1、新增弹药只保留输入内容框，其他的输入项不需要了；2、试试showtoast换其他款式；",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1778566608870",
+          "content": "添加子任务直接输入框即可，无需‘新子任务’了",
+          "done": false,
+          "estimatedTime": "",
           "placedIn": null
         }
       ]
@@ -1742,32 +1756,6 @@
         }
       ],
       "placedIn": null
-    },
-    {
-      "id": "mp208v0rw6xe1",
-      "type": "task",
-      "content": "1、新增弹药只保留输入内容框，其他的输入项不需要了；2、试试showtoast换其他款式；",
-      "createdAt": "2026-05-12T02:21:54.315Z",
-      "updatedAt": "2026-05-12T03:39:36.542Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mp22ge0vvdlaq",
-      "type": "task",
-      "content": "跟总监说明天上午",
-      "createdAt": "2026-05-12T03:23:44.767Z",
-      "updatedAt": "2026-05-12T03:23:44.767Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": []
     },
     {
       "id": "1778557112853",
@@ -2610,6 +2598,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T03:40:13.871Z"
+    "lastSync": "2026-05-12T06:14:03.483Z"
   }
 }
