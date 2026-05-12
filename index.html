@@ -3731,6 +3731,7 @@
                       if (useTextarea) {
                           contentInput = document.createElement('textarea');
                           contentInput.value = st.content;
+                          contentInput.placeholder = '新子任务';
                           contentInput.style.flex = '1';
                           contentInput.style.border = 'none';
                           contentInput.style.background = 'transparent';
@@ -3750,6 +3751,7 @@
                           contentInput = document.createElement('input');
                           contentInput.type = 'text';
                           contentInput.value = st.content;
+                          contentInput.placeholder = '新子任务';
                           contentInput.style.flex = '1';
                           contentInput.style.border = 'none';
                           contentInput.style.background = 'transparent';
@@ -3881,10 +3883,12 @@
              if (useTextarea) {
                  return `<textarea class="edit-input"
                      onchange="${onChange}"
+                     placeholder="新子任务"
                      style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;max-height:150px;resize:vertical;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:600px;flex:1;${extraStyles}">${escapedContent}</textarea>`;
              } else {
                  return `<input type="text" class="edit-input" value="${escapedContent}"
                      onchange="${onChange}"
+                     placeholder="新子任务"
                      style="border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;white-space:normal;word-break:break-word;overflow-wrap:break-word;line-height:1.6;max-width:600px;flex:1;${extraStyles}"/>`;
              }
          }
@@ -5520,7 +5524,7 @@
             
             const newSubtask = {
                 id: Date.now().toString(),
-                content: '新子任务',
+                content: '',
                 done: false,
                 estimatedTime: '',
                 placedIn: null
