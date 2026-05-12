@@ -1787,9 +1787,9 @@
     {
       "id": "mp208v0rw6xe1",
       "type": "task",
-      "content": "新增弹药只保留输入内容框，其他的不需要了。",
+      "content": "1、新增弹药只保留输入内容框，其他的输入项不需要了；2、试试showtoast换其他款式；",
       "createdAt": "2026-05-12T02:21:54.315Z",
-      "updatedAt": "2026-05-12T02:21:54.315Z",
+      "updatedAt": "2026-05-12T02:32:58.514Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
@@ -2531,6 +2531,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T02:16:17.528Z"
+    "lastSync": "2026-05-12T02:22:13.347Z"
   }
 }
