@@ -8960,7 +8960,7 @@ ${behaviorDescription}
               }
               
               // 显示撤销提示
-              showUndoToast('已删除关注事项', () => {
+              showFocusUndoToast('已删除关注事项', () => {
                   // 撤销删除
                   if (deletedFocus) {
                       data.recentFocuses.push(deletedFocus);
@@ -8988,18 +8988,18 @@ ${behaviorDescription}
               });
           }
           
-          // 显示撤销提示
-          function showUndoToast(message, undoCallback) {
+          // 显示撤销提示（用于关注事项）
+          function showFocusUndoToast(message, undoCallback) {
               const toast = document.createElement('div');
-              toast.id = 'undoToast';
+              toast.id = 'focusUndoToast';
               toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 20px;border-radius:8px;display:flex;align-items:center;gap:12px;z-index:10001;font-size:13px;';
               toast.innerHTML = `
                   <span>${message}</span>
-                  <button id="undoButton" style="background:var(--primary);color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">撤销</button>
+                  <button id="focusUndoButton" style="background:var(--primary);color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">撤销</button>
               `;
               document.body.appendChild(toast);
               
-              const undoButton = document.getElementById('undoButton');
+              const undoButton = document.getElementById('focusUndoButton');
               undoButton.onclick = () => {
                   undoCallback();
                   toast.remove();
