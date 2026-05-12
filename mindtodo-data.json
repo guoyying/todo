@@ -2482,6 +2482,23 @@
         ]
       },
       "digestionProgress": 0.2
+    },
+    {
+      "id": "mp2s9nex3geyq",
+      "content": "11",
+      "type": "general",
+      "createdAt": "2026-05-12T15:26:20.361Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
