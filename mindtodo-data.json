@@ -1580,7 +1580,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T01:49:16.371Z",
+      "updatedAt": "2026-05-13T02:04:48.243Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1598,6 +1598,13 @@
           "content": "优先核查0业务的网管数据！3分钟写todo",
           "done": true,
           "estimatedTime": "3",
+          "placedIn": null
+        },
+        {
+          "id": "1778637873672",
+          "content": "核查800M都是0业务的设备",
+          "done": false,
+          "estimatedTime": "20min",
           "placedIn": null
         }
       ],
@@ -2749,6 +2756,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:02:39.534Z"
+    "lastSync": "2026-05-13T02:04:25.427Z"
   }
 }
