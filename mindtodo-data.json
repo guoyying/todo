@@ -1878,7 +1878,7 @@
       "type": "task",
       "content": "1981-补环",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-13T01:45:17.698Z",
+      "updatedAt": "2026-05-13T02:02:35.559Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1888,11 +1888,18 @@
           "id": "mp2fftiujbo9q",
           "content": "拆解todo",
           "estimatedTime": "3min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778637646900",
+          "content": "发起隐患整改单",
           "done": false,
-          "placedIn": "slot_mp3eckwqqdngg"
+          "estimatedTime": "15min",
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mp3eckwqqdngg"
+      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2742,6 +2749,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T01:45:35.829Z"
+    "lastSync": "2026-05-13T01:54:43.538Z"
   }
 }
