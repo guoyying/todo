@@ -4296,15 +4296,15 @@
                 suggestionsDiv.style.display = 'none';
                 contentDiv.appendChild(suggestionsDiv);
                 
-                // 监听输入，显示智能匹配
-                textInput.addEventListener('input', (e) => {
-                    const content = e.target.value;
-                    if (content.length > 2) {
-                        showFeelingAmmoSuggestions(item.id, content, suggestionsDiv);
-                    } else {
-                        suggestionsDiv.style.display = 'none';
-                    }
-                });
+                // 监听输入，显示智能匹配（已禁用）
+                // textInput.addEventListener('input', (e) => {
+                //     const content = e.target.value;
+                //     if (content.length > 2) {
+                //         showFeelingAmmoSuggestions(item.id, content, suggestionsDiv);
+                //     } else {
+                //         suggestionsDiv.style.display = 'none';
+                //     }
+                // });
                 
                 el.appendChild(contentDiv);
                 
@@ -5103,15 +5103,15 @@
                 suggestionsDiv.style.display = 'none';
                 contentDiv.appendChild(suggestionsDiv);
                 
-                // 监听输入，显示智能匹配
-                textInput.addEventListener('input', (e) => {
-                    const content = e.target.value;
-                    if (content.length > 2) {
-                        showFeelingAmmoSuggestions(item.id, content, suggestionsDiv);
-                    } else {
-                        suggestionsDiv.style.display = 'none';
-                    }
-                });
+                // 监听输入，显示智能匹配（已禁用）
+                // textInput.addEventListener('input', (e) => {
+                //     const content = e.target.value;
+                //     if (content.length > 2) {
+                //         showFeelingAmmoSuggestions(item.id, content, suggestionsDiv);
+                //     } else {
+                //         suggestionsDiv.style.display = 'none';
+                //     }
+                // });
                 
                 el.appendChild(contentDiv);
                 
@@ -7835,80 +7835,6 @@ ${behaviorDescription}
          }
          
          return [];
-     }
-     
-     // 显示感受的智能匹配弹药提示
-     async function showFeelingAmmoSuggestions(feelingId, content, container) {
-         // 显示加载状态
-         container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);">🤖 AI正在分析...</div>';
-         container.style.display = 'block';
-         
-         const suggestions = await generateAmmoSuggestions(content);
-         
-         if (suggestions.length === 0) {
-             container.style.display = 'none';
-             return;
-         }
-         
-         container.innerHTML = '';
-         container.style.display = 'block';
-         
-         const title = document.createElement('div');
-         title.style.fontSize = '12px';
-         title.style.color = 'var(--text-secondary)';
-         title.style.marginBottom = '6px';
-         title.textContent = '🤖 AI智能推荐弹药：';
-         container.appendChild(title);
-         
-         suggestions.forEach(ammo => {
-             const ammoEl = document.createElement('div');
-             ammoEl.className = 'ammo-suggestion';
-             ammoEl.style.cssText = `
-                 padding: 8px 12px;
-                 margin-bottom: 6px;
-                 background: var(--primary-light);
-                 border-radius: 6px;
-                 cursor: pointer;
-                 border: 1px solid var(--primary);
-                 transition: all 0.2s;
-             `;
-             
-             const contentDiv = document.createElement('div');
-             contentDiv.style.fontSize = '13px';
-             contentDiv.style.marginBottom = '4px';
-             contentDiv.textContent = ammo.content;
-             ammoEl.appendChild(contentDiv);
-             
-             const metaDiv = document.createElement('div');
-             metaDiv.style.fontSize = '11px';
-             metaDiv.style.color = 'var(--text-secondary)';
-             metaDiv.textContent = `${ammo.tags ? ammo.tags.join(', ') : '无标签'}`;
-             ammoEl.appendChild(metaDiv);
-             
-             ammoEl.onmouseover = () => {
-                 ammoEl.style.background = 'var(--primary)';
-                 ammoEl.style.color = 'white';
-             };
-             ammoEl.onmouseout = () => {
-                 ammoEl.style.background = 'var(--primary-light)';
-                 ammoEl.style.color = 'var(--text)';
-             };
-             
-             ammoEl.onclick = () => {
-                 // 将弹药内容插入到感受记录中
-                 const feeling = data.normalFeelings.find(f => f.id === feelingId);
-                 if (feeling) {
-                     // 在当前内容后添加弹药内容
-                     feeling.content += `\n\n${ammo.content}`;
-                     feeling.updatedAt = nowStr();
-                     saveData();
-                     render();
-                     showToast('已添加弹药内容');
-                 }
-             };
-             
-             container.appendChild(ammoEl);
-         });
      }
      
      // 打开AI润色模态框
