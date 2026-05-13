@@ -1580,7 +1580,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-12T09:25:46.281Z",
+      "updatedAt": "2026-05-13T01:45:31.279Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1598,10 +1598,10 @@
           "content": "优先核查0业务的网管数据！3分钟写todo",
           "done": false,
           "estimatedTime": "3",
-          "placedIn": null
+          "placedIn": "slot_mp3eckwqqdngg"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mp3eckwqqdngg"
     },
     {
       "id": "mp0mte2817ofc",
@@ -1681,7 +1681,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-13T01:37:59.672Z",
+      "updatedAt": "2026-05-13T01:43:15.108Z",
       "tags": [
         "AI"
       ],
@@ -1734,7 +1734,7 @@
         {
           "id": "1778630544270",
           "content": "手机端的待办、往期待办显示框大一点。容器边框窄一点腾空间。现在子任务都看不见了几乎",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -1760,7 +1760,7 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-12T03:39:23.869Z",
+      "updatedAt": "2026-05-13T01:45:23.826Z",
       "tags": [
         "等待反馈"
       ],
@@ -1773,7 +1773,7 @@
           "content": "零容忍签纸",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mp3eckwqqdngg"
         },
         {
           "id": "1778555429095",
@@ -1783,7 +1783,7 @@
           "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mp3eckwqqdngg"
     },
     {
       "id": "1778557112853",
@@ -1831,7 +1831,7 @@
       "type": "task",
       "content": "我想知道总监的ppt用哪个平台做的",
       "createdAt": "2026-05-12T07:01:22.456Z",
-      "updatedAt": "2026-05-12T07:34:26.990Z",
+      "updatedAt": "2026-05-13T01:45:19.684Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1842,10 +1842,10 @@
           "content": "试试找个文档，试试千问",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp3eckwqqdngg"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mp3eckwqqdngg"
     },
     {
       "id": "mp2c6h498s2px",
@@ -1883,7 +1883,7 @@
       "type": "task",
       "content": "1981-补环",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-12T09:27:13.207Z",
+      "updatedAt": "2026-05-13T01:45:17.698Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1894,9 +1894,10 @@
           "content": "拆解todo",
           "estimatedTime": "3min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp3eckwqqdngg"
         }
-      ]
+      ],
+      "placedIn": "slot_mp3eckwqqdngg"
     }
   ],
   "normalFeelings": [
@@ -2252,7 +2253,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp3eckwqqdngg",
+      "name": "10点之前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
