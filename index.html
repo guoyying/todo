@@ -3660,7 +3660,9 @@
                     
                       // 子任务内容编辑框
                       // 根据内容长度决定使用input还是textarea
-                      const useTextarea = st.content.length > 50;
+                      // 手机端降低阈值到20字符，让更多子任务使用textarea支持多行
+                      const isMobile = window.innerWidth <= 768;
+                      const useTextarea = st.content.length > (isMobile ? 7 : 50);
                       let contentInput;
                       
                       if (useTextarea) {
