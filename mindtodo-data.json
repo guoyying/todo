@@ -2664,8 +2664,22 @@
             "scenario": "工作中与同事的协作沟通",
             "reference": "在项目协作中，我经常‘我以为’自己多承担一些琐事，对方就会在关键时刻配合我。但期待落空时，我会觉得‘不公平’。后来我意识到，这个‘交换规则’从未和同事确认过。所以现在我会直接说：‘我帮你处理这部分数据，后续方案讨论时你能优先考虑我的建议吗？’这样明确沟通后，合作反而更顺畅，我也能从容地推进工作。"
           }
+        ],
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarioPractices": [
+          {
+            "id": "mp3li7mwyhsrx",
+            "frameworkType": "custom",
+            "framework": "自由练习",
+            "content": "以后直接说出自己做了什么、希望得到什么回应，而不是默认对方会懂",
+            "createdAt": "2026-05-13T05:04:48.680Z"
+          }
         ]
-      }
+      },
+      "digestionProgress": 0.2
     }
   ],
   "communicationChecklists": [
@@ -2898,6 +2912,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T04:58:40.258Z"
+    "lastSync": "2026-05-13T05:00:02.235Z"
   }
 }
