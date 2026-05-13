@@ -1681,7 +1681,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-13T00:33:43.889Z",
+      "updatedAt": "2026-05-13T00:40:23.525Z",
       "tags": [
         "AI"
       ],
@@ -1705,7 +1705,7 @@
         },
         {
           "id": "1778566603555",
-          "content": "1、新增弹药只保留输入内容框，其他的输入项不需要了；2、试试showtoast换其他款式；",
+          "content": "‘已添加到弹药库’的气泡，试试showtoast换其他款式；",
           "done": false,
           "estimatedTime": "3",
           "placedIn": null
@@ -2732,6 +2732,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-12T23:46:32.002Z"
+    "lastSync": "2026-05-13T00:39:06.414Z"
   }
 }
