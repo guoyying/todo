@@ -2401,71 +2401,6 @@
                             <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">弹药内容</label>
                             <textarea id="newAmmoContent" rows="3" placeholder="输入弹药内容..." style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                         </div>
-                        <div style="margin-bottom:10px;">
-                            <label style="display:block;margin-bottom:4px;font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
-                            <input type="text" id="newAmmoTags" placeholder="如：情感,成长,思考" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                        </div>
-                       
-                        <!-- 消化笔记区域 -->
-                        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
-                            <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">📝 消化笔记（可选）</div>
-                            
-                            <!-- 表达框架练习模块 -->
-                            <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
-                                <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">🎭 表达框架练习</div>
-                                
-                                <div style="margin-bottom:12px;">
-                                    <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">选择表达框架</label>
-                                    <select id="newAmmoScenarioType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" onchange="updateScenarioPrompt()">
-                                        <option value="">-- 请选择表达框架 --</option>
-                                        <option value="prep">📊 PREP结构</option>
-                                        <option value="feeling">❤️ 感受事实期待</option>
-                                        <option value="star">⭐ STAR法则</option>
-                                        <option value="kiss">💋 KISS原则</option>
-                                    </select>
-                                </div>
-                                
-                                <div id="scenarioPromptArea" class="hidden" style="margin-bottom:12px;padding:12px;background:var(--primary-light);border-radius:8px;border:1px solid var(--primary);">
-                                     <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">💡 表达框架提示：</div>
-                                    <div id="scenarioPrompt" style="font-size:13px;line-height:1.6;"></div>
-                                </div>
-                                
-                                <div id="scenarioPracticeArea" class="hidden" style="margin-bottom:12px;">
-                                    <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">你的表达练习</label>
-                                     <textarea id="newAmmoPracticeContent" rows="4" placeholder="根据框架提示，尝试用这个弹药进行表达练习..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
-                                </div>
-                                
-                                <div id="scenarioActions" class="hidden" style="display:flex;gap:8px;">
-                                    <button class="btn btn-small btn-primary" onclick="saveScenarioPractice()">保存练习记录</button>
-                                    <button class="btn btn-small btn-secondary" onclick="clearScenarioPractice()">清空</button>
-                                </div>
-                            </div>
-                           
-                           <div style="margin-bottom:12px;">
-                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">为什么有道理?</label>
-                               <textarea id="newAmmoWhyMakesSense" rows="2" placeholder="这句话为什么有道理?它的核心观点是什么?" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
-                           </div>
-                           
-                           <div style="margin-bottom:12px;">
-                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">解决了什么问题?</label>
-                               <textarea id="newAmmoSolvesProblem" rows="2" placeholder="这句话能解决什么问题?适用于什么场景?" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
-                           </div>
-                           
-                           <div style="margin-bottom:12px;">
-                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">个人案例</label>
-                               <textarea id="newAmmoCase" rows="2" placeholder="你亲身经历或观察到的案例（情境、行动、结果）" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
-                           </div>
-                           
-                           <div style="margin-bottom:12px;">
-                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">我的改写</label>
-                               <textarea id="newAmmoRewrite" rows="2" placeholder="用自己的话重新表达这句话" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
-                           </div>
-                           
-                           <div style="margin-bottom:12px;">
-                               <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">应用场景（用逗号分隔）</label>
-                               <input type="text" id="newAmmoScenarios" placeholder="如：工作,学习,人际关系" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
-                           </div>
-                       </div>
                        
                        <div style="display:flex;gap:8px;margin-top:16px;">
                            <button class="btn btn-primary" onclick="addNewAmmo()">保存</button>
@@ -9611,9 +9546,6 @@ ${behaviorDescription}
        function hideAddAmmoForm() {
            document.getElementById('addAmmoForm').classList.add('hidden');
            document.getElementById('newAmmoContent').value = '';
-           document.getElementById('newAmmoTags').value = '';
-           // 清空表达框架练习相关字段
-           clearScenarioPractice();
        }
        
        // 更新表达框架提示
@@ -10046,68 +9978,29 @@ ${behaviorDescription}
       // 手动新增弹药
        function addNewAmmo() {
            const content = document.getElementById('newAmmoContent').value.trim();
-           const tagsInput = document.getElementById('newAmmoTags').value;
-           const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
-           
-           // 获取消化笔记
-           const whyMakesSense = document.getElementById('newAmmoWhyMakesSense').value.trim();
-           const solvesProblem = document.getElementById('newAmmoSolvesProblem').value.trim();
-           const caseText = document.getElementById('newAmmoCase').value.trim();
-           const rewriteText = document.getElementById('newAmmoRewrite').value.trim();
-           const scenariosInput = document.getElementById('newAmmoScenarios').value;
-           const scenarios = scenariosInput ? scenariosInput.split(',').map(s => s.trim()).filter(s => s) : [];
            
            if (!content) {
                showToast('请输入弹药内容');
                return;
            }
            
-           // 计算消化进度
-           let digestionProgress = 0;
-           const totalFields = 5; // whyMakesSense, solvesProblem, case, rewrite, scenarios
-           let filledFields = 0;
-           if (whyMakesSense) filledFields++;
-           if (solvesProblem) filledFields++;
-           if (caseText) filledFields++;
-           if (rewriteText) filledFields++;
-           if (scenarios.length > 0) filledFields++;
-           digestionProgress = filledFields / totalFields;
-           
-           // 处理案例
-           const cases = caseText ? [{
-               id: genId(),
-               situation: caseText,
-               action: '',
-               result: ''
-           }] : [];
-           
-            // 处理改写
-            const rewrites = rewriteText ? [rewriteText] : [];
-            
-             // 处理表达框架练习记录
-            let scenarioPractices = [];
-            if (window.currentScenarioPractice) {
-                scenarioPractices = [window.currentScenarioPractice];
-                window.currentScenarioPractice = null; // 清空临时存储
-            }
-            
             // 创建弹药项
             const ammoItem = {
                 id: genId(),
                 content: content,
                 type: 'general', // 默认类型
                 createdAt: nowStr(),
-                tags: tags,
+                tags: [],
                 digestion: {
-                    whyMakesSense: whyMakesSense,
-                    solvesProblem: solvesProblem,
-                    cases: cases,
-                    rewrites: rewrites,
-                    scenarios: scenarios,
+                    whyMakesSense: '',
+                    solvesProblem: '',
+                    cases: [],
+                    rewrites: [],
+                    scenarios: [],
                     usageHistory: [],
-                     scenarioPractices: scenarioPractices // 新增表达框架练习记录
+                    scenarioPractices: []
                 },
-                digestionProgress: digestionProgress
+                digestionProgress: 0
             };
            
            // 添加到弹药库
