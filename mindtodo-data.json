@@ -1920,6 +1920,18 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": "slot_mp3fe40xpuzee"
+    },
+    {
+      "id": "mp3g4gg6d8dci",
+      "type": "task",
+      "content": "资源是0业务，那网管就要清理否则是客资没清理好。如果现场有业务，那就是私开业务了。",
+      "createdAt": "2026-05-13T02:34:08.838Z",
+      "updatedAt": "2026-05-13T02:34:08.838Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "4min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2769,6 +2781,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:13:22.650Z"
+    "lastSync": "2026-05-13T02:16:50.483Z"
   }
 }
