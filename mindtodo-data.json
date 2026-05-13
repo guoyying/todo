@@ -1767,7 +1767,7 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-13T01:45:23.826Z",
+      "updatedAt": "2026-05-13T02:09:59.387Z",
       "tags": [
         "等待反馈"
       ],
@@ -1777,10 +1777,10 @@
       "subtasks": [
         {
           "id": "1778555415473",
-          "content": "零容忍签纸",
-          "done": false,
+          "content": "零容忍签字",
+          "done": true,
           "estimatedTime": "",
-          "placedIn": "slot_mp3eckwqqdngg"
+          "placedIn": null
         },
         {
           "id": "1778555429095",
@@ -1790,7 +1790,7 @@
           "placedIn": null
         }
       ],
-      "placedIn": "slot_mp3eckwqqdngg"
+      "placedIn": null
     },
     {
       "id": "1778557112853",
@@ -2756,6 +2756,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:04:25.427Z"
+    "lastSync": "2026-05-13T02:04:51.645Z"
   }
 }
