@@ -3444,11 +3444,13 @@
                 cb.onclick = () => toggleDone(item.id);
                 contentDiv.appendChild(cb);
             }
-              if (options.editable && item.type === 'task' && !item.done) {
-                  // 根据内容长度决定使用input还是textarea
-                  const useTextarea = item.content.length > 50;
-                  let textInput;
-                  
+               if (options.editable && item.type === 'task' && !item.done) {
+                   // 根据内容长度决定使用input还是textarea
+                   // 手机端降低阈值到20字符，让更多任务使用textarea支持多行
+                   const isMobile = window.innerWidth <= 768;
+                   const useTextarea = item.content.length > (isMobile ? 20 : 50);
+                   let textInput;
+                   
                   if (useTextarea) {
                       textInput = document.createElement('textarea');
                       textInput.value = item.content;
