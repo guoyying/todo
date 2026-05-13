@@ -1681,7 +1681,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-13T01:43:15.108Z",
+      "updatedAt": "2026-05-13T02:04:21.195Z",
       "tags": [
         "AI"
       ],
@@ -1733,9 +1733,9 @@
         },
         {
           "id": "1778630544270",
-          "content": "手机端的待办、往期待办显示框大一点。容器边框窄一点腾空间。现在子任务都看不见了几乎",
-          "done": true,
-          "estimatedTime": "",
+          "content": "手机端的子任务，内容能显示两行吗，怎么调整函数？",
+          "done": false,
+          "estimatedTime": "5min",
           "placedIn": null
         }
       ]
@@ -2749,6 +2749,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T01:54:43.538Z"
+    "lastSync": "2026-05-13T02:02:39.534Z"
   }
 }
