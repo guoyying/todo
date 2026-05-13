@@ -1578,37 +1578,18 @@
     {
       "id": "mp0ji3a3cqst2",
       "type": "task",
-      "content": "捋一下目前0业务清单。找出少量业务的清单",
+      "content": "梳理可退设备：完成越秀3个，海珠16个梳理",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T03:01:18.029Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-13T03:19:22.632Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": "",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778471450389",
-          "content": "找几个0业务、1个业务的看看怎么回事",
-          "done": true,
-          "estimatedTime": "20min",
-          "placedIn": null
-        },
-        {
-          "id": "1778577916136",
-          "content": "优先核查0业务的网管数据！3分钟写todo",
-          "done": true,
-          "estimatedTime": "3",
-          "placedIn": null
-        },
-        {
-          "id": "1778637873672",
-          "content": "核查800M都是0业务的设备",
-          "done": true,
-          "estimatedTime": "20min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-13T03:19:22.632Z",
+      "subtasks": []
     },
     {
       "id": "mp0mte2817ofc",
@@ -1767,7 +1748,7 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-13T02:09:59.387Z",
+      "updatedAt": "2026-05-13T03:19:42.772Z",
       "tags": [
         "等待反馈"
       ],
@@ -1883,43 +1864,31 @@
     {
       "id": "mp2fftiuqsid2",
       "type": "task",
-      "content": "1981-补环",
+      "content": "提交隐患整改单（1981白云设备）",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-13T03:17:03.928Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-13T03:20:06.868Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp2fftiujbo9q",
-          "content": "拆解todo",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778637646900",
-          "content": "发起隐患整改单",
-          "done": true,
-          "estimatedTime": "15min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-13T03:20:06.868Z",
+      "subtasks": []
     },
     {
       "id": "mp3fdmlr177uc",
       "type": "task",
       "content": "写一下RPA的进度和感想",
       "createdAt": "2026-05-13T02:13:17.103Z",
-      "updatedAt": "2026-05-13T02:16:34.278Z",
+      "updatedAt": "2026-05-13T03:18:56.289Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mp3fe40xpuzee"
+      "placedIn": null
     },
     {
       "id": "mp3g4gg6d8dci",
@@ -2793,6 +2762,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:34:13.879Z"
+    "lastSync": "2026-05-13T03:17:11.872Z"
   }
 }
