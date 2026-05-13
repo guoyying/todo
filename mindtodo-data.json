@@ -1681,7 +1681,7 @@
       "type": "task",
       "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-13T00:40:23.525Z",
+      "updatedAt": "2026-05-13T01:37:59.672Z",
       "tags": [
         "AI"
       ],
@@ -1706,7 +1706,7 @@
         {
           "id": "1778566603555",
           "content": "‘已添加到弹药库’的气泡，试试showtoast换其他款式；",
-          "done": false,
+          "done": true,
           "estimatedTime": "3",
           "placedIn": null
         },
