@@ -6877,6 +6877,10 @@
                             <div style="margin-left:23px;">
                                 <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">你的回答：</label>
                                 <textarea class="step-answer" data-step="2" rows="2" placeholder="记录具体事实和你的感受..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                
+                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;margin-top:8px;">我希望他怎么做：</label>
+                                <textarea class="step-expectation" data-step="2" rows="2" placeholder="写下你希望对方如何回应或改变..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
+                                
                                 <button class="btn btn-small btn-primary" onclick="analyzeBehaviorWithAI('${checklistId}')" style="margin-top:6px;padding:4px 10px;font-size:11px;">✨ AI分析行为和感受</button>
                                 <div id="aiAnalysisResult-${checklistId}" style="margin-top:8px;padding:8px;background:var(--primary-light);border-radius:4px;border:1px solid var(--primary);display:none;"></div>
                             </div>
@@ -6889,7 +6893,7 @@
                                 <div style="flex:1;">
                                     <div style="font-weight:600;margin-bottom:4px;color:var(--primary);font-size:12px;">第三步：倾听与对照分析</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
-                                        <div style="margin-bottom:4px;"><strong>问对方：</strong>"我想了解一下，你当时是怎么考虑的？"（例：你为什么觉得这周还能安排第三次？）</div>
+                                        <div style="margin-bottom:4px;"><strong>问对方：</strong>"我想了解一下，你当时是怎么考虑的？"</div>
                                         <div><strong>目标：</strong>听到他的真实想法，与你的猜测进行对照分析。</div>
                                     </div>
                                 </div>
@@ -6922,8 +6926,8 @@
                                     <div style="font-weight:600;margin-bottom:4px;color:var(--task);font-size:12px;">第四步：提出期待与请求（明确需求）</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
                                         <div style="margin-bottom:4px;"><strong>告诉他：</strong></div>
-                                        <div style="margin-left:12px;margin-bottom:2px;">• 你的做法，给我的感受是：（例："你当时那样做，让我觉得你并不在意我们的相处时间。"）</div>
-                                        <div style="margin-left:12px;">• 我喜欢的方式是什么？（例："我希望我们每周能有固定的二人时间，其他安排能提前和我商量。"）</div>
+                                        <div style="margin-left:12px;margin-bottom:2px;">• 你的做法，给我的感受是?</div>
+                                        <div style="margin-left:12px;">• 我喜欢的方式是什么？</div>
                                     </div>
                                 </div>
                             </div>
@@ -6940,15 +6944,9 @@
                                 <div style="flex:1;">
                                     <div style="font-weight:600;margin-bottom:4px;color:var(--feeling);font-size:12px;">第五步：达成共识与闭环</div>
                                     <div style="line-height:1.5;color:var(--text);font-size:11px;">
-                                        <div style="margin-bottom:4px;"><strong>明确核心需求：</strong>向他强调你最终需要的是什么。</div>
-                                        <div style="margin-bottom:4px;"><strong>标准话术：</strong>"我更需要你诚恳认真的回应态度。只要让我感觉你是真的听进去了、在想怎么改，哪怕问题还在，我的情绪也会很快过去，不会焦虑地憋在心里。"</div>
-                                        <div><strong>目标：</strong>为本次沟通设定一个清晰的、以"诚恳态度"为标准的成功标志。</div>
+                                        <div><strong>标准话术：</strong>"我更需要你诚恳认真的回应态度。只要让我感觉你是真的听进去了、在想怎么改，哪怕问题还在，我的情绪也会很快过去，不会焦虑地憋在心里。"</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div style="margin-left:23px;">
-                                <label style="font-size:10px;color:var(--text-secondary);margin-bottom:3px;display:block;">最终共识：</label>
-                                <textarea class="step-answer" data-step="5" rows="2" placeholder="记录达成的共识和结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:11px;resize:vertical;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -7089,6 +7087,10 @@
                 return;
             }
             
+            // 获取"我希望他怎么做"字段
+            const step2Expectation = document.querySelector(`.step-expectation[data-step="2"]`);
+            const expectation = step2Expectation ? step2Expectation.value.trim() : '';
+            
             const behaviorDescription = step2Answer.value.trim();
             const resultContainer = document.getElementById(`aiAnalysisResult-${checklistId}`);
             
@@ -7118,21 +7120,8 @@
             }
             
             try {
-                const prompt = `请分析以下关系问题中的对方行为，从积极的角度（往好处想）分析对方可能的动机和原因，并帮助用户精准表达自己的感受。
-
-用户描述的行为和感受：
-${behaviorDescription}
-
-请按以下格式输出：
-
-## 🤔 对方可能的原因（往好处想）
-[从积极角度分析对方可能的动机，列出2-3个可能性]
-
-## 💬 精准表达感受
-[帮助用户用更准确、更温和的方式表达自己的感受，使用"我"开头的表达方式]
-
-## ✨ 沟通建议
-[给出1-2条具体的沟通建议]`;
+                let prompt = `请分析以下关系问题中的对方行为，从积极的角度（往好处想）分析对方可能的动机和原因，帮助用户精准表达自己的感受：${behaviorDescription}
+针对用户希望对方如何回应或改变：${expectation}，给出简单的分析和建议。`;
                 
                 // 直接调用对应的API函数，绕过callAiApi的提示词处理逻辑
                 let response;
