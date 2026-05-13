@@ -1580,7 +1580,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T01:45:31.279Z",
+      "updatedAt": "2026-05-13T01:49:16.371Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1596,12 +1596,12 @@
         {
           "id": "1778577916136",
           "content": "优先核查0业务的网管数据！3分钟写todo",
-          "done": false,
+          "done": true,
           "estimatedTime": "3",
-          "placedIn": "slot_mp3eckwqqdngg"
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mp3eckwqqdngg"
+      "placedIn": null
     },
     {
       "id": "mp0mte2817ofc",
@@ -1829,23 +1829,18 @@
     {
       "id": "mp2a89egksppd",
       "type": "task",
-      "content": "我想知道总监的ppt用哪个平台做的",
+      "content": "尝试ai做ppt，也许日后用得上",
       "createdAt": "2026-05-12T07:01:22.456Z",
-      "updatedAt": "2026-05-13T01:45:19.684Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-13T01:54:37.759Z",
+      "tags": [
+        "储备能力"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp2a89egklfst",
-          "content": "试试找个文档，试试千问",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mp3eckwqqdngg"
-        }
-      ],
-      "placedIn": "slot_mp3eckwqqdngg"
+      "placedIn": null,
+      "doneAt": "2026-05-13T01:53:17.148Z",
+      "subtasks": []
     },
     {
       "id": "mp2c6h498s2px",
@@ -2747,6 +2742,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T00:39:06.414Z"
+    "lastSync": "2026-05-13T01:45:35.829Z"
   }
 }
