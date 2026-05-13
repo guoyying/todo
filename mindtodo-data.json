@@ -1580,7 +1580,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T02:16:30.828Z",
+      "updatedAt": "2026-05-13T03:01:18.029Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1603,9 +1603,9 @@
         {
           "id": "1778637873672",
           "content": "核查800M都是0业务的设备",
-          "done": false,
+          "done": true,
           "estimatedTime": "20min",
-          "placedIn": "slot_mp3fe40xpuzee"
+          "placedIn": null
         }
       ],
       "placedIn": null
@@ -1885,7 +1885,7 @@
       "type": "task",
       "content": "1981-补环",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-13T02:16:41.713Z",
+      "updatedAt": "2026-05-13T03:17:03.928Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1901,9 +1901,9 @@
         {
           "id": "1778637646900",
           "content": "发起隐患整改单",
-          "done": false,
+          "done": true,
           "estimatedTime": "15min",
-          "placedIn": "slot_mp3fe40xpuzee"
+          "placedIn": null
         }
       ],
       "placedIn": null
@@ -1930,6 +1930,18 @@
       "tags": [],
       "done": false,
       "dueTime": "4min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mp3g8484hv51e",
+      "type": "task",
+      "content": "整理已完成，写一下：还是要了解原理（资源0，网管必须要0否则是客资的问题，现场不可能有的了）",
+      "createdAt": "2026-05-13T02:36:59.620Z",
+      "updatedAt": "2026-05-13T02:36:59.620Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
       "unknown": false,
       "subtasks": []
     }
@@ -2781,6 +2793,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:16:50.483Z"
+    "lastSync": "2026-05-13T02:34:13.879Z"
   }
 }
