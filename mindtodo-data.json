@@ -1580,7 +1580,7 @@
       "type": "task",
       "content": "捋一下目前0业务清单。找出少量业务的清单",
       "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T02:04:48.243Z",
+      "updatedAt": "2026-05-13T02:16:30.828Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1605,7 +1605,7 @@
           "content": "核查800M都是0业务的设备",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": null
+          "placedIn": "slot_mp3fe40xpuzee"
         }
       ],
       "placedIn": null
@@ -1885,7 +1885,7 @@
       "type": "task",
       "content": "1981-补环",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-13T02:02:35.559Z",
+      "updatedAt": "2026-05-13T02:16:41.713Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1903,7 +1903,7 @@
           "content": "发起隐患整改单",
           "done": false,
           "estimatedTime": "15min",
-          "placedIn": null
+          "placedIn": "slot_mp3fe40xpuzee"
         }
       ],
       "placedIn": null
@@ -1913,12 +1913,13 @@
       "type": "task",
       "content": "写一下RPA的进度和感想",
       "createdAt": "2026-05-13T02:13:17.103Z",
-      "updatedAt": "2026-05-13T02:13:17.103Z",
+      "updatedAt": "2026-05-13T02:16:34.278Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp3fe40xpuzee"
     }
   ],
   "normalFeelings": [
@@ -2276,8 +2277,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mp3eckwqqdngg",
-      "name": "10点之前"
+      "id": "slot_mp3fe40xpuzee",
+      "name": "11点前"
     }
   ],
   "tags": [
@@ -2768,6 +2769,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T02:10:03.813Z"
+    "lastSync": "2026-05-13T02:13:22.650Z"
   }
 }
