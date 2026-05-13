@@ -2288,12 +2288,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mp3fe40xpuzee",
-      "name": "11点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2782,6 +2777,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T03:20:36.229Z"
+    "lastSync": "2026-05-13T03:30:56.317Z"
   }
 }
