@@ -8735,6 +8735,11 @@
                if (editContainer) {
                    editContainer.remove();
                }
+               // 隐藏弹药信息头部
+               const ammoInfoHeader = document.getElementById('ammoInfoHeader');
+               if (ammoInfoHeader) {
+                   ammoInfoHeader.style.display = 'none';
+               }
            }
          // 渲染应用场景（编辑模式）
          function renderScenariosForEdit(scenarios, ammoId) {
@@ -9592,6 +9597,12 @@
             const ammoListPanel = document.querySelector('.ammo-list-panel');
             if (ammoListPanel) {
                 ammoListPanel.style.display = 'block';
+            }
+            
+            // 隐藏弹药信息头部
+            const ammoInfoHeader = document.getElementById('ammoInfoHeader');
+            if (ammoInfoHeader) {
+                ammoInfoHeader.style.display = 'none';
             }
             
             // 清空搜索框
