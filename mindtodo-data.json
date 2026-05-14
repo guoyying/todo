@@ -1955,6 +1955,26 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp4rnd45ci3rk",
+      "type": "task",
+      "content": "整理交传数的25、26退网清单，几个字段。",
+      "createdAt": "2026-05-14T00:44:32.933Z",
+      "updatedAt": "2026-05-14T00:44:32.933Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp4rnd45txl6r",
+          "content": "自己先做一张表，把传输的放进去",
+          "estimatedTime": "15min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2886,6 +2906,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-13T08:57:07.114Z"
+    "lastSync": "2026-05-14T00:44:01.155Z"
   }
 }
