@@ -145,9 +145,27 @@
                   }
                   
                   #ammoLibraryPanel .modal-body {
-                      padding: 6px 12px !important;
+                      padding: 0 !important;
                       max-height: calc(95vh - 50px) !important;
                       height: auto !important;
+                  }
+                  
+                  #ammoLibraryPanel .ammo-info-header {
+                      padding: 8px 12px !important;
+                  }
+                  
+                  #ammoLibraryPanel .ammo-info-header strong {
+                      font-size: 14px !important;
+                  }
+                  
+                  #ammoLibraryPanel #modalContentArea {
+                      padding: 6px 12px !important;
+                      flex-direction: column !important;
+                  }
+                  
+                  #ammoLibraryPanel #editDigestionContainer {
+                      width: 100% !important;
+                      max-width: 100% !important;
                   }
                   
                   .ammo-list-panel {
@@ -1110,7 +1128,34 @@
              max-height: 60vh;
              overflow-y: auto;
          }
-         .modal-footer {
+          
+          /* 弹药信息头部容器样式 */
+          .ammo-info-header {
+              background: var(--card);
+              border-bottom: 1px solid var(--border);
+              box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+              z-index: 10;
+          }
+          
+          .ammo-info-header strong {
+              color: var(--text);
+              line-height: 1.4;
+          }
+          
+          /* 编辑表单容器样式 */
+          #editDigestionContainer {
+              width: 100%;
+              max-width: 100%;
+              overflow: visible;
+          }
+          
+          .edit-digestion-form {
+              width: 100%;
+              max-width: 100%;
+              overflow: visible;
+          }
+          
+          .modal-footer {
              display: flex;
              justify-content: flex-end;
              gap: 8px;
@@ -2368,7 +2413,15 @@
                                          </div>
                                           <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
                                      </div>
-                                     <div class="modal-body" style="padding:8px 16px;overflow:auto;flex:1;display:flex;gap:8px;flex-direction:row;max-height:calc(90vh - 60px);">
+                                     <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
+                                       <!-- 弹药信息头部容器（冻结） -->
+                                       <div id="ammoInfoHeader" class="ammo-info-header" style="flex-shrink:0;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--border);display:none;">
+                                           <div style="margin-bottom:8px;">
+                                               <strong id="ammoInfoTitle" style="font-size:16px;"></strong>
+                                           </div>
+                                       </div>
+                                       <!-- 内容滚动区域 -->
+                                       <div id="modalContentArea" style="flex:1;overflow:auto;padding:8px 16px;display:flex;gap:8px;flex-direction:row;">
                                        <!-- 左侧：弹药列表 -->
                                        <div class="ammo-list-panel" style="flex:1.2;min-width:0;overflow-y:auto;padding-right:8px;padding-bottom:0;">
                                           <div style="margin-bottom:10px;">
@@ -9201,30 +9254,30 @@
            `;
            
              // 将表单插入到右侧面板中
-            // 将表单插入到弹药库面板中
-            const modalBody = document.querySelector('#ammoLibraryPanel .modal-body');
-            if (modalBody) {
-                // 保留弹药信息头部（使用函数开头已声明的ammo变量）
-                const headerHtml = `
-                    <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);">
-                        <div style="margin-bottom:12px;">
-                            <strong style="font-size:16px;">${ammo.content}</strong>
-                        </div>
-                    </div>
-                `;
-                
-                // 创建一个临时容器来显示编辑表单
-                const tempContainer = document.createElement('div');
-                tempContainer.id = 'editDigestionContainer';
-                tempContainer.innerHTML = headerHtml + formHtml;
-                
-                // 将临时容器添加到modal-body中
-                modalBody.appendChild(tempContainer);
-                
-                // 渲染案例和改写
-                renderDigestionCases(digestion.cases || [], ammoId);
-                renderDigestionRewrites(digestion.rewrites || [], ammoId);
-            }
+                        // 将表单插入到弹药库面板中
+                        const modalContentArea = document.querySelector('#ammoLibraryPanel #modalContentArea');
+                        if (modalContentArea) {
+                            // 将弹药信息头部设置到独立的冻结容器中
+                            const ammoInfoHeader = document.getElementById('ammoInfoHeader');
+                            const ammoInfoTitle = document.getElementById('ammoInfoTitle');
+                            if (ammoInfoHeader && ammoInfoTitle) {
+                                ammoInfoTitle.textContent = ammo.content;
+                                ammoInfoHeader.style.display = 'block';
+                            }
+                            
+                            // 创建一个临时容器来显示编辑表单
+                            const tempContainer = document.createElement('div');
+                            tempContainer.id = 'editDigestionContainer';
+                            tempContainer.style.width = '100%';
+                            tempContainer.innerHTML = formHtml;
+            
+                            // 将临时容器添加到内容滚动区域中
+                            modalContentArea.appendChild(tempContainer);
+                            
+                            // 渲染案例和改写
+                            renderDigestionCases(digestion.cases || [], ammoId);
+                            renderDigestionRewrites(digestion.rewrites || [], ammoId);
+                        }
           }
 
         // 渲染表达框架练习记录（编辑表单中）
@@ -9261,6 +9314,12 @@
             const editContainer = document.getElementById('editDigestionContainer');
             if (editContainer) {
                 editContainer.remove();
+            }
+            
+            // 隐藏弹药信息头部
+            const ammoInfoHeader = document.getElementById('ammoInfoHeader');
+            if (ammoInfoHeader) {
+                ammoInfoHeader.style.display = 'none';
             }
             
             // 移动端：返回弹药列表
