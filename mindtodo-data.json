@@ -1766,7 +1766,7 @@
       "type": "task",
       "content": "整理退团的清单、收新的团费",
       "createdAt": "2026-05-13T06:14:26.139Z",
-      "updatedAt": "2026-05-14T03:26:30.509Z",
+      "updatedAt": "2026-05-14T06:51:02.784Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
@@ -1789,7 +1789,7 @@
         {
           "id": "1778720342514",
           "content": "提醒嘉雯给钱",
-          "done": false,
+          "done": true,
           "estimatedTime": "3min",
           "placedIn": null
         }
@@ -1853,31 +1853,6 @@
       "subtasks": []
     },
     {
-      "id": "1778720649265",
-      "type": "task",
-      "content": "优化todo功能",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "doneAt": "2026-05-14T01:04:09.265Z",
-      "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-14T01:04:09.265Z",
-      "organization": {
-        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
-        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药\n弹药库气泡优化 \n手机端子任务显示长度优化；\n关系问题沟通清单优化；\nAI润色默认提示词优化；",
-        "skills": "",
-        "innovation": "",
-        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-14T01:04:09.265Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mp4sqmggzl1kv",
       "type": "task",
       "content": "我想买茶叶，我想卖油",
@@ -1890,27 +1865,6 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mp4tt7diay7fb",
-      "type": "task",
-      "content": "弹药库网页版好丑，好宽。优化一下吧。",
-      "createdAt": "2026-05-14T01:45:04.662Z",
-      "updatedAt": "2026-05-14T02:27:33.162Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778725640905",
-          "content": "整理清单，支持点击任务复制。",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
     },
     {
       "id": "mp4wfub96io8d",
@@ -1941,6 +1895,51 @@
       "dueTime": "30min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "1778741500797",
+      "type": "task",
+      "content": "优化todo功能",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "doneAt": "2026-05-14T06:51:40.797Z",
+      "createdAt": "2026-05-11T09:13:20.998Z",
+      "updatedAt": "2026-05-14T06:51:40.797Z",
+      "organization": {
+        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
+        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药\n弹药库气泡优化 \n手机端子任务显示长度优化；\n关系问题沟通清单优化；\nAI润色默认提示词优化；\n网页版弹药库面板宽度、字体优化；",
+        "skills": "",
+        "innovation": "",
+        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-14T06:51:40.797Z"
+      },
+      "subtasks": []
+    },
+    {
+      "id": "mp54sslkpfh0q",
+      "type": "task",
+      "content": "查一下白天鹅的设备情况",
+      "createdAt": "2026-05-14T06:52:41.288Z",
+      "updatedAt": "2026-05-14T06:52:41.288Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp54sslk3eud2",
+          "content": "吴工给的接入号，找到白天鹅对应接入号，然后找到对应设备，搜索资源系统的名称看状态",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2312,12 +2311,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mp4wgxobqv7ch",
-      "name": "11点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
