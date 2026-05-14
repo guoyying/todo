@@ -4678,7 +4678,6 @@
                 }
           // 统一的删除确认函数
           function showDeleteConfirm(id, type, btnElement, extraParam = null) {
-              console.log('showDeleteConfirm 被调用:', { id, type, btnElement, extraParam });
               // 安全检查：确保 btnElement 存在且有 parentElement
             if (!btnElement || !btnElement.parentElement) {
                 // 如果按钮元素无效，使用传统的 confirm 弹窗
@@ -7117,24 +7116,24 @@
                 }
             }, 100);
         }
-        
         // 删除清单记录
-        function deleteChecklist(checklistId) {
-            if (!confirm('确定要删除这条记录吗？')) {
-                return;
-            }
-            
-            data.communicationChecklists = data.communicationChecklists.filter(c => c.id !== checklistId);
-            saveData();
-            
-            // 刷新历史记录显示
-            const historyContainer = document.querySelector('[id^="checklist_"][id$="_history"]');
-            if (historyContainer) {
-                const checklistId = historyContainer.id.replace('_history', '');
-                loadChecklistHistory(checklistId);
-            }
+        function deleteChecklist(checklistId, targetElement) {
+            showDeleteConfirmBubble('确定要删除这条记录吗？',
+                function() {
+                    // 删除逻辑
+                    data.communicationChecklists = data.communicationChecklists.filter(c => c.id !== checklistId);
+                    saveData();
+                    
+                    // 刷新历史记录显示
+                    const historyContainer = document.querySelector('[id^="checklist_"][id$="_history"]');
+                    if (historyContainer) {
+                        const containerChecklistId = historyContainer.id.replace('_history', '');
+                        loadChecklistHistory(containerChecklistId);
+                    }
+                },
+                targetElement
+            );
         }
-        
         // 显示全部历史记录
         function showAllChecklistHistory() {
             if (!data.communicationChecklists || data.communicationChecklists.length === 0) {
@@ -7214,7 +7213,7 @@
             const deleteBtns = modal.querySelectorAll('.delete-checklist-btn');
             deleteBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    deleteChecklist(this.dataset.checklistId);
+                    deleteChecklist(this.dataset.checklistId, this);
                     modal.remove();
                 });
             });
@@ -7284,7 +7283,7 @@
             const deleteBtns = historyContainer.querySelectorAll('.delete-checklist-btn');
             deleteBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    deleteChecklist(this.dataset.checklistId);
+                    deleteChecklist(this.dataset.checklistId, this);
                 });
             });
         }
@@ -9139,36 +9138,35 @@
            const formHtml = `
                 <div id="editDigestionForm-${ammoId}" class="edit-digestion-form">
                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border);">
-                        <h4 style="margin:0;">编辑消化笔记</h4>
                         <button class="btn btn-secondary" onclick="backToAmmoLibraryList()" style="padding:6px 12px;font-size:13px;">🏠 返回弹药库</button>
                     </div>
                     <input type="hidden" id="editDigestionAmmoId-${ammoId}" value="${ammoId}">
                     <input type="hidden" id="editPracticeId-${ammoId}" value="">
                    
                    <div style="margin-bottom:14px;">
-                       <label style="font-size: 14px;">为什么有道理?</label>
+                       <label style="font-size: 14px; font-weight:bold;">为什么有道理?</label>
                        <textarea id="editDigestionWhyMakesSense-${ammoId}" rows="2" placeholder="这句话为什么有道理？它的核心观点是什么？">${escapeHtml(digestion.whyMakesSense || '')}</textarea>
                    </div>
                    
                    <div style="margin-bottom:14px;">
-                       <label style="font-size: 14px;">解决了什么问题?</label>
+                       <label style="font-size: 14px; font-weight:bold;">解决了什么问题?</label>
                        <textarea id="editDigestionSolvesProblem-${ammoId}" rows="2" placeholder="这句话能解决什么问题？适用于什么场景？">${escapeHtml(digestion.solvesProblem || '')}</textarea>
                    </div>
                    
                    <div style="margin-bottom:14px;">
-                       <label style="font-size: 14px;">📚 个人案例</label>
+                       <label style="font-size: 14px;font-weight:bold;">📚 个人案例</label>
                        <div id="editDigestionCases-${ammoId}"></div>
                        <button class="btn btn-small btn-secondary" onclick="addDigestionCase('${ammoId}')">+ 添加案例</button>
                    </div>
                    
                    <div style="margin-bottom:14px;">
-                       <label style="font-size: 14px;">✍️ 我的改写</label>
+                       <label style="font-size: 14px;font-weight:bold;">✍️ 我的改写</label>
                        <div id="editDigestionRewrites-${ammoId}"></div>
                        <button class="btn btn-small btn-secondary" onclick="addDigestionRewrite('${ammoId}')">+ 添加改写</button>
                    </div>
                    
                    <div style="margin-bottom:14px;">
-                       <label style="font-size: 14px;">🎯 应用场景</label>
+                       <label style="font-size: 14px;font-weight:bold;">🎯 应用场景</label>
                        <div id="editDigestionScenarios-${ammoId}">
                            ${renderScenariosForEdit(digestion.scenarios || [], ammoId)}
                        </div>
@@ -9177,7 +9175,7 @@
                    
                    <!-- 表达框架练习添加区域 -->
                    <div style="margin-bottom:14px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);">
-                       <label style="font-size: 14px;">🎭 添加表达框架练习</label>
+                       <label style="font-size: 14px;font-weight:bold;">🎭 添加表达框架练习</label>
                        <input type="hidden" id="editDigestionScenarioType-${ammoId}" value="">
                        <div id="editDigestionFrameworks-${ammoId}">
                            ${renderFrameworksForEdit(ammoId)}
