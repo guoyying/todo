@@ -1766,7 +1766,7 @@
       "type": "task",
       "content": "整理退团的清单、收新的团费",
       "createdAt": "2026-05-13T06:14:26.139Z",
-      "updatedAt": "2026-05-14T03:00:24.843Z",
+      "updatedAt": "2026-05-14T03:26:30.509Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
@@ -1775,9 +1775,9 @@
         {
           "id": "1778671953333",
           "content": "基于现有的名单，对照平台的名单，剔除。",
-          "done": false,
+          "done": true,
           "estimatedTime": "8",
-          "placedIn": "slot_mp4wgxobqv7ch"
+          "placedIn": null
         },
         {
           "id": "1778671990870",
@@ -1927,23 +1927,18 @@
     {
       "id": "mp4wfub96io8d",
       "type": "task",
-      "content": "整理退网清单",
+      "content": "萤火行动，整理已退网清单",
       "createdAt": "2026-05-14T02:58:40.053Z",
-      "updatedAt": "2026-05-14T03:00:11.525Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-14T03:18:01.185Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp4wfub9lacrt",
-          "content": "copy id，资源系统导出名称",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mp4wgxobqv7ch"
-        }
-      ],
-      "placedIn": "slot_mp4wgxobqv7ch"
+      "placedIn": null,
+      "doneAt": "2026-05-14T03:18:01.185Z",
+      "subtasks": []
     },
     {
       "id": "mp4whk0escw0x",
@@ -2901,6 +2896,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T03:00:04.311Z"
+    "lastSync": "2026-05-14T03:00:28.722Z"
   }
 }
