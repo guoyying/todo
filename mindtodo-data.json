@@ -1975,6 +1975,26 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp4rq5qtlzymw",
+      "type": "task",
+      "content": "ISOC业务系统补充定级备案名称",
+      "createdAt": "2026-05-14T00:46:43.349Z",
+      "updatedAt": "2026-05-14T00:46:43.349Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp4rq5qt8z299",
+          "content": "看下要求",
+          "estimatedTime": "4min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2906,6 +2926,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T00:44:01.155Z"
+    "lastSync": "2026-05-14T00:44:37.764Z"
   }
 }
