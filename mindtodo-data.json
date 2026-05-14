@@ -1954,34 +1954,17 @@
     {
       "id": "mp56ivq3pnff7",
       "type": "task",
-      "content": "退网剩下两个县分核查",
+      "content": "退网核查花都14个，和黄埔16个",
       "createdAt": "2026-05-14T07:40:58.011Z",
-      "updatedAt": "2026-05-14T07:41:01.993Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-14T08:42:57.066Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp56ivq3seypk",
-          "content": "打开零业务，筛选花都和黄埔的去核查",
-          "estimatedTime": "20min",
-          "done": false,
-          "placedIn": "slot_mp55smlndnofc"
-        }
-      ],
-      "placedIn": "slot_mp55smlndnofc"
-    },
-    {
-      "id": "mp56tcv0mvqc8",
-      "type": "task",
-      "content": "找下数据室",
-      "createdAt": "2026-05-14T07:49:06.780Z",
-      "updatedAt": "2026-05-14T07:49:06.780Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
+      "placedIn": null,
+      "doneAt": "2026-05-14T08:42:57.066Z",
       "subtasks": []
     },
     {
@@ -1989,8 +1972,10 @@
       "type": "task",
       "content": "看下转o的那个设备，理解一下",
       "createdAt": "2026-05-14T08:00:17.845Z",
-      "updatedAt": "2026-05-14T08:00:17.845Z",
-      "tags": [],
+      "updatedAt": "2026-05-14T08:43:06.787Z",
+      "tags": [
+        "储备能力"
+      ],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
@@ -2938,6 +2923,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T07:49:14.035Z"
+    "lastSync": "2026-05-14T08:00:25.048Z"
   }
 }
