@@ -1887,14 +1887,29 @@
       "type": "task",
       "content": "整理烽火OTN清单、本地NCE清单、传输网管清单",
       "createdAt": "2026-05-14T03:00:00.014Z",
-      "updatedAt": "2026-05-14T03:00:00.014Z",
+      "updatedAt": "2026-05-14T07:23:46.715Z",
       "tags": [
         "网安"
       ],
       "done": false,
       "dueTime": "30min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1778743237624",
+          "content": "写下要什么",
+          "done": true,
+          "estimatedTime": "3min",
+          "placedIn": null
+        },
+        {
+          "id": "1778743416757",
+          "content": "先整理本地NCE清单",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "1778741500797",
@@ -2306,7 +2321,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp55smlndnofc",
+      "name": "4点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
