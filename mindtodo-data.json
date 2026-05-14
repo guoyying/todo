@@ -1697,39 +1697,19 @@
     {
       "id": "mp100cze2tyfe",
       "type": "task",
-      "content": "2张网安单",
+      "content": "网安单处理：零容忍问题签字；SOC主机月度扫描；",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-14T00:43:35.285Z",
+      "updatedAt": "2026-05-14T00:51:31.467Z",
       "tags": [
-        "等待反馈"
+        "等待反馈",
+        "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778555415473",
-          "content": "零容忍签字",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1778555429095",
-          "content": "主机漏洞扫描结果",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1778719401855",
-          "content": "看提交给谁，网安回单还是",
-          "done": false,
-          "estimatedTime": "5min",
-          "placedIn": "slot_mp4rjoyhf2ac7"
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-14T00:51:31.467Z",
+      "subtasks": []
     },
     {
       "id": "1778557112853",
@@ -1879,7 +1859,7 @@
       "type": "task",
       "content": "了解下怎么上单拆除光路",
       "createdAt": "2026-05-13T03:30:49.494Z",
-      "updatedAt": "2026-05-14T00:43:53.121Z",
+      "updatedAt": "2026-05-14T00:54:32.892Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1889,11 +1869,18 @@
           "id": "mp3i5ceu2uc20",
           "content": "问下刘晓华流程",
           "estimatedTime": "10min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778720058719",
+          "content": "依照指引上单",
           "done": false,
-          "placedIn": "slot_mp4rjoyhf2ac7"
+          "estimatedTime": "30min",
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mp4rjoyhf2ac7"
+      "placedIn": null
     },
     {
       "id": "mp3iray31w1o0",
@@ -1981,7 +1968,7 @@
       "type": "task",
       "content": "ISOC业务系统补充定级备案名称",
       "createdAt": "2026-05-14T00:46:43.349Z",
-      "updatedAt": "2026-05-14T00:46:43.349Z",
+      "updatedAt": "2026-05-14T00:50:52.734Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1991,7 +1978,14 @@
           "id": "mp4rq5qt8z299",
           "content": "看下要求",
           "estimatedTime": "4min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1778719838376",
+          "content": "去ISOC，打开下载的指引，照着做，回单",
           "done": false,
+          "estimatedTime": "15min",
           "placedIn": null
         }
       ]
@@ -2926,6 +2920,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T00:44:37.764Z"
+    "lastSync": "2026-05-14T00:46:48.277Z"
   }
 }
