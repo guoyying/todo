@@ -1801,21 +1801,16 @@
       "type": "task",
       "content": "整理交传数的25、26退网清单，几个字段。",
       "createdAt": "2026-05-14T00:44:32.933Z",
-      "updatedAt": "2026-05-14T01:12:16.704Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-14T01:31:06.184Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp4rnd45txl6r",
-          "content": "自己先做一张表，把传输的放进去",
-          "estimatedTime": "15min",
-          "done": false,
-          "placedIn": "slot_mp4smys9ron2q"
-        }
-      ],
-      "placedIn": "slot_mp4smys9ron2q"
+      "placedIn": null,
+      "doneAt": "2026-05-14T01:31:06.184Z",
+      "subtasks": []
     },
     {
       "id": "mp4rq5qtlzymw",
@@ -2838,6 +2833,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T01:14:18.066Z"
+    "lastSync": "2026-05-14T01:15:09.321Z"
   }
 }
