@@ -1667,87 +1667,17 @@
     {
       "id": "mp0zi4pysih94",
       "type": "task",
-      "content": "我想看html代码，看下哪些是没用的函数删掉、合并",
+      "content": "优化todo：1、弹药库气泡优化；手机端子任务显示长度优化；关系问题沟通清单优化；AI润色默认提示词优化；",
       "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-13T10:56:15.381Z",
+      "updatedAt": "2026-05-14T00:42:45.172Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0zi4pymj91b",
-          "content": "先了解html结构吧，css的用途、其他板块等",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "1778552105888",
-          "content": "了解删除待办、撤销返回气泡的逻辑",
-          "done": true,
-          "estimatedTime": "20min",
-          "placedIn": null
-        },
-        {
-          "id": "1778566603555",
-          "content": "‘已添加到弹药库’的气泡，试试showtoast换其他款式；",
-          "done": true,
-          "estimatedTime": "3",
-          "placedIn": null
-        },
-        {
-          "id": "1778566608870",
-          "content": "添加子任务直接输入框即可，无需‘新子任务’了",
-          "done": true,
-          "estimatedTime": "3",
-          "placedIn": null
-        },
-        {
-          "id": "1778566667726",
-          "content": "关系问题沟通清单的记录，有无其他形式优化。3分钟写一下",
-          "done": false,
-          "estimatedTime": "3",
-          "placedIn": null
-        },
-        {
-          "id": "1778577952970",
-          "content": "撤销返回任务的气泡，能不能显示时间缩短？对应哪个修改函数？",
-          "done": true,
-          "estimatedTime": "3",
-          "placedIn": null
-        },
-        {
-          "id": "1778630544270",
-          "content": "手机端的子任务，内容能显示两行吗，怎么调整函数？",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1778652823196",
-          "content": "编辑感受、往期感受时，会弹出智能推荐。是哪个函数在控制？",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1778652834683",
-          "content": "感受和往期感受的AI润色，我想修改一下默认提示",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1778659665601",
-          "content": "手机端的待办、往期代办的任务显示是什么函数？",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-14T00:42:45.172Z",
+      "subtasks": []
     },
     {
       "id": "mp0zjlkf6wikr",
@@ -1769,7 +1699,7 @@
       "type": "task",
       "content": "2张网安单",
       "createdAt": "2026-05-11T09:27:31.514Z",
-      "updatedAt": "2026-05-13T03:19:42.772Z",
+      "updatedAt": "2026-05-14T00:43:35.285Z",
       "tags": [
         "等待反馈"
       ],
@@ -1790,6 +1720,13 @@
           "done": true,
           "estimatedTime": "",
           "placedIn": null
+        },
+        {
+          "id": "1778719401855",
+          "content": "看提交给谁，网安回单还是",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": "slot_mp4rjoyhf2ac7"
         }
       ],
       "placedIn": null
@@ -1916,31 +1853,33 @@
       "type": "task",
       "content": "写一下我记录这个，目的是什么。资源是0业务，那网管就要清理否则是客资没清理好。如果现场有业务，那就是私开业务了。",
       "createdAt": "2026-05-13T02:34:08.838Z",
-      "updatedAt": "2026-05-13T03:20:32.110Z",
+      "updatedAt": "2026-05-14T00:43:46.393Z",
       "tags": [],
       "done": false,
       "dueTime": "4min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp4rjoyhf2ac7"
     },
     {
       "id": "mp3g8484hv51e",
       "type": "task",
       "content": "整理已完成，写一下：还是要了解原理（资源0，网管必须要0否则是客资的问题，现场不可能有的了）",
       "createdAt": "2026-05-13T02:36:59.620Z",
-      "updatedAt": "2026-05-13T08:27:02.789Z",
+      "updatedAt": "2026-05-14T00:43:50.347Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp4rjoyhf2ac7"
     },
     {
       "id": "mp3i5ceuqa2z4",
       "type": "task",
       "content": "了解下怎么上单拆除光路",
       "createdAt": "2026-05-13T03:30:49.494Z",
-      "updatedAt": "2026-05-13T03:30:49.494Z",
+      "updatedAt": "2026-05-14T00:43:53.121Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1951,9 +1890,10 @@
           "content": "问下刘晓华流程",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp4rjoyhf2ac7"
         }
-      ]
+      ],
+      "placedIn": "slot_mp4rjoyhf2ac7"
     },
     {
       "id": "mp3iray31w1o0",
@@ -2386,7 +2326,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp4rjoyhf2ac7",
+      "name": "9点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
