@@ -1924,22 +1924,17 @@
     {
       "id": "mp54sslkpfh0q",
       "type": "task",
-      "content": "查一下白天鹅的设备情况",
+      "content": "配合政企核查白天鹅业务",
       "createdAt": "2026-05-14T06:52:41.288Z",
-      "updatedAt": "2026-05-14T06:52:41.288Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-14T07:06:28.408Z",
+      "tags": [
+        "CRM"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp54sslk3eud2",
-          "content": "吴工给的接入号，找到白天鹅对应接入号，然后找到对应设备，搜索资源系统的名称看状态",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-14T07:06:28.408Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
