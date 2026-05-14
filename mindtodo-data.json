@@ -1390,30 +1390,6 @@
       "doneAt": "2026-05-09T02:47:18.855Z"
     },
     {
-      "id": "moxqysx4xmlxf",
-      "type": "task",
-      "content": "优化todo功能",
-      "createdAt": "2026-05-09T02:51:03.784Z",
-      "updatedAt": "2026-05-11T06:48:16.119Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778297607807",
-          "content": "",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-10T10:43:37.476Z"
-    },
-    {
       "id": "moxsnwmegvbt5",
       "type": "task",
       "content": "荔湾的退网处理：查看几台设备是否关电、屏蔽今日芳村设备告警。",
@@ -1501,49 +1477,6 @@
         }
       ],
       "doneAt": "2026-05-11T01:44:16.795Z"
-    },
-    {
-      "id": "mp0idakjk65vg",
-      "type": "task",
-      "content": "优化todo功能",
-      "createdAt": "2026-05-11T01:13:41.827Z",
-      "updatedAt": "2026-05-11T07:24:09.500Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "1778467474035",
-          "content": "不知道我需要怎样的，可以将吸引我的需求复制下来汇总",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        },
-        {
-          "id": "1778467837626",
-          "content": "我有追踪任务的需求，一个大任务（比如crm）完成任务我就看不到了。得看时间节点才行。写一下我的想法",
-          "done": true,
-          "estimatedTime": "3min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-11T06:14:51.721Z",
-      "organization": {
-        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
-        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药",
-        "skills": "",
-        "innovation": "",
-        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-11T07:24:09.500Z"
-      }
     },
     {
       "id": "mp0igd8nx1udo",
@@ -1665,21 +1598,6 @@
       "doneAt": "2026-05-12T03:54:03.131Z"
     },
     {
-      "id": "mp0zi4pysih94",
-      "type": "task",
-      "content": "优化todo：1、弹药库气泡优化；手机端子任务显示长度优化；关系问题沟通清单优化；AI润色默认提示词优化；",
-      "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-14T00:42:45.172Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-14T00:42:45.172Z",
-      "subtasks": []
-    },
-    {
       "id": "mp0zjlkf6wikr",
       "type": "task",
       "content": "整理算力下电照片",
@@ -1737,22 +1655,6 @@
       "subtasks": []
     },
     {
-      "id": "mp28jay4b6krh",
-      "type": "task",
-      "content": "核查无线团队，c网基站清单退网情况",
-      "createdAt": "2026-05-12T06:13:58.444Z",
-      "updatedAt": "2026-05-12T07:51:40.026Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-05-12T07:51:40.026Z",
-      "subtasks": []
-    },
-    {
       "id": "mp2a89egksppd",
       "type": "task",
       "content": "尝试ai做ppt，也许日后用得上",
@@ -1782,22 +1684,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-12T09:42:52.759Z"
-    },
-    {
-      "id": "mp2dn65vgzxfx",
-      "type": "task",
-      "content": "看下爬虫结果，11台设备还有业务的",
-      "createdAt": "2026-05-12T08:36:56.947Z",
-      "updatedAt": "2026-05-12T08:49:39.633Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-12T08:49:39.633Z"
     },
     {
       "id": "mp2fftiuqsid2",
@@ -1983,6 +1869,56 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "1778720539432",
+      "type": "task",
+      "content": "协助分析团队核查C网基站（非800M）传输电路拆除情况",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-14T01:02:19.432Z",
+      "createdAt": "2026-05-12T08:36:56.947Z",
+      "updatedAt": "2026-05-14T01:02:19.432Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-14T01:02:19.432Z"
+      },
+      "subtasks": []
+    },
+    {
+      "id": "1778720649265",
+      "type": "task",
+      "content": "优化todo功能",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "doneAt": "2026-05-14T01:04:09.265Z",
+      "createdAt": "2026-05-11T09:13:20.998Z",
+      "updatedAt": "2026-05-14T01:04:09.265Z",
+      "organization": {
+        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
+        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药\n弹药库气泡优化 \n手机端子任务显示长度优化；\n关系问题沟通清单优化；\nAI润色默认提示词优化；",
+        "skills": "",
+        "innovation": "",
+        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-14T01:04:09.265Z"
+      },
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2914,6 +2850,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T00:54:36.564Z"
+    "lastSync": "2026-05-14T00:59:16.973Z"
   }
 }
