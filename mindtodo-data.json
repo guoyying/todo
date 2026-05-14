@@ -1816,28 +1816,16 @@
       "type": "task",
       "content": "ISOC业务系统补充定级备案名称",
       "createdAt": "2026-05-14T00:46:43.349Z",
-      "updatedAt": "2026-05-14T03:00:17.544Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-14T03:34:34.580Z",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp4rq5qt8z299",
-          "content": "看下要求",
-          "estimatedTime": "4min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778719838376",
-          "content": "去ISOC，打开下载的指引，照着做，回单",
-          "done": false,
-          "estimatedTime": "15min",
-          "placedIn": "slot_mp4wgxobqv7ch"
-        }
-      ],
-      "placedIn": "slot_mp4wgxobqv7ch"
+      "placedIn": null,
+      "doneAt": "2026-05-14T03:34:34.580Z",
+      "subtasks": []
     },
     {
       "id": "1778720539432",
@@ -2896,6 +2884,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T03:00:28.722Z"
+    "lastSync": "2026-05-14T03:26:38.185Z"
   }
 }
