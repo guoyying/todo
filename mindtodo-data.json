@@ -1956,7 +1956,7 @@
       "type": "task",
       "content": "退网剩下两个县分核查",
       "createdAt": "2026-05-14T07:40:58.011Z",
-      "updatedAt": "2026-05-14T07:40:58.011Z",
+      "updatedAt": "2026-05-14T07:41:01.993Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1967,9 +1967,10 @@
           "content": "打开零业务，筛选花都和黄埔的去核查",
           "estimatedTime": "20min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp55smlndnofc"
         }
-      ]
+      ],
+      "placedIn": "slot_mp55smlndnofc"
     }
   ],
   "normalFeelings": [
@@ -2913,6 +2914,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T07:36:10.959Z"
+    "lastSync": "2026-05-14T07:41:02.743Z"
   }
 }
