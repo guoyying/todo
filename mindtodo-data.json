@@ -1766,7 +1766,7 @@
       "type": "task",
       "content": "整理退团的清单、收新的团费",
       "createdAt": "2026-05-13T06:14:26.139Z",
-      "updatedAt": "2026-05-14T00:59:10.854Z",
+      "updatedAt": "2026-05-14T03:00:24.843Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
@@ -1777,7 +1777,7 @@
           "content": "基于现有的名单，对照平台的名单，剔除。",
           "done": false,
           "estimatedTime": "8",
-          "placedIn": null
+          "placedIn": "slot_mp4wgxobqv7ch"
         },
         {
           "id": "1778671990870",
@@ -1816,7 +1816,7 @@
       "type": "task",
       "content": "ISOC业务系统补充定级备案名称",
       "createdAt": "2026-05-14T00:46:43.349Z",
-      "updatedAt": "2026-05-14T00:50:52.734Z",
+      "updatedAt": "2026-05-14T03:00:17.544Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1834,9 +1834,10 @@
           "content": "去ISOC，打开下载的指引，照着做，回单",
           "done": false,
           "estimatedTime": "15min",
-          "placedIn": null
+          "placedIn": "slot_mp4wgxobqv7ch"
         }
-      ]
+      ],
+      "placedIn": "slot_mp4wgxobqv7ch"
     },
     {
       "id": "1778720539432",
@@ -1928,7 +1929,7 @@
       "type": "task",
       "content": "整理退网清单",
       "createdAt": "2026-05-14T02:58:40.053Z",
-      "updatedAt": "2026-05-14T02:58:40.053Z",
+      "updatedAt": "2026-05-14T03:00:11.525Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1939,9 +1940,10 @@
           "content": "copy id，资源系统导出名称",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp4wgxobqv7ch"
         }
-      ]
+      ],
+      "placedIn": "slot_mp4wgxobqv7ch"
     },
     {
       "id": "mp4whk0escw0x",
@@ -2899,6 +2901,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T02:55:05.774Z"
+    "lastSync": "2026-05-14T03:00:04.311Z"
   }
 }
