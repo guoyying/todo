@@ -1706,13 +1706,13 @@
       "type": "task",
       "content": "写一下RPA的进度和感想",
       "createdAt": "2026-05-13T02:13:17.103Z",
-      "updatedAt": "2026-05-13T03:18:56.289Z",
+      "updatedAt": "2026-05-14T02:20:47.614Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": "slot_mp4v2z6gv81vj"
     },
     {
       "id": "mp3i5ceuqa2z4",
@@ -1747,7 +1747,7 @@
       "type": "task",
       "content": "看下CRM接入号是啥情况",
       "createdAt": "2026-05-13T03:47:54.027Z",
-      "updatedAt": "2026-05-13T03:47:54.027Z",
+      "updatedAt": "2026-05-14T02:20:55.834Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1758,9 +1758,10 @@
           "content": "资源系统查一下这个号，对应的设备是sdh还是用户端",
           "estimatedTime": "5min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mp4v2z6gv81vj"
         }
-      ]
+      ],
+      "placedIn": "slot_mp4v2z6gv81vj"
     },
     {
       "id": "mp3nzqzfvypln",
@@ -1908,12 +1909,13 @@
       "type": "task",
       "content": "弹药库网页版好丑，好宽。优化一下吧。",
       "createdAt": "2026-05-14T01:45:04.662Z",
-      "updatedAt": "2026-05-14T01:45:04.662Z",
+      "updatedAt": "2026-05-14T02:21:02.686Z",
       "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2287,8 +2289,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mp4smys9ron2q",
-      "name": "9点半前"
+      "id": "slot_mp4v2z6gv81vj",
+      "name": "10点半前"
     }
   ],
   "tags": [
@@ -2857,6 +2859,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-14T01:31:36.383Z"
+    "lastSync": "2026-05-14T01:45:09.564Z"
   }
 }
