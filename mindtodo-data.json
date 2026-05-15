@@ -1720,30 +1720,18 @@
     {
       "id": "mp3i5ceuqa2z4",
       "type": "task",
-      "content": "了解下怎么上单拆除光路",
+      "content": "上单拆除光路",
       "createdAt": "2026-05-13T03:30:49.494Z",
-      "updatedAt": "2026-05-15T03:05:32.932Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-15T03:17:02.721Z",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp3i5ceu2uc20",
-          "content": "问下刘晓华流程",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778720058719",
-          "content": "依照指引上单",
-          "done": false,
-          "estimatedTime": "30min",
-          "placedIn": "slot_mp6c4f59kewvg"
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-15T03:17:02.721Z",
+      "subtasks": []
     },
     {
       "id": "mp3iray31w1o0",
@@ -2958,6 +2946,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T03:05:21.952Z"
+    "lastSync": "2026-05-15T03:05:38.756Z"
   }
 }
