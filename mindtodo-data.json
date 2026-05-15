@@ -1958,14 +1958,28 @@
       "type": "task",
       "content": "看下转o的那个设备，理解一下",
       "createdAt": "2026-05-14T08:00:17.845Z",
-      "updatedAt": "2026-05-14T08:43:06.787Z",
+      "updatedAt": "2026-05-15T01:33:15.042Z",
       "tags": [
         "储备能力"
       ],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp68tsc1ugkmd"
+    },
+    {
+      "id": "mp68u8dcj1tnm",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-05-15T01:33:33.024Z",
+      "updatedAt": "2026-05-15T01:33:39.718Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mp68tsc1ugkmd"
     }
   ],
   "normalFeelings": [
@@ -2337,7 +2351,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp68tsc1ugkmd",
+      "name": "10点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
