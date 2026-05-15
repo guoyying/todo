@@ -3105,7 +3105,7 @@
                             }
                             // 重新渲染标签
                             renderTags(containerId, selected);
-                        }, 250); // 250ms延迟，足够区分单击和双击
+                        }, 150); // 150ms延迟，足够区分单击和双击
                     }
                 };
                 
@@ -6040,19 +6040,6 @@
             const existingTags = item.tags || [];
             const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
             
-            // 定义3种预设颜色（包含未点击和点击后的颜色）
-            const TAG_COLORS = [
-                { name: '绿色', value: '#f5f5f0', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
-                { name: '蓝色', value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
-                { name: '橙色', value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
-            ];
-            
-            // 获取当前标签的颜色配置
-            let currentColor = TAG_COLORS[0].value; // 默认第一个颜色
-            if (currentTag && data.tagConfig && data.tagConfig[currentTag]) {
-                currentColor = data.tagConfig[currentTag].color;
-            }
-            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             
@@ -6070,25 +6057,6 @@
                 `;
             }
             
-            // 生成颜色选择器HTML
-            const colorPickerHtml = `
-                <div class="input-group">
-                    <label>标签颜色</label>
-                    <div class="color-picker" style="display:flex;gap:12px;align-items:center;">
-                        ${TAG_COLORS.map((color, index) => `
-                            <div class="color-option ${color.value === currentColor ? 'selected' : ''}"
-                                 data-color="${color.value}"
-                                 data-text-color="${color.textColor}"
-                                 data-active-value="${color.activeValue}"
-                                 data-active-text-color="${color.activeTextColor}"
-                                 onclick="selectTagColor(this)"
-                                 style="width:32px;height:32px;border-radius:50%;background:${color.value};cursor:pointer;border:3px solid ${color.value === currentColor ? 'var(--primary)' : 'transparent'};transition:all 0.2s;flex-shrink:0;">
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-            
             modal.innerHTML = `
                 <div class="modal">
                     <h3>${currentTag ? '编辑标签' : '添加标签'}</h3>
@@ -6096,7 +6064,6 @@
                         <label>标签名称</label>
                         <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}" data-current-tag="${currentTag || ''}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTagEdit('${itemId}', '${type}')}">
                     </div>
-                    ${colorPickerHtml}
                     ${tagsHtml}
                     <div class="modal-actions">
                         <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
@@ -6340,13 +6307,6 @@
                 modal.remove();
                 return;
             }
-            
-            // 获取选中的颜色
-            const selectedColorElement = document.querySelector('.color-option.selected');
-            const selectedColor = selectedColorElement ? selectedColorElement.dataset.color : '#f5f5f0';
-            const selectedTextColor = selectedColorElement ? selectedColorElement.dataset.textColor : '#333333';
-            const selectedActiveValue = selectedColorElement ? selectedColorElement.dataset.activeValue : '#6b8e6b';
-            const selectedActiveTextColor = selectedColorElement ? selectedColorElement.dataset.activeTextColor : '#FFFFFF';
             
             // 检查是否是编辑现有标签
             const currentTag = input.getAttribute('data-current-tag');
