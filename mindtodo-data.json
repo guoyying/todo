@@ -1956,24 +1956,26 @@
     {
       "id": "mp577qnpurrft",
       "type": "task",
-      "content": "看下转o的那个设备，理解一下",
+      "content": "两条业务不经过农林3-GZHC384，但网管经过",
       "createdAt": "2026-05-14T08:00:17.845Z",
-      "updatedAt": "2026-05-15T01:33:15.042Z",
+      "updatedAt": "2026-05-15T01:43:38.024Z",
       "tags": [
-        "储备能力"
+        "储备能力",
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mp68tsc1ugkmd"
+      "placedIn": null,
+      "doneAt": "2026-05-15T01:43:38.024Z"
     },
     {
       "id": "mp68u8dcj1tnm",
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-05-15T01:33:33.024Z",
-      "updatedAt": "2026-05-15T01:33:39.718Z",
+      "updatedAt": "2026-05-15T01:33:47.675Z",
       "tags": [],
       "done": false,
       "dueTime": "20min",
@@ -2905,6 +2907,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T01:32:32.071Z"
+    "lastSync": "2026-05-15T01:33:43.109Z"
   }
 }
