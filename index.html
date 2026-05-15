@@ -4975,9 +4975,11 @@
                      msg = '板块练习已删除';
                      console.log('删除成功，消息:', msg);
                     break;
-                 case 'slot':
-                     data.slots = data.slots.filter(s => s.id !== id);
-                     msg = ''; // 不显示气泡提示
+                  case 'slot':
+                      data.slots = data.slots.filter(s => s.id !== id);
+                      saveData();
+                      renderSlots();
+                      msg = ''; // 不显示气泡提示
                      break;
                  case 'subtask':
                      // 子任务删除需要特殊处理，id 格式为 'parentId:subId'
