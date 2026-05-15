@@ -3058,10 +3058,13 @@
                     const tagConfig = data.tagConfig[tag];
                     // 如果是选中状态，使用激活颜色
                     if (selected.includes(tag)) {
-                        span.style.backgroundColor = tagConfig.activeValue || tagConfig.color;
+                        const activeColor = tagConfig.activeValue || tagConfig.color;
+                        span.style.backgroundColor = activeColor;
                         span.style.color = tagConfig.activeTextColor || tagConfig.textColor;
                         span.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
                         span.style.transform = 'scale(1.05)';
+                        // 选中状态边框比背景深一点
+                        span.style.borderColor = darkenColor(activeColor, 15);
                     } else {
                         // 未选中状态，使用普通颜色
                         span.style.backgroundColor = tagConfig.color;
@@ -7992,6 +7995,16 @@
         }
 
         // ============ Helper Functions ============
+        // 颜色加深函数
+        function darkenColor(color, percent) {
+            let num = parseInt(color.replace("#", ""), 16),
+                amt = Math.round(2.55 * percent),
+                R = (num >> 16) - amt,
+                B = ((num >> 8) & 0x00FF) - amt,
+                G = (num & 0x0000FF) - amt;
+            return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
+        }
+        
         let isPageRefresh = false;
         function checkUpdateStatus() {
             const banner = document.getElementById('updateBanner');
