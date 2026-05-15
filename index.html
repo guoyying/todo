@@ -449,9 +449,9 @@
             margin-top: 6px;
         }
          .tag {
-             padding: 3px 10px 3px 8px;
-             border-radius: 20px;
-             font-size: 12px;
+             padding: 4px 10px;
+             border-radius: 16px;
+             font-size: 13px;
              cursor: pointer;
              border: 1px solid var(--border);
              background: var(--bg);
@@ -460,20 +460,51 @@
              align-items: center;
              gap: 4px;
              transition: all 0.2s ease;
+             position: relative;
          }
-         .tag .tag-del {
-             font-size: 11px;
-             width: 14px;
-             height: 14px;
-             line-height: 14px;
-             text-align: center;
-             border-radius: 50%;
-             color: var(--text-secondary);
-             cursor: pointer;
-             display: inline-block;
-             margin-left: 2px;
-         }
-        .tag .tag-del:hover { background: var(--danger); color: white; }
+          .tag .tag-del {
+              position: absolute;
+              top: -6px;
+              right: -6px;
+              font-size: 10px;
+              width: 16px;
+              height: 16px;
+              line-height: 16px;
+              text-align: center;
+              border-radius: 50%;
+              color: var(--text-secondary);
+              cursor: pointer;
+              background: var(--card);
+              border: 1px solid var(--border);
+              box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+              opacity: 0;
+              visibility: hidden;
+              transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+              transform: scale(0.8);
+              z-index: 10;
+          }
+          /* 桌面端：悬停显示删除按钮 */
+          @media (hover: hover) {
+              .tag:hover .tag-del {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: scale(1);
+              }
+          }
+          /* 移动端：始终显示删除按钮（通过长按触发） */
+          @media (hover: none) {
+              .tag .tag-del {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: scale(1);
+              }
+          }
+          .tag .tag-del:hover {
+              background: var(--danger);
+              color: white;
+              border-color: var(--danger);
+              transform: scale(1.1);
+          }
         .tag.active {
             background: var(--primary);
             color: white;
@@ -3140,17 +3171,39 @@
                     }
                 };
                 
-                  // 先添加文本
-                  span.appendChild(text);
-                  // 为所有标签添加删除按钮（整理界面不显示删除按钮）
-                  if (containerId !== 'organizerTags') {
-                      const del = document.createElement('span');
-                      del.className = 'tag-del';
-                      del.textContent = '×';
-                      del.title = '删除标签';
-                      del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
-                      span.appendChild(del);
-                  }
+                   // 先添加文本
+                   span.appendChild(text);
+                   // 为所有标签添加删除按钮（整理界面不显示删除按钮）
+                   if (containerId !== 'organizerTags') {
+                       const del = document.createElement('span');
+                       del.className = 'tag-del';
+                       del.textContent = '×';
+                       del.title = '删除标签';
+                       del.onclick = (e) => { e.stopPropagation(); deleteTag(containerId, tag); };
+                       span.appendChild(del);
+                       
+                       // 移动端长按删除功能
+                       let longPressTimer;
+                       const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                       
+                       if (isTouchDevice) {
+                           span.addEventListener('touchstart', (e) => {
+                               longPressTimer = setTimeout(() => {
+                                   if (confirm(`确定要删除标签「${tag}」吗？`)) {
+                                       deleteTag(containerId, tag);
+                                   }
+                               }, 800); // 800ms长按
+                           });
+                           
+                           span.addEventListener('touchend', () => {
+                               clearTimeout(longPressTimer);
+                           });
+                           
+                           span.addEventListener('touchmove', () => {
+                               clearTimeout(longPressTimer);
+                           });
+                       }
+                   }
                 
                 el.appendChild(span);
             });
@@ -6462,16 +6515,38 @@
                         e.stopPropagation();
                         span.classList.toggle('active');
                     };
-                    const del = document.createElement('span');
-                    del.className = 'tag-del';
-                    del.textContent = '×';
-                    del.title = '删除标签';
-                    del.onclick = (e) => {
-                        e.stopPropagation();
-                        deleteTag(tag);
-                    };
-                    span.appendChild(text);
-                    span.appendChild(del);
+                     const del = document.createElement('span');
+                     del.className = 'tag-del';
+                     del.textContent = '×';
+                     del.title = '删除标签';
+                     del.onclick = (e) => {
+                         e.stopPropagation();
+                         deleteTag(tag);
+                     };
+                     span.appendChild(text);
+                     span.appendChild(del);
+                     
+                     // 移动端长按删除功能
+                     let longPressTimer;
+                     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                     
+                     if (isTouchDevice) {
+                         span.addEventListener('touchstart', (e) => {
+                             longPressTimer = setTimeout(() => {
+                                 if (confirm(`确定要删除标签「${tag}」吗？`)) {
+                                     deleteTag(tag);
+                                 }
+                             }, 800); // 800ms长按
+                         });
+                         
+                         span.addEventListener('touchend', () => {
+                             clearTimeout(longPressTimer);
+                         });
+                         
+                         span.addEventListener('touchmove', () => {
+                             clearTimeout(longPressTimer);
+                         });
+                     }
                     container.appendChild(span);
                 });
                 
