@@ -303,16 +303,39 @@
                   margin-bottom: 4px !important;
               }
              
-             /* 按钮组移动端优化 */
-             .btn-group {
-                 flex-direction: column !important;
-                 gap: 6px !important;
-             }
-             
-             .btn-group .btn {
-                 width: 100% !important;
-             }
-         }
+              /* 按钮组移动端优化 */
+              .btn-group {
+                  flex-direction: column !important;
+                  gap: 6px !important;
+              }
+              
+              .btn-group .btn {
+                  width: 100% !important;
+              }
+              
+              /* 关注事项编辑移动端优化 */
+              #recentFocusesList > div > div:first-child {
+                  min-width: 0 !important;
+                  flex: 1 !important;
+              }
+              
+              #recentFocusesList textarea {
+                  width: 100% !important;
+                  min-height: 60px !important;
+                  font-size: 14px !important;
+                  padding: 8px !important;
+                  line-height: 1.6 !important;
+                  white-space: pre-wrap !important;
+                  word-break: break-word !important;
+                  overflow-wrap: break-word !important;
+                  resize: none !important;
+              }
+              
+              #recentFocusesList > div {
+                  flex-wrap: wrap !important;
+                  align-items: flex-start !important;
+              }
+          }
         .header {
             display: flex;
             justify-content: space-between;
@@ -1179,14 +1202,22 @@
               overflow: visible;
           }
           
-          /* 关注事项编辑样式 */
-          #recentFocusesList > div > div:first-child:hover {
-              background: rgba(107, 142, 107, 0.1);
-          }
-          
-          #recentFocusesList > div > div:first-child:focus-within {
-              background: rgba(107, 142, 107, 0.15);
-          }
+           /* 关注事项编辑样式 */
+           #recentFocusesList > div > div:first-child:hover {
+               background: rgba(107, 142, 107, 0.1);
+           }
+           
+           #recentFocusesList > div > div:first-child:focus-within {
+               background: rgba(107, 142, 107, 0.15);
+           }
+           
+           /* 关注事项编辑文本域样式 */
+           #recentFocusesList textarea {
+               white-space: pre-wrap;
+               word-break: break-word;
+               overflow-wrap: break-word;
+               line-height: 1.5;
+           }
           
           .modal-footer {
              display: flex;
@@ -9259,26 +9290,26 @@
                if (!contentDiv) return;
                
                // 检查是否已经在编辑状态
-               if (contentDiv.querySelector('input')) {
+               if (contentDiv.querySelector('textarea')) {
                    return; // 已经在编辑状态，不重复处理
                }
                
                const currentContent = contentDiv.textContent.trim();
                
-               // 创建输入框
-               const input = document.createElement('input');
-               input.type = 'text';
-               input.value = currentContent;
-               input.style.cssText = 'width:100%;padding:6px 8px;border:1px solid var(--primary);border-radius:4px;font-size:13px;outline:none;';
+               // 创建文本域（支持多行编辑）
+               const textarea = document.createElement('textarea');
+               textarea.value = currentContent;
+               textarea.rows = 2;
+               textarea.style.cssText = 'width:100%;padding:6px 8px;border:1px solid var(--primary);border-radius:4px;font-size:13px;outline:none;resize:none;min-height:40px;';
                
                // 替换原内容
                contentDiv.innerHTML = '';
-               contentDiv.appendChild(input);
-               input.focus();
+               contentDiv.appendChild(textarea);
+               textarea.focus();
                
                // 保存编辑的函数
                const saveEdit = () => {
-                   const newContent = input.value.trim();
+                   const newContent = textarea.value.trim();
                    if (newContent && newContent !== currentContent) {
                        // 更新数据
                        const focus = data.recentFocuses.find(f => f.id === focusId);
@@ -9293,17 +9324,14 @@
                };
                
                // 失去焦点时保存
-               input.addEventListener('blur', saveEdit);
+               textarea.addEventListener('blur', saveEdit);
                
-               // 按回车键保存
-               input.addEventListener('keypress', (e) => {
-                   if (e.key === 'Enter') {
-                       input.blur();
+               // 按Ctrl+Enter或Cmd+Enter保存
+               textarea.addEventListener('keydown', (e) => {
+                   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                       textarea.blur();
                    }
-               });
-               
-               // 按ESC键取消
-               input.addEventListener('keydown', (e) => {
+                   // 按ESC键取消
                    if (e.key === 'Escape') {
                        contentDiv.innerHTML = currentContent;
                    }
