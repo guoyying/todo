@@ -1966,18 +1966,6 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mp64t2kvapug8",
-      "type": "task",
-      "content": "弹药库的练习框架文字显示字体调大点跟练习记录一样（手机端）；新增编辑功能；不需要气泡“已撤销删除”",
-      "createdAt": "2026-05-14T23:40:40.399Z",
-      "updatedAt": "2026-05-14T23:41:12.471Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2898,6 +2886,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T00:42:23.889Z"
+    "lastSync": "2026-05-15T01:32:32.071Z"
   }
 }
