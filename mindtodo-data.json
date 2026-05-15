@@ -1960,28 +1960,30 @@
       "type": "task",
       "content": "问下3053、2877的基站啥时候改造好",
       "createdAt": "2026-05-15T02:29:59.363Z",
-      "updatedAt": "2026-05-15T02:29:59.363Z",
+      "updatedAt": "2026-05-15T07:25:35.334Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp6lew8p9j7wv"
     },
     {
       "id": "mp6av9jue9nsm",
       "type": "task",
       "content": "退网清单交换机房，并且给梁工一个答复。",
       "createdAt": "2026-05-15T02:30:20.442Z",
-      "updatedAt": "2026-05-15T02:30:20.442Z",
+      "updatedAt": "2026-05-15T07:25:37.512Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp6lew8p9j7wv"
     },
     {
       "id": "mp6d3pe1k05i0",
@@ -2002,12 +2004,13 @@
       "type": "task",
       "content": "转发萤火行动的信息在群里",
       "createdAt": "2026-05-15T05:07:50.007Z",
-      "updatedAt": "2026-05-15T05:07:50.007Z",
+      "updatedAt": "2026-05-15T07:25:40.638Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mp6lew8p9j7wv"
     },
     {
       "id": "mp6iwm4ka6glp",
@@ -2393,7 +2396,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mp6lew8p9j7wv",
+      "name": "4点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
