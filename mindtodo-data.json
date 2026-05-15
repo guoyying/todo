@@ -1960,15 +1960,16 @@
       "type": "task",
       "content": "问下3053、2877的基站啥时候改造好",
       "createdAt": "2026-05-15T02:29:59.363Z",
-      "updatedAt": "2026-05-15T07:25:35.334Z",
+      "updatedAt": "2026-05-15T07:40:09.536Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mp6lew8p9j7wv"
+      "placedIn": null,
+      "doneAt": "2026-05-15T07:40:09.535Z"
     },
     {
       "id": "mp6av9jue9nsm",
@@ -2998,6 +2999,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T07:25:45.561Z"
+    "lastSync": "2026-05-15T07:33:51.166Z"
   }
 }
