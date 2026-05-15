@@ -2004,21 +2004,6 @@
       "placedIn": null
     },
     {
-      "id": "mp6iwm4ka6glp",
-      "type": "task",
-      "content": "再核查3个县分",
-      "createdAt": "2026-05-15T06:15:20.324Z",
-      "updatedAt": "2026-05-15T08:19:18.870Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "40min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp6nbxapzanvf"
-    },
-    {
       "id": "mp6lpfmz93x9s",
       "type": "task",
       "content": "网安单处理",
