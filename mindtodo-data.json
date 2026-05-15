@@ -2515,31 +2515,8 @@
       "tags": []
     },
     {
-      "id": "moylasz3el46x",
-      "content": "有些时候，对错并不是最重要的，关系的温度才是",
-      "type": "sentence",
-      "sourceBlockId": null,
-      "sourceRecordId": null,
-      "sourceBlockName": "AI润色",
-      "createdAt": "2026-05-09T17:00:12.207Z",
-      "useCount": 1,
-      "tags": [],
-      "digestion": {
-        "scenarios": [
-          {
-            "scenario": "自我提升：复盘日常失误",
-            "reference": "今天计划又被打乱了，本来想责怪自己效率低。但转念一想，对错并不是最重要的，关系的温度才是——我更需要关心自己内心的节奏，而不是死磕‘正确’的时间表。明天试着调整优先级，先做让自己舒服的事。"
-          },
-          {
-            "scenario": "工作：与同事意见分歧时",
-            "reference": "刚才我们因为方案细节争执不下，差点吵起来。其实对错并不是最重要的，关系的温度才是——如果因为赢了道理而伤了合作，后面反而更难推进。不如先暂停，说一句‘我们再看看彼此的需求’，等情绪平复再商量。"
-          }
-        ]
-      }
-    },
-    {
       "id": "moz2quze7h3b6",
-      "content": "因为一旦关系变冷，再对的观点也会被抵触；关系温暖时，问题更容易被共同解决。",
+      "content": "有些时候，对错并不是最重要的，关系的温度才是。关系冷，再对的观点也会被抵触；关系温暖，问题更容易被共同解决。",
       "type": "sentence",
       "sourceBlockId": null,
       "sourceRecordId": null,
