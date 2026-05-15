@@ -1985,6 +1985,34 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-15T02:20:42.663Z"
+    },
+    {
+      "id": "mp6autabphi0h",
+      "type": "task",
+      "content": "问下3053、2877的基站啥时候改造好",
+      "createdAt": "2026-05-15T02:29:59.363Z",
+      "updatedAt": "2026-05-15T02:29:59.363Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mp6av9jue9nsm",
+      "type": "task",
+      "content": "退网清单交换机房，并且给梁工一个答复。",
+      "createdAt": "2026-05-15T02:30:20.442Z",
+      "updatedAt": "2026-05-15T02:30:20.442Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2905,6 +2933,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T02:12:30.767Z"
+    "lastSync": "2026-05-15T02:25:41.883Z"
   }
 }
