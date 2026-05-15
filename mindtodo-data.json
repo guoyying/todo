@@ -1976,15 +1976,17 @@
       "type": "task",
       "content": "退网清单交换机房，并且给梁工一个答复。",
       "createdAt": "2026-05-15T02:30:20.442Z",
-      "updatedAt": "2026-05-15T07:25:37.512Z",
+      "updatedAt": "2026-05-15T07:49:10.655Z",
       "tags": [
-        "退网"
+        "退网",
+        "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mp6lew8p9j7wv"
+      "placedIn": null,
+      "doneAt": "2026-05-15T07:49:10.655Z"
     },
     {
       "id": "mp6d3pe1k05i0",
@@ -1999,19 +2001,6 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mp6ghsvrcpn4c",
-      "type": "task",
-      "content": "转发萤火行动的信息在群里",
-      "createdAt": "2026-05-15T05:07:50.007Z",
-      "updatedAt": "2026-05-15T07:25:40.638Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp6lew8p9j7wv"
     },
     {
       "id": "mp6iwm4ka6glp",
@@ -2999,6 +2988,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-15T07:33:51.166Z"
+    "lastSync": "2026-05-15T07:40:15.619Z"
   }
 }
