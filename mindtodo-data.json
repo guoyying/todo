@@ -2766,6 +2766,14 @@
       "createdAt": "2026-05-14T23:37:51.218Z"
     }
   ],
+  "tagConfig": {
+    "退网": {
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
+    }
+  },
   "aiConfig": {
     "enabled": true,
     "model": "deepseek-chat",
