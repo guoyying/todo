@@ -12,7 +12,7 @@
             --text-secondary: #888888;
             --border: #e0e0d8;
             --primary: #6b8e6b;
-            --primary-light: #e8f0e8;
+            --primary-light: #f5f5f0;
             --feeling: #d4a5a5;
             --feeling-light: #f5e8e8;
             --task: #8fa8c8;
@@ -436,6 +436,7 @@
              display: inline-flex;
              align-items: center;
              gap: 4px;
+             transition: all 0.2s ease;
          }
          .tag .tag-del {
              font-size: 11px;
@@ -1147,6 +1148,29 @@
               width: 100%;
               max-width: 100%;
               overflow: visible;
+          }
+          
+          /* 颜色选择器样式 */
+          .color-option {
+              transition: all 0.2s ease;
+              position: relative;
+          }
+          
+          .color-option:hover {
+              transform: scale(1.1);
+              box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+          }
+          
+          .color-option.selected::after {
+              content: '✓';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              color: white;
+              font-size: 14px;
+              font-weight: bold;
+              text-shadow: 0 1px 2px rgba(0,0,0,0.3);
           }
           
           .edit-digestion-form {
@@ -2463,8 +2487,8 @@
                  </div>
             
                 <!-- 编辑弹药弹窗 -->
-                <div class="modal-overlay hidden" id="editAmmoModal">
-                    <div class="modal" style="max-width:500px;">
+                <div class="modal-overlay hidden" id="editAmmoModal" onclick="closeEditAmmoModal()">
+                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
                         <h3>✏️ 编辑弹药</h3>
                         <div class="input-group">
                             <label>弹药内容</label>
@@ -2563,6 +2587,7 @@
          slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
          commonTaskTags: ['生活','工作'],
          commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
+         tagConfig: {}, // 标签颜色配置 {tagName: {color: '#4CAF50', textColor: '#FFFFFF'}}
          github: null,
          firstLoaded: false,
          title: '🌿 心事与任务',
@@ -2715,20 +2740,45 @@
                             });
                        }
                       
+                        // 迁移标签颜色配置
+                        if (!data.tagConfig) {
+                            data.tagConfig = {};
+                            const defaultColors = [
+                                { value: '#e8f0e8', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
+                                { value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
+                                { value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
+                            ];
+                            let colorIndex = 0;
+                            
+                            [...data.commonTaskTags, ...data.commonFeelingTags].forEach(tag => {
+                                if (!data.tagConfig[tag]) {
+                                    const colorConfig = defaultColors[colorIndex % defaultColors.length];
+                                    data.tagConfig[tag] = {
+                                        color: colorConfig.value,
+                                        textColor: colorConfig.textColor,
+                                        activeValue: colorConfig.activeValue,
+                                        activeTextColor: colorConfig.activeTextColor
+                                    };
+                                    colorIndex++;
+                                }
+                            });
+                            saveData();
+                        }
+                        
                         if (parsed.aiConfig) {
-                           // 合并aiConfig,确保apiKeys正确合并
-                           data.aiConfig.enabled = parsed.aiConfig.enabled !== undefined ? parsed.aiConfig.enabled : data.aiConfig.enabled;
-                           data.aiConfig.model = parsed.aiConfig.model || data.aiConfig.model;
-                           if (parsed.aiConfig.apiKeys) {
-                               data.aiConfig.apiKeys = { ...data.aiConfig.apiKeys, ...parsed.aiConfig.apiKeys };
-                           }
-                           // 兼容旧版本的apiKey字段
-                           if (parsed.aiConfig.apiKey && !data.aiConfig.apiKeys.openai) {
-                               data.aiConfig.apiKeys.openai = parsed.aiConfig.apiKey;
-                           }
-                           // 不覆盖models数组，保持最新的模型列表
-                           // models数组在代码中定义，包含所有支持的模型
-                       }
+                            // 合并aiConfig,确保apiKeys正确合并
+                            data.aiConfig.enabled = parsed.aiConfig.enabled !== undefined ? parsed.aiConfig.enabled : data.aiConfig.enabled;
+                            data.aiConfig.model = parsed.aiConfig.model || data.aiConfig.model;
+                            if (parsed.aiConfig.apiKeys) {
+                                data.aiConfig.apiKeys = { ...data.aiConfig.apiKeys, ...parsed.aiConfig.apiKeys };
+                            }
+                            // 兼容旧版本的apiKey字段
+                            if (parsed.aiConfig.apiKey && !data.aiConfig.apiKeys.openai) {
+                                data.aiConfig.apiKeys.openai = parsed.aiConfig.apiKey;
+                            }
+                            // 不覆盖models数组，保持最新的模型列表
+                            // models数组在代码中定义，包含所有支持的模型
+                        }
                  } catch(e) { console.error('Load data error:', e); }
              }
          }
@@ -3002,6 +3052,25 @@
             allTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'tag' + (selected.includes(tag) ? ' active' : '');
+                
+                // 应用标签颜色配置
+                if (data.tagConfig && data.tagConfig[tag]) {
+                    const tagConfig = data.tagConfig[tag];
+                    // 如果是选中状态，使用激活颜色
+                    if (selected.includes(tag)) {
+                        span.style.backgroundColor = tagConfig.activeValue || tagConfig.color;
+                        span.style.color = tagConfig.activeTextColor || tagConfig.textColor;
+                        span.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
+                        span.style.transform = 'scale(1.05)';
+                    } else {
+                        // 未选中状态，使用普通颜色
+                        span.style.backgroundColor = tagConfig.color;
+                        span.style.color = tagConfig.textColor;
+                        span.style.boxShadow = 'none';
+                        span.style.transform = 'none';
+                    }
+                }
+                
                 const text = document.createElement('span');
                 text.textContent = tag;
                 text.style.cursor = 'pointer';
@@ -5968,6 +6037,19 @@
             const existingTags = item.tags || [];
             const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
             
+            // 定义3种预设颜色（包含未点击和点击后的颜色）
+            const TAG_COLORS = [
+                { name: '绿色', value: '#f5f5f0', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
+                { name: '蓝色', value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
+                { name: '橙色', value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
+            ];
+            
+            // 获取当前标签的颜色配置
+            let currentColor = TAG_COLORS[0].value; // 默认第一个颜色
+            if (currentTag && data.tagConfig && data.tagConfig[currentTag]) {
+                currentColor = data.tagConfig[currentTag].color;
+            }
+            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             
@@ -5985,6 +6067,25 @@
                 `;
             }
             
+            // 生成颜色选择器HTML
+            const colorPickerHtml = `
+                <div class="input-group">
+                    <label>标签颜色</label>
+                    <div class="color-picker" style="display:flex;gap:12px;align-items:center;">
+                        ${TAG_COLORS.map((color, index) => `
+                            <div class="color-option ${color.value === currentColor ? 'selected' : ''}"
+                                 data-color="${color.value}"
+                                 data-text-color="${color.textColor}"
+                                 data-active-value="${color.activeValue}"
+                                 data-active-text-color="${color.activeTextColor}"
+                                 onclick="selectTagColor(this)"
+                                 style="width:32px;height:32px;border-radius:50%;background:${color.value};cursor:pointer;border:3px solid ${color.value === currentColor ? 'var(--primary)' : 'transparent'};transition:all 0.2s;flex-shrink:0;">
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
             modal.innerHTML = `
                 <div class="modal">
                     <h3>${currentTag ? '编辑标签' : '添加标签'}</h3>
@@ -5992,6 +6093,7 @@
                         <label>标签名称</label>
                         <input type="text" id="tagEditorInput" placeholder="输入标签名称" value="${currentTag || ''}" data-current-tag="${currentTag || ''}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveTagEdit('${itemId}', '${type}')}">
                     </div>
+                    ${colorPickerHtml}
                     ${tagsHtml}
                     <div class="modal-actions">
                         <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
@@ -6018,6 +6120,18 @@
             }
         }
         
+        function selectTagColor(colorElement) {
+            // 移除所有颜色选项的选中状态
+            document.querySelectorAll('.color-option').forEach(el => {
+                el.classList.remove('selected');
+                el.style.borderColor = 'transparent';
+            });
+            
+            // 设置当前颜色选项为选中状态
+            colorElement.classList.add('selected');
+            colorElement.style.borderColor = 'var(--primary)';
+        }
+        
         function showTagEditorForCommonTag(containerId, currentTag) {
             // 获取可用的标签列表
             let availableTags = [];
@@ -6029,6 +6143,19 @@
             
             // 过滤掉当前标签
             const selectableTags = availableTags.filter(tag => tag !== currentTag);
+            
+            // 定义3种预设颜色（包含未点击和点击后的颜色）
+            const TAG_COLORS = [
+                { name: '绿色', value: '#f5f5f0', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
+                { name: '蓝色', value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
+                { name: '橙色', value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
+            ];
+            
+            // 获取当前标签的颜色配置
+            let currentColor = TAG_COLORS[0].value; // 默认第一个颜色
+            if (currentTag && data.tagConfig && data.tagConfig[currentTag]) {
+                currentColor = data.tagConfig[currentTag].color;
+            }
             
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
@@ -6047,6 +6174,25 @@
                 `;
             }
             
+            // 生成颜色选择器HTML
+            const colorPickerHtml = `
+                <div class="input-group">
+                    <label>标签颜色</label>
+                    <div class="color-picker" style="display:flex;gap:12px;align-items:center;">
+                        ${TAG_COLORS.map((color, index) => `
+                            <div class="color-option ${color.value === currentColor ? 'selected' : ''}"
+                                 data-color="${color.value}"
+                                 data-text-color="${color.textColor}"
+                                 data-active-value="${color.activeValue}"
+                                 data-active-text-color="${color.activeTextColor}"
+                                 onclick="selectTagColor(this)"
+                                 style="width:32px;height:32px;border-radius:50%;background:${color.value};cursor:pointer;border:3px solid ${color.value === currentColor ? 'var(--primary)' : 'transparent'};transition:all 0.2s;flex-shrink:0;">
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
             modal.innerHTML = `
                 <div class="modal">
                     <h3>编辑标签</h3>
@@ -6054,6 +6200,7 @@
                         <label>标签名称</label>
                         <input type="text" id="commonTagEditorInput" placeholder="输入标签名称" value="${currentTag}" data-current-tag="${currentTag}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveCommonTagEdit('${containerId}')}">
                     </div>
+                    ${colorPickerHtml}
                     ${tagsHtml}
                     <div class="modal-actions">
                         <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
@@ -6089,7 +6236,24 @@
                 return;
             }
             
+            // 获取选中的颜色
+            const selectedColorElement = document.querySelector('.color-option.selected');
+            const selectedColor = selectedColorElement ? selectedColorElement.dataset.color : '#f5f5f0';
+            const selectedTextColor = selectedColorElement ? selectedColorElement.dataset.textColor : '#333333';
+            const selectedActiveValue = selectedColorElement ? selectedColorElement.dataset.activeValue : '#6b8e6b';
+            const selectedActiveTextColor = selectedColorElement ? selectedColorElement.dataset.activeTextColor : '#FFFFFF';
+            
             if (newTag === currentTag) {
+                // 更新标签配置
+                if (!data.tagConfig) data.tagConfig = {};
+                data.tagConfig[newTag] = {
+                    color: selectedColor,
+                    textColor: selectedTextColor,
+                    activeValue: selectedActiveValue,
+                    activeTextColor: selectedActiveTextColor
+                };
+                saveData();
+                render();
                 modal.remove();
                 return;
             }
@@ -6137,6 +6301,20 @@
                 });
             }
             
+            // 更新标签颜色配置
+            if (data.tagConfig && data.tagConfig[currentTag]) {
+                delete data.tagConfig[currentTag];
+            }
+            
+            // 更新标签配置
+            if (!data.tagConfig) data.tagConfig = {};
+            data.tagConfig[newTag] = {
+                color: selectedColor,
+                textColor: selectedTextColor,
+                activeValue: selectedActiveValue,
+                activeTextColor: selectedActiveTextColor
+            };
+            
             saveData();
             render();
             modal.remove();
@@ -6159,6 +6337,13 @@
                 modal.remove();
                 return;
             }
+            
+            // 获取选中的颜色
+            const selectedColorElement = document.querySelector('.color-option.selected');
+            const selectedColor = selectedColorElement ? selectedColorElement.dataset.color : '#f5f5f0';
+            const selectedTextColor = selectedColorElement ? selectedColorElement.dataset.textColor : '#333333';
+            const selectedActiveValue = selectedColorElement ? selectedColorElement.dataset.activeValue : '#6b8e6b';
+            const selectedActiveTextColor = selectedColorElement ? selectedColorElement.dataset.activeTextColor : '#FFFFFF';
             
             // 检查是否是编辑现有标签
             const currentTag = input.getAttribute('data-current-tag');
@@ -6194,6 +6379,11 @@
                         data.commonTaskTags[idx] = newTag;
                     }
                 }
+                
+                // 更新标签颜色配置
+                if (data.tagConfig && data.tagConfig[currentTag]) {
+                    delete data.tagConfig[currentTag];
+                }
             } else {
                 // 添加新标签
                 if (type === 'task') {
@@ -6212,6 +6402,13 @@
                     if (idx === -1) item.tags.push(newTag);
                 }
             }
+            
+            // 保存标签颜色配置
+            if (!data.tagConfig) data.tagConfig = {};
+            data.tagConfig[newTag] = {
+                color: selectedColor,
+                textColor: selectedTextColor
+            };
             
             item.updatedAt = nowStr();
             saveData(); render();
