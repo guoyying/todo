@@ -2772,6 +2772,18 @@
       "textColor": "#333333",
       "activeValue": "#e65100",
       "activeTextColor": "#FFFFFF"
+    },
+    "RPA": {
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
+    },
+    "CRM": {
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "aiConfig": {
