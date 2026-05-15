@@ -1752,36 +1752,17 @@
     {
       "id": "mp3nzqzfvypln",
       "type": "task",
-      "content": "整理退团的清单、收新的团费",
+      "content": "整理退团的清单、缴纳5月团费",
       "createdAt": "2026-05-13T06:14:26.139Z",
-      "updatedAt": "2026-05-14T06:51:02.784Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-15T03:47:27.528Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778671953333",
-          "content": "基于现有的名单，对照平台的名单，剔除。",
-          "done": true,
-          "estimatedTime": "8",
-          "placedIn": null
-        },
-        {
-          "id": "1778671990870",
-          "content": "对几个无忧的同事收五月和六月的团费。在群里@",
-          "done": false,
-          "estimatedTime": "8min",
-          "placedIn": null
-        },
-        {
-          "id": "1778720342514",
-          "content": "提醒嘉雯给钱",
-          "done": true,
-          "estimatedTime": "3min",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-15T03:47:27.528Z",
+      "subtasks": []
     },
     {
       "id": "mp4rnd45ci3rk",
