@@ -1155,6 +1155,15 @@
               overflow: visible;
           }
           
+          /* 关注事项编辑样式 */
+          #recentFocusesList > div > div:first-child:hover {
+              background: rgba(107, 142, 107, 0.1);
+          }
+          
+          #recentFocusesList > div > div:first-child:focus-within {
+              background: rgba(107, 142, 107, 0.15);
+          }
+          
           .modal-footer {
              display: flex;
              justify-content: flex-end;
@@ -8889,7 +8898,7 @@
                        .replace(/\n/g, ' ');  // 单个换行转为空格
                    
                    // 包装在容器中以控制整体样式
-                   promptDiv.innerHTML = `<div style="font-size:13px;line-height:1.6;color:var(--text);">${formattedResponse}</div>`;
+                   promptDiv.innerHTML = `<div style="font-size:14px;line-height:1.6;color:var(--text);">${formattedResponse}</div>`;
                   
                } catch (error) {
                    console.error('AI生成参考句式失败:', error);
@@ -8960,7 +8969,7 @@
               if (data.recentFocuses && data.recentFocuses.length > 0) {
                   focusesHtml = data.recentFocuses.map(focus => `
                       <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
-                          <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                          <div id="focus-content-${focus.id}" style="flex:1;font-size:13px;color:var(--text);cursor:pointer;padding:4px;border-radius:4px;transition:background 0.2s;" onclick="enableFocusEdit('${focus.id}')" title="点击编辑">${focus.content}</div>
                           <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
                       </div>
                   `).join('');
@@ -9005,7 +9014,7 @@
                   if (data.recentFocuses.length > 0) {
                       listDiv.innerHTML = data.recentFocuses.map(focus => `
                           <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
-                              <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                              <div id="focus-content-${focus.id}" style="flex:1;font-size:13px;color:var(--text);cursor:pointer;padding:4px;border-radius:4px;transition:background 0.2s;" onclick="enableFocusEdit('${focus.id}')" title="点击编辑">${focus.content}</div>
                               <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
                           </div>
                       `).join('');
@@ -9032,7 +9041,7 @@
                       if (listDiv) {
                           listDiv.innerHTML = data.recentFocuses.map(focus => `
                               <div style="display:flex;align-items:center;gap:8px;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;">
-                                  <div style="flex:1;font-size:13px;color:var(--text);">${focus.content}</div>
+                                  <div id="focus-content-${focus.id}" style="flex:1;font-size:13px;color:var(--text);cursor:pointer;padding:4px;border-radius:4px;transition:background 0.2s;" onclick="enableFocusEdit('${focus.id}')" title="点击编辑">${focus.content}</div>
                                   <button class="btn btn-small" onclick="deleteRecentFocus('${focus.id}', '${ammoId}')" style="padding:4px 8px;background:var(--danger);color:white;font-size:11px;">删除</button>
                               </div>
                           `).join('');
@@ -9043,8 +9052,6 @@
                       if (frameworksDiv) {
                           frameworksDiv.innerHTML = renderFrameworksForEdit(ammoId);
                       }
-                      
-                      showBanner('✅ 已撤销删除', '#4caf50', 2000);
                   }
               });
           }
@@ -9073,8 +9080,70 @@
                   }
               }, 5000);
           }
-          
-          // AI生成应用场景
+           
+           // 启用关注事项编辑
+           function enableFocusEdit(focusId) {
+               const contentDiv = document.getElementById(`focus-content-${focusId}`);
+               if (!contentDiv) return;
+               
+               // 检查是否已经在编辑状态
+               if (contentDiv.querySelector('input')) {
+                   return; // 已经在编辑状态，不重复处理
+               }
+               
+               const currentContent = contentDiv.textContent.trim();
+               
+               // 创建输入框
+               const input = document.createElement('input');
+               input.type = 'text';
+               input.value = currentContent;
+               input.style.cssText = 'width:100%;padding:6px 8px;border:1px solid var(--primary);border-radius:4px;font-size:13px;outline:none;';
+               
+               // 替换原内容
+               contentDiv.innerHTML = '';
+               contentDiv.appendChild(input);
+               input.focus();
+               
+               // 保存编辑的函数
+               const saveEdit = () => {
+                   const newContent = input.value.trim();
+                   if (newContent && newContent !== currentContent) {
+                       // 更新数据
+                       const focus = data.recentFocuses.find(f => f.id === focusId);
+                       if (focus) {
+                           focus.content = newContent;
+                           saveData();
+                       }
+                   }
+                    
+                   // 恢复显示
+                   contentDiv.innerHTML = newContent || currentContent;
+               };
+               
+               // 失去焦点时保存
+               input.addEventListener('blur', saveEdit);
+               
+               // 按回车键保存
+               input.addEventListener('keypress', (e) => {
+                   if (e.key === 'Enter') {
+                       input.blur();
+                   }
+               });
+               
+               // 按ESC键取消
+               input.addEventListener('keydown', (e) => {
+                   if (e.key === 'Escape') {
+                       contentDiv.innerHTML = currentContent;
+                   }
+               });
+               
+               // 阻止点击事件冒泡，避免触发父元素的点击事件
+               input.addEventListener('click', (e) => {
+                   e.stopPropagation();
+               });
+           }
+           
+           // AI生成应用场景
          async function generateAIScenarios(ammoId) {
              const ammo = data.ammoLibrary.find(a => a.id === ammoId);
              if (!ammo) return;
