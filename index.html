@@ -6667,31 +6667,32 @@
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
              // 创建要推送的数据副本，移除敏感信息
-              const dataToPush = {
-                  tasks: data.tasks,
-                  normalFeelings: data.normalFeelings,
-                  practiceBlocks: data.practiceBlocks,
-                  slots: data.slots,
-                  tags: data.tags,
-                  commonTags: data.commonTags,
-                  title: data.title,
-                  ammoLibrary: data.ammoLibrary,
-                  communicationChecklists: data.communicationChecklists,
-                  recentFocuses: data.recentFocuses,
-                  aiConfig: {
-                      enabled: data.aiConfig.enabled,
-                      model: data.aiConfig.model,
-                      models: data.aiConfig.models
-                      // 不包含 apiKey
-                  },
-                  github: {
-                      username: data.github.username,
-                      repo: data.github.repo,
-                      issue: data.github.issue,
-                      lastSync: data.github.lastSync
-                      // 不包含 token
-                  }
-              };
+             const dataToPush = {
+                 tasks: data.tasks,
+                 normalFeelings: data.normalFeelings,
+                 practiceBlocks: data.practiceBlocks,
+                 slots: data.slots,
+                 tags: data.tags,
+                 commonTags: data.commonTags,
+                 title: data.title,
+                 ammoLibrary: data.ammoLibrary,
+                 communicationChecklists: data.communicationChecklists,
+                 recentFocuses: data.recentFocuses,
+                 tagConfig: data.tagConfig,
+                 aiConfig: {
+                     enabled: data.aiConfig.enabled,
+                     model: data.aiConfig.model,
+                     models: data.aiConfig.models
+                     // 不包含 apiKey
+                 },
+                 github: {
+                     username: data.github.username,
+                     repo: data.github.repo,
+                     issue: data.github.issue,
+                     lastSync: data.github.lastSync
+                     // 不包含 token
+                 }
+             };
             const content = utf8ToBase64(JSON.stringify(dataToPush, null, 2));
             const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
             let sha = null;
@@ -7943,6 +7944,7 @@
                   if (remote.ammoLibrary) data.ammoLibrary = remote.ammoLibrary;
                   if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
                   if (remote.recentFocuses) data.recentFocuses = remote.recentFocuses;
+                  if (remote.tagConfig) data.tagConfig = remote.tagConfig;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
