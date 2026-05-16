@@ -1996,12 +1996,442 @@
               border-radius: 4px;
           }
           
-          /* 日期时间选择器聚焦状态 */
+          /* 日期时间选择器聚焦状态 - 保持简洁 */
           input[type="datetime-local"]:focus,
           input[type="time"]:focus {
               outline: none;
-              border-color: var(--green-primary) !important;
-              box-shadow: 0 4px 12px rgba(122, 138, 122, 0.15) !important;
+          }
+          
+          /* 日期时间选择器图标样式 */
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+          input[type="time"]::-webkit-calendar-picker-indicator {
+              cursor: pointer;
+              background-color: #ffffff;
+              border-radius: 4px;
+              padding: 4px;
+              margin: 2px;
+              filter: none;
+              opacity: 0.8;
+              transition: opacity 0.2s ease;
+          }
+          
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover,
+          input[type="time"]::-webkit-calendar-picker-indicator:hover {
+              opacity: 1;
+          }
+          
+          /* Webkit浏览器（Chrome, Safari, Edge）日期选择器样式 - 黑色字体 */
+          input[type="datetime-local"]::-webkit-datetime-edit,
+          input[type="time"]::-webkit-datetime-edit {
+              color: #000000;
+              font-family: inherit;
+              font-size: 15px;
+          }
+          
+          input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+          input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+          input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+          input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+          input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+              color: #000000;
+              font-weight: normal;
+          }
+          
+          input[type="datetime-local"]::-webkit-datetime-edit-month-field:focus,
+          input[type="datetime-local"]::-webkit-datetime-edit-day-field:focus,
+          input[type="datetime-local"]::-webkit-datetime-edit-year-field:focus,
+          input[type="datetime-local"]::-webkit-datetime-edit-hour-field:focus,
+          input[type="datetime-local"]::-webkit-datetime-edit-minute-field:focus {
+              color: #000000;
+              background-color: transparent;
+              outline: none;
+          }
+          
+          /* Firefox浏览器日期选择器样式 */
+          input[type="datetime-local"],
+          input[type="time"] {
+              color-scheme: light;
+          }
+          
+          /* 日期时间选择器弹出面板背景色样式 */
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+              background-color: #ffffff;
+          }
+          
+          /* 时间选择器样式 */
+          input[type="time"]::-webkit-datetime-edit {
+              padding: 8px 12px;
+          }
+          
+          /* 禁用状态样式 */
+          input[type="datetime-local"]:disabled,
+          input[type="time"]:disabled {
+              background-color: #f0f0f0;
+              color: #999;
+              cursor: not-allowed;
+              border-color: #ddd;
+          }
+          
+          /* 日期时间选择器弹出面板背景色尝试 */
+          /* 注意：浏览器对原生选择器面板样式的支持有限 */
+          
+          /* 尝试修改Webkit浏览器的日历面板背景 */
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+              background-color: #ffffff;
+          }
+          
+          /* 为整个页面设置日期选择器的颜色方案 */
+          input[type="datetime-local"],
+          input[type="time"] {
+              color-scheme: light;
+          }
+          
+          /* 尝试通过CSS变量影响选择器面板 */
+          :root {
+              --webkit-calendar-picker-background: #f8faf8;
+          }
+          
+          /* 针对Webkit浏览器的日历面板样式尝试 */
+          @supports (-webkit-appearance: none) {
+              input[type="datetime-local"]::-webkit-datetime-edit {
+                  background-color: #f8faf8;
+              }
+          }
+          
+          /* Firefox浏览器的日期选择器面板颜色 */
+          @supports (-moz-appearance: none) {
+              input[type="datetime-local"],
+              input[type="time"] {
+                  color-scheme: light;
+              }
+          }
+          
+          /* 尝试修改日历选择器的整体外观 */
+          input[type="datetime-local"] {
+              -webkit-appearance: none;
+              appearance: none;
+          }
+          
+          /* 为日历面板添加灰绿色调的尝试 */
+          input[type="datetime-local"]:in-range::-webkit-datetime-edit {
+              background-color: #f8faf8;
+          }
+          
+          /* 修改日历选择器的颜色主题 */
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+              filter: none;
+          }
+          
+          /* 尝试设置日历面板的背景色 */
+          ::-webkit-calendar-picker-indicator {
+              background-color: #f8faf8;
+          }
+          
+          /* 为日期选择器设置浅灰绿色背景 */
+          input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+              background-color: #f8faf8;
+          }
+          
+          /* 自定义日期时间选择器样式 */
+          .custom-datetime-picker {
+              position: relative;
+              width: 100%;
+          }
+          
+          .datetime-input-wrapper {
+              position: relative;
+              cursor: pointer;
+          }
+          
+          .datetime-input-wrapper input {
+              padding-right: 40px;
+              transition: all 0.3s ease;
+          }
+          
+          .datetime-input-wrapper input:hover {
+              border-color: #c5d5c5;
+          }
+          
+          .datetime-input-wrapper input:focus {
+              outline: none;
+              border-color: #c5d5c5;
+              box-shadow: 0 4px 12px rgba(197, 213, 197, 0.3);
+          }
+          
+          .datetime-icon {
+              position: absolute;
+              right: 12px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #7a8a7a;
+              font-size: 18px;
+              pointer-events: none;
+              background: #ffffff;
+              padding: 4px;
+              border-radius: 4px;
+          }
+          
+          /* 日期时间选择器面板 - 浮窗紧凑型 */
+          .datetime-picker-panel {
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 280px;
+              background: #ffffff;
+              border: 1px solid #c5d5c5;
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(74, 93, 74, 0.2);
+              z-index: 1000;
+              overflow: hidden;
+              animation: scaleIn 0.15s ease-out;
+          }
+          
+          @keyframes scaleIn {
+              from {
+                  opacity: 0;
+                  transform: translate(-50%, -50%) scale(0.95);
+              }
+              to {
+                  opacity: 1;
+                  transform: translate(-50%, -50%) scale(1);
+              }
+          }
+          
+          /* 添加遮罩层 */
+          .datetime-picker-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0, 0, 0, 0.3);
+              z-index: 999;
+              display: none;
+          }
+          
+          .datetime-picker-overlay.active {
+              display: block;
+          }
+          
+          .picker-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 8px 12px;
+              background: #f8faf8;
+              border-bottom: 1px solid #e8eee8;
+          }
+          
+          .picker-nav-btn {
+              background: transparent;
+              border: none;
+              color: #7a8a7a;
+              width: 24px;
+              height: 24px;
+              border-radius: 4px;
+              cursor: pointer;
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.15s ease;
+          }
+          
+          .picker-nav-btn:hover {
+              background: #e8eee8;
+              color: #4a5d4a;
+          }
+          
+          .picker-title {
+              font-weight: 500;
+              color: #4a5d4a;
+              font-size: 13px;
+          }
+          
+          .picker-body {
+              padding: 8px;
+          }
+          
+          .weekdays {
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+              gap: 2px;
+              margin-bottom: 4px;
+          }
+          
+          .weekday {
+              text-align: center;
+              font-size: 10px;
+              color: #8a9a8a;
+              font-weight: 500;
+              padding: 4px 2px;
+          }
+          
+          .calendar-grid {
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+              gap: 1px;
+              margin-bottom: 8px;
+          }
+          
+          .calendar-day {
+              min-height: 28px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 3px;
+              cursor: pointer;
+              font-size: 12px;
+              color: #4a5d4a;
+              transition: all 0.15s ease;
+              border: 1px solid transparent;
+              padding: 2px 1px;
+          }
+          
+          .calendar-day:hover {
+              background: #f0f5f0;
+              border-color: #d5e0d5;
+          }
+          
+          .calendar-day.selected {
+              background: #7a8a7a;
+              color: #ffffff;
+              font-weight: 500;
+          }
+          
+          .calendar-day.today {
+              border-color: #7a8a7a;
+              font-weight: 500;
+          }
+          
+          .calendar-day.other-month {
+              color: #c0c0c0;
+              pointer-events: none;
+          }
+          
+          .calendar-day.empty {
+              pointer-events: none;
+          }
+          
+          /* 时间选择器 - 紧凑型 */
+          .time-selector {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
+              padding: 8px;
+              background: #f8faf8;
+              border-radius: 4px;
+              border: 1px solid #e8eee8;
+          }
+          
+          .time-input-group {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 2px;
+          }
+          
+          .time-input-group label {
+              font-size: 9px;
+              color: #8a9a8a;
+              font-weight: 500;
+          }
+          
+          .time-select {
+              padding: 4px 8px;
+              border: 1px solid #d5e0d5;
+              border-radius: 4px;
+              background: #ffffff;
+              color: #4a5d4a;
+              font-size: 12px;
+              cursor: pointer;
+              transition: all 0.15s ease;
+              min-width: 50px;
+          }
+          
+          .time-select:hover {
+              border-color: #c5d5c5;
+              background: #f8faf8;
+          }
+          
+          .time-select:focus {
+              outline: none;
+              border-color: #7a8a7a;
+              box-shadow: 0 0 0 2px rgba(122, 138, 122, 0.1);
+          }
+          
+          .time-separator {
+              font-size: 16px;
+              color: #7a8a7a;
+              font-weight: 500;
+          }
+          
+          /* 选择器底部按钮 - 紧凑型 */
+          .picker-footer {
+              display: flex;
+              gap: 6px;
+              padding: 8px 12px;
+              background: #ffffff;
+              border-top: 1px solid #e8eee8;
+          }
+          
+          .picker-btn {
+              flex: 1;
+              padding: 6px 12px;
+              border: none;
+              border-radius: 4px;
+              font-size: 12px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.15s ease;
+          }
+          
+          .picker-btn-cancel {
+              background: #f0f0f0;
+              color: #6a7a6a;
+          }
+          
+          .picker-btn-cancel:hover {
+              background: #e8e8e8;
+              color: #4a5d4a;
+          }
+          
+          .picker-btn-confirm {
+              background: #7a8a7a;
+              color: #ffffff;
+          }
+          
+          .picker-btn-confirm:hover {
+              background: #6a7a6a;
+              box-shadow: 0 2px 6px rgba(122, 138, 122, 0.25);
+          }
+          
+          /* 响应式设计 */
+          @media (max-width: 768px) {
+              .datetime-picker-panel {
+                  position: fixed;
+                  top: auto;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  width: auto;
+                  border-radius: 12px 12px 0 0;
+                  margin: 0;
+                  max-height: 70vh;
+                  overflow-y: auto;
+              }
+              
+              .calendar-day {
+                  font-size: 11px;
+              }
+              
+              .time-select {
+                  min-width: 45px;
+                  padding: 4px 6px;
+                  font-size: 11px;
+              }
           }
       </style>
 </head>
@@ -2257,10 +2687,63 @@
                 <!-- 时间触发配置 -->
                 <div id="timeTriggerConfig" style="margin-bottom:16px;">
                     <label style="display:block;margin-bottom:8px;font-weight:500;color:#4a5d4a;">📅 触发时间</label>
-                    <div style="position:relative;">
-                        <input type="datetime-local" id="triggerDateTime" style="width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:12px;font-size:15px;background:#ffffff;color:#3d4d3d;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(74,93,74,0.08);" onfocus="this.style.borderColor='#c5d5c5';this.style.boxShadow='0 4px 12px rgba(74,93,74,0.15)';" onblur="this.style.borderColor='#e0e0e0';this.style.boxShadow='0 2px 8px rgba(74,93,74,0.08)';">
-                        <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#7a8a7a;font-size:18px;pointer-events:none;">⏰</div>
+                    
+                    <!-- 自定义日期时间选择器 -->
+                    <div class="custom-datetime-picker" id="customDateTimePicker">
+                        <!-- 遮罩层 -->
+                        <div class="datetime-picker-overlay" onclick="closeDateTimePicker()"></div>
+                        
+                        <div class="datetime-input-wrapper" onclick="toggleDateTimePicker()">
+                            <input type="text" id="triggerDateTimeDisplay" readonly placeholder="选择日期和时间"
+                                   style="width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:12px;font-size:15px;background:#ffffff;color:#000000;cursor:pointer;">
+                            <div class="datetime-icon">⏰</div>
+                        </div>
+                        <input type="hidden" id="triggerDateTime" value="">
+                        
+                        <!-- 自定义日期时间选择器面板 -->
+                        <div class="datetime-picker-panel" id="datetimePickerPanel" style="display:none;">
+                            <div class="picker-header">
+                                <button class="picker-nav-btn" onclick="navigateMonth(-1)">‹</button>
+                                <span class="picker-title" id="pickerTitle"></span>
+                                <button class="picker-nav-btn" onclick="navigateMonth(1)">›</button>
+                            </div>
+                            
+                            <div class="picker-body">
+                                <!-- 星期标题 -->
+                                <div class="weekdays">
+                                    <div class="weekday">日</div>
+                                    <div class="weekday">一</div>
+                                    <div class="weekday">二</div>
+                                    <div class="weekday">三</div>
+                                    <div class="weekday">四</div>
+                                    <div class="weekday">五</div>
+                                    <div class="weekday">六</div>
+                                </div>
+                                
+                                <!-- 日期网格 -->
+                                <div class="calendar-grid" id="calendarGrid"></div>
+                                
+                                <!-- 时间选择 -->
+                                <div class="time-selector">
+                                    <div class="time-input-group">
+                                        <label>小时</label>
+                                        <select id="hourSelect" class="time-select"></select>
+                                    </div>
+                                    <div class="time-separator">:</div>
+                                    <div class="time-input-group">
+                                        <label>分钟</label>
+                                        <select id="minuteSelect" class="time-select"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="picker-footer">
+                                <button class="picker-btn picker-btn-cancel" onclick="closeDateTimePicker()">取消</button>
+                                <button class="picker-btn picker-btn-confirm" onclick="confirmDateTime()">确定</button>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div style="font-size:12px;color:#6a7a6a;margin-top:6px;padding:8px 12px;background:#f8faf8;border-radius:8px;border-left:3px solid #8a9a8a;">
                         💡 设置后，任务将在指定时间才显示在待办列表中，并弹出提醒气泡
                     </div>
@@ -3013,6 +3496,192 @@
       </div>
  
      <script>
+    // ============ 自定义日期时间选择器 ============
+    
+    // 全局变量
+    let currentPickerDate = new Date();
+    let pickerSelectedDate = null;
+    let pickerSelectedHour = new Date().getHours();
+    let pickerSelectedMinute = new Date().getMinutes();
+    
+    // 初始化日期时间选择器
+    function initDateTimePicker() {
+        populateTimeSelects();
+        renderCalendar();
+        updatePickerTitle();
+    }
+    
+    // 填充时间选择下拉框
+    function populateTimeSelects() {
+        const hourSelect = document.getElementById('hourSelect');
+        const minuteSelect = document.getElementById('minuteSelect');
+        
+        // 填充小时 (0-23)
+        for (let i = 0; i < 24; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i.toString().padStart(2, '0');
+            if (i === pickerSelectedHour) option.selected = true;
+            hourSelect.appendChild(option);
+        }
+        
+        // 填充分钟 (0-59)
+        for (let i = 0; i < 60; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i.toString().padStart(2, '0');
+            if (i === pickerSelectedMinute) option.selected = true;
+            minuteSelect.appendChild(option);
+        }
+        
+        // 添加事件监听
+        hourSelect.addEventListener('change', function() {
+            pickerSelectedHour = parseInt(this.value);
+        });
+        
+        minuteSelect.addEventListener('change', function() {
+            pickerSelectedMinute = parseInt(this.value);
+        });
+    }
+    
+    // 渲染日历
+    function renderCalendar() {
+        const grid = document.getElementById('calendarGrid');
+        grid.innerHTML = '';
+        
+        const year = currentPickerDate.getFullYear();
+        const month = currentPickerDate.getMonth();
+        
+        // 获取当月第一天和最后一天
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const startDay = firstDay.getDay(); // 0 是周日
+        
+        // 获取上个月的最后几天
+        const prevMonthLastDay = new Date(year, month, 0).getDate();
+        
+        // 填充上个月的日期
+        for (let i = startDay - 1; i >= 0; i--) {
+            const day = document.createElement('div');
+            day.className = 'calendar-day other-month';
+            day.textContent = prevMonthLastDay - i;
+            grid.appendChild(day);
+        }
+        
+        // 填充当月的日期
+        const today = new Date();
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+            const day = document.createElement('div');
+            day.className = 'calendar-day';
+            day.textContent = i;
+            
+            const currentDate = new Date(year, month, i);
+            
+            // 标记今天
+            if (currentDate.toDateString() === today.toDateString()) {
+                day.classList.add('today');
+            }
+            
+            // 标记选中的日期
+            if (pickerSelectedDate && currentDate.toDateString() === pickerSelectedDate.toDateString()) {
+                day.classList.add('selected');
+            }
+            
+            day.addEventListener('click', function() {
+                selectDate(i);
+            });
+            
+            grid.appendChild(day);
+        }
+        
+        // 填充下个月的日期
+        const totalCells = startDay + lastDay.getDate();
+        const remainingCells = 42 - totalCells; // 6行 x 7列 = 42
+        
+        for (let i = 1; i <= remainingCells; i++) {
+            const day = document.createElement('div');
+            day.className = 'calendar-day other-month';
+            day.textContent = i;
+            grid.appendChild(day);
+        }
+    }
+    
+    // 选择日期
+    function selectDate(day) {
+        const year = currentPickerDate.getFullYear();
+        const month = currentPickerDate.getMonth();
+        pickerSelectedDate = new Date(year, month, day);
+        renderCalendar();
+    }
+    
+    // 导航月份
+    function navigateMonth(delta) {
+        currentPickerDate.setMonth(currentPickerDate.getMonth() + delta);
+        updatePickerTitle();
+        renderCalendar();
+    }
+    
+    // 更新选择器标题
+    function updatePickerTitle() {
+        const title = document.getElementById('pickerTitle');
+        const year = currentPickerDate.getFullYear();
+        const month = currentPickerDate.getMonth() + 1;
+        title.textContent = `${year}年${month}月`;
+    }
+    
+    // 切换日期时间选择器显示
+    function toggleDateTimePicker() {
+        const panel = document.getElementById('datetimePickerPanel');
+        const overlay = document.querySelector('.datetime-picker-overlay');
+        
+        if (panel.style.display === 'none') {
+            panel.style.display = 'block';
+            overlay.classList.add('active');
+            // 如果没有选中的日期，默认选中今天
+            if (!pickerSelectedDate) {
+                pickerSelectedDate = new Date();
+                renderCalendar();
+            }
+        } else {
+            panel.style.display = 'none';
+            overlay.classList.remove('active');
+        }
+    }
+    
+    // 关闭日期时间选择器
+    function closeDateTimePicker() {
+        const panel = document.getElementById('datetimePickerPanel');
+        const overlay = document.querySelector('.datetime-picker-overlay');
+        panel.style.display = 'none';
+        overlay.classList.remove('active');
+    }
+    
+    // 确认日期时间选择
+    function confirmDateTime() {
+        if (!pickerSelectedDate) {
+            showToast('请选择日期');
+            return;
+        }
+        
+        // 构建完整的日期时间
+        const year = pickerSelectedDate.getFullYear();
+        const month = (pickerSelectedDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = pickerSelectedDate.getDate().toString().padStart(2, '0');
+        const hour = pickerSelectedHour.toString().padStart(2, '0');
+        const minute = pickerSelectedMinute.toString().padStart(2, '0');
+        
+        const dateTimeString = `${year}-${month}-${day}T${hour}:${minute}`;
+        
+        // 更新显示
+        const displayInput = document.getElementById('triggerDateTimeDisplay');
+        const hiddenInput = document.getElementById('triggerDateTime');
+        
+        displayInput.value = `${year}-${month}-${day} ${hour}:${minute}`;
+        hiddenInput.value = dateTimeString;
+        
+        closeDateTimePicker();
+    }
+    
     // ============ Data ============
      let data = {
          tasks: [], // 待办任务
@@ -6296,6 +6965,12 @@
               // 重置表单
               document.querySelector('input[name="triggerType"][value="time"]').checked = true;
               document.getElementById('triggerDateTime').value = '';
+              document.getElementById('triggerDateTimeDisplay').value = '';
+              // 重置自定义选择器状态
+              pickerSelectedDate = null;
+              pickerSelectedHour = new Date().getHours();
+              pickerSelectedMinute = new Date().getMinutes();
+              currentPickerDate = new Date();
               // 重置提醒列表数据
               reminderListData = [];
               
@@ -9063,6 +9738,11 @@
             
             return feelingData;
         }
+        
+        // 初始化自定义日期时间选择器
+        document.addEventListener('DOMContentLoaded', function() {
+            initDateTimePicker();
+        });
         
         // 复制汇总结果
         function copyOldFeelingSummary() {
