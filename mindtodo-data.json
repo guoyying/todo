@@ -2043,6 +2043,20 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp7prujje0bns",
+      "type": "task",
+      "content": "测试",
+      "createdAt": "2026-05-16T02:15:21.439Z",
+      "updatedAt": "2026-05-16T02:15:21.439Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2851,6 +2865,21 @@
         ]
       },
       "createdAt": "2026-05-16T01:58:12.905Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mp7ps6kw3vlcc",
+      "taskId": "mp7prujje0bns",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-16T10:18"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-16T02:15:37.040Z",
       "lastReminderTime": null,
       "active": true
     }
