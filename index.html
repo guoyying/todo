@@ -3202,7 +3202,6 @@
                        }
                        aiDefaultModel.appendChild(option);
                    });
-                   console.log('AI设置模型选择器已更新，选项数量:', aiDefaultModel.options.length);
                } else {
                    console.warn('AI设置模型选择器元素未找到');
                }
@@ -6501,34 +6500,24 @@
           
           // 检查并触发提醒
           function checkTriggers() {
-              console.log('检查触发提醒...');
               if (!data.taskTriggers || data.taskTriggers.length === 0) {
-                  console.log('没有触发器需要检查');
                   return;
               }
-              
-              console.log('当前触发器数量:', data.taskTriggers.length);
               
               const now = new Date();
               const currentTime = now.toTimeString().substring(0, 5); // HH:MM格式
               const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD格式
               
-              console.log('当前时间:', now.toISOString());
-              
               // 需要移除的触发器索引
               const triggersToRemove = [];
               
               data.taskTriggers.forEach((trigger, index) => {
-                  console.log('检查触发器:', trigger);
-                  
                   if (!trigger.active) {
-                      console.log('触发器未激活，跳过');
                       return;
                   }
                   
                   const task = data.tasks.find(t => t.id === trigger.taskId);
                   if (!task) {
-                      console.log('任务不存在，跳过');
                       return;
                   }
                   
@@ -6537,33 +6526,23 @@
                   if (trigger.type === 'time') {
                       // 检查时间触发
                       const triggerTime = new Date(trigger.triggerConfig.triggerTime);
-                      console.log('时间触发 - 设定时间:', triggerTime.toISOString(), '当前时间:', now.toISOString());
                       
                       if (now >= triggerTime) {
-                          console.log('时间已到，应该触发!');
                           shouldTrigger = true;
-                      } else {
-                          console.log('时间未到，不触发');
                       }
                   } else {
                       // 条件触发：检查是否在提醒时间段内
                       const startTime = trigger.reminderConfig.startTime;
                       const endTime = trigger.reminderConfig.endTime;
                       
-                      console.log('条件触发 - 提醒时间段:', startTime, '-', endTime, '当前时间:', currentTime);
-                      
                       if (currentTime >= startTime && currentTime <= endTime) {
-                          console.log('在提醒时间段内，应该触发!');
                           shouldTrigger = true;
-                      } else {
-                          console.log('不在提醒时间段内，不触发');
                       }
                   }
                   
                   if (shouldTrigger) {
                       if (trigger.type === 'time') {
                           // 时间触发：立即显示提醒气泡并移除触发器
-                          console.log('执行时间触发 - 显示提醒气泡');
                           showReminderBubble(trigger);
                           triggersToRemove.push(index);
                       } else {
@@ -6603,7 +6582,6 @@
                           }
                           
                           if (shouldRemind) {
-                              console.log('执行条件触发 - 显示提醒气泡');
                               showReminderBubble(trigger);
                               trigger.lastReminderTime = now.toISOString();
                               saveData();
@@ -6614,7 +6592,6 @@
               
               // 移除需要移除的触发器（从后往前移除，避免索引问题）
               if (triggersToRemove.length > 0) {
-                  console.log('移除触发器:', triggersToRemove);
                   triggersToRemove.sort((a, b) => b - a).forEach(index => {
                       data.taskTriggers.splice(index, 1);
                   });
