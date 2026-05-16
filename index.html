@@ -663,6 +663,12 @@
             background: var(--primary-light) !important;
         }
         
+        /* 选中状态 */
+        .pending-task-item.selected {
+            background: #e8f5e9 !important;
+            border-left: 3px solid #4caf50 !important;
+        }
+        
         .pending-task-checkbox {
             width: 12px !important;
             height: 12px !important;
@@ -683,6 +689,33 @@
             text-overflow: ellipsis !important;
             word-break: break-all !important;
             line-height: 1.4 !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        /* 鼠标悬停显示全部内容 */
+        .pending-task-item:hover .pending-task-content {
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: clip !important;
+            z-index: 10;
+            position: relative;
+            background: var(--primary-light) !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        }
+        
+        /* 选中状态显示全部内容 */
+        .pending-task-item.selected .pending-task-content {
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: clip !important;
+            z-index: 10;
+            position: relative;
+            background: #e8f5e9 !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
         }
         
         .pending-task-meta {
@@ -12011,7 +12044,46 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 添加复选框变化监听
            updateSelectedTasksCount();
            document.querySelectorAll('.pending-task-checkbox').forEach(cb => {
-               cb.addEventListener('change', updateSelectedTasksCount);
+               cb.addEventListener('change', function() {
+                   updateSelectedTasksCount();
+                   // 更新选中状态的样式
+                   const taskItem = this.closest('.pending-task-item');
+                   if (this.checked) {
+                       taskItem.classList.add('selected');
+                   } else {
+                       taskItem.classList.remove('selected');
+                   }
+               });
+               // 初始化选中状态
+               const taskItem = cb.closest('.pending-task-item');
+               if (cb.checked) {
+                   taskItem.classList.add('selected');
+               }
+           });
+           
+           // 添加任务内容点击事件（支持选中显示内容）
+           document.querySelectorAll('.pending-task-content').forEach(content => {
+               // 网页版：点击切换选中状态
+               content.addEventListener('click', function(e) {
+                   e.stopPropagation(); // 防止触发其他点击事件
+                   const checkbox = this.previousElementSibling;
+                   checkbox.checked = !checkbox.checked;
+                   // 触发change事件
+                   checkbox.dispatchEvent(new Event('change'));
+               });
+               
+               // 移动端：触摸事件支持
+               const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+               if (isTouchDevice) {
+                   content.addEventListener('touchstart', function(e) {
+                       // 移动端触摸时也切换选中状态
+                       e.stopPropagation();
+                       const checkbox = this.previousElementSibling;
+                       checkbox.checked = !checkbox.checked;
+                       // 触发change事件
+                       checkbox.dispatchEvent(new Event('change'));
+                   });
+               }
            });
        }
        
