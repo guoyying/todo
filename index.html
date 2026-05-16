@@ -832,6 +832,38 @@
         .pending-task-tag-dot:hover::after {
             opacity: 1;
         }
+        
+        /* 回到顶部按钮样式 */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .back-to-top-btn:active {
+            transform: translateY(0);
+        }
+        
         .slot {
             background: var(--card);
             border-radius: var(--radius);
@@ -1251,7 +1283,7 @@
             transform: scale(1.1);
         }
         .mood-calendar .mood-day.selected {
-            background: var(--primary);
+            background: #ff9800;
             color: white;
         }
         .mood-calendar .mood-day.selected small {
@@ -1300,7 +1332,7 @@
             border: 2px solid #fff;
         }
         .mood-calendar .mood-day.selected {
-            background: var(--warning);
+            background: #ff9800;
             color: white;
         }
         .mood-calendar .mood-empty {
@@ -2189,6 +2221,10 @@
                 <div class="tag-filter" id="oldFeelingTagFilter"></div>
             </div>
             <div id="oldFeelingList"></div>
+            <!-- 回到顶部按钮 -->
+            <button id="oldFeelingBackToTop" class="back-to-top-btn" onclick="scrollOldFeelingToTop()" style="display:flex;">
+                ⬆️
+            </button>
         </div>
     </div>
 
@@ -5786,6 +5822,76 @@
                 listEl.classList.add('old-section-collapsed');
                 filterBarEl.classList.add('old-section-collapsed');
             }
+            
+            // 添加滚动监听，控制回到顶部按钮的显示
+            setupOldFeelingScrollListener();
+            
+            // 只在第一次设置时绑定按钮事件
+            if (!window.backToTopButtonSetup) {
+                setupBackToTopButton();
+                window.backToTopButtonSetup = true;
+            }
+        }
+        
+        // 设置回到顶部按钮的点击事件
+        function setupBackToTopButton() {
+            const backToTopBtn = document.getElementById('oldFeelingBackToTop');
+            if (backToTopBtn && !backToTopBtn.hasAttribute('data-event-setup')) {
+                // 添加事件监听器
+                backToTopBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('回到顶部按钮被点击');
+                    scrollOldFeelingToTop();
+                });
+                
+                // 标记已设置事件
+                backToTopBtn.setAttribute('data-event-setup', 'true');
+                console.log('回到顶部按钮事件监听器已设置');
+            } else if (!backToTopBtn) {
+                console.log('未找到回到顶部按钮');
+            }
+        }
+        
+        // 设置往期感受列表的滚动监听
+        function setupOldFeelingScrollListener() {
+            const wrapper = document.getElementById('oldFeelingWrapper');
+            const backToTopBtn = document.getElementById('oldFeelingBackToTop');
+            
+            if (!wrapper || !backToTopBtn) return;
+            
+            // 移除旧的监听器（避免重复添加）
+            wrapper.removeEventListener('scroll', handleOldFeelingScroll);
+            
+            // 添加新的监听器
+            wrapper.addEventListener('scroll', handleOldFeelingScroll);
+        }
+        
+        // 处理往期感受列表滚动事件
+        function handleOldFeelingScroll() {
+            const wrapper = document.getElementById('oldFeelingWrapper');
+            const backToTopBtn = document.getElementById('oldFeelingBackToTop');
+            
+            if (!wrapper || !backToTopBtn) return;
+            
+            // 当滚动超过100px时显示按钮
+            if (wrapper.scrollTop > 100) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        }
+        
+        // 往期感受列表回到顶部
+        function scrollOldFeelingToTop() {
+            console.log('点击了回到顶部按钮');
+            
+            // 直接滚动到页面顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            console.log('已滚动到页面顶部');
         }
 
          function renderCompleted() {
