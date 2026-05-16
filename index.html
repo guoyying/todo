@@ -693,8 +693,38 @@
             transition: all 0.2s ease;
         }
         
-        /* 鼠标悬停显示全部内容 */
-        .pending-task-item:hover .pending-task-content {
+        /* 展开按钮样式 */
+        .pending-task-expand-btn {
+            width: 16px !important;
+            height: 16px !important;
+            min-width: 16px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: var(--primary-light) !important;
+            border: 1px solid var(--primary) !important;
+            border-radius: 3px !important;
+            cursor: pointer !important;
+            font-size: 10px !important;
+            color: var(--primary) !important;
+            transition: all 0.2s ease !important;
+            flex-shrink: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .pending-task-expand-btn:hover {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+        
+        .pending-task-expand-btn.expanded {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+        
+        /* 展开状态显示全部内容 */
+        .pending-task-item.expanded .pending-task-content {
             white-space: normal !important;
             overflow: visible !important;
             text-overflow: clip !important;
@@ -706,16 +736,9 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
         }
         
-        /* 选中状态显示全部内容 */
-        .pending-task-item.selected .pending-task-content {
-            white-space: normal !important;
-            overflow: visible !important;
-            text-overflow: clip !important;
-            z-index: 10;
-            position: relative;
+        /* 选中且展开状态 */
+        .pending-task-item.selected.expanded .pending-task-content {
             background: #e8f5e9 !important;
-            padding: 4px 8px !important;
-            border-radius: 4px !important;
         }
         
         .pending-task-meta {
@@ -12016,6 +12039,7 @@ ${ammoToAnalyze.map((ammo, index) =>
            pendingTasks.forEach(task => {
                const item = document.createElement('div');
                item.className = 'pending-task-item';
+               item.dataset.taskId = task.id;
                
                // 显示任务时间（简化格式）
                const doneTime = task.doneAt ? formatDateTime(task.doneAt) : '未知';
@@ -12032,6 +12056,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                item.innerHTML = `
                    <input type="checkbox" class="pending-task-checkbox" data-task-id="${task.id}" ${isChecked ? 'checked' : ''}>
                    <div class="pending-task-content" title="${task.content}">${task.content}</div>
+                   <button class="pending-task-expand-btn" title="展开/收起">▼</button>
                    <div class="pending-task-meta">
                        <span class="pending-task-time">${doneTime}</span>
                        <div class="pending-task-tags">${tagsDots}</div>
@@ -12080,10 +12105,27 @@ ${ammoToAnalyze.map((ammo, index) =>
                        e.stopPropagation();
                        const checkbox = this.previousElementSibling;
                        checkbox.checked = !checkbox.checked;
-                       // 触发change事件
-                       checkbox.dispatchEvent(new Event('change'));
                    });
                }
+           });
+           
+           // 添加展开按钮点击事件
+           document.querySelectorAll('.pending-task-expand-btn').forEach(btn => {
+               btn.addEventListener('click', function(e) {
+                   e.stopPropagation(); // 防止触发其他点击事件
+                   const taskItem = this.closest('.pending-task-item');
+                   const isExpanded = taskItem.classList.contains('expanded');
+                   
+                   if (isExpanded) {
+                       taskItem.classList.remove('expanded');
+                       this.classList.remove('expanded');
+                       this.textContent = '▼';
+                   } else {
+                       taskItem.classList.add('expanded');
+                       this.classList.add('expanded');
+                       this.textContent = '▲';
+                   }
+               });
            });
        }
        
