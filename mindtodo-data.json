@@ -2057,6 +2057,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp7sgb0rseltv",
+      "type": "task",
+      "content": "手机端点击内容也能选中或撤消选中。另外手机端和网页版都移除每个任务末尾的标签点。",
+      "createdAt": "2026-05-16T03:30:21.772Z",
+      "updatedAt": "2026-05-16T03:30:21.772Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
