@@ -666,7 +666,6 @@
         /* 选中状态 */
         .pending-task-item.selected {
             background: #e8f5e9 !important;
-            border-left: 3px solid #4caf50 !important;
         }
         
         .pending-task-checkbox {
@@ -680,7 +679,7 @@
         .pending-task-content {
             flex: 1;
             min-width: 0;
-            max-width: 500px;
+            max-width: 800px;
             font-size: 13px !important;
             font-weight: 400 !important;
             margin: 0 !important;
@@ -690,21 +689,20 @@
             word-break: break-all !important;
             line-height: 1.4 !important;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
         
-        /* 网页版：选中状态显示全部内容 */
+        /* 网页版：选中状态显示全部内容 - 简洁线条式 */
         @media (hover: hover) and (pointer: fine) {
             .pending-task-item.selected .pending-task-content {
                 white-space: normal !important;
                 overflow: visible !important;
                 text-overflow: clip !important;
-                z-index: 10;
-                position: relative;
-                background: #e8f5e9 !important;
-                padding: 4px 8px !important;
-                border-radius: 4px !important;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+                color: #2e7d32 !important;
+                border-bottom: 2px solid #4caf50 !important;
+                padding-bottom: 4px !important;
+                transition: all 0.3s ease;
             }
         }
         
@@ -12066,11 +12064,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                // 显示任务时间（简化格式）
                const doneTime = task.doneAt ? formatDateTime(task.doneAt) : '未知';
                
-               // 显示任务标签（用小圆点表示）
-               const taskTags = task.tags || [];
-               const tagsDots = taskTags.length > 0
-                   ? taskTags.map(tag => `<span class="pending-task-tag-dot" title="${tag}"></span>`).join('')
-                   : '';
+               // 不显示任务标签点
+               const tagsDots = '';
                
                // 检查该任务是否之前被勾选过
                const isChecked = currentlyCheckedTaskIds.has(task.id);
@@ -12110,7 +12105,7 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 添加任务内容点击事件（支持选中显示内容）
            document.querySelectorAll('.pending-task-content').forEach(content => {
-               // 网页版：点击切换选中状态
+               // 统一使用click事件，移动端和桌面端都支持
                content.addEventListener('click', function(e) {
                    e.stopPropagation(); // 防止触发其他点击事件
                    const checkbox = this.previousElementSibling;
@@ -12118,19 +12113,6 @@ ${ammoToAnalyze.map((ammo, index) =>
                    // 触发change事件
                    checkbox.dispatchEvent(new Event('change'));
                });
-               
-               // 移动端：触摸事件支持
-               const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-               if (isTouchDevice) {
-                   content.addEventListener('touchstart', function(e) {
-                       // 移动端触摸时也切换选中状态
-                       e.stopPropagation();
-                       const checkbox = this.previousElementSibling;
-                       checkbox.checked = !checkbox.checked;
-                       // 触发change事件
-                       checkbox.dispatchEvent(new Event('change'));
-                   });
-               }
            });
            
            // 添加展开按钮点击事件
