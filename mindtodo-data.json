@@ -2045,20 +2045,6 @@
       "subtasks": []
     },
     {
-      "id": "mp7prujje0bns",
-      "type": "task",
-      "content": "测试",
-      "createdAt": "2026-05-16T02:15:21.439Z",
-      "updatedAt": "2026-05-16T02:20:30.896Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mp7py79jk9d4y",
       "type": "task",
       "content": "待整理的任务，网页版鼠标放在任务上就显示全部内容，支持选中显示内容。手机端点击任务就显示全部内容，也支持选中显示内容。",
@@ -3050,6 +3036,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-16T02:20:23.492Z"
+    "lastSync": "2026-05-16T02:20:37.373Z"
   }
 }
