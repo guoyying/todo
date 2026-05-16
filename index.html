@@ -20,6 +20,13 @@
             --danger: #c87070;
             --radius: 12px;
             --shadow: 0 2px 8px rgba(0,0,0,0.06);
+            /* 灰绿色主题颜色 */
+            --green-primary: #7a8a7a;
+            --green-secondary: #6a7a6a;
+            --green-light: #f8faf8;
+            --green-border: #c5d5c5;
+            --green-text: #4a5d4a;
+            --green-text-light: #6a7a6a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -933,6 +940,79 @@
         }
         .hidden { display: none !important; }
 
+        /* 提醒气泡样式 */
+        .reminder-bubble {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .reminder-bubble-content {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 2px solid var(--primary);
+            min-width: 300px;
+            max-width: 400px;
+            overflow: hidden;
+        }
+        
+        .reminder-bubble-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--primary-light);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .reminder-bubble-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+        }
+        
+        .reminder-bubble-close {
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1;
+            padding: 0 4px;
+        }
+        
+        .reminder-bubble-close:hover {
+            color: var(--danger);
+        }
+        
+        .reminder-bubble-message {
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .reminder-bubble-actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            justify-content: flex-end;
+        }
+
 .task-mode, .feeling-mode {
             display: none;
         }
@@ -1743,6 +1823,64 @@
                   font-size: 12px !important;
               }
           }
+          
+          /* 日期时间选择器样式优化 */
+          input[type="datetime-local"] {
+              appearance: none;
+              -webkit-appearance: none;
+              font-family: inherit;
+              cursor: pointer;
+          }
+          
+          /* Webkit浏览器（Chrome, Safari, Edge）的日期时间选择器样式 */
+          input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+              cursor: pointer;
+              opacity: 0.6;
+              filter: invert(0.3) sepia(0.2) saturate(0.8) hue-rotate(80deg);
+              padding: 4px;
+              border-radius: 4px;
+          }
+          
+          /* Firefox浏览器的日期时间选择器样式 */
+          input[type="datetime-local"]::-moz-calendar-picker-indicator {
+              cursor: pointer;
+              opacity: 0.6;
+              filter: invert(0.3) sepia(0.2) saturate(0.8) hue-rotate(80deg);
+              padding: 4px;
+              border-radius: 4px;
+          }
+          
+          /* 时间选择器样式 */
+          input[type="time"] {
+              appearance: none;
+              -webkit-appearance: none;
+              font-family: inherit;
+              cursor: pointer;
+          }
+          
+          input[type="time"]::-webkit-calendar-picker-indicator {
+              cursor: pointer;
+              opacity: 0.6;
+              filter: invert(0.3) sepia(0.2) saturate(0.8) hue-rotate(80deg);
+              padding: 4px;
+              border-radius: 4px;
+          }
+          
+          input[type="time"]::-moz-calendar-picker-indicator {
+              cursor: pointer;
+              opacity: 0.6;
+              filter: invert(0.3) sepia(0.2) saturate(0.8) hue-rotate(80deg);
+              padding: 4px;
+              border-radius: 4px;
+          }
+          
+          /* 日期时间选择器聚焦状态 */
+          input[type="datetime-local"]:focus,
+          input[type="time"]:focus {
+              outline: none;
+              border-color: var(--green-primary) !important;
+              box-shadow: 0 4px 12px rgba(122, 138, 122, 0.15) !important;
+          }
       </style>
 </head>
 <body>
@@ -1910,6 +2048,20 @@
             <!-- 任务列表可折叠 -->
             <div id="completedList" class="collapsed"></div>
         </div>
+        
+        <!-- 触发提醒管理模块 -->
+        <div>
+            <div class="section-title" style="cursor:pointer;" onclick="toggleSection('triggerManageList')">
+                ⏰ 触发提醒管理 <span class="count" id="triggerManageCount"></span>
+                <span id="triggerManageArrow" style="font-size:12px;margin-left:8px;">▼</span>
+            </div>
+            <div id="triggerManageList" class="collapsed">
+                <div style="padding:8px;margin-bottom:8px;display:flex;gap:8px;">
+                    <button class="btn btn-small btn-primary" onclick="checkTriggers()">🔄 立即检查触发器</button>
+                </div>
+                <div id="triggerManageContent"></div>
+            </div>
+        </div>
     </div>
 
     <!-- 感受模式模块 -->
@@ -1950,6 +2102,103 @@
                 <div class="tag-filter" id="oldFeelingTagFilter"></div>
             </div>
             <div id="oldFeelingList"></div>
+        </div>
+    </div>
+
+    <!-- 触发提醒设置弹窗 -->
+    <div class="modal-overlay hidden" id="triggerSetupModal" onclick="closeModal('triggerSetupModal')">
+        <div class="modal" style="max-width: 600px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>⏰ 设置触发提醒</h3>
+                <span class="close" onclick="closeModal('triggerSetupModal')">&times;</span>
+            </div>
+            <div class="modal-body" style="max-height:80vh;">
+                <!-- 任务信息 -->
+                <div id="triggerTaskInfo" style="padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);margin-bottom:16px;"></div>
+                
+                <!-- 触发类型选择 -->
+                <div style="margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:500;">🎯 触发类型</label>
+                    <div style="display:flex;gap:12px;">
+                        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="triggerType" value="time" checked onchange="toggleTriggerType()">
+                            <span>时间触发</span>
+                        </label>
+                        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                            <input type="radio" name="triggerType" value="condition" onchange="toggleTriggerType()">
+                            <span>条件触发</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 时间触发配置 -->
+                <div id="timeTriggerConfig" style="margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:500;color:#4a5d4a;">📅 触发时间</label>
+                    <div style="position:relative;">
+                        <input type="datetime-local" id="triggerDateTime" style="width:100%;padding:12px 16px;border:2px solid #e0e0e0;border-radius:12px;font-size:15px;background:#ffffff;color:#3d4d3d;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(74,93,74,0.08);" onfocus="this.style.borderColor='#c5d5c5';this.style.boxShadow='0 4px 12px rgba(74,93,74,0.15)';" onblur="this.style.borderColor='#e0e0e0';this.style.boxShadow='0 2px 8px rgba(74,93,74,0.08)';">
+                        <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#7a8a7a;font-size:18px;pointer-events:none;">⏰</div>
+                    </div>
+                    <div style="font-size:12px;color:#6a7a6a;margin-top:6px;padding:8px 12px;background:#f8faf8;border-radius:8px;border-left:3px solid #8a9a8a;">
+                        💡 设置后，任务将在指定时间才显示在待办列表中，并弹出提醒气泡
+                    </div>
+                </div>
+                
+                <!-- 条件触发配置 -->
+                <div id="conditionTriggerConfig" style="display:none;margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:12px;font-weight:500;color:#4a5d4a;">🔔 提醒设置</label>
+                    
+                    <!-- 提醒列表 -->
+                    <div id="reminderList" style="margin-bottom:12px;"></div>
+                    
+                    <!-- 添加提醒按钮 -->
+                    <button type="button" class="btn" onclick="addReminder()" style="width:100%;padding:10px;background:linear-gradient(135deg, #7a8a7a 0%, #6a7a6a 100%);color:white;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(74,93,74,0.15);">
+                        ➕ 添加提醒
+                    </button>
+                </div>
+                
+                <!-- 操作按钮 -->
+                <div style="display:flex;gap:12px;justify-content:flex-end;">
+                    <button class="btn btn-secondary" onclick="closeModal('triggerSetupModal')">取消</button>
+                    <button class="btn btn-primary" onclick="saveTriggerSetup()">保存设置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 触发提醒管理弹窗 -->
+    <div class="modal-overlay hidden" id="triggerManageModal" onclick="closeModal('triggerManageModal')">
+        <div class="modal" style="max-width: 800px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>⏰ 触发提醒管理</h3>
+                <span class="close" onclick="closeModal('triggerManageModal')">&times;</span>
+            </div>
+            <div class="modal-body" style="max-height:80vh;">
+                <!-- 任务信息 -->
+                <div id="manageTriggerTaskInfo" style="padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);margin-bottom:16px;"></div>
+                
+                <!-- 当前触发设置 -->
+                <div id="currentTriggerConfig" style="margin-bottom:16px;"></div>
+                
+                <!-- 操作按钮 -->
+                <div style="display:flex;gap:12px;justify-content:flex-end;">
+                    <button class="btn btn-secondary" onclick="closeModal('triggerManageModal')">关闭</button>
+                    <button class="btn btn-danger" onclick="removeTrigger()">移除提醒</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 提醒气泡 -->
+    <div id="reminderBubble" class="reminder-bubble hidden">
+        <div class="reminder-bubble-content">
+            <div class="reminder-bubble-header">
+                <span class="reminder-bubble-title">⏰ 任务提醒</span>
+                <span class="reminder-bubble-close" onclick="closeReminderBubble()">&times;</span>
+            </div>
+            <div class="reminder-bubble-message" id="reminderBubbleMessage"></div>
+            <div class="reminder-bubble-actions">
+                <button class="btn btn-small btn-primary" onclick="closeReminderBubble()">确定</button>
+            </div>
         </div>
     </div>
 
@@ -2657,6 +2906,7 @@
          expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
          ammoLibrary: [], // 弹药库 - 用户个人创建的表达库，从练习记录和感受记录中收集
          recentFocuses: [], // 近期关注的事 [{id, content, createdAt}]
+         taskTriggers: [], // 任务触发提醒 [{id, taskId, type: 'time'|'condition', triggerConfig, reminderConfig, createdAt}]
            aiConfig: { // AI配置
                enabled: false,
                apiKeys: { // 多个提供商的API密钥
@@ -3608,6 +3858,7 @@
                 renderToday();
                 renderOldTodos();
                 renderCompleted();
+                renderTriggerManage();
             }
             
             checkUpdateStatus();
@@ -4006,6 +4257,13 @@
             actions.className = 'item-actions';
              let actionButtons = '';
              if (item.type === 'task' && !item.placedIn && !item.done) {
+                 // 检查是否已有触发提醒
+                 const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === item.id);
+                 if (hasTrigger) {
+                     actionButtons += `<button class="btn btn-warning btn-small" onclick="showTriggerManage('${item.id}')">⏰ 已设置提醒</button>`;
+                 } else {
+                     actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTriggerSetup('${item.id}')">⏰ 触发提醒</button>`;
+                 }
                  actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
              }
              actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
@@ -5071,6 +5329,11 @@
              
              // 只显示当天创建且未完成且未放入时间段的待办
              let list = data.tasks.filter(i => {
+                 // 过滤掉有触发提醒的任务
+                 if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
+                     return false;
+                 }
+                 
                  if (!i.done && isToday(i.createdAt)) {
                      // 普通任务，只显示未放入时间段的
                      if (i.placedIn) {
@@ -5167,6 +5430,11 @@
             const filterMode = document.getElementById('oldTodoTagFilter')?.dataset.filterMode || 'include';
             
             let list = data.tasks.filter(i => {
+                // 过滤掉有触发提醒的任务
+                if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
+                    return false;
+                }
+                
                 if (!i.done && !isToday(i.createdAt)) {
                     // 如果任务本身被放入时间段，不显示
                     if (i.placedIn) {
@@ -5751,6 +6019,637 @@
               const modal = document.getElementById(modalId);
               if (modal) {
                   modal.classList.add('hidden');
+              }
+          }
+          
+          // ============ 触发提醒相关函数 ============
+          
+          let currentTriggerTaskId = null;
+          
+          // 显示触发提醒设置弹窗
+          function showTriggerSetup(taskId) {
+              currentTriggerTaskId = taskId;
+              const task = data.tasks.find(t => t.id === taskId);
+              if (!task) return;
+              
+              // 显示任务信息
+              const taskInfo = document.getElementById('triggerTaskInfo');
+              taskInfo.innerHTML = `
+                  <div style="font-weight:500;margin-bottom:4px;">📝 ${task.content.substring(0, 50)}${task.content.length > 50 ? '...' : ''}</div>
+                  <div style="font-size:12px;color:var(--text-secondary);">创建时间：${fmtTime(task.createdAt)}</div>
+              `;
+              
+              // 重置表单
+              document.querySelector('input[name="triggerType"][value="time"]').checked = true;
+              document.getElementById('triggerDateTime').value = '';
+              // 重置提醒列表数据
+              reminderListData = [];
+              
+              toggleTriggerType();
+              
+              // 显示弹窗
+              document.getElementById('triggerSetupModal').classList.remove('hidden');
+          }
+          
+          // 提醒列表数据
+          let reminderListData = [];
+          
+          // 切换触发类型
+          function toggleTriggerType() {
+              const triggerType = document.querySelector('input[name="triggerType"]:checked').value;
+              document.getElementById('timeTriggerConfig').style.display = triggerType === 'time' ? 'block' : 'none';
+              document.getElementById('conditionTriggerConfig').style.display = triggerType === 'condition' ? 'block' : 'none';
+              
+              // 如果切换到条件触发，初始化提醒列表
+              if (triggerType === 'condition') {
+                  renderReminderList();
+              }
+          }
+          
+          // 渲染提醒列表
+          function renderReminderList() {
+              const container = document.getElementById('reminderList');
+              if (!container) return;
+              
+              if (reminderListData.length === 0) {
+                  container.innerHTML = `
+                      <div style="text-align:center;padding:20px;color:var(--text-secondary);background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:2px dashed #c5d5c5;">
+                          <div style="font-size:24px;margin-bottom:8px;">🔔</div>
+                          <div style="font-size:13px;">暂无提醒设置</div>
+                          <div style="font-size:12px;margin-top:4px;">点击下方按钮添加提醒</div>
+                      </div>
+                  `;
+                  return;
+              }
+              
+              let html = '';
+              reminderListData.forEach((reminder, index) => {
+                  const freqText = getFrequencyText(reminder.frequency, reminder.customInterval, reminder.customIntervalUnit);
+                  html += `
+                      <div style="margin-bottom:10px;padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #d5e0d5;box-shadow:0 2px 6px rgba(74,93,74,0.06);">
+                          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                              <div style="flex:1;">
+                                  <div style="font-weight:500;color:#3d4d3d;margin-bottom:4px;">📅 ${freqText}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${reminder.startTime} - ${reminder.endTime}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${reminder.message}</div>
+                              </div>
+                              <button type="button" onclick="removeReminder(${index})" style="padding:4px 8px;background:#ffebee;color:#c62828;border:none;border-radius:4px;font-size:12px;cursor:pointer;transition:all 0.2s ease;">删除</button>
+                          </div>
+                      </div>
+                  `;
+              });
+              
+              container.innerHTML = html;
+          }
+          
+          // 获取频率文本
+          function getFrequencyText(frequency, customInterval, customIntervalUnit) {
+              switch(frequency) {
+                  case 'once': return '仅一次';
+                  case 'daily': return '每天';
+                  case 'weekly': return '每周';
+                  case 'custom':
+                      const unitMap = {day: '天', week: '周', month: '个月'};
+                      return `每隔${customInterval}${unitMap[customIntervalUnit]}`;
+                  default: return frequency;
+              }
+          }
+          
+          // 添加提醒
+          function addReminder() {
+              // 创建添加提醒的弹窗
+              const modalHtml = `
+                  <div class="modal-overlay" id="addReminderModal" onclick="closeAddReminderModal()">
+                      <div class="modal" style="max-width:400px;" onclick="event.stopPropagation()">
+                          <div class="modal-header">
+                              <h3>➕ 添加提醒</h3>
+                              <span class="close" onclick="closeAddReminderModal()">&times;</span>
+                          </div>
+                          <div class="modal-body">
+                              <!-- 提醒频率 -->
+                              <div style="margin-bottom:12px;">
+                                  <label style="display:block;margin-bottom:6px;font-size:13px;color:#333333;font-weight:500;">提醒频率</label>
+                                  <select id="newReminderFrequency" style="width:100%;padding:8px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px;background:#ffffff;" onchange="toggleNewReminderFrequency()">
+                                      <option value="once">仅一次</option>
+                                      <option value="daily">每天</option>
+                                      <option value="weekly">每周</option>
+                                      <option value="custom">自定义</option>
+                                  </select>
+                              </div>
+                              
+                              <!-- 自定义频率 -->
+                              <div id="newCustomFrequencyConfig" style="display:none;margin-bottom:12px;padding:10px;background:#f8faf8;border-radius:6px;">
+                                  <div style="display:flex;gap:8px;align-items:center;">
+                                      <span style="color:#333333;">每隔</span>
+                                      <input type="number" id="newCustomInterval" min="1" value="1" style="width:60px;padding:6px;border:1px solid #e0e0e0;border-radius:6px;font-size:14px;">
+                                      <select id="newCustomIntervalUnit" style="padding:6px;border:1px solid #e0e0e0;border-radius:6px;font-size:14px;">
+                                          <option value="day">天</option>
+                                          <option value="week">周</option>
+                                          <option value="month">月</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              
+                              <!-- 提醒时间段 -->
+                              <div style="margin-bottom:12px;">
+                                  <label style="display:block;margin-bottom:6px;font-size:13px;color:#333333;font-weight:500;">提醒时间段</label>
+                                  <div style="display:flex;gap:8px;align-items:center;">
+                                      <input type="time" id="newReminderStartTime" value="09:00" style="flex:1;padding:8px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px;background:#ffffff;color:#3d4d3d;transition:all 0.3s ease;">
+                                      <span style="color:#7a8a7a;font-weight:500;">-</span>
+                                      <input type="time" id="newReminderEndTime" value="18:00" style="flex:1;padding:8px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px;background:#ffffff;color:#3d4d3d;transition:all 0.3s ease;">
+                                  </div>
+                              </div>
+                              
+                              <!-- 提醒消息 -->
+                              <div style="margin-bottom:16px;">
+                                  <label style="display:block;margin-bottom:6px;font-size:13px;color:#333333;font-weight:500;">提醒消息</label>
+                                  <input type="text" id="newReminderMessage" value="你有1个任务" style="width:100%;padding:8px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px;background:#ffffff;">
+                              </div>
+                              
+                              <!-- 操作按钮 -->
+                              <div style="display:flex;gap:12px;justify-content:flex-end;">
+                                  <button type="button" class="btn btn-secondary" onclick="closeAddReminderModal()">取消</button>
+                                  <button type="button" class="btn btn-primary" onclick="saveNewReminder()" style="background:linear-gradient(135deg, #7a8a7a 0%, #6a7a6a 100%);">确定</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              `;
+              
+              // 添加到页面
+              document.body.insertAdjacentHTML('beforeend', modalHtml);
+          }
+          
+          // 切换新提醒频率
+          function toggleNewReminderFrequency() {
+              const frequency = document.getElementById('newReminderFrequency').value;
+              document.getElementById('newCustomFrequencyConfig').style.display = frequency === 'custom' ? 'block' : 'none';
+          }
+          
+          // 保存新提醒
+          function saveNewReminder() {
+              const frequency = document.getElementById('newReminderFrequency').value;
+              const reminder = {
+                  frequency: frequency,
+                  startTime: document.getElementById('newReminderStartTime').value,
+                  endTime: document.getElementById('newReminderEndTime').value,
+                  message: document.getElementById('newReminderMessage').value
+              };
+              
+              if (frequency === 'custom') {
+                  reminder.customInterval = document.getElementById('newCustomInterval').value;
+                  reminder.customIntervalUnit = document.getElementById('newCustomIntervalUnit').value;
+              }
+              
+              reminderListData.push(reminder);
+              renderReminderList();
+              closeAddReminderModal();
+          }
+          
+          // 关闭添加提醒弹窗
+          function closeAddReminderModal() {
+              const modal = document.getElementById('addReminderModal');
+              if (modal) {
+                  modal.remove();
+              }
+          }
+          
+          // 删除提醒
+          function removeReminder(index) {
+              reminderListData.splice(index, 1);
+              renderReminderList();
+          }
+          
+          // 保存触发提醒设置
+          function saveTriggerSetup() {
+              const task = data.tasks.find(t => t.id === currentTriggerTaskId);
+              if (!task) return;
+              
+              const triggerType = document.querySelector('input[name="triggerType"]:checked').value;
+              let triggerConfig = {};
+              
+              if (triggerType === 'time') {
+                  const triggerDateTime = document.getElementById('triggerDateTime').value;
+                  if (!triggerDateTime) {
+                      showToast('请选择触发时间');
+                      return;
+                  }
+                  triggerConfig = {
+                      triggerTime: triggerDateTime
+                  };
+              } else {
+                  // 条件触发不需要条件输入，直接使用提醒列表
+                  if (reminderListData.length === 0) {
+                      showToast('请至少添加一个提醒设置');
+                      return;
+                  }
+                  triggerConfig = {
+                      condition: 'manual' // 手动触发
+                  };
+              }
+              
+              // 根据触发类型设置提醒配置
+              let reminderConfig;
+              if (triggerType === 'time') {
+                  // 时间触发使用默认配置，立即提醒一次
+                  reminderConfig = {
+                      frequency: 'once',
+                      message: '你有1个任务待处理'
+                  };
+              } else {
+                  // 条件触发使用用户自定义的多个提醒配置
+                  reminderConfig = {
+                      reminders: reminderListData // 支持多个提醒
+                  };
+              }
+              
+              // 创建触发提醒记录
+              const trigger = {
+                  id: genId(),
+                  taskId: currentTriggerTaskId,
+                  type: triggerType,
+                  triggerConfig: triggerConfig,
+                  reminderConfig: reminderConfig,
+                  createdAt: nowStr(),
+                  lastReminderTime: null,
+                  active: true
+              };
+              
+              // 初始化taskTriggers数组
+              if (!data.taskTriggers) {
+                  data.taskTriggers = [];
+              }
+              
+              data.taskTriggers.push(trigger);
+              saveData();
+              
+              closeModal('triggerSetupModal');
+              showToast('触发提醒设置成功');
+              render();
+          }
+          
+          // 显示触发提醒管理弹窗
+          function showTriggerManage(taskId) {
+              currentTriggerTaskId = taskId;
+              const task = data.tasks.find(t => t.id === taskId);
+              if (!task) return;
+              
+              const trigger = data.taskTriggers.find(t => t.taskId === taskId);
+              if (!trigger) return;
+              
+              // 显示任务信息
+              const taskInfo = document.getElementById('manageTriggerTaskInfo');
+              taskInfo.innerHTML = `
+                  <div style="font-weight:500;margin-bottom:4px;">📝 ${task.content.substring(0, 50)}${task.content.length > 50 ? '...' : ''}</div>
+                  <div style="font-size:12px;color:var(--text-secondary);">创建时间：${fmtTime(task.createdAt)}</div>
+              `;
+              
+              // 显示当前触发配置
+              const configDiv = document.getElementById('currentTriggerConfig');
+              let triggerInfo = '';
+              
+              if (trigger.type === 'time') {
+                  triggerInfo = `
+                      <div style="padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                          <div style="font-weight:500;margin-bottom:8px;">⏰ 时间触发</div>
+                          <div style="font-size:13px;">触发时间：${trigger.triggerConfig.triggerTime}</div>
+                      </div>
+                  `;
+              } else {
+                  triggerInfo = `
+                      <div style="padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #c5d5c5;">
+                          <div style="font-weight:500;margin-bottom:8px;color:#4a5d4a;">📝 条件触发</div>
+                          <div style="font-size:13px;color:#6a7a6a;">手动触发提醒</div>
+                      </div>
+                  `;
+              }
+              
+              let reminderInfo = '';
+              
+              if (trigger.type === 'time') {
+                  // 时间触发显示单个提醒
+                  const freq = trigger.reminderConfig.frequency;
+                  let freqText = '仅一次';
+                  if (freq === 'daily') freqText = '每天';
+                  else if (freq === 'weekly') freqText = '每周';
+                  else if (freq === 'custom') {
+                      freqText = `每隔${trigger.reminderConfig.customInterval}${trigger.reminderConfig.customIntervalUnit === 'day' ? '天' : trigger.reminderConfig.customIntervalUnit === 'week' ? '周' : '个月'}`;
+                  }
+                  
+                  reminderInfo = `
+                      <div style="padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #c5d5c5;">
+                          <div style="font-weight:500;margin-bottom:8px;color:#4a5d4a;">🔔 提醒设置</div>
+                          <div style="font-size:13px;color:#6a7a6a;">提醒频率：${freqText}</div>
+                          <div style="font-size:13px;color:#6a7a6a;">提醒消息：${trigger.reminderConfig.message}</div>
+                      </div>
+                  `;
+              } else {
+                  // 条件触发显示多个提醒
+                  if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                      let remindersHtml = '<div style="font-weight:500;margin-bottom:8px;color:#4a5d4a;">🔔 提醒设置 (' + trigger.reminderConfig.reminders.length + '个)</div>';
+                      
+                      trigger.reminderConfig.reminders.forEach((reminder, index) => {
+                          const freqText = getFrequencyText(reminder.frequency, reminder.customInterval, reminder.customIntervalUnit);
+                          remindersHtml += `
+                              <div style="padding:10px;margin-bottom:8px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:6px;border:1px solid #d5e0d5;">
+                                  <div style="font-weight:500;color:#3d4d3d;margin-bottom:4px;">📅 ${freqText}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${reminder.startTime} - ${reminder.endTime}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${reminder.message}</div>
+                              </div>
+                          `;
+                      });
+                      
+                      reminderInfo = `
+                          <div style="padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #c5d5c5;">
+                              ${remindersHtml}
+                          </div>
+                      `;
+                  } else {
+                      reminderInfo = `
+                          <div style="padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #c5d5c5;">
+                              <div style="font-weight:500;margin-bottom:8px;color:#4a5d4a;">🔔 提醒设置</div>
+                              <div style="font-size:13px;color:#6a7a6a;">暂无提醒设置</div>
+                          </div>
+                      `;
+                  }
+              }
+              
+              configDiv.innerHTML = triggerInfo + reminderInfo;
+              
+              // 显示弹窗
+              document.getElementById('triggerManageModal').classList.remove('hidden');
+          }
+          
+          // 移除触发提醒
+          function removeTrigger() {
+              if (!data.taskTriggers) return;
+              
+              const index = data.taskTriggers.findIndex(t => t.taskId === currentTriggerTaskId);
+              if (index !== -1) {
+                  data.taskTriggers.splice(index, 1);
+                  saveData();
+                  closeModal('triggerManageModal');
+                  showToast('触发提醒已移除');
+                  render();
+              }
+          }
+          
+          // 显示提醒气泡
+          function showReminderBubble(trigger) {
+              console.log('显示提醒气泡:', trigger);
+              const bubble = document.getElementById('reminderBubble');
+              const message = document.getElementById('reminderBubbleMessage');
+              
+              if (!bubble || !message) {
+                  console.error('提醒气泡元素不存在');
+                  return;
+              }
+              
+              // 确保使用正确的消息
+              const reminderMessage = trigger.reminderConfig && trigger.reminderConfig.message
+                  ? trigger.reminderConfig.message
+                  : '你有1个任务待处理';
+              
+              message.textContent = reminderMessage;
+              bubble.classList.remove('hidden');
+              
+              // 确保气泡在最上层
+              bubble.style.zIndex = '9999';
+              
+              console.log('提醒气泡已显示');
+              
+              // 条件提醒气泡不会自动关闭，需要用户点击确定按钮
+          }
+          
+          // 关闭提醒气泡
+          function closeReminderBubble() {
+              document.getElementById('reminderBubble').classList.add('hidden');
+          }
+          
+          // 检查并触发提醒
+          function checkTriggers() {
+              console.log('检查触发提醒...');
+              if (!data.taskTriggers || data.taskTriggers.length === 0) {
+                  console.log('没有触发器需要检查');
+                  return;
+              }
+              
+              console.log('当前触发器数量:', data.taskTriggers.length);
+              
+              const now = new Date();
+              const currentTime = now.toTimeString().substring(0, 5); // HH:MM格式
+              const currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD格式
+              
+              console.log('当前时间:', now.toISOString());
+              
+              // 需要移除的触发器索引
+              const triggersToRemove = [];
+              
+              data.taskTriggers.forEach((trigger, index) => {
+                  console.log('检查触发器:', trigger);
+                  
+                  if (!trigger.active) {
+                      console.log('触发器未激活，跳过');
+                      return;
+                  }
+                  
+                  const task = data.tasks.find(t => t.id === trigger.taskId);
+                  if (!task) {
+                      console.log('任务不存在，跳过');
+                      return;
+                  }
+                  
+                  let shouldTrigger = false;
+                  
+                  if (trigger.type === 'time') {
+                      // 检查时间触发
+                      const triggerTime = new Date(trigger.triggerConfig.triggerTime);
+                      console.log('时间触发 - 设定时间:', triggerTime.toISOString(), '当前时间:', now.toISOString());
+                      
+                      if (now >= triggerTime) {
+                          console.log('时间已到，应该触发!');
+                          shouldTrigger = true;
+                      } else {
+                          console.log('时间未到，不触发');
+                      }
+                  } else {
+                      // 条件触发：检查是否在提醒时间段内
+                      const startTime = trigger.reminderConfig.startTime;
+                      const endTime = trigger.reminderConfig.endTime;
+                      
+                      console.log('条件触发 - 提醒时间段:', startTime, '-', endTime, '当前时间:', currentTime);
+                      
+                      if (currentTime >= startTime && currentTime <= endTime) {
+                          console.log('在提醒时间段内，应该触发!');
+                          shouldTrigger = true;
+                      } else {
+                          console.log('不在提醒时间段内，不触发');
+                      }
+                  }
+                  
+                  if (shouldTrigger) {
+                      if (trigger.type === 'time') {
+                          // 时间触发：立即显示提醒气泡并移除触发器
+                          console.log('执行时间触发 - 显示提醒气泡');
+                          showReminderBubble(trigger);
+                          triggersToRemove.push(index);
+                      } else {
+                          // 条件触发：检查提醒频率并显示提醒
+                          // 检查提醒频率
+                          let shouldRemind = false;
+                          
+                          if (trigger.reminderConfig.frequency === 'once') {
+                              if (!trigger.lastReminderTime) {
+                                  shouldRemind = true;
+                                  // 对于一次性提醒，触发后移除触发器，让任务重新显示
+                                  triggersToRemove.push(index);
+                              }
+                          } else if (trigger.reminderConfig.frequency === 'daily') {
+                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
+                              if (!lastReminder || lastReminder.toDateString() !== now.toDateString()) {
+                                  shouldRemind = true;
+                              }
+                          } else if (trigger.reminderConfig.frequency === 'weekly') {
+                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
+                              if (!lastReminder || (now - lastReminder) >= 7 * 24 * 60 * 60 * 1000) {
+                                  shouldRemind = true;
+                              }
+                          } else if (trigger.reminderConfig.frequency === 'custom') {
+                              const interval = parseInt(trigger.reminderConfig.customInterval);
+                              const unit = trigger.reminderConfig.customIntervalUnit;
+                              let ms = 0;
+                              
+                              if (unit === 'day') ms = interval * 24 * 60 * 60 * 1000;
+                              else if (unit === 'week') ms = interval * 7 * 24 * 60 * 60 * 1000;
+                              else if (unit === 'month') ms = interval * 30 * 24 * 60 * 60 * 1000;
+                              
+                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
+                              if (!lastReminder || (now - lastReminder) >= ms) {
+                                  shouldRemind = true;
+                              }
+                          }
+                          
+                          if (shouldRemind) {
+                              console.log('执行条件触发 - 显示提醒气泡');
+                              showReminderBubble(trigger);
+                              trigger.lastReminderTime = now.toISOString();
+                              saveData();
+                          }
+                      }
+                  }
+              });
+              
+              // 移除需要移除的触发器（从后往前移除，避免索引问题）
+              if (triggersToRemove.length > 0) {
+                  console.log('移除触发器:', triggersToRemove);
+                  triggersToRemove.sort((a, b) => b - a).forEach(index => {
+                      data.taskTriggers.splice(index, 1);
+                  });
+                  saveData();
+                  render(); // 重新渲染，使任务重新显示在待办列表中
+              }
+          }
+           
+          // 定时检查触发提醒（每分钟的0秒时刻检查一次）
+          console.log('启动触发提醒定时器');
+          
+          function scheduleNextCheck() {
+              const now = new Date();
+              const seconds = now.getSeconds();
+              const milliseconds = now.getMilliseconds();
+              
+              // 计算到下一分钟0秒的毫秒数
+              const msUntilNextMinute = (60 - seconds) * 1000 - milliseconds;
+              
+              console.log('当前时间:', now.toTimeString(), '距离下次检查:', msUntilNextMinute, 'ms');
+              
+              // 在下一分钟的0秒时刻执行检查
+              setTimeout(() => {
+                  checkTriggers();
+                  // 然后每分钟检查一次
+                  setInterval(checkTriggers, 60000);
+              }, msUntilNextMinute);
+          }
+          
+          // 启动定时检查
+          scheduleNextCheck();
+          
+          // 页面加载时立即检查一次
+          setTimeout(checkTriggers, 1000);
+          
+          // 渲染触发提醒管理面板
+          function renderTriggerManage() {
+              const container = document.getElementById('triggerManageContent');
+              const countSpan = document.getElementById('triggerManageCount');
+              
+              if (!data.taskTriggers || data.taskTriggers.length === 0) {
+                  container.innerHTML = '<div class="empty-tip">暂无触发提醒</div>';
+                  countSpan.textContent = '';
+                  return;
+              }
+              
+              countSpan.textContent = `(${data.taskTriggers.length})`;
+              container.innerHTML = '';
+              
+              data.taskTriggers.forEach(trigger => {
+                  const task = data.tasks.find(t => t.id === trigger.taskId);
+                  if (!task) return;
+                  
+                  const item = document.createElement('div');
+                  item.className = 'item task-item';
+                  
+                  // 触发类型和配置
+                  let triggerInfo = '';
+                  if (trigger.type === 'time') {
+                      triggerInfo = `⏰ 时间触发：${trigger.triggerConfig.triggerTime}`;
+                  } else {
+                      triggerInfo = `📝 条件触发：${trigger.triggerConfig.condition}`;
+                  }
+                  
+                  // 提醒配置
+                  const freq = trigger.reminderConfig.frequency;
+                  let freqText = '仅一次';
+                  if (freq === 'daily') freqText = '每天';
+                  else if (freq === 'weekly') freqText = '每周';
+                  else if (freq === 'custom') {
+                      freqText = `每隔${trigger.reminderConfig.customInterval}${trigger.reminderConfig.customIntervalUnit === 'day' ? '天' : trigger.reminderConfig.customIntervalUnit === 'week' ? '周' : '个月'}`;
+                  }
+                  
+                  const reminderInfo = `🔔 ${freqText} ${trigger.reminderConfig.startTime}-${trigger.reminderConfig.endTime}`;
+                  
+                  item.innerHTML = `
+                      <div class="item-header">
+                          <span class="item-type task">任务</span>
+                          <span class="item-time">${fmtTime(trigger.createdAt)}</span>
+                      </div>
+                      <div class="item-content">
+                          <span style="cursor:pointer;" onclick="openEdit('${task.id}')">${task.content}</span>
+                      </div>
+                      <div style="padding:8px 0;font-size:12px;color:var(--text-secondary);">
+                          <div style="margin-bottom:4px;">${triggerInfo}</div>
+                          <div>${reminderInfo}</div>
+                      </div>
+                      <div class="item-actions">
+                          <button class="btn btn-small btn-secondary" onclick="showTriggerManage('${trigger.taskId}')">查看详情</button>
+                          <button class="btn btn-small btn-danger" onclick="removeTriggerById('${trigger.id}')">移除提醒</button>
+                      </div>
+                  `;
+                  
+                  container.appendChild(item);
+              });
+          }
+          
+          // 根据触发ID移除提醒
+          function removeTriggerById(triggerId) {
+              if (!data.taskTriggers) return;
+              
+              const index = data.taskTriggers.findIndex(t => t.id === triggerId);
+              if (index !== -1) {
+                  data.taskTriggers.splice(index, 1);
+                  saveData();
+                  renderTriggerManage();
+                  render(); // 重新渲染任务列表，使任务重新显示
+                  showToast('触发提醒已移除');
               }
           }
 
