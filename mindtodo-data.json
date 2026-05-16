@@ -2029,6 +2029,20 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp7molujsr4jw",
+      "type": "task",
+      "content": "感受日历我想点击某个感受就能跳转到对应的感受条目，然后微微闪烁提醒位置。",
+      "createdAt": "2026-05-16T00:48:51.357Z",
+      "updatedAt": "2026-05-16T00:48:51.357Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2181,7 +2195,7 @@
         "观察记录"
       ],
       "createdAt": "2026-05-08T11:06:26.297Z",
-      "updatedAt": "2026-05-08T11:06:26.297Z"
+      "updatedAt": "2026-05-16T00:47:52.828Z"
     },
     {
       "id": "mowun5groljnc",
