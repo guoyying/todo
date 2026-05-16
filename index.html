@@ -2144,7 +2144,7 @@
           }
           
           .datetime-input-wrapper input {
-              padding-right: 40px;
+              padding-right: 36px;
               transition: all 0.3s ease;
           }
           
@@ -2160,15 +2160,16 @@
           
           .datetime-icon {
               position: absolute;
-              right: 12px;
+              right: 8px;
               top: 50%;
               transform: translateY(-50%);
               color: #7a8a7a;
-              font-size: 18px;
+              font-size: 14px;
               pointer-events: none;
               background: #ffffff;
-              padding: 4px;
-              border-radius: 4px;
+              padding: 2px;
+              border-radius: 3px;
+              line-height: 1;
           }
           
           /* 日期时间选择器面板 - 浮窗紧凑型 */
@@ -2412,25 +2413,93 @@
           @media (max-width: 768px) {
               .datetime-picker-panel {
                   position: fixed;
-                  top: auto;
-                  bottom: 0;
-                  left: 0;
-                  right: 0;
-                  width: auto;
-                  border-radius: 12px 12px 0 0;
-                  margin: 0;
-                  max-height: 70vh;
-                  overflow-y: auto;
+                  top: 50% !important;
+                  left: 50% !important;
+                  transform: translate(-50%, -50%) !important;
+                  width: 90% !important;
+                  max-width: 320px !important;
+                  bottom: auto !important;
+                  right: auto !important;
+                  border-radius: 8px !important;
+                  margin: 0 !important;
+                  max-height: 80vh !important;
+                  overflow-y: auto !important;
+              }
+              
+              .picker-header {
+                  padding: 6px 10px;
+              }
+              
+              .picker-title {
+                  font-size: 12px;
+              }
+              
+              .picker-nav-btn {
+                  width: 28px;
+                  height: 28px;
+                  font-size: 16px;
+              }
+              
+              .picker-body {
+                  padding: 6px;
+              }
+              
+              .weekdays {
+                  gap: 1px;
+              }
+              
+              .weekday {
+                  font-size: 9px;
+                  padding: 3px 1px;
+              }
+              
+              .calendar-grid {
+                  gap: 1px;
               }
               
               .calendar-day {
                   font-size: 11px;
+                  min-height: 26px;
+                  padding: 1px;
+              }
+              
+              .time-selector {
+                  padding: 6px;
+                  gap: 6px;
+              }
+              
+              .time-input-group label {
+                  font-size: 8px;
               }
               
               .time-select {
-                  min-width: 45px;
+                  min-width: 50px;
                   padding: 4px 6px;
                   font-size: 11px;
+              }
+              
+              .time-separator {
+                  font-size: 14px;
+              }
+              
+              .picker-footer {
+                  padding: 6px 10px;
+                  gap: 4px;
+              }
+              
+              .picker-btn {
+                  padding: 8px 12px;
+                  font-size: 11px;
+              }
+              
+              .datetime-icon {
+                  font-size: 12px;
+                  right: 6px;
+                  padding: 1px;
+              }
+              
+              .datetime-input-wrapper input {
+                  padding-right: 32px;
               }
           }
       </style>
