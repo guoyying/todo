@@ -2730,6 +2730,30 @@
         ]
       },
       "digestionProgress": 0.2
+    },
+    {
+      "id": "mp8akhuuvhy01",
+      "content": "反复的暗示像一种软性试探：不回应可能变本加厉；如果回应，又显得“不通情理”。这种模糊性让你陷入情绪消耗。",
+      "type": null,
+      "createdAt": "2026-05-16T11:57:30.342Z",
+      "tags": [],
+      "digestion": {
+        "scenarioPractices": [
+          {
+            "id": "mp8apfhtu0z90",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "迫使人在情绪消耗中放弃边界",
+            "createdAt": "2026-05-16T12:01:20.561Z"
+          }
+        ],
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -3031,6 +3055,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-16T11:53:02.818Z"
+    "lastSync": "2026-05-16T11:54:38.131Z"
   }
 }
