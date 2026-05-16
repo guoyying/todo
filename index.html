@@ -7646,6 +7646,7 @@
                  communicationChecklists: data.communicationChecklists,
                  recentFocuses: data.recentFocuses,
                  tagConfig: data.tagConfig,
+                 taskTriggers: data.taskTriggers,
                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -8912,6 +8913,7 @@
                   if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
                   if (remote.recentFocuses) data.recentFocuses = remote.recentFocuses;
                   if (remote.tagConfig) data.tagConfig = remote.tagConfig;
+                  if (remote.taskTriggers) data.taskTriggers = remote.taskTriggers;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
