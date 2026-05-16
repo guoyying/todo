@@ -2832,6 +2832,29 @@
       "activeTextColor": "#FFFFFF"
     }
   },
+  "taskTriggers": [
+    {
+      "id": "mp7p5sx5p0g52",
+      "taskId": "mp4sqmggzl1kv",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "12:00",
+            "endTime": "12:01",
+            "message": "你有1个任务"
+          }
+        ]
+      },
+      "createdAt": "2026-05-16T01:58:12.905Z",
+      "lastReminderTime": null,
+      "active": true
+    }
+  ],
   "aiConfig": {
     "enabled": true,
     "model": "deepseek-chat",
