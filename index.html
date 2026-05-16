@@ -549,6 +549,20 @@
         .item.task-item { border-left: 4px solid var(--task); }
         .item.done { opacity: 0.7; }
         .item.done .item-content { text-decoration: line-through; color: var(--text-secondary); }
+        
+        /* 感受条目高亮闪烁动画 */
+        @keyframes feelingHighlight {
+            0%, 100% {
+                background: var(--card);
+                box-shadow: var(--shadow);
+                transform: scale(1);
+            }
+            50% {
+                background: #fff9c4;
+                box-shadow: 0 4px 16px rgba(255, 235, 59, 0.4);
+                transform: scale(1.02);
+            }
+        }
         .item-header {
             display: flex;
             justify-content: space-between;
@@ -4706,7 +4720,7 @@
                     `;
                     dayFeelings.forEach(item => {
                         html += `
-                            <div class="item feeling-item" style="margin-bottom:8px;padding:10px;">
+                            <div class="item feeling-item" style="margin-bottom:8px;padding:10px;cursor:pointer;transition:all 0.2s;" onclick="jumpToFeelingItem('${item.id}')" data-feeling-id="${item.id}">
                                 <div class="item-header">
                                     <span class="item-time">${fmtTime(item.createdAt)}</span>
                                 </div>
@@ -4736,6 +4750,68 @@
                 selectedDate = selectedDate === dateKey ? null : dateKey;
             }
             renderMoodCalendar();
+        }
+        
+        // 跳转到感受条目并闪烁提醒
+        function jumpToFeelingItem(feelingId) {
+            // 查找对应的感受数据
+            const targetFeeling = data.normalFeelings.find(f => f.id === feelingId);
+            if (!targetFeeling) {
+                console.warn('未找到对应的感受数据');
+                return;
+            }
+            
+            // 判断是今天的感受还是往期感受
+            const isTodayFeeling = isToday(targetFeeling.createdAt);
+            
+            let feelingItem = null;
+            
+            if (isTodayFeeling) {
+                // 在今天的感受列表中查找
+                feelingItem = document.querySelector(`#feelingList .item[data-id="${feelingId}"]`);
+                
+                if (!feelingItem) {
+                    // 如果找不到，可能是因为筛选条件，重新渲染今天的感受列表
+                    renderFeelings();
+                    // 再次查找
+                    feelingItem = document.querySelector(`#feelingList .item[data-id="${feelingId}"]`);
+                }
+            } else {
+                // 在往期感受列表中查找
+                // 检查往期感受列表是否折叠
+                const oldFeelingWrapper = document.getElementById('oldFeelingWrapper');
+                if (oldFeelingWrapper && oldFeelingWrapper.classList.contains('collapsed')) {
+                    // 自动展开往期感受列表
+                    toggleOldSection('oldFeeling');
+                }
+                
+                // 重新渲染往期感受列表以确保包含所有条目
+                renderOldFeelings();
+                
+                // 查找条目
+                feelingItem = document.querySelector(`#oldFeelingList .item[data-id="${feelingId}"]`);
+            }
+            
+            if (feelingItem) {
+                // 滚动到该条目
+                setTimeout(() => {
+                    feelingItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // 添加闪烁动画
+                    feelingItem.style.animation = 'none';
+                    // 强制重绘
+                    feelingItem.offsetHeight;
+                    // 添加闪烁动画
+                    feelingItem.style.animation = 'feelingHighlight 1.2s ease-in-out 2';
+                    
+                    // 2.4秒后移除动画
+                    setTimeout(() => {
+                        feelingItem.style.animation = 'none';
+                    }, 2400);
+                }, 250); // 等待列表展开和渲染完成
+            } else {
+                console.warn('未在感受列表中找到对应条目');
+            }
         }
         
         function renderFeelings() {
