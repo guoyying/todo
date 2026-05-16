@@ -693,12 +693,27 @@
             transition: all 0.2s ease;
         }
         
-        /* 展开按钮样式 */
+        /* 网页版：选中状态显示全部内容 */
+        @media (hover: hover) and (pointer: fine) {
+            .pending-task-item.selected .pending-task-content {
+                white-space: normal !important;
+                overflow: visible !important;
+                text-overflow: clip !important;
+                z-index: 10;
+                position: relative;
+                background: #e8f5e9 !important;
+                padding: 4px 8px !important;
+                border-radius: 4px !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            }
+        }
+        
+        /* 移动端：展开按钮样式 */
         .pending-task-expand-btn {
             width: 16px !important;
             height: 16px !important;
             min-width: 16px !important;
-            display: flex !important;
+            display: none !important;
             align-items: center !important;
             justify-content: center !important;
             background: var(--primary-light) !important;
@@ -713,32 +728,39 @@
             margin: 0 !important;
         }
         
-        .pending-task-expand-btn:hover {
-            background: var(--primary) !important;
-            color: white !important;
-        }
-        
-        .pending-task-expand-btn.expanded {
-            background: var(--primary) !important;
-            color: white !important;
-        }
-        
-        /* 展开状态显示全部内容 */
-        .pending-task-item.expanded .pending-task-content {
-            white-space: normal !important;
-            overflow: visible !important;
-            text-overflow: clip !important;
-            z-index: 10;
-            position: relative;
-            background: var(--primary-light) !important;
-            padding: 4px 8px !important;
-            border-radius: 4px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-        }
-        
-        /* 选中且展开状态 */
-        .pending-task-item.selected.expanded .pending-task-content {
-            background: #e8f5e9 !important;
+        /* 移动端显示展开按钮 */
+        @media (hover: none) and (pointer: coarse) {
+            .pending-task-expand-btn {
+                display: flex !important;
+            }
+            
+            .pending-task-expand-btn:hover {
+                background: var(--primary) !important;
+                color: white !important;
+            }
+            
+            .pending-task-expand-btn.expanded {
+                background: var(--primary) !important;
+                color: white !important;
+            }
+            
+            /* 移动端展开状态显示全部内容 */
+            .pending-task-item.expanded .pending-task-content {
+                white-space: normal !important;
+                overflow: visible !important;
+                text-overflow: clip !important;
+                z-index: 10;
+                position: relative;
+                background: var(--primary-light) !important;
+                padding: 4px 8px !important;
+                border-radius: 4px !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            }
+            
+            /* 移动端选中且展开状态 */
+            .pending-task-item.selected.expanded .pending-task-content {
+                background: #e8f5e9 !important;
+            }
         }
         
         .pending-task-meta {
@@ -12105,6 +12127,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                        e.stopPropagation();
                        const checkbox = this.previousElementSibling;
                        checkbox.checked = !checkbox.checked;
+                       // 触发change事件
+                       checkbox.dispatchEvent(new Event('change'));
                    });
                }
            });
