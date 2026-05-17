@@ -3674,8 +3674,8 @@
                        <textarea id="aiIdeasPromptInput" rows="3" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
                    </div>
                    
-                   <div>
-                       <button class="btn btn-primary" onclick="generateAiIdeas()" id="aiIdeasGenerateBtn" style="width:100%;">🚀 生成点子</button>
+                   <div style="display:flex;justify-content:center;">
+                       <button class="btn btn-primary" onclick="generateAiIdeas()" id="aiIdeasGenerateBtn">🚀 生成点子</button>
                    </div>
                </div>
                
@@ -3687,9 +3687,9 @@
                    </div>
                    
                    <!-- 操作按钮 -->
-                   <div style="display:flex;gap:8px;margin-top:12px;">
-                       <button class="btn btn-secondary" onclick="copyAiIdeasResult()" id="aiIdeasCopyBtn" disabled style="flex:1;">📋 复制结果</button>
-                       <button class="btn btn-primary" onclick="addIdeaAsSubtask()" id="aiIdeasAddBtn" disabled style="flex:1;">➕ 添加为子任务</button>
+                   <div style="display:flex;gap:8px;margin-top:12px;justify-content:center;">
+                       <button class="btn btn-secondary" onclick="copyAiIdeasResult()" id="aiIdeasCopyBtn" disabled>📋 复制结果</button>
+                       <button class="btn btn-primary" onclick="addIdeaAsSubtask()" id="aiIdeasAddBtn" disabled>➕ 添加为子任务</button>
                    </div>
                </div>
            </div>
