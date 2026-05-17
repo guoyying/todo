@@ -1062,6 +1062,32 @@
         }
         .hidden { display: none !important; }
 
+        /* 右键菜单样式 */
+        .context-menu {
+            position: fixed;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .context-menu-item {
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+        
+        .context-menu-item:hover {
+            background: var(--bg);
+        }
+
         /* 提醒气泡样式 */
         .reminder-bubble {
             position: fixed;
@@ -1943,6 +1969,61 @@
               /* 标签移动端优化 */
               #aiPolishModal label {
                   font-size: 12px !important;
+              }
+              
+              /* 右键菜单移动端优化 */
+              .context-menu {
+                  min-width: 160px !important;
+                  font-size: 13px !important;
+              }
+              
+              .context-menu-item {
+                  padding: 12px 16px !important;
+                  font-size: 13px !important;
+              }
+              
+              /* AI帮想点子模态框移动端优化 */
+              #aiIdeasModal .modal {
+                  width: 95% !important;
+                  max-width: none !important;
+                  max-height: 95vh !important;
+                  border-radius: 0 !important;
+              }
+              
+              #aiIdeasModal .modal-header {
+                  padding: 8px 12px !important;
+                  margin-bottom: 8px !important;
+              }
+              
+              #aiIdeasModal .modal-header h3 {
+                  font-size: 16px !important;
+              }
+              
+              #aiIdeasModal .modal-body {
+                  padding: 0 !important;
+                  gap: 8px !important;
+              }
+              
+              #aiIdeasTaskContent {
+                  font-size: 14px !important;
+                  padding: 8px !important;
+              }
+              
+              #aiIdeasPromptInput {
+                  font-size: 13px !important;
+                  padding: 6px 8px !important;
+              }
+              
+              #aiIdeasResult {
+                  font-size: 13px !important;
+                  padding: 12px !important;
+                  min-height: 150px !important;
+                  max-height: 30vh !important;
+              }
+              
+              #aiIdeasModal .btn {
+                  padding: 8px 12px !important;
+                  font-size: 13px !important;
               }
           }
           
@@ -3563,8 +3644,292 @@
               </div>
           </div>
       </div>
+   </div>
  
-     <script>
+   <!-- AI帮想点子模态框 -->
+   <div class="modal-overlay hidden" id="aiIdeasModal" onclick="closeAiIdeasModal()">
+       <div class="modal" style="max-width:800px;width:95%;" onclick="event.stopPropagation()">
+           <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+               <h3>💡 AI帮想点子</h3>
+               <button class="btn btn-small btn-secondary" onclick="closeAiIdeasModal()">关闭</button>
+           </div>
+           <div class="modal-body" style="display:flex;flex-direction:column;gap:16px;max-height:80vh;">
+               <!-- 任务信息 -->
+               <div style="padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                   <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">当前任务</label>
+                   <div id="aiIdeasTaskContent" style="font-size:15px;line-height:1.6;"></div>
+               </div>
+               
+               <!-- 控制面板 -->
+               <div style="display:flex;flex-direction:column;gap:12px;">
+                   <div>
+                       <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择模型</label>
+                       <select id="aiIdeasModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                           <!-- 动态生成模型选项 -->
+                       </select>
+                   </div>
+                   
+                   <div>
+                       <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">自定义提示词（可选）</label>
+                       <textarea id="aiIdeasPromptInput" rows="3" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                   </div>
+                   
+                   <div>
+                       <button class="btn btn-primary" onclick="generateAiIdeas()" id="aiIdeasGenerateBtn" style="width:100%;">🚀 生成点子</button>
+                   </div>
+               </div>
+               
+               <!-- 生成结果 -->
+               <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+                   <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">AI生成的点子</label>
+                   <div id="aiIdeasResult" style="flex:1;padding:16px;background:var(--primary-light);border-radius:8px;font-size:14px;line-height:1.6;min-height:200px;max-height:400px;overflow-y:auto;border:1px solid var(--primary);">
+                       <div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击上方"生成点子"按钮开始</div>
+                   </div>
+                   
+                   <!-- 操作按钮 -->
+                   <div style="display:flex;gap:8px;margin-top:12px;">
+                       <button class="btn btn-secondary" onclick="copyAiIdeasResult()" id="aiIdeasCopyBtn" disabled style="flex:1;">📋 复制结果</button>
+                       <button class="btn btn-primary" onclick="addIdeaAsSubtask()" id="aiIdeasAddBtn" disabled style="flex:1;">➕ 添加为子任务</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+ 
+   <!-- 任务右键菜单 -->
+   <div id="taskContextMenu" class="context-menu hidden" style="position:fixed;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:160px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:1000;display:none;">
+       <div class="context-menu-item" onclick="handleContextMenuAction('aiIdeas')" style="padding:10px 16px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:8px;">
+           <span>💡</span><span>AI帮想点子</span>
+       </div>
+   </div>
+ 
+   <script>
+    // ============ AI帮想点子功能 ============
+    
+    // 全局变量
+    let currentAiIdeasTaskId = null;
+    let currentAiIdeasResult = '';
+    let currentContextMenuTaskId = null;
+    
+    // 打开AI帮想点子模态框
+    function openAiIdeasModal(taskId) {
+        const task = data.tasks.find(t => t.id === taskId);
+        if (!task) return;
+        
+        currentAiIdeasTaskId = taskId;
+        
+        // 显示任务信息
+        const taskContent = document.getElementById('aiIdeasTaskContent');
+        taskContent.textContent = task.content;
+        
+        // 设置默认提示词
+        const promptInput = document.getElementById('aiIdeasPromptInput');
+        const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。
+
+要求：考虑不同的情况和需求，提供3个可行的选项。使用emoji增加可读性
+任务：${task.content}`;
+        promptInput.value = defaultPrompt;
+        
+        // 填充模型选择器
+        const modelSelect = document.getElementById('aiIdeasModelSelect');
+        modelSelect.innerHTML = '';
+        data.aiConfig.models.forEach(model => {
+            const option = document.createElement('option');
+            option.value = model.id;
+            option.textContent = model.name;
+            if (model.id === data.aiConfig.model) {
+                option.selected = true;
+            }
+            modelSelect.appendChild(option);
+        });
+        
+        // 重置结果区域
+        const resultDiv = document.getElementById('aiIdeasResult');
+        resultDiv.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击上方"生成点子"按钮开始</div>';
+        
+        // 禁用操作按钮
+        document.getElementById('aiIdeasCopyBtn').disabled = true;
+        document.getElementById('aiIdeasAddBtn').disabled = true;
+        
+        // 显示模态框
+        document.getElementById('aiIdeasModal').classList.remove('hidden');
+    }
+    
+    // 关闭AI帮想点子模态框
+    function closeAiIdeasModal() {
+        document.getElementById('aiIdeasModal').classList.add('hidden');
+        currentAiIdeasTaskId = null;
+        currentAiIdeasResult = '';
+    }
+    
+    // 生成AI点子
+    async function generateAiIdeas() {
+        if (!currentAiIdeasTaskId) return;
+        
+        const task = data.tasks.find(t => t.id === currentAiIdeasTaskId);
+        if (!task) return;
+        
+        const modelSelect = document.getElementById('aiIdeasModelSelect');
+        const promptInput = document.getElementById('aiIdeasPromptInput');
+        const resultDiv = document.getElementById('aiIdeasResult');
+        const generateBtn = document.getElementById('aiIdeasGenerateBtn');
+        
+        // 显示加载状态
+        resultDiv.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">🤖 AI正在思考中...</div>';
+        generateBtn.disabled = true;
+        generateBtn.textContent = '⏳ 生成中...';
+        
+        try {
+            // 构建提示词
+            let prompt = promptInput.value.trim();
+            if (!prompt) {
+                prompt = `请帮我针对这个任务想一些具体的点子或建议。
+
+要求：
+1. 提供多个可行的选项
+2. 每个选项要具体、可操作
+3. 考虑不同的情况和需求
+4. 使用emoji增加可读性
+5. 按优先级或分类组织内容
+
+任务：${task.content}`;
+            }
+            
+            // 调用AI API
+            const result = await callAiApi(task.content, modelSelect.value, prompt);
+            
+            // 显示结果
+            currentAiIdeasResult = result;
+            resultDiv.innerHTML = result.replace(/\n/g, '<br>');
+            
+            // 启用操作按钮
+            document.getElementById('aiIdeasCopyBtn').disabled = false;
+            document.getElementById('aiIdeasAddBtn').disabled = false;
+            
+        } catch (error) {
+            console.error('AI生成失败:', error);
+            resultDiv.innerHTML = `<div style="color:var(--danger);text-align:center;padding:40px 20px;">❌ 生成失败：${error.message}</div>`;
+        } finally {
+            generateBtn.disabled = false;
+            generateBtn.textContent = '🚀 生成点子';
+        }
+    }
+    
+    // 复制AI点子结果
+    function copyAiIdeasResult() {
+        if (!currentAiIdeasResult) return;
+        
+        navigator.clipboard.writeText(currentAiIdeasResult).then(() => {
+            showToast('已复制到剪贴板');
+        }).catch(err => {
+            console.error('复制失败:', err);
+            showToast('复制失败');
+        });
+    }
+    
+    // 添加点子为子任务
+    function addIdeaAsSubtask() {
+        if (!currentAiIdeasTaskId || !currentAiIdeasResult) return;
+        
+        const task = data.tasks.find(t => t.id === currentAiIdeasTaskId);
+        if (!task) return;
+        
+        // 将AI结果按行分割，创建多个子任务
+        const lines = currentAiIdeasResult.split('\n').filter(line => line.trim());
+        
+        if (!task.subtasks) {
+            task.subtasks = [];
+        }
+        
+        let addedCount = 0;
+        lines.forEach(line => {
+            // 过滤掉标题行和空行
+            if (line.trim() && !line.match(/^[#*]+\s/) && line.length > 5) {
+                const subtask = {
+                    id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+                    content: line.trim().replace(/^[\d+\.\s*]+/, ''), // 移除序号
+                    done: false,
+                    estimatedTime: ''
+                };
+                task.subtasks.push(subtask);
+                addedCount++;
+            }
+        });
+        
+        if (addedCount > 0) {
+            task.updatedAt = nowStr();
+            saveData();
+            render();
+            showToast(`已添加${addedCount}个子任务`);
+            closeAiIdeasModal();
+        } else {
+            showToast('未能提取到有效的子任务');
+        }
+    }
+    
+    // ============ 右键菜单功能 ============
+    
+    // 显示右键菜单
+    function showTaskContextMenu(event, taskId) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        currentContextMenuTaskId = taskId;
+        
+        const menu = document.getElementById('taskContextMenu');
+        
+        // 计算菜单位置
+        let x = event.clientX;
+        let y = event.clientY;
+        
+        // 确保菜单不会超出屏幕边界
+        const menuWidth = 160;
+        const menuHeight = 50;
+        
+        if (x + menuWidth > window.innerWidth) {
+            x = window.innerWidth - menuWidth - 10;
+        }
+        if (y + menuHeight > window.innerHeight) {
+            y = window.innerHeight - menuHeight - 10;
+        }
+        
+        menu.style.left = x + 'px';
+        menu.style.top = y + 'px';
+        menu.style.display = 'block';
+        menu.classList.remove('hidden');
+    }
+    
+    // 隐藏右键菜单
+    function hideTaskContextMenu() {
+        const menu = document.getElementById('taskContextMenu');
+        menu.style.display = 'none';
+        menu.classList.add('hidden');
+        currentContextMenuTaskId = null;
+    }
+    
+    // 处理右键菜单操作
+    function handleContextMenuAction(action) {
+        if (!currentContextMenuTaskId) return;
+        
+        const task = data.tasks.find(t => t.id === currentContextMenuTaskId);
+        if (!task) return;
+        
+        switch (action) {
+            case 'aiIdeas':
+                openAiIdeasModal(currentContextMenuTaskId);
+                break;
+        }
+        
+        hideTaskContextMenu();
+    }
+    
+    // 全局点击事件，用于隐藏右键菜单
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#taskContextMenu')) {
+            hideTaskContextMenu();
+        }
+    });
+    
     // ============ 自定义日期时间选择器 ============
     
     // 全局变量
@@ -5132,6 +5497,41 @@
              actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
             actions.innerHTML = actionButtons;
             el.appendChild(actions);
+
+            // 为任务项添加右键菜单事件
+            if (item.type === 'task') {
+                el.addEventListener('contextmenu', (e) => {
+                    showTaskContextMenu(e, item.id);
+                });
+                
+                // 为移动端添加长按菜单事件
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                if (isTouchDevice) {
+                    let longPressTimer;
+                    
+                    el.addEventListener('touchstart', (e) => {
+                        longPressTimer = setTimeout(() => {
+                            // 长按触发，显示右键菜单
+                            const touch = e.touches[0];
+                            const mockEvent = {
+                                preventDefault: () => {},
+                                stopPropagation: () => {},
+                                clientX: touch.clientX,
+                                clientY: touch.clientY
+                            };
+                            showTaskContextMenu(mockEvent, item.id);
+                        }, 800); // 800ms长按
+                    });
+                    
+                    el.addEventListener('touchend', () => {
+                        clearTimeout(longPressTimer);
+                    });
+                    
+                    el.addEventListener('touchmove', () => {
+                        clearTimeout(longPressTimer);
+                    });
+                }
+            }
 
             return el;
         }
