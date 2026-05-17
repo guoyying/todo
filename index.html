@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>心事与任务</title>
+    <!-- Markdown解析库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
             --bg: #f5f5f0;
@@ -2067,6 +2069,122 @@
               }
           }
           
+          /* Markdown内容样式 */
+          #aiIdeasResult h1, #aiIdeasResult h2, #aiIdeasResult h3 {
+              margin-top: 16px;
+              margin-bottom: 8px;
+              font-weight: 600;
+              color: var(--text);
+          }
+          
+          #aiIdeasResult h1 {
+              font-size: 18px;
+              border-bottom: 2px solid var(--border);
+              padding-bottom: 8px;
+          }
+          
+          #aiIdeasResult h2 {
+              font-size: 16px;
+              border-bottom: 1px solid var(--border);
+              padding-bottom: 6px;
+          }
+          
+          #aiIdeasResult h3 {
+              font-size: 15px;
+          }
+          
+          #aiIdeasResult p {
+              margin: 8px 0;
+              line-height: 1.6;
+          }
+          
+          #aiIdeasResult ul, #aiIdeasResult ol {
+              margin: 8px 0;
+              padding-left: 20px;
+          }
+          
+          #aiIdeasResult li {
+              margin: 4px 0;
+              line-height: 1.5;
+          }
+          
+          #aiIdeasResult ul {
+              list-style-type: disc;
+          }
+          
+          #aiIdeasResult ol {
+              list-style-type: decimal;
+          }
+          
+          #aiIdeasResult code {
+              background: var(--bg);
+              padding: 2px 6px;
+              border-radius: 4px;
+              font-family: 'Courier New', monospace;
+              font-size: 13px;
+              color: var(--green-text);
+          }
+          
+          #aiIdeasResult pre {
+              background: var(--bg);
+              padding: 12px;
+              border-radius: 8px;
+              overflow-x: auto;
+              margin: 8px 0;
+          }
+          
+          #aiIdeasResult pre code {
+              background: none;
+              padding: 0;
+              color: var(--text);
+          }
+          
+          #aiIdeasResult blockquote {
+              border-left: 4px solid var(--primary);
+              padding-left: 12px;
+              margin: 8px 0;
+              color: var(--text-secondary);
+              font-style: italic;
+          }
+          
+          #aiIdeasResult strong {
+              font-weight: 600;
+              color: var(--text);
+          }
+          
+          #aiIdeasResult em {
+              font-style: italic;
+              color: var(--text-secondary);
+          }
+          
+          #aiIdeasResult a {
+              color: var(--primary);
+              text-decoration: underline;
+          }
+          
+          #aiIdeasResult hr {
+              border: none;
+              border-top: 1px solid var(--border);
+              margin: 16px 0;
+          }
+          
+          #aiIdeasResult table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 8px 0;
+          }
+          
+          #aiIdeasResult th, #aiIdeasResult td {
+              border: 1px solid var(--border);
+              padding: 8px 12px;
+              text-align: left;
+          }
+          
+          #aiIdeasResult th {
+              background: var(--bg);
+              font-weight: 600;
+          }
+          
           /* 日期时间选择器样式优化 */
           input[type="datetime-local"] {
               appearance: none;
@@ -3832,12 +3950,17 @@
 任务：${task.content}`;
             }
             
-            // 调用AI API
-            const result = await callAiApi(task.content, modelSelect.value, prompt);
+            // 调用AI API（不传递task.content，让自定义提示词完全控制）
+            const result = await callAiApi('', modelSelect.value, prompt);
             
-            // 显示结果
+            // 显示结果（使用Markdown渲染）
             currentAiIdeasResult = result;
-            resultDiv.innerHTML = result.replace(/\n/g, '<br>');
+            if (typeof marked !== 'undefined') {
+                resultDiv.innerHTML = marked.parse(result);
+            } else {
+                // 如果marked库未加载，回退到简单的换行处理
+                resultDiv.innerHTML = result.replace(/\n/g, '<br>');
+            }
             
             // 启用操作按钮
             document.getElementById('aiIdeasCopyBtn').disabled = false;
