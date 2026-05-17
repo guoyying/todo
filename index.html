@@ -5611,15 +5611,16 @@
             actions.innerHTML = actionButtons;
             el.appendChild(actions);
 
-            // 为任务项添加右键菜单事件
-            if (item.type === 'task') {
-                el.addEventListener('contextmenu', (e) => {
+            // 为任务项添加右键菜单事件（只在header区域触发）
+            if (item.type === 'task' && header) {
+                // 桌面端：右键菜单
+                header.addEventListener('contextmenu', (e) => {
                     showTaskContextMenu(e, item.id);
                 });
                 
-                // 为移动端添加双击菜单事件（只在header区域触发）
+                // 移动端：双击菜单
                 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-                if (isTouchDevice && header) {
+                if (isTouchDevice) {
                     let lastTapTime = 0;
                     const tapDelay = 300; // 双击间隔时间（毫秒）
                     
