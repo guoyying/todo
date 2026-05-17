@@ -2049,9 +2049,38 @@
       "type": "task",
       "content": "规划下上午吃艾糍、粥和蓝莓包",
       "createdAt": "2026-05-17T00:00:54.718Z",
-      "updatedAt": "2026-05-17T00:00:54.718Z",
+      "updatedAt": "2026-05-17T00:26:50.430Z",
       "tags": [
         "生活"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1778976159870",
+          "content": "小红书艾糍怎么做",
+          "done": false,
+          "estimatedTime": "4min",
+          "placedIn": null
+        },
+        {
+          "id": "1778976177975",
+          "content": "中午吃什么？规划下，不饱但是又有小心思的",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "mp919k3djlllm",
+      "type": "task",
+      "content": "我想给‘想做的事’也加个ai功能，主要是帮我想点子的。比如我待办是：中午吃什么？规划下，不饱但是又有小心思的。可以ai给我方法。我不想每个任务都有ai想点子，可以做的简洁小巧吗？",
+      "createdAt": "2026-05-17T00:24:49.657Z",
+      "updatedAt": "2026-05-17T00:24:49.657Z",
+      "tags": [
+        "AI"
       ],
       "done": false,
       "dueTime": "5min",
@@ -2101,7 +2130,7 @@
       "content": "今天做了鸡蛋灌饼，发现同一件事多做，可以慢慢发现优化点儿，做的越来越快。",
       "tags": [],
       "createdAt": "2026-05-02T03:43:10.530Z",
-      "updatedAt": "2026-05-17T00:23:40.495Z"
+      "updatedAt": "2026-05-02T03:43:10.530Z"
     },
     {
       "id": "mop1bqjlucfkb",
@@ -3069,6 +3098,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-16T11:54:38.131Z"
+    "lastSync": "2026-05-17T00:00:59.471Z"
   }
 }
