@@ -13819,13 +13819,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                const container = document.getElementById('organizedTasksContainer');
                container.innerHTML = '';
                
-               console.log('加载已整理任务列表...');
-               console.log('所有任务数量:', data.tasks.length);
-               console.log('已完成任务数量:', data.tasks.filter(t => t.done).length);
-               console.log('有organization的任务数量:', data.tasks.filter(t => t.organization).length);
-               
                const organizedTasks = data.tasks.filter(task => task.done && task.organization);
-               console.log('筛选后的已整理任务数量:', organizedTasks.length);
                
                if (organizedTasks.length === 0) {
                    container.innerHTML = '<div style="color:var(--text-secondary);padding:12px;text-align:center;">暂无已整理任务</div>';
