@@ -398,115 +398,6 @@
       "doneAt": "2026-05-06T02:20:35.173Z"
     },
     {
-      "id": "moraekn86q89z",
-      "type": "task",
-      "content": "mac mini卖掉",
-      "createdAt": "2026-05-04T14:20:49.028Z",
-      "updatedAt": "2026-05-05T00:17:06.605Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-05T00:17:03.002Z"
-    },
-    {
-      "id": "mos7t936tnwjf",
-      "type": "task",
-      "content": "将旧电脑的转换器和云电脑搬过来",
-      "createdAt": "2026-05-05T05:56:01.218Z",
-      "updatedAt": "2026-05-05T12:09:01.060Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-05T12:09:01.060Z"
-    },
-    {
-      "id": "mosaior1x5qjt",
-      "type": "task",
-      "content": "在汇总一下手头的钱",
-      "createdAt": "2026-05-05T07:11:47.150Z",
-      "updatedAt": "2026-05-05T13:28:34.996Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1777983546116",
-          "content": "看几张卡活期、理财金额，拿纸币记录下来",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": "slot_mosmiucdr4zr9",
-      "doneAt": "2026-05-05T13:28:34.996Z"
-    },
-    {
-      "id": "moscp77zt2f23",
-      "type": "task",
-      "content": "买防晒衣",
-      "createdAt": "2026-05-05T08:12:50.256Z",
-      "updatedAt": "2026-05-05T13:17:11.142Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1777983578473",
-          "content": "xhs搜索：防晒衣牌子",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": "slot_mosmiucdr4zr9"
-        }
-      ],
-      "placedIn": null
-    },
-    {
-      "id": "mosl4rxn9qd4l",
-      "type": "task",
-      "content": "将东西放进冰箱",
-      "createdAt": "2026-05-05T12:08:53.867Z",
-      "updatedAt": "2026-05-05T13:23:36.367Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mosmiucdr4zr9",
-      "doneAt": "2026-05-05T13:23:29.914Z"
-    },
-    {
-      "id": "mosl99fvhn2p0",
-      "type": "task",
-      "content": "收衣服（干的就收）",
-      "createdAt": "2026-05-05T12:12:23.179Z",
-      "updatedAt": "2026-05-05T13:23:45.925Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mosmiucdr4zr9",
-      "doneAt": "2026-05-05T13:23:41.015Z"
-    },
-    {
       "id": "mosodmjpkbp8e",
       "type": "task",
       "content": "给老公看手机，生日礼物",
@@ -530,21 +421,6 @@
       ],
       "placedIn": "slot_motcmxf4o6qv5",
       "doneAt": "2026-05-06T01:17:45.503Z"
-    },
-    {
-      "id": "mosotjrelqtf9",
-      "type": "task",
-      "content": "买电脑包",
-      "createdAt": "2026-05-05T13:52:08.522Z",
-      "updatedAt": "2026-05-05T15:02:40.829Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-05T15:02:38.625Z"
     },
     {
       "id": "mosqa9cabdtdt",
