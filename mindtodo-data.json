@@ -2049,7 +2049,7 @@
       "type": "task",
       "content": "规划下上午吃艾糍、粥和蓝莓包",
       "createdAt": "2026-05-17T00:00:54.718Z",
-      "updatedAt": "2026-05-17T00:26:50.430Z",
+      "updatedAt": "2026-05-17T01:12:16.959Z",
       "tags": [
         "生活"
       ],
@@ -2072,6 +2072,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mp92zxenk8adh",
+      "type": "task",
+      "content": "将触发提醒移动到右键菜单栏中。移动端双击任务出现菜单吧，不要长按了。",
+      "createdAt": "2026-05-17T01:13:19.583Z",
+      "updatedAt": "2026-05-17T01:13:19.583Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
