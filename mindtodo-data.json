@@ -2075,6 +2075,13 @@
         "scenarios": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mp9iw56kya63b",
+      "content": "提到“她一个人无聊”“喊你几次没去”，让我感到道德绑架式的愧疚（“应该去陪她”），但内心真实需求被忽视。",
+      "type": null,
+      "createdAt": "2026-05-17T08:38:16.892Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -2376,6 +2383,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-17T06:19:14.956Z"
+    "lastSync": "2026-05-17T08:35:15.084Z"
   }
 }
