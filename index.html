@@ -5156,9 +5156,9 @@
             let timeInfo = fmtTime(item.createdAt);
             if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
             
-            // 只显示预计时间，不显示总耗时
+            // 显示预计完成时间
             if (item.type === 'task' && item.dueTime && !item.unknown) {
-                timeInfo += ` | 预计：${item.dueTime}`;
+                timeInfo += ` | 预计完成：${item.dueTime}`;
             }
             
             header.innerHTML = `
@@ -5617,13 +5617,13 @@
                     showTaskContextMenu(e, item.id);
                 });
                 
-                // 为移动端添加双击菜单事件
+                // 为移动端添加双击菜单事件（只在header区域触发）
                 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-                if (isTouchDevice) {
+                if (isTouchDevice && header) {
                     let lastTapTime = 0;
                     const tapDelay = 300; // 双击间隔时间（毫秒）
                     
-                    el.addEventListener('touchend', (e) => {
+                    header.addEventListener('touchend', (e) => {
                         const currentTime = new Date().getTime();
                         const tapLength = currentTime - lastTapTime;
                         
