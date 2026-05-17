@@ -647,6 +647,46 @@
             outline: none;
             border-bottom-color: var(--primary);
         }
+        
+        /* 移动端子任务操作行样式 */
+        .subtask-action-row {
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            margin-top: 6px !important;
+            margin-left: 24px !important;
+            width: calc(100% - 24px) !important;
+            flex-wrap: wrap !important;
+        }
+        
+        /* 移动端子任务特殊样式 */
+        @media (max-width: 768px) {
+            .subtask {
+                flex-wrap: wrap !important;
+                align-items: flex-start !important;
+            }
+            
+            .subtask .checkbox {
+                margin-top: 2px;
+            }
+            
+            .subtask input:not(.edit-time) {
+                width: calc(100% - 24px) !important;
+                margin-left: 8px;
+            }
+            
+            .subtask .edit-time {
+                flex: 1 !important;
+                max-width: 80px !important;
+            }
+            
+            .subtask-place-btn {
+                flex-shrink: 0 !important;
+                font-size: 11px !important;
+                padding: 4px 8px !important;
+            }
+        }
+        
         .time-slots {
             display: flex;
             flex-direction: column;
@@ -5412,11 +5452,14 @@
                       if (isMobile) {
                           // 移动端：将操作按钮放在第二行
                           const actionRow = document.createElement('div');
+                          actionRow.className = 'subtask-action-row'; // 添加类名
                           actionRow.style.display = 'flex';
                           actionRow.style.alignItems = 'center';
                           actionRow.style.gap = '6px';
                           actionRow.style.marginTop = '6px';
                           actionRow.style.marginLeft = '24px'; // 对齐复选框
+                          actionRow.style.width = 'calc(100% - 24px)'; // 确保宽度正确
+                          actionRow.style.flexWrap = 'wrap'; // 允许换行
                           
                           // 预计时间编辑框
                           const timeInput = document.createElement('input');
