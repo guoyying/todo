@@ -2072,20 +2072,6 @@
           "placedIn": null
         }
       ]
-    },
-    {
-      "id": "mp919k3djlllm",
-      "type": "task",
-      "content": "我想给‘想做的事’也加个ai功能，主要是帮我想点子的。比如我待办是：中午吃什么？规划下，不饱但是又有小心思的。可以ai给我方法。我不想每个任务都有ai想点子，可以做的简洁小巧吗？",
-      "createdAt": "2026-05-17T00:24:49.657Z",
-      "updatedAt": "2026-05-17T00:24:49.657Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
