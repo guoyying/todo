@@ -1676,7 +1676,7 @@
         "观察记录"
       ],
       "createdAt": "2026-05-17T08:35:08.030Z",
-      "updatedAt": "2026-05-17T08:35:08.030Z"
+      "updatedAt": "2026-05-17T08:45:06.312Z"
     }
   ],
   "practiceBlocks": [
@@ -2066,6 +2066,13 @@
             "framework": "PREP结构",
             "content": "迫使人在情绪消耗中放弃边界",
             "createdAt": "2026-05-16T12:01:20.561Z"
+          },
+          {
+            "id": "mp9jzrm0xflh2",
+            "frameworkType": "kiss",
+            "framework": "KISS原则",
+            "content": "不主动为对方的暗示“补全含义”（如“他可能不是这个意思”），而是直接确认事实。",
+            "createdAt": "2026-05-17T09:09:05.544Z"
           }
         ],
         "whyMakesSense": "",
@@ -2078,10 +2085,34 @@
     },
     {
       "id": "mp9iw56kya63b",
-      "content": "提到“她一个人无聊”“喊你几次没去”，让我感到道德绑架式的愧疚（“应该去陪她”），但内心真实需求被忽视。",
+      "content": "提到“她一个人无聊”“喊你几次没去”，让我感到道德绑架式的愧疚（“应该去陪她”）。我的疲惫感是真实的，长期压抑这种感受反而会积累怨气。",
       "type": null,
       "createdAt": "2026-05-17T08:38:16.892Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "scenarioPractices": [
+          {
+            "id": "mp9jv2zjrplf3",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "面对道德绑架式的愧疚感，你需要优先承认并尊重自己的疲惫感：跟她们一起难道快乐吗，说着不咸不淡的话。想让我愿意去，首先得有这个本事啊。",
+            "createdAt": "2026-05-17T09:05:27.007Z"
+          },
+          {
+            "id": "mp9jwq4excbtv",
+            "frameworkType": "prep",
+            "framework": "PREP结构",
+            "content": "让我误以为“不去陪她就是错的”，从而忽略自身真实的疲惫与边界需求",
+            "createdAt": "2026-05-17T09:06:43.646Z"
+          }
+        ],
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -2383,6 +2414,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-17T08:35:15.084Z"
+    "lastSync": "2026-05-17T08:38:58.277Z"
   }
 }
