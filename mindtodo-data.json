@@ -1677,6 +1677,15 @@
       ],
       "createdAt": "2026-05-17T08:35:08.030Z",
       "updatedAt": "2026-05-17T08:45:06.312Z"
+    },
+    {
+      "id": "mp9ke50cjv4ox",
+      "content": "我发现有很多种类型的道德绑架式愧疚，我本身不愿意去做，但不做又会被对方说不够通情达理/会让对方孤单/会让对方失落。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-17T09:20:16.092Z",
+      "updatedAt": "2026-05-17T09:20:16.092Z"
     }
   ],
   "practiceBlocks": [
@@ -2113,6 +2122,13 @@
         "scenarios": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mp9kfzvt3ysva",
+      "content": "理解对方需求 ≠ 必须满足对方需求。你可以说：“我理解你的孤单，但满足对方，需要建立在自愿的基础上",
+      "type": null,
+      "createdAt": "2026-05-17T09:21:42.761Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -2414,6 +2430,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-17T08:38:58.277Z"
+    "lastSync": "2026-05-17T09:17:48.110Z"
   }
 }
