@@ -2709,7 +2709,7 @@
         <div style="display:flex;align-items:center;">
             <div class="section-title" style="cursor:pointer;flex:1;" onclick="toggleOldSection('oldFeeling')">
                 💭 往期感受 <span class="count" id="oldFeelingCount"></span>
-                <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▼</span>
+                <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▶</span>
             </div>
             <button class="btn btn-small btn-secondary" onclick="console.log('点击了批量迁移'); showMigrationModal()">批量迁移</button>
             <button class="btn btn-small btn-primary" onclick="showOldFeelingSummaryModal()">往期汇总</button>
@@ -3752,6 +3752,9 @@
     }
     
     // ============ Data ============
+    // 选中的日期（用于显示特定日期的感受）
+    let selectedDate = null;
+    
      let data = {
          tasks: [], // 待办任务
          normalFeelings: [], // 普通感受
@@ -5401,7 +5404,6 @@
         
         // 情绪日历相关变量
         let currentCalendarMonth = new Date();
-        let selectedDate = null;
         
         // 渲染情绪日历
         function renderMoodCalendar() {
@@ -5477,36 +5479,6 @@
             
             html += '</div>';
             
-            // 如果选中了日期，显示该日期的感受
-            if (selectedDate) {
-                const [selYear, selMonth, selDay] = selectedDate.split('-').map(Number);
-                const dayFeelings = data.normalFeelings.filter(item => {
-                    const d = new Date(item.createdAt);
-                    return d.getFullYear() === selYear &&
-                           d.getMonth() === selMonth - 1 &&
-                           d.getDate() === selDay;
-                });
-                
-                if (dayFeelings.length > 0) {
-                    html += `
-                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-                            <h4 style="font-size:14px;margin-bottom:8px;">${selMonth}月${selDay}日的感受 (${dayFeelings.length}条)</h4>
-                    `;
-                    dayFeelings.forEach(item => {
-                        html += `
-                            <div class="item feeling-item" style="margin-bottom:8px;padding:10px;cursor:pointer;transition:all 0.2s;" onclick="jumpToFeelingItem('${item.id}')" data-feeling-id="${item.id}">
-                                <div class="item-header">
-                                    <span class="item-time">${fmtTime(item.createdAt)}</span>
-                                </div>
-                                <div class="item-content">${item.content}</div>
-                                ${item.tags && item.tags.length ? `<div class="item-tags">${item.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
-                            </div>
-                        `;
-                    });
-                    html += '</div>';
-                }
-            }
-            
             container.innerHTML = html;
         }
         
@@ -5524,73 +5496,20 @@
                 selectedDate = selectedDate === dateKey ? null : dateKey;
             }
             renderMoodCalendar();
+            renderFeelings(); // 更新感受记录区域
         }
         
         // 跳转到感受条目并闪烁提醒
-        function jumpToFeelingItem(feelingId) {
-            // 查找对应的感受数据
-            const targetFeeling = data.normalFeelings.find(f => f.id === feelingId);
-            if (!targetFeeling) {
-                console.warn('未找到对应的感受数据');
-                return;
-            }
-            
-            // 判断是今天的感受还是往期感受
-            const isTodayFeeling = isToday(targetFeeling.createdAt);
-            
-            let feelingItem = null;
-            
-            if (isTodayFeeling) {
-                // 在今天的感受列表中查找
-                feelingItem = document.querySelector(`#feelingList .item[data-id="${feelingId}"]`);
-                
-                if (!feelingItem) {
-                    // 如果找不到，可能是因为筛选条件，重新渲染今天的感受列表
-                    renderFeelings();
-                    // 再次查找
-                    feelingItem = document.querySelector(`#feelingList .item[data-id="${feelingId}"]`);
-                }
-            } else {
-                // 在往期感受列表中查找
-                // 检查往期感受列表是否折叠
-                const oldFeelingWrapper = document.getElementById('oldFeelingWrapper');
-                if (oldFeelingWrapper && oldFeelingWrapper.classList.contains('collapsed')) {
-                    // 自动展开往期感受列表
-                    toggleOldSection('oldFeeling');
-                }
-                
-                // 重新渲染往期感受列表以确保包含所有条目
-                renderOldFeelings();
-                
-                // 查找条目
-                feelingItem = document.querySelector(`#oldFeelingList .item[data-id="${feelingId}"]`);
-            }
-            
-            if (feelingItem) {
-                // 滚动到该条目
-                setTimeout(() => {
-                    feelingItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // 添加闪烁动画
-                    feelingItem.style.animation = 'none';
-                    // 强制重绘
-                    feelingItem.offsetHeight;
-                    // 添加闪烁动画
-                    feelingItem.style.animation = 'feelingHighlight 1.2s ease-in-out 2';
-                    
-                    // 2.4秒后移除动画
-                    setTimeout(() => {
-                        feelingItem.style.animation = 'none';
-                    }, 2400);
-                }, 250); // 等待列表展开和渲染完成
-            } else {
-                console.warn('未在感受列表中找到对应条目');
-            }
-        }
-        
         function renderFeelings() {
             const container = document.getElementById('feelingList');
             container.innerHTML = '';
+            
+            // 如果没有选中日期，不显示任何内容
+            if (!selectedDate) {
+                document.getElementById('feelingCount').textContent = '';
+                container.innerHTML = '<div class="empty-tip">请点击日历选择日期查看感受</div>';
+                return;
+            }
             
             // 获取筛选条件
             const searchTerm = document.getElementById('feelingSearch')?.value.toLowerCase() || '';
@@ -5598,8 +5517,16 @@
             const selectedTags = JSON.parse(selectedTagsStr);
             const filterMode = document.getElementById('feelingTagFilter')?.dataset.filterMode || 'include';
             
-            // 只显示当天创建的感受
-            let list = data.normalFeelings.filter(i => isToday(i.createdAt));
+            // 显示选中日期的感受
+            // selectedDate格式：2026-5-17，createdAt格式：2026-05-17T10:30:00.000Z
+            // 需要统一格式进行匹配
+            let list = data.normalFeelings.filter(i => {
+                const createdDate = new Date(i.createdAt);
+                const [year, month, day] = selectedDate.split('-').map(Number);
+                return createdDate.getFullYear() === year &&
+                       createdDate.getMonth() === month - 1 &&
+                       createdDate.getDate() === day;
+            });
             
             // 应用搜索过滤
             if (searchTerm) {
@@ -6417,7 +6344,8 @@
             const selectedTags = JSON.parse(selectedTagsStr);
             const filterMode = document.getElementById('oldFeelingTagFilter')?.dataset.filterMode || 'include';
             
-            let list = data.normalFeelings.filter(i => !isToday(i.createdAt));
+            // 显示所有感受（包括今天的感受）
+            let list = data.normalFeelings;
             
             // 应用搜索过滤
             if (searchTerm) {
