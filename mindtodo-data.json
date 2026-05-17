@@ -398,22 +398,6 @@
       "doneAt": "2026-05-06T02:20:35.173Z"
     },
     {
-      "id": "mol8sh7m9vhc1",
-      "type": "task",
-      "content": "思考下虚拟网元工作从何启动",
-      "createdAt": "2026-04-30T08:49:01.474Z",
-      "updatedAt": "2026-05-06T02:38:47.677Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-06T02:38:47.677Z"
-    },
-    {
       "id": "moraekn86q89z",
       "type": "task",
       "content": "mac mini卖掉",
@@ -659,58 +643,6 @@
       "doneAt": "2026-05-07T09:48:08.729Z"
     },
     {
-      "id": "motfno4jix7ru",
-      "type": "task",
-      "content": "虚拟网元工作推进",
-      "createdAt": "2026-05-06T02:23:23.875Z",
-      "updatedAt": "2026-05-07T03:20:22.783Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "motfno4ij7ms1",
-          "content": "问泳哥提交给政企部哪位？",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778059262279",
-          "content": "将清单发给政企部看下，我得先润色下表述。",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1778120201599",
-          "content": "我觉得得先捋一下几种情况和解决办法",
-          "done": true,
-          "estimatedTime": "9min",
-          "placedIn": null
-        },
-        {
-          "id": "1778122425571",
-          "content": "理解+回复黄工的话，写出todo",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        },
-        {
-          "id": "1778123205198",
-          "content": "我得知道哪些是他负责核查的。",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-07T03:20:22.783Z"
-    },
-    {
       "id": "motg86pbu6sus",
       "type": "task",
       "content": "将团员评议表放到一个文件夹里头。",
@@ -725,22 +657,6 @@
       "subtasks": [],
       "placedIn": "slot_moto054hzq2qe",
       "doneAt": "2026-05-06T07:07:56.040Z"
-    },
-    {
-      "id": "moto0mai1cju2",
-      "type": "task",
-      "content": "将退网的设备放进清单里",
-      "createdAt": "2026-05-06T06:17:24.954Z",
-      "updatedAt": "2026-05-06T06:44:32.074Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moto054hzq2qe",
-      "doneAt": "2026-05-06T06:44:29.758Z"
     },
     {
       "id": "motpvuznfwnhk",
@@ -769,22 +685,6 @@
       "subtasks": [],
       "placedIn": "slot_motqym1ihfyvk",
       "doneAt": "2026-05-06T08:01:42.560Z"
-    },
-    {
-      "id": "motrp8f698o7d",
-      "type": "task",
-      "content": "1、退网工作数字化管理，写一下目前进度、未来怎么做",
-      "createdAt": "2026-05-06T08:00:32.226Z",
-      "updatedAt": "2026-05-07T02:53:16.748Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-07T02:53:13.943Z"
     },
     {
       "id": "motv17v7xbyck",
@@ -830,67 +730,6 @@
       "doneAt": "2026-05-07T08:51:42.799Z"
     },
     {
-      "id": "mov3l46zy4xwh",
-      "type": "task",
-      "content": "梳理每个县分距离二季度还有多少台；800M可退设备情况（多少个是已提醒县分但还没上单的）、退网进度表的要继续跟进。",
-      "createdAt": "2026-05-07T06:21:01.691Z",
-      "updatedAt": "2026-05-07T09:48:23.250Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mov3l46z10mjc",
-          "content": "梳理800M可退设备情况（多少个是已提醒县分但还没上单的）",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mov3l46z1b5gx",
-          "content": "梳理每个县分距离二季度还有多少台；",
-          "estimatedTime": "6min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mov3l46zftqsp",
-          "content": "退网进度表的要继续跟进",
-          "estimatedTime": "20min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-07T09:48:23.250Z"
-    },
-    {
-      "id": "mov5dgj7dhzck",
-      "type": "task",
-      "content": "退网数字化：我想对每个县分的设备情况（多少个有效的计划退网、800M可退、零业务）做一个管控表。这样不用每次都筛选。比如我希望呈现：天河：二季度还差xx个。有效计划退网数量xx个，上次流程时间分别为xx。800M可退设备xx个……",
-      "createdAt": "2026-05-07T07:11:03.667Z",
-      "updatedAt": "2026-05-08T00:49:08.904Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mov5dgj76decz",
-          "content": "写一下，看能不能融入到我的退网工具里头",
-          "estimatedTime": "8min",
-          "done": false,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-08T00:49:08.904Z"
-    },
-    {
       "id": "mov5h80y7lmsh",
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
@@ -927,29 +766,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-07T09:15:10.440Z"
-    },
-    {
-      "id": "mov8lc4mp5b3u",
-      "type": "task",
-      "content": "看下白云提到的几台设备",
-      "createdAt": "2026-05-07T08:41:10.054Z",
-      "updatedAt": "2026-05-07T09:47:43.132Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mov8lc4mih33q",
-          "content": "选其中一台看激活业务情况",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-07T09:47:34.204Z"
     },
     {
       "id": "mow76h05nk0m9",
@@ -1105,88 +921,6 @@
       "doneAt": "2026-05-08T10:21:10.964Z"
     },
     {
-      "id": "mowap0ro1cw3w",
-      "type": "task",
-      "content": "天河设备处理",
-      "createdAt": "2026-05-08T02:27:47.364Z",
-      "updatedAt": "2026-05-08T06:28:55.222Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mowap0rnosxxh",
-          "content": "备注今日提到的几台设备进度",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mowap0ro9su1h",
-          "content": "屏蔽告警",
-          "estimatedTime": "8min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778210994922",
-          "content": "我得想想，暂时不能退网的设备放在哪里、怎么放。写出一段话",
-          "done": true,
-          "estimatedTime": "3min",
-          "placedIn": null
-        },
-        {
-          "id": "1778220434817",
-          "content": "计划退网那台设备也标注在设备核查工具里头",
-          "done": true,
-          "estimatedTime": "3min",
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-08T06:28:55.222Z"
-    },
-    {
-      "id": "mowau8jfhbpmu",
-      "type": "task",
-      "content": "企微填表：云网租电压降",
-      "createdAt": "2026-05-08T02:31:50.715Z",
-      "updatedAt": "2026-05-08T09:02:34.265Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mowau8jfw451m",
-          "content": "看下表格要填什么东西，预估时间并写下接下来动作",
-          "estimatedTime": "4min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778221169065",
-          "content": "要将节电费那个打开，然后",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1778230737145",
-          "content": "更新",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-08T09:02:34.265Z"
-    },
-    {
       "id": "mowlvgan00mqk",
       "type": "task",
       "content": "花3分钟写一下下午做些什么吧",
@@ -1198,53 +932,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-08T07:43:46.824Z"
-    },
-    {
-      "id": "mowlz5ihs6lee",
-      "type": "task",
-      "content": "盘一下白云和增城的可退网设备",
-      "createdAt": "2026-05-08T07:43:35.849Z",
-      "updatedAt": "2026-05-08T10:20:56.335Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mowlz5ihauco1",
-          "content": "筛选白云的设备，看下800M和可退网的数量有多少",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778230702559",
-          "content": "盘一下增城可退网的设备",
-          "done": true,
-          "estimatedTime": "15min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-08T10:20:54.092Z"
-    },
-    {
-      "id": "mowlzbyxoi794",
-      "type": "task",
-      "content": "退网进度表，我也想要推进能推的",
-      "createdAt": "2026-05-08T07:43:44.218Z",
-      "updatedAt": "2026-05-08T10:41:26.317Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-08T10:41:23.542Z"
     },
     {
       "id": "moxk69drtuu9g",
@@ -1374,52 +1061,6 @@
       "doneAt": "2026-05-09T03:26:43.530Z"
     },
     {
-      "id": "moxp17ro3mux3",
-      "type": "task",
-      "content": "上午发固网清单。就是把节电费excel导出来发给对方。",
-      "createdAt": "2026-05-09T01:56:57.108Z",
-      "updatedAt": "2026-05-09T02:47:18.855Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moxqefnt5mwxd",
-      "doneAt": "2026-05-09T02:47:18.855Z"
-    },
-    {
-      "id": "moxsnwmegvbt5",
-      "type": "task",
-      "content": "荔湾的退网处理：查看几台设备是否关电、屏蔽今日芳村设备告警。",
-      "createdAt": "2026-05-09T03:38:34.598Z",
-      "updatedAt": "2026-05-09T04:01:43.780Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moxsnwme4esn7",
-          "content": "查看几台设备是否关电",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "moxsnwmejzzsh",
-          "content": "屏蔽今日芳村设备告警",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-09T04:01:42.050Z"
-    },
-    {
       "id": "moxvp5eha1sim",
       "type": "task",
       "content": "我想之后遇到问题更好的沟通，不让情绪持续那么久。用这次的事情做总结步骤吧",
@@ -1493,79 +1134,6 @@
       "doneAt": "2026-05-11T02:42:00.432Z"
     },
     {
-      "id": "mp0jhmgugve90",
-      "type": "task",
-      "content": "退网，梳理三个机楼的设备及退网状态、数量；",
-      "createdAt": "2026-05-11T01:45:03.486Z",
-      "updatedAt": "2026-05-11T02:52:15.371Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp0l4aevt8jlw",
-      "doneAt": "2026-05-11T02:52:12.871Z"
-    },
-    {
-      "id": "mp0ji3a3cqst2",
-      "type": "task",
-      "content": "梳理可退设备：完成越秀3个，海珠16个梳理",
-      "createdAt": "2026-05-11T01:45:25.275Z",
-      "updatedAt": "2026-05-13T03:19:22.632Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-05-13T03:19:22.632Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp0mte2817ofc",
-      "type": "task",
-      "content": "爬虫并做通报。发现算力退了32台我不知道的，跟进处理",
-      "createdAt": "2026-05-11T03:18:11.312Z",
-      "updatedAt": "2026-05-11T08:26:46.042Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-11T08:26:46.042Z",
-      "subtasks": []
-    },
-    {
-      "id": "1778487852060",
-      "type": "task",
-      "content": "给美哥更新4月退网进度；NOC 4月退网成效",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-11T08:24:12.060Z",
-      "createdAt": "2026-05-06T07:13:57.421Z",
-      "updatedAt": "2026-05-11T08:24:12.060Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "可以用云网部名义给他们多些指标，这样其他县分就能轻松点",
-        "failure": "",
-        "improvement": "总是要更新表格，节电清单，功率，每次都要花时间梳理。可以整理需要填写哪些表格。",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-11T08:24:12.060Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mp0ybhgz6swqe",
       "type": "task",
       "content": "RPA测试，顺便验收工程单。",
@@ -1579,37 +1147,6 @@
       "unknown": true,
       "placedIn": null,
       "doneAt": "2026-05-11T09:27:16.384Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp0ydigevfkvj",
-      "type": "task",
-      "content": "CRM跟进：发清单给黄洁华",
-      "createdAt": "2026-05-11T08:41:45.902Z",
-      "updatedAt": "2026-05-12T03:54:03.131Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-12T03:54:03.131Z"
-    },
-    {
-      "id": "mp0zjlkf6wikr",
-      "type": "task",
-      "content": "整理算力下电照片",
-      "createdAt": "2026-05-11T09:14:29.487Z",
-      "updatedAt": "2026-05-12T03:21:40.432Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-12T03:21:40.432Z",
       "subtasks": []
     },
     {
@@ -1671,21 +1208,6 @@
       "subtasks": []
     },
     {
-      "id": "mp2c6h498s2px",
-      "type": "task",
-      "content": "过天河退网单4个",
-      "createdAt": "2026-05-12T07:55:58.377Z",
-      "updatedAt": "2026-05-12T09:42:52.759Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "25min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-12T09:42:52.759Z"
-    },
-    {
       "id": "mp2fftiuqsid2",
       "type": "task",
       "content": "提交隐患整改单（1981白云设备）",
@@ -1734,22 +1256,6 @@
       "subtasks": []
     },
     {
-      "id": "mp3iray31w1o0",
-      "type": "task",
-      "content": "让政企确认客户是否在用",
-      "createdAt": "2026-05-13T03:47:54.027Z",
-      "updatedAt": "2026-05-14T02:55:00.251Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T02:55:00.251Z",
-      "subtasks": []
-    },
-    {
       "id": "mp3nzqzfvypln",
       "type": "task",
       "content": "整理退团的清单、缴纳5月团费",
@@ -1762,22 +1268,6 @@
       "dueTime": "15min",
       "unknown": false,
       "doneAt": "2026-05-15T03:47:27.528Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp4rnd45ci3rk",
-      "type": "task",
-      "content": "整理交传数的25、26退网清单，几个字段。",
-      "createdAt": "2026-05-14T00:44:32.933Z",
-      "updatedAt": "2026-05-14T01:31:06.184Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T01:31:06.184Z",
       "subtasks": []
     },
     {
@@ -1892,103 +1382,6 @@
       "subtasks": []
     },
     {
-      "id": "mp54sslkpfh0q",
-      "type": "task",
-      "content": "配合政企核查白天鹅业务",
-      "createdAt": "2026-05-14T06:52:41.288Z",
-      "updatedAt": "2026-05-14T07:06:28.408Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-14T07:06:28.408Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp56ivq3pnff7",
-      "type": "task",
-      "content": "退网核查花都14个，和黄埔16个",
-      "createdAt": "2026-05-14T07:40:58.011Z",
-      "updatedAt": "2026-05-14T08:42:57.066Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T08:42:57.066Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp577qnpurrft",
-      "type": "task",
-      "content": "两条业务不经过农林3-GZHC384，但网管经过",
-      "createdAt": "2026-05-14T08:00:17.845Z",
-      "updatedAt": "2026-05-15T01:43:38.024Z",
-      "tags": [
-        "储备能力",
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-15T01:43:38.024Z"
-    },
-    {
-      "id": "mp68u8dcj1tnm",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-05-15T01:33:33.024Z",
-      "updatedAt": "2026-05-15T02:20:42.663Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-15T02:20:42.663Z"
-    },
-    {
-      "id": "mp6autabphi0h",
-      "type": "task",
-      "content": "问下3053、2877的基站啥时候改造好",
-      "createdAt": "2026-05-15T02:29:59.363Z",
-      "updatedAt": "2026-05-15T07:40:09.536Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-15T07:40:09.535Z"
-    },
-    {
-      "id": "mp6av9jue9nsm",
-      "type": "task",
-      "content": "退网清单交换机房，并且给梁工一个答复。",
-      "createdAt": "2026-05-15T02:30:20.442Z",
-      "updatedAt": "2026-05-15T07:49:10.655Z",
-      "tags": [
-        "退网",
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-15T07:49:10.655Z"
-    },
-    {
       "id": "mp6d3pe1k05i0",
       "type": "task",
       "content": "标记已经参加座谈会的同事",
@@ -2085,6 +1478,81 @@
       "done": false,
       "dueTime": "5min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1778998408876",
+      "type": "task",
+      "content": "核查整理各个县分的退网清单，过单",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-17T06:13:28.876Z",
+      "createdAt": "2026-05-15T02:29:59.363Z",
+      "updatedAt": "2026-05-17T06:13:28.876Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-17T06:13:28.876Z"
+      },
+      "subtasks": []
+    },
+    {
+      "id": "1778998512458",
+      "type": "task",
+      "content": "CRM跟进：数字中继配合政企部核查在用业务（现场已拆除，却还在收费）等",
+      "tags": [
+        "CRM"
+      ],
+      "done": true,
+      "doneAt": "2026-05-17T06:15:12.458Z",
+      "createdAt": "2026-05-14T06:52:41.288Z",
+      "updatedAt": "2026-05-17T06:15:12.458Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-17T06:15:12.458Z"
+      },
+      "subtasks": []
+    },
+    {
+      "id": "1778998612842",
+      "type": "task",
+      "content": "固网清单整理（4月）",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-17T06:16:52.842Z",
+      "createdAt": "2026-05-09T01:56:57.108Z",
+      "updatedAt": "2026-05-17T06:16:52.842Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-17T06:16:52.842Z"
+      },
       "subtasks": []
     }
   ],
@@ -3107,6 +2575,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-17T00:00:59.471Z"
+    "lastSync": "2026-05-17T06:08:48.758Z"
   }
 }
