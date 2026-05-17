@@ -1273,49 +1273,6 @@
       "subtasks": []
     },
     {
-      "id": "mp90esvyc8jqc",
-      "type": "task",
-      "content": "规划下上午吃艾糍、粥和蓝莓包",
-      "createdAt": "2026-05-17T00:00:54.718Z",
-      "updatedAt": "2026-05-17T01:12:16.959Z",
-      "tags": [
-        "生活"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778976159870",
-          "content": "小红书艾糍怎么做",
-          "done": false,
-          "estimatedTime": "4min",
-          "placedIn": null
-        },
-        {
-          "id": "1778976177975",
-          "content": "中午吃什么？规划下，不饱但是又有小心思的",
-          "done": false,
-          "estimatedTime": "10min",
-          "placedIn": null
-        }
-      ]
-    },
-    {
-      "id": "mp92zxenk8adh",
-      "type": "task",
-      "content": "将触发提醒移动到右键菜单栏中。移动端双击任务出现菜单吧，不要长按了。",
-      "createdAt": "2026-05-17T01:13:19.583Z",
-      "updatedAt": "2026-05-17T01:13:19.583Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "1778998408876",
       "type": "task",
       "content": "核查整理各个县分的退网清单，过单",
