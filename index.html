@@ -5355,7 +5355,7 @@
                       // 子任务内容编辑框
                       // 根据内容长度决定使用input还是textarea
                       // 手机端降低阈值到20字符，让更多子任务使用textarea支持多行
-                      const isMobile = window.innerWidth <= 768;
+                      let isMobile = window.innerWidth <= 768;
                       const useTextarea = st.content.length > (isMobile ? 7 : 50);
                       let contentInput;
                       
@@ -5407,55 +5407,120 @@
                           saveData();
                       };
                       row.appendChild(contentInput);
-                    // 预计时间编辑框
-                    const timeInput = document.createElement('input');
-                    timeInput.type = 'text';
-                    timeInput.className = 'edit-time';
-                    timeInput.value = st.estimatedTime || '';
-                    timeInput.placeholder = '预计时间';
-                    timeInput.style.width = '60px';
-                    timeInput.style.marginLeft = '8px';
-                    timeInput.style.border = '1px solid var(--border)';
-                    timeInput.style.borderRadius = '4px';
-                    timeInput.style.padding = '2px 6px';
-                    timeInput.style.fontSize = '12px';
-                    timeInput.onchange = (e) => {
-                        st.estimatedTime = e.target.value.trim();
-                        item.updatedAt = nowStr();
-                        saveData();
-                        render(); // 重新渲染以更新显示
-                    };
-                    timeInput.onblur = (e) => {
-                        st.estimatedTime = e.target.value.trim();
-                        item.updatedAt = nowStr();
-                        saveData();
-                        render(); // 重新渲染以更新显示
-                    };
-                    row.appendChild(timeInput);
-                    
-                    // 操作按钮
-                    if (!st.placedIn && !st.done) {
-                        const placeBtn = document.createElement('button');
-                        placeBtn.className = 'subtask-place-btn';
-                        placeBtn.textContent = '放入时间段';
-                        placeBtn.onclick = (e) => showPlaceMenu(e, item.id, st.id);
-                        row.appendChild(placeBtn);
-                    }
-                    
-                    // 删除子任务按钮（所有子任务都可以删除）
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.className = 'subtask-place-btn';
-                    deleteBtn.textContent = '删除';
-                    deleteBtn.style.background = 'var(--danger)';
-                    deleteBtn.style.color = 'white';
-                    deleteBtn.style.borderColor = 'var(--danger)';
-                    deleteBtn.style.fontSize = '11px';
-                    deleteBtn.style.padding = '2px 8px';
-                     deleteBtn.onclick = (e) => {
-                         e.stopPropagation();
-                         showDeleteConfirm(`${item.id}:${st.id}`, 'subtask', deleteBtn);
-                     };
-                    row.appendChild(deleteBtn);
+                      
+                      // 移动端优化：创建操作按钮容器
+                      if (isMobile) {
+                          // 移动端：将操作按钮放在第二行
+                          const actionRow = document.createElement('div');
+                          actionRow.style.display = 'flex';
+                          actionRow.style.alignItems = 'center';
+                          actionRow.style.gap = '6px';
+                          actionRow.style.marginTop = '6px';
+                          actionRow.style.marginLeft = '24px'; // 对齐复选框
+                          
+                          // 预计时间编辑框
+                          const timeInput = document.createElement('input');
+                          timeInput.type = 'text';
+                          timeInput.className = 'edit-time';
+                          timeInput.value = st.estimatedTime || '';
+                          timeInput.placeholder = '预计时间';
+                          timeInput.style.flex = '1';
+                          timeInput.style.maxWidth = '80px';
+                          timeInput.style.border = '1px solid var(--border)';
+                          timeInput.style.borderRadius = '4px';
+                          timeInput.style.padding = '4px 6px';
+                          timeInput.style.fontSize = '12px';
+                          timeInput.onchange = (e) => {
+                              st.estimatedTime = e.target.value.trim();
+                              item.updatedAt = nowStr();
+                              saveData();
+                              render();
+                          };
+                          timeInput.onblur = (e) => {
+                              st.estimatedTime = e.target.value.trim();
+                              item.updatedAt = nowStr();
+                              saveData();
+                              render();
+                          };
+                          actionRow.appendChild(timeInput);
+                          
+                          // 操作按钮
+                          if (!st.placedIn && !st.done) {
+                              const placeBtn = document.createElement('button');
+                              placeBtn.className = 'subtask-place-btn';
+                              placeBtn.textContent = '放入时间段';
+                              placeBtn.style.flexShrink = '0';
+                              placeBtn.onclick = (e) => showPlaceMenu(e, item.id, st.id);
+                              actionRow.appendChild(placeBtn);
+                          }
+                          
+                          // 删除子任务按钮
+                          const deleteBtn = document.createElement('button');
+                          deleteBtn.className = 'subtask-place-btn';
+                          deleteBtn.textContent = '删除';
+                          deleteBtn.style.background = 'var(--danger)';
+                          deleteBtn.style.color = 'white';
+                          deleteBtn.style.borderColor = 'var(--danger)';
+                          deleteBtn.style.flexShrink = '0';
+                          deleteBtn.onclick = (e) => {
+                              e.stopPropagation();
+                              showDeleteConfirm(`${item.id}:${st.id}`, 'subtask', deleteBtn);
+                          };
+                          actionRow.appendChild(deleteBtn);
+                          
+                          row.appendChild(actionRow);
+                      } else {
+                          // 桌面端：保持原有布局
+                          // 预计时间编辑框
+                          const timeInput = document.createElement('input');
+                          timeInput.type = 'text';
+                          timeInput.className = 'edit-time';
+                          timeInput.value = st.estimatedTime || '';
+                          timeInput.placeholder = '预计时间';
+                          timeInput.style.width = '60px';
+                          timeInput.style.marginLeft = '8px';
+                          timeInput.style.border = '1px solid var(--border)';
+                          timeInput.style.borderRadius = '4px';
+                          timeInput.style.padding = '2px 6px';
+                          timeInput.style.fontSize = '12px';
+                          timeInput.onchange = (e) => {
+                              st.estimatedTime = e.target.value.trim();
+                              item.updatedAt = nowStr();
+                              saveData();
+                              render();
+                          };
+                          timeInput.onblur = (e) => {
+                              st.estimatedTime = e.target.value.trim();
+                              item.updatedAt = nowStr();
+                              saveData();
+                              render();
+                          };
+                          row.appendChild(timeInput);
+                          
+                          // 操作按钮
+                          if (!st.placedIn && !st.done) {
+                              const placeBtn = document.createElement('button');
+                              placeBtn.className = 'subtask-place-btn';
+                              placeBtn.textContent = '放入时间段';
+                              placeBtn.onclick = (e) => showPlaceMenu(e, item.id, st.id);
+                              row.appendChild(placeBtn);
+                          }
+                          
+                          // 删除子任务按钮
+                          const deleteBtn = document.createElement('button');
+                          deleteBtn.className = 'subtask-place-btn';
+                          deleteBtn.textContent = '删除';
+                          deleteBtn.style.background = 'var(--danger)';
+                          deleteBtn.style.color = 'white';
+                          deleteBtn.style.borderColor = 'var(--danger)';
+                          deleteBtn.style.fontSize = '11px';
+                          deleteBtn.style.padding = '2px 8px';
+                          deleteBtn.onclick = (e) => {
+                              e.stopPropagation();
+                              showDeleteConfirm(`${item.id}:${st.id}`, 'subtask', deleteBtn);
+                          };
+                          row.appendChild(deleteBtn);
+                      }
                     
                     // 如果子任务已放入时间段，显示时间段标签
                     if (st.placedIn) {
