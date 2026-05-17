@@ -1346,6 +1346,28 @@
         "organizedAt": "2026-05-17T06:16:52.842Z"
       },
       "subtasks": []
+    },
+    {
+      "id": "mp9kk2pbwqrpi",
+      "type": "task",
+      "content": "问一下量子城域网的事情",
+      "createdAt": "2026-05-17T09:24:53.039Z",
+      "updatedAt": "2026-05-17T09:24:53.039Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mp9kk2pbvcogh",
+          "content": "了解一下要问什么，写下来",
+          "estimatedTime": "8min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
