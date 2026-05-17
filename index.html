@@ -3697,9 +3697,12 @@
    </div>
  
    <!-- 任务右键菜单 -->
-   <div id="taskContextMenu" class="context-menu hidden" style="position:fixed;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:160px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:1000;display:none;">
+   <div id="taskContextMenu" class="context-menu hidden" style="position:fixed;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:180px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:1000;display:none;">
        <div class="context-menu-item" onclick="handleContextMenuAction('aiIdeas')" style="padding:10px 16px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:8px;">
            <span>💡</span><span>AI帮想点子</span>
+       </div>
+       <div class="context-menu-item" onclick="handleContextMenuAction('trigger')" style="padding:10px 16px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:8px;">
+           <span>⏰</span><span>触发提醒</span>
        </div>
    </div>
  
@@ -3883,8 +3886,8 @@
         let y = event.clientY;
         
         // 确保菜单不会超出屏幕边界
-        const menuWidth = 160;
-        const menuHeight = 50;
+        const menuWidth = 180;
+        const menuHeight = 100;
         
         if (x + menuWidth > window.innerWidth) {
             x = window.innerWidth - menuWidth - 10;
@@ -3917,6 +3920,15 @@
         switch (action) {
             case 'aiIdeas':
                 openAiIdeasModal(currentContextMenuTaskId);
+                break;
+            case 'trigger':
+                // 检查是否已有触发提醒
+                const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === currentContextMenuTaskId);
+                if (hasTrigger) {
+                    showTriggerManage(currentContextMenuTaskId);
+                } else {
+                    showTriggerSetup(currentContextMenuTaskId);
+                }
                 break;
         }
         
@@ -5485,13 +5497,6 @@
             actions.className = 'item-actions';
              let actionButtons = '';
              if (item.type === 'task' && !item.placedIn && !item.done) {
-                 // 检查是否已有触发提醒
-                 const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === item.id);
-                 if (hasTrigger) {
-                     actionButtons += `<button class="btn btn-warning btn-small" onclick="showTriggerManage('${item.id}')">⏰ 已设置提醒</button>`;
-                 } else {
-                     actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTriggerSetup('${item.id}')">⏰ 触发提醒</button>`;
-                 }
                  actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
              }
              actionButtons += `<button class="btn btn-danger btn-small" onclick="showDeleteConfirm('${item.id}', 'task', this)">删除</button>`;
@@ -5504,15 +5509,19 @@
                     showTaskContextMenu(e, item.id);
                 });
                 
-                // 为移动端添加长按菜单事件
+                // 为移动端添加双击菜单事件
                 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                 if (isTouchDevice) {
-                    let longPressTimer;
+                    let lastTapTime = 0;
+                    const tapDelay = 300; // 双击间隔时间（毫秒）
                     
-                    el.addEventListener('touchstart', (e) => {
-                        longPressTimer = setTimeout(() => {
-                            // 长按触发，显示右键菜单
-                            const touch = e.touches[0];
+                    el.addEventListener('touchend', (e) => {
+                        const currentTime = new Date().getTime();
+                        const tapLength = currentTime - lastTapTime;
+                        
+                        if (tapLength < tapDelay && tapLength > 0) {
+                            // 双击触发，显示右键菜单
+                            const touch = e.changedTouches[0];
                             const mockEvent = {
                                 preventDefault: () => {},
                                 stopPropagation: () => {},
@@ -5520,15 +5529,10 @@
                                 clientY: touch.clientY
                             };
                             showTaskContextMenu(mockEvent, item.id);
-                        }, 800); // 800ms长按
-                    });
-                    
-                    el.addEventListener('touchend', () => {
-                        clearTimeout(longPressTimer);
-                    });
-                    
-                    el.addEventListener('touchmove', () => {
-                        clearTimeout(longPressTimer);
+                            e.preventDefault();
+                        }
+                        
+                        lastTapTime = currentTime;
                     });
                 }
             }
