@@ -2043,6 +2043,20 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mp90esvyc8jqc",
+      "type": "task",
+      "content": "规划下上午吃艾糍、粥和蓝莓包",
+      "createdAt": "2026-05-17T00:00:54.718Z",
+      "updatedAt": "2026-05-17T00:00:54.718Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
