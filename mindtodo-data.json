@@ -946,14 +946,15 @@
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-05-18T07:37:21.388Z",
-      "updatedAt": "2026-05-18T07:37:21.388Z",
+      "updatedAt": "2026-05-18T09:06:42.162Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "30min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpazcgc2mhghd"
     },
     {
       "id": "mpaw61fygcvn2",
@@ -976,14 +977,15 @@
       "type": "task",
       "content": "关注中山机楼设备退网情况，梳理一版现状",
       "createdAt": "2026-05-18T07:38:06.399Z",
-      "updatedAt": "2026-05-18T07:38:06.399Z",
+      "updatedAt": "2026-05-18T09:06:43.546Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpazcgc2mhghd"
     },
     {
       "id": "mpaxjswx4rvz9",
@@ -1469,7 +1471,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpazcgc2mhghd",
+      "name": "下班前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
