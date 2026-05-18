@@ -709,14 +709,22 @@
       "type": "task",
       "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
       "createdAt": "2026-05-18T00:55:25.795Z",
-      "updatedAt": "2026-05-18T00:55:25.795Z",
+      "updatedAt": "2026-05-18T01:37:05.292Z",
       "tags": [
         "老公"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779068180038",
+          "content": "1、记录每天吃了什么，吃了多少。可视化",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "1779067283638",
@@ -804,6 +812,20 @@
       ],
       "done": false,
       "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpajc5cfsfg13",
+      "type": "task",
+      "content": "老公吃宵夜，记录在哪里呢？",
+      "createdAt": "2026-05-18T01:38:29.775Z",
+      "updatedAt": "2026-05-18T01:38:29.775Z",
+      "tags": [
+        "老公"
+      ],
+      "done": false,
+      "dueTime": "5min",
       "unknown": false,
       "subtasks": []
     }
@@ -1740,6 +1762,27 @@
       "createdAt": "2026-05-16T01:58:12.905Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpajb5448wyj9",
+      "taskId": "mpahsrj7sccmc",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "22:00",
+            "endTime": "22:02",
+            "message": "可视化今天吃了什么，吃了多少。"
+          }
+        ]
+      },
+      "createdAt": "2026-05-18T01:37:42.820Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "aiConfig": {
@@ -1909,6 +1952,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T01:25:11.161Z"
+    "lastSync": "2026-05-18T01:35:56.137Z"
   }
 }
