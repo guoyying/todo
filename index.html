@@ -5276,8 +5276,15 @@
             header.className = 'item-header';
             const typeLabel = item.type === 'feeling' ? '感受' : '任务';
             const typeClass = item.type;
-            let timeInfo = fmtTime(item.createdAt);
-            if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
+            
+            // 对于已完成的任务，优先显示完成时间
+            let timeInfo;
+            if (item.done && item.doneAt) {
+                timeInfo = fmtTime(item.doneAt) + ' (已完成)';
+            } else {
+                timeInfo = fmtTime(item.createdAt);
+                if (item.updatedAt !== item.createdAt) timeInfo += ' (已编辑)';
+            }
             
             // 显示预计完成时间
             if (item.type === 'task' && item.dueTime && !item.unknown) {
@@ -13635,8 +13642,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                item.className = 'pending-task-item';
                item.dataset.taskId = task.id;
                
-               // 显示任务时间（简化格式）
-               const doneTime = task.doneAt ? formatDateTime(task.doneAt) : '未知';
+               // 显示任务完成时间（简化格式）
+               const doneTime = task.doneAt ? formatDateTime(task.doneAt) + ' (已完成)' : '未知';
                
                // 不显示任务标签点
                const tagsDots = '';
@@ -13865,6 +13872,23 @@ ${ammoToAnalyze.map((ammo, index) =>
                return;
            }
            
+           // 获取所有选中任务的完成时间，选择最晚的完成时间作为合并任务的完成时间（用于筛选）
+           let latestDoneAt = null;
+           checkboxes.forEach(cb => {
+               const taskId = cb.dataset.taskId;
+               const task = data.tasks.find(t => t.id === taskId);
+               if (task && task.doneAt) {
+                   const doneTime = new Date(task.doneAt).getTime();
+                   if (!latestDoneAt || doneTime > latestDoneAt) {
+                       latestDoneAt = doneTime;
+                   }
+               }
+           });
+           
+           // 如果没有找到完成时间，使用当前时间
+           const finalDoneAt = latestDoneAt ? new Date(latestDoneAt).toISOString() : nowStr();
+           const organizedTime = nowStr();  // 整理时间
+           
             // 创建新的已完成任务记录
             const newTask = {
                 id: Date.now().toString(),
@@ -13872,9 +13896,10 @@ ${ammoToAnalyze.map((ammo, index) =>
                 content: taskContent,
                 tags: selectedTags,
                 done: true,
-                doneAt: nowStr(),
+                doneAt: finalDoneAt,  // 使用原始任务的完成时间（用于筛选）
+                organizedAt: organizedTime,  // 整理时间（用于显示）
                 createdAt: firstTask.createdAt || nowStr(),
-                updatedAt: nowStr(),
+                updatedAt: organizedTime,  // 更新时间使用整理时间
                // 保存整理数据（其他字段选填）
                organization: {
                    goal: document.getElementById('organizerGoal').value.trim(),
@@ -13886,7 +13911,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                    improvement: document.getElementById('organizerImprovement').value.trim(),
                    problems: document.getElementById('organizerProblems').value.trim(),
                    summary: document.getElementById('organizerSummary').value.trim(),
-                   organizedAt: nowStr()
+                   organizedAt: organizedTime
                }
            };
            
@@ -13939,7 +13964,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                    // 使用更强的内联样式覆盖所有可能的CSS
                    item.style.cssText = 'padding:4px 0 !important;font-size:13px !important;display:flex !important;align-items:center !important;gap:8px !important;background:transparent !important;border:none !important;border-radius:0 !important;margin-bottom:0 !important;box-shadow:none !important;border-left:none !important;';
                    
-                   const doneDate = task.doneAt ? new Date(task.doneAt).toLocaleDateString('zh-CN') : '未知';
+                   const doneDate = task.doneAt ? new Date(task.doneAt).toLocaleDateString('zh-CN') + ' (已完成)' : '未知';
                    
                    // 显示标签
                    let tagsHtml = '';
