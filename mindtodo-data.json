@@ -858,7 +858,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T02:04:07.520Z",
+      "updatedAt": "2026-05-18T02:16:05.245Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -869,7 +869,7 @@
           "content": "先看邮件，记录我要做什么",
           "estimatedTime": "15min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mpak3kerwghfl"
         }
       ]
     },
@@ -2015,6 +2015,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T02:06:47.194Z"
+    "lastSync": "2026-05-18T02:14:37.422Z"
   }
 }
