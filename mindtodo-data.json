@@ -862,7 +862,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T04:54:38.076Z",
+      "updatedAt": "2026-05-18T05:32:29.026Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -884,7 +884,7 @@
         },
         {
           "id": "1779076568304",
-          "content": "word有我需要做的任务，完成",
+          "content": "问卷星有我需要做的任务，完成",
           "done": false,
           "estimatedTime": "20min",
           "placedIn": null
@@ -892,9 +892,9 @@
         {
           "id": "1779076577769",
           "content": "word有待解决的问题，去解决",
-          "done": false,
+          "done": true,
           "estimatedTime": "20min",
-          "placedIn": "slot_mpaqc1iizfu8r"
+          "placedIn": null
         }
       ]
     },
@@ -915,25 +915,18 @@
     {
       "id": "mpaq6ln2mukuw",
       "type": "task",
-      "content": "承载网络拓扑的事情",
+      "content": "承载网络拓扑的事情，NOC要提供能看的出架构、管理走向和业务走向的",
       "createdAt": "2026-05-18T04:50:08.270Z",
-      "updatedAt": "2026-05-18T04:58:27.399Z",
+      "updatedAt": "2026-05-18T05:32:58.957Z",
       "tags": [
         "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpaq6ln2k9v5s",
-          "content": "先把已有的信息提供给noc，看行不行，再确定下一步行动",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-18T05:32:58.957Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2078,6 +2071,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T04:54:46.207Z"
+    "lastSync": "2026-05-18T04:58:36.237Z"
   }
 }
