@@ -2826,22 +2826,23 @@
                         <input type="radio" name="dueType" value="unknown" onchange="toggleDueType()"> 未知（需要拆解）
                     </label>
                 </div>
-                <input type="text" id="taskDueTime" placeholder="预计时间（如：2 小时、30 分钟）" onkeypress="if(event.key==='Enter')saveTask()">
+                <input type="text" id="taskDueTime" placeholder="预计时间（如：15分钟，上限20分钟）" onkeypress="if(event.key==='Enter')saveTask()">
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">⏰ 任务时间上限20分钟，避免制定太大目标导致焦虑</div>
                 <div class="unknown-notice hidden" id="unknownNotice">
-                    因为时间未知，请把任务拆解为更小的步骤：
+                    因为时间未知，请把任务拆解为更小的步骤（最多3个子任务，每个不超过10分钟）：
                 </div>
                 <div class="unknown-subtasks hidden" id="unknownSubtasks">
                     <div class="subtask">
                         <input type="text" placeholder="子任务 1" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="时间(≤10min)" class="subtask-time" style="width:70px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
                         <input type="text" placeholder="子任务 2" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="时间(≤10min)" class="subtask-time" style="width:70px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                     <div class="subtask">
                         <input type="text" placeholder="子任务 3" class="subtask-input" style="flex:1;" onkeypress="if(event.key==='Enter')saveTask()">
-                        <input type="text" placeholder="预计时间 (如：10min)" class="subtask-time" style="width:60px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
+                        <input type="text" placeholder="时间(≤10min)" class="subtask-time" style="width:70px;margin-left:8px;" onkeypress="if(event.key==='Enter')saveTask()">
                     </div>
                 </div>
             </div>
@@ -5157,6 +5158,32 @@
             select.value = currentValue;
         }
 
+        // 解析时间字符串为分钟数
+        function parseTimeToMinutes(timeStr) {
+            if (!timeStr) return 0;
+            
+            timeStr = timeStr.toLowerCase().trim();
+            
+            // 匹配数字和时间单位
+            const match = timeStr.match(/^(\d+)\s*(min|minute|minutes|h|hour|hours)?$/);
+            if (!match) return 0;
+            
+            const value = parseInt(match[1]);
+            const unit = match[2] || 'min'; // 默认为分钟
+            
+            switch(unit) {
+                case 'h':
+                case 'hour':
+                case 'hours':
+                    return value * 60;
+                case 'min':
+                case 'minute':
+                case 'minutes':
+                default:
+                    return value;
+            }
+        }
+
         function saveTask() {
             const content = document.getElementById('taskContent').value.trim();
             if (!content) return;
@@ -5176,6 +5203,15 @@
                 if (/^\d+$/.test(v)) {
                     v = v + 'min';
                 }
+                
+                // 验证父任务/普通任务时间上限（20分钟）
+                const taskMinutes = parseTimeToMinutes(v);
+                if (taskMinutes > 20) {
+                    showValidationToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！');
+                    document.getElementById('taskDueTime').focus();
+                    return;
+                }
+                
                 dueTime = v;
             } else {
                 // 未知时间：必须填写至少一个子任务，且该子任务必须有预计时间
@@ -5190,13 +5226,28 @@
                     return;
                 }
                 
-                // 检查每个子任务是否都有预计时间
+                // 检查子任务数量限制（最多3个）
+                const filledSubtasks = subtaskInputs.filter(input => input.value.trim()).length;
+                if (filledSubtasks > 3) {
+                    showValidationToast('子任务最多只能设置3个，避免过度拆解。选对方向才重要！');
+                    return;
+                }
+                
+                // 检查每个子任务是否都有预计时间，并验证时间上限
                 for (let i = 0; i < subtaskInputs.length; i++) {
                     const subtaskContent = subtaskInputs[i].value.trim();
                     if (subtaskContent) {
                         const timeValue = i < timeInputs.length ? timeInputs[i].value.trim() : '';
                         if (!timeValue) {
                             showValidationToast(`子任务 "${subtaskContent}" 需要填写预计时间`);
+                            timeInputs[i].focus();
+                            return;
+                        }
+                        
+                        // 验证子任务时间上限（10分钟）
+                        const subtaskMinutes = parseTimeToMinutes(timeValue);
+                        if (subtaskMinutes > 10) {
+                            showValidationToast(`子任务 "${subtaskContent}" 预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！`);
                             timeInputs[i].focus();
                             return;
                         }
@@ -5372,13 +5423,33 @@
                     timeInput.style.padding = '2px 6px';
                     timeInput.style.fontSize = '12px';
                     timeInput.onchange = (e) => {
-                        item.dueTime = e.target.value;
+                        const timeValue = e.target.value.trim();
+                        // 验证父任务/普通任务时间上限（20分钟）
+                        if (timeValue) {
+                            const taskMinutes = parseTimeToMinutes(timeValue);
+                            if (taskMinutes > 20) {
+                                showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
+                                e.target.value = item.dueTime || ''; // 恢复原值
+                                return;
+                            }
+                        }
+                        item.dueTime = timeValue;
                         item.updatedAt = nowStr();
                         saveData();
                         render();
                     };
                     timeInput.onblur = (e) => {
-                        item.dueTime = e.target.value;
+                        const timeValue = e.target.value.trim();
+                        // 验证父任务/普通任务时间上限（20分钟）
+                        if (timeValue) {
+                            const taskMinutes = parseTimeToMinutes(timeValue);
+                            if (taskMinutes > 20) {
+                                showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
+                                e.target.value = item.dueTime || ''; // 恢复原值
+                                return;
+                            }
+                        }
+                        item.dueTime = timeValue;
                         item.updatedAt = nowStr();
                         saveData();
                         render();
@@ -5596,7 +5667,7 @@
                           timeInput.type = 'text';
                           timeInput.className = 'edit-time';
                           timeInput.value = st.estimatedTime || '';
-                          timeInput.placeholder = '预计时间';
+                          timeInput.placeholder = '≤10min';
                           timeInput.style.flex = '1';
                           timeInput.style.maxWidth = '80px';
                           timeInput.style.border = '1px solid var(--border)';
@@ -5604,13 +5675,33 @@
                           timeInput.style.padding = '4px 6px';
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
-                              st.estimatedTime = e.target.value.trim();
+                              const timeValue = e.target.value.trim();
+                              // 验证子任务时间上限（10分钟）
+                              if (timeValue) {
+                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
+                                  if (subtaskMinutes > 10) {
+                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                                      e.target.value = st.estimatedTime || ''; // 恢复原值
+                                      return;
+                                  }
+                              }
+                              st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
                               saveData();
                               render();
                           };
                           timeInput.onblur = (e) => {
-                              st.estimatedTime = e.target.value.trim();
+                              const timeValue = e.target.value.trim();
+                              // 验证子任务时间上限（10分钟）
+                              if (timeValue) {
+                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
+                                  if (subtaskMinutes > 10) {
+                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                                      e.target.value = st.estimatedTime || ''; // 恢复原值
+                                      return;
+                                  }
+                              }
+                              st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
                               saveData();
                               render();
@@ -5649,7 +5740,7 @@
                           timeInput.type = 'text';
                           timeInput.className = 'edit-time';
                           timeInput.value = st.estimatedTime || '';
-                          timeInput.placeholder = '预计时间';
+                          timeInput.placeholder = '≤10min';
                           timeInput.style.width = '60px';
                           timeInput.style.marginLeft = '8px';
                           timeInput.style.border = '1px solid var(--border)';
@@ -5657,13 +5748,33 @@
                           timeInput.style.padding = '2px 6px';
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
-                              st.estimatedTime = e.target.value.trim();
+                              const timeValue = e.target.value.trim();
+                              // 验证子任务时间上限（10分钟）
+                              if (timeValue) {
+                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
+                                  if (subtaskMinutes > 10) {
+                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                                      e.target.value = st.estimatedTime || ''; // 恢复原值
+                                      return;
+                                  }
+                              }
+                              st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
                               saveData();
                               render();
                           };
                           timeInput.onblur = (e) => {
-                              st.estimatedTime = e.target.value.trim();
+                              const timeValue = e.target.value.trim();
+                              // 验证子任务时间上限（10分钟）
+                              if (timeValue) {
+                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
+                                  if (subtaskMinutes > 10) {
+                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                                      e.target.value = st.estimatedTime || ''; // 恢复原值
+                                      return;
+                                  }
+                              }
+                              st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
                               saveData();
                               render();
@@ -5921,7 +6032,7 @@
                                            ${inputHtml}
                                            <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
                                                onchange="updateSubtaskTimeInSlot('${entry.task.id}', '${st.id}', this.value)"
-                                               placeholder="预计时间"
+                                               placeholder="≤10min"
                                                style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
                                        </div>
                                    `;
@@ -5934,8 +6045,8 @@
                                        ${taskInputHtml}
                                        <input type="text" class="edit-time" value="${entry.task.dueTime || ''}"
                                            onchange="updateTaskTimeInSlot('${entry.task.id}', this.value)"
-                                           placeholder="预计时间"
-                                           style="width:60px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
+                                           placeholder="≤20min"
+                                           style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
                                    </div>
                                  <div class="subtask-list">
                                      ${subtasksHtml}
@@ -5967,8 +6078,8 @@
                                       ${subInputHtml}
                                       <input type="text" class="edit-time" value="${entry.sub.estimatedTime || ''}"
                                           onchange="updateSubtaskTimeInSlot('${entry.parent.id}', '${entry.sub.id}', this.value)"
-                                          placeholder="预计时间"
-                                          style="width:60px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
+                                          placeholder="≤10min"
+                                          style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
                                   </div>
                                 <div class="item-actions" style="opacity:1;">
                                     <button class="btn btn-secondary btn-small" onclick="${returnAction}">返回待办</button>
@@ -5990,7 +6101,7 @@
                                           ${inputHtml}
                                           <input type="text" class="edit-time" value="${st.estimatedTime || ''}"
                                               onchange="updateSubtaskTimeInSlot('${entry.item.id}', '${st.id}', this.value)"
-                                              placeholder="预计时间"
+                                              placeholder="≤10min"
                                               style="width:80px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
                                       </div>
                                   `;
@@ -6003,8 +6114,8 @@
                                       ${taskInputHtml}
                                       <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
                                           onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
-                                          placeholder="预计时间"
-                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:14px;min-height:32px;flex-shrink:0;"/>
+                                          placeholder="≤20min"
+                                          style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
                                   </div>
                                 <div class="subtask-list">
                                     ${subtasksHtml}
@@ -6029,8 +6140,8 @@
                                       ${taskInputHtml}
                                       <input type="text" class="edit-time" value="${entry.item.dueTime || ''}"
                                           onchange="updateTaskTimeInSlot('${entry.item.id}', this.value)"
-                                          placeholder="预计时间"
-                                          style="width:100px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;min-height:32px;flex-shrink:0;"/>
+                                          placeholder="≤20min"
+                                          style="width:60px;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:13px;min-height:28px;flex-shrink:0;"/>
                                   </div>
                                 <div class="item-actions" style="opacity:1;">
                                      <button class="btn btn-secondary btn-small" onclick="removeFromSlotSimple('${entry.item.id}', this)">返回待办</button>
@@ -7537,6 +7648,12 @@
                 item.subtasks = [];
             }
             
+            // 检查子任务数量限制（最多3个）
+            if (item.subtasks.length >= 3) {
+                showToast('子任务最多只能设置3个，避免过度拆解。选对方向才重要！', { duration: 4000 });
+                return;
+            }
+            
             const newSubtask = {
                 id: Date.now().toString(),
                 content: '',
@@ -7591,7 +7708,17 @@
             const sub = item.subtasks.find(s => s.id === subId);
             if (!sub) return;
             
-            sub.estimatedTime = newTime.trim();
+            // 验证子任务时间上限（10分钟）
+            const timeValue = newTime.trim();
+            if (timeValue) {
+                const subtaskMinutes = parseTimeToMinutes(timeValue);
+                if (subtaskMinutes > 10) {
+                    showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                    return; // 不更新时间
+                }
+            }
+            
+            sub.estimatedTime = timeValue;
             item.updatedAt = nowStr();
             saveData();
         }
@@ -8551,7 +8678,17 @@
         function updateTaskTimeInSlot(itemId, newDueTime) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
-                item.dueTime = newDueTime.trim();
+                // 验证父任务/普通任务时间上限（20分钟）
+                const timeValue = newDueTime.trim();
+                if (timeValue) {
+                    const taskMinutes = parseTimeToMinutes(timeValue);
+                    if (taskMinutes > 20) {
+                        showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
+                        return; // 不更新时间
+                    }
+                }
+                
+                item.dueTime = timeValue;
                 item.updatedAt = nowStr();
                 saveData();
                 renderSlots(); // 重新渲染时间段任务板，更新总耗时
@@ -8577,7 +8714,17 @@
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
                 if (sub) {
-                    sub.estimatedTime = newEstimatedTime.trim();
+                    // 验证子任务时间上限（10分钟）
+                    const timeValue = newEstimatedTime.trim();
+                    if (timeValue) {
+                        const subtaskMinutes = parseTimeToMinutes(timeValue);
+                        if (subtaskMinutes > 10) {
+                            showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
+                            return; // 不更新时间
+                        }
+                    }
+                    
+                    sub.estimatedTime = timeValue;
                     item.updatedAt = nowStr();
                     saveData();
                     renderSlots(); // 重新渲染时间段任务板，更新总耗时
