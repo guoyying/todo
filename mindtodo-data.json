@@ -858,7 +858,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T02:16:05.245Z",
+      "updatedAt": "2026-05-18T02:34:53.628Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -868,8 +868,15 @@
           "id": "mpak93vkht60f",
           "content": "先看邮件，记录我要做什么",
           "estimatedTime": "15min",
+          "done": true,
+          "placedIn": null
+        },
+        {
+          "id": "1779071663022",
+          "content": "模拟现场，写一下问卷表每一项我要怎么检查？遇到不知道怎么看的，记录下来。",
           "done": false,
-          "placedIn": "slot_mpak3kerwghfl"
+          "estimatedTime": "20min",
+          "placedIn": null
         }
       ]
     },
@@ -2015,6 +2022,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T02:14:37.422Z"
+    "lastSync": "2026-05-18T02:16:13.847Z"
   }
 }
