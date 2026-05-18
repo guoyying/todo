@@ -1,71 +1,6 @@
 {
   "tasks": [
     {
-      "id": "mogyvk4d3h2p4",
-      "type": "task",
-      "content": "核查下从化的那个清单以及思考对方，确定接下来做什么",
-      "createdAt": "2026-04-27T09:00:24.349Z",
-      "updatedAt": "2026-04-28T02:08:06.192Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mogyvk4dxosrz",
-          "content": "vlookup匹配下哪些退网状态变了，剩下的就是还没处理的10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mogyvk4dfsui8",
-          "content": "vlookup下她给的清单，哪些属于我关注的范围4min，然后看下不同设备的状态，写下每种状态的做法8min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-04-28T02:08:06.192Z"
-    },
-    {
-      "id": "moh05xsby94sa",
-      "type": "task",
-      "content": "黄埔过单4326设备，上传关电照片",
-      "createdAt": "2026-04-27T09:36:28.235Z",
-      "updatedAt": "2026-04-28T09:06:04.358Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "6min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T09:06:04.358Z"
-    },
-    {
-      "id": "moh0gxfu5ti76",
-      "type": "task",
-      "content": "改下退网进度目标，然后通知县分10min",
-      "createdAt": "2026-04-27T09:45:01.002Z",
-      "updatedAt": "2026-04-28T03:43:39.601Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T03:43:39.599Z"
-    },
-    {
-      "id": "mohxo33kpsft2",
-      "type": "task",
-      "content": "更新补环教程",
-      "createdAt": "2026-04-28T01:14:22.256Z",
-      "updatedAt": "2026-04-28T06:31:13.985Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T06:31:13.985Z"
-    },
-    {
       "id": "moi4ity1j44ix",
       "type": "task",
       "content": "好想练习表达啊",
@@ -104,66 +39,6 @@
       "doneAt": "2026-04-28T06:50:23.479Z"
     },
     {
-      "id": "moi8lzpq5n1po",
-      "type": "task",
-      "content": "花都的800M设备可以备注在共享文档里----》当这个单子所有设备都可退后，则过单。新开个sheet",
-      "createdAt": "2026-04-28T06:20:40.334Z",
-      "updatedAt": "2026-04-29T01:38:52.834Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T01:38:52.834Z"
-    },
-    {
-      "id": "moi9ac06t98ch",
-      "type": "task",
-      "content": "拆除马场的光路",
-      "createdAt": "2026-04-28T06:39:36.006Z",
-      "updatedAt": "2026-04-30T08:46:11.019Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moi9ac069jsj7",
-          "content": "在纸上和交换机确认对应端口，确保这条光路拆了不会影响任何东西。跟冯工确认拆除光路不会，找到当时跟他的聊天记录",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": "slot_moju5h19bscd0"
-        }
-      ],
-      "doneAt": "2026-04-30T08:46:11.019Z"
-    },
-    {
-      "id": "moi9o3viw17rn",
-      "type": "task",
-      "content": "看下炭步的退网单",
-      "createdAt": "2026-04-28T06:50:18.654Z",
-      "updatedAt": "2026-04-28T07:08:19.752Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T07:08:19.752Z"
-    },
-    {
-      "id": "moicf3xtre5jy",
-      "type": "task",
-      "content": "更新三级系统资产",
-      "createdAt": "2026-04-28T08:07:17.681Z",
-      "updatedAt": "2026-04-29T01:50:24.192Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "14min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T01:50:24.192Z"
-    },
-    {
       "id": "moidup8mi1itx",
       "type": "task",
       "content": "做好邮件团支部的",
@@ -175,203 +50,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-04-28T09:20:30.968Z"
-    },
-    {
-      "id": "moie9ketq0s8f",
-      "type": "task",
-      "content": "做个800M的透视表，占总数量的多少",
-      "createdAt": "2026-04-28T08:58:58.325Z",
-      "updatedAt": "2026-04-29T01:09:53.764Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-04-29T01:09:53.764Z"
-    },
-    {
-      "id": "mojdgv13c8v8p",
-      "type": "task",
-      "content": "定级备案更新",
-      "createdAt": "2026-04-29T01:24:25.239Z",
-      "updatedAt": "2026-04-30T08:46:23.087Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mojdgv12h2lan",
-          "content": "找到云平台风险评估总结，截图放入报告里",
-          "estimatedTime": "20min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "mojdgv13f6dry",
-          "content": "修改part2的内容",
-          "estimatedTime": "9min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "mojdgv13dwz3r",
-          "content": "修改工信部网站上、备案报告的定级对象名称-中国电信广东公司广州分公司广州市本地末梢设备监控管理系统",
-          "estimatedTime": "20min",
-          "done": false,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-04-30T08:46:23.087Z"
-    },
-    {
-      "id": "mojee5e1p6g2o",
-      "type": "task",
-      "content": "60个网元查询资源系统状态，选出退网的",
-      "createdAt": "2026-04-29T01:50:18.313Z",
-      "updatedAt": "2026-04-29T03:54:35.162Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss",
-      "doneAt": "2026-04-29T03:54:35.162Z"
-    },
-    {
-      "id": "mojfclelx6w8l",
-      "type": "task",
-      "content": "退网过单",
-      "createdAt": "2026-04-29T02:17:05.373Z",
-      "updatedAt": "2026-04-29T09:09:35.201Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "30min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T09:09:35.201Z"
-    },
-    {
-      "id": "mojfdbicy03v1",
-      "type": "task",
-      "content": "宝英姐的确认参加培训，我得问泳哥。",
-      "createdAt": "2026-04-29T02:17:39.204Z",
-      "updatedAt": "2026-04-29T02:38:17.154Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss",
-      "doneAt": "2026-04-29T02:38:17.154Z"
-    },
-    {
-      "id": "mojfusqga4dim",
-      "type": "task",
-      "content": "得确认下ppt的数要对的上",
-      "createdAt": "2026-04-29T02:31:14.680Z",
-      "updatedAt": "2026-04-29T02:52:11.059Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mojfdjcpfkmss",
-      "doneAt": "2026-04-29T02:52:11.059Z"
-    },
-    {
-      "id": "mojihtd6ludni",
-      "type": "task",
-      "content": "整理了批已退网的网关，想下下一步咋整。",
-      "createdAt": "2026-04-29T03:45:07.818Z",
-      "updatedAt": "2026-04-29T03:52:00.273Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T03:52:00.273Z"
-    },
-    {
-      "id": "mojituxlidim3",
-      "type": "task",
-      "content": "soc删除退网资产",
-      "createdAt": "2026-04-29T03:54:29.721Z",
-      "updatedAt": "2026-04-29T07:51:00.523Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "25min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T07:51:00.523Z"
-    },
-    {
-      "id": "mojj2vudafbt4",
-      "type": "task",
-      "content": "我想在板块练习每一项记录里有个按钮可以记录练习，点击确认之后就记录为第n次。我也希望板块小名称有已有的板块小名称下拉树选择。板块练习，我可以编辑或删除每一次的内容。",
-      "createdAt": "2026-04-29T04:01:30.805Z",
-      "updatedAt": "2026-04-29T07:51:07.189Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-29T07:51:07.189Z"
-    },
-    {
-      "id": "mojrt03hdksx5",
-      "type": "task",
-      "content": "三码过单",
-      "createdAt": "2026-04-29T08:05:46.301Z",
-      "updatedAt": "2026-04-29T09:40:12.701Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moju5h19bscd0",
-      "doneAt": "2026-04-29T09:40:12.701Z"
-    },
-    {
-      "id": "moju3grtuj5bo",
-      "type": "task",
-      "content": "整理下ai做的作品，命名",
-      "createdAt": "2026-04-29T09:09:53.705Z",
-      "updatedAt": "2026-04-29T09:42:46.873Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moju5h19bscd0",
-      "doneAt": "2026-04-29T09:42:46.873Z"
-    },
-    {
-      "id": "mojvlvi0y9l3t",
-      "type": "task",
-      "content": "看下奥普泰50端口是否关闭or开着的。",
-      "createdAt": "2026-04-29T09:52:12.216Z",
-      "updatedAt": "2026-04-30T08:46:24.548Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-30T08:46:24.547Z"
-    },
-    {
-      "id": "mol65tu38t04p",
-      "type": "task",
-      "content": "我想感受记录、往期感受也能编辑内容，也能调用ai润色的功能，还有智能推荐功能。另外待办、往期待办可以新增或删除子任务，设置子任务预计时间、编辑子任务内容。",
-      "createdAt": "2026-04-30T07:35:25.515Z",
-      "updatedAt": "2026-04-30T08:46:04.358Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-30T08:46:04.358Z"
     },
     {
       "id": "mol8s7a83aslu",
@@ -511,77 +189,6 @@
       "doneAt": "2026-05-06T07:07:56.040Z"
     },
     {
-      "id": "motpvuznfwnhk",
-      "type": "task",
-      "content": "考虑要不要把去培训的内容分享到群里",
-      "createdAt": "2026-05-06T07:09:42.179Z",
-      "updatedAt": "2026-05-06T07:55:53.885Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_motqym1ihfyvk",
-      "doneAt": "2026-05-06T07:55:53.885Z"
-    },
-    {
-      "id": "motq0ud4id8ad",
-      "type": "task",
-      "content": "捋一下几个本周目标，没关注的几个进度，看怎么推进",
-      "createdAt": "2026-05-06T07:13:34.648Z",
-      "updatedAt": "2026-05-06T08:01:42.560Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "13min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_motqym1ihfyvk",
-      "doneAt": "2026-05-06T08:01:42.560Z"
-    },
-    {
-      "id": "motv17v7xbyck",
-      "type": "task",
-      "content": "定级备案的名称",
-      "createdAt": "2026-05-06T09:33:50.227Z",
-      "updatedAt": "2026-05-07T03:21:20.347Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "motv17v7cl2a2",
-          "content": "看，写下我要做什么",
-          "estimatedTime": "4min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778121047878",
-          "content": "回复",
-          "done": true,
-          "estimatedTime": "3min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-07T03:21:15.833Z"
-    },
-    {
-      "id": "mouvq2lswcdqe",
-      "type": "task",
-      "content": "隐患单回复",
-      "createdAt": "2026-05-07T02:40:55.984Z",
-      "updatedAt": "2026-05-07T08:51:42.799Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mov8s1zzu3jy4",
-      "doneAt": "2026-05-07T08:51:42.799Z"
-    },
-    {
       "id": "mov5h80y7lmsh",
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
@@ -604,20 +211,6 @@
       ],
       "placedIn": null,
       "doneAt": "2026-05-07T09:25:10.001Z"
-    },
-    {
-      "id": "mov69iyp6el5s",
-      "type": "task",
-      "content": "琐碎的退网工作：熟悉下补环的东西",
-      "createdAt": "2026-05-07T07:35:59.810Z",
-      "updatedAt": "2026-05-07T09:15:10.441Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-07T09:15:10.440Z"
     },
     {
       "id": "mow76h05nk0m9",
@@ -672,77 +265,6 @@
       "doneAt": "2026-05-08T06:57:09.764Z"
     },
     {
-      "id": "mow7vlwdhj4jj",
-      "type": "task",
-      "content": "我要花3分钟写一下今天想做什么。",
-      "createdAt": "2026-05-08T01:08:55.837Z",
-      "updatedAt": "2026-05-08T01:13:35.965Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mow7vqicjo8hm",
-      "doneAt": "2026-05-08T01:13:35.965Z"
-    },
-    {
-      "id": "mow80tjiyrqri",
-      "type": "task",
-      "content": "ai问下，找到解决方法：各个县分11个太多了，抓不住重点。不知道从何开始",
-      "createdAt": "2026-05-08T01:12:59.022Z",
-      "updatedAt": "2026-05-08T02:21:24.805Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mow80tji7qblf",
-          "content": "花3分钟写一下需求",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778203892627",
-          "content": "打开爬虫文档，从天河开始梳理关注字段",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1778204293307",
-          "content": "看下天河，盘一盘可跟进的设备，遇到问题就记录下来",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        },
-        {
-          "id": "1778204379145",
-          "content": "看下天河哪些计划退网，是有效的",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1778204400074",
-          "content": "800M可以退，但还没退的",
-          "done": true,
-          "estimatedTime": "2min",
-          "placedIn": null
-        },
-        {
-          "id": "1778204411029",
-          "content": "备注可以退网的",
-          "done": true,
-          "estimatedTime": "4min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-08T02:21:24.805Z"
-    },
-    {
       "id": "mow819wdo7zu4",
       "type": "task",
       "content": "光路资源梳理一遍来龙去脉，写下接下来要做的事",
@@ -773,95 +295,6 @@
       "doneAt": "2026-05-08T10:21:10.964Z"
     },
     {
-      "id": "mowlvgan00mqk",
-      "type": "task",
-      "content": "花3分钟写一下下午做些什么吧",
-      "createdAt": "2026-05-08T07:40:43.199Z",
-      "updatedAt": "2026-05-08T07:43:46.824Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-08T07:43:46.824Z"
-    },
-    {
-      "id": "moxk69drtuu9g",
-      "type": "task",
-      "content": "10点开会关于资产的",
-      "createdAt": "2026-05-08T23:40:54.399Z",
-      "updatedAt": "2026-05-09T02:34:21.798Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "1min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-09T02:34:21.798Z"
-    },
-    {
-      "id": "moxk6r00e4d3r",
-      "type": "task",
-      "content": "写一下我脑子里现在的想法到元宝。",
-      "createdAt": "2026-05-08T23:41:17.232Z",
-      "updatedAt": "2026-05-09T00:56:02.318Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-09T00:56:02.318Z"
-    },
-    {
-      "id": "moxke3sdff3id",
-      "type": "task",
-      "content": "元宝推荐的3个方法工作互动",
-      "createdAt": "2026-05-08T23:47:00.397Z",
-      "updatedAt": "2026-05-10T10:43:10.969Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moxke3sd11gt1",
-          "content": "做任务1，想一下场景 跟ai提问这个场景",
-          "estimatedTime": "3min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778291614982",
-          "content": "拆解一下todo：我能想到的是自己做的退网小工具，我不知道跟哪个同事有潜在联系喔。只能说有个同事的s转o，可能能让我加快退网。但她转o的重点不是我这边的sdh设备。能不能优先转少下挂业务的sdh对应的客户端？我可以了解一下。",
-          "done": true,
-          "estimatedTime": "7min",
-          "placedIn": null
-        },
-        {
-          "id": "1778297337970",
-          "content": "我感觉可以固定时间口头领导汇报工作，选择、锻炼表达框架，又能比文字获取更多信息",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-10T10:41:57.391Z"
-    },
-    {
-      "id": "moxmwr6yo7r0c",
-      "type": "task",
-      "content": "做网管补环准备",
-      "createdAt": "2026-05-09T00:57:29.770Z",
-      "updatedAt": "2026-05-09T01:28:08.154Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_moxn58xdow5rj",
-      "doneAt": "2026-05-09T01:28:08.154Z"
-    },
-    {
       "id": "moxn2pvyb74hr",
       "type": "task",
       "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
@@ -882,35 +315,6 @@
       ],
       "placedIn": null,
       "doneAt": "2026-05-09T02:43:48.746Z"
-    },
-    {
-      "id": "moxna59t5glan",
-      "type": "task",
-      "content": "元宝有几个需要拆解todo的",
-      "createdAt": "2026-05-09T01:07:54.545Z",
-      "updatedAt": "2026-05-09T03:26:46.370Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moxna59t1wh42",
-          "content": "分为工作和情感。情感先拆解",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778290725729",
-          "content": "拆解1个工作的",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-09T03:26:43.530Z"
     },
     {
       "id": "moxvp5eha1sim",
@@ -949,22 +353,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-10T10:44:14.972Z"
-    },
-    {
-      "id": "mp0ybhgz6swqe",
-      "type": "task",
-      "content": "RPA测试，顺便验收工程单。",
-      "createdAt": "2026-05-11T08:40:11.315Z",
-      "updatedAt": "2026-05-11T09:27:16.384Z",
-      "tags": [
-        "RPA"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-11T09:27:16.384Z",
-      "subtasks": []
     },
     {
       "id": "1778557112853",
@@ -1021,38 +409,6 @@
       "unknown": true,
       "placedIn": null,
       "doneAt": "2026-05-13T03:20:06.868Z",
-      "subtasks": []
-    },
-    {
-      "id": "mp3fdmlr177uc",
-      "type": "task",
-      "content": "对标RPA进度，确定下一步计划：跟华姐要验收单号，大量测试，优化程序。",
-      "createdAt": "2026-05-13T02:13:17.103Z",
-      "updatedAt": "2026-05-14T02:27:14.062Z",
-      "tags": [
-        "RPA"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-14T02:27:14.062Z"
-    },
-    {
-      "id": "mp3i5ceuqa2z4",
-      "type": "task",
-      "content": "上单拆除光路",
-      "createdAt": "2026-05-13T03:30:49.494Z",
-      "updatedAt": "2026-05-15T03:17:02.721Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-15T03:17:02.721Z",
       "subtasks": []
     },
     {
@@ -1361,6 +717,78 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "1779067283638",
+      "type": "task",
+      "content": "RPA工作：已优化程序异常处理机制，跳过异常单号并继续执行。",
+      "tags": [
+        "RPA"
+      ],
+      "done": true,
+      "doneAt": "2026-05-18T01:21:23.638Z",
+      "createdAt": "2026-05-13T02:13:17.103Z",
+      "updatedAt": "2026-05-18T01:21:23.638Z",
+      "organization": {
+        "goal": "",
+        "completion": "优化程序异常处理机制，跳过异常单号并继续执行；本周开展批量处理测试",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-18T01:21:23.638Z"
+      }
+    },
+    {
+      "id": "1779067419916",
+      "type": "task",
+      "content": "三级系统资产更新：60个网关网元中选出退网设备，SOC删除。",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
+      "doneAt": "2026-05-18T01:23:39.916Z",
+      "createdAt": "2026-04-29T03:54:29.721Z",
+      "updatedAt": "2026-05-18T01:23:39.916Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-18T01:23:39.916Z"
+      }
+    },
+    {
+      "id": "1779067475376",
+      "type": "task",
+      "content": "上单拆除奥普泰-5320的光路",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
+      "doneAt": "2026-05-18T01:24:35.376Z",
+      "createdAt": "2026-05-13T03:30:49.494Z",
+      "updatedAt": "2026-05-18T01:24:35.376Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-18T01:24:35.376Z"
+      }
     }
   ],
   "normalFeelings": [
@@ -2464,6 +1892,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-17T09:30:26.009Z"
+    "lastSync": "2026-05-18T01:16:28.016Z"
   }
 }
