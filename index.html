@@ -7690,13 +7690,17 @@
               let html = '';
               reminderListData.forEach((reminder, index) => {
                   const freqText = getFrequencyText(reminder.frequency, reminder.customInterval, reminder.customIntervalUnit);
+                  const startTime = reminder.startTime || '未设置';
+                  const endTime = reminder.endTime || '未设置';
+                  const message = reminder.message || '你有1个任务';
+                  
                   html += `
                       <div style="margin-bottom:10px;padding:12px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:8px;border:1px solid #d5e0d5;box-shadow:0 2px 6px rgba(74,93,74,0.06);">
                           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
                               <div style="flex:1;">
                                   <div style="font-weight:500;color:#3d4d3d;margin-bottom:4px;">📅 ${freqText}</div>
-                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${reminder.startTime} - ${reminder.endTime}</div>
-                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${reminder.message}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${startTime} - ${endTime}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${message}</div>
                               </div>
                               <button type="button" onclick="removeReminder(${index})" style="padding:4px 8px;background:#ffebee;color:#c62828;border:none;border-radius:4px;font-size:12px;cursor:pointer;transition:all 0.2s ease;">删除</button>
                           </div>
@@ -7709,14 +7713,21 @@
           
           // 获取频率文本
           function getFrequencyText(frequency, customInterval, customIntervalUnit) {
+              // 处理undefined或null值
+              if (!frequency) return '未设置';
+              
               switch(frequency) {
                   case 'once': return '仅一次';
                   case 'daily': return '每天';
                   case 'weekly': return '每周';
                   case 'custom':
                       const unitMap = {day: '天', week: '周', month: '个月'};
-                      return `每隔${customInterval}${unitMap[customIntervalUnit]}`;
-                  default: return frequency;
+                      const interval = customInterval || 1;
+                      const unit = customIntervalUnit || 'day';
+                      return `每隔${interval}${unitMap[unit]}`;
+                  default:
+                      // 如果是未知的频率值，返回原始值或默认值
+                      return frequency || '未设置';
               }
           }
           
@@ -7794,16 +7805,38 @@
           // 保存新提醒
           function saveNewReminder() {
               const frequency = document.getElementById('newReminderFrequency').value;
+              const startTime = document.getElementById('newReminderStartTime').value;
+              const endTime = document.getElementById('newReminderEndTime').value;
+              const message = document.getElementById('newReminderMessage').value;
+              
+              // 验证必填字段
+              if (!frequency) {
+                  showToast('请选择提醒频率');
+                  return;
+              }
+              if (!startTime || !endTime) {
+                  showToast('请设置提醒时间段');
+                  return;
+              }
+              
               const reminder = {
                   frequency: frequency,
-                  startTime: document.getElementById('newReminderStartTime').value,
-                  endTime: document.getElementById('newReminderEndTime').value,
-                  message: document.getElementById('newReminderMessage').value
+                  startTime: startTime,
+                  endTime: endTime,
+                  message: message || '你有1个任务'
               };
               
               if (frequency === 'custom') {
-                  reminder.customInterval = document.getElementById('newCustomInterval').value;
-                  reminder.customIntervalUnit = document.getElementById('newCustomIntervalUnit').value;
+                  const customInterval = document.getElementById('newCustomInterval').value;
+                  const customIntervalUnit = document.getElementById('newCustomIntervalUnit').value;
+                  
+                  if (!customInterval || !customIntervalUnit) {
+                      showToast('请设置自定义间隔');
+                      return;
+                  }
+                  
+                  reminder.customInterval = customInterval;
+                  reminder.customIntervalUnit = customIntervalUnit;
               }
               
               reminderListData.push(reminder);
@@ -7866,6 +7899,9 @@
                   reminderConfig = {
                       reminders: reminderListData // 支持多个提醒
                   };
+                  
+                  // 调试信息：打印保存的提醒数据
+                  console.log('保存的条件触发提醒数据:', JSON.stringify(reminderListData, null, 2));
               }
               
               // 创建触发提醒记录
@@ -7950,16 +7986,23 @@
                   `;
               } else {
                   // 条件触发显示多个提醒
+                  console.log('条件触发 - reminderConfig:', JSON.stringify(trigger.reminderConfig, null, 2));
+                  
                   if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
                       let remindersHtml = '<div style="font-weight:500;margin-bottom:8px;color:#4a5d4a;">🔔 提醒设置 (' + trigger.reminderConfig.reminders.length + '个)</div>';
                       
                       trigger.reminderConfig.reminders.forEach((reminder, index) => {
+                          console.log(`处理提醒 ${index}:`, JSON.stringify(reminder, null, 2));
                           const freqText = getFrequencyText(reminder.frequency, reminder.customInterval, reminder.customIntervalUnit);
+                          const startTime = reminder.startTime || '未设置';
+                          const endTime = reminder.endTime || '未设置';
+                          const message = reminder.message || '你有1个任务';
+                          
                           remindersHtml += `
                               <div style="padding:10px;margin-bottom:8px;background:linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);border-radius:6px;border:1px solid #d5e0d5;">
                                   <div style="font-weight:500;color:#3d4d3d;margin-bottom:4px;">📅 ${freqText}</div>
-                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${reminder.startTime} - ${reminder.endTime}</div>
-                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${reminder.message}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;">⏰ ${startTime} - ${endTime}</div>
+                                  <div style="font-size:12px;color:#6a7a6a;margin-top:2px;">💬 ${message}</div>
                               </div>
                           `;
                       });
@@ -8011,9 +8054,22 @@
               }
               
               // 确保使用正确的消息
-              const reminderMessage = trigger.reminderConfig && trigger.reminderConfig.message
-                  ? trigger.reminderConfig.message
-                  : '你有1个任务待处理';
+              let reminderMessage = '你有1个任务待处理';
+              
+              if (trigger.type === 'time') {
+                  // 时间触发：直接使用reminderConfig.message
+                  if (trigger.reminderConfig && trigger.reminderConfig.message) {
+                      reminderMessage = trigger.reminderConfig.message;
+                  }
+              } else {
+                  // 条件触发：使用reminders数组中的消息
+                  if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                      const currentReminder = trigger.reminderConfig.reminders[0];
+                      if (currentReminder.message) {
+                          reminderMessage = currentReminder.message;
+                      }
+                  }
+              }
               
               message.textContent = reminderMessage;
               bubble.classList.remove('hidden');
@@ -8064,12 +8120,16 @@
                           shouldTrigger = true;
                       }
                   } else {
-                      // 条件触发：检查是否在提醒时间段内
-                      const startTime = trigger.reminderConfig.startTime;
-                      const endTime = trigger.reminderConfig.endTime;
-                      
-                      if (currentTime >= startTime && currentTime <= endTime) {
-                          shouldTrigger = true;
+                      // 条件触发：检查是否在任一提醒时间段内
+                      if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                          trigger.reminderConfig.reminders.forEach(reminder => {
+                              const startTime = reminder.startTime;
+                              const endTime = reminder.endTime;
+                              
+                              if (currentTime >= startTime && currentTime <= endTime) {
+                                  shouldTrigger = true;
+                              }
+                          });
                       }
                   }
                   
@@ -8181,24 +8241,30 @@
                   const item = document.createElement('div');
                   item.className = 'item task-item';
                   
-                  // 触发类型和配置
-                  let triggerInfo = '';
+                  // 根据触发类型显示不同的信息
+                  let triggerDetails = '';
+                  
                   if (trigger.type === 'time') {
-                      triggerInfo = `⏰ 时间触发：${trigger.triggerConfig.triggerTime}`;
+                      // 时间触发：只显示触发时间
+                      triggerDetails = `<div>⏰ 时间触发：${trigger.triggerConfig.triggerTime}</div>`;
                   } else {
-                      triggerInfo = `📝 条件触发：${trigger.triggerConfig.condition}`;
+                      // 条件触发：显示提醒设置
+                      if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                          const reminderCount = trigger.reminderConfig.reminders.length;
+                          const firstReminder = trigger.reminderConfig.reminders[0];
+                          const freqText = getFrequencyText(firstReminder.frequency, firstReminder.customInterval, firstReminder.customIntervalUnit);
+                          const startTime = firstReminder.startTime || '未设置';
+                          const endTime = firstReminder.endTime || '未设置';
+                          
+                          if (reminderCount === 1) {
+                              triggerDetails = `<div>🔔 ${freqText} ${startTime}-${endTime}</div>`;
+                          } else {
+                              triggerDetails = `<div>🔔 ${freqText} ${startTime}-${endTime} (共${reminderCount}个提醒)</div>`;
+                          }
+                      } else {
+                          triggerDetails = '<div>🔔 暂无提醒设置</div>';
+                      }
                   }
-                  
-                  // 提醒配置
-                  const freq = trigger.reminderConfig.frequency;
-                  let freqText = '仅一次';
-                  if (freq === 'daily') freqText = '每天';
-                  else if (freq === 'weekly') freqText = '每周';
-                  else if (freq === 'custom') {
-                      freqText = `每隔${trigger.reminderConfig.customInterval}${trigger.reminderConfig.customIntervalUnit === 'day' ? '天' : trigger.reminderConfig.customIntervalUnit === 'week' ? '周' : '个月'}`;
-                  }
-                  
-                  const reminderInfo = `🔔 ${freqText} ${trigger.reminderConfig.startTime}-${trigger.reminderConfig.endTime}`;
                   
                   item.innerHTML = `
                       <div class="item-header">
@@ -8209,8 +8275,7 @@
                           <span style="cursor:pointer;" onclick="openEdit('${task.id}')">${task.content}</span>
                       </div>
                       <div style="padding:8px 0;font-size:12px;color:var(--text-secondary);">
-                          <div style="margin-bottom:4px;">${triggerInfo}</div>
-                          <div>${reminderInfo}</div>
+                          ${triggerDetails}
                       </div>
                       <div class="item-actions">
                           <button class="btn btn-small btn-secondary" onclick="showTriggerManage('${trigger.taskId}')">查看详情</button>
