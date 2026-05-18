@@ -810,7 +810,7 @@
       "type": "task",
       "content": "老公吃宵夜，记录在哪里呢？",
       "createdAt": "2026-05-18T01:38:29.775Z",
-      "updatedAt": "2026-05-18T01:38:29.775Z",
+      "updatedAt": "2026-05-18T03:56:34.090Z",
       "tags": [
         "老公"
       ],
@@ -862,7 +862,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T03:19:00.316Z",
+      "updatedAt": "2026-05-18T03:56:38.893Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -878,9 +878,23 @@
         {
           "id": "1779071663022",
           "content": "模拟现场，写一下问卷表每一项我要怎么检查？遇到不知道怎么看的，记录下来。",
+          "done": true,
+          "estimatedTime": "20min",
+          "placedIn": null
+        },
+        {
+          "id": "1779076568304",
+          "content": "word有我需要做的任务，完成",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": "slot_mpamxaola8s4m"
+          "placedIn": null
+        },
+        {
+          "id": "1779076577769",
+          "content": "word有待解决的问题，去解决",
+          "done": false,
+          "estimatedTime": "20min",
+          "placedIn": null
         }
       ]
     }
@@ -2027,6 +2041,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T03:19:05.848Z"
+    "lastSync": "2026-05-18T03:21:32.800Z"
   }
 }
