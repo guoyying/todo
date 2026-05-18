@@ -981,14 +981,22 @@
       "type": "task",
       "content": "移动端，我想点击某日期显示那天的感受记录时，日历可以折叠，这样感受记录可以横跨，不会受到日历的占位，能显示多些内容。",
       "createdAt": "2026-05-18T07:15:54.348Z",
-      "updatedAt": "2026-05-18T07:15:54.348Z",
+      "updatedAt": "2026-05-18T07:33:35.995Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779089515286",
+          "content": "我想自定义表达框架，输入比如：背景介绍、对方未来要做什么、近期可执行的小任务。",
+          "done": false,
+          "estimatedTime": "5",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2169,6 +2177,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T07:23:53.207Z"
+    "lastSync": "2026-05-18T07:30:37.521Z"
   }
 }
