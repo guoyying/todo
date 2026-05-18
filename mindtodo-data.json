@@ -879,20 +879,6 @@
           "placedIn": null
         }
       ]
-    },
-    {
-      "id": "mpakkhkqcpegr",
-      "type": "task",
-      "content": "为什么筛选今日已完成，会看到4月29日的任务。我知道这是4月29日完成的任务，只是今天完成了整理，所以出现在今日筛选中。待整理任务列表，多个任务合并就以选中任务的最新的时间作为合并后的任务吧。能不能按照这个任务当时的完成时间来筛选。",
-      "createdAt": "2026-05-18T02:12:58.490Z",
-      "updatedAt": "2026-05-18T02:14:33.959Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1319,12 +1305,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpak3kerwghfl",
-      "name": "10点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -1851,6 +1832,21 @@
         ]
       },
       "createdAt": "2026-05-18T01:37:42.820Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mpams81yr1hbz",
+      "taskId": "mpaj5kohgdl7v",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-18T14:10"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-18T03:14:58.630Z",
       "lastReminderTime": null,
       "active": true
     }
