@@ -796,15 +796,23 @@
       "type": "task",
       "content": "爬虫，然后通报：近期已向xxxx县分发送可退设备清单。请5月底前抓紧将这批清单推进。",
       "createdAt": "2026-05-18T01:33:23.057Z",
-      "updatedAt": "2026-05-18T06:29:14.049Z",
+      "updatedAt": "2026-05-18T06:31:46.544Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mpatpuouufqc3"
+      "subtasks": [
+        {
+          "id": "1779085880887",
+          "content": "整理爬虫的结果，更新到设备退网进度里",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": "slot_mpatpuouufqc3"
+        }
+      ],
+      "placedIn": null
     },
     {
       "id": "mpajc5cfsfg13",
@@ -2085,6 +2093,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T06:28:10.062Z"
+    "lastSync": "2026-05-18T06:30:53.741Z"
   }
 }
