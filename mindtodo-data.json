@@ -842,51 +842,18 @@
     {
       "id": "mpak93vkmj1yk",
       "type": "task",
-      "content": "了解下萤火行动要做什么",
+      "content": "萤火行动：了解更新的检查细则，自制问卷心对照检查表。",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T06:58:20.776Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-18T10:54:33.009Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpak93vkht60f",
-          "content": "先看邮件，记录我要做什么",
-          "estimatedTime": "15min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1779071663022",
-          "content": "模拟现场，写一下问卷表每一项我要怎么检查？遇到不知道怎么看的，记录下来。",
-          "done": true,
-          "estimatedTime": "20min",
-          "placedIn": null
-        },
-        {
-          "id": "1779076568304",
-          "content": "问卷星有我需要做的任务，完成",
-          "done": false,
-          "estimatedTime": "20min",
-          "placedIn": null
-        },
-        {
-          "id": "1779076577769",
-          "content": "word有待解决的问题，去解决",
-          "done": true,
-          "estimatedTime": "20min",
-          "placedIn": null
-        },
-        {
-          "id": "1779085816878",
-          "content": "找下承包人，找两个机房",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-18T10:54:33.009Z",
+      "subtasks": []
     },
     {
       "id": "mpaq4joepf98n",
@@ -925,7 +892,7 @@
       "type": "task",
       "content": "移动端，我想点击某日期显示那天的感受记录时，日历可以折叠，这样感受记录可以横跨，不会受到日历的占位，能显示多些内容。",
       "createdAt": "2026-05-18T07:15:54.348Z",
-      "updatedAt": "2026-05-18T07:33:35.995Z",
+      "updatedAt": "2026-05-18T10:57:35.388Z",
       "tags": [
         "AI"
       ],
@@ -938,6 +905,20 @@
           "content": "我想自定义表达框架，输入比如：背景介绍、对方未来要做什么、近期可执行的小任务。",
           "done": false,
           "estimatedTime": "5",
+          "placedIn": null
+        },
+        {
+          "id": "1779101715289",
+          "content": "我想设定子任务上限是3个，避免无休止拆解任务，忽略有些尝试不一定非要做。",
+          "done": false,
+          "estimatedTime": "3",
+          "placedIn": null
+        },
+        {
+          "id": "1779101774405",
+          "content": "父任务或普通任务预计时间上限是20分钟。子任务上限时间10分钟。避免制定太大的目标导致焦虑。",
+          "done": false,
+          "estimatedTime": "3",
           "placedIn": null
         }
       ]
@@ -1002,42 +983,6 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mpaz7xtasdl80",
-      "type": "task",
-      "content": "承载网评估信息了解",
-      "createdAt": "2026-05-18T09:03:07.246Z",
-      "updatedAt": "2026-05-18T09:03:07.246Z",
-      "tags": [
-        "网安"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpaz7xtaecgy5",
-          "content": "问黄工传输网接入点",
-          "estimatedTime": "15min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "mpaz7xtakl6md",
-          "content": "问梁工传输网接入点",
-          "estimatedTime": "15min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "mpaz7xta623qk",
-          "content": "找几个没有业务的越秀设备，找到上联的网关网元",
-          "estimatedTime": "15min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
     },
     {
       "id": "mpb18oywrnsvu",
@@ -1508,12 +1453,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpazcgc2mhghd",
-      "name": "下班前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
