@@ -557,22 +557,14 @@
       "type": "task",
       "content": "网安单：转发负载策略收敛专项工作。收集处理转发策略",
       "createdAt": "2026-05-15T07:33:44.171Z",
-      "updatedAt": "2026-05-18T08:30:56.869Z",
+      "updatedAt": "2026-05-18T08:44:35.715Z",
       "tags": [
         "网安"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779092784797",
-          "content": "",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
+      "subtasks": [],
       "placedIn": null,
       "doneAt": null
     },
@@ -679,29 +671,6 @@
         "organizedAt": "2026-05-17T06:16:52.842Z"
       },
       "subtasks": []
-    },
-    {
-      "id": "mp9kk2pbwqrpi",
-      "type": "task",
-      "content": "问一下量子城域网的事情",
-      "createdAt": "2026-05-17T09:24:53.039Z",
-      "updatedAt": "2026-05-18T07:58:12.926Z",
-      "tags": [
-        "网安"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp9kk2pbvcogh",
-          "content": "了解一下要问什么，写下来",
-          "estimatedTime": "8min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
     },
     {
       "id": "mpahsrj7sccmc",
@@ -949,28 +918,6 @@
       "placedIn": null,
       "doneAt": "2026-05-18T05:32:58.957Z",
       "subtasks": []
-    },
-    {
-      "id": "mpausra9kgygx",
-      "type": "task",
-      "content": "回复NOC的承载网评估",
-      "createdAt": "2026-05-18T06:59:20.481Z",
-      "updatedAt": "2026-05-18T08:34:33.627Z",
-      "tags": [
-        "网安"
-      ],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779090021500",
-          "content": "我得先了解下，两个网络节电是哪里到DCN的。看回pdf和3级定级备案的描述。",
-          "done": true,
-          "estimatedTime": "13min",
-          "placedIn": null
-        }
-      ]
     },
     {
       "id": "mpave25ojg7j0",
@@ -1486,12 +1433,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpawiqidyf5ge",
-      "name": "4点半前做"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2082,6 +2024,21 @@
       "createdAt": "2026-05-18T07:46:44.923Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpaykgnup3fun",
+      "taskId": "mp6lpfmz93x9s",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-18T17:20"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-18T08:44:51.930Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "aiConfig": {
@@ -2251,6 +2208,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T07:47:59.842Z"
+    "lastSync": "2026-05-18T08:44:16.953Z"
   }
 }
