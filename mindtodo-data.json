@@ -557,7 +557,7 @@
       "type": "task",
       "content": "网安单：转发负载策略收敛专项工作。收集处理转发策略",
       "createdAt": "2026-05-15T07:33:44.171Z",
-      "updatedAt": "2026-05-18T02:11:14.058Z",
+      "updatedAt": "2026-05-18T06:30:46.888Z",
       "tags": [
         "网安"
       ],
@@ -565,7 +565,7 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null,
+      "placedIn": "slot_mpatpuouufqc3",
       "doneAt": null
     },
     {
@@ -796,14 +796,15 @@
       "type": "task",
       "content": "爬虫，然后通报：近期已向xxxx县分发送可退设备清单。请5月底前抓紧将这批清单推进。",
       "createdAt": "2026-05-18T01:33:23.057Z",
-      "updatedAt": "2026-05-18T06:28:05.426Z",
+      "updatedAt": "2026-05-18T06:29:14.049Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpatpuouufqc3"
     },
     {
       "id": "mpajc5cfsfg13",
@@ -862,7 +863,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T05:32:29.026Z",
+      "updatedAt": "2026-05-18T06:30:35.990Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -895,6 +896,13 @@
           "done": true,
           "estimatedTime": "20min",
           "placedIn": null
+        },
+        {
+          "id": "1779085816878",
+          "content": "找下承包人，找两个机房",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": "slot_mpatpuouufqc3"
         }
       ]
     },
@@ -1355,8 +1363,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mpaqc1iizfu8r",
-      "name": "1点15分前"
+      "id": "slot_mpatpuouufqc3",
+      "name": "3点前做"
     }
   ],
   "tags": [
@@ -1887,6 +1895,27 @@
       "createdAt": "2026-05-18T01:37:42.820Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpatr7rks493o",
+      "taskId": "mp6psvdvluwor",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "09:00",
+            "endTime": "10:00",
+            "message": "RPA程序再要一份"
+          }
+        ]
+      },
+      "createdAt": "2026-05-18T06:30:08.912Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "aiConfig": {
@@ -2056,6 +2085,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T04:58:36.237Z"
+    "lastSync": "2026-05-18T06:28:10.062Z"
   }
 }
