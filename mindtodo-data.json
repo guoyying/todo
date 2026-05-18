@@ -946,14 +946,22 @@
       "type": "task",
       "content": "回复NOC的承载网评估",
       "createdAt": "2026-05-18T06:59:20.481Z",
-      "updatedAt": "2026-05-18T07:16:17.138Z",
+      "updatedAt": "2026-05-18T07:41:08.270Z",
       "tags": [
         "网安"
       ],
       "done": false,
-      "dueTime": "10min",
+      "dueTime": "",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779090021500",
+          "content": "我得先了解下，两个网络节电是哪里到DCN的。看回pdf和3级定级备案的描述。",
+          "done": false,
+          "estimatedTime": "13min",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mpave25ojg7j0",
@@ -2005,27 +2013,6 @@
       "active": true
     },
     {
-      "id": "mpaus6ec4leuu",
-      "taskId": "mpak93vkmj1yk",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "once",
-            "startTime": "15:40",
-            "endTime": "18:00",
-            "message": "电话联系黄埔"
-          }
-        ]
-      },
-      "createdAt": "2026-05-18T06:58:53.412Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mpaw2ko1py438",
       "taskId": "mp7r0gnotxyuj",
       "type": "condition",
@@ -2219,6 +2206,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T07:37:44.466Z"
+    "lastSync": "2026-05-18T07:38:11.049Z"
   }
 }
