@@ -862,7 +862,7 @@
       "type": "task",
       "content": "了解下萤火行动要做什么",
       "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T03:56:38.893Z",
+      "updatedAt": "2026-05-18T04:54:38.076Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -894,7 +894,7 @@
           "content": "word有待解决的问题，去解决",
           "done": false,
           "estimatedTime": "20min",
-          "placedIn": null
+          "placedIn": "slot_mpaqc1iizfu8r"
         }
       ]
     },
@@ -917,7 +917,7 @@
       "type": "task",
       "content": "承载网络拓扑的事情",
       "createdAt": "2026-05-18T04:50:08.270Z",
-      "updatedAt": "2026-05-18T04:50:08.270Z",
+      "updatedAt": "2026-05-18T04:54:25.577Z",
       "tags": [
         "网安"
       ],
@@ -930,9 +930,10 @@
           "content": "先把已有的信息提供给noc，看行不行，再确定下一步行动",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mpaqc1iizfu8r"
         }
-      ]
+      ],
+      "placedIn": "slot_mpaqc1iizfu8r"
     }
   ],
   "normalFeelings": [
@@ -1359,7 +1360,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpaqc1iizfu8r",
+      "name": "1点15分前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2072,6 +2078,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T04:48:37.612Z"
+    "lastSync": "2026-05-18T04:50:12.025Z"
   }
 }
