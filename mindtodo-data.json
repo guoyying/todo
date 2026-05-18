@@ -951,41 +951,6 @@
       "doneAt": "2026-05-10T10:44:14.972Z"
     },
     {
-      "id": "mp0i2bixw63rq",
-      "type": "task",
-      "content": "写上周周报",
-      "createdAt": "2026-05-11T01:05:09.849Z",
-      "updatedAt": "2026-05-11T01:44:16.795Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mp0i2bixq8w16",
-          "content": "先ai汇总下，写下觉得可以的句子",
-          "estimatedTime": "8min",
-          "done": false,
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-11T01:44:16.795Z"
-    },
-    {
-      "id": "mp0igd8nx1udo",
-      "type": "task",
-      "content": "天河那个800M微波局的设备跟进，问下那个同事。",
-      "createdAt": "2026-05-11T01:16:05.255Z",
-      "updatedAt": "2026-05-11T02:42:00.432Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mp0l4aevt8jlw",
-      "doneAt": "2026-05-11T02:42:00.432Z"
-    },
-    {
       "id": "mp0ybhgz6swqe",
       "type": "task",
       "content": "RPA测试，顺便验收工程单。",
@@ -2328,21 +2293,6 @@
         ]
       },
       "createdAt": "2026-05-16T01:58:12.905Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mp9kkv2nfmr15",
-      "taskId": "mp9kk2pbwqrpi",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-18T09:00"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-17T09:25:29.807Z",
       "lastReminderTime": null,
       "active": true
     }
