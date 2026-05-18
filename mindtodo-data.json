@@ -542,15 +542,16 @@
       "type": "task",
       "content": "标记已经参加座谈会的同事",
       "createdAt": "2026-05-15T03:32:53.449Z",
-      "updatedAt": "2026-05-15T08:19:28.400Z",
+      "updatedAt": "2026-05-18T10:07:46.821Z",
       "tags": [
         "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-18T10:07:46.821Z"
     },
     {
       "id": "mp6lpfmz93x9s",
@@ -1037,6 +1038,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpb18oywrnsvu",
+      "type": "task",
+      "content": "明天下午参加线上会议",
+      "createdAt": "2026-05-18T09:59:41.672Z",
+      "updatedAt": "2026-05-18T09:59:41.672Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "30min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2068,6 +2083,21 @@
       "createdAt": "2026-05-18T09:59:18.477Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpb191ignjhn0",
+      "taskId": "mpb18oywrnsvu",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-19T14:30"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-18T09:59:57.928Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "aiConfig": {
@@ -2237,6 +2267,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T09:06:50.812Z"
+    "lastSync": "2026-05-18T09:59:25.777Z"
   }
 }
