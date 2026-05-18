@@ -814,6 +814,28 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpajig9lqebe6",
+      "type": "task",
+      "content": "我得把上周曾经理的想法跟赖工说，还要跟其他委员说，之后要干活的。怎么说呢？",
+      "createdAt": "2026-05-18T01:43:23.865Z",
+      "updatedAt": "2026-05-18T01:43:23.865Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpajig9lu8tx7",
+          "content": "写下我想实现的效果",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -1240,7 +1262,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpajcsw0xgp88",
+      "name": "10点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
