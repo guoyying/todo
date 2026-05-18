@@ -8147,43 +8147,75 @@
                           triggersToRemove.push(index);
                       } else {
                           // 条件触发：检查提醒频率并显示提醒
-                          // 检查提醒频率
-                          let shouldRemind = false;
-                          
-                          if (trigger.reminderConfig.frequency === 'once') {
-                              if (!trigger.lastReminderTime) {
-                                  shouldRemind = true;
-                                  // 对于一次性提醒，触发后移除触发器，让任务重新显示
-                                  triggersToRemove.push(index);
-                              }
-                          } else if (trigger.reminderConfig.frequency === 'daily') {
-                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
-                              if (!lastReminder || lastReminder.toDateString() !== now.toDateString()) {
-                                  shouldRemind = true;
-                              }
-                          } else if (trigger.reminderConfig.frequency === 'weekly') {
-                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
-                              if (!lastReminder || (now - lastReminder) >= 7 * 24 * 60 * 60 * 1000) {
-                                  shouldRemind = true;
-                              }
-                          } else if (trigger.reminderConfig.frequency === 'custom') {
-                              const interval = parseInt(trigger.reminderConfig.customInterval);
-                              const unit = trigger.reminderConfig.customIntervalUnit;
-                              let ms = 0;
+                          // 条件触发使用 reminders 数组，需要遍历检查每个提醒
+                          if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                              trigger.reminderConfig.reminders.forEach((reminder, reminderIndex) => {
+                                  let shouldRemind = false;
+                                  const frequency = reminder.frequency;
+                                  
+                                  // 为每个提醒维护独立的最后提醒时间
+                                  if (!trigger.lastReminderTimes) {
+                                      trigger.lastReminderTimes = {};
+                                  }
+                                  
+                                  const lastReminderTime = trigger.lastReminderTimes[reminderIndex];
+                                  
+                                  if (frequency === 'once') {
+                                      if (!lastReminderTime) {
+                                          shouldRemind = true;
+                                          // 对于一次性提醒，记录提醒时间
+                                          trigger.lastReminderTimes[reminderIndex] = now.toISOString();
+                                          
+                                          // 检查是否所有提醒都是一次性且都已完成
+                                          const allRemindersAreOnce = trigger.reminderConfig.reminders.every(r => r.frequency === 'once');
+                                          const allRemindersDone = trigger.reminderConfig.reminders.every((r, idx) => trigger.lastReminderTimes[idx]);
+                                          
+                                          if (allRemindersAreOnce && allRemindersDone) {
+                                              // 所有一次性提醒都已完成，移除触发器
+                                              triggersToRemove.push(index);
+                                          }
+                                      }
+                                  } else if (frequency === 'daily') {
+                                      const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                                      if (!lastReminder || lastReminder.toDateString() !== now.toDateString()) {
+                                          shouldRemind = true;
+                                          trigger.lastReminderTimes[reminderIndex] = now.toISOString();
+                                      }
+                                  } else if (frequency === 'weekly') {
+                                      const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                                      if (!lastReminder || (now - lastReminder) >= 7 * 24 * 60 * 60 * 1000) {
+                                          shouldRemind = true;
+                                          trigger.lastReminderTimes[reminderIndex] = now.toISOString();
+                                      }
+                                  } else if (frequency === 'custom') {
+                                      const interval = parseInt(reminder.customInterval);
+                                      const unit = reminder.customIntervalUnit;
+                                      let ms = 0;
+                                      
+                                      if (unit === 'day') ms = interval * 24 * 60 * 60 * 1000;
+                                      else if (unit === 'week') ms = interval * 7 * 24 * 60 * 60 * 1000;
+                                      else if (unit === 'month') ms = interval * 30 * 24 * 60 * 60 * 1000;
+                                      
+                                      const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                                      if (!lastReminder || (now - lastReminder) >= ms) {
+                                          shouldRemind = true;
+                                          trigger.lastReminderTimes[reminderIndex] = now.toISOString();
+                                      }
+                                  }
+                                  
+                                  if (shouldRemind) {
+                                      // 创建临时 trigger 对象用于显示提醒气泡
+                                      const tempTrigger = {
+                                          ...trigger,
+                                          reminderConfig: {
+                                              reminders: [reminder]
+                                          }
+                                      };
+                                      showReminderBubble(tempTrigger);
+                                  }
+                              });
                               
-                              if (unit === 'day') ms = interval * 24 * 60 * 60 * 1000;
-                              else if (unit === 'week') ms = interval * 7 * 24 * 60 * 60 * 1000;
-                              else if (unit === 'month') ms = interval * 30 * 24 * 60 * 60 * 1000;
-                              
-                              const lastReminder = trigger.lastReminderTime ? new Date(trigger.lastReminderTime) : null;
-                              if (!lastReminder || (now - lastReminder) >= ms) {
-                                  shouldRemind = true;
-                              }
-                          }
-                          
-                          if (shouldRemind) {
-                              showReminderBubble(trigger);
-                              trigger.lastReminderTime = now.toISOString();
+                              // 保存更新后的提醒时间
                               saveData();
                           }
                       }
@@ -8199,10 +8231,8 @@
                   render(); // 重新渲染，使任务重新显示在待办列表中
               }
           }
-           
-          // 定时检查触发提醒（每分钟的0秒时刻检查一次）
-          console.log('启动触发提醒定时器');
           
+          // 定时检查触发提醒（每分钟的0秒时刻检查一次）
           function scheduleNextCheck() {
               const now = new Date();
               const seconds = now.getSeconds();
@@ -8220,12 +8250,6 @@
                   setInterval(checkTriggers, 60000);
               }, msUntilNextMinute);
           }
-          
-          // 启动定时检查
-          scheduleNextCheck();
-          
-          // 页面加载时立即检查一次
-          setTimeout(checkTriggers, 1000);
           
           // 渲染触发提醒管理面板
           function renderTriggerManage() {
@@ -10484,6 +10508,13 @@
         // 初始化自定义日期时间选择器
         document.addEventListener('DOMContentLoaded', function() {
             initDateTimePicker();
+            
+            // 启动触发提醒定时器
+            console.log('启动触发提醒定时器');
+            scheduleNextCheck();
+            
+            // 页面加载时立即检查一次
+            setTimeout(checkTriggers, 1000);
         });
         
         // 复制汇总结果
@@ -10597,6 +10628,10 @@
                  console.log('GitHub拉取完成，使用拉取结果作为最新模型配置...');
                  // 立即更新所有模型选择器
                  updateAllModelSelectors();
+                
+                 // 拉取完成后检查并触发提醒
+                 console.log('检查拉取数据中的提醒任务...');
+                 checkTriggers();
                 
                  hideBanner(loadingBanner);
                  if (manual) {
