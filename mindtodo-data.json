@@ -796,7 +796,7 @@
       "type": "task",
       "content": "爬虫，然后通报：近期已向xxxx县分发送可退设备清单。请5月底前抓紧将这批清单推进。",
       "createdAt": "2026-05-18T01:33:23.057Z",
-      "updatedAt": "2026-05-18T01:33:23.057Z",
+      "updatedAt": "2026-05-18T06:28:05.426Z",
       "tags": [
         "退网"
       ],
@@ -1885,21 +1885,6 @@
         ]
       },
       "createdAt": "2026-05-18T01:37:42.820Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpams81yr1hbz",
-      "taskId": "mpaj5kohgdl7v",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-18T14:10"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-18T03:14:58.630Z",
       "lastReminderTime": null,
       "active": true
     }
