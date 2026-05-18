@@ -691,20 +691,6 @@
       ]
     },
     {
-      "id": "mp9kxf2oc8e6i",
-      "type": "task",
-      "content": "我想修改感受汇总的默认提示",
-      "createdAt": "2026-05-17T09:35:15.600Z",
-      "updatedAt": "2026-05-17T09:35:15.600Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpahsrj7sccmc",
       "type": "task",
       "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
@@ -1952,6 +1938,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-18T01:35:56.137Z"
+    "lastSync": "2026-05-18T01:38:34.274Z"
   }
 }
