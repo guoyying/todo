@@ -2896,12 +2896,18 @@
             <!-- 筛选栏默认隐藏，点击标题后显示 -->
             <div class="filter-bar" id="completedFilterBar" style="margin-top:8px;display:none;">
                 <input type="text" id="completedSearch" placeholder="搜索已完成..." oninput="renderCompleted()">
-                <select id="completedTimeFilter" onchange="renderCompleted()" style="margin-left:8px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
+                <select id="completedTimeFilter" onchange="toggleCustomDateRange()" style="margin-left:8px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
                     <option value="all">全部时间</option>
                     <option value="today">今日</option>
                     <option value="thisWeek">本周</option>
                     <option value="thisMonth">本月</option>
+                    <option value="custom">自定义</option>
                 </select>
+                <div id="customDateRange" style="display:none;margin-left:8px;">
+                    <input type="date" id="customStartDate" onchange="renderCompleted()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
+                    <span style="margin:0 4px;">-</span>
+                    <input type="date" id="customEndDate" onchange="renderCompleted()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
+                </div>
                 <div class="tag-filter" id="completedTagFilter"></div>
                 <button class="btn btn-small btn-primary" onclick="showTaskOrganizer()" style="margin-left:8px;">📋 整理</button>
             </div>
@@ -6889,6 +6895,34 @@
             return { start: startOfWeek, end: endOfWeek };
         }
         
+        // 切换自定义日期范围显示
+        function toggleCustomDateRange() {
+            const timeFilter = document.getElementById('completedTimeFilter').value;
+            const customDateRange = document.getElementById('customDateRange');
+            
+            if (timeFilter === 'custom') {
+                customDateRange.style.display = 'inline-flex';
+                // 设置默认日期范围（最近30天）
+                const today = new Date();
+                const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+                
+                document.getElementById('customStartDate').value = formatDateForInput(thirtyDaysAgo);
+                document.getElementById('customEndDate').value = formatDateForInput(today);
+            } else {
+                customDateRange.style.display = 'none';
+            }
+            
+            renderCompleted();
+        }
+        
+        // 格式化日期为 input type="date" 所需格式
+        function formatDateForInput(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        
         function getThisWeekCompletedTasks() {
             const { start, end } = getThisWeekRange();
             return data.tasks.filter(task =>
@@ -7219,6 +7253,21 @@
                     const now = new Date();
                     return doneDate.getMonth() === now.getMonth() && doneDate.getFullYear() === now.getFullYear();
                 });
+            } else if (timeFilter === 'custom') {
+                const startDate = document.getElementById('customStartDate').value;
+                const endDate = document.getElementById('customEndDate').value;
+                
+                if (startDate && endDate) {
+                    const start = new Date(startDate);
+                    start.setHours(0, 0, 0, 0);
+                    const end = new Date(endDate);
+                    end.setHours(23, 59, 59, 999);
+                    
+                    list = list.filter(i => {
+                        const doneDate = new Date(i.doneAt || i.updatedAt);
+                        return doneDate >= start && doneDate <= end;
+                    });
+                }
             }
             
             // 应用搜索过滤
@@ -14152,6 +14201,21 @@ ${ammoToAnalyze.map((ammo, index) =>
                   const now = new Date();
                   return doneDate.getMonth() === now.getMonth() && doneDate.getFullYear() === now.getFullYear();
               });
+          } else if (timeFilter === 'custom') {
+              const startDate = document.getElementById('customStartDate').value;
+              const endDate = document.getElementById('customEndDate').value;
+              
+              if (startDate && endDate) {
+                  const start = new Date(startDate);
+                  start.setHours(0, 0, 0, 0);
+                  const end = new Date(endDate);
+                  end.setHours(23, 59, 59, 999);
+                  
+                  list = list.filter(i => {
+                      const doneDate = new Date(i.doneAt || i.updatedAt);
+                      return doneDate >= start && doneDate <= end;
+                  });
+              }
           }
           
           // 应用搜索过滤
@@ -14245,6 +14309,15 @@ ${ammoToAnalyze.map((ammo, index) =>
                  typeText = '本月';
                  const now = new Date();
                  dateText = `${now.getFullYear()}年${now.getMonth() + 1}月`;
+             } else if (timeFilter === 'custom') {
+                 typeText = '自定义';
+                 const startDate = document.getElementById('customStartDate')?.value;
+                 const endDate = document.getElementById('customEndDate')?.value;
+                 if (startDate && endDate) {
+                     dateText = `${startDate} ~ ${endDate}`;
+                 } else {
+                     dateText = '自定义时间范围';
+                 }
              }
          }
          
