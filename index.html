@@ -5184,6 +5184,33 @@
             }
         }
 
+        // 统一的时间验证函数
+        function validateTimeInput(timeValue, maxMinutes, taskType, originalValue, inputElement) {
+            if (!timeValue) return true; // 空值允许通过
+            
+            const minutes = parseTimeToMinutes(timeValue);
+            if (minutes > maxMinutes) {
+                // 根据任务类型显示不同的提示信息
+                let message = '';
+                if (taskType === 'subtask') {
+                    message = `子任务预计时间不能超过${maxMinutes}分钟，避免制定太大目标导致焦虑。建议进一步拆解！`;
+                } else {
+                    message = `任务预计时间不能超过${maxMinutes}分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！`;
+                }
+                
+                showToast(message, { duration: 4000 });
+                
+                // 恢复原值
+                if (inputElement && originalValue !== undefined) {
+                    inputElement.value = originalValue || '';
+                }
+                
+                return false; // 验证失败
+            }
+            
+            return true; // 验证通过
+        }
+
         function saveTask() {
             const content = document.getElementById('taskContent').value.trim();
             if (!content) return;
@@ -5204,11 +5231,10 @@
                     v = v + 'min';
                 }
                 
-                // 验证父任务/普通任务时间上限（20分钟）
-                const taskMinutes = parseTimeToMinutes(v);
-                if (taskMinutes > 20) {
-                    showValidationToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！');
-                    document.getElementById('taskDueTime').focus();
+                // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
+                const timeInput = document.getElementById('taskDueTime');
+                if (!validateTimeInput(v, 20, 'task', '', timeInput)) {
+                    timeInput.focus();
                     return;
                 }
                 
@@ -5244,10 +5270,8 @@
                             return;
                         }
                         
-                        // 验证子任务时间上限（10分钟）
-                        const subtaskMinutes = parseTimeToMinutes(timeValue);
-                        if (subtaskMinutes > 10) {
-                            showValidationToast(`子任务 "${subtaskContent}" 预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！`);
+                        // 使用统一的时间验证函数（子任务上限10分钟）
+                        if (!validateTimeInput(timeValue, 10, 'subtask', '', timeInputs[i])) {
                             timeInputs[i].focus();
                             return;
                         }
@@ -5424,14 +5448,9 @@
                     timeInput.style.fontSize = '12px';
                     timeInput.onchange = (e) => {
                         const timeValue = e.target.value.trim();
-                        // 验证父任务/普通任务时间上限（20分钟）
-                        if (timeValue) {
-                            const taskMinutes = parseTimeToMinutes(timeValue);
-                            if (taskMinutes > 20) {
-                                showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
-                                e.target.value = item.dueTime || ''; // 恢复原值
-                                return;
-                            }
+                        // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
+                        if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
+                            return;
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
@@ -5440,14 +5459,9 @@
                     };
                     timeInput.onblur = (e) => {
                         const timeValue = e.target.value.trim();
-                        // 验证父任务/普通任务时间上限（20分钟）
-                        if (timeValue) {
-                            const taskMinutes = parseTimeToMinutes(timeValue);
-                            if (taskMinutes > 20) {
-                                showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
-                                e.target.value = item.dueTime || ''; // 恢复原值
-                                return;
-                            }
+                        // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
+                        if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
+                            return;
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
@@ -5676,14 +5690,9 @@
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
                               const timeValue = e.target.value.trim();
-                              // 验证子任务时间上限（10分钟）
-                              if (timeValue) {
-                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
-                                  if (subtaskMinutes > 10) {
-                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                                      e.target.value = st.estimatedTime || ''; // 恢复原值
-                                      return;
-                                  }
+                              // 使用统一的时间验证函数（子任务上限10分钟）
+                              if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
+                                  return;
                               }
                               st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
@@ -5692,14 +5701,9 @@
                           };
                           timeInput.onblur = (e) => {
                               const timeValue = e.target.value.trim();
-                              // 验证子任务时间上限（10分钟）
-                              if (timeValue) {
-                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
-                                  if (subtaskMinutes > 10) {
-                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                                      e.target.value = st.estimatedTime || ''; // 恢复原值
-                                      return;
-                                  }
+                              // 使用统一的时间验证函数（子任务上限10分钟）
+                              if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
+                                  return;
                               }
                               st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
@@ -5749,14 +5753,9 @@
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
                               const timeValue = e.target.value.trim();
-                              // 验证子任务时间上限（10分钟）
-                              if (timeValue) {
-                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
-                                  if (subtaskMinutes > 10) {
-                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                                      e.target.value = st.estimatedTime || ''; // 恢复原值
-                                      return;
-                                  }
+                              // 使用统一的时间验证函数（子任务上限10分钟）
+                              if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
+                                  return;
                               }
                               st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
@@ -5765,14 +5764,9 @@
                           };
                           timeInput.onblur = (e) => {
                               const timeValue = e.target.value.trim();
-                              // 验证子任务时间上限（10分钟）
-                              if (timeValue) {
-                                  const subtaskMinutes = parseTimeToMinutes(timeValue);
-                                  if (subtaskMinutes > 10) {
-                                      showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                                      e.target.value = st.estimatedTime || ''; // 恢复原值
-                                      return;
-                                  }
+                              // 使用统一的时间验证函数（子任务上限10分钟）
+                              if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
+                                  return;
                               }
                               st.estimatedTime = timeValue;
                               item.updatedAt = nowStr();
@@ -7708,14 +7702,10 @@
             const sub = item.subtasks.find(s => s.id === subId);
             if (!sub) return;
             
-            // 验证子任务时间上限（10分钟）
+            // 使用统一的时间验证函数（子任务上限10分钟）
             const timeValue = newTime.trim();
-            if (timeValue) {
-                const subtaskMinutes = parseTimeToMinutes(timeValue);
-                if (subtaskMinutes > 10) {
-                    showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                    return; // 不更新时间
-                }
+            if (!validateTimeInput(timeValue, 10, 'subtask', '', null)) {
+                return; // 不更新时间
             }
             
             sub.estimatedTime = timeValue;
@@ -8678,14 +8668,10 @@
         function updateTaskTimeInSlot(itemId, newDueTime) {
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
-                // 验证父任务/普通任务时间上限（20分钟）
+                // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
                 const timeValue = newDueTime.trim();
-                if (timeValue) {
-                    const taskMinutes = parseTimeToMinutes(timeValue);
-                    if (taskMinutes > 20) {
-                        showToast('任务预计时间不能超过20分钟，避免制定太大目标导致焦虑。建议拆分为更小的任务！', { duration: 4000 });
-                        return; // 不更新时间
-                    }
+                if (!validateTimeInput(timeValue, 20, 'task', '', null)) {
+                    return; // 不更新时间
                 }
                 
                 item.dueTime = timeValue;
@@ -8714,14 +8700,10 @@
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
                 if (sub) {
-                    // 验证子任务时间上限（10分钟）
+                    // 使用统一的时间验证函数（子任务上限10分钟）
                     const timeValue = newEstimatedTime.trim();
-                    if (timeValue) {
-                        const subtaskMinutes = parseTimeToMinutes(timeValue);
-                        if (subtaskMinutes > 10) {
-                            showToast('子任务预计时间不能超过10分钟，避免制定太大目标导致焦虑。建议进一步拆解！', { duration: 4000 });
-                            return; // 不更新时间
-                        }
+                    if (!validateTimeInput(timeValue, 10, 'subtask', '', null)) {
+                        return; // 不更新时间
                     }
                     
                     sub.estimatedTime = timeValue;
