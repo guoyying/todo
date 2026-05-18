@@ -897,6 +897,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpaq4joepf98n",
+      "type": "task",
+      "content": "我想看小红书的-不喜欢聊天。记录一个信息",
+      "createdAt": "2026-05-18T04:48:32.414Z",
+      "updatedAt": "2026-05-18T04:48:32.414Z",
+      "tags": [
+        "表达"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
