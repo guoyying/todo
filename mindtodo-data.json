@@ -536,7 +536,7 @@
       "type": "task",
       "content": "RPA试试几个验收单子",
       "createdAt": "2026-05-15T09:28:23.011Z",
-      "updatedAt": "2026-05-18T02:11:03.067Z",
+      "updatedAt": "2026-05-19T01:28:17.136Z",
       "tags": [
         "RPA"
       ],
@@ -544,7 +544,7 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": "slot_mpbyeqqzxqn7r"
     },
     {
       "id": "mp7r0gnotxyuj",
@@ -865,7 +865,7 @@
       "type": "task",
       "content": "关注中山机楼设备退网情况，梳理一版现状",
       "createdAt": "2026-05-18T07:38:06.399Z",
-      "updatedAt": "2026-05-18T13:47:44.030Z",
+      "updatedAt": "2026-05-19T01:28:27.728Z",
       "tags": [
         "退网"
       ],
@@ -873,7 +873,7 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": "slot_mpbyeqqzxqn7r"
     },
     {
       "id": "mpb18oywrnsvu",
@@ -1420,7 +1420,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpbyeqqzxqn7r",
+      "name": "10点前"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2191,6 +2196,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T01:25:51.663Z"
+    "lastSync": "2026-05-19T01:26:20.476Z"
   }
 }
