@@ -5912,6 +5912,12 @@
             const banner = document.getElementById('strongReminderBanner');
             const taskList = document.getElementById('strongReminderTaskList');
             
+            // 只在任务选项卡（'想做的事'）时显示强提醒横幅
+            if (data.activeTab !== 'task') {
+                banner.style.display = 'none';
+                return;
+            }
+            
             if (hasStrongReminder()) {
                 const strongTasks = getStrongReminderTasks();
                 taskList.innerHTML = strongTasks.map(t => `<li>${t.content}</li>`).join('');
@@ -9745,6 +9751,14 @@
             }
             if (!item) return;
             
+            // 检查强提醒（允许编辑强提醒任务本身的标签）
+            if (type === 'task' && hasStrongReminder(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑任务标签！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             // 获取可用的标签列表
             let availableTags = [];
             if (type === 'feeling') {
@@ -10016,6 +10030,15 @@
                 item = data.tasks.find(i => i.id === itemId);
             }
             if (!item) return;
+            
+            // 检查强提醒（允许编辑强提醒任务本身的标签）
+            if (type === 'task' && hasStrongReminder(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑任务标签！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const input = document.getElementById('tagEditorInput');
             const newTag = input.value.trim();
             const modal = input.closest('.modal-overlay');
@@ -10111,6 +10134,15 @@
                 item = data.tasks.find(i => i.id === itemId);
             }
             if (!item) return;
+            
+            // 检查强提醒（允许删除强提醒任务本身的标签）
+            if (type === 'task' && hasStrongReminder(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法删除任务标签！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             item.tags = item.tags.filter(t => t !== tag);
             item.updatedAt = nowStr();
             saveData(); render();
