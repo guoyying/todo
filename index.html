@@ -6010,10 +6010,14 @@
                           return;
                       }
                       
-                      item.content = e.target.value;
-                      item.updatedAt = nowStr();
-                      saveData();
-                      render(); // 重新渲染以更新强提醒横幅
+                      const newContent = e.target.value;
+                      // 检查内容是否真的发生了变化
+                      if (newContent !== item.content) {
+                          item.content = newContent;
+                          item.updatedAt = nowStr();
+                          saveData();
+                          render(); // 重新渲染以更新强提醒横幅
+                      }
                   };
                   textInput.onblur = (e) => {
                       // 检查强提醒（允许编辑强提醒任务本身）
@@ -6023,10 +6027,14 @@
                           return;
                       }
                       
-                      item.content = e.target.value;
-                      item.updatedAt = nowStr();
-                      saveData();
-                      render(); // 重新渲染以更新强提醒横幅
+                      const newContent = e.target.value;
+                      // 检查内容是否真的发生了变化
+                      if (newContent !== item.content) {
+                          item.content = newContent;
+                          item.updatedAt = nowStr();
+                          saveData();
+                          render(); // 重新渲染以更新强提醒横幅
+                      }
                   };
                   contentDiv.appendChild(textInput);
                 
@@ -6056,10 +6064,13 @@
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
                             return;
                         }
-                        item.dueTime = timeValue;
-                        item.updatedAt = nowStr();
-                        saveData();
-                        render();
+                        // 检查时间是否真的发生了变化
+                        if (timeValue !== (item.dueTime || '')) {
+                            item.dueTime = timeValue;
+                            item.updatedAt = nowStr();
+                            saveData();
+                            render();
+                        }
                     };
                     timeInput.onblur = (e) => {
                         // 检查强提醒（允许编辑强提醒任务本身）
@@ -6076,10 +6087,13 @@
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
                             return;
                         }
-                        item.dueTime = timeValue;
-                        item.updatedAt = nowStr();
-                        saveData();
-                        render();
+                        // 检查时间是否真的发生了变化
+                        if (timeValue !== (item.dueTime || '')) {
+                            item.dueTime = timeValue;
+                            item.updatedAt = nowStr();
+                            saveData();
+                            render();
+                        }
                     };
                     contentDiv.appendChild(timeInput);
                 }
@@ -6316,10 +6330,13 @@
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
                                   return;
                               }
-                              st.estimatedTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
+                              // 检查时间是否真的发生了变化
+                              if (timeValue !== (st.estimatedTime || '')) {
+                                  st.estimatedTime = timeValue;
+                                  item.updatedAt = nowStr();
+                                  saveData();
+                                  render();
+                              }
                           };
                           timeInput.onblur = (e) => {
                               // 检查强提醒（允许编辑强提醒任务的子任务）
@@ -6336,10 +6353,13 @@
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
                                   return;
                               }
-                              st.estimatedTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
+                              // 检查时间是否真的发生了变化
+                              if (timeValue !== (st.estimatedTime || '')) {
+                                  st.estimatedTime = timeValue;
+                                  item.updatedAt = nowStr();
+                                  saveData();
+                                  render();
+                              }
                           };
                           actionRow.appendChild(timeInput);
                           
@@ -6397,10 +6417,13 @@
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
                                   return;
                               }
-                              st.estimatedTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
+                              // 检查时间是否真的发生了变化
+                              if (timeValue !== (st.estimatedTime || '')) {
+                                  st.estimatedTime = timeValue;
+                                  item.updatedAt = nowStr();
+                                  saveData();
+                                  render();
+                              }
                           };
                           timeInput.onblur = (e) => {
                               // 检查强提醒（允许编辑强提醒任务的子任务）
@@ -6417,10 +6440,13 @@
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
                                   return;
                               }
-                              st.estimatedTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
+                              // 检查时间是否真的发生了变化
+                              if (timeValue !== (st.estimatedTime || '')) {
+                                  st.estimatedTime = timeValue;
+                                  item.updatedAt = nowStr();
+                                  saveData();
+                                  render();
+                              }
                           };
                           row.appendChild(timeInput);
                           
