@@ -1042,16 +1042,17 @@
     {
       "id": "mpcd6iv96f7xk",
       "type": "task",
-      "content": "归属有误,无法上单：给天河认领，发给妙君。看3台设备的情况。",
+      "content": "退网：跟进黄埔之前的退网清单。归属有误、成环的",
       "createdAt": "2026-05-19T08:21:42.021Z",
-      "updatedAt": "2026-05-19T08:21:42.021Z",
+      "updatedAt": "2026-05-19T09:52:47.132Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-19T09:52:47.132Z"
     }
   ],
   "normalFeelings": [
