@@ -41,6 +41,106 @@
             margin: 0 auto;
         }
         
+        /* 知识库卡片样式 - 桌面端 */
+        .kb-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .kb-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .kb-item-content {
+            font-size: 14px;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.6;
+            max-height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .kb-item-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        
+        .kb-item-tag {
+            background: var(--green-light);
+            color: var(--green-text);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .kb-item-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .kb-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        /* 知识详情样式 - 桌面端 */
+        .kb-detail-header {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .kb-detail-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        
+        .kb-detail-tag {
+            background: var(--green-light);
+            color: var(--green-text);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .kb-detail-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .kb-detail-meta {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .kb-detail-actions {
+            margin-top: 16px;
+            display: flex;
+            gap: 8px;
+        }
+        
         /* 响应式设计 - 手机端优化 */
         @media (max-width: 768px) {
             body {
@@ -198,6 +298,223 @@
                   padding: 4px 8px !important;
                   font-size: 11px !important;
               }
+             
+             /* 知识库面板移动端优化 */
+             #knowledgeBasePanel .modal {
+                 width: 100% !important;
+                 max-width: 100% !important;
+                 border-radius: 0 !important;
+                 max-height: 95vh !important;
+                 height: auto !important;
+             }
+             
+             #knowledgeBasePanel .modal-header {
+                 padding: 8px 12px !important;
+                 margin-bottom: 6px !important;
+             }
+             
+             #knowledgeBasePanel .modal-body {
+                 padding: 0 !important;
+                 max-height: calc(95vh - 50px) !important;
+                 height: auto !important;
+             }
+             
+             #knowledgeBasePanel #kbListView,
+             #knowledgeBasePanel #kbDetailView {
+                 padding: 8px 12px !important;
+             }
+             
+             /* 知识库卡片移动端优化 - 只覆盖需要调整的样式 */
+             .kb-item {
+                 padding: 10px !important;
+                 margin-bottom: 8px !important;
+             }
+             
+             .kb-item-content {
+                 font-size: 13px !important;
+                 margin-bottom: 6px !important;
+                 max-height: 70px !important;
+             }
+             
+             .kb-item-tag {
+                 font-size: 11px !important;
+                 padding: 3px 6px !important;
+             }
+             
+             .kb-item-meta {
+                 font-size: 10px !important;
+             }
+             
+             .kb-item-actions .btn {
+                 padding: 3px 6px !important;
+                 font-size: 11px !important;
+             }
+             
+             /* 知识详情移动端优化 - 只覆盖需要调整的样式 */
+             .kb-detail-content {
+                 font-size: 14px !important;
+             }
+             
+             .kb-detail-meta {
+                 font-size: 12px !important;
+             }
+             
+             /* AI搜索结果样式 */
+             .ai-search-result {
+                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                 color: white;
+                 padding: 16px;
+                 border-radius: 8px;
+                 margin-bottom: 16px;
+             }
+             
+             .ai-search-result h4 {
+                 margin: 0 0 12px 0;
+                 font-size: 16px;
+                 font-weight: 600;
+             }
+             
+             /* AI搜索结果Markdown内容样式 */
+             .ai-search-content {
+                 color: white;
+                 line-height: 1.6;
+             }
+             
+             .ai-search-content h1,
+             .ai-search-content h2,
+             .ai-search-content h3,
+             .ai-search-content h4,
+             .ai-search-content h5,
+             .ai-search-content h6 {
+                 margin-top: 16px;
+                 margin-bottom: 8px;
+                 font-weight: 600;
+                 color: white;
+             }
+             
+             .ai-search-content h1 {
+                 font-size: 20px;
+                 border-bottom: 2px solid rgba(255,255,255,0.3);
+                 padding-bottom: 8px;
+             }
+             
+             .ai-search-content h2 {
+                 font-size: 18px;
+                 border-bottom: 1px solid rgba(255,255,255,0.2);
+                 padding-bottom: 6px;
+             }
+             
+             .ai-search-content h3 {
+                 font-size: 16px;
+             }
+             
+             .ai-search-content p {
+                 margin: 8px 0;
+                 font-size: 14px;
+                 line-height: 1.6;
+                 opacity: 0.95;
+             }
+             
+             .ai-search-content ul,
+             .ai-search-content ol {
+                 margin: 8px 0;
+                 padding-left: 20px;
+             }
+             
+             .ai-search-content li {
+                 margin: 4px 0;
+                 line-height: 1.5;
+                 font-size: 14px;
+                 opacity: 0.95;
+             }
+             
+             .ai-search-content ul {
+                 list-style-type: disc;
+             }
+             
+             .ai-search-content ol {
+                 list-style-type: decimal;
+             }
+             
+             .ai-search-content code {
+                 background: rgba(255,255,255,0.15);
+                 padding: 2px 6px;
+                 border-radius: 4px;
+                 font-family: 'Courier New', monospace;
+                 font-size: 13px;
+                 color: #fff;
+             }
+             
+             .ai-search-content pre {
+                 background: rgba(0,0,0,0.2);
+                 padding: 12px;
+                 border-radius: 8px;
+                 overflow-x: auto;
+                 margin: 8px 0;
+                 border: 1px solid rgba(255,255,255,0.1);
+             }
+             
+             .ai-search-content pre code {
+                 background: none;
+                 padding: 0;
+                 color: #fff;
+             }
+             
+             .ai-search-content blockquote {
+                 border-left: 4px solid rgba(255,255,255,0.5);
+                 padding-left: 12px;
+                 margin: 8px 0;
+                 color: rgba(255,255,255,0.8);
+                 font-style: italic;
+             }
+             
+             .ai-search-content strong {
+                 font-weight: 700;
+                 color: #fff;
+             }
+             
+             .ai-search-content em {
+                 font-style: italic;
+                 color: rgba(255,255,255,0.9);
+             }
+             
+             .ai-search-content a {
+                 color: #a8d4ff;
+                 text-decoration: underline;
+             }
+             
+             .ai-search-content a:hover {
+                 color: #fff;
+             }
+             
+             .ai-search-content table {
+                 width: 100%;
+                 border-collapse: collapse;
+                 margin: 8px 0;
+                 font-size: 13px;
+             }
+             
+             .ai-search-content th,
+             .ai-search-content td {
+                 border: 1px solid rgba(255,255,255,0.2);
+                 padding: 8px 12px;
+                 text-align: left;
+             }
+             
+             .ai-search-content th {
+                 background: rgba(0,0,0,0.2);
+                 font-weight: 600;
+             }
+             
+             .ai-search-content tr:nth-child(even) {
+                 background: rgba(255,255,255,0.05);
+             }
+             
+             .ai-search-content hr {
+                 border: none;
+                 border-top: 1px solid rgba(255,255,255,0.2);
+                 margin: 12px 0;
+             }
              
              /* 弹药卡片移动端优化 */
               .ammo-item {
@@ -2751,6 +3068,7 @@
              <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
              <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
              <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
+             <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
              <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
              <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
              <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
@@ -3713,10 +4031,10 @@
                                          <!-- 动态生成弹药列表 -->
                                      </div>
                                     </div>
-                                    
-                                </div>
+                                 </div>
                            </div>
                  </div>
+            </div>
             
                 <!-- 编辑弹药弹窗 -->
                 <div class="modal-overlay hidden" id="editAmmoModal" onclick="closeEditAmmoModal()">
@@ -3729,6 +4047,109 @@
                         <div class="modal-actions">
                             <button class="btn btn-secondary" onclick="closeEditAmmoModal()">取消</button>
                             <button class="btn btn-primary" onclick="saveEditAmmo()">保存</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 知识库侧拉面板 -->
+                <div class="modal-overlay hidden" id="knowledgeBasePanel" onclick="closeKnowledgeBasePanel()">
+                    <div class="modal" style="max-width:700px;width:700px;height:90vh;position:fixed;right:0;top:0;margin:0;border-radius:0;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
+                        <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:8px 16px;border-bottom:1px solid var(--border);">
+                            <div style="display:flex;align-items:center;gap:12px;">
+                                <button id="backToKBListBtn" class="btn btn-small btn-secondary hidden" onclick="backToKBList()">← 返回</button>
+                                <h3 style="margin:0;">📚 知识库</h3>
+                            </div>
+                            <button class="btn btn-small btn-secondary" onclick="closeKnowledgeBasePanel()">关闭</button>
+                        </div>
+                        <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
+                            <!-- 知识库列表视图 -->
+                            <div id="kbListView" style="flex:1;overflow:auto;padding:16px;">
+                                <div style="margin-bottom:16px;">
+                                    <input type="text" id="kbSearchInput" placeholder="搜索知识... (Ctrl+K 快速记录)" oninput="renderKnowledgeBase()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                </div>
+                                <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+                                    <button class="btn btn-small btn-primary" onclick="showAddKBForm()">+ 新增知识</button>
+                                    <button class="btn btn-small btn-secondary" onclick="showAISearchForm()">🤖 AI关联搜索</button>
+                                </div>
+                                
+                                <!-- 新增知识表单 -->
+                                <div id="addKBForm" class="hidden" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                                    <div style="margin-bottom:12px;">
+                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">内容</label>
+                                        <textarea id="newKBContent" rows="4" placeholder="输入知识内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                                    </div>
+                                    <div style="margin-bottom:12px;">
+                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签 (用逗号分隔)</label>
+                                        <input type="text" id="newKBTags" placeholder="例如: 技术,笔记,重要" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                    </div>
+                                    <div style="display:flex;gap:8px;">
+                                        <button class="btn btn-primary" onclick="addNewKB()">保存</button>
+                                        <button class="btn btn-secondary" onclick="hideAddKBForm()">取消</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- AI搜索表单 -->
+                                <div id="aiSearchForm" class="hidden" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                                    <div style="margin-bottom:12px;">
+                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">搜索问题</label>
+                                        <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                                    </div>
+                                    <div style="display:flex;gap:8px;">
+                                        <button class="btn btn-primary" onclick="performAISearch()">🔍 AI搜索</button>
+                                        <button class="btn btn-secondary" onclick="hideAISearchForm()">取消</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- 知识列表 -->
+                                <div id="knowledgeBaseList">
+                                    <!-- 动态生成知识列表 -->
+                                </div>
+                            </div>
+                            
+                            <!-- 知识详情视图 -->
+                            <div id="kbDetailView" class="hidden" style="flex:1;overflow:auto;padding:16px;">
+                                <div id="kbDetailContent">
+                                    <!-- 动态生成知识详情 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快捷键记录弹窗 -->
+                <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()">
+                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
+                        <h3>⚡ 快速记录知识</h3>
+                        <div class="input-group">
+                            <label>内容</label>
+                            <textarea id="quickRecordContent" rows="4" placeholder="输入知识内容..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>标签 (用逗号分隔)</label>
+                            <input type="text" id="quickRecordTags" placeholder="例如: 技术,笔记,重要">
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="closeQuickRecordModal()">取消</button>
+                            <button class="btn btn-primary" onclick="saveQuickRecord()">保存</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 编辑知识弹窗 -->
+                <div class="modal-overlay hidden" id="editKBModal" onclick="closeEditKBModal()">
+                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
+                        <h3>✏️ 编辑知识</h3>
+                        <div class="input-group">
+                            <label>内容</label>
+                            <textarea id="editKBContent" rows="6" placeholder="请输入知识内容..."></textarea>
+ </div>
+                        <div class="input-group">
+                            <label>标签 (用逗号分隔)</label>
+                            <input type="text" id="editKBTags" placeholder="例如: 技术,笔记,重要">
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="closeEditKBModal()">取消</button>
+                            <button class="btn btn-primary" onclick="saveEditKB()">保存</button>
                         </div>
                     </div>
                 </div>
@@ -8573,6 +8994,13 @@
                     item.updatedAt = nowStr();
                     saveData(); render();
                 }
+            } else if (kind === 'kb') {
+                // 撤销知识库删除
+                if (data.lastUndo && data.lastUndo.deletedItem) {
+                    data.knowledgeBase.push(data.lastUndo.deletedItem);
+                    saveData();
+                    renderKnowledgeBase();
+                }
             }
         }
 
@@ -8621,8 +9049,12 @@
              const messageEl = document.getElementById('undoToastMessage');
              const btn = document.getElementById('undoToastBtn');
              
-             // 设置消息
-             messageEl.textContent = '已返回待办，点击撤销恢复';
+             // 根据类型设置不同的消息
+             if (type === 'kb') {
+                 messageEl.textContent = '知识已删除，点击撤销恢复';
+             } else {
+                 messageEl.textContent = '已返回待办，点击撤销恢复';
+             }
              
              // 设置撤销按钮点击事件
              btn.onclick = () => {
@@ -8637,12 +9069,32 @@
               // 计算位置：在按钮上方显示
               const buttonRect = buttonElement.getBoundingClientRect();
               
+              // 先让气泡显示以获取其尺寸
+              toast.classList.remove('hidden');
+              const toastRect = toast.getBoundingClientRect();
+              
+              // 计算位置，确保不超出屏幕边界
+              let left = buttonRect.left;
+              let top = buttonRect.top - 50;
+              
+              // 如果右侧超出屏幕，向左调整
+              if (left + toastRect.width > window.innerWidth) {
+                  left = window.innerWidth - toastRect.width - 20;
+              }
+              
+              // 如果左侧超出屏幕，向右调整
+              if (left < 10) {
+                  left = 10;
+              }
+              
+              // 如果顶部超出屏幕，向下调整
+              if (top < 10) {
+                  top = buttonRect.bottom + 10;
+              }
+              
               toast.style.position = 'fixed';
-              toast.style.left = buttonRect.left + 'px';
-              toast.style.top = (buttonRect.top - 50) + 'px';
-             
-             // 显示气泡
-             toast.classList.remove('hidden');
+              toast.style.left = left + 'px';
+              toast.style.top = top + 'px';
              
              // 清除之前的定时器
              if (toastTimer) clearTimeout(toastTimer);
@@ -9458,6 +9910,7 @@
                  recentFocuses: data.recentFocuses,
                  tagConfig: data.tagConfig,
                  taskTriggers: data.taskTriggers,
+                 knowledgeBase: data.knowledgeBase,
                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -10731,6 +11184,7 @@
                   if (remote.recentFocuses) data.recentFocuses = remote.recentFocuses;
                   if (remote.tagConfig) data.tagConfig = remote.tagConfig;
                   if (remote.taskTriggers) data.taskTriggers = remote.taskTriggers;
+                  if (remote.knowledgeBase) data.knowledgeBase = remote.knowledgeBase;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
@@ -12638,14 +13092,17 @@
      
      // 显示弹药库侧拉面板
      function showAmmoLibraryPanel() {
+         console.log('打开弹药库面板');
+         // 确保知识库面板是关闭的
+         document.getElementById('knowledgeBasePanel').classList.add('hidden');
          document.getElementById('ammoLibraryPanel').classList.remove('hidden');
          renderAmmoLibrary();
      }
      
        // 关闭弹药库侧拉面板
        function closeAmmoLibraryPanel() {
-           closeModal('ammoLibraryPanel');
-           
+           console.log('关闭弹药库面板');
+           document.getElementById('ammoLibraryPanel').classList.add('hidden');
            // 重置面板状态
            resetAmmoLibraryPanelState();
        }
@@ -14741,6 +15198,408 @@ ${ammoToAnalyze.map((ammo, index) =>
              showToast('复制失败');
          });
      }
+
+     // ==================== 知识库功能 ====================
+     
+     // 初始化知识库数据
+     function initKnowledgeBase() {
+         if (!data.knowledgeBase) {
+             data.knowledgeBase = [];
+             saveData();
+         }
+     }
+     
+     // 显示知识库面板
+     function showKnowledgeBasePanel() {
+         console.log('打开知识库面板');
+         // 确保弹药库面板是关闭的
+         document.getElementById('ammoLibraryPanel').classList.add('hidden');
+         document.getElementById('knowledgeBasePanel').classList.remove('hidden');
+         renderKnowledgeBase();
+     }
+     
+     // 关闭知识库面板
+     function closeKnowledgeBasePanel() {
+         console.log('关闭知识库面板');
+         document.getElementById('knowledgeBasePanel').classList.add('hidden');
+         // 重置面板状态
+         document.getElementById('kbListView').classList.remove('hidden');
+         document.getElementById('kbDetailView').classList.add('hidden');
+         document.getElementById('backToKBListBtn').classList.add('hidden');
+     }
+     
+     // 渲染知识库列表
+     function renderKnowledgeBase() {
+         const container = document.getElementById('knowledgeBaseList');
+         const searchTerm = document.getElementById('kbSearchInput').value.toLowerCase();
+         
+         let items = data.knowledgeBase || [];
+         
+         // 搜索过滤
+         if (searchTerm) {
+             items = items.filter(item =>
+                 item.content.toLowerCase().includes(searchTerm) ||
+                 (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
+             );
+         }
+         
+         // 按更新时间排序
+         items.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+         
+         if (items.length === 0) {
+             container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无知识记录，点击上方按钮添加</div>';
+             return;
+         }
+         
+         container.innerHTML = items.map(item => `
+             <div class="kb-item" onclick="showKBDetail('${item.id}')">
+                 <div class="kb-item-content">${escapeHtml(item.content.substring(0, 150))}${item.content.length > 150 ? '...' : ''}</div>
+                 <div class="kb-item-tags">
+                     ${(item.tags || []).map(tag => `<span class="kb-item-tag">${escapeHtml(tag)}</span>`).join('')}
+                 </div>
+                 <div class="kb-item-meta">
+                     <span>${formatDate(item.updatedAt)}</span>
+                     <div class="kb-item-actions">
+                         <button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editKB('${item.id}')">编辑</button>
+                         <button class="btn btn-small btn-danger" onclick="event.stopPropagation();deleteKB('${item.id}', this)">删除</button>
+                     </div>
+                 </div>
+             </div>
+         `).join('');
+     }
+     
+     // 显示知识详情
+     function showKBDetail(id) {
+         const item = data.knowledgeBase.find(kb => kb.id === id);
+         if (!item) return;
+         
+         document.getElementById('kbListView').classList.add('hidden');
+         document.getElementById('kbDetailView').classList.remove('hidden');
+         document.getElementById('backToKBListBtn').classList.remove('hidden');
+         
+         const container = document.getElementById('kbDetailContent');
+         container.innerHTML = `
+             <div class="kb-detail-header">
+                 <div class="kb-detail-tags">
+                     ${(item.tags || []).map(tag => `<span class="kb-detail-tag">${escapeHtml(tag)}</span>`).join('')}
+                 </div>
+             </div>
+             <div class="kb-detail-content">${escapeHtml(item.content)}</div>
+             <div class="kb-detail-meta">
+                 <div>创建时间：${formatDate(item.createdAt)}</div>
+                 <div>更新时间：${formatDate(item.updatedAt)}</div>
+             </div>
+             <div class="kb-detail-actions">
+                 <button class="btn btn-secondary" onclick="editKB('${item.id}')">编辑</button>
+                 <button class="btn btn-danger" onclick="deleteKB('${item.id}', this)">删除</button>
+             </div>
+         `;
+     }
+     
+     // 返回知识列表
+     function backToKBList() {
+         document.getElementById('kbListView').classList.remove('hidden');
+         document.getElementById('kbDetailView').classList.add('hidden');
+         document.getElementById('backToKBListBtn').classList.add('hidden');
+     }
+     
+     // 显示新增知识表单
+     function showAddKBForm() {
+         document.getElementById('addKBForm').classList.remove('hidden');
+         document.getElementById('aiSearchForm').classList.add('hidden');
+         document.getElementById('newKBContent').value = '';
+         document.getElementById('newKBTags').value = '';
+         document.getElementById('newKBContent').focus();
+     }
+     
+     // 隐藏新增知识表单
+     function hideAddKBForm() {
+         document.getElementById('addKBForm').classList.add('hidden');
+     }
+     
+     // 添加新知识
+     function addNewKB() {
+         const content = document.getElementById('newKBContent').value.trim();
+         const tagsStr = document.getElementById('newKBTags').value.trim();
+         
+         if (!content) {
+             showToast('请填写内容');
+             return;
+         }
+         
+         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+         
+         const newItem = {
+             id: generateId(),
+             content,
+             tags,
+             createdAt: new Date().toISOString(),
+             updatedAt: new Date().toISOString()
+         };
+         
+         data.knowledgeBase.push(newItem);
+         saveData();
+         
+         hideAddKBForm();
+         renderKnowledgeBase();
+     }
+     
+     // 编辑知识
+     function editKB(id) {
+         const item = data.knowledgeBase.find(kb => kb.id === id);
+         if (!item) return;
+         
+         document.getElementById('editKBContent').value = item.content;
+         document.getElementById('editKBTags').value = (item.tags || []).join(', ');
+         document.getElementById('editKBModal').dataset.editId = id;
+         
+         document.getElementById('editKBModal').classList.remove('hidden');
+     }
+     
+     // 保存编辑的知识
+     function saveEditKB() {
+         const id = document.getElementById('editKBModal').dataset.editId;
+         const content = document.getElementById('editKBContent').value.trim();
+         const tagsStr = document.getElementById('editKBTags').value.trim();
+         
+         if (!content) {
+             showToast('请填写内容');
+             return;
+         }
+         
+         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+         
+         const item = data.knowledgeBase.find(kb => kb.id === id);
+         if (item) {
+             item.content = content;
+             item.tags = tags;
+             item.updatedAt = new Date().toISOString();
+             saveData();
+             
+             closeEditKBModal();
+             renderKnowledgeBase();
+             showKBDetail(id); // 刷新详情视图
+         }
+     }
+     
+     // 关闭编辑知识弹窗
+     function closeEditKBModal() {
+         closeModal('editKBModal');
+     }
+     
+     // 删除知识
+     function deleteKB(id, buttonElement) {
+         // 保存被删除的知识项，用于撤销
+         const deletedItem = data.knowledgeBase.find(kb => kb.id === id);
+         if (!deletedItem) return;
+
+         // 保存撤销信息到 data.lastUndo
+         data.lastUndo = { type: 'kb', itemId: id, deletedItem: deletedItem };
+
+         // 保存按钮位置信息（在 render() 之前）
+         const buttonRect = buttonElement ? buttonElement.getBoundingClientRect() : null;
+
+         data.knowledgeBase = data.knowledgeBase.filter(kb => kb.id !== id);
+         saveData();
+         
+         backToKBList();
+         renderKnowledgeBase();
+         
+         // 显示撤销提示气泡
+         if (buttonRect) {
+             showUndoToast('kb', id, null, { getBoundingClientRect: () => buttonRect });
+         }
+     }
+     
+     // 显示AI搜索表单
+     function showAISearchForm() {
+         document.getElementById('aiSearchForm').classList.remove('hidden');
+         document.getElementById('addKBForm').classList.add('hidden');
+         document.getElementById('aiSearchQuery').value = '';
+         document.getElementById('aiSearchQuery').focus();
+     }
+     
+     // 隐藏AI搜索表单
+     function hideAISearchForm() {
+         document.getElementById('aiSearchForm').classList.add('hidden');
+     }
+     
+     // 执行AI关联搜索
+     async function performAISearch() {
+         const query = document.getElementById('aiSearchQuery').value.trim();
+         if (!query) {
+             showToast('请输入搜索问题');
+             return;
+         }
+         
+         // 检查AI配置
+         if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+             showToast('请先配置AI');
+             showAiConfigModal();
+             return;
+         }
+         
+         // 在知识库列表区域显示加载状态
+         const container = document.getElementById('knowledgeBaseList');
+         container.innerHTML = `
+             <div style="text-align:center;padding:40px;color:var(--text-secondary);">
+                 <div style="font-size:24px;margin-bottom:12px;">🔍</div>
+                 <div>正在搜索相关知识...</div>
+                 <div style="font-size:12px;margin-top:8px;opacity:0.7;">请稍候</div>
+             </div>
+         `;
+         
+         try {
+             // 构建知识库上下文 - 优化版本
+             let knowledgeContext = '';
+             
+             if (data.knowledgeBase && data.knowledgeBase.length > 0) {
+                 // 按相关性排序（简单的关键词匹配）
+                 const queryLower = query.toLowerCase();
+                 const scoredItems = data.knowledgeBase.map(kb => {
+                     let score = 0;
+                     const contentLower = kb.content.toLowerCase();
+                     const tagsLower = (kb.tags || []).join(' ').toLowerCase();
+                     
+                     // 关键词匹配得分
+                     if (contentLower.includes(queryLower)) score += 3;
+                     if (tagsLower.includes(queryLower)) score += 2;
+                     
+                     // 查询词拆分匹配
+                     const queryWords = queryLower.split(/\s+/);
+                     queryWords.forEach(word => {
+                         if (word.length > 1 && contentLower.includes(word)) score += 1;
+                     });
+                     
+                     return { ...kb, score };
+                 });
+                 
+                 // 取得分最高的前5个条目
+                 const relevantItems = scoredItems
+                     .sort((a, b) => b.score - a.score)
+                     .filter(item => item.score > 0)
+                     .slice(0, 5);
+                 
+                 if (relevantItems.length > 0) {
+                     knowledgeContext = relevantItems.map(kb =>
+                         `内容：${kb.content}\n标签：${(kb.tags || []).join(', ')}\n`
+                     ).join('\n---\n');
+                 }
+             }
+             
+             // 构建完整的提示词，包含任务列表关键词以避免触发默认提示词
+             let fullPrompt;
+             if (knowledgeContext) {
+                 fullPrompt = `任务列表：知识库AI搜索\n\n我有一个知识库，包含以下相关内容：\n\n${knowledgeContext}\n\n请根据用户的问题："${query}"，从上述知识库内容中找出最相关的信息，并给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+             } else {
+                 fullPrompt = `任务列表：知识库AI搜索\n\n用户问题："${query}"\n\n请基于你的知识给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+             }
+             
+             // 使用callAIApi函数 - 传递完整提示词作为content，不传递customPrompt
+             const response = await callAiApi(fullPrompt, data.aiConfig.model);
+             
+             // 显示AI搜索结果
+             const container = document.getElementById('knowledgeBaseList');
+             container.innerHTML = `
+                 <div class="ai-search-result">
+                     <h4>🤖 AI搜索结果</h4>
+                     <div class="ai-search-content">${marked.parse(response)}</div>
+                 </div>
+                 <div style="text-align:center;margin-top:16px;">
+                     <button class="btn btn-secondary" onclick="renderKnowledgeBase()">返回列表</button>
+                 </div>
+             `;
+             
+             hideAISearchForm();
+             
+         } catch (error) {
+             console.error('AI搜索失败:', error);
+             showToast('AI搜索失败：' + error.message);
+         }
+     }
+     
+     // 快捷键记录弹窗
+     function showQuickRecordModal() {
+         document.getElementById('quickRecordContent').value = '';
+         document.getElementById('quickRecordTags').value = '';
+         document.getElementById('quickRecordModal').classList.remove('hidden');
+         document.getElementById('quickRecordContent').focus();
+     }
+     
+     // 关闭快捷键记录弹窗
+     function closeQuickRecordModal() {
+         closeModal('quickRecordModal');
+     }
+     // 保存快速记录
+     function saveQuickRecord() {
+         const content = document.getElementById('quickRecordContent').value.trim();
+         const tagsStr = document.getElementById('quickRecordTags').value.trim();
+         
+         if (!content) {
+             showToast('请填写内容');
+             return;
+         }
+         
+         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+         
+         const newItem = {
+             id: generateId(),
+             content,
+             tags,
+             createdAt: new Date().toISOString(),
+             updatedAt: new Date().toISOString()
+         };
+         
+         data.knowledgeBase.push(newItem);
+         saveData();
+         
+         closeQuickRecordModal();
+         showToast('知识已快速记录');
+     }
+     
+     // 辅助函数：格式化日期
+     function formatDate(dateString) {
+         const date = new Date(dateString);
+         const now = new Date();
+         const diff = now - date;
+         
+         if (diff < 60000) return '刚刚';
+         if (diff < 3600000) return `${Math.floor(diff / 60000)}分钟前`;
+         if (diff < 86400000) return `${Math.floor(diff / 3600000)}小时前`;
+         if (diff < 604800000) return `${Math.floor(diff / 86400000)}天前`;
+         
+         return date.toLocaleDateString('zh-CN');
+     }
+     
+     // 辅助函数：转义HTML
+     function escapeHtml(text) {
+         const div = document.createElement('div');
+         div.textContent = text;
+         return div.innerHTML;
+     }
+     
+     // 辅助函数：生成唯一ID
+     function generateId() {
+         return Date.now().toString(36) + Math.random().toString(36).substr(2);
+     }
+     
+     // 初始化快捷键监听
+     function initKeyboardShortcuts() {
+         document.addEventListener('keydown', function(e) {
+             // Ctrl+K 快速记录知识
+             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                 e.preventDefault();
+                 showQuickRecordModal();
+             }
+         });
+     }
+     
+     // 页面加载时初始化知识库
+     document.addEventListener('DOMContentLoaded', function() {
+         initKnowledgeBase();
+         initKeyboardShortcuts();
+     });
+     
      </script>
  </body>
  </html>
