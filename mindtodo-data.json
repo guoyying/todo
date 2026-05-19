@@ -993,14 +993,22 @@
       "type": "task",
       "content": "处理增城前8个网元的业务核查和告警屏蔽。",
       "createdAt": "2026-05-19T02:32:45.474Z",
-      "updatedAt": "2026-05-19T02:32:45.474Z",
+      "updatedAt": "2026-05-19T03:15:35.410Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779159915874",
+          "content": "125-福和-ZCFHHB01先核查10min",
+          "done": false,
+          "estimatedTime": "10min",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mpc0ubbfz12sc",
