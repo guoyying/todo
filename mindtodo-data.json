@@ -1022,6 +1022,18 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpc3abhwbz51d",
+      "type": "task",
+      "content": "我得看下可退网，但还有局内的情况。烽火和华为都做，用爬虫表筛选下。",
+      "createdAt": "2026-05-19T03:44:42.932Z",
+      "updatedAt": "2026-05-19T03:44:42.933Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2237,6 +2249,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T03:15:38.360Z"
+    "lastSync": "2026-05-19T03:43:19.641Z"
   }
 }
