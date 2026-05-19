@@ -430,22 +430,6 @@
       "subtasks": []
     },
     {
-      "id": "mp4wfub96io8d",
-      "type": "task",
-      "content": "萤火行动，整理已退网清单",
-      "createdAt": "2026-05-14T02:58:40.053Z",
-      "updatedAt": "2026-05-14T03:18:01.185Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T03:18:01.185Z",
-      "subtasks": []
-    },
-    {
       "id": "mp4whk0escw0x",
       "type": "task",
       "content": "配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单",
@@ -768,22 +752,6 @@
       "doneAt": "2026-05-18T03:21:28.411Z"
     },
     {
-      "id": "mpak93vkmj1yk",
-      "type": "task",
-      "content": "萤火行动：了解更新的检查细则，自制问卷心对照检查表。",
-      "createdAt": "2026-05-18T02:04:07.520Z",
-      "updatedAt": "2026-05-18T10:54:33.009Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-18T10:54:33.009Z",
-      "subtasks": []
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -965,21 +933,6 @@
       "subtasks": []
     },
     {
-      "id": "mpca04z4pmg31",
-      "type": "task",
-      "content": "萤火行动准备材料：没有退网设备",
-      "createdAt": "2026-05-19T06:52:45.232Z",
-      "updatedAt": "2026-05-19T07:09:13.300Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "9min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T07:09:13.300Z"
-    },
-    {
       "id": "mpca0u5o95m0p",
       "type": "task",
       "content": "签约表打印",
@@ -1053,6 +1006,32 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-19T09:52:47.132Z"
+    },
+    {
+      "id": "1779235080814",
+      "type": "task",
+      "content": "萤火行动：了解更新的检查细则，自制问卷对照检查表",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-05-19T07:09:13.300Z",
+      "organizedAt": "2026-05-19T23:58:00.814Z",
+      "createdAt": "2026-05-19T06:52:45.232Z",
+      "updatedAt": "2026-05-19T23:58:00.814Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-19T23:58:00.814Z"
+      },
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2000,9 +1979,9 @@
       "activeTextColor": "#FFFFFF"
     },
     "团支部": {
-      "color": "#ffe0b2",
+      "color": "#f5f5f0",
       "textColor": "#333333",
-      "activeValue": "#e65100",
+      "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
     }
   },
