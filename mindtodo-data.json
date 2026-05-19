@@ -2067,6 +2067,13 @@
   ],
   "knowledgeBase": [
     {
+      "id": "mpcc9wbungatpq0j8m",
+      "content": "资源系统导出退网已拆除清单（正常是找不到的）->检查县分台账，退网已拆除的，移交后系统才会更新。",
+      "tags": [],
+      "createdAt": "2026-05-19T07:56:19.818Z",
+      "updatedAt": "2026-05-19T07:57:39.503Z"
+    },
+    {
       "id": "mpbwhg6dthmd12xm6v",
       "content": "华为nce和烽火otn都只扫描网关网元，省公司安全室扫描的，不用我们扫",
       "tags": [
@@ -2074,13 +2081,6 @@
       ],
       "createdAt": "2026-05-19T00:34:18.277Z",
       "updatedAt": "2026-05-19T00:47:18.674Z"
-    },
-    {
-      "id": "mpcc9wbungatpq0j8m",
-      "content": "检查县分台账，退网已拆除的，移交后系统才会更新。",
-      "tags": [],
-      "createdAt": "2026-05-19T07:56:19.818Z",
-      "updatedAt": "2026-05-19T07:56:19.818Z"
     }
   ],
   "aiConfig": {
@@ -2250,6 +2250,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T07:31:59.554Z"
+    "lastSync": "2026-05-19T07:56:27.828Z"
   }
 }
