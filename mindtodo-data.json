@@ -534,17 +534,18 @@
     {
       "id": "mp6psvdvluwor",
       "type": "task",
-      "content": "RPA试试几个验收单子",
+      "content": "新建工程验收：发现华姐验收完了。",
       "createdAt": "2026-05-15T09:28:23.011Z",
-      "updatedAt": "2026-05-19T01:34:53.765Z",
+      "updatedAt": "2026-05-19T01:58:01.158Z",
       "tags": [
         "RPA"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-05-19T01:58:01.158Z"
     },
     {
       "id": "mp7r0gnotxyuj",
@@ -1435,12 +1436,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpbyeqqzxqn7r",
-      "name": "10点前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2211,6 +2207,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T01:40:10.837Z"
+    "lastSync": "2026-05-19T01:43:22.359Z"
   }
 }
