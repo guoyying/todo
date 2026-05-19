@@ -3116,6 +3116,16 @@
              <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
          </div>
     </div>
+    <div class="strong-reminder-banner" id="strongReminderBanner" style="display:none;background:#ffebee;border:1px solid #ffcdd2;padding:12px;margin-bottom:16px;border-radius:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:18px;">⚠️</span>
+            <div style="flex:1;">
+                <strong style="color:#c62828;">强提醒激活</strong>
+                <p style="margin:4px 0 0 0;font-size:13px;color:#555;">以下任务超过12小时未更新，所有任务操作已被锁定：</p>
+                <ul id="strongReminderTaskList" style="margin:4px 0 0 0;padding-left:20px;font-size:13px;color:#333;"></ul>
+            </div>
+        </div>
+    </div>
     <div class="update-banner" id="updateBanner">
         <span>📢 有更新待推送</span>
         <button class="btn btn-small" style="background:white;color:#ff9800;" onclick="pushToGithub()">立即推送</button>
@@ -5052,6 +5062,86 @@
              return new Date().toISOString();
          }
          
+         // 检查是否有强提醒
+         function hasStrongReminder(taskId = null) {
+             const now = new Date();
+             const twelveHoursAgo = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+             
+             // 获取强提醒任务列表
+             const strongTasks = [];
+             for (const task of data.tasks) {
+                 // 跳过已完成的任务
+                 if (task.done) continue;
+                 
+                 // 跳过已设置触发提醒的任务
+                 const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === task.id);
+                 if (hasTrigger) continue;
+                 
+                 // 检查任务更新时间是否超过12小时
+                 if (task.updatedAt) {
+                     const updatedAt = new Date(task.updatedAt);
+                     if (updatedAt < twelveHoursAgo) {
+                         strongTasks.push(task);
+                     }
+                 }
+             }
+             
+             // 如果没有强提醒任务，返回false
+             if (strongTasks.length === 0) {
+                 return false;
+             }
+             
+             // 如果指定了任务ID，检查是否是强提醒任务本身
+             if (taskId) {
+                 const isStrongReminderTask = strongTasks.some(t => t.id === taskId);
+                 if (isStrongReminderTask) return false; // 强提醒任务本身可以操作
+             }
+             
+             return true; // 存在强提醒任务且不是操作强提醒任务本身
+         }
+         
+         // 获取强提醒任务列表
+         function getStrongReminderTasks() {
+             const now = new Date();
+             const twelveHoursAgo = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+             const strongTasks = [];
+             
+             for (const task of data.tasks) {
+                 // 跳过已完成的任务
+                 if (task.done) continue;
+                 
+                 // 跳过已设置触发提醒的任务
+                 const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === task.id);
+                 if (hasTrigger) continue;
+                 
+                 // 检查任务更新时间是否超过12小时
+                 if (task.updatedAt) {
+                     const updatedAt = new Date(task.updatedAt);
+                     if (updatedAt < twelveHoursAgo) {
+                         strongTasks.push(task);
+                     }
+                 }
+             }
+             
+             return strongTasks;
+         }
+         
+         // 检查强提醒（简单版本：允许操作强提醒任务本身）
+         function checkStrongReminderForTask(taskId = null) {
+             // 如果没有强提醒，允许操作
+             if (!hasStrongReminder()) return true;
+             
+             // 如果指定了任务ID，检查是否是强提醒任务本身
+             if (taskId) {
+                 const strongTasks = getStrongReminderTasks();
+                 const isStrongReminderTask = strongTasks.some(t => t.id === taskId);
+                 if (isStrongReminderTask) return true; // 强提醒任务本身可以操作
+             }
+             
+             // 其他情况：有强提醒且不是操作强提醒任务本身，阻止操作
+             return false;
+         }
+         
          function formatDateTime(isoString) {
              if (!isoString) return '';
              const date = new Date(isoString);
@@ -5677,6 +5767,13 @@
         }
 
         function saveTask() {
+            // 检查强提醒
+            if (hasStrongReminder()) {
+                const strongTasks = getStrongReminderTasks();
+                showToast(`存在强提醒任务，无法添加新任务！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                return;
+            }
+            
             const content = document.getElementById('taskContent').value.trim();
             if (!content) return;
             const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
@@ -5785,6 +5882,9 @@
             renderTags('feelingTags');
             renderTags('taskTags');
             
+            // 更新强提醒横幅
+            updateStrongReminderBanner();
+            
             // 确保情绪日历侧边栏的显示状态正确
             const sidebar = document.getElementById('moodCalendarSidebar');
             if (data.activeTab === 'feeling') {
@@ -5805,6 +5905,20 @@
             }
             
             checkUpdateStatus();
+        }
+        
+        // 更新强提醒横幅
+        function updateStrongReminderBanner() {
+            const banner = document.getElementById('strongReminderBanner');
+            const taskList = document.getElementById('strongReminderTaskList');
+            
+            if (hasStrongReminder()) {
+                const strongTasks = getStrongReminderTasks();
+                taskList.innerHTML = strongTasks.map(t => `<li>${t.content}</li>`).join('');
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'none';
+            }
         }
 
         function renderItem(item, options={}) {
@@ -5889,14 +6003,30 @@
                   }
                   
                   textInput.onchange = (e) => {
+                      // 检查强提醒（允许编辑强提醒任务本身）
+                      if (hasStrongReminder(item.id)) {
+                          showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                          e.target.value = item.content; // 恢复原值
+                          return;
+                      }
+                      
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
                       saveData();
+                      render(); // 重新渲染以更新强提醒横幅
                   };
                   textInput.onblur = (e) => {
+                      // 检查强提醒（允许编辑强提醒任务本身）
+                      if (hasStrongReminder(item.id)) {
+                          showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                          e.target.value = item.content; // 恢复原值
+                          return;
+                      }
+                      
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
                       saveData();
+                      render(); // 重新渲染以更新强提醒横幅
                   };
                   contentDiv.appendChild(textInput);
                 
@@ -5912,6 +6042,15 @@
                     timeInput.style.padding = '2px 6px';
                     timeInput.style.fontSize = '12px';
                     timeInput.onchange = (e) => {
+                        // 检查强提醒（允许编辑强提醒任务本身）
+                        if (hasStrongReminder(item.id)) {
+                            const strongTasks = getStrongReminderTasks();
+                            const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                            alert(`存在强提醒任务，无法编辑任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                            e.target.value = item.dueTime || ''; // 恢复原值
+                            return;
+                        }
+                        
                         const timeValue = e.target.value.trim();
                         // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
@@ -5923,6 +6062,15 @@
                         render();
                     };
                     timeInput.onblur = (e) => {
+                        // 检查强提醒（允许编辑强提醒任务本身）
+                        if (hasStrongReminder(item.id)) {
+                            const strongTasks = getStrongReminderTasks();
+                            const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                            alert(`存在强提醒任务，无法编辑任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                            e.target.value = item.dueTime || ''; // 恢复原值
+                            return;
+                        }
+                        
                         const timeValue = e.target.value.trim();
                         // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
@@ -6154,6 +6302,15 @@
                           timeInput.style.padding = '4px 6px';
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
+                              // 检查强提醒（允许编辑强提醒任务的子任务）
+                              if (hasStrongReminder(item.id)) {
+                                  const strongTasks = getStrongReminderTasks();
+                                  const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                                  alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                                  e.target.value = st.estimatedTime || ''; // 恢复原值
+                                  return;
+                              }
+                              
                               const timeValue = e.target.value.trim();
                               // 使用统一的时间验证函数（子任务上限10分钟）
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
@@ -6165,6 +6322,15 @@
                               render();
                           };
                           timeInput.onblur = (e) => {
+                              // 检查强提醒（允许编辑强提醒任务的子任务）
+                              if (hasStrongReminder(item.id)) {
+                                  const strongTasks = getStrongReminderTasks();
+                                  const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                                  alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                                  e.target.value = st.estimatedTime || ''; // 恢复原值
+                                  return;
+                              }
+                              
                               const timeValue = e.target.value.trim();
                               // 使用统一的时间验证函数（子任务上限10分钟）
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
@@ -6217,6 +6383,15 @@
                           timeInput.style.padding = '2px 6px';
                           timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
+                              // 检查强提醒（允许编辑强提醒任务的子任务）
+                              if (hasStrongReminder(item.id)) {
+                                  const strongTasks = getStrongReminderTasks();
+                                  const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                                  alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                                  e.target.value = st.estimatedTime || ''; // 恢复原值
+                                  return;
+                              }
+                              
                               const timeValue = e.target.value.trim();
                               // 使用统一的时间验证函数（子任务上限10分钟）
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
@@ -6228,6 +6403,15 @@
                               render();
                           };
                           timeInput.onblur = (e) => {
+                              // 检查强提醒（允许编辑强提醒任务的子任务）
+                              if (hasStrongReminder(item.id)) {
+                                  const strongTasks = getStrongReminderTasks();
+                                  const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                                  alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                                  e.target.value = st.estimatedTime || ''; // 恢复原值
+                                  return;
+                              }
+                              
                               const timeValue = e.target.value.trim();
                               // 使用统一的时间验证函数（子任务上限10分钟）
                               if (!validateTimeInput(timeValue, 10, 'subtask', st.estimatedTime, e.target)) {
@@ -6830,11 +7014,27 @@
                 textInput.style.minHeight = '40px';
                 textInput.rows = 1;
                 textInput.onchange = (e) => {
+                    // 检查强提醒
+                    if (hasStrongReminder()) {
+                        const strongTasks = getStrongReminderTasks();
+                        showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                        e.target.value = item.content; // 恢复原值
+                        return;
+                    }
+                    
                     item.content = e.target.value;
                     item.updatedAt = nowStr();
                     saveData();
                 };
                 textInput.onblur = (e) => {
+                    // 检查强提醒
+                    if (hasStrongReminder()) {
+                        const strongTasks = getStrongReminderTasks();
+                        showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                        e.target.value = item.content; // 恢复原值
+                        return;
+                    }
+                    
                     item.content = e.target.value;
                     item.updatedAt = nowStr();
                     saveData();
@@ -7251,6 +7451,24 @@
                 }
           // 统一的删除确认函数
           function showDeleteConfirm(id, type, btnElement, extraParam = null) {
+              // 检查强提醒（任务、子任务、时间段删除，允许操作强提醒任务本身）
+              if (type === 'task' || type === 'subtask') {
+                  if (!checkStrongReminderForTask(id)) {
+                      const strongTasks = getStrongReminderTasks();
+                      const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                      alert(`存在强提醒任务，无法删除！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                      return;
+                  }
+              } else if (type === 'slot') {
+                  // 时间段删除保持原有的强提醒检查（没有特定任务ID）
+                  if (hasStrongReminder()) {
+                      const strongTasks = getStrongReminderTasks();
+                      const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                      alert(`存在强提醒任务，无法删除时间段！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                      return;
+                  }
+              }
+              
               // 安全检查：确保 btnElement 存在且有 parentElement
             if (!btnElement || !btnElement.parentElement) {
                 // 如果按钮元素无效，使用传统的 confirm 弹窗
@@ -7677,11 +7895,28 @@
                 textInput.style.minHeight = '40px';
                 textInput.rows = 1;
                 textInput.onchange = (e) => {
+                    // 检查强提醒
+                    if (hasStrongReminder()) {
+                        showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                        e.target.value = item.content; // 恢复原值
+                        return;
+                    }
+                    
                     item.content = e.target.value;
                     item.updatedAt = nowStr();
                     saveData();
                 };
                 textInput.onblur = (e) => {
+                    // 检查强提醒
+                    if (hasStrongReminder()) {
+                        const strongTasks = getStrongReminderTasks();
+                        const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                        alert(`存在强提醒任务，无法编辑任务内容！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                        showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+                        e.target.value = item.content; // 恢复原值
+                        return;
+                    }
+                    
                     item.content = e.target.value;
                     item.updatedAt = nowStr();
                     saveData();
@@ -7935,8 +8170,16 @@
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             
-            // 如果任务从未完成变为完成，弹出强制标签选择对话框
+            // 如果任务从未完成变为完成，检查强提醒（允许操作强提醒任务本身）
             if (!item.done) {
+                // 检查强提醒
+                if (!checkStrongReminderForTask(id)) {
+                    const strongTasks = getStrongReminderTasks();
+                    const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                    alert(`存在强提醒任务，无法标记任务为完成！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                    return;
+                }
+                
                 showMandatoryTagEditor(id);
             } else {
                 // 如果任务从完成变为未完成，直接切换状态
@@ -8106,6 +8349,18 @@
             if (!item || !item.subtasks) return;
             const st = item.subtasks.find(s => s.id === subId);
             if (!st) return;
+            
+            // 如果子任务从未完成变为完成，检查强提醒（允许操作强提醒任务本身）
+            if (!st.done) {
+                // 检查强提醒
+                if (!checkStrongReminderForTask(itemId)) {
+                    const strongTasks = getStrongReminderTasks();
+                    const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                    alert(`存在强提醒任务，无法标记子任务为完成！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                    return;
+                }
+            }
+            
             st.done = !st.done;
             
             // 如果子任务被标记为完成，且在时间段中，则从时间段移除
@@ -8135,6 +8390,14 @@
 
         // 添加子任务到任务
         function addSubtaskToTask(itemId) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法添加子任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
             
@@ -8165,6 +8428,14 @@
         
         // 删除子任务
         function deleteSubtask(itemId, subId) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法删除子任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8183,6 +8454,14 @@
         
         // 更新子任务内容
         function updateSubtaskContent(itemId, subId, newContent) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑子任务内容！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8196,6 +8475,14 @@
         
         // 更新子任务预计时间
         function updateSubtaskEstimatedTime(itemId, subId, newTime) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8986,6 +9273,14 @@
           }
 
         function addSlot() {
+            // 检查强提醒
+            if (hasStrongReminder()) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法添加时间段！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const input = document.getElementById('newSlotName');
             const name = input.value.trim();
             if (!name) return;
@@ -9002,6 +9297,14 @@
             }
         });
         function showPlaceMenu(e, itemId, subId) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法将子任务放入时间段！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const existing = document.querySelector('.place-select-overlay');
             if (existing) existing.remove();
             const menu = document.createElement('div');
@@ -9034,6 +9337,14 @@
         }
 
         function removeFromSlot(itemId, subId, buttonElement) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法从时间段移除子任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (item && item.subtasks) {
                 const st = item.subtasks.find(s => s.id === subId);
@@ -9186,6 +9497,14 @@
 
         // ============ 时间段任务板任务编辑函数 ============
         function updateTaskInSlot(itemId, newContent, newDueTime) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 item.content = newContent.trim();
@@ -9197,6 +9516,14 @@
         }
 
         function updateTaskTimeInSlot(itemId, newDueTime) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
@@ -9213,6 +9540,14 @@
         }
 
         function updateSubtaskInSlot(parentId, subId, newContent, newEstimatedTime) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(parentId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑子任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === parentId);
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
@@ -9227,6 +9562,14 @@
         }
 
         function updateSubtaskTimeInSlot(parentId, subId, newEstimatedTime) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(parentId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法编辑子任务预计时间！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === parentId);
             if (item && item.subtasks) {
                 const sub = item.subtasks.find(st => st.id === subId);
@@ -9246,6 +9589,14 @@
         }
 
          function showTaskPlaceMenu(e, itemId) {
+             // 检查强提醒（允许操作强提醒任务本身）
+             if (!checkStrongReminderForTask(itemId)) {
+                 const strongTasks = getStrongReminderTasks();
+                 const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                 alert(`存在强提醒任务，无法将任务放入时间段！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                 return;
+             }
+             
              const existing = document.querySelector('.place-select-overlay');
              if (existing) existing.remove();
              const menu = document.createElement('div');
@@ -9285,6 +9636,14 @@
          }
 
         function removeFromSlotTaskGroup(itemId, slotId, buttonElement) {
+            // 检查强提醒（允许操作强提醒任务本身）
+            if (!checkStrongReminderForTask(itemId)) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法从时间段移除任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 保存撤销信息（使用传入的 slotId，而不是 item.placedIn）
@@ -9314,6 +9673,14 @@
         }
  
         function removeFromSlotSimple(itemId, buttonElement) {
+            // 检查强提醒
+            if (hasStrongReminder()) {
+                const strongTasks = getStrongReminderTasks();
+                const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                alert(`存在强提醒任务，无法从时间段移除任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                return;
+            }
+            
             const item = data.tasks.find(i => i.id === itemId);
             if (item) {
                 // 保存撤销信息
@@ -14511,6 +14878,12 @@ ${ammoToAnalyze.map((ammo, index) =>
        
        // 合并选中的任务
        function mergeSelectedTasks() {
+           // 检查强提醒
+           if (hasStrongReminder()) {
+               showToast(`存在强提醒任务，无法合并任务！请先处理超过12小时未更新的任务。`, { duration: 5000 });
+               return;
+           }
+           
            const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
            
            if (checkboxes.length === 0) {
@@ -14549,6 +14922,24 @@ ${ammoToAnalyze.map((ammo, index) =>
        
        // 删除选中的任务
        function deleteSelectedTasks() {
+           // 检查强提醒（允许删除强提醒任务本身）
+           if (hasStrongReminder()) {
+               const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
+               const selectedTaskIds = Array.from(checkboxes).map(cb => cb.value);
+               
+               // 检查是否有选中的任务不是强提醒任务
+               const strongTasks = getStrongReminderTasks();
+               const strongTaskIds = strongTasks.map(t => t.id);
+               
+               const hasNonStrongReminderTask = selectedTaskIds.some(id => !strongTaskIds.includes(id));
+               
+               if (hasNonStrongReminderTask) {
+                   const taskList = strongTasks.map(t => `• ${t.content}`).join('\n');
+                   alert(`存在强提醒任务，无法删除任务！\n\n以下任务超过12小时未更新：\n${taskList}\n\n请先处理这些任务（完成或设置触发提醒）。`);
+                   return;
+               }
+           }
+           
            const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
            
            if (checkboxes.length === 0) {
