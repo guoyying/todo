@@ -362,15 +362,15 @@
       "type": "task",
       "content": "提交隐患整改单（1981白云设备）",
       "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-13T03:20:06.868Z",
+      "updatedAt": "2026-05-19T11:48:10.057Z",
       "tags": [
         "退网"
       ],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": true,
       "placedIn": null,
-      "doneAt": "2026-05-13T03:20:06.868Z",
+      "doneAt": null,
       "subtasks": []
     },
     {
