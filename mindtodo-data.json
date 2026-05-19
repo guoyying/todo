@@ -2047,6 +2047,17 @@
       "active": true
     }
   ],
+  "knowledgeBase": [
+    {
+      "id": "mpbwhg6dthmd12xm6v",
+      "content": "华为nce和烽火otn都只扫描网关网元，省公司安全室扫描的",
+      "tags": [
+        "网安"
+      ],
+      "createdAt": "2026-05-19T00:34:18.277Z",
+      "updatedAt": "2026-05-19T00:34:18.277Z"
+    }
+  ],
   "aiConfig": {
     "enabled": true,
     "model": "deepseek-chat",
