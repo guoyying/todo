@@ -864,20 +864,6 @@
       "doneAt": "2026-05-19T01:43:16.251Z"
     },
     {
-      "id": "mpb18oywrnsvu",
-      "type": "task",
-      "content": "明天下午参加线上会议",
-      "createdAt": "2026-05-18T09:59:41.672Z",
-      "updatedAt": "2026-05-18T09:59:41.672Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "30min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "1779153570381",
       "type": "task",
       "content": "沙龙设计",
@@ -2021,21 +2007,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-19T01:21:36.249Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpc8m47orkqwx",
-      "taskId": "mpb18oywrnsvu",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-19T14:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-19T06:13:51.444Z",
       "lastReminderTime": null,
       "active": true
     }
