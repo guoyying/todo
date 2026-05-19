@@ -984,14 +984,15 @@
       "type": "task",
       "content": "签约表打印",
       "createdAt": "2026-05-19T06:53:17.868Z",
-      "updatedAt": "2026-05-19T06:53:17.868Z",
+      "updatedAt": "2026-05-19T07:17:50.338Z",
       "tags": [
         "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "4min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-19T07:17:50.338Z"
     },
     {
       "id": "mpcadssoco33q",
@@ -2221,6 +2222,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T07:04:28.661Z"
+    "lastSync": "2026-05-19T07:09:18.454Z"
   }
 }
