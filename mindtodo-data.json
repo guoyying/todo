@@ -1014,12 +1014,15 @@
       "type": "task",
       "content": "资产检查工作，看下我要做什么",
       "createdAt": "2026-05-19T07:04:22.066Z",
-      "updatedAt": "2026-05-19T07:04:22.066Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-19T07:59:47.270Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-19T07:59:47.270Z"
     },
     {
       "id": "mpcb5bw6esfoh",
@@ -2236,6 +2239,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T07:57:47.967Z"
+    "lastSync": "2026-05-19T07:58:39.189Z"
   }
 }
