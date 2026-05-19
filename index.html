@@ -5203,6 +5203,10 @@
             // 如果要编辑的是被阻止的任务本身，可以编辑
             if (taskId === blockedStaleTaskId) return true;
             
+            // 如果任务有激活的触发提醒，可以编辑（不受强提醒限制）
+            const hasActiveTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === taskId && trigger.active);
+            if (hasActiveTrigger) return true;
+            
             // 否则不能编辑其他任务
             return false;
         }
@@ -6029,6 +6033,13 @@
                       
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
+                      
+                      // 如果处理的是强提醒任务，清除强提醒状态
+                      if (blockedStaleTaskId === item.id) {
+                          clearBlockedStaleTask();
+                          showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
+                      }
+                      
                       saveData();
                       render();
                   };
@@ -6043,6 +6054,13 @@
                       
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
+                      
+                      // 如果处理的是强提醒任务，清除强提醒状态
+                      if (blockedStaleTaskId === item.id) {
+                          clearBlockedStaleTask();
+                          showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
+                      }
+                      
                       saveData();
                       render();
                   };
@@ -6075,6 +6093,13 @@
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
+                        
+                        // 如果处理的是强提醒任务，清除强提醒状态
+                        if (blockedStaleTaskId === item.id) {
+                            clearBlockedStaleTask();
+                            showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
+                        }
+                        
                         saveData();
                         render();
                     };
@@ -6094,6 +6119,13 @@
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
+                        
+                        // 如果处理的是强提醒任务，清除强提醒状态
+                        if (blockedStaleTaskId === item.id) {
+                            clearBlockedStaleTask();
+                            showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
+                        }
+                        
                         saveData();
                         render();
                     };
@@ -8345,6 +8377,12 @@
                  modal.remove();
              }
              
+             // 如果处理的是强提醒任务，清除强提醒状态
+             if (blockedStaleTaskId === id) {
+                 clearBlockedStaleTask();
+                 showBanner('✅ 强提醒已解除！任务已完成', '#4caf50', 3000);
+             }
+             
              render();
          }
 
@@ -8380,6 +8418,13 @@
             // 任务的完成状态只能在待办/往期待办中手动标记
             
             item.updatedAt = nowStr();
+            
+            // 如果处理的是强提醒任务，清除强提醒状态
+            if (blockedStaleTaskId === itemId) {
+                clearBlockedStaleTask();
+                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
+            }
+            
             saveData(); render();
         }
 
@@ -8419,6 +8464,13 @@
             
              item.subtasks.push(newSubtask);
              item.updatedAt = nowStr();
+             
+             // 如果处理的是强提醒任务，清除强提醒状态
+             if (blockedStaleTaskId === itemId) {
+                 clearBlockedStaleTask();
+                 showBanner('✅ 强提醒已解除！子任务已添加', '#4caf50', 3000);
+             }
+             
              saveData();
              render();
              // showToast('子任务已添加'); // 已去除气泡提示
@@ -8443,6 +8495,13 @@
             if (confirm('确定要删除吗？')) {
                 item.subtasks.splice(subIndex, 1);
                 item.updatedAt = nowStr();
+                
+                // 如果处理的是强提醒任务，清除强提醒状态
+                if (blockedStaleTaskId === itemId) {
+                    clearBlockedStaleTask();
+                    showBanner('✅ 强提醒已解除！子任务已删除', '#4caf50', 3000);
+                }
+                
                 saveData();
                 render();
                 showToast('子任务已删除');
@@ -8466,6 +8525,13 @@
             
             sub.content = newContent.trim();
             item.updatedAt = nowStr();
+            
+            // 如果处理的是强提醒任务，清除强提醒状态
+            if (blockedStaleTaskId === itemId) {
+                clearBlockedStaleTask();
+                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
+            }
+            
             saveData();
         }
         
@@ -8492,6 +8558,13 @@
             
             sub.estimatedTime = timeValue;
             item.updatedAt = nowStr();
+            
+            // 如果处理的是强提醒任务，清除强提醒状态
+            if (blockedStaleTaskId === itemId) {
+                clearBlockedStaleTask();
+                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
+            }
+            
             saveData();
         }
         
