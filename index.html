@@ -953,65 +953,6 @@
         }
         .subtask .checkbox { width: 16px; height: 16px; }
         .subtask.done { text-decoration: line-through; color: var(--text-secondary); }
-        
-        /* 半天未更新提醒样式 */
-        .stale-task-warning {
-            margin-top: 8px;
-            padding: 8px 12px;
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 6px;
-            font-size: 12px;
-            color: #856404;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            animation: fadeIn 0.3s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .stale-action-btn {
-            padding: 4px 12px;
-            font-size: 11px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            background: #17a2b8;
-            color: white;
-        }
-        
-        .stale-action-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            background: #138496;
-        }
-        
-        .stale-action-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            .stale-task-warning {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            
-            .stale-action-btn {
-                width: 100%;
-                text-align: center;
-                padding: 8px 12px;
-            }
-        }
-        
         .subtask input:not(.edit-time) {
             flex: 1;
             border: none;
@@ -4888,9 +4829,6 @@
           }
      };
         let editingId = null;
-        let originalContent = null; // 记录编辑前的原始内容
-        let isBreakdownAction = false; // 标记是否是拆解任务操作
-        let blockedStaleTaskId = null; // 被强提醒阻止的任务ID
         let recording = null;
         let recognition = null;
 
@@ -5173,71 +5111,6 @@
             }
             
             return null;
-        }
-
-        // 检查任务是否超过指定小时未更新
-        function isTaskStale(task, hours = 12) {
-            if (!task.updatedAt) return false;
-            const now = new Date();
-            const updated = new Date(task.updatedAt);
-            const diffHours = (now - updated) / (1000 * 60 * 60);
-            return diffHours >= hours;
-        }
-        
-        // 检查是否有被强提醒阻止的任务
-        function hasBlockedStaleTask() {
-            return blockedStaleTaskId !== null;
-        }
-        
-        // 获取被强提醒阻止的任务
-        function getBlockedStaleTask() {
-            if (!blockedStaleTaskId) return null;
-            return data.tasks.find(t => t.id === blockedStaleTaskId);
-        }
-        
-        // 检查是否可以编辑任务（强提醒机制）
-        function canEditTask(taskId) {
-            // 如果没有被阻止的任务，可以编辑
-            if (!hasBlockedStaleTask()) return true;
-            
-            // 如果要编辑的是被阻止的任务本身，可以编辑
-            if (taskId === blockedStaleTaskId) return true;
-            
-            // 如果任务有激活的触发提醒，可以编辑（不受强提醒限制）
-            const hasActiveTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === taskId && trigger.active);
-            if (hasActiveTrigger) return true;
-            
-            // 否则不能编辑其他任务
-            return false;
-        }
-        
-        // 设置强提醒阻止
-        function setBlockedStaleTask(taskId) {
-            blockedStaleTaskId = taskId;
-        }
-        
-        // 清除强提醒阻止
-        function clearBlockedStaleTask() {
-            blockedStaleTaskId = null;
-        }
-        
-        // 获取任务未更新的时长描述
-        function getStaleDuration(task) {
-            if (!task.updatedAt) return '';
-            const now = new Date();
-            const updated = new Date(task.updatedAt);
-            const diffMs = now - updated;
-            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-            const diffDays = Math.floor(diffHours / 24);
-            
-            if (diffDays > 0) {
-                return `${diffDays}天`;
-            } else if (diffHours > 0) {
-                return `${diffHours}小时`;
-            } else {
-                const diffMinutes = Math.floor(diffMs / (1000 * 60));
-                return `${diffMinutes}分钟`;
-            }
         }
 
         // ============ Voice ============
@@ -5804,13 +5677,6 @@
         }
 
         function saveTask() {
-            // 强提醒检查：如果有强提醒任务，不允许添加新任务
-            if (hasBlockedStaleTask()) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const content = document.getElementById('taskContent').value.trim();
             if (!content) return;
             const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
@@ -6023,46 +5889,14 @@
                   }
                   
                   textInput.onchange = (e) => {
-                      // 强提醒检查
-                      if (!canEditTask(item.id)) {
-                          const blockedTask = getBlockedStaleTask();
-                          showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                          e.target.value = item.content; // 恢复原内容
-                          return;
-                      }
-                      
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
-                      
-                      // 如果处理的是强提醒任务，清除强提醒状态
-                      if (blockedStaleTaskId === item.id) {
-                          clearBlockedStaleTask();
-                          showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
-                      }
-                      
                       saveData();
-                      render();
                   };
                   textInput.onblur = (e) => {
-                      // 强提醒检查
-                      if (!canEditTask(item.id)) {
-                          const blockedTask = getBlockedStaleTask();
-                          showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                          e.target.value = item.content; // 恢复原内容
-                          return;
-                      }
-                      
                       item.content = e.target.value;
                       item.updatedAt = nowStr();
-                      
-                      // 如果处理的是强提醒任务，清除强提醒状态
-                      if (blockedStaleTaskId === item.id) {
-                          clearBlockedStaleTask();
-                          showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
-                      }
-                      
                       saveData();
-                      render();
                   };
                   contentDiv.appendChild(textInput);
                 
@@ -6078,14 +5912,6 @@
                     timeInput.style.padding = '2px 6px';
                     timeInput.style.fontSize = '12px';
                     timeInput.onchange = (e) => {
-                        // 强提醒检查
-                        if (!canEditTask(item.id)) {
-                            const blockedTask = getBlockedStaleTask();
-                            showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                            e.target.value = item.dueTime || ''; // 恢复原内容
-                            return;
-                        }
-                        
                         const timeValue = e.target.value.trim();
                         // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
@@ -6093,25 +5919,10 @@
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
-                        
-                        // 如果处理的是强提醒任务，清除强提醒状态
-                        if (blockedStaleTaskId === item.id) {
-                            clearBlockedStaleTask();
-                            showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
-                        }
-                        
                         saveData();
                         render();
                     };
                     timeInput.onblur = (e) => {
-                        // 强提醒检查
-                        if (!canEditTask(item.id)) {
-                            const blockedTask = getBlockedStaleTask();
-                            showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                            e.target.value = item.dueTime || ''; // 恢复原内容
-                            return;
-                        }
-                        
                         const timeValue = e.target.value.trim();
                         // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
                         if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
@@ -6119,13 +5930,6 @@
                         }
                         item.dueTime = timeValue;
                         item.updatedAt = nowStr();
-                        
-                        // 如果处理的是强提醒任务，清除强提醒状态
-                        if (blockedStaleTaskId === item.id) {
-                            clearBlockedStaleTask();
-                            showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
-                        }
-                        
                         saveData();
                         render();
                     };
@@ -6542,71 +6346,7 @@
                 }
             }
 
-            // 添加半天未更新强提醒（排除已设置触发提醒的任务）
-            if (item.type === 'task' && !item.done && isTaskStale(item, 12)) {
-                // 排除已设置触发提醒的任务（只要taskId在taskTriggers中存在就排除）
-                const hasTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === item.id);
-                if (hasTrigger) {
-                    return el; // 跳过有触发提醒的任务
-                }
-                
-                // 超过12小时直接设置为强提醒
-                if (!hasBlockedStaleTask()) {
-                    setBlockedStaleTask(item.id);
-                }
-                
-                const staleWarning = document.createElement('div');
-                staleWarning.className = 'stale-task-warning';
-                
-                // 强提醒样式（红色）
-                const isCurrentBlocked = blockedStaleTaskId === item.id;
-                
-                staleWarning.style.cssText = `
-                    margin-top: 8px;
-                    padding: 12px 16px;
-                    background: #ffebee;
-                    border: 2px solid #ef5350;
-                    border-radius: 8px;
-                    font-size: 13px;
-                    color: #c62828;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    flex-wrap: wrap;
-                    box-shadow: 0 4px 12px rgba(239, 83, 80, 0.3);
-                `;
-                
-                const duration = getStaleDuration(item);
-                const warningText = `🚨 强提醒：这个待办已经${duration}没处理！必须先处理此任务才能继续其他操作`;
-                
-                staleWarning.innerHTML = `
-                    <span style="font-weight: 600; flex: 1;">${warningText}</span>
-                    <button class="stale-action-btn" data-action="breakdown" data-task-id="${item.id}" style="padding:6px 16px; font-size:12px; background:#d32f2f; color:white; border:none; border-radius:6px; cursor:pointer; font-weight:500; white-space:nowrap; box-shadow:0 2px 4px rgba(0,0,0,0.1);">立即处理</button>
-                `;
-                
-                // 绑定按钮事件
-                staleWarning.querySelector('.stale-action-btn').onclick = (e) => {
-                    e.stopPropagation();
-                    handleStaleTaskAction(item.id, 'breakdown');
-                };
-                
-                el.appendChild(staleWarning);
-            }
-
             return el;
-        }
-        
-        // 处理半天未更新任务的操作
-        function handleStaleTaskAction(taskId, action) {
-            const task = data.tasks.find(t => t.id === taskId);
-            if (!task) return;
-            
-            if (action === 'breakdown') {
-                // 拆解任务：打开编辑对话框
-                isBreakdownAction = true; // 标记为拆解任务操作
-                openEdit(taskId);
-                showBanner('💡 请拆解为更具体的子任务，或直接编辑任务内容', '#2196f3', 3000);
-            }
         }
 
          // 根据内容长度生成输入框HTML
@@ -7511,13 +7251,6 @@
                 }
           // 统一的删除确认函数
           function showDeleteConfirm(id, type, btnElement, extraParam = null) {
-              // 强提醒检查：如果有强提醒任务，不允许删除其他任务
-              if (type === 'task' && hasBlockedStaleTask() && !canEditTask(id)) {
-                  const blockedTask = getBlockedStaleTask();
-                  showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                  return;
-              }
-              
               // 安全检查：确保 btnElement 存在且有 parentElement
             if (!btnElement || !btnElement.parentElement) {
                 // 如果按钮元素无效，使用传统的 confirm 弹窗
@@ -7583,11 +7316,6 @@
               switch(type) {
                 case 'task':
                     data.tasks = data.tasks.filter(i => i.id !== id);
-                    // 如果删除的是强提醒任务，清除强提醒状态
-                    if (blockedStaleTaskId === id) {
-                        clearBlockedStaleTask();
-                        showBanner('✅ 强提醒已解除！任务已删除', '#4caf50', 3000);
-                    }
                     msg = '任务已删除';
                     break;
                 case 'feeling':
@@ -8207,13 +7935,6 @@
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             
-            // 强提醒检查：如果有强提醒任务，不允许完成其他任务
-            if (!item.done && hasBlockedStaleTask() && !canEditTask(id)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             // 如果任务从未完成变为完成，弹出强制标签选择对话框
             if (!item.done) {
                 showMandatoryTagEditor(id);
@@ -8377,23 +8098,10 @@
                  modal.remove();
              }
              
-             // 如果处理的是强提醒任务，清除强提醒状态
-             if (blockedStaleTaskId === id) {
-                 clearBlockedStaleTask();
-                 showBanner('✅ 强提醒已解除！任务已完成', '#4caf50', 3000);
-             }
-             
              render();
          }
 
         function toggleSubtask(itemId, subId) {
-            // 强提醒检查：如果有强提醒任务，不允许操作其他任务的子任务
-            if (hasBlockedStaleTask() && !canEditTask(itemId)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             const st = item.subtasks.find(s => s.id === subId);
@@ -8418,13 +8126,6 @@
             // 任务的完成状态只能在待办/往期待办中手动标记
             
             item.updatedAt = nowStr();
-            
-            // 如果处理的是强提醒任务，清除强提醒状态
-            if (blockedStaleTaskId === itemId) {
-                clearBlockedStaleTask();
-                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
-            }
-            
             saveData(); render();
         }
 
@@ -8434,13 +8135,6 @@
 
         // 添加子任务到任务
         function addSubtaskToTask(itemId) {
-            // 强提醒检查：如果有强提醒任务，不允许给其他任务添加子任务
-            if (hasBlockedStaleTask() && !canEditTask(itemId)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item) return;
             
@@ -8464,13 +8158,6 @@
             
              item.subtasks.push(newSubtask);
              item.updatedAt = nowStr();
-             
-             // 如果处理的是强提醒任务，清除强提醒状态
-             if (blockedStaleTaskId === itemId) {
-                 clearBlockedStaleTask();
-                 showBanner('✅ 强提醒已解除！子任务已添加', '#4caf50', 3000);
-             }
-             
              saveData();
              render();
              // showToast('子任务已添加'); // 已去除气泡提示
@@ -8478,13 +8165,6 @@
         
         // 删除子任务
         function deleteSubtask(itemId, subId) {
-            // 强提醒检查：如果有强提醒任务，不允许删除其他任务的子任务
-            if (hasBlockedStaleTask() && !canEditTask(itemId)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8495,13 +8175,6 @@
             if (confirm('确定要删除吗？')) {
                 item.subtasks.splice(subIndex, 1);
                 item.updatedAt = nowStr();
-                
-                // 如果处理的是强提醒任务，清除强提醒状态
-                if (blockedStaleTaskId === itemId) {
-                    clearBlockedStaleTask();
-                    showBanner('✅ 强提醒已解除！子任务已删除', '#4caf50', 3000);
-                }
-                
                 saveData();
                 render();
                 showToast('子任务已删除');
@@ -8510,13 +8183,6 @@
         
         // 更新子任务内容
         function updateSubtaskContent(itemId, subId, newContent) {
-            // 强提醒检查：如果有强提醒任务，不允许更新其他任务的子任务内容
-            if (hasBlockedStaleTask() && !canEditTask(itemId)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8525,25 +8191,11 @@
             
             sub.content = newContent.trim();
             item.updatedAt = nowStr();
-            
-            // 如果处理的是强提醒任务，清除强提醒状态
-            if (blockedStaleTaskId === itemId) {
-                clearBlockedStaleTask();
-                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
-            }
-            
             saveData();
         }
         
         // 更新子任务预计时间
         function updateSubtaskEstimatedTime(itemId, subId, newTime) {
-            // 强提醒检查：如果有强提醒任务，不允许更新其他任务的子任务时间
-            if (hasBlockedStaleTask() && !canEditTask(itemId)) {
-                const blockedTask = getBlockedStaleTask();
-                showBanner(`🚨 请先处理强提醒任务：${blockedTask ? blockedTask.content.substring(0, 30) + '...' : ''}`, '#d32f2f', 3000);
-                return;
-            }
-            
             const item = data.tasks.find(i => i.id === itemId);
             if (!item || !item.subtasks) return;
             
@@ -8558,13 +8210,6 @@
             
             sub.estimatedTime = timeValue;
             item.updatedAt = nowStr();
-            
-            // 如果处理的是强提醒任务，清除强提醒状态
-            if (blockedStaleTaskId === itemId) {
-                clearBlockedStaleTask();
-                showBanner('✅ 强提醒已解除！子任务已更新', '#4caf50', 3000);
-            }
-            
             saveData();
         }
         
@@ -8572,7 +8217,6 @@
             const item = data.tasks.find(i => i.id === id);
             if (!item) return;
             editingId = id;
-            originalContent = item.content; // 记录原始内容
             document.getElementById('editContent').value = item.content;
             document.getElementById('editModal').classList.remove('hidden');
         }
@@ -8586,8 +8230,6 @@
               delete textarea.dataset.recordNumber;
               // 清理任务编辑数据
               editingId = null;
-              originalContent = null; // 清理原始内容
-              isBreakdownAction = false; // 重置拆解任务标记
               // 清理智能推荐
               const suggestionsContainer = document.getElementById('editContentSuggestions');
               if (suggestionsContainer) {
@@ -9332,25 +8974,12 @@
                       showToast('修改成功');
                   }
               } else {
-                  // 任务编辑逻辑
+                  // 原有的任务编辑逻辑
                   const item = data.tasks.find(i => i.id === editingId);
                   if (!item) return;
-                  
-                  // 如果是拆解任务操作，检查是否有实际修改
-                  if (isBreakdownAction && newContent === originalContent) {
-                      showBanner('⚠️ 请先修改任务内容或拆解为子任务，否则无法保存', '#ff9800', 3000);
-                      return; // 阻止保存
-                  }
-                  
                   item.content = newContent;
                   item.updatedAt = nowStr();
                   saveData(); render();
-                  
-                  // 如果处理的是强提醒任务，清除强提醒状态
-                  if (blockedStaleTaskId === item.id) {
-                      clearBlockedStaleTask();
-                      showBanner('✅ 强提醒已解除！任务已更新', '#4caf50', 3000);
-                  }
               }
               
               closeEditModal();
@@ -11588,38 +11217,7 @@
             
             // 页面加载时立即检查一次
             setTimeout(checkTriggers, 1000);
-            
-            // 检查是否有半天未更新的任务，自动设置强提醒
-            setTimeout(checkAndSetStaleTaskReminder, 1500);
         });
-        
-        // 检查并设置半天未更新任务的强提醒
-        function checkAndSetStaleTaskReminder() {
-            // 查找所有超过12小时未更新的未完成任务，排除已设置触发提醒的任务
-            const staleTasks = data.tasks.filter(task => {
-                // 基本条件
-                if (task.type !== 'task' || task.done || !isTaskStale(task, 12)) {
-                    return false;
-                }
-                // 排除已设置触发提醒的任务（只要taskId在taskTriggers中存在就排除）
-                const hasTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === task.id);
-                return !hasTrigger;
-            });
-            
-            if (staleTasks.length > 0) {
-                // 找到最久未更新的任务
-                const oldestStaleTask = staleTasks.reduce((oldest, task) => {
-                    if (!oldest.updatedAt) return task;
-                    if (!task.updatedAt) return oldest;
-                    return new Date(task.updatedAt) < new Date(oldest.updatedAt) ? task : oldest;
-                }, staleTasks[0]);
-                
-                // 设置强提醒
-                setBlockedStaleTask(oldestStaleTask.id);
-                const duration = getStaleDuration(oldestStaleTask);
-                showBanner(`🚨 检测到强提醒任务：${oldestStaleTask.content.substring(0, 30)}...（${duration}未处理）`, '#d32f2f', 5000);
-            }
-        }
         
         // 复制汇总结果
         function copyOldFeelingSummary() {
