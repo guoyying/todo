@@ -999,29 +999,15 @@
       "type": "task",
       "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
       "createdAt": "2026-05-19T07:03:22.632Z",
-      "updatedAt": "2026-05-19T07:49:31.127Z",
+      "updatedAt": "2026-05-19T07:58:33.950Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpcadssohuzue",
-          "content": "核查3500和3499",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1779175803035",
-          "content": "电话：其他网元可以这2周关注下电路拆除了没，有拆完的就告诉我。我网管核查没业务后，就能安排退网了",
-          "done": false,
-          "estimatedTime": "3min",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-19T07:58:33.950Z",
+      "subtasks": []
     },
     {
       "id": "mpcaf2nm6iub5",
@@ -2250,6 +2236,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T07:56:27.828Z"
+    "lastSync": "2026-05-19T07:57:47.967Z"
   }
 }
