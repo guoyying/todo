@@ -2010,21 +2010,6 @@
       }
     },
     {
-      "id": "mpb191ignjhn0",
-      "taskId": "mpb18oywrnsvu",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-19T14:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-18T09:59:57.928Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mpby69yx0g4b9",
       "taskId": "mpby5z8qy05vx",
       "type": "time",
