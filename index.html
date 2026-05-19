@@ -58,7 +58,7 @@
         }
         
         .kb-item-content {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text);
             margin-bottom: 8px;
             line-height: 1.6;
@@ -81,7 +81,7 @@
             color: var(--green-text);
             padding: 4px 8px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 13px;
         }
         
         .kb-item-meta {
@@ -331,13 +331,13 @@
              }
              
              .kb-item-content {
-                 font-size: 13px !important;
+                 font-size: 14px !important;
                  margin-bottom: 6px !important;
                  max-height: 70px !important;
              }
              
              .kb-item-tag {
-                 font-size: 11px !important;
+                 font-size: 12px !important;
                  padding: 3px 6px !important;
              }
              
@@ -3073,6 +3073,7 @@
              <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
              <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
              <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
+             <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
          </div>
     </div>
     <div class="update-banner" id="updateBanner">
@@ -4079,8 +4080,8 @@
                                         <textarea id="newKBContent" rows="4" placeholder="输入知识内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                     </div>
                                     <div style="margin-bottom:12px;">
-                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签 (用逗号分隔)</label>
-                                        <input type="text" id="newKBTags" placeholder="例如: 技术,笔记,重要" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签 (用中文空格分隔)</label>
+                                        <input type="text" id="newKBTags" placeholder="例如: 技术　笔记　重要" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                     </div>
                                     <div style="display:flex;gap:8px;">
                                         <button class="btn btn-primary" onclick="addNewKB()">保存</button>
@@ -4144,8 +4145,8 @@
                             <textarea id="editKBContent" rows="6" placeholder="请输入知识内容..."></textarea>
  </div>
                         <div class="input-group">
-                            <label>标签 (用逗号分隔)</label>
-                            <input type="text" id="editKBTags" placeholder="例如: 技术,笔记,重要">
+                            <label>标签 (用中文空格分隔)</label>
+                            <input type="text" id="editKBTags" placeholder="例如: 技术　笔记　重要">
                         </div>
                         <div class="modal-actions">
                             <button class="btn btn-secondary" onclick="closeEditKBModal()">取消</button>
@@ -9999,22 +10000,53 @@
                  input.value = '';
                  return;
              }
- 
+
              const file = input.files[0];
              if (!file) {
                  input.value = '';
                  return;
              }
- 
+
              if (!file.name.endsWith('.html')) {
                  alert('请选择 HTML 文件');
                  input.value = '';
                  return;
              }
- 
+
+             // 显示更新内容输入框
+             const commitInput = document.getElementById('htmlCommitMessage');
+             commitInput.style.display = 'inline-block';
+             commitInput.focus();
+
+             // 等待用户输入更新内容或按回车
+             const waitForCommit = () => {
+                 return new Promise((resolve) => {
+                     const handleCommit = () => {
+                         const commitMessage = commitInput.value.trim();
+                         commitInput.style.display = 'none';
+                         commitInput.value = '';
+                         resolve(commitMessage);
+                     };
+
+                     // 监听回车键
+                     commitInput.onkeydown = (e) => {
+                         if (e.key === 'Enter') {
+                             handleCommit();
+                         }
+                     };
+
+                     // 3秒后自动使用默认消息
+                     setTimeout(() => {
+                         handleCommit();
+                     }, 3000);
+                 });
+             };
+
+             const commitMessage = await waitForCommit();
+
              // 显示加载气泡
              const loadingBanner = showBanner('⏳ 正在推送 HTML...', '#2196f3', 0);
- 
+
              const reader = new FileReader();
              reader.onload = async function(e) {
                  const htmlContent = e.target.result;
@@ -10032,8 +10064,16 @@
                     }
                 } catch(e) {}
 
+                // 构建提交消息
+                let message;
+                if (commitMessage) {
+                    message = `update index.html: ${commitMessage}`;
+                } else {
+                    message = `update index.html (v${data.github.version || 0 + 1})`;
+                }
+
                 const body = {
-                    message: `update index.html (v${data.github.version || 0 + 1})`,
+                    message,
                     content
                 };
                 if (sha) body.sha = sha;
@@ -15327,7 +15367,7 @@ ${ammoToAnalyze.map((ammo, index) =>
              return;
          }
          
-         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+         const tags = tagsStr ? tagsStr.split('\u3000').map(tag => tag.trim()).filter(tag => tag) : [];
          
          const newItem = {
              id: generateId(),
@@ -15350,7 +15390,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          if (!item) return;
          
          document.getElementById('editKBContent').value = item.content;
-         document.getElementById('editKBTags').value = (item.tags || []).join(', ');
+         document.getElementById('editKBTags').value = (item.tags || []).join('\u3000');
          document.getElementById('editKBModal').dataset.editId = id;
          
          document.getElementById('editKBModal').classList.remove('hidden');
@@ -15367,7 +15407,7 @@ ${ammoToAnalyze.map((ammo, index) =>
              return;
          }
          
-         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+         const tags = tagsStr ? tagsStr.split('\u3000').map(tag => tag.trim()).filter(tag => tag) : [];
          
          const item = data.knowledgeBase.find(kb => kb.id === id);
          if (item) {
