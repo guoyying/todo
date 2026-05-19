@@ -6544,9 +6544,9 @@
 
             // 添加半天未更新强提醒（排除已设置触发提醒的任务）
             if (item.type === 'task' && !item.done && isTaskStale(item, 12)) {
-                // 排除已设置触发提醒的任务
-                const hasActiveTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === item.id && trigger.active);
-                if (hasActiveTrigger) {
+                // 排除已设置触发提醒的任务（只要taskId在taskTriggers中存在就排除）
+                const hasTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === item.id);
+                if (hasTrigger) {
                     return el; // 跳过有触发提醒的任务
                 }
                 
@@ -11601,9 +11601,9 @@
                 if (task.type !== 'task' || task.done || !isTaskStale(task, 12)) {
                     return false;
                 }
-                // 排除已设置触发提醒的任务
-                const hasActiveTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === task.id && trigger.active);
-                return !hasActiveTrigger;
+                // 排除已设置触发提醒的任务（只要taskId在taskTriggers中存在就排除）
+                const hasTrigger = data.taskTriggers && data.taskTriggers.some(trigger => trigger.taskId === task.id);
+                return !hasTrigger;
             });
             
             if (staleTasks.length > 0) {
