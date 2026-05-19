@@ -965,18 +965,6 @@
       "subtasks": []
     },
     {
-      "id": "mpc3abhwbz51d",
-      "type": "task",
-      "content": "我得看下可退网，但还有局内的情况。烽火和华为都做，用爬虫表筛选下。",
-      "createdAt": "2026-05-19T03:44:42.932Z",
-      "updatedAt": "2026-05-19T03:44:42.933Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpca04z4pmg31",
       "type": "task",
       "content": "打开问卷星，找到两个机房，去到excel表里筛选有无退网设备",
@@ -1003,6 +991,28 @@
       "dueTime": "4min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpcadssoco33q",
+      "type": "task",
+      "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
+      "createdAt": "2026-05-19T07:03:22.632Z",
+      "updatedAt": "2026-05-19T07:03:22.632Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpcadssohuzue",
+          "content": "筛选华为并核查5个",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2198,6 +2208,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T06:52:52.110Z"
+    "lastSync": "2026-05-19T06:53:25.091Z"
   }
 }
