@@ -940,6 +940,28 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpby9efd4brzt",
+      "type": "task",
+      "content": "CRM跟进一下",
+      "createdAt": "2026-05-19T01:24:01.993Z",
+      "updatedAt": "2026-05-19T01:24:01.994Z",
+      "tags": [
+        "CRM"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpby9efdkkiqw",
+          "content": "问黄工和吴工进度到哪里了：想问CRM业务清单，业支有反馈了吗？",
+          "estimatedTime": "4min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2194,6 +2216,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-19T01:20:48.074Z"
+    "lastSync": "2026-05-19T01:21:40.803Z"
   }
 }
