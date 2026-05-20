@@ -1201,16 +1201,17 @@
     {
       "id": "mpdp571req5kl",
       "type": "task",
-      "content": "找下接口人吧，但我不知道问什么问题。",
+      "content": "梳理这周我可以做的检查工作",
       "createdAt": "2026-05-20T06:44:21.615Z",
-      "updatedAt": "2026-05-20T06:44:21.615Z",
+      "updatedAt": "2026-05-20T08:12:03.968Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T08:12:03.968Z"
     },
     {
       "id": "mpdq77sb27hg4",
