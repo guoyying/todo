@@ -1272,6 +1272,14 @@
             from { opacity: 0; transform: translateY(-5px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes fadeInStatic {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOutStatic {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
         @keyframes slideInUp {
             from { transform: translateY(100px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -14623,7 +14631,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          const oldToast = document.querySelector('.toast-message');
          if (oldToast) oldToast.remove();
          
-         // 创建新的toast
+         // 创建新的toast - 简洁扁平风格
          const toast = document.createElement('div');
          toast.className = 'toast-message';
          toast.style.cssText = `
@@ -14631,19 +14639,23 @@ ${ammoToAnalyze.map((ammo, index) =>
              bottom: 20px;
              left: 50%;
              transform: translateX(-50%);
-             background: var(--text);
-             color: white;
+             background: #ffffff;
+             color: #1a202c;
              padding: 12px 24px;
              border-radius: 8px;
+             border: 2px solid #e2e8f0;
              z-index: 2000;
-             animation: fadeIn 0.3s ease-out;
+             font-weight: 600;
+             font-size: 14px;
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+             animation: fadeInStatic 0.3s ease-out;
          `;
          toast.textContent = message;
          document.body.appendChild(toast);
          
          // 3秒后自动消失
          setTimeout(() => {
-             toast.style.animation = 'fadeOut 0.3s ease-out';
+             toast.style.animation = 'fadeOutStatic 0.3s ease-out';
              setTimeout(() => toast.remove(), 300);
          }, 3000);
      }
