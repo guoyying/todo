@@ -1113,12 +1113,20 @@
       "type": "task",
       "content": "网管验收，先查一下哪些已过单",
       "createdAt": "2026-05-20T03:01:59.567Z",
-      "updatedAt": "2026-05-20T03:01:59.567Z",
+      "updatedAt": "2026-05-20T03:27:08.092Z",
       "tags": [],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779247498499",
+          "content": "中午吃饭前爬一下",
+          "done": false,
+          "estimatedTime": "5",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mpdhgi4cxfv27",
@@ -2169,6 +2177,21 @@
       "createdAt": "2026-05-19T01:21:36.249Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpdi3uwdc0wep",
+      "taskId": "mpdh789bk9ga6",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-20T11:45"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-20T03:27:21.901Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2363,6 +2386,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T03:06:18.428Z"
+    "lastSync": "2026-05-20T03:21:19.202Z"
   }
 }
