@@ -7764,11 +7764,10 @@
             
             if (timeFilter === 'custom') {
                 customDateRange.style.display = 'inline-flex';
-                // 设置默认日期范围（最近30天）
+                // 设置默认日期范围为今天
                 const today = new Date();
-                const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
                 
-                document.getElementById('customStartDate').value = formatDateForInput(thirtyDaysAgo);
+                document.getElementById('customStartDate').value = formatDateForInput(today);
                 document.getElementById('customEndDate').value = formatDateForInput(today);
             } else {
                 customDateRange.style.display = 'none';
