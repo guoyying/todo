@@ -1068,14 +1068,15 @@
       "type": "task",
       "content": "强提醒用showBanner就行了，设置为灰黑色背景，白色字体",
       "createdAt": "2026-05-20T02:03:20.540Z",
-      "updatedAt": "2026-05-20T02:06:40.281Z",
+      "updatedAt": "2026-05-20T03:00:46.442Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T03:00:46.442Z"
     },
     {
       "id": "mpdfgkvz09m5q",
