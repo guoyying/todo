@@ -11696,13 +11696,10 @@
                 applyTitle();
                 render();
                 
-                 // 拉取完成后，直接使用拉取结果作为最新模型配置
-                 console.log('GitHub拉取完成，使用拉取结果作为最新模型配置...');
                  // 立即更新所有模型选择器
                  updateAllModelSelectors();
                 
                  // 拉取完成后检查并触发提醒
-                 console.log('检查拉取数据中的提醒任务...');
                  checkTriggers();
                 
                  hideBanner(loadingBanner);
@@ -12341,14 +12338,6 @@
            }
            
            const result = await response.json();
-           console.log('=== DeepSeek API 原始返回结果 ===');
-           console.log('完整响应:', JSON.stringify(result, null, 2));
-           console.log('choices 数组:', result.choices);
-           console.log('第一个 choice:', result.choices[0]);
-           console.log('message 对象:', result.choices[0].message);
-           console.log('解码后的内容:', result.choices[0].message.content);
-           console.log('内容类型:', typeof result.choices[0].message.content);
-           console.log('内容长度:', result.choices[0].message.content.length);
            return result.choices[0].message.content;
        }
        
