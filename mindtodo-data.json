@@ -1216,22 +1216,17 @@
     {
       "id": "mpdq77sb27hg4",
       "type": "task",
-      "content": "800M邮件核查",
+      "content": "800M的IP化改造（传输退网）项目，剩余10多条无法配置光路。核查网管有无其他在用业务",
       "createdAt": "2026-05-20T07:13:55.499Z",
-      "updatedAt": "2026-05-20T07:13:55.499Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-20T09:12:23.778Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpdq77sbx22zj",
-          "content": "花10分钟看下是啥情况",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-20T09:12:23.778Z",
+      "subtasks": []
     },
     {
       "id": "mpdqd39trn5i5",
@@ -2486,6 +2481,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T08:12:07.198Z"
+    "lastSync": "2026-05-20T08:12:21.929Z"
   }
 }
