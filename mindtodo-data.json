@@ -434,14 +434,14 @@
       "type": "task",
       "content": "配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单",
       "createdAt": "2026-05-14T03:00:00.014Z",
-      "updatedAt": "2026-05-14T09:21:04.378Z",
+      "updatedAt": "2026-05-20T01:10:09.618Z",
       "tags": [
         "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "30min",
       "unknown": false,
-      "doneAt": "2026-05-14T09:21:04.378Z",
+      "doneAt": "2026-05-20T01:10:09.618Z",
       "subtasks": []
     },
     {
@@ -1032,6 +1032,28 @@
         "organizedAt": "2026-05-19T23:58:00.814Z"
       },
       "subtasks": []
+    },
+    {
+      "id": "mpdd84tzoeajs",
+      "type": "task",
+      "content": "所有强提醒的检查alert或showtoast想换样式。",
+      "createdAt": "2026-05-20T01:10:43.319Z",
+      "updatedAt": "2026-05-20T01:10:43.319Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpdd84tz9vin7",
+          "content": "了解showtoast有哪些样式，不同参数如何控制。",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
