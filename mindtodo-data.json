@@ -1131,16 +1131,17 @@
     {
       "id": "mpdhgi4cxfv27",
       "type": "task",
-      "content": "响应NOC的扫描工作",
+      "content": "响应NOC的扫描工作：问能不能扫描几台4a的服务器",
       "createdAt": "2026-05-20T03:09:12.252Z",
-      "updatedAt": "2026-05-20T03:09:12.252Z",
+      "updatedAt": "2026-05-20T03:32:32.750Z",
       "tags": [
         "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T03:32:32.750Z"
     },
     {
       "id": "mpdhi8rb5g2ho",
@@ -2410,6 +2411,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T03:28:04.626Z"
+    "lastSync": "2026-05-20T03:30:45.471Z"
   }
 }
