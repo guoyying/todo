@@ -263,7 +263,7 @@
       "createdAt": "2026-05-09T01:02:08.014Z",
       "updatedAt": "2026-05-09T02:43:51.292Z",
       "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": true,
       "subtasks": [
@@ -271,7 +271,7 @@
           "id": "moxn2pvy7s6es",
           "content": "思考下记录在哪里。",
           "estimatedTime": "5min",
-          "done": true,
+          "done": false,
           "placedIn": null
         }
       ],
