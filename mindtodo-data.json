@@ -1231,22 +1231,17 @@
     {
       "id": "mpdqe3q962els",
       "type": "task",
-      "content": "NOC的事情，咋回复啊？？",
+      "content": "NOC开始打4台我们维护的服务器，以及涉及老旧设备的网扫描的主意了",
       "createdAt": "2026-05-20T07:19:16.833Z",
-      "updatedAt": "2026-05-20T07:19:16.833Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-20T09:25:53.759Z",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpdqe3q9nn7oi",
-          "content": "写一下我第一反应想回复的内容",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-20T09:25:53.759Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
