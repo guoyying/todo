@@ -1141,16 +1141,17 @@
     {
       "id": "mpdhi8rb5g2ho",
       "type": "task",
-      "content": "处理CRM的清单",
+      "content": "处理CRM的清单：规整非数字中继清单",
       "createdAt": "2026-05-20T03:10:33.431Z",
-      "updatedAt": "2026-05-20T03:10:33.431Z",
+      "updatedAt": "2026-05-20T06:57:25.269Z",
       "tags": [
         "CRM"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "18min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T06:57:25.269Z"
     },
     {
       "id": "mpdi4kh57fknz",
@@ -2438,6 +2439,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T06:43:50.163Z"
+    "lastSync": "2026-05-20T06:44:26.267Z"
   }
 }
