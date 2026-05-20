@@ -1068,12 +1068,38 @@
       "type": "task",
       "content": "强提醒用showBanner就行了，设置为灰黑色背景，白色字体",
       "createdAt": "2026-05-20T02:03:20.540Z",
-      "updatedAt": "2026-05-20T02:03:20.540Z",
+      "updatedAt": "2026-05-20T02:06:40.281Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpdfgkvz09m5q",
+      "type": "task",
+      "content": "确定上次是哪个机房要更换牌子，哪个机房合并了。",
+      "createdAt": "2026-05-20T02:13:16.607Z",
+      "updatedAt": "2026-05-20T02:13:16.607Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpdfj5goubxdq",
+      "type": "task",
+      "content": "还是写一下检查的内容（资产检查）无所谓什么，就是让自己先熟悉信息",
+      "createdAt": "2026-05-20T02:15:16.584Z",
+      "updatedAt": "2026-05-20T02:15:16.584Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
@@ -2292,6 +2318,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T02:02:44.143Z"
+    "lastSync": "2026-05-20T02:03:25.085Z"
   }
 }
