@@ -1155,14 +1155,17 @@
     {
       "id": "mpdi4kh57fknz",
       "type": "task",
-      "content": "过荔湾三张退网单",
+      "content": "过三码单：还得是催才想起来过单。",
       "createdAt": "2026-05-20T03:27:55.049Z",
-      "updatedAt": "2026-05-20T03:27:55.049Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-20T06:42:53.986Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T06:42:53.986Z"
     },
     {
       "id": "mpdi7yk15fwq7",
@@ -1182,28 +1185,17 @@
     {
       "id": "mpdk8b3kjhdgi",
       "type": "task",
-      "content": "跟黎工确认时间后，网约车。",
+      "content": "网约车去新塘",
       "createdAt": "2026-05-20T04:26:48.752Z",
-      "updatedAt": "2026-05-20T04:26:48.752Z",
+      "updatedAt": "2026-05-20T06:43:30.256Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mpdnynerhqkza",
-      "type": "task",
-      "content": "CRM继续核查业务情况",
-      "createdAt": "2026-05-20T06:11:16.611Z",
-      "updatedAt": "2026-05-20T06:11:16.611Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T06:43:30.256Z"
     },
     {
       "id": "mpdo3wt29sipk",
@@ -2238,21 +2230,6 @@
       "createdAt": "2026-05-19T01:21:36.249Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mpdkp8djv7fx1",
-      "taskId": "mpdhi8rb5g2ho",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-20T14:39"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-20T04:39:58.375Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2447,6 +2424,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T06:11:21.412Z"
+    "lastSync": "2026-05-20T06:15:28.083Z"
   }
 }
