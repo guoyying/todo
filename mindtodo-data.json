@@ -1038,50 +1038,30 @@
       "type": "task",
       "content": "所有强提醒的检查alert或showtoast想换样式。",
       "createdAt": "2026-05-20T01:10:43.319Z",
-      "updatedAt": "2026-05-20T01:33:14.845Z",
+      "updatedAt": "2026-05-20T02:02:35.324Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpdd84tz9vin7",
-          "content": "了解showtoast有哪些样式，不同参数如何控制。",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1779239857220",
-          "content": "找一个函数来测试，就选‘添加子任务’的函数吧。",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1779240778473",
-          "content": "了解橙色气泡是哪个函数，用了什么参数？",
-          "done": false,
-          "estimatedTime": "10min",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-20T02:02:35.324Z",
+      "subtasks": []
     },
     {
       "id": "mpddi5o2sba46",
       "type": "task",
       "content": "过退网单-白云（20min停下来）",
       "createdAt": "2026-05-20T01:18:30.962Z",
-      "updatedAt": "2026-05-20T01:18:30.963Z",
+      "updatedAt": "2026-05-20T02:02:40.498Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T02:02:40.498Z"
     }
   ],
   "normalFeelings": [
