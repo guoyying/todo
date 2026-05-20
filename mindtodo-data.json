@@ -1213,18 +1213,6 @@
       "subtasks": []
     },
     {
-      "id": "mpdq12yjbqyjy",
-      "type": "task",
-      "content": "用新的RPA试试抓数据，网管验收。",
-      "createdAt": "2026-05-20T07:09:09.307Z",
-      "updatedAt": "2026-05-20T07:09:09.307Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpdq77sb27hg4",
       "type": "task",
       "content": "800M邮件核查",
@@ -2491,6 +2479,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T07:09:18.015Z"
+    "lastSync": "2026-05-20T07:22:45.372Z"
   }
 }
