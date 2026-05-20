@@ -8190,11 +8190,17 @@
             
             // 过滤掉当前项目已有的标签
             const existingTags = item.tags || [];
+            const hasExistingTags = existingTags.length > 0;
             const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
             
             // 检查是否有子任务
             const hasSubtasks = item.subtasks && item.subtasks.length > 0;
             const undoneSubtasks = hasSubtasks ? item.subtasks.filter(st => !st.done) : [];
+            
+            // 根据是否已有标签，设置不同的提示信息
+            const tagLabel = hasExistingTags ? '输入新标签（可选）' : '输入新标签 <span style="color: var(--danger);">* 必填</span>';
+            const tagPlaceholder = hasExistingTags ? '输入标签名称（可选，已有标签：' + existingTags.join('、') + '）' : '输入标签名称';
+            const tagsLabel = hasExistingTags ? '或选择现有标签（可选）' : '或选择现有标签 <span style="color: var(--danger);">* 必须选择至少一个标签</span>';
             
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
@@ -8220,7 +8226,7 @@
             if (selectableTags.length > 0) {
                 tagsHtml = `
                     <div class="input-group">
-                        <label>或选择现有标签 <span style="color: var(--danger);">* 必须选择至少一个标签</span></label>
+                        <label>${tagsLabel}</label>
                         <div class="tags-select" style="display:flex;flex-wrap:wrap;gap:6px;">
                             ${selectableTags.map(tag => `
                                 <span class="tag" onclick="selectMandatoryTag('${tag}')" style="cursor:pointer;padding:4px 10px;border:1px solid var(--border);border-radius:12px;font-size:12px;background:var(--bg);">${tag}</span>
@@ -8241,8 +8247,8 @@
                             style="width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; line-height: 1.6; resize: vertical;">${item.content}</textarea>
                     </div>
                     <div class="input-group">
-                        <label>输入新标签 <span style="color: var(--danger);">* 必填</span></label>
-                        <input type="text" id="mandatoryTagInput" placeholder="输入标签名称" onkeydown="if(event.key==='Enter'){event.preventDefault();saveMandatoryTag('${id}')}" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px;">
+                        <label>${tagLabel}</label>
+                        <input type="text" id="mandatoryTagInput" placeholder="${tagPlaceholder}" onkeydown="if(event.key==='Enter'){event.preventDefault();saveMandatoryTag('${id}')}" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px;">
                     </div>
                     ${tagsHtml}
                     <div class="modal-actions">
@@ -8292,8 +8298,12 @@
                 return;
             }
             
-            // 验证必须选择或输入标签
-            if (!newTag) {
+            // 检查任务是否已有标签
+            const existingTags = item.tags || [];
+            const hasExistingTags = existingTags.length > 0;
+            
+            // 验证标签：要么已有标签，要么新增标签，反正至少要有一个标签
+            if (!hasExistingTags && !newTag) {
                 alert('请选择或输入标签！');
                 return;
             }
@@ -8301,13 +8311,17 @@
             // 更新任务内容
             item.content = newContent;
             
-            // 添加标签
-            if (!data.commonTaskTags.includes(newTag)) {
-                data.commonTaskTags.push(newTag);
-            }
-            if (!item.tags) item.tags = [];
-            if (!item.tags.includes(newTag)) {
-                item.tags.push(newTag);
+            // 如果输入了新标签，则添加标签
+            if (newTag) {
+                // 添加到通用标签列表
+                if (!data.commonTaskTags.includes(newTag)) {
+                    data.commonTaskTags.push(newTag);
+                }
+                // 添加到当前任务
+                if (!item.tags) item.tags = [];
+                if (!item.tags.includes(newTag)) {
+                    item.tags.push(newTag);
+                }
             }
             
             // 如果任务有子任务，删除子任务（不自动合并内容）
@@ -9725,7 +9739,7 @@
                     <div class="modal-actions">
                         <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">取消</button>
                         <button class="btn btn-primary" onclick="saveTagEdit('${itemId}', '${type}')">保存</button>
-                        ${currentTag ? `<button class="btn btn-danger" onclick="deleteTagFromItem('${itemId}', '${currentTag}', '${type}')">删除</button>` : ''}
+                        ${currentTag ? `<button class="btn btn-danger" onclick="deleteTagFromItem('${itemId}', '${currentTag}', '${type}', event)">删除</button>` : ''}
                     </div>
                 </div>
             `;
@@ -10050,7 +10064,7 @@
             modal.remove();
         }
         
-        function deleteTagFromItem(itemId, tag, type = 'task') {
+        function deleteTagFromItem(itemId, tag, type = 'task', event) {
             // 根据类型从不同的数据源查找项目
             let item;
             if (type === 'feeling') {
@@ -10069,8 +10083,14 @@
             
             item.tags = item.tags.filter(t => t !== tag);
             item.updatedAt = nowStr();
+            
+            // 先关闭模态窗口，避免render()影响DOM结构
+            if (event) {
+                event.target.closest('.modal-overlay')?.remove();
+            }
+            
+            // 再保存数据和重新渲染
             saveData(); render();
-            document.querySelector('.modal-overlay')?.remove();
         }
         
         function showFeelingEditor(itemId) {
