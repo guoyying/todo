@@ -1167,14 +1167,17 @@
     {
       "id": "mpdi7yk15fwq7",
       "type": "task",
-      "content": "数字化修改啊怎么办",
+      "content": "数字化项目标题修改：群@，具体要求私发。",
       "createdAt": "2026-05-20T03:30:33.265Z",
-      "updatedAt": "2026-05-20T03:30:33.265Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-20T04:52:54.436Z",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-20T04:52:54.436Z"
     },
     {
       "id": "mpdk8b3kjhdgi",
@@ -2209,6 +2212,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-19T01:21:36.249Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mpdkp8djv7fx1",
+      "taskId": "mpdhi8rb5g2ho",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-20T14:39"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-20T04:39:58.375Z",
       "lastReminderTime": null,
       "active": true
     }
