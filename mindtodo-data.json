@@ -1192,6 +1192,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpdnynerhqkza",
+      "type": "task",
+      "content": "CRM继续核查业务情况",
+      "createdAt": "2026-05-20T06:11:16.611Z",
+      "updatedAt": "2026-05-20T06:11:16.611Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
