@@ -1038,7 +1038,7 @@
       "type": "task",
       "content": "所有强提醒的检查alert或showtoast想换样式。",
       "createdAt": "2026-05-20T01:10:43.319Z",
-      "updatedAt": "2026-05-20T01:10:43.319Z",
+      "updatedAt": "2026-05-20T01:17:57.752Z",
       "tags": [
         "AI"
       ],
@@ -1051,6 +1051,13 @@
           "content": "了解showtoast有哪些样式，不同参数如何控制。",
           "estimatedTime": "10min",
           "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "1779239857220",
+          "content": "找一个函数来测试，就选‘添加子任务’的函数吧。",
+          "done": false,
+          "estimatedTime": "5min",
           "placedIn": null
         }
       ]
