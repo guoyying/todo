@@ -1135,7 +1135,7 @@
       "type": "task",
       "content": "时间触发提醒时，能否用任务本身的内容提示？",
       "createdAt": "2026-05-21T00:19:35.487Z",
-      "updatedAt": "2026-05-21T00:58:35.054Z",
+      "updatedAt": "2026-05-21T01:23:57.663Z",
       "tags": [
         "AI"
       ],
@@ -1153,6 +1153,13 @@
         {
           "id": "1779325074619",
           "content": "我想知道创建普通任务后，添加子任务。和直接创建父任务和子任务，调用的函数和数据结构有什么不同？",
+          "done": true,
+          "estimatedTime": "5min",
+          "placedIn": null
+        },
+        {
+          "id": "1779326611412",
+          "content": "移动端的父任务、普通任务和子任务文本框高度是什么函数控制的？",
           "done": false,
           "estimatedTime": "5min",
           "placedIn": null
@@ -2396,6 +2403,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T00:23:45.849Z"
+    "lastSync": "2026-05-21T00:58:39.454Z"
   }
 }
