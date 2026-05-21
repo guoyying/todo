@@ -1150,54 +1150,14 @@
       "type": "task",
       "content": "移动端的日历按钮位置在哪里调整？",
       "createdAt": "2026-05-21T03:54:55.704Z",
-      "updatedAt": "2026-05-21T03:56:13.109Z",
+      "updatedAt": "2026-05-21T05:41:41.968Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779335702215",
-          "content": "子任务预计时间，普通任务预计时间限制在哪里设置？",
-          "done": false,
-          "estimatedTime": "5",
-          "placedIn": null
-        }
-      ]
-    },
-    {
-      "id": "mpezztapfpj6p",
-      "type": "task",
-      "content": "这是普通任务",
-      "createdAt": "2026-05-21T04:35:52.465Z",
-      "updatedAt": "2026-05-21T04:35:52.465Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mpf002l4loe5l",
-      "type": "task",
-      "content": "这是未知任务",
-      "createdAt": "2026-05-21T04:36:04.504Z",
-      "updatedAt": "2026-05-21T04:36:04.504Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpf002l49q4a5",
-          "content": "子任务",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
     }
   ],
   "normalFeelings": [
