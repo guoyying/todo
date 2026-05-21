@@ -955,6 +955,8 @@
         .subtask.done { text-decoration: line-through; color: var(--text-secondary); }
         .subtask input:not(.edit-time) {
             flex: 1;
+            min-width: 100px;
+            max-width: 400px;
             border: none;
             background: transparent;
             font-size: 13px;
@@ -978,6 +980,16 @@
             flex-wrap: wrap !important;
         }
         
+        /* 子任务时间输入框基础样式（桌面端） */
+        .subtask .edit-time {
+            width: 60px !important;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 12px;
+            flex-shrink: 0 !important;
+        }
+        
         /* 移动端子任务特殊样式 */
         @media (max-width: 768px) {
             .subtask {
@@ -995,8 +1007,8 @@
             }
             
             .subtask .edit-time {
-                flex: 1 !important;
-                max-width: 80px !important;
+                width: 60px !important;
+                flex-shrink: 0 !important;
             }
             
             .subtask-place-btn {
@@ -1575,6 +1587,7 @@
             border-radius: 4px;
             cursor: pointer;
             color: #5a7090;
+            flex-shrink: 0;
         }
         .subtask-place-btn:hover { background: var(--task); color: white; }
         .place-select-overlay {
@@ -5991,7 +6004,7 @@
                       textInput.style.fontFamily = 'inherit';
                       textInput.style.padding = '2px';
                       textInput.style.resize = 'vertical';
-                      textInput.style.minHeight = '12px';
+                      textInput.style.minHeight = '20px';
                       textInput.style.maxHeight = '200px';
                       textInput.style.overflow = 'auto';
                       textInput.style.whiteSpace = 'pre-wrap';
@@ -6337,11 +6350,6 @@
                           timeInput.className = 'edit-time';
                           timeInput.value = st.estimatedTime || '';
                           timeInput.placeholder = '≤10min';
-                          timeInput.style.width = '60px';
-                          timeInput.style.border = '1px solid var(--border)';
-                          timeInput.style.borderRadius = '4px';
-                          timeInput.style.padding = '4px 6px';
-                          timeInput.style.fontSize = '12px';
                           timeInput.onchange = (e) => {
                               // 检查强提醒（允许编辑强提醒任务的子任务）
                               if (hasStrongReminder(item.id)) {
@@ -6411,21 +6419,15 @@
                           actionRow.appendChild(deleteBtn);
                           
                           row.appendChild(actionRow);
-                      } else {
-                          // 桌面端：保持原有布局
-                          // 预计时间编辑框
-                          const timeInput = document.createElement('input');
-                          timeInput.type = 'text';
-                          timeInput.className = 'edit-time';
-                          timeInput.value = st.estimatedTime || '';
-                          timeInput.placeholder = '≤10min';
-                          timeInput.style.width = '60px';
-                          timeInput.style.marginLeft = '8px';
-                          timeInput.style.border = '1px solid var(--border)';
-                          timeInput.style.borderRadius = '4px';
-                          timeInput.style.padding = '2px 6px';
-                          timeInput.style.fontSize = '12px';
-                          timeInput.onchange = (e) => {
+                       } else {
+                           // 桌面端：保持原有布局
+                           // 预计时间编辑框
+                            const timeInput = document.createElement('input');
+                            timeInput.type = 'text';
+                            timeInput.className = 'edit-time';
+                            timeInput.value = st.estimatedTime || '';
+                            timeInput.placeholder = '≤10min';
+                            timeInput.onchange = (e) => {
                               // 检查强提醒（允许编辑强提醒任务的子任务）
                               if (hasStrongReminder(item.id)) {
                                   showToast('存在强提醒任务，无法编辑子任务预计时间！请先处理超过12小时未更新的任务。', { duration: 5000 });
