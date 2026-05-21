@@ -1148,32 +1148,19 @@
       "subtasks": []
     },
     {
-      "id": "mpf6o0frvs2aa",
-      "type": "task",
-      "content": "提醒机制是什么，加入提醒的时间？第三天的什么是否会再次提醒？",
-      "createdAt": "2026-05-21T07:42:39.159Z",
-      "updatedAt": "2026-05-21T07:48:49.901Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpf6pbot62i71",
       "type": "task",
       "content": "看下CRM的反馈结果，写一下是什么，接下来怎么做？",
       "createdAt": "2026-05-21T07:43:40.397Z",
-      "updatedAt": "2026-05-21T08:56:16.148Z",
+      "updatedAt": "2026-05-21T09:08:55.786Z",
       "tags": [
         "CRM"
       ],
       "done": false,
       "dueTime": "6min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpf9qo2bkv6kh"
     },
     {
       "id": "mpf6qrcz0xdej",
@@ -1192,12 +1179,13 @@
       "type": "task",
       "content": "问下黄工客资，关于：有县分反馈资源系统 无搜索其他行政区设备权限，导致没法修正归属（行政区、维护支局）。解决办法是是给他们增加权限，还是请您们修改归属，或者给我配置权限 我给他们更新？",
       "createdAt": "2026-05-21T07:45:49.947Z",
-      "updatedAt": "2026-05-21T07:45:49.947Z",
+      "updatedAt": "2026-05-21T09:09:06.989Z",
       "tags": [],
       "done": false,
       "dueTime": "3min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpf9qo2bkv6kh"
     },
     {
       "id": "mpf6sd30kqfmu",
@@ -1219,14 +1207,15 @@
       "type": "task",
       "content": "看增城的退网单",
       "createdAt": "2026-05-21T07:46:34.965Z",
-      "updatedAt": "2026-05-21T07:46:34.965Z",
+      "updatedAt": "2026-05-21T09:09:08.962Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpf9qo2bkv6kh"
     },
     {
       "id": "mpf6tfubo8emz",
@@ -1731,8 +1720,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mpf6ww0ibm3mc",
-      "name": "先做网管改名，还有视频，消灭焦虑到4.15吧。"
+      "id": "slot_mpf9qo2bkv6kh",
+      "name": "五点半前"
     }
   ],
   "tags": [
@@ -2499,6 +2488,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T08:44:40.598Z"
+    "lastSync": "2026-05-21T09:06:42.198Z"
   }
 }
