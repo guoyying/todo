@@ -1182,6 +1182,58 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpf6s3nfgf3vi",
+      "type": "task",
+      "content": "问下黄工客资，关于：有县分反馈资源系统 无搜索其他行政区设备权限，导致没法修正归属（行政区、维护支局）。解决办法是是给他们增加权限，还是请您们修改归属，或者给我配置权限 我给他们更新？",
+      "createdAt": "2026-05-21T07:45:49.947Z",
+      "updatedAt": "2026-05-21T07:45:49.947Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "3min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpf6sd30kqfmu",
+      "type": "task",
+      "content": "答复NOC",
+      "createdAt": "2026-05-21T07:46:02.172Z",
+      "updatedAt": "2026-05-21T07:46:02.172Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "9min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpf6t2dxxtn83",
+      "type": "task",
+      "content": "看增城的退网单",
+      "createdAt": "2026-05-21T07:46:34.965Z",
+      "updatedAt": "2026-05-21T07:46:34.965Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpf6tfubo8emz",
+      "type": "task",
+      "content": "视频剪辑，就做15分钟。",
+      "createdAt": "2026-05-21T07:46:52.403Z",
+      "updatedAt": "2026-05-21T07:46:52.403Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2445,6 +2497,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T07:42:43.226Z"
+    "lastSync": "2026-05-21T07:44:52.946Z"
   }
 }
