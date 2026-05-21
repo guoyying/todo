@@ -1250,6 +1250,20 @@
       "dueTime": "8min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpfgw7smndz48",
+      "type": "task",
+      "content": "ai关联搜索，我想新增显示/隐藏提示词。另外，显示ai结果的样式在哪里调整的？",
+      "createdAt": "2026-05-21T12:28:58.102Z",
+      "updatedAt": "2026-05-21T12:28:58.102Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2244,7 +2258,9 @@
     },
     "AI": {
       "color": "#f5f5f0",
-      "textColor": "#333333"
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "taskTriggers": [
