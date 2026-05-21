@@ -435,22 +435,6 @@
       "subtasks": []
     },
     {
-      "id": "mp6d3pe1k05i0",
-      "type": "task",
-      "content": "标记已经参加座谈会的同事",
-      "createdAt": "2026-05-15T03:32:53.449Z",
-      "updatedAt": "2026-05-18T10:07:46.821Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-18T10:07:46.821Z"
-    },
-    {
       "id": "mp6lpfmz93x9s",
       "type": "task",
       "content": "网安单：转发负载策略收敛专项工作。收集处理转发策略",
@@ -685,22 +669,6 @@
       "subtasks": []
     },
     {
-      "id": "mpak3zq6lrmd8",
-      "type": "task",
-      "content": "质态提升工作",
-      "createdAt": "2026-05-18T02:00:08.862Z",
-      "updatedAt": "2026-05-18T03:21:28.412Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-18T03:21:28.411Z"
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -882,21 +850,6 @@
       "subtasks": []
     },
     {
-      "id": "mpca0u5o95m0p",
-      "type": "task",
-      "content": "签约表打印",
-      "createdAt": "2026-05-19T06:53:17.868Z",
-      "updatedAt": "2026-05-19T07:17:50.338Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "4min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T07:17:50.338Z"
-    },
-    {
       "id": "mpcadssoco33q",
       "type": "task",
       "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
@@ -910,21 +863,6 @@
       "unknown": true,
       "doneAt": "2026-05-19T07:58:33.950Z",
       "subtasks": []
-    },
-    {
-      "id": "mpcaf2nm6iub5",
-      "type": "task",
-      "content": "资产检查工作，看下我要做什么",
-      "createdAt": "2026-05-19T07:04:22.066Z",
-      "updatedAt": "2026-05-19T07:59:47.270Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T07:59:47.270Z"
     },
     {
       "id": "mpcb5bw6esfoh",
@@ -2429,6 +2367,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-20T09:12:31.780Z"
+    "lastSync": "2026-05-21T00:16:32.629Z"
   }
 }
