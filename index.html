@@ -6051,9 +6051,8 @@
                       }
                   };
                   
-                  // 桌面端：创建容器包装文本框和时间输入框
-                  const isDesktop = window.innerWidth > 768;
-                  if (isDesktop && !item.unknown) {
+                  // 创建容器包装文本框和时间输入框（所有设备统一布局）
+                  if (!item.unknown) {
                       const inputContainer = document.createElement('div');
                       inputContainer.style.display = 'flex';
                       inputContainer.style.alignItems = 'flex-start';
@@ -6123,67 +6122,8 @@
                       inputContainer.appendChild(timeInput);
                       contentDiv.appendChild(inputContainer);
                   } else {
-                      // 移动端或未知时间任务：直接添加文本框
+                      // 未知时间任务：直接添加文本框
                       contentDiv.appendChild(textInput);
-                      
-                      // 移动端：在文本框下方添加时间输入框
-                      if (!item.unknown) {
-                          const timeInput = document.createElement('input');
-                          timeInput.type = 'text';
-                          timeInput.value = item.dueTime || '';
-                          timeInput.placeholder = '预计时间';
-                          timeInput.style.width = '60px';
-                          timeInput.style.marginLeft = '8px';
-                          timeInput.style.border = '1px solid var(--border)';
-                          timeInput.style.borderRadius = '4px';
-                          timeInput.style.padding = '2px 6px';
-                          timeInput.style.fontSize = '12px';
-                          timeInput.onchange = (e) => {
-                              // 检查强提醒（允许编辑强提醒任务本身）
-                              if (hasStrongReminder(item.id)) {
-                                  const strongTasks = getStrongReminderTasks();
-                                  showToast('存在强提醒任务，无法编辑任务预计时间！请先处理超过12小时未更新的任务。', { duration: 5000 });
-                                  e.target.value = item.dueTime || ''; // 恢复原值
-                                  return;
-                              }
-                              
-                              const timeValue = e.target.value.trim();
-                              // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
-                              if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
-                                  return;
-                              }
-                              // 检查时间是否真的发生了变化
-                              if (timeValue !== (item.dueTime || '')) {
-                                  item.dueTime = timeValue;
-                                  item.updatedAt = nowStr();
-                                  saveData();
-                                  render();
-                              }
-                          };
-                          timeInput.onblur = (e) => {
-                              // 检查强提醒（允许编辑强提醒任务本身）
-                              if (hasStrongReminder(item.id)) {
-                                  const strongTasks = getStrongReminderTasks();
-                                  showToast('存在强提醒任务，无法编辑任务预计时间！请先处理超过12小时未更新的任务。', { duration: 5000 });
-                                  e.target.value = item.dueTime || ''; // 恢复原值
-                                  return;
-                              }
-                              
-                              const timeValue = e.target.value.trim();
-                              // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
-                              if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
-                                  return;
-                              }
-                              // 检查时间是否真的发生了变化
-                              if (timeValue !== (item.dueTime || '')) {
-                                  item.dueTime = timeValue;
-                                  item.updatedAt = nowStr();
-                                  saveData();
-                                  render();
-                              }
-                          };
-                          contentDiv.appendChild(timeInput);
-                      }
                   }
                 
                 // 添加标签编辑功能
