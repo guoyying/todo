@@ -1166,12 +1166,12 @@
       "type": "task",
       "content": "看下CRM的反馈结果，写一下是什么，接下来怎么做？",
       "createdAt": "2026-05-21T07:43:40.397Z",
-      "updatedAt": "2026-05-21T07:43:40.397Z",
+      "updatedAt": "2026-05-21T08:56:16.148Z",
       "tags": [
         "CRM"
       ],
       "done": false,
-      "dueTime": "15min",
+      "dueTime": "6min",
       "unknown": false,
       "subtasks": []
     },
@@ -2246,27 +2246,6 @@
   },
   "taskTriggers": [
     {
-      "id": "mpajb5448wyj9",
-      "taskId": "mpahsrj7sccmc",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "22:00",
-            "endTime": "22:02",
-            "message": "可视化今天吃了什么，吃了多少。"
-          }
-        ]
-      },
-      "createdAt": "2026-05-18T01:37:42.820Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mpaw2ko1py438",
       "taskId": "mp7r0gnotxyuj",
       "type": "condition",
@@ -2291,6 +2270,27 @@
       "lastReminderTimes": {
         "0": "2026-05-21T07:37:23.185Z"
       }
+    },
+    {
+      "id": "mpf9ndailhdkc",
+      "taskId": "mpahsrj7sccmc",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "22:00",
+            "endTime": "09:00",
+            "message": "记录老公吃了啥"
+          }
+        ]
+      },
+      "createdAt": "2026-05-21T09:06:08.010Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2499,6 +2499,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T08:32:05.300Z"
+    "lastSync": "2026-05-21T08:44:40.598Z"
   }
 }
