@@ -1166,6 +1166,38 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpezztapfpj6p",
+      "type": "task",
+      "content": "这是普通任务",
+      "createdAt": "2026-05-21T04:35:52.465Z",
+      "updatedAt": "2026-05-21T04:35:52.465Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpf002l4loe5l",
+      "type": "task",
+      "content": "这是未知任务",
+      "createdAt": "2026-05-21T04:36:04.504Z",
+      "updatedAt": "2026-05-21T04:36:04.504Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpf002l49q4a5",
+          "content": "子任务",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2420,6 +2452,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T03:55:39.271Z"
+    "lastSync": "2026-05-21T04:15:04.604Z"
   }
 }
