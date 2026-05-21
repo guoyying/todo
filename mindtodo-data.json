@@ -1133,38 +1133,17 @@
     {
       "id": "mpequ8cfo838g",
       "type": "task",
-      "content": "时间触发提醒时，能否用任务本身的内容提示？",
+      "content": "优化桌面和移动端任务文本框显示",
       "createdAt": "2026-05-21T00:19:35.487Z",
-      "updatedAt": "2026-05-21T01:23:57.663Z",
+      "updatedAt": "2026-05-21T03:53:24.451Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779322940154",
-          "content": "优化移动端普通任务/父任务的预计时间框位置、子任务文本框与预计时间栏的宽度是哪个函数控制的？",
-          "done": false,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1779325074619",
-          "content": "我想知道创建普通任务后，添加子任务。和直接创建父任务和子任务，调用的函数和数据结构有什么不同？",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1779326611412",
-          "content": "移动端的父任务、普通任务和子任务文本框高度是什么函数控制的？",
-          "done": false,
-          "estimatedTime": "5min",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-21T03:53:24.451Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
