@@ -1129,6 +1129,20 @@
       "unknown": true,
       "doneAt": "2026-05-20T09:25:53.759Z",
       "subtasks": []
+    },
+    {
+      "id": "mpequ8cfo838g",
+      "type": "task",
+      "content": "时间触发提醒时，能否用任务本身的内容提示？",
+      "createdAt": "2026-05-21T00:19:35.487Z",
+      "updatedAt": "2026-05-21T00:19:35.487Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2367,6 +2381,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T00:16:32.629Z"
+    "lastSync": "2026-05-21T00:17:20.426Z"
   }
 }
