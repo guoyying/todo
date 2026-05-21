@@ -1144,6 +1144,28 @@
       "unknown": false,
       "doneAt": "2026-05-21T03:53:24.451Z",
       "subtasks": []
+    },
+    {
+      "id": "mpeyj5nb69bcz",
+      "type": "task",
+      "content": "移动端的日历按钮位置在哪里调整？",
+      "createdAt": "2026-05-21T03:54:55.704Z",
+      "updatedAt": "2026-05-21T03:55:33.555Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1779335702215",
+          "content": "子任务预计时间，普通任务预计时间，父任务预计时间限制在哪里设置？",
+          "done": false,
+          "estimatedTime": "5",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2398,6 +2420,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T02:04:48.258Z"
+    "lastSync": "2026-05-21T03:53:30.581Z"
   }
 }
