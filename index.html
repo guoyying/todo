@@ -8965,35 +8965,40 @@
           }
           
           // 显示提醒气泡
-          function showReminderBubble(trigger) {
-              console.log('显示提醒气泡:', trigger);
-              const bubble = document.getElementById('reminderBubble');
-              const message = document.getElementById('reminderBubbleMessage');
-              
-              if (!bubble || !message) {
-                  console.error('提醒气泡元素不存在');
-                  return;
-              }
-              
-              // 确保使用正确的消息
-              let reminderMessage = '你有1个任务待处理';
-              
-              if (trigger.type === 'time') {
-                  // 时间触发：直接使用reminderConfig.message
-                  if (trigger.reminderConfig && trigger.reminderConfig.message) {
-                      reminderMessage = trigger.reminderConfig.message;
-                  }
-              } else {
-                  // 条件触发：使用reminders数组中的消息
-                  if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
-                      const currentReminder = trigger.reminderConfig.reminders[0];
-                      if (currentReminder.message) {
-                          reminderMessage = currentReminder.message;
-                      }
-                  }
-              }
-              
-              message.textContent = reminderMessage;
+           function showReminderBubble(trigger) {
+               console.log('显示提醒气泡:', trigger);
+               const bubble = document.getElementById('reminderBubble');
+               const message = document.getElementById('reminderBubbleMessage');
+               
+               if (!bubble || !message) {
+                   console.error('提醒气泡元素不存在');
+                   return;
+               }
+               
+               // 获取任务信息
+               const task = data.tasks.find(t => t.id === trigger.taskId);
+               
+               // 确保使用正确的消息
+               let reminderMessage = '你有1个任务待处理';
+               
+               if (trigger.type === 'time') {
+                   // 时间触发：显示任务具体内容
+                   if (task) {
+                       reminderMessage = `⏰ 任务提醒：${task.content}`;
+                   } else if (trigger.reminderConfig && trigger.reminderConfig.message) {
+                       reminderMessage = trigger.reminderConfig.message;
+                   }
+               } else {
+                   // 条件触发：使用reminders数组中的消息
+                   if (trigger.reminderConfig.reminders && trigger.reminderConfig.reminders.length > 0) {
+                       const currentReminder = trigger.reminderConfig.reminders[0];
+                       if (currentReminder.message) {
+                           reminderMessage = currentReminder.message;
+                       }
+                   }
+               }
+               
+               message.textContent = reminderMessage;
               bubble.classList.remove('hidden');
               
               // 确保气泡在最上层
