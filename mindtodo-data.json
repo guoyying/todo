@@ -1211,15 +1211,16 @@
       "type": "task",
       "content": "看增城的退网单",
       "createdAt": "2026-05-21T07:46:34.965Z",
-      "updatedAt": "2026-05-21T09:09:08.962Z",
+      "updatedAt": "2026-05-21T09:43:55.411Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpf9qo2bkv6kh"
+      "placedIn": null,
+      "doneAt": "2026-05-21T09:43:55.411Z"
     },
     {
       "id": "mpf6tfubo8emz",
@@ -1722,12 +1723,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpf9qo2bkv6kh",
-      "name": "五点半前"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
