@@ -1178,15 +1178,18 @@
     {
       "id": "mpf6s3nfgf3vi",
       "type": "task",
-      "content": "问下黄工客资，关于：有县分反馈资源系统 无搜索其他行政区设备权限，导致没法修正归属（行政区、维护支局）。解决办法是是给他们增加权限，还是请您们修改归属，或者给我配置权限 我给他们更新？",
+      "content": "问客资县分没权限修改设备归属的解决方法",
       "createdAt": "2026-05-21T07:45:49.947Z",
-      "updatedAt": "2026-05-21T09:09:06.989Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-21T09:18:54.568Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": "3min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpf9qo2bkv6kh"
+      "placedIn": null,
+      "doneAt": "2026-05-21T09:18:54.568Z"
     },
     {
       "id": "mpf6sd30kqfmu",
@@ -2489,6 +2492,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T09:09:14.578Z"
+    "lastSync": "2026-05-21T09:17:04.274Z"
   }
 }
