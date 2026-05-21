@@ -1264,6 +1264,18 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpfmsug7hzjus",
+      "type": "task",
+      "content": "条件提醒：每天。没有效果，为什么？",
+      "createdAt": "2026-05-21T15:14:18.535Z",
+      "updatedAt": "2026-05-21T15:14:18.535Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2308,27 +2320,6 @@
         ]
       },
       "createdAt": "2026-05-21T14:06:08.010Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpfmpd929do24",
-      "taskId": "mpfgw7smndz48",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "23:12",
-            "endTime": "18:00",
-            "message": "测试"
-          }
-        ]
-      },
-      "createdAt": "2026-05-21T15:11:36.278Z",
       "lastReminderTime": null,
       "active": true
     }
