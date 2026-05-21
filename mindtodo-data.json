@@ -39,19 +39,6 @@
       "doneAt": "2026-04-28T06:50:23.479Z"
     },
     {
-      "id": "moidup8mi1itx",
-      "type": "task",
-      "content": "做好邮件团支部的",
-      "createdAt": "2026-04-28T08:47:24.742Z",
-      "updatedAt": "2026-04-28T09:20:30.968Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-04-28T09:20:30.968Z"
-    },
-    {
       "id": "mol8s7a83aslu",
       "type": "task",
       "content": "找客资要一份光路清单，我要看下跟局内s转o是否包含在内",
@@ -255,28 +242,6 @@
         }
       ],
       "doneAt": "2026-05-08T10:21:10.964Z"
-    },
-    {
-      "id": "moxn2pvyb74hr",
-      "type": "task",
-      "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
-      "createdAt": "2026-05-09T01:02:08.014Z",
-      "updatedAt": "2026-05-09T02:43:51.292Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "moxn2pvy7s6es",
-          "content": "思考下记录在哪里。",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-09T02:43:48.746Z"
     },
     {
       "id": "moxvp5eha1sim",
@@ -500,22 +465,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-19T01:25:45.171Z"
-    },
-    {
-      "id": "mp6psvdvluwor",
-      "type": "task",
-      "content": "新建工程验收：发现华姐验收完了。",
-      "createdAt": "2026-05-15T09:28:23.011Z",
-      "updatedAt": "2026-05-19T01:58:01.158Z",
-      "tags": [
-        "RPA"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T01:58:01.158Z"
     },
     {
       "id": "mp7r0gnotxyuj",
@@ -1635,6 +1584,15 @@
       "tags": [],
       "createdAt": "2026-05-20T01:14:09.047Z",
       "updatedAt": "2026-05-20T01:14:09.047Z"
+    },
+    {
+      "id": "mpeqovjx9jgov",
+      "content": "坐地铁是真的累，周围人的碰撞、喷嚏声、吵架声…可能是所谓的微小“流程摩擦”吧。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-05-21T00:15:25.629Z",
+      "updatedAt": "2026-05-21T00:15:25.629Z"
     }
   ],
   "practiceBlocks": [
@@ -2274,6 +2232,20 @@
   ],
   "knowledgeBase": [
     {
+      "id": "mpeqq6txgab0adm593",
+      "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
+      "tags": [],
+      "createdAt": "2026-05-21T00:16:26.901Z",
+      "updatedAt": "2026-05-21T00:16:26.901Z"
+    },
+    {
+      "id": "mpde4qrtl36edk9ulc",
+      "content": "SDH和WDM路径有什么区别：SDH基于时分复用（TDM）实现单一光纤上多路信号的同步传输，而WDM基于波分复用技术，在同一光纤上同时传输多个不同波长的光信号。",
+      "tags": [],
+      "createdAt": "2026-05-20T01:36:04.745Z",
+      "updatedAt": "2026-05-20T01:36:04.745Z"
+    },
+    {
       "id": "mpcc9wbungatpq0j8m",
       "content": "资源系统导出退网已拆除清单（正常是找不到的）->检查县分台账，退网已拆除的，移交后系统才会更新。",
       "tags": [],
@@ -2288,13 +2260,6 @@
       ],
       "createdAt": "2026-05-19T00:34:18.277Z",
       "updatedAt": "2026-05-19T00:47:18.674Z"
-    },
-    {
-      "id": "mpde4qrtl36edk9ulc",
-      "content": "SDH和WDM路径有什么区别：SDH基于时分复用（TDM）实现单一光纤上多路信号的同步传输，而WDM基于波分复用技术，在同一光纤上同时传输多个不同波长的光信号。",
-      "tags": [],
-      "createdAt": "2026-05-20T01:36:04.745Z",
-      "updatedAt": "2026-05-20T01:36:04.745Z"
     }
   ],
   "aiConfig": {
