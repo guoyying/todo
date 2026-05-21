@@ -1150,8 +1150,10 @@
       "type": "task",
       "content": "提醒机制是什么，加入提醒的时间？第三天的什么是否会再次提醒？",
       "createdAt": "2026-05-21T07:42:39.159Z",
-      "updatedAt": "2026-05-21T07:42:39.159Z",
-      "tags": [],
+      "updatedAt": "2026-05-21T07:48:49.901Z",
+      "tags": [
+        "AI"
+      ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
@@ -2225,6 +2227,10 @@
       "textColor": "#333333",
       "activeValue": "#e65100",
       "activeTextColor": "#FFFFFF"
+    },
+    "AI": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "taskTriggers": [
@@ -2497,6 +2503,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T07:44:52.946Z"
+    "lastSync": "2026-05-21T07:47:04.973Z"
   }
 }
