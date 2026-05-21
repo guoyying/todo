@@ -1202,14 +1202,17 @@
     {
       "id": "mpf6sd30kqfmu",
       "type": "task",
-      "content": "答复NOC",
+      "content": "答复NOC：华为烽火的url要提供；提供网关网元的安全策略（没有）；省soc漏洞扫描结果。",
       "createdAt": "2026-05-21T07:46:02.172Z",
-      "updatedAt": "2026-05-21T07:46:02.172Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-21T08:44:33.386Z",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
       "dueTime": "9min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-21T08:44:33.386Z"
     },
     {
       "id": "mpf6t2dxxtn83",
@@ -1230,14 +1233,15 @@
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
       "createdAt": "2026-05-21T07:46:52.403Z",
-      "updatedAt": "2026-05-21T07:46:52.403Z",
+      "updatedAt": "2026-05-21T08:31:56.843Z",
       "tags": [
         "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-21T08:31:56.843Z"
     }
   ],
   "normalFeelings": [
@@ -2495,6 +2499,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-21T07:48:57.394Z"
+    "lastSync": "2026-05-21T08:32:05.300Z"
   }
 }
