@@ -2312,8 +2312,30 @@
       "createdAt": "2026-05-21T14:06:08.010Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpgahoncg3lna",
+      "taskId": "mpfmsug7hzjus",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "10:19",
+            "endTime": "18:00",
+            "message": "这是测试条件提醒"
+          }
+        ]
+      },
+      "createdAt": "2026-05-22T02:17:28.584Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
+  "conditionReminderConfirmations": {},
   "knowledgeBase": [
     {
       "id": "mpfdhd6mqt5qgruibj",
