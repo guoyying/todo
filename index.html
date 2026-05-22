@@ -17268,8 +17268,8 @@ ${knowledgeSummary}
                  }
              }
              
-             // 使用callAIApi函数 - 传递完整提示词作为content，不传递customPrompt
-             const response = await callAiApi(fullPrompt, data.aiConfig.model);
+             // 使用callAIApi函数 - 启用自定义模式，直接使用fullPrompt作为完整提示词
+             const response = await callAiApi(fullPrompt, data.aiConfig.model, null, true);
              
              // 构建匹配结果HTML
              let matchedItemsHtml = '';
