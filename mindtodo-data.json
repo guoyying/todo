@@ -1168,12 +1168,20 @@
       "type": "task",
       "content": "写一下这两天的物质检查工作，我可以做些什么。",
       "createdAt": "2026-05-21T07:44:47.363Z",
-      "updatedAt": "2026-05-21T07:44:47.363Z",
+      "updatedAt": "2026-05-22T01:40:03.160Z",
       "tags": [],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779413992067",
+          "content": "告诉县分和黎工。",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mpf6s3nfgf3vi",
@@ -1240,30 +1248,17 @@
     {
       "id": "mpfbfb6uek1qk",
       "type": "task",
-      "content": "让天河给我一个信息，电信大厦-GZHC051的9-1口。",
+      "content": "补环，我自己去查电信大厦的端口位置。",
       "createdAt": "2026-05-21T09:55:51.270Z",
-      "updatedAt": "2026-05-21T09:55:51.270Z",
+      "updatedAt": "2026-05-22T01:48:41.186Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mpfgw7smndz48",
-      "type": "task",
-      "content": "ai关联搜索，我想新增显示/隐藏提示词。另外，显示ai结果的样式在哪里调整的？",
-      "createdAt": "2026-05-21T12:28:58.102Z",
-      "updatedAt": "2026-05-21T12:28:58.102Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-22T01:48:41.186Z"
     },
     {
       "id": "mpfmsug7hzjus",
