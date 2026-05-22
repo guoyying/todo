@@ -8991,7 +8991,9 @@
                   frequency: frequency,
                   startTime: startTime,
                   endTime: endTime,
-                  message: message || '你有1个任务'
+                  message: message || '你有1个任务',
+                  confirmed: false,           // 初始化确认状态
+                  confirmationTime: null       // 初始化确认时间
               };
               
               if (frequency === 'custom') {
