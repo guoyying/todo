@@ -9618,13 +9618,37 @@
                       
                       const [hours, minutes] = startTime.split(':').map(Number);
                       
+                      // 检查当前时间是否在时间范围内（支持跨天）
+                      const currentTime = now.toTimeString().substring(0, 5);
+                      let isInTimeRange;
+                      if (startTime <= endTime) {
+                          // 不跨天：如 09:00 - 18:00
+                          isInTimeRange = currentTime >= startTime && currentTime <= endTime;
+                      } else {
+                          // 跨天：如 22:00 - 09:00
+                          isInTimeRange = currentTime >= startTime || currentTime <= endTime;
+                      }
+                      
+                      // 检查提醒的确认状态
+                      const reminderData = reminder;
+                      const isConfirmed = reminderData && reminderData.confirmed;
+                      
+                      // 优先级逻辑：如果confirmed为false且在时间范围内，立即启动检测
+                      let shouldStartImmediately = false;
+                      if (!isConfirmed && isInTimeRange) {
+                          shouldStartImmediately = true;
+                          console.log(`✓ 优先级触发: confirmed=false且在时间范围内${startTime}-${endTime}，立即启动检测`);
+                      }
+                      
                       // 计算下次提醒时间
                       let reminderTime = new Date(now);
                       reminderTime.setHours(hours, minutes, 0, 0);
                       
-                      // 如果今天的提醒时间已过，计算下一个提醒时间
-                      if (reminderTime <= now) {
-                          // 根据频率计算下一个提醒时间
+                      if (shouldStartImmediately) {
+                          // 立即启动，不等待
+                          reminderTime = now;
+                      } else if (reminderTime <= now) {
+                          // 如果今天的提醒时间已过，计算下一个提醒时间
                           if (frequency === 'daily') {
                               reminderTime.setDate(reminderTime.getDate() + 1);
                           } else if (frequency === 'weekly') {
