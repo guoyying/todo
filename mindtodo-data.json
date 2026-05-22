@@ -1254,18 +1254,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-22T01:48:41.186Z"
-    },
-    {
-      "id": "mpfmsug7hzjus",
-      "type": "task",
-      "content": "条件提醒：每天。没有效果，为什么？",
-      "createdAt": "2026-05-21T15:14:18.535Z",
-      "updatedAt": "2026-05-21T15:14:18.535Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2312,29 +2300,6 @@
       "createdAt": "2026-05-21T14:06:08.010Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mpgbyjzyrq9lf",
-      "taskId": "mpfmsug7hzjus",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "10:59",
-            "endTime": "18:00",
-            "message": "ceshi",
-            "confirmed": false,
-            "confirmationTime": null
-          }
-        ]
-      },
-      "createdAt": "2026-05-22T02:58:35.326Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2550,6 +2515,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-22T02:39:48.115Z"
+    "lastSync": "2026-05-22T03:06:29.948Z"
   }
 }
