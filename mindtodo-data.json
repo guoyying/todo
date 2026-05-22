@@ -1258,17 +1258,18 @@
     {
       "id": "mpgcotjdvl8ep",
       "type": "task",
-      "content": "退网单搞定",
+      "content": "退网单0522",
       "createdAt": "2026-05-22T03:19:00.745Z",
-      "updatedAt": "2026-05-22T03:19:02.692Z",
+      "updatedAt": "2026-05-22T07:42:56.385Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpgcoizny61zh"
+      "placedIn": null,
+      "doneAt": "2026-05-22T07:42:56.385Z"
     },
     {
       "id": "mpgcp3fw2525g",
