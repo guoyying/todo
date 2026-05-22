@@ -58,7 +58,7 @@
         }
         
         .kb-item-content {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text);
             margin-bottom: 8px;
             line-height: 1.6;
@@ -327,7 +327,157 @@
              /* 知识库卡片移动端优化 - 只覆盖需要调整的样式 */
              .kb-item {
                  padding: 10px !important;
-                 margin-bottom: 8px !important;
+             }
+             
+             /* AI搜索结果样式 - 方案一：现代简约风格 */
+             .ai-search-result {
+                 padding: 20px;
+                 background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                 border-radius: 12px;
+                 margin: 16px 0;
+             }
+             
+             .ai-search-result h4 {
+                 margin: 0 0 16px 0;
+                 font-size: 16px;
+                 color: #2c3e50;
+                 font-weight: 600;
+                 display: flex;
+                 align-items: center;
+                 gap: 8px;
+             }
+             
+             /* AI回答区域优化 */
+             .ai-response-section {
+                 background: white;
+                 border-radius: 8px;
+                 padding: 20px;
+                 box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                 border-left: 4px solid #667eea;
+                 animation: slideUp 0.4s ease-out;
+             }
+             
+             .ai-response-section h4 {
+                 color: #667eea;
+                 font-size: 15px;
+                 margin-bottom: 16px;
+                 padding-bottom: 12px;
+                 border-bottom: 2px solid #f0f0f0;
+             }
+             
+             .ai-search-content {
+                 color: #2c3e50;
+                 line-height: 1.8;
+                 font-size: 14px;
+             }
+             
+             .ai-search-content h1,
+             .ai-search-content h2,
+             .ai-search-content h3 {
+                 color: #667eea;
+                 margin-top: 16px;
+                 margin-bottom: 8px;
+             }
+             
+             .ai-search-content ul,
+             .ai-search-content ol {
+                 padding-left: 20px;
+                 margin: 12px 0;
+             }
+             
+             .ai-search-content li {
+                 margin-bottom: 6px;
+                 line-height: 1.6;
+             }
+             
+             .ai-search-content code {
+                 background: #f8f9fa;
+                 padding: 2px 6px;
+                 border-radius: 4px;
+                 font-family: 'Courier New', monospace;
+                 font-size: 13px;
+                 color: #e74c3c;
+             }
+             
+             .ai-search-content pre {
+                 background: #2c3e50;
+                 color: #ecf0f1;
+                 padding: 16px;
+                 border-radius: 8px;
+                 overflow-x: auto;
+                 margin: 12px 0;
+             }
+             
+             .ai-search-content blockquote {
+                 border-left: 4px solid #667eea;
+                 padding-left: 16px;
+                 margin: 12px 0;
+                 color: #7f8c8d;
+                 font-style: italic;
+             }
+             
+             .matched-knowledge-section {
+                 animation: fadeIn 0.3s ease-in;
+             }
+             
+             .matched-item {
+                 transition: all 0.2s ease;
+             }
+             
+             .matched-item:hover {
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                 transform: translateY(-1px);
+             }
+             
+             .matched-item-content {
+                 max-height: 120px;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+                 display: -webkit-box;
+                 -webkit-line-clamp: 4;
+                 line-clamp: 4;
+                 -webkit-box-orient: vertical;
+             }
+             
+             .ai-response-section {
+                 animation: slideUp 0.3s ease-out;
+             }
+             
+             @keyframes fadeIn {
+                 from { opacity: 0; }
+                 to { opacity: 1; }
+             }
+             
+             @keyframes fadeOut {
+                 from { opacity: 1; }
+                 to { opacity: 0; }
+             }
+             
+             @keyframes slideUp {
+                 from {
+                     opacity: 0;
+                     transform: translateY(10px);
+                 }
+                 to {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+             }
+             
+             /* AI提示词区域样式 */
+             #aiPromptContainer {
+                 animation: expandHeight 0.3s ease-out;
+             }
+             
+             @keyframes expandHeight {
+                 from {
+                     max-height: 0;
+                     opacity: 0;
+                 }
+                 to {
+                     max-height: 500px;
+                     opacity: 1;
+                 }
              }
              
              .kb-item-content {
@@ -359,161 +509,228 @@
                  font-size: 12px !important;
              }
              
+             /* 删除重复的旧样式，使用方案一的现代简约风格 */
+             
              /* AI搜索结果样式 */
-             .ai-search-result {
-                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                 color: white;
-                 padding: 16px;
+             .ai-search-results {
+                 margin-top: 12px;
+                 animation: fadeIn 0.3s ease-in;
+             }
+             
+             .ai-search-result-item {
+                 background: var(--bg-secondary);
+                 border: 1px solid var(--border);
                  border-radius: 8px;
-                 margin-bottom: 16px;
-             }
-             
-             .ai-search-result h4 {
-                 margin: 0 0 12px 0;
-                 font-size: 16px;
-                 font-weight: 600;
-             }
-             
-             /* AI搜索结果Markdown内容样式 */
-             .ai-search-content {
-                 color: white;
-                 line-height: 1.6;
-             }
-             
-             .ai-search-content h1,
-             .ai-search-content h2,
-             .ai-search-content h3,
-             .ai-search-content h4,
-             .ai-search-content h5,
-             .ai-search-content h6 {
-                 margin-top: 16px;
+                 padding: 12px;
                  margin-bottom: 8px;
-                 font-weight: 600;
-                 color: white;
+                 cursor: pointer;
+                 transition: all 0.2s ease;
              }
              
-             .ai-search-content h1 {
-                 font-size: 20px;
-                 border-bottom: 2px solid rgba(255,255,255,0.3);
-                 padding-bottom: 8px;
+             .ai-search-result-item:hover {
+                 border-color: var(--primary);
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                 transform: translateY(-1px);
              }
              
-             .ai-search-content h2 {
-                 font-size: 18px;
-                 border-bottom: 1px solid rgba(255,255,255,0.2);
-                 padding-bottom: 6px;
+             .ai-search-result-item.selected {
+                 border-color: var(--primary);
+                 background: var(--primary-light);
              }
              
-             .ai-search-content h3 {
-                 font-size: 16px;
-             }
-             
-             .ai-search-content p {
-                 margin: 8px 0;
+             .ai-search-result-title {
                  font-size: 14px;
-                 line-height: 1.6;
-                 opacity: 0.95;
+                 font-weight: 600;
+                 color: var(--text-primary);
+                 margin-bottom: 6px;
              }
              
-             .ai-search-content ul,
-             .ai-search-content ol {
-                 margin: 8px 0;
+             .ai-search-result-content {
+                 font-size: 13px;
+                 color: var(--text-secondary);
+                 max-height: 80px;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+                 display: -webkit-box;
+                 -webkit-line-clamp: 3;
+                 line-clamp: 3;
+                 -webkit-box-orient: vertical;
+             }
+             
+             .ai-search-result-meta {
+                 display: flex;
+                 align-items: center;
+                 gap: 8px;
+                 margin-top: 8px;
+                 font-size: 11px;
+                 color: var(--text-tertiary);
+             }
+             
+             .ai-search-result-score {
+                 background: var(--primary-light);
+                 color: var(--primary);
+                 padding: 2px 6px;
+                 border-radius: 4px;
+                 font-weight: 600;
+             }
+             
+             .ai-search-result-type {
+                 background: var(--bg-tertiary);
+                 padding: 2px 6px;
+                 border-radius: 4px;
+             }
+             
+             .ai-search-no-results {
+                 text-align: center;
+                 padding: 20px;
+                 color: var(--text-secondary);
+                 font-size: 13px;
+             }
+             
+             .ai-search-loading {
+                 text-align: center;
+                 padding: 20px;
+                 color: var(--text-secondary);
+                 font-size: 13px;
+             }
+             
+             .ai-search-loading::after {
+                 content: '...';
+                 animation: dots 1.5s steps(4, end) infinite;
+             }
+             
+             @keyframes dots {
+                 0%, 20% { content: '.'; }
+                 40% { content: '..'; }
+                 60%, 100% { content: '...'; }
+             }
+             
+             /* 选中知识项样式 */
+             .selected-knowledge-item {
+                 background: var(--bg-secondary);
+                 border: 1px solid var(--primary);
+                 border-radius: 6px;
+                 padding: 10px;
+                 margin-bottom: 8px;
+                 position: relative;
+                 animation: fadeIn 0.2s ease-in;
+             }
+             
+             .selected-knowledge-title {
+                 font-size: 13px;
+                 font-weight: 600;
+                 color: var(--text-primary);
+                 margin-bottom: 4px;
+                 padding-right: 24px;
+             }
+             
+             .selected-knowledge-content {
+                 font-size: 12px;
+                 color: var(--text-secondary);
+                 line-height: 1.4;
+             }
+             
+             .selected-knowledge-item .btn {
+                 position: absolute;
+                 top: 8px;
+                 right: 8px;
+                 width: 20px;
+                 height: 20px;
+                 padding: 0;
+                 border-radius: 50%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 font-size: 12px;
+             }
+             
+             /* AI回答卡片优化样式 */
+             .ai-response-card {
+                 transition: all 0.3s ease;
+             }
+             
+             .ai-response-card:hover {
+                 box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+                 transform: translateY(-2px);
+             }
+             
+             .ai-response-card .ai-search-content {
+                 animation: fadeIn 0.5s ease-in;
+             }
+             
+             .ai-response-card .ai-search-content p {
+                 margin-bottom: 12px;
+             }
+             
+             .ai-response-card .ai-search-content p:last-child {
+                 margin-bottom: 0;
+             }
+             
+             .ai-response-card .ai-search-content strong {
+                 color: var(--primary);
+                 font-weight: 600;
+             }
+             
+             .ai-response-card .ai-search-content ul,
+             .ai-response-card .ai-search-content ol {
+                 margin: 12px 0;
                  padding-left: 20px;
              }
              
-             .ai-search-content li {
-                 margin: 4px 0;
-                 line-height: 1.5;
-                 font-size: 14px;
-                 opacity: 0.95;
+             .ai-response-card .ai-search-content li {
+                 margin-bottom: 6px;
+                 line-height: 1.6;
              }
              
-             .ai-search-content ul {
-                 list-style-type: disc;
-             }
-             
-             .ai-search-content ol {
-                 list-style-type: decimal;
-             }
-             
-             .ai-search-content code {
-                 background: rgba(255,255,255,0.15);
+             .ai-response-card .ai-search-content code {
+                 background: var(--bg-secondary);
                  padding: 2px 6px;
                  border-radius: 4px;
                  font-family: 'Courier New', monospace;
                  font-size: 13px;
-                 color: #fff;
              }
              
-             .ai-search-content pre {
-                 background: rgba(0,0,0,0.2);
+             .ai-response-card .ai-search-content pre {
+                 background: var(--bg-secondary);
                  padding: 12px;
-                 border-radius: 8px;
+                 border-radius: 6px;
                  overflow-x: auto;
-                 margin: 8px 0;
-                 border: 1px solid rgba(255,255,255,0.1);
+                 margin: 12px 0;
              }
              
-             .ai-search-content pre code {
+             .ai-response-card .ai-search-content pre code {
                  background: none;
                  padding: 0;
-                 color: #fff;
              }
              
-             .ai-search-content blockquote {
-                 border-left: 4px solid rgba(255,255,255,0.5);
-                 padding-left: 12px;
-                 margin: 8px 0;
-                 color: rgba(255,255,255,0.8);
-                 font-style: italic;
+             /* 匹配知识库条目复选框样式 */
+             .match-checkbox {
+                 width: 16px;
+                 height: 16px;
+                 cursor: pointer;
+                 accent-color: var(--primary);
+                 border: 2px solid var(--border);
+                 border-radius: 3px;
+                 transition: all 0.2s ease;
              }
              
-             .ai-search-content strong {
-                 font-weight: 700;
-                 color: #fff;
+             .match-checkbox:hover {
+                 border-color: var(--primary);
              }
              
-             .ai-search-content em {
-                 font-style: italic;
-                 color: rgba(255,255,255,0.9);
+             .match-checkbox:checked {
+                 background-color: var(--primary);
+                 border-color: var(--primary);
              }
              
-             .ai-search-content a {
-                 color: #a8d4ff;
-                 text-decoration: underline;
+             /* 折叠按钮样式 */
+             #toggleMatchedBtn {
+                 transition: all 0.2s ease;
              }
              
-             .ai-search-content a:hover {
-                 color: #fff;
-             }
-             
-             .ai-search-content table {
-                 width: 100%;
-                 border-collapse: collapse;
-                 margin: 8px 0;
-                 font-size: 13px;
-             }
-             
-             .ai-search-content th,
-             .ai-search-content td {
-                 border: 1px solid rgba(255,255,255,0.2);
-                 padding: 8px 12px;
-                 text-align: left;
-             }
-             
-             .ai-search-content th {
-                 background: rgba(0,0,0,0.2);
-                 font-weight: 600;
-             }
-             
-             .ai-search-content tr:nth-child(even) {
-                 background: rgba(255,255,255,0.05);
-             }
-             
-             .ai-search-content hr {
-                 border: none;
-                 border-top: 1px solid rgba(255,255,255,0.2);
-                 margin: 12px 0;
+             #toggleMatchedBtn:hover {
+                 background: var(--primary-light);
+                 color: var(--primary);
              }
              
              /* 弹药卡片移动端优化 */
@@ -662,6 +879,7 @@
                   align-items: flex-start !important;
               }
           }
+        
         .header {
             display: flex;
             justify-content: space-between;
@@ -4167,8 +4385,34 @@
                                 <div id="aiSearchForm" class="hidden" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
                                     <div style="margin-bottom:12px;">
                                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">搜索问题</label>
-                                        <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
+                                        <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." oninput="onSearchQueryInput()" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                     </div>
+                                    
+                                    <!-- 匹配知识库预览 -->
+                                    <div id="matchedKnowledgePreview" style="margin-bottom:12px;"></div>
+                                    
+                                    <!-- 智能匹配按钮 -->
+                                    <div style="margin-bottom:12px;">
+                                        <button class="btn btn-small btn-primary" onclick="startAIMatching()" id="startMatchingBtn" style="width:100%;">🎯 开始匹配</button>
+                                    </div>
+                                    
+                                    <!-- 提示词配置区域 -->
+                                    <div style="margin-bottom:12px;">
+                                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                            <label style="font-size:13px;color:var(--text-secondary);">AI提示词</label>
+                                            <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn">👁️ 隐藏</button>
+                                        </div>
+                                        <div id="aiPromptContainer" style="margin-bottom:8px;">
+                                            <textarea id="aiSearchPrompt" rows="6" placeholder="自定义AI提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                                            
+                                            <!-- 提示词操作按钮 -->
+                                            <div style="display:flex;gap:8px;margin-top:8px;">
+                                                <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()">🔄 重置默认</button>
+                                                <button class="btn btn-small btn-primary" onclick="saveAIPrompt()">💾 保存提示词</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div style="display:flex;gap:8px;">
                                         <button class="btn btn-primary" onclick="performAISearch()">🔍 AI搜索</button>
                                         <button class="btn btn-secondary" onclick="hideAISearchForm()">取消</button>
@@ -5038,6 +5282,8 @@
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
             // 每次保存后检查更新状态
             checkUpdateStatus();
+            // 重新调度条件提醒定时器
+            scheduleConditionReminders();
         }
 
         function genId() {
@@ -9097,6 +9343,8 @@
                                       }
                                   } else if (frequency === 'daily') {
                                       const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                                      // 对于每日提醒，检查是否在同一天且已经提醒过
+                                      // 但要考虑时间范围：如果时间范围跨越多天，需要特殊处理
                                       if (!lastReminder || lastReminder.toDateString() !== now.toDateString()) {
                                           shouldRemind = true;
                                           trigger.lastReminderTimes[reminderIndex] = now.toISOString();
@@ -9169,6 +9417,211 @@
                   // 然后每分钟检查一次
                   setInterval(checkTriggers, 60000);
               }, msUntilNextMinute);
+          }
+          
+          // 为条件提醒设置精确的定时器
+          function scheduleConditionReminders() {
+              if (!data.taskTriggers || data.taskTriggers.length === 0) {
+                  return;
+              }
+              
+              // 清除之前的条件提醒定时器
+              if (window.conditionReminderTimers) {
+                  window.conditionReminderTimers.forEach(timerId => {
+                      clearTimeout(timerId);
+                      clearInterval(timerId);
+                  });
+              }
+              window.conditionReminderTimers = [];
+              
+              const now = new Date();
+              
+              data.taskTriggers.forEach((trigger, triggerIndex) => {
+                  if (trigger.type !== 'condition' || !trigger.active) {
+                      return;
+                  }
+                  
+                  if (!trigger.reminderConfig.reminders || trigger.reminderConfig.reminders.length === 0) {
+                      return;
+                  }
+                  
+                  const task = data.tasks.find(t => t.id === trigger.taskId);
+                  if (!task) {
+                      return;
+                  }
+                  
+                  // 为每个提醒设置定时器
+                  trigger.reminderConfig.reminders.forEach((reminder, reminderIndex) => {
+                      const startTime = reminder.startTime; // 格式: "HH:MM"
+                      const endTime = reminder.endTime;
+                      const frequency = reminder.frequency;
+                      
+                      // 计算时间间隔（毫秒）
+                      let intervalMs = 0;
+                      let frequencyText = '';
+                      
+                      if (frequency === 'daily') {
+                          intervalMs = 24 * 60 * 60 * 1000; // 1天
+                          frequencyText = '每天';
+                      } else if (frequency === 'weekly') {
+                          intervalMs = 7 * 24 * 60 * 60 * 1000; // 1周
+                          frequencyText = '每周';
+                      } else if (frequency === 'custom') {
+                          const customInterval = parseInt(reminder.customInterval);
+                          const unit = reminder.customIntervalUnit;
+                          
+                          if (unit === 'day') {
+                              intervalMs = customInterval * 24 * 60 * 60 * 1000;
+                              frequencyText = `每${customInterval}天`;
+                          } else if (unit === 'week') {
+                              intervalMs = customInterval * 7 * 24 * 60 * 60 * 1000;
+                              frequencyText = `每${customInterval}周`;
+                          } else if (unit === 'month') {
+                              intervalMs = customInterval * 30 * 24 * 60 * 60 * 1000;
+                              frequencyText = `每${customInterval}个月`;
+                          }
+                      } else {
+                          return; // 不支持的频率，跳过
+                      }
+                      
+                      const [hours, minutes] = startTime.split(':').map(Number);
+                      
+                      // 计算下次提醒时间
+                      let reminderTime = new Date(now);
+                      reminderTime.setHours(hours, minutes, 0, 0);
+                      
+                      // 如果今天的提醒时间已过，计算下一个提醒时间
+                      if (reminderTime <= now) {
+                          // 根据频率计算下一个提醒时间
+                          if (frequency === 'daily') {
+                              reminderTime.setDate(reminderTime.getDate() + 1);
+                          } else if (frequency === 'weekly') {
+                              reminderTime.setDate(reminderTime.getDate() + 7);
+                          } else if (frequency === 'custom') {
+                              const customInterval = parseInt(reminder.customInterval);
+                              const unit = reminder.customIntervalUnit;
+                              
+                              if (unit === 'day') {
+                                  reminderTime.setDate(reminderTime.getDate() + customInterval);
+                              } else if (unit === 'week') {
+                                  reminderTime.setDate(reminderTime.getDate() + customInterval * 7);
+                              } else if (unit === 'month') {
+                                  reminderTime.setMonth(reminderTime.getMonth() + customInterval);
+                              }
+                          }
+                      }
+                      
+                      const msUntilReminder = reminderTime.getTime() - now.getTime();
+                      
+                      console.log(`条件提醒定时器 - 任务: ${task.content.substring(0, 20)}..., 频率: ${frequencyText}, 提醒时间: ${startTime}, 下次提醒: ${reminderTime.toLocaleString()}, 距离提醒: ${Math.round(msUntilReminder / 1000 / 60)}分钟`);
+                      
+                      // 设置精确的定时器
+                      const timerId = setTimeout(() => {
+                          // 检查是否在时间范围内
+                          const currentTime = new Date().toTimeString().substring(0, 5);
+                          
+                          if (currentTime >= startTime && currentTime <= endTime) {
+                              // 检查是否需要提醒
+                              if (!trigger.lastReminderTimes) {
+                                  trigger.lastReminderTimes = {};
+                              }
+                              
+                              const lastReminderTime = trigger.lastReminderTimes[reminderIndex];
+                              const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                              
+                              let shouldRemind = false;
+                              
+                              if (frequency === 'daily') {
+                                  const today = new Date().toDateString();
+                                  shouldRemind = !lastReminder || lastReminder.toDateString() !== today;
+                              } else if (frequency === 'weekly') {
+                                  shouldRemind = !lastReminder || (new Date() - lastReminder) >= 7 * 24 * 60 * 60 * 1000;
+                              } else if (frequency === 'custom') {
+                                  const customInterval = parseInt(reminder.customInterval);
+                                  const unit = reminder.customIntervalUnit;
+                                  let ms = 0;
+                                  
+                                  if (unit === 'day') ms = customInterval * 24 * 60 * 60 * 1000;
+                                  else if (unit === 'week') ms = customInterval * 7 * 24 * 60 * 60 * 1000;
+                                  else if (unit === 'month') ms = customInterval * 30 * 24 * 60 * 60 * 1000;
+                                  
+                                  shouldRemind = !lastReminder || (new Date() - lastReminder) >= ms;
+                              }
+                              
+                              if (shouldRemind) {
+                                  console.log(`✓ 触发${frequencyText}条件提醒: ${task.content.substring(0, 20)}...`);
+                                  
+                                  // 创建临时 trigger 对象用于显示提醒气泡
+                                  const tempTrigger = {
+                                      ...trigger,
+                                      reminderConfig: {
+                                          reminders: [reminder]
+                                      }
+                                  };
+                                  showReminderBubble(tempTrigger);
+                                  
+                                  // 记录提醒时间
+                                  trigger.lastReminderTimes[reminderIndex] = new Date().toISOString();
+                                  saveData();
+                              }
+                          }
+                          
+                          // 为后续提醒设置定时器
+                          const nextTimerId = setInterval(() => {
+                              const checkNow = new Date();
+                              const checkCurrentTime = checkNow.toTimeString().substring(0, 5);
+                              
+                              if (checkCurrentTime >= startTime && checkCurrentTime <= endTime) {
+                                  if (!trigger.lastReminderTimes) {
+                                      trigger.lastReminderTimes = {};
+                                  }
+                                  
+                                  const lastReminderTime = trigger.lastReminderTimes[reminderIndex];
+                                  const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
+                                  
+                                  let checkShouldRemind = false;
+                                  
+                                  if (frequency === 'daily') {
+                                      const checkToday = checkNow.toDateString();
+                                      checkShouldRemind = !lastReminder || lastReminder.toDateString() !== checkToday;
+                                  } else if (frequency === 'weekly') {
+                                      checkShouldRemind = !lastReminder || (checkNow - lastReminder) >= 7 * 24 * 60 * 60 * 1000;
+                                  } else if (frequency === 'custom') {
+                                      const customInterval = parseInt(reminder.customInterval);
+                                      const unit = reminder.customIntervalUnit;
+                                      let ms = 0;
+                                      
+                                      if (unit === 'day') ms = customInterval * 24 * 60 * 60 * 1000;
+                                      else if (unit === 'week') ms = customInterval * 7 * 24 * 60 * 60 * 1000;
+                                      else if (unit === 'month') ms = customInterval * 30 * 24 * 60 * 60 * 1000;
+                                      
+                                      checkShouldRemind = !lastReminder || (checkNow - lastReminder) >= ms;
+                                  }
+                                  
+                                  if (checkShouldRemind) {
+                                      console.log(`✓ 触发${frequencyText}条件提醒: ${task.content.substring(0, 20)}...`);
+                                      
+                                      const tempTrigger = {
+                                          ...trigger,
+                                          reminderConfig: {
+                                              reminders: [reminder]
+                                          }
+                                      };
+                                      showReminderBubble(tempTrigger);
+                                      
+                                      trigger.lastReminderTimes[reminderIndex] = checkNow.toISOString();
+                                      saveData();
+                                  }
+                              }
+                          }, 60000); // 每分钟检查一次
+                          
+                          window.conditionReminderTimers.push(nextTimerId);
+                          
+                      }, msUntilReminder);
+                      
+                      window.conditionReminderTimers.push(timerId);
+                  });
+              });
           }
           
           // 渲染触发提醒管理面板
@@ -11235,7 +11688,7 @@
             // 按时间倒序排列，显示最近5条记录
             const recentChecklists = data.communicationChecklists
                 .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .slice(0, 5);
+                .slice(0, 3);
             
             let historyHtml = '<div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;">📝 最近记录：<span class="show-all-history-btn" style="font-size:10px;color:var(--primary);cursor:pointer;">查看全部</span></div>';
             
@@ -11605,6 +12058,10 @@
             // 启动触发提醒定时器
             console.log('启动触发提醒定时器');
             scheduleNextCheck();
+            
+            // 启动条件提醒精确定时器
+            console.log('启动条件提醒精确定时器');
+            scheduleConditionReminders();
             
             // 页面加载时立即检查一次
             setTimeout(checkTriggers, 1000);
@@ -12208,7 +12665,7 @@
                throw new Error('未找到指定的模型');
            }
            
-           console.log('找到的模型配置:', model);
+           //console.log('找到的模型配置:', model);
            
            // 使用自定义提示词或默认提示词
            const defaultPrompt = `请对以下文本进行阅读理解和共情回应。
@@ -15738,7 +16195,6 @@ ${ammoToAnalyze.map((ammo, index) =>
      
      // 显示知识库面板
      function showKnowledgeBasePanel() {
-         console.log('打开知识库面板');
          // 确保弹药库面板是关闭的
          document.getElementById('ammoLibraryPanel').classList.add('hidden');
          document.getElementById('knowledgeBasePanel').classList.remove('hidden');
@@ -15747,7 +16203,6 @@ ${ammoToAnalyze.map((ammo, index) =>
      
      // 关闭知识库面板
      function closeKnowledgeBasePanel() {
-         console.log('关闭知识库面板');
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
          // 重置面板状态
          document.getElementById('kbListView').classList.remove('hidden');
@@ -15944,11 +16399,687 @@ ${ammoToAnalyze.map((ammo, index) =>
          document.getElementById('addKBForm').classList.add('hidden');
          document.getElementById('aiSearchQuery').value = '';
          document.getElementById('aiSearchQuery').focus();
+         
+         // 加载保存的提示词
+         loadSavedAIPrompt();
+         
+         // 默认显示提示词
+         const container = document.getElementById('aiPromptContainer');
+         const btn = document.getElementById('toggleAIPromptBtn');
+         container.classList.remove('hidden');
+         btn.textContent = '👁️ 隐藏';
+         
+         // 如果提示词为空，设置默认提示词
+         const promptTextarea = document.getElementById('aiSearchPrompt');
+         if (!promptTextarea.value.trim()) {
+             setDefaultAIPrompt();
+         }
+         
+         // 初始化匹配预览提示
+         const previewContainer = document.getElementById('matchedKnowledgePreview');
+         if (previewContainer) {
+             previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+         }
      }
      
      // 隐藏AI搜索表单
      function hideAISearchForm() {
          document.getElementById('aiSearchForm').classList.add('hidden');
+     }
+     
+     // 切换匹配知识库条目的显示/隐藏
+     function toggleMatchedSection() {
+         const matchedList = document.getElementById('matchedItemsList');
+         const toggleBtn = document.getElementById('toggleMatchedBtn');
+         
+         if (matchedList.style.display === 'none') {
+             matchedList.style.display = 'block';
+             toggleBtn.textContent = '📁 折叠';
+         } else {
+             matchedList.style.display = 'none';
+             toggleBtn.textContent = '📂 展开';
+         }
+     }
+     
+     // 切换AI提示词显示/隐藏
+     function toggleAIPrompt() {
+         const container = document.getElementById('aiPromptContainer');
+         const btn = document.getElementById('toggleAIPromptBtn');
+         
+         if (container.classList.contains('hidden')) {
+             container.classList.remove('hidden');
+             btn.textContent = '👁️ 隐藏';
+             
+             // 如果提示词为空，设置默认提示词
+             const promptTextarea = document.getElementById('aiSearchPrompt');
+             if (!promptTextarea.value.trim()) {
+                 setDefaultAIPrompt();
+             }
+             
+             // 显示提示信息，不自动匹配
+             const previewContainer = document.getElementById('matchedKnowledgePreview');
+             if (previewContainer) {
+                 previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+             }
+         } else {
+             container.classList.add('hidden');
+             btn.textContent = '👁️ 显示';
+         }
+     }
+    
+    // 开始AI匹配
+    async function startAIMatching() {
+        const query = document.getElementById('aiSearchQuery').value.trim();
+        if (!query) {
+            showToast('请先输入搜索问题');
+            document.getElementById('aiSearchQuery').focus();
+            return;
+        }
+        
+        // 调用匹配预览函数
+        await updateMatchedKnowledgePreview();
+    }
+    
+    // 根据输入问题更新匹配的知识库预览（使用AI匹配）
+    async function updateMatchedKnowledgePreview() {
+        const query = document.getElementById('aiSearchQuery').value.trim();
+        const previewContainer = document.getElementById('matchedKnowledgePreview');
+        
+        if (!query) {
+            if (previewContainer) {
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">请先输入搜索问题以查看匹配的知识库条目</div>';
+            }
+            return;
+        }
+        
+        // 检查AI配置
+        if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+            if (previewContainer) {
+                previewContainer.innerHTML = '<div style="color:var(--danger);font-size:13px;padding:8px;text-align:center;">请先配置AI以使用智能匹配</div>';
+            }
+            return;
+        }
+        
+        // 检查知识库是否有内容
+        if (!data.knowledgeBase || data.knowledgeBase.length === 0) {
+            if (previewContainer) {
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">知识库为空，请先添加知识</div>';
+            }
+            return;
+        }
+        
+        // 显示加载状态
+        if (previewContainer) {
+            previewContainer.innerHTML = `
+                <div style="margin-top:12px;padding:12px;background:var(--green-light);border-radius:6px;border:1px solid var(--green-border);">
+                    <div style="color:var(--text-secondary);font-size:13px;text-align:center;">
+                        <div style="font-size:16px;margin-bottom:6px;">🤖</div>
+                        <div>AI正在智能匹配...</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        try {
+            // 构建知识库列表供AI分析
+            const knowledgeList = data.knowledgeBase.map((kb, index) =>
+                `ID:${index + 1}|内容:${kb.content}|标签:${(kb.tags || []).join(',')}`
+            ).join('\n');
+            
+            // 构建AI提示词
+            const aiPrompt = `用户问题："${query}"
+
+知识库内容：
+${knowledgeList}
+
+请分析用户问题与知识库中每个条目的相关性，并返回最相关的3个条目。
+
+返回格式要求（严格按JSON格式）：
+{
+  "matches": [
+    {
+      "id": 原始ID序号,
+      "relevance": 相关度评分(0-100的整数),
+      "reason": 匹配原因简述
+    }
+  ]
+}
+
+注意：
+1. 只返回相关度>30的条目
+2. 按相关度从高到低排序
+3. 相关度基于语义理解，不仅仅是关键词匹配
+4. 严格返回JSON格式，不要包含其他文字`;
+            
+            // 调用AI进行匹配
+            const response = await callAiApi(aiPrompt, data.aiConfig.model);
+            
+            // 解析AI返回的JSON
+            let aiResult;
+            try {
+                // 尝试提取JSON部分
+                const jsonMatch = response.match(/\{[\s\S]*\}/);
+                if (jsonMatch) {
+                    aiResult = JSON.parse(jsonMatch[0]);
+                } else {
+                    throw new Error('AI返回格式不正确');
+                }
+            } catch (parseError) {
+                console.error('AI返回解析失败:', parseError);
+                // 如果解析失败，使用传统匹配作为后备
+                await fallbackToTraditionalMatching(query, previewContainer);
+                return;
+            }
+            
+            // 处理匹配结果
+            if (aiResult.matches && aiResult.matches.length > 0) {
+                const matchedItems = aiResult.matches
+                    .filter(match => match.relevance > 30)
+                    .slice(0, 3)
+                    .map(match => ({
+                        ...data.knowledgeBase[match.id - 1],
+                        score: match.relevance,
+                        reason: match.reason,
+                        selected: true // 默认选中所有匹配项
+                    }));
+                
+                if (matchedItems.length > 0) {
+                    // 更新预览显示，带选择功能
+                    if (previewContainer) {
+                        previewContainer.innerHTML = `
+                            <div style="margin-top:12px;padding:12px;background:var(--green-light);border-radius:6px;border:1px solid var(--green-border);">
+                                <div style="font-size:12px;color:var(--green-text);margin-bottom:8px;font-weight:600;">🤖 AI智能匹配结果 (${matchedItems.length}条) - 勾选要纳入分析的条目</div>
+                                <div style="max-height:250px;overflow-y:auto;">
+                                    ${matchedItems.map((item, index) => `
+                                        <div style="padding:8px;background:var(--card);border-radius:4px;margin-bottom:6px;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;" onclick="toggleKnowledgeSelection(${index})" id="kb-item-${index}">
+                                            <div style="display:flex;align-items:start;gap:8px;">
+                                                <input type="checkbox" checked style="margin-top:2px;" id="kb-checkbox-${index}" onclick="event.stopPropagation(); toggleKnowledgeSelection(${index})">
+                                                <div style="flex:1;">
+                                                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                                                        <span style="font-size:11px;color:var(--primary);">AI相关度: ${item.score}%</span>
+                                                        <span style="font-size:10px;color:var(--text-secondary);">#${index + 1}</span>
+                                                    </div>
+                                                    <div style="font-size:12px;line-height:1.4;color:var(--text);margin-bottom:4px;white-space:pre-wrap;word-wrap:break-word;max-height:60px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${item.content}</div>
+                                                    ${item.reason ? `<div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">💡 ${item.reason}</div>` : ''}
+                                                    ${item.tags && item.tags.length > 0 ? `
+                                                        <div style="display:flex;gap:3px;flex-wrap:wrap;">
+                                                            ${item.tags.map(tag => `<span style="background:var(--green-light);color:var(--green-text);padding:1px 5px;border-radius:2px;font-size:10px;">${tag}</span>`).join('')}
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div style="margin-top:8px;display:flex;gap:8px;">
+                                    <button class="btn btn-small btn-secondary" onclick="selectAllKnowledge()">全选</button>
+                                    <button class="btn btn-small btn-secondary" onclick="deselectAllKnowledge()">全不选</button>
+                                    <span style="font-size:12px;color:var(--text-secondary);margin-left:auto;" id="selectedCount">已选择: ${matchedItems.length}条</span>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // 保存匹配项到全局变量
+                        window.currentMatchedItems = matchedItems;
+                    }
+                } else {
+                    if (previewContainer) {
+                        previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">AI未找到相关度>30的知识库条目</div>';
+                    }
+                }
+            } else {
+                if (previewContainer) {
+                    previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">AI未找到匹配的知识库条目</div>';
+                }
+            }
+            
+        } catch (error) {
+            console.error('AI匹配失败:', error);
+            // AI失败时使用传统匹配作为后备
+            await fallbackToTraditionalMatching(query, previewContainer);
+        }
+    }
+    
+    // 切换知识库条目选择状态
+    function toggleKnowledgeSelection(index) {
+        if (!window.currentMatchedItems || !window.currentMatchedItems[index]) return;
+        
+        const item = window.currentMatchedItems[index];
+        item.selected = !item.selected;
+        
+        // 更新复选框状态
+        const checkbox = document.getElementById(`kb-checkbox-${index}`);
+        if (checkbox) {
+            checkbox.checked = item.selected;
+        }
+        
+        // 更新条目样式
+        const itemDiv = document.getElementById(`kb-item-${index}`);
+        if (itemDiv) {
+            if (item.selected) {
+                itemDiv.style.background = 'var(--card)';
+                itemDiv.style.opacity = '1';
+            } else {
+                itemDiv.style.background = 'var(--bg)';
+                itemDiv.style.opacity = '0.6';
+            }
+        }
+        
+        // 更新选择计数
+        updateSelectedCount();
+    }
+    
+    // 全选知识库条目
+    function selectAllKnowledge() {
+        if (!window.currentMatchedItems) return;
+        
+        window.currentMatchedItems.forEach((item, index) => {
+            item.selected = true;
+            const checkbox = document.getElementById(`kb-checkbox-${index}`);
+            if (checkbox) checkbox.checked = true;
+            
+            const itemDiv = document.getElementById(`kb-item-${index}`);
+            if (itemDiv) {
+                itemDiv.style.background = 'var(--card)';
+                itemDiv.style.opacity = '1';
+            }
+        });
+        
+        updateSelectedCount();
+    }
+    
+    // 全不选知识库条目
+    function deselectAllKnowledge() {
+        if (!window.currentMatchedItems) return;
+        
+        window.currentMatchedItems.forEach((item, index) => {
+            item.selected = false;
+            const checkbox = document.getElementById(`kb-checkbox-${index}`);
+            if (checkbox) checkbox.checked = false;
+            
+            const itemDiv = document.getElementById(`kb-item-${index}`);
+            if (itemDiv) {
+                itemDiv.style.background = 'var(--bg)';
+                itemDiv.style.opacity = '0.6';
+            }
+        });
+        
+        updateSelectedCount();
+    }
+    
+    // 更新选择计数显示
+    function updateSelectedCount() {
+        if (!window.currentMatchedItems) return;
+        
+        const selectedCount = window.currentMatchedItems.filter(item => item.selected).length;
+        const countElement = document.getElementById('selectedCount');
+        if (countElement) {
+            countElement.textContent = `已选择: ${selectedCount}条`;
+        }
+    }
+    
+    // 获取选中的知识库条目
+    function getSelectedKnowledgeItems() {
+        if (!window.currentMatchedItems) return [];
+        return window.currentMatchedItems.filter(item => item.selected);
+    }
+    
+    // 传统匹配算法（作为AI匹配的后备方案）
+    async function fallbackToTraditionalMatching(query, previewContainer) {
+        let matchedItems = [];
+        
+        if (data.knowledgeBase && data.knowledgeBase.length > 0) {
+            const queryLower = query.toLowerCase();
+            const scoredItems = data.knowledgeBase.map(kb => {
+                let score = 0;
+                const contentLower = kb.content.toLowerCase();
+                const tagsLower = (kb.tags || []).join(' ').toLowerCase();
+                
+                // 关键词匹配得分
+                if (contentLower.includes(queryLower)) score += 30;
+                if (tagsLower.includes(queryLower)) score += 20;
+                
+                // 查询词拆分匹配
+                const queryWords = queryLower.split(/\s+/);
+                queryWords.forEach(word => {
+                    if (word.length > 1 && contentLower.includes(word)) score += 10;
+                });
+                
+                return { ...kb, score };
+            });
+            
+            matchedItems = scoredItems
+                .sort((a, b) => b.score - a.score)
+                .filter(item => item.score > 0)
+                .slice(0, 3)
+                .map(item => ({ ...item, selected: true })); // 默认选中
+        }
+        
+        if (previewContainer) {
+            if (matchedItems.length > 0) {
+                previewContainer.innerHTML = `
+                    <div style="margin-top:12px;padding:12px;background:#fff8e8;border-radius:6px;border:1px solid #ffe0a8;">
+                        <div style="font-size:12px;color:#d48806;margin-bottom:8px;font-weight:600;">⚠️ AI匹配失败，使用传统匹配 (${matchedItems.length}条) - 勾选要纳入分析的条目</div>
+                        <div style="max-height:200px;overflow-y:auto;">
+                            ${matchedItems.map((item, index) => `
+                                <div style="padding:8px;background:var(--card);border-radius:4px;margin-bottom:6px;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;" onclick="toggleKnowledgeSelection(${index})" id="kb-item-${index}">
+                                    <div style="display:flex;align-items:start;gap:8px;">
+                                        <input type="checkbox" checked style="margin-top:2px;" id="kb-checkbox-${index}" onclick="event.stopPropagation(); toggleKnowledgeSelection(${index})">
+                                        <div style="flex:1;">
+                                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                                                <span style="font-size:11px;color:var(--text-secondary);">匹配度: ${item.score}分</span>
+                                                <span style="font-size:10px;color:var(--text-secondary);">#${index + 1}</span>
+                                            </div>
+                                            <div style="font-size:12px;line-height:1.4;color:var(--text);margin-bottom:4px;white-space:pre-wrap;word-wrap:break-word;max-height:60px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${item.content}</div>
+                                            ${item.tags && item.tags.length > 0 ? `
+                                                <div style="display:flex;gap:3px;flex-wrap:wrap;">
+                                                    ${item.tags.map(tag => `<span style="background:var(--green-light);color:var(--green-text);padding:1px 5px;border-radius:2px;font-size:10px;">${tag}</span>`).join('')}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div style="margin-top:8px;display:flex;gap:8px;">
+                            <button class="btn btn-small btn-secondary" onclick="selectAllKnowledge()">全选</button>
+                            <button class="btn btn-small btn-secondary" onclick="deselectAllKnowledge()">全不选</button>
+                            <span style="font-size:12px;color:var(--text-secondary);margin-left:auto;" id="selectedCount">已选择: ${matchedItems.length}条</span>
+                        </div>
+                    </div>
+                `;
+                
+                // 保存匹配项到全局变量
+                window.currentMatchedItems = matchedItems;
+            } else {
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">未找到匹配的知识库条目</div>';
+            }
+        }
+    }
+    
+    // 搜索问题输入监听
+    function onSearchQueryInput() {
+        // 不再自动匹配，只更新提示信息
+        const promptContainer = document.getElementById('aiPromptContainer');
+        const previewContainer = document.getElementById('matchedKnowledgePreview');
+        
+        if (!promptContainer.classList.contains('hidden') && previewContainer) {
+            const query = document.getElementById('aiSearchQuery').value.trim();
+            if (query) {
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+            } else {
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">请先输入搜索问题</div>';
+            }
+        }
+    }
+    
+    // 执行AI搜索匹配
+    async function performAISearchMatching() {
+        const query = document.getElementById('aiSearchQuery').value.trim();
+        const previewContainer = document.getElementById('matchedKnowledgePreview');
+        const matchBtn = document.getElementById('aiMatchBtn');
+        
+        if (!query) {
+            showToast('请先输入搜索问题');
+            return;
+        }
+        
+        // 显示加载状态
+        matchBtn.disabled = true;
+        matchBtn.innerHTML = '⏳ 匹配中...';
+        previewContainer.innerHTML = '<div class="ai-search-loading">AI正在分析匹配</div>';
+        
+        try {
+            // 获取所有知识库内容
+            const allKnowledge = getAllKnowledgeForSearch();
+            
+            if (allKnowledge.length === 0) {
+                previewContainer.innerHTML = '<div class="ai-search-no-results">知识库中没有内容，请先添加知识</div>';
+                matchBtn.disabled = false;
+                matchBtn.innerHTML = '🔍 智能匹配';
+                return;
+            }
+            
+            // 调用AI进行匹配
+            const matchedResults = await matchKnowledgeWithAI(query, allKnowledge);
+            
+            // 显示匹配结果
+            displayAISearchResults(matchedResults);
+            
+        } catch (error) {
+            console.error('AI搜索匹配失败:', error);
+            previewContainer.innerHTML = '<div class="ai-search-no-results">匹配失败：' + error.message + '</div>';
+        } finally {
+            matchBtn.disabled = false;
+            matchBtn.innerHTML = '🔍 智能匹配';
+        }
+    }
+    
+    // 获取所有知识库内容用于搜索
+    function getAllKnowledgeForSearch() {
+        const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
+        return knowledgeData.map(kb => ({
+            id: kb.id,
+            title: kb.title,
+            content: kb.content,
+            tags: kb.tags || [],
+            type: 'knowledge',
+            createdAt: kb.createdAt
+        }));
+    }
+    
+    // 使用AI匹配知识库内容
+    async function matchKnowledgeWithAI(query, knowledgeList) {
+        // 构建知识库摘要
+        const knowledgeSummary = knowledgeList.map((kb, index) => {
+            return `[${index + 1}] 标题: ${kb.title}\n内容: ${kb.content.substring(0, 200)}...\n标签: ${kb.tags.join(', ')}`;
+        }).join('\n\n');
+        
+        const prompt = `我有一个知识库，包含以下内容：
+
+${knowledgeSummary}
+
+用户问题："${query}"
+
+请分析上述知识库内容，找出与用户问题最相关的3-5条内容。
+
+请按以下JSON格式返回结果：
+{
+  "matches": [
+    {
+      "id": "知识库ID",
+      "relevance": 0.95,
+      "reason": "匹配原因说明"
+    }
+  ]
+}
+
+注意：
+1. relevance是0-1之间的相关度分数
+2. reason简要说明为什么匹配
+3. 只返回JSON，不要其他内容`;
+        
+        try {
+            // 模拟AI响应（实际项目中应该调用真实的AI API）
+            const response = await simulateAIResponse(prompt, knowledgeList, query);
+            return response.matches;
+        } catch (error) {
+            console.error('AI匹配失败:', error);
+            // 返回基于关键词的简单匹配作为后备
+            return fallbackKeywordMatching(query, knowledgeList);
+        }
+    }
+    
+    // 模拟AI响应（实际项目中替换为真实的AI API调用）
+    async function simulateAIResponse(prompt, knowledgeList, query) {
+        // 这里模拟AI处理延迟
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // 简单的关键词匹配作为模拟
+        const queryLower = query.toLowerCase();
+        const matches = knowledgeList.map(kb => {
+            let score = 0;
+            const titleLower = kb.title.toLowerCase();
+            const contentLower = kb.content.toLowerCase();
+            const tagsLower = kb.tags.map(t => t.toLowerCase()).join(' ');
+            
+            // 标题匹配权重最高
+            if (titleLower.includes(queryLower)) score += 0.5;
+            
+            // 内容匹配
+            if (contentLower.includes(queryLower)) score += 0.3;
+            
+            // 标签匹配
+            if (tagsLower.includes(queryLower)) score += 0.2;
+            
+            return {
+                id: kb.id,
+                relevance: Math.min(score, 1.0),
+                reason: score > 0.5 ? '标题和内容高度相关' : score > 0.3 ? '内容相关' : '标签相关'
+            };
+        }).filter(match => match.relevance > 0)
+          .sort((a, b) => b.relevance - a.relevance)
+          .slice(0, 3);
+        
+        return { matches };
+    }
+    
+    // 后备关键词匹配
+    function fallbackKeywordMatching(query, knowledgeList) {
+        const queryLower = query.toLowerCase();
+        const queryWords = queryLower.split(/\s+/).filter(word => word.length > 1);
+        
+        return knowledgeList.map(kb => {
+            let score = 0;
+            const titleLower = kb.title.toLowerCase();
+            const contentLower = kb.content.toLowerCase();
+            const tagsLower = kb.tags.map(t => t.toLowerCase()).join(' ');
+            
+            queryWords.forEach(word => {
+                if (titleLower.includes(word)) score += 0.4;
+                if (contentLower.includes(word)) score += 0.3;
+                if (tagsLower.includes(word)) score += 0.2;
+            });
+            
+            return {
+                id: kb.id,
+                relevance: Math.min(score / queryWords.length, 1.0),
+                reason: '关键词匹配'
+            };
+        }).filter(match => match.relevance > 0.1)
+          .sort((a, b) => b.relevance - a.relevance)
+          .slice(0, 3);
+    }
+    
+    // 显示AI搜索结果
+    function displayAISearchResults(results) {
+        const previewContainer = document.getElementById('matchedKnowledgePreview');
+        
+        if (!results || results.length === 0) {
+            previewContainer.innerHTML = '<div class="ai-search-no-results">没有找到匹配的知识内容</div>';
+            return;
+        }
+        
+        const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
+        
+        let html = '<div class="ai-search-results">';
+        html += '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">找到 ' + results.length + ' 条相关内容</div>';
+        
+        results.forEach((result, index) => {
+            const kb = knowledgeData.find(k => k.id === result.id);
+            if (!kb) return;
+            
+            const scorePercent = Math.round(result.relevance * 100);
+            html += `
+                <div class="ai-search-result-item" onclick="selectAISearchResult('${kb.id}')">
+                    <div class="ai-search-result-title">${escapeHtml(kb.title)}</div>
+                    <div class="ai-search-result-content">${escapeHtml(kb.content.substring(0, 150))}${kb.content.length > 150 ? '...' : ''}</div>
+                    <div class="ai-search-result-meta">
+                        <span class="ai-search-result-score">${scorePercent}% 匹配</span>
+                        <span class="ai-search-result-type">${escapeHtml(result.reason)}</span>
+                        <span>📅 ${formatDate(kb.createdAt)}</span>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        previewContainer.innerHTML = html;
+    }
+    
+    // 选择AI搜索结果
+    function selectAISearchResult(knowledgeId) {
+        const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
+        const knowledge = knowledgeData.find(k => k.id === knowledgeId);
+        
+        if (knowledge) {
+            // 将选中的知识添加到已选列表
+            const selectedContainer = document.getElementById('selectedKnowledgeList');
+            const existingItem = selectedContainer.querySelector(`[data-id="${knowledgeId}"]`);
+            
+            if (!existingItem) {
+                const itemHtml = `
+                    <div class="selected-knowledge-item" data-id="${knowledgeId}">
+                        <div class="selected-knowledge-title">${escapeHtml(knowledge.title)}</div>
+                        <div class="selected-knowledge-content">${escapeHtml(knowledge.content.substring(0, 100))}...</div>
+                        <button class="btn btn-small btn-danger" onclick="removeSelectedKnowledge('${knowledgeId}')">✕</button>
+                    </div>
+                `;
+                selectedContainer.insertAdjacentHTML('beforeend', itemHtml);
+                showToast('已添加到搜索范围');
+            } else {
+                showToast('该知识已在搜索范围中');
+            }
+        }
+    }
+    
+    // 移除选中的知识
+    function removeSelectedKnowledge(knowledgeId) {
+        const selectedContainer = document.getElementById('selectedKnowledgeList');
+        const itemToRemove = selectedContainer.querySelector(`[data-id="${knowledgeId}"]`);
+        
+        if (itemToRemove) {
+            itemToRemove.style.animation = 'fadeOut 0.2s ease-out';
+            setTimeout(() => {
+                itemToRemove.remove();
+                showToast('已从搜索范围移除');
+            }, 200);
+        }
+    }
+     
+     // 设置默认AI提示词
+     function setDefaultAIPrompt() {
+         const defaultPrompt = `我有一个知识库，包含选中的条目{knowledge}。我的问题是{query}：
+请提炼知识库中的本质，针对我的问题给出精炼的解答和具体的操作建议，使用emoji增加可读性`;
+         
+         document.getElementById('aiSearchPrompt').value = defaultPrompt;
+     }
+     
+     // 重置AI提示词为默认值
+     function resetAIPrompt() {
+         setDefaultAIPrompt();
+         showToast('提示词已重置为默认值');
+     }
+     
+     // 保存AI提示词
+     function saveAIPrompt() {
+         const prompt = document.getElementById('aiSearchPrompt').value.trim();
+         if (!prompt) {
+             showToast('提示词不能为空');
+             return;
+         }
+         
+         // 保存到localStorage
+         localStorage.setItem('aiSearchPrompt', prompt);
+         showToast('提示词已保存');
+     }
+     
+     // 加载保存的AI提示词
+     function loadSavedAIPrompt() {
+         const savedPrompt = localStorage.getItem('aiSearchPrompt');
+         if (savedPrompt) {
+             document.getElementById('aiSearchPrompt').value = savedPrompt;
+         }
      }
      
      // 执行AI关联搜索
@@ -15977,63 +17108,195 @@ ${ammoToAnalyze.map((ammo, index) =>
          `;
          
          try {
-             // 构建知识库上下文 - 优化版本
+             // 获取用户选中的知识库条目
              let knowledgeContext = '';
+             let matchedItems = [];
              
-             if (data.knowledgeBase && data.knowledgeBase.length > 0) {
-                 // 按相关性排序（简单的关键词匹配）
-                 const queryLower = query.toLowerCase();
-                 const scoredItems = data.knowledgeBase.map(kb => {
-                     let score = 0;
-                     const contentLower = kb.content.toLowerCase();
-                     const tagsLower = (kb.tags || []).join(' ').toLowerCase();
-                     
-                     // 关键词匹配得分
-                     if (contentLower.includes(queryLower)) score += 3;
-                     if (tagsLower.includes(queryLower)) score += 2;
-                     
-                     // 查询词拆分匹配
-                     const queryWords = queryLower.split(/\s+/);
-                     queryWords.forEach(word => {
-                         if (word.length > 1 && contentLower.includes(word)) score += 1;
-                     });
-                     
-                     return { ...kb, score };
-                 });
+             // 检查是否有用户选择的条目
+             const selectedItems = getSelectedKnowledgeItems();
+             
+             if (selectedItems.length > 0) {
+                 // 使用用户选中的条目
+                 matchedItems = selectedItems;
+                 console.log('使用用户选中的知识库条目:', matchedItems.length, '条');
+             } else if (data.knowledgeBase && data.knowledgeBase.length > 0) {
+                 // 如果没有用户选择的条目，使用AI匹配算法
+                 console.log('未找到用户选择的条目，使用AI匹配算法');
                  
-                 // 取得分最高的前5个条目
-                 const relevantItems = scoredItems
-                     .sort((a, b) => b.score - a.score)
-                     .filter(item => item.score > 0)
-                     .slice(0, 5);
+                 // 构建知识库列表供AI分析
+                 const knowledgeList = data.knowledgeBase.map((kb, index) =>
+                     `ID:${index + 1}|内容:${kb.content}|标签:${(kb.tags || []).join(',')}`
+                 ).join('\n');
                  
-                 if (relevantItems.length > 0) {
-                     knowledgeContext = relevantItems.map(kb =>
-                         `内容：${kb.content}\n标签：${(kb.tags || []).join(', ')}\n`
-                     ).join('\n---\n');
+                 // 构建AI匹配提示词
+                 const matchingPrompt = `任务列表：知识库智能匹配
+
+用户问题："${query}"
+
+知识库内容：
+${knowledgeList}
+
+请分析用户问题与知识库中每个条目的相关性，并返回最相关的3个条目。
+
+返回格式要求（严格按JSON格式）：
+{
+  "matches": [
+    {
+      "id": 原始ID序号,
+      "relevance": 相关度评分(0-100的整数),
+      "reason": 匹配原因简述
+    }
+  ]
+}
+
+注意：
+1. 只返回相关度>30的条目
+2. 按相关度从高到低排序
+3. 相关度基于语义理解，不仅仅是关键词匹配
+4. 严格返回JSON格式，不要包含其他文字`;
+                 
+                 try {
+                     // 调用AI进行匹配
+                     const matchingResponse = await callAiApi(matchingPrompt, data.aiConfig.model);
+                     
+                     // 解析AI返回的JSON
+                     let aiResult;
+                     try {
+                         const jsonMatch = matchingResponse.match(/\{[\s\S]*\}/);
+                         if (jsonMatch) {
+                             aiResult = JSON.parse(jsonMatch[0]);
+                         } else {
+                             throw new Error('AI返回格式不正确');
+                         }
+                     } catch (parseError) {
+                         console.error('AI匹配解析失败，使用传统匹配:', parseError);
+                         // AI解析失败，使用传统匹配作为后备
+                         matchedItems = await performTraditionalMatching(query);
+                     }
+                     
+                     // 处理AI匹配结果
+                     if (aiResult && aiResult.matches && aiResult.matches.length > 0) {
+                         matchedItems = aiResult.matches
+                             .filter(match => match.relevance > 30)
+                             .slice(0, 3)
+                             .map(match => ({
+                                 ...data.knowledgeBase[match.id - 1],
+                                 score: match.relevance,
+                                 reason: match.reason
+                             }));
+                     }
+                     
+                     // 如果AI没有匹配到结果，使用传统匹配
+                     if (matchedItems.length === 0) {
+                         matchedItems = await performTraditionalMatching(query);
+                     }
+                     
+                 } catch (aiError) {
+                     console.error('AI匹配失败，使用传统匹配:', aiError);
+                     // AI调用失败，使用传统匹配作为后备
+                     matchedItems = await performTraditionalMatching(query);
                  }
              }
              
-             // 构建完整的提示词，包含任务列表关键词以避免触发默认提示词
+             // 构建知识库上下文
+             if (matchedItems.length > 0) {
+                 knowledgeContext = matchedItems.map(kb =>
+                     `内容：${kb.content}\n标签：${(kb.tags || []).join(', ')}\n`
+                 ).join('\n---\n');
+             }
+             
+             // 获取自定义提示词或使用默认提示词
+             const customPrompt = document.getElementById('aiSearchPrompt').value.trim();
              let fullPrompt;
-             if (knowledgeContext) {
-                 fullPrompt = `任务列表：知识库AI搜索\n\n我有一个知识库，包含以下相关内容：\n\n${knowledgeContext}\n\n请根据用户的问题："${query}"，从上述知识库内容中找出最相关的信息，并给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+             
+             if (customPrompt) {
+                 // 使用自定义提示词
+                 fullPrompt = customPrompt.replace(/\{query\}/g, query).replace(/\{knowledge\}/g, knowledgeContext || '无相关内容');
              } else {
-                 fullPrompt = `任务列表：知识库AI搜索\n\n用户问题："${query}"\n\n请基于你的知识给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+                 // 使用默认提示词
+                 if (knowledgeContext) {
+                     fullPrompt = `任务列表：知识库AI搜索\n\n我有一个知识库，包含以下相关内容：\n\n${knowledgeContext}\n\n请根据用户的问题："${query}"，从上述知识库内容中找出最相关的信息，并给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+                 } else {
+                     fullPrompt = `任务列表：知识库AI搜索\n\n用户问题："${query}"\n\n请基于你的知识给出详细的解答和建议。请使用Markdown格式回复，包括适当的标题、列表等格式来组织内容。`;
+                 }
              }
              
              // 使用callAIApi函数 - 传递完整提示词作为content，不传递customPrompt
              const response = await callAiApi(fullPrompt, data.aiConfig.model);
              
+             // 构建匹配结果HTML
+             let matchedItemsHtml = '';
+             if (matchedItems.length > 0) {
+                 const isAIMatching = matchedItems.some(item => item.reason); // 检查是否为AI匹配结果
+                 const titleText = isAIMatching ? '🤖 AI智能匹配的知识库条目' : '📚 匹配的知识库条目';
+                 const scoreText = isAIMatching ? 'AI相关度' : '匹配度';
+                 const scoreUnit = isAIMatching ? '%' : '分';
+                 
+                 // AI匹配结果限制为3条
+                 const displayItems = isAIMatching ? matchedItems.slice(0, 3) : matchedItems;
+                 
+                 matchedItemsHtml = `
+                     <div class="matched-knowledge-section" style="margin-bottom:20px;padding:16px;background:var(--green-light);border-radius:8px;border:1px solid var(--green-border);">
+                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                             <h4 style="margin:0;font-size:14px;color:var(--green-text);">${titleText} (${displayItems.length}条)</h4>
+                             ${isAIMatching ? `
+                                 <button class="btn btn-small btn-secondary" onclick="toggleMatchedSection()" id="toggleMatchedBtn" style="padding:4px 8px;font-size:12px;">
+                                     📁 折叠
+                                 </button>
+                             ` : ''}
+                         </div>
+                         <div class="matched-items-list" id="matchedItemsList" style="${isAIMatching ? 'display:none;' : ''}">
+                             ${displayItems.map((item, index) => `
+                                 <div class="matched-item" style="padding:10px;background:var(--card);border-radius:6px;margin-bottom:8px;border:1px solid var(--border);">
+                                     <div style="display:flex;align-items:start;margin-bottom:6px;">
+                                         <input type="checkbox"
+                                                id="match_check_${index}"
+                                                class="match-checkbox"
+                                                data-index="${index}"
+                                                style="margin-top:2px;margin-right:8px;cursor:pointer;"
+                                                ${index < 3 ? 'checked' : ''}>
+                                         <div style="flex:1;">
+                                             <div style="display:flex;justify-content:space-between;align-items:start;">
+                                                 <span style="font-size:12px;color:${isAIMatching ? 'var(--primary)' : 'var(--text-secondary)'};">${scoreText}: ${item.score}${scoreUnit}</span>
+                                                 <span style="font-size:11px;color:var(--text-secondary);">#${index + 1}</span>
+                                             </div>
+                                             ${item.reason ? `<div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">💡 ${item.reason}</div>` : ''}
+                                             <div class="matched-item-content" style="font-size:13px;line-height:1.5;color:var(--text);margin-bottom:6px;white-space:pre-wrap;word-wrap:break-word;">${item.content}</div>
+                                             ${item.tags && item.tags.length > 0 ? `
+                                                 <div class="matched-item-tags" style="display:flex;gap:4px;flex-wrap:wrap;">
+                                                     ${item.tags.map(tag => `<span style="background:var(--green-light);color:var(--green-text);padding:2px 6px;border-radius:3px;font-size:11px;">${tag}</span>`).join('')}
+                                                 </div>
+                                             ` : ''}
+                                         </div>
+                                     </div>
+                                 </div>
+                             `).join('')}
+                         </div>
+                         ${isAIMatching ? `
+                             <div style="margin-top:8px;font-size:12px;color:var(--text-secondary);">
+                                 ℹ️ 勾选要纳入分析的条目（最多3条）
+                             </div>
+                         ` : ''}
+                     </div>
+                 `;
+             }
+             
              // 显示AI搜索结果
              const container = document.getElementById('knowledgeBaseList');
              container.innerHTML = `
                  <div class="ai-search-result">
-                     <h4>🤖 AI搜索结果</h4>
-                     <div class="ai-search-content">${marked.parse(response)}</div>
-                 </div>
-                 <div style="text-align:center;margin-top:16px;">
-                     <button class="btn btn-secondary" onclick="renderKnowledgeBase()">返回列表</button>
+                     ${matchedItemsHtml}
+                     <div class="ai-response-card" style="margin-top:16px;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+                         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                             <span style="font-size:20px;">🤖</span>
+                             <h4 style="margin:0;font-size:16px;font-weight:600;color:var(--text-primary);">AI回答</h4>
+                             <span style="margin-left:auto;font-size:12px;color:var(--text-tertiary);background:var(--bg-secondary);padding:4px 8px;border-radius:4px;">智能生成</span>
+                         </div>
+                         <div class="ai-search-content" style="font-size:14px;line-height:1.8;color:var(--text-primary);">${marked.parse(response)}</div>
+                     </div>
+                     <div style="text-align:center;margin-top:20px;">
+                         <button class="btn btn-secondary" onclick="renderKnowledgeBase()">返回列表</button>
+                     </div>
                  </div>
              `;
              
@@ -16043,6 +17306,39 @@ ${ammoToAnalyze.map((ammo, index) =>
              console.error('AI搜索失败:', error);
              showToast('AI搜索失败：' + error.message);
          }
+     }
+     
+     // 传统匹配算法（作为AI匹配的后备方案）
+     async function performTraditionalMatching(query) {
+         let matchedItems = [];
+         
+         if (data.knowledgeBase && data.knowledgeBase.length > 0) {
+             const queryLower = query.toLowerCase();
+             const scoredItems = data.knowledgeBase.map(kb => {
+                 let score = 0;
+                 const contentLower = kb.content.toLowerCase();
+                 const tagsLower = (kb.tags || []).join(' ').toLowerCase();
+                 
+                 // 关键词匹配得分
+                 if (contentLower.includes(queryLower)) score += 30;
+                 if (tagsLower.includes(queryLower)) score += 20;
+                 
+                 // 查询词拆分匹配
+                 const queryWords = queryLower.split(/\s+/);
+                 queryWords.forEach(word => {
+                     if (word.length > 1 && contentLower.includes(word)) score += 10;
+                 });
+                 
+                 return { ...kb, score };
+             });
+             
+             matchedItems = scoredItems
+                 .sort((a, b) => b.score - a.score)
+                 .filter(item => item.score > 0)
+                 .slice(0, 3);
+         }
+         
+         return matchedItems;
      }
      
      // 快捷键记录弹窗
