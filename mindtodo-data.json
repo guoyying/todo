@@ -1300,6 +1300,18 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mph3poz7p3g4x",
+      "type": "task",
+      "content": "测试",
+      "createdAt": "2026-05-22T15:55:31.123Z",
+      "updatedAt": "2026-05-22T15:55:31.123Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "11min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2403,6 +2415,29 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-22T09:38:11.463Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mph3qq17q0kt3",
+      "taskId": "mph3poz7p3g4x",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "23:58",
+            "endTime": "18:00",
+            "message": "你有1个任务",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-05-22T15:56:19.147Z",
       "lastReminderTime": null,
       "active": true
     }
