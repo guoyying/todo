@@ -1276,13 +1276,16 @@
       "type": "task",
       "content": "剪视频",
       "createdAt": "2026-05-22T03:19:13.580Z",
-      "updatedAt": "2026-05-22T03:19:15.770Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-22T09:14:15.708Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpgcoizny61zh"
+      "placedIn": null,
+      "doneAt": "2026-05-22T09:14:15.708Z"
     },
     {
       "id": "mpgo25ke8t8qa",
