@@ -2332,10 +2332,15 @@
       },
       "createdAt": "2026-05-22T02:17:28.584Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-05-22T02:22:19.863Z"
+      }
     }
   ],
-  "conditionReminderConfirmations": {},
+  "conditionReminderConfirmations": {
+    "undefined_undefined": "2026-05-22T02:22:24.695Z"
+  },
   "knowledgeBase": [
     {
       "id": "mpfdhd6mqt5qgruibj",
