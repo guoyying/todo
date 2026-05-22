@@ -2381,6 +2381,21 @@
       "createdAt": "2026-05-22T03:07:47.719Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpgq8g3r8juj6",
+      "taskId": "mpgo25ke8t8qa",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-25T09:38"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-22T09:38:11.463Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
