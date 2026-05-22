@@ -261,15 +261,8 @@
                 transform: scale(0.95);
             }
             
-            /* 移动端显示浮动按钮 - 使用更宽的范围确保显示 */
-            @media (max-width: 1024px) {
-                .mobile-fab {
-                    display: flex !important;
-                }
-            }
-            
-            /* 同时也添加到大屏幕的触摸设备检测 */
-            @media (hover: none) and (pointer: coarse) {
+            /* 仅在真正的移动端显示浮动按钮 */
+            @media (max-width: 768px) {
                 .mobile-fab {
                     display: flex !important;
                 }
@@ -17523,14 +17516,15 @@ ${knowledgeSummary}
          const fab = document.getElementById('mobileFab');
          if (fab) {
              console.log('移动端浮动按钮已初始化');
-             // 检测是否为移动设备
+             // 检测是否为移动设备 - 仅在真正的移动设备上显示
              const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-                            window.innerWidth <= 1024;
+                            window.innerWidth <= 768;
              
              if (isMobile) {
                  fab.style.display = 'flex';
                  console.log('检测到移动设备，显示浮动按钮');
              } else {
+                 fab.style.display = 'none';
                  console.log('桌面设备，浮动按钮隐藏');
              }
          } else {
