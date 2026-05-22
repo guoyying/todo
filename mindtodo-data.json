@@ -2124,6 +2124,23 @@
       "type": null,
       "createdAt": "2026-05-19T05:36:12.982Z",
       "tags": []
+    },
+    {
+      "id": "mpgckp85st4vu",
+      "content": "我做了很多，却没有一件真正“完成”或“属于自己”。你像一个消防员，一天扑灭十场小火，但火源从未被找到。当你停止被动救火，开始主动设计“工作单元”，你就能从“割韭菜的人”变成“种树的人”——虽然树长得慢，但每一棵都扎根深厚，自成一片风景。",
+      "type": "general",
+      "createdAt": "2026-05-22T03:15:48.533Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
