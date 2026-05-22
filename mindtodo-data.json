@@ -2314,7 +2314,7 @@
       "active": true
     },
     {
-      "id": "mpgahoncg3lna",
+      "id": "mpgauus1ognc2",
       "taskId": "mpfmsug7hzjus",
       "type": "condition",
       "triggerConfig": {
@@ -2324,23 +2324,17 @@
         "reminders": [
           {
             "frequency": "daily",
-            "startTime": "10:19",
+            "startTime": "10:29",
             "endTime": "18:00",
-            "message": "这是测试条件提醒"
+            "message": "这是测试"
           }
         ]
       },
-      "createdAt": "2026-05-22T02:17:28.584Z",
+      "createdAt": "2026-05-22T02:27:43.057Z",
       "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-05-22T02:22:19.863Z"
-      }
+      "active": true
     }
   ],
-  "conditionReminderConfirmations": {
-    "undefined_undefined": "2026-05-22T02:22:24.695Z"
-  },
   "knowledgeBase": [
     {
       "id": "mpfdhd6mqt5qgruibj",
