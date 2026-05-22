@@ -542,9 +542,9 @@
     {
       "id": "mpahsrj7sccmc",
       "type": "task",
-      "content": "记录老公今晚吃了啥",
+      "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
       "createdAt": "2026-05-18T00:55:25.795Z",
-      "updatedAt": "2026-05-22T16:18:29.021Z",
+      "updatedAt": "2026-05-18T01:37:05.292Z",
       "tags": [
         "老公"
       ],
@@ -1805,12 +1805,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mpgcoizny61zh",
-      "name": "今天的3件大事"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2210,56 +2205,9 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
-    },
-    {
-      "id": "mph54oql5x3d6",
-      "content": "我捕捉到了话语中隐含的“评判感”（仿佛你故意占位）",
-      "type": null,
-      "createdAt": "2026-05-22T16:35:10.270Z",
-      "tags": []
     }
   ],
   "communicationChecklists": [
-    {
-      "id": "1779467307807",
-      "type": "communication_checklist",
-      "title": "关系问题沟通清单",
-      "createdAt": "2026-05-22T16:30:27.831Z",
-      "steps": [
-        {
-          "step": 1,
-          "completed": false,
-          "answer": "不能，我现在还是一点就着火。烦死他了，啥意思啊。",
-          "expectation": ""
-        },
-        {
-          "step": 2,
-          "completed": false,
-          "answer": "老公对我说：你坐过一点，这样他怎么坐啊。就让我觉得：你就那么考虑他？不考虑我？怎么搞的我像故意坐这个位置，让他没得坐一样。",
-          "expectation": "考虑我的感受啊，他完全不需要说这句话啊，难道我我不知道该让个位置吗，这点礼仪都不知道吗。"
-        },
-        {
-          "step": 3,
-          "completed": false,
-          "answer": "我的猜测：\n实际动机：",
-          "expectation": ""
-        },
-        {
-          "step": 4,
-          "completed": false,
-          "answer": "",
-          "expectation": ""
-        },
-        {
-          "step": 5,
-          "completed": false,
-          "answer": "",
-          "expectation": ""
-        }
-      ],
-      "allCompleted": false,
-      "updatedAt": "2026-05-22T16:33:16.987Z"
-    },
     {
       "id": "1778563761980",
       "type": "communication_checklist",
@@ -2429,8 +2377,8 @@
             "startTime": "22:00",
             "endTime": "09:00",
             "message": "记录老公吃了啥",
-            "confirmed": true,
-            "confirmationTime": "2026-05-22T16:27:37.434Z"
+            "confirmed": false,
+            "confirmationTime": null
           }
         ]
       },
@@ -2676,6 +2624,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-22T16:17:55.194Z"
+    "lastSync": "2026-05-22T08:36:41.113Z"
   }
 }
