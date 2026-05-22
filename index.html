@@ -9250,6 +9250,9 @@
               // 确保气泡在最上层
               bubble.style.zIndex = '9999';
               
+              // 存储当前触发器信息，用于确认操作
+              bubble.currentTrigger = trigger;
+              
               console.log('提醒气泡已显示');
               
               // 条件提醒气泡不会自动关闭，需要用户点击确定按钮
@@ -9257,7 +9260,29 @@
           
           // 关闭提醒气泡
           function closeReminderBubble() {
-              document.getElementById('reminderBubble').classList.add('hidden');
+              const bubble = document.getElementById('reminderBubble');
+              
+              // 如果是条件提醒且用户确认，设置确认状态
+              if (bubble.currentTrigger && bubble.currentTrigger.type === 'condition') {
+                  const triggerIndex = bubble.currentTrigger.triggerIndex;
+                  const reminderIndex = bubble.currentTrigger.reminderIndex;
+                  
+                  // 直接在触发器的提醒配置中设置确认状态
+                  const currentTrigger = data.taskTriggers[triggerIndex];
+                  if (currentTrigger &&
+                      currentTrigger.reminderConfig &&
+                      currentTrigger.reminderConfig.reminders &&
+                      currentTrigger.reminderConfig.reminders[reminderIndex]) {
+                      
+                      currentTrigger.reminderConfig.reminders[reminderIndex].confirmed = true;
+                      currentTrigger.reminderConfig.reminders[reminderIndex].confirmationTime = new Date().toISOString();
+                      saveData();
+                      console.log(`用户已确认条件提醒: 触发器${triggerIndex} - 提醒${reminderIndex}`);
+                  }
+              }
+              
+              bubble.classList.add('hidden');
+              bubble.currentTrigger = null;
           }
           
           // 检查并触发提醒
@@ -9556,60 +9581,60 @@
                                       ...trigger,
                                       reminderConfig: {
                                           reminders: [reminder]
-                                      }
+                                      },
+                                      // 添加确认状态标记
+                                      confirmed: false,
+                                      reminderIndex: reminderIndex,
+                                      triggerIndex: triggerIndex
                                   };
                                   showReminderBubble(tempTrigger);
                                   
-                                  // 记录提醒时间
-                                  trigger.lastReminderTimes[reminderIndex] = new Date().toISOString();
-                                  saveData();
+                                  // 不记录提醒时间，让提醒在时间段内持续检查
+                                  // trigger.lastReminderTimes[reminderIndex] = new Date().toISOString();
+                                  // saveData();
                               }
                           }
                           
-                          // 为后续提醒设置定时器
+                          // 为后续提醒设置定时器 - 在时间段内持续检查
                           const nextTimerId = setInterval(() => {
                               const checkNow = new Date();
                               const checkCurrentTime = checkNow.toTimeString().substring(0, 5);
                               
+                              // 检查是否在时间范围内
                               if (checkCurrentTime >= startTime && checkCurrentTime <= endTime) {
-                                  if (!trigger.lastReminderTimes) {
-                                      trigger.lastReminderTimes = {};
-                                  }
+                                  // 检查用户是否已确认（直接从触发器的提醒配置中读取）
+                                  const currentTrigger = data.taskTriggers[triggerIndex];
+                                  const isConfirmed = currentTrigger &&
+                                                   currentTrigger.reminderConfig &&
+                                                   currentTrigger.reminderConfig.reminders &&
+                                                   currentTrigger.reminderConfig.reminders[reminderIndex] &&
+                                                   currentTrigger.reminderConfig.reminders[reminderIndex].confirmed;
                                   
-                                  const lastReminderTime = trigger.lastReminderTimes[reminderIndex];
-                                  const lastReminder = lastReminderTime ? new Date(lastReminderTime) : null;
-                                  
-                                  let checkShouldRemind = false;
-                                  
-                                  if (frequency === 'daily') {
-                                      const checkToday = checkNow.toDateString();
-                                      checkShouldRemind = !lastReminder || lastReminder.toDateString() !== checkToday;
-                                  } else if (frequency === 'weekly') {
-                                      checkShouldRemind = !lastReminder || (checkNow - lastReminder) >= 7 * 24 * 60 * 60 * 1000;
-                                  } else if (frequency === 'custom') {
-                                      const customInterval = parseInt(reminder.customInterval);
-                                      const unit = reminder.customIntervalUnit;
-                                      let ms = 0;
-                                      
-                                      if (unit === 'day') ms = customInterval * 24 * 60 * 60 * 1000;
-                                      else if (unit === 'week') ms = customInterval * 7 * 24 * 60 * 60 * 1000;
-                                      else if (unit === 'month') ms = customInterval * 30 * 24 * 60 * 60 * 1000;
-                                      
-                                      checkShouldRemind = !lastReminder || (checkNow - lastReminder) >= ms;
-                                  }
-                                  
-                                  if (checkShouldRemind) {
-                                      console.log(`✓ 触发${frequencyText}条件提醒: ${task.content.substring(0, 20)}...`);
+                                  if (!isConfirmed) {
+                                      console.log(`✓ 持续触发${frequencyText}条件提醒: ${task.content.substring(0, 20)}...`);
                                       
                                       const tempTrigger = {
                                           ...trigger,
                                           reminderConfig: {
                                               reminders: [reminder]
-                                          }
+                                          },
+                                          // 添加确认状态标记
+                                          confirmed: false,
+                                          reminderIndex: reminderIndex,
+                                          triggerIndex: triggerIndex
                                       };
                                       showReminderBubble(tempTrigger);
+                                  }
+                              } else {
+                                  // 超出时间段，清除确认状态，为下次做准备
+                                  const currentTrigger = data.taskTriggers[triggerIndex];
+                                  if (currentTrigger &&
+                                      currentTrigger.reminderConfig &&
+                                      currentTrigger.reminderConfig.reminders &&
+                                      currentTrigger.reminderConfig.reminders[reminderIndex]) {
                                       
-                                      trigger.lastReminderTimes[reminderIndex] = checkNow.toISOString();
+                                      currentTrigger.reminderConfig.reminders[reminderIndex].confirmed = false;
+                                      currentTrigger.reminderConfig.reminders[reminderIndex].confirmationTime = null;
                                       saveData();
                                   }
                               }
