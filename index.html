@@ -227,6 +227,54 @@
                 font-size: 12px;
             }
             
+            /* 移动端浮动操作按钮 */
+            .mobile-fab {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: var(--primary);
+                color: white;
+                border: none;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+                font-size: 32px;
+                display: none; /* 默认隐藏，仅在移动端显示 */
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 9999;
+                transition: all 0.2s ease;
+                font-weight: bold;
+                line-height: 1;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .mobile-fab:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            }
+            
+            .mobile-fab:active {
+                transform: scale(0.95);
+            }
+            
+            /* 移动端显示浮动按钮 - 使用更宽的范围确保显示 */
+            @media (max-width: 1024px) {
+                .mobile-fab {
+                    display: flex !important;
+                }
+            }
+            
+            /* 同时也添加到大屏幕的触摸设备检测 */
+            @media (hover: none) and (pointer: coarse) {
+                .mobile-fab {
+                    display: flex !important;
+                }
+            }
+            
             h1 {
                 font-size: 18px;
             }
@@ -4438,17 +4486,28 @@
                 <!-- 快捷键记录弹窗 -->
                 <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()">
                     <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
-                        <h3>⚡ 快速记录知识</h3>
+                        <h3>⚡ 快速记录</h3>
                         <div class="input-group">
                             <label>内容</label>
-                            <textarea id="quickRecordContent" rows="4" placeholder="输入知识内容..."></textarea>
+                            <textarea id="quickRecordContent" rows="6" placeholder="输入内容..."></textarea>
                         </div>
                         <div class="input-group">
-                            <label>标签 (用逗号分隔)</label>
-                            <input type="text" id="quickRecordTags" placeholder="例如: 技术,笔记,重要">
+                            <label>保存位置</label>
+                            <div style="display:flex;gap:12px;">
+                                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                    <input type="radio" name="saveLocation" value="ammo" checked>
+                                    <span>🎯 弹药库</span>
+                                </label>
+                                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                    <input type="radio" name="saveLocation" value="knowledge">
+                                    <span>📚 知识库</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="modal-actions">
+                        <div class="modal-actions" style="flex-wrap: wrap;">
                             <button class="btn btn-secondary" onclick="closeQuickRecordModal()">取消</button>
+                            <button class="btn btn-warning" onclick="clearQuickRecordContent()">清空</button>
+                            <button class="btn btn-primary" onclick="appendClipboardContent()">📋 追加剪贴板</button>
                             <button class="btn btn-primary" onclick="saveQuickRecord()">保存</button>
                         </div>
                     </div>
@@ -17173,91 +17232,18 @@ ${knowledgeSummary}
              let knowledgeContext = '';
              let matchedItems = [];
              
-             // 检查是否有用户选择的条目
-             const selectedItems = getSelectedKnowledgeItems();
-             
-             if (selectedItems.length > 0) {
-                 // 使用用户选中的条目
-                 matchedItems = selectedItems;
-                 console.log('使用用户选中的知识库条目:', matchedItems.length, '条');
-             } else if (data.knowledgeBase && data.knowledgeBase.length > 0) {
-                 // 如果没有用户选择的条目，使用AI匹配算法
-                 console.log('未找到用户选择的条目，使用AI匹配算法');
-                 
-                 // 构建知识库列表供AI分析
-                 const knowledgeList = data.knowledgeBase.map((kb, index) =>
-                     `ID:${index + 1}|内容:${kb.content}|标签:${(kb.tags || []).join(',')}`
-                 ).join('\n');
-                 
-                 // 构建AI匹配提示词
-                 const matchingPrompt = `任务列表：知识库智能匹配
-
-用户问题："${query}"
-
-知识库内容：
-${knowledgeList}
-
-请分析用户问题与知识库中每个条目的相关性，并返回最相关的3个条目。
-
-返回格式要求（严格按JSON格式）：
-{
-  "matches": [
-    {
-      "id": 原始ID序号,
-      "relevance": 相关度评分(0-100的整数),
-      "reason": 匹配原因简述
-    }
-  ]
-}
-
-注意：
-1. 只返回相关度>30的条目
-2. 按相关度从高到低排序
-3. 相关度基于语义理解，不仅仅是关键词匹配
-4. 严格返回JSON格式，不要包含其他文字`;
-                 
-                 try {
-                     // 调用AI进行匹配
-                     const matchingResponse = await callAiApi(matchingPrompt, data.aiConfig.model);
-                     
-                     // 解析AI返回的JSON
-                     let aiResult;
-                     try {
-                         const jsonMatch = matchingResponse.match(/\{[\s\S]*\}/);
-                         if (jsonMatch) {
-                             aiResult = JSON.parse(jsonMatch[0]);
-                         } else {
-                             throw new Error('AI返回格式不正确');
-                         }
-                     } catch (parseError) {
-                         console.error('AI匹配解析失败，使用传统匹配:', parseError);
-                         // AI解析失败，使用传统匹配作为后备
-                         matchedItems = await performTraditionalMatching(query);
-                     }
-                     
-                     // 处理AI匹配结果
-                     if (aiResult && aiResult.matches && aiResult.matches.length > 0) {
-                         matchedItems = aiResult.matches
-                             .filter(match => match.relevance > 30)
-                             .slice(0, 3)
-                             .map(match => ({
-                                 ...data.knowledgeBase[match.id - 1],
-                                 score: match.relevance,
-                                 reason: match.reason
-                             }));
-                     }
-                     
-                     // 如果AI没有匹配到结果，使用传统匹配
-                     if (matchedItems.length === 0) {
-                         matchedItems = await performTraditionalMatching(query);
-                     }
-                     
-                 } catch (aiError) {
-                     console.error('AI匹配失败，使用传统匹配:', aiError);
-                     // AI调用失败，使用传统匹配作为后备
-                     matchedItems = await performTraditionalMatching(query);
-                 }
-             }
+              // 检查是否有用户选择的条目
+              const selectedItems = getSelectedKnowledgeItems();
+              
+              if (selectedItems.length > 0) {
+                  // 使用用户选中的条目
+                  matchedItems = selectedItems;
+                  console.log('使用用户选中的知识库条目:', matchedItems.length, '条');
+              } else {
+                  // 如果没有用户选择的条目，说明知识库是空的，不包含任何条目内容
+                  console.log('未找到用户选择的条目，知识库为空');
+                  // 保持matchedItems为空数组，不进行任何匹配
+              }
              
              // 构建知识库上下文
              if (matchedItems.length > 0) {
@@ -17404,42 +17390,89 @@ ${knowledgeList}
      
      // 快捷键记录弹窗
      function showQuickRecordModal() {
-         document.getElementById('quickRecordContent').value = '';
-         document.getElementById('quickRecordTags').value = '';
          document.getElementById('quickRecordModal').classList.remove('hidden');
          document.getElementById('quickRecordContent').focus();
+     }
+     
+     // 移动端浮动按钮点击处理
+     function handleMobileFabClick() {
+         showQuickRecordModal();
+         // 自动尝试读取剪贴板内容
+         appendClipboardContent();
+     }
+     
+     // 追加剪贴板内容
+     async function appendClipboardContent() {
+         try {
+             const text = await navigator.clipboard.readText();
+             if (text && text.trim()) {
+                 const textarea = document.getElementById('quickRecordContent');
+                 const currentContent = textarea.value;
+                 
+                 // 如果已有内容，添加换行符
+                 if (currentContent.trim()) {
+                     textarea.value = currentContent + '\n\n' + text.trim();
+                 } else {
+                     textarea.value = text.trim();
+                 }
+                 
+                 // 滚动到底部
+                 textarea.scrollTop = textarea.scrollHeight;
+                 showToast('已追加剪贴板内容');
+             } else {
+                 showToast('剪贴板为空');
+             }
+         } catch (err) {
+             console.error('无法读取剪贴板:', err);
+             showToast('无法访问剪贴板，请手动粘贴');
+         }
+     }
+     
+     // 清空快速记录内容
+     function clearQuickRecordContent() {
+         document.getElementById('quickRecordContent').value = '';
+         document.getElementById('quickRecordTags').value = '';
+         document.getElementById('quickRecordContent').focus();
+         showToast('内容已清空');
      }
      
      // 关闭快捷键记录弹窗
      function closeQuickRecordModal() {
          closeModal('quickRecordModal');
      }
-     // 保存快速记录
-     function saveQuickRecord() {
-         const content = document.getElementById('quickRecordContent').value.trim();
-         const tagsStr = document.getElementById('quickRecordTags').value.trim();
-         
-         if (!content) {
-             showToast('请填写内容');
-             return;
-         }
-         
-         const tags = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
-         
-         const newItem = {
-             id: generateId(),
-             content,
-             tags,
-             createdAt: new Date().toISOString(),
-             updatedAt: new Date().toISOString()
-         };
-         
-         data.knowledgeBase.push(newItem);
-         saveData();
-         
-         closeQuickRecordModal();
-         showToast('知识已快速记录');
-     }
+      // 保存快速记录
+      function saveQuickRecord() {
+          const content = document.getElementById('quickRecordContent').value.trim();
+          
+          if (!content) {
+              showToast('请填写内容');
+              return;
+          }
+          
+          // 获取选择的保存位置
+          const saveLocation = document.querySelector('input[name="saveLocation"]:checked').value;
+          
+          if (saveLocation === 'ammo') {
+              // 保存到弹药库
+              addAmmoToLibrary(content, null, '');
+              showToast('已保存到弹药库');
+          } else {
+              // 保存到知识库
+              const newItem = {
+                  id: generateId(),
+                  content,
+                  tags: [],
+                  createdAt: new Date().toISOString(),
+                  updatedAt: new Date().toISOString()
+              };
+              
+              data.knowledgeBase.push(newItem);
+              saveData();
+              showToast('已保存到知识库');
+          }
+          
+          closeQuickRecordModal();
+      }
      
      // 辅助函数：格式化日期
      function formatDate(dateString) {
@@ -17482,8 +17515,32 @@ ${knowledgeList}
      document.addEventListener('DOMContentLoaded', function() {
          initKnowledgeBase();
          initKeyboardShortcuts();
+         initMobileFab();
      });
      
+     // 初始化移动端浮动按钮
+     function initMobileFab() {
+         const fab = document.getElementById('mobileFab');
+         if (fab) {
+             console.log('移动端浮动按钮已初始化');
+             // 检测是否为移动设备
+             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                            window.innerWidth <= 1024;
+             
+             if (isMobile) {
+                 fab.style.display = 'flex';
+                 console.log('检测到移动设备，显示浮动按钮');
+             } else {
+                 console.log('桌面设备，浮动按钮隐藏');
+             }
+         } else {
+             console.error('找不到浮动按钮元素');
+         }
+     }
+     
      </script>
+     
+     <!-- 移动端浮动操作按钮 -->
+     <button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
  </body>
  </html>
