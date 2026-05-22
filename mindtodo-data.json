@@ -1254,6 +1254,34 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-22T01:48:41.186Z"
+    },
+    {
+      "id": "mpgcotjdvl8ep",
+      "type": "task",
+      "content": "退网单搞定",
+      "createdAt": "2026-05-22T03:19:00.745Z",
+      "updatedAt": "2026-05-22T03:19:02.692Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mpgcoizny61zh"
+    },
+    {
+      "id": "mpgcp3fw2525g",
+      "type": "task",
+      "content": "剪视频",
+      "createdAt": "2026-05-22T03:19:13.580Z",
+      "updatedAt": "2026-05-22T03:19:15.770Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mpgcoizny61zh"
     }
   ],
   "normalFeelings": [
@@ -1741,7 +1769,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpgcoizny61zh",
+      "name": "今天的3件大事"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2533,6 +2566,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-22T03:06:38.418Z"
+    "lastSync": "2026-05-22T03:15:54.042Z"
   }
 }
