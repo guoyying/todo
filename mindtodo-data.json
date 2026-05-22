@@ -2314,7 +2314,7 @@
       "active": true
     },
     {
-      "id": "mpgbv4az5fbjy",
+      "id": "mpgbyjzyrq9lf",
       "taskId": "mpfmsug7hzjus",
       "type": "condition",
       "triggerConfig": {
@@ -2324,20 +2324,17 @@
         "reminders": [
           {
             "frequency": "daily",
-            "startTime": "10:56",
+            "startTime": "10:59",
             "endTime": "18:00",
-            "message": "ceshiceshi",
+            "message": "ceshi",
             "confirmed": false,
             "confirmationTime": null
           }
         ]
       },
-      "createdAt": "2026-05-22T02:55:55.019Z",
+      "createdAt": "2026-05-22T02:58:35.326Z",
       "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-05-22T02:56:00.085Z"
-      }
+      "active": true
     }
   ],
   "knowledgeBase": [
