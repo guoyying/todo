@@ -9654,8 +9654,17 @@
                               const checkNow = new Date();
                               const checkCurrentTime = checkNow.toTimeString().substring(0, 5);
                               
-                              // 检查是否在时间范围内
-                              if (checkCurrentTime >= startTime && checkCurrentTime <= endTime) {
+                              // 检查是否在时间范围内（支持跨天）
+                              let isInTimeRange;
+                              if (startTime <= endTime) {
+                                  // 不跨天：如 09:00 - 18:00
+                                  isInTimeRange = checkCurrentTime >= startTime && checkCurrentTime <= endTime;
+                              } else {
+                                  // 跨天：如 22:00 - 09:00
+                                  isInTimeRange = checkCurrentTime >= startTime || checkCurrentTime <= endTime;
+                              }
+                              
+                              if (isInTimeRange) {
                                   // 智能确认逻辑：根据频率判断是否需要重置确认状态
                                   const currentTrigger = data.taskTriggers[triggerIndex];
                                   const reminderData = currentTrigger &&
