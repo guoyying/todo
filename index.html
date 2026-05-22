@@ -16672,7 +16672,7 @@ ${knowledgeList}
 4. 严格返回JSON格式，不要包含其他文字`;
             
             // 调用AI进行匹配
-            const response = await callAiApi(aiPrompt, data.aiConfig.model);
+            const response = await callAiApi(aiPrompt, data.aiConfig.model, 'custom');
             
             // 解析AI返回的JSON
             let aiResult;
@@ -17269,7 +17269,7 @@ ${knowledgeSummary}
              }
              
              // 使用callAIApi函数 - 启用自定义模式，直接使用fullPrompt作为完整提示词
-             const response = await callAiApi(fullPrompt, data.aiConfig.model, null, true);
+             const response = await callAiApi(fullPrompt, data.aiConfig.model,'custom');
              
              // 构建匹配结果HTML
              let matchedItemsHtml = '';
