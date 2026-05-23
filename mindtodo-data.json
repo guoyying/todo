@@ -1315,6 +1315,18 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-23T07:03:43.445Z"
+    },
+    {
+      "id": "mpi5s7b9bq41o",
+      "type": "task",
+      "content": "看下风扇",
+      "createdAt": "2026-05-23T09:41:13.605Z",
+      "updatedAt": "2026-05-23T09:41:13.605Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
