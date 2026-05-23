@@ -2445,6 +2445,32 @@
       "createdAt": "2026-05-22T09:38:11.463Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mphqbiy7ihicn",
+      "taskId": "mphn1q222b0t9",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "10:00",
+            "endTime": "18:00",
+            "message": "你有1个任务",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-05-23T02:28:21.295Z",
+      "lastReminderTime": null,
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-05-23T02:29:00.003Z"
+      }
     }
   ],
   "knowledgeBase": [
