@@ -1304,42 +1304,17 @@
     {
       "id": "mphmui24u2ud2",
       "type": "task",
-      "content": "试试做视频的效果",
+      "content": "学习视频：多张照片进出画面",
       "createdAt": "2026-05-23T00:51:08.140Z",
-      "updatedAt": "2026-05-23T00:51:08.140Z",
+      "updatedAt": "2026-05-23T07:03:43.445Z",
       "tags": [
         "储备能力"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mphzh0gz49mmr",
-      "type": "task",
-      "content": "日历按钮可移动",
-      "createdAt": "2026-05-23T06:44:33.827Z",
-      "updatedAt": "2026-05-23T06:44:33.827Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mphzhs20hbqfq",
-      "type": "task",
-      "content": "测试",
-      "createdAt": "2026-05-23T06:45:09.576Z",
-      "updatedAt": "2026-05-23T06:45:09.576Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-23T07:03:43.445Z"
     }
   ],
   "normalFeelings": [
