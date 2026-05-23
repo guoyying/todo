@@ -137,12 +137,73 @@
         
         .kb-detail-actions {
             margin-top: 16px;
-            display: flex;
-            gap: 8px;
-        }
-        
-        /* 响应式设计 - 手机端优化 */
-        @media (max-width: 768px) {
+             display: flex;
+             gap: 8px;
+         }
+         
+         /* AI搜索内容样式 - 全局样式（桌面端和移动端通用） */
+         .ai-search-content {
+             color: #2c3e50;
+             line-height: 1.8;
+             font-size: 14px;
+             border: 1px solid #e8e8e8;
+             border-radius: 8px;
+             padding: 16px;
+             background: #fafafa;
+         }
+         
+         .ai-search-content h1,
+         .ai-search-content h2,
+         .ai-search-content h3 {
+             color: #667eea;
+             margin-top: 16px;
+             margin-bottom: 8px;
+         }
+         
+         .ai-search-content ul,
+         .ai-search-content ol {
+             padding-left: 20px;
+             margin: 12px 0;
+         }
+         
+         .ai-search-content li {
+             margin-bottom: 6px;
+             line-height: 1.6;
+         }
+         
+         .ai-search-content code {
+             background: #f8f9fa;
+             padding: 2px 6px;
+             border-radius: 4px;
+             font-family: 'Courier New', monospace;
+             font-size: 13px;
+             color: #e74c3c;
+         }
+         
+         .ai-search-content pre {
+             background: #2c3e50;
+             color: #ecf0f1;
+             padding: 16px;
+             border-radius: 8px;
+             overflow-x: auto;
+             margin: 12px 0;
+         }
+         
+         .ai-search-content blockquote {
+             border-left: 4px solid #667eea;
+             padding-left: 16px;
+             margin: 12px 0;
+             color: #7f8c8d;
+             font-style: italic;
+         }
+         
+         .ai-search-content strong {
+             color: #6B8E6B;
+             font-weight: 600;
+         }
+         
+         /* 响应式设计 - 手机端优化 */
+         @media (max-width: 768px) {
             body {
                 padding: 12px;
             }
@@ -406,57 +467,6 @@
                  border-bottom: 2px solid #f0f0f0;
              }
              
-             .ai-search-content {
-                 color: #2c3e50;
-                 line-height: 1.8;
-                 font-size: 14px;
-             }
-             
-             .ai-search-content h1,
-             .ai-search-content h2,
-             .ai-search-content h3 {
-                 color: #667eea;
-                 margin-top: 16px;
-                 margin-bottom: 8px;
-             }
-             
-             .ai-search-content ul,
-             .ai-search-content ol {
-                 padding-left: 20px;
-                 margin: 12px 0;
-             }
-             
-             .ai-search-content li {
-                 margin-bottom: 6px;
-                 line-height: 1.6;
-             }
-             
-             .ai-search-content code {
-                 background: #f8f9fa;
-                 padding: 2px 6px;
-                 border-radius: 4px;
-                 font-family: 'Courier New', monospace;
-                 font-size: 13px;
-                 color: #e74c3c;
-             }
-             
-             .ai-search-content pre {
-                 background: #2c3e50;
-                 color: #ecf0f1;
-                 padding: 16px;
-                 border-radius: 8px;
-                 overflow-x: auto;
-                 margin: 12px 0;
-             }
-             
-             .ai-search-content blockquote {
-                 border-left: 4px solid #667eea;
-                 padding-left: 16px;
-                 margin: 12px 0;
-                 color: #7f8c8d;
-                 font-style: italic;
-             }
-             
              .matched-knowledge-section {
                  animation: fadeIn 0.3s ease-in;
              }
@@ -708,7 +718,7 @@
              }
              
              .ai-response-card .ai-search-content strong {
-                 color: var(--primary);
+                 color: #6B8E6B;
                  font-weight: 600;
              }
              
@@ -4393,7 +4403,7 @@
                                 <button id="backToKBListBtn" class="btn btn-small btn-secondary hidden" onclick="backToKBList()">← 返回</button>
                                 <h3 style="margin:0;">📚 知识库</h3>
                             </div>
-                            <button class="btn btn-small btn-secondary" onclick="closeKnowledgeBasePanel()">关闭</button>
+                            <button class="btn btn-small btn-secondary" onclick="manualCloseKnowledgeBasePanel()">关闭</button>
                         </div>
                         <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
                             <!-- 知识库列表视图 -->
@@ -9688,6 +9698,12 @@
                                   isInTimeRange = checkCurrentTime >= startTime || checkCurrentTime <= endTime;
                               }
                               
+                              // 验证时间范围是否有效（开始时间不能等于结束时间）
+                              if (startTime === endTime) {
+                                  console.warn(`⚠️ 时间范围无效: 开始时间等于结束时间 (${startTime})，跳过提醒`);
+                                  isInTimeRange = false;
+                              }
+                              
                               if (isInTimeRange) {
                                   // 智能确认逻辑：根据频率判断是否需要重置确认状态
                                   const currentTrigger = data.taskTriggers[triggerIndex];
@@ -13443,18 +13459,19 @@
                                 
                                 const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
                   
-                   // 处理Markdown格式并显示AI生成的参考句式
+                   // 处理Markdown格式并显示AI生成的参考句式 - 使用与 ai-search-content 相同的结构
                    let formattedResponse = response
-                       .replace(/##\s*(.+?)(?=\n|$)/g, '<strong style="font-size:14px;color:var(--primary);display:block;margin:10px 0 6px 0;padding-bottom:4px;border-bottom:1px solid var(--border);">$1</strong>')  // ## 标题
-                       .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text);">$1</strong>')  // **粗体**
-                       .replace(/-\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">• $1</div>')  // - 列表项
-                       .replace(/\d+\.\s+(.+)$/gm, '<div style="margin:4px 0 4px 16px;padding-left:8px;font-size:12px;color:var(--text);line-height:1.6;">$1</div>')  // 数字列表
-                       .replace(/---/g, '<hr style="margin:8px 0;border:none;border-top:1px dashed var(--border);">')  // --- 分隔线
-                       .replace(/\n\s*\n/g, '<div style="margin:8px 0;"></div>')  // 多个连续换行转为间距
-                       .replace(/\n/g, ' ');  // 单个换行转为空格
+                       .replace(/##\s*(.+?)(?=\n|$)/g, '<h3>$1</h3>')  // ## 标题转为 h3
+                       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **粗体**
+                       .replace(/^-\s+(.+)$/gm, '<li>$1</li>')  // - 列表项
+                       .replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>')  // 数字列表项
+                       .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')  // 包装列表项
+                       .replace(/---/g, '<hr>')  // --- 分隔线
+                       .replace(/\n\s*\n/g, '</p><p>')  // 多个连续换行转为段落
+                       .replace(/\n/g, '<br>');  // 单个换行转为换行
                    
                    // 包装在容器中以控制整体样式
-                   promptDiv.innerHTML = `<div style="font-size:14px;line-height:1.6;color:var(--text);">${formattedResponse}</div>`;
+                   promptDiv.innerHTML = `<div class="ai-search-content">${formattedResponse}</div>`;
                   
                } catch (error) {
                    console.error('AI生成参考句式失败:', error);
@@ -16344,16 +16361,30 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 确保弹药库面板是关闭的
          document.getElementById('ammoLibraryPanel').classList.add('hidden');
          document.getElementById('knowledgeBasePanel').classList.remove('hidden');
-         renderKnowledgeBase();
+         // 只有第一次打开或搜索结果为空时才渲染，保留搜索结果
+         const container = document.getElementById('knowledgeBaseList');
+         if (container.children.length === 0) {
+             renderKnowledgeBase();
+         }
      }
      
-     // 关闭知识库面板
+     // 关闭知识库面板（点击遮罩）
      function closeKnowledgeBasePanel() {
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
-         // 重置面板状态
+         // 不重置面板状态，保留搜索结果
+     }
+     
+     // 手动关闭知识库面板（点击关闭按钮）
+     function manualCloseKnowledgeBasePanel() {
+         document.getElementById('knowledgeBasePanel').classList.add('hidden');
+         // 重置面板状态和搜索结果
          document.getElementById('kbListView').classList.remove('hidden');
          document.getElementById('kbDetailView').classList.add('hidden');
          document.getElementById('backToKBListBtn').classList.add('hidden');
+         // 清空搜索输入框
+         document.getElementById('kbSearchInput').value = '';
+         // 清空知识库列表
+         document.getElementById('knowledgeBaseList').innerHTML = '';
      }
      
      // 渲染知识库列表
