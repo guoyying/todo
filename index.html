@@ -3776,11 +3776,11 @@
         <div class="reminder-bubble-content">
             <div class="reminder-bubble-header">
                 <span class="reminder-bubble-title">⏰ 任务提醒</span>
-                <span class="reminder-bubble-close" onclick="closeReminderBubble()">&times;</span>
+                <span class="reminder-bubble-close" onclick="dismissReminderBubble()">&times;</span>
             </div>
             <div class="reminder-bubble-message" id="reminderBubbleMessage"></div>
             <div class="reminder-bubble-actions">
-                <button class="btn btn-small btn-primary" onclick="closeReminderBubble()">确定</button>
+                <button class="btn btn-small btn-primary" onclick="confirmReminderBubble()">确定</button>
             </div>
         </div>
     </div>
@@ -4433,7 +4433,7 @@
                                 </div>
                                 
                                 <!-- AI搜索表单 -->
-                                <div id="aiSearchForm" class="hidden" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                                <div id="aiSearchForm" class="hidden" style="margin-bottom:16px;padding:11px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
                                     <div style="margin-bottom:12px;">
                                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">搜索问题</label>
                                         <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." oninput="onSearchQueryInput()" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
@@ -9327,10 +9327,35 @@
           }
           
           // 关闭提醒气泡
-          function closeReminderBubble() {
+          // 只关闭提醒气泡，不标记确认状态（点击X按钮）
+          function dismissReminderBubble() {
               const bubble = document.getElementById('reminderBubble');
               
-              console.log('关闭提醒气泡');
+              console.log('关闭提醒气泡（不标记确认）');
+              
+              // 如果是条件提醒，清除最后提醒时间，允许在同一时间段内再次提醒
+              if (bubble.currentTrigger && bubble.currentTrigger.type === 'condition') {
+                  const triggerIndex = bubble.currentTrigger.triggerIndex;
+                  const reminderIndex = bubble.currentTrigger.reminderIndex;
+                  
+                  const currentTrigger = data.taskTriggers[triggerIndex];
+                  if (currentTrigger && currentTrigger.lastReminderTimes) {
+                      // 清除该提醒的最后提醒时间
+                      delete currentTrigger.lastReminderTimes[reminderIndex];
+                      saveData();
+                      console.log('已清除最后提醒时间，允许再次提醒');
+                  }
+              }
+              
+              // 隐藏提醒气泡
+              bubble.classList.add('hidden');
+          }
+          
+          // 确认提醒并关闭气泡（点击确定按钮）
+          function confirmReminderBubble() {
+              const bubble = document.getElementById('reminderBubble');
+              
+              console.log('确认提醒气泡');
               console.log('当前触发器信息:', bubble.currentTrigger);
               
               // 如果是条件提醒且用户确认，设置确认状态
@@ -9383,18 +9408,15 @@
                           }
                       }
                       
-                      // 设置下次提醒的具体时间（时间段开始时间）
                       nextReminderTime.setHours(hours, minutes, 0, 0);
                       
                       console.log(`✓ 用户已确认${frequencyText}条件提醒: 触发器${triggerIndex} - 提醒${reminderIndex}`);
                       console.log(`  确认时间: ${confirmationTime}`);
                       console.log(`  下次提醒时间: ${nextReminderTime.toLocaleString()}`);
-                  } else {
-                      console.error(`无法设置确认状态: triggerIndex=${triggerIndex}, reminderIndex=${reminderIndex}`);
-                      console.log(`当前触发器:`, currentTrigger);
                   }
               }
               
+              // 隐藏提醒气泡
               bubble.classList.add('hidden');
               bubble.currentTrigger = null;
           }
