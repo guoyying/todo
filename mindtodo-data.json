@@ -1320,14 +1320,22 @@
       "type": "task",
       "content": "编辑知识，为什么不能正常显示换行空格？",
       "createdAt": "2026-05-23T00:56:45.098Z",
-      "updatedAt": "2026-05-23T00:56:45.098Z",
+      "updatedAt": "2026-05-23T00:57:27.179Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779497828259",
+          "content": "提醒框点击x不会标记true",
+          "done": false,
+          "estimatedTime": "5",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2661,6 +2669,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-23T00:55:41.715Z"
+    "lastSync": "2026-05-23T00:57:07.149Z"
   }
 }
