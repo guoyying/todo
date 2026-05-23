@@ -2460,14 +2460,17 @@
             "startTime": "10:00",
             "endTime": "18:00",
             "message": "你有1个任务",
-            "confirmed": false,
-            "confirmationTime": null
+            "confirmed": true,
+            "confirmationTime": "2026-05-23T03:29:14.992Z"
           }
         ]
       },
       "createdAt": "2026-05-23T02:48:16.505Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-05-23T03:29:13.524Z"
+      }
     }
   ],
   "knowledgeBase": [
