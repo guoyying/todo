@@ -1314,28 +1314,6 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mphn1q222b0t9",
-      "type": "task",
-      "content": "编辑知识，为什么不能正常显示换行空格？",
-      "createdAt": "2026-05-23T00:56:45.098Z",
-      "updatedAt": "2026-05-23T00:57:27.179Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779497828259",
-          "content": "提醒框点击x不会标记true",
-          "done": false,
-          "estimatedTime": "5",
-          "placedIn": null
-        }
-      ]
     }
   ],
   "normalFeelings": [
@@ -2445,32 +2423,6 @@
       "createdAt": "2026-05-22T09:38:11.463Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mphr156hq803r",
-      "taskId": "mphn1q222b0t9",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "10:00",
-            "endTime": "18:00",
-            "message": "你有1个任务",
-            "confirmed": true,
-            "confirmationTime": "2026-05-23T03:29:14.992Z"
-          }
-        ]
-      },
-      "createdAt": "2026-05-23T02:48:16.505Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-05-23T03:29:13.524Z"
-      }
     }
   ],
   "knowledgeBase": [
@@ -2695,6 +2647,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-23T02:48:01.127Z"
+    "lastSync": "2026-05-23T03:29:18.745Z"
   }
 }
