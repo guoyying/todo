@@ -2445,6 +2445,29 @@
       "createdAt": "2026-05-22T09:38:11.463Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mphr156hq803r",
+      "taskId": "mphn1q222b0t9",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "10:00",
+            "endTime": "18:00",
+            "message": "你有1个任务",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-05-23T02:48:16.505Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2669,6 +2692,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-23T00:57:07.149Z"
+    "lastSync": "2026-05-23T02:48:01.127Z"
   }
 }
