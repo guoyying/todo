@@ -1995,8 +1995,7 @@
             #moodCalendarSidebar.collapsed > div {
                 display: none;
             }
-            
-            /* 移动端日历展开/折叠按钮 */
+            /* 移动端日历展开/折叠按钮 - 可拖动 */
             .calendar-toggle-btn {
                 display: block !important;
                 position: fixed;
@@ -2010,12 +2009,26 @@
                 width: 40px;
                 height: 40px;
                 font-size: 18px;
-                cursor: pointer;
+                cursor: move;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                user-select: none;
+                touch-action: none;
+                transition: box-shadow 0.2s, transform 0.1s;
+            }
+            
+            .calendar-toggle-btn:hover {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                transform: scale(1.05);
+            }
+            
+            .calendar-toggle-btn.dragging {
+                cursor: grabbing;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+                transform: scale(1.1);
             }
         }
         
-        /* 桌面端隐藏折叠按钮 */
+        /* 桌面端隐藏日历按钮 */
         .calendar-toggle-btn {
             display: none;
         }
@@ -7285,6 +7298,97 @@
                 collapseCalendar();
             }
         }
+        
+        // 日历按钮拖动功能
+        function initDraggableCalendarButton() {
+            const calendarBtn = document.getElementById('calendarToggleBtn');
+            if (!calendarBtn) return;
+            
+            let isDragging = false;
+            let startX, startY, initialX, initialY;
+            
+            // 触摸事件处理
+            calendarBtn.addEventListener('touchstart', function(e) {
+                if (e.touches.length === 1) {
+                    isDragging = true;
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    initialX = calendarBtn.offsetLeft;
+                    initialY = calendarBtn.offsetTop;
+                    calendarBtn.classList.add('dragging');
+                }
+            }, { passive: true });
+            
+            calendarBtn.addEventListener('touchmove', function(e) {
+                if (!isDragging || e.touches.length !== 1) return;
+                
+                e.preventDefault();
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                
+                const deltaX = currentX - startX;
+                const deltaY = currentY - startY;
+                
+                let newX = initialX + deltaX;
+                let newY = initialY + deltaY;
+                
+                // 边界限制
+                const maxX = window.innerWidth - calendarBtn.offsetWidth;
+                const maxY = window.innerHeight - calendarBtn.offsetHeight;
+                
+                newX = Math.max(0, Math.min(newX, maxX));
+                newY = Math.max(0, Math.min(newY, maxY));
+                
+                calendarBtn.style.left = newX + 'px';
+                calendarBtn.style.top = newY + 'px';
+            }, { passive: false });
+            
+            calendarBtn.addEventListener('touchend', function() {
+                isDragging = false;
+                calendarBtn.classList.remove('dragging');
+            });
+            
+            // 鼠标事件处理（桌面端测试用）
+            calendarBtn.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialX = calendarBtn.offsetLeft;
+                initialY = calendarBtn.offsetTop;
+                calendarBtn.classList.add('dragging');
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - startX;
+                const deltaY = e.clientY - startY;
+                
+                let newX = initialX + deltaX;
+                let newY = initialY + deltaY;
+                
+                // 边界限制
+                const maxX = window.innerWidth - calendarBtn.offsetWidth;
+                const maxY = window.innerHeight - calendarBtn.offsetHeight;
+                
+                newX = Math.max(0, Math.min(newX, maxX));
+                newY = Math.max(0, Math.min(newY, maxY));
+                
+                calendarBtn.style.left = newX + 'px';
+                calendarBtn.style.top = newY + 'px';
+            });
+            
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+                calendarBtn.classList.remove('dragging');
+            });
+        }
+        
+        // 页面加载完成后初始化拖动功能
+        document.addEventListener('DOMContentLoaded', function() {
+            initDraggableCalendarButton();
+        });
         
         // 跳转到感受条目并闪烁提醒
         function renderFeelings() {
