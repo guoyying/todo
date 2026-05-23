@@ -202,11 +202,83 @@
              font-weight: 600;
          }
          
-         /* 响应式设计 - 手机端优化 */
-         @media (max-width: 768px) {
-            body {
-                padding: 12px;
-            }
+                    /* 响应式设计 - 手机端优化 */
+                    @media (max-width: 768px) {
+                       body {
+                           padding: 0;
+                       }
+                       
+                       /* AI搜索结果移动端优化 - 无边距，最大化文字占比 */
+                       .ai-search-results {
+                           margin: 0;
+                           padding: 0;
+                       }
+                       
+                       .ai-search-result-item {
+                           padding: 10px 12px;
+                           margin-bottom: 0;
+                           border-radius: 0;
+                           border-left: none;
+                           border-right: none;
+                       }
+                       
+                       .ai-search-result-title {
+                           font-size: 14px;
+                           margin-bottom: 6px;
+                       }
+                       
+                       .ai-search-result-content {
+                           font-size: 13px;
+                           max-height: none;
+                           line-height: 1.5;
+                       }
+                       
+                       /* AI回答卡片移动端优化 */
+                       .ai-response-card {
+                           padding: 12px 16px;
+                           margin: 0;
+                           border-radius: 0;
+                           border-left: none;
+                           border-right: none;
+                       }
+                       
+                       .ai-response-card .ai-search-content {
+                           font-size: 14px;
+                           line-height: 1.7;
+                           padding: 0;
+                       }
+                       
+                       .ai-response-card .ai-search-content p {
+                           margin-bottom: 10px;
+                       }
+                       
+                       .ai-response-card .ai-search-content ul,
+                       .ai-response-card .ai-search-content ol {
+                           padding-left: 18px;
+                           margin: 10px 0;
+                       }
+                       
+                       .ai-response-card .ai-search-content li {
+                           margin-bottom: 6px;
+                       }
+                       
+                       .ai-response-card .ai-search-content code {
+                           padding: 2px 5px;
+                           font-size: 12px;
+                       }
+                       
+                       .ai-response-card .ai-search-content pre {
+                           padding: 12px;
+                           font-size: 12px;
+                           overflow-x: auto;
+                       }
+                       
+                       .ai-response-card .ai-search-content h1,
+                       .ai-response-card .ai-search-content h2,
+                       .ai-response-card .ai-search-content h3 {
+                           margin-top: 12px;
+                           margin-bottom: 8px;
+                       }
             
             /* 手机端所有文字内容强制换行 */
             .item-content {
@@ -423,7 +495,7 @@
              
              #knowledgeBasePanel #kbListView,
              #knowledgeBasePanel #kbDetailView {
-                 padding: 8px 12px !important;
+                 padding: 4px 2px !important;
              }
              
              /* 知识库卡片移动端优化 - 只覆盖需要调整的样式 */
@@ -433,7 +505,7 @@
              
              /* AI搜索结果样式 - 方案一：现代简约风格 */
              .ai-search-result {
-                 padding: 20px;
+                 padding: 5px;
                  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
                  border-radius: 12px;
                  margin: 16px 0;
