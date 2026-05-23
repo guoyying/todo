@@ -1319,9 +1319,9 @@
     {
       "id": "mpiafamgxgxw6",
       "type": "task",
-      "content": "优化知识库的结果（移动端）",
+      "content": "移动端的ai搜索结果，优化显示，我想文字稍微占页面多些，边距窄点儿。",
       "createdAt": "2026-05-23T11:51:09.448Z",
-      "updatedAt": "2026-05-23T11:51:09.448Z",
+      "updatedAt": "2026-05-23T12:00:27.228Z",
       "tags": [
         "AI"
       ],
@@ -2680,6 +2680,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-23T10:47:21.506Z"
+    "lastSync": "2026-05-23T11:51:14.487Z"
   }
 }
