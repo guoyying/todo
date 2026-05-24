@@ -1321,12 +1321,15 @@
       "type": "task",
       "content": "做糖水（雪梨、银耳、红枣、冰糖）",
       "createdAt": "2026-05-24T03:17:57.386Z",
-      "updatedAt": "2026-05-24T04:47:48.073Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-05-24T15:23:23.111Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-24T15:23:23.111Z"
     }
   ],
   "normalFeelings": [
@@ -2509,21 +2512,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-22T09:38:11.463Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpjaqz604nog5",
-      "taskId": "mpj7j5zetq0kk",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-24T20:47"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-24T04:48:00.648Z",
       "lastReminderTime": null,
       "active": true
     }
