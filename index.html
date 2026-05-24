@@ -197,15 +197,53 @@
              font-style: italic;
          }
          
-         .ai-search-content strong {
-             color: #6B8E6B;
-             font-weight: 600;
-         }
-         
-                    /* 响应式设计 - 手机端优化 */
+          .ai-search-content strong {
+              color: #6B8E6B;
+              font-weight: 600;
+          }
+          
+          /* 下拉菜单样式 */
+          .dropdown {
+              position: relative;
+              display: inline-block;
+          }
+          
+          .dropdown-content {
+              display: none;
+              position: absolute;
+              right: 0;
+              background-color: var(--card);
+              min-width: 160px;
+              box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+              z-index: 1000;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              margin-top: 4px;
+          }
+          
+          .dropdown-content a {
+              color: var(--text);
+              padding: 10px 14px;
+              text-decoration: none;
+              display: block;
+              font-size: 13px;
+              border-radius: 4px;
+              margin: 2px;
+          }
+          
+           .dropdown-content a:hover {
+               background-color: var(--bg-secondary);
+               color: var(--text);
+           }
+           
+           /* 当下拉菜单显示时添加的类 */
+           .dropdown-content.show {
+               display: block;
+           }
+                     /* 响应式设计 - 手机端优化 */
                     @media (max-width: 768px) {
                        body {
-                           padding: 0;
+                           padding: 14px;
                        }
                        
                        /* AI搜索结果移动端优化 - 无边距，最大化文字占比 */
@@ -3485,14 +3523,19 @@
          </div>
            <div class="github-bar">
                <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
-               <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
-               <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
+               <div class="dropdown">
+                   <button class="btn btn-secondary btn-small" onclick="toggleSettingsDropdown()">⚙️ 设置</button>
+                   <div id="settingsDropdown" class="dropdown-content">
+                       <a href="#" onclick="showPageSettings();toggleSettingsDropdown();return false;">📄 页面设置</a>
+                       <a href="#" onclick="showGithubConfig();toggleSettingsDropdown();return false;">🔧 GitHub设置</a>
+                       <a href="#" onclick="downloadLatestHtml();toggleSettingsDropdown();return false;">⬇️ 下载 HTML</a>
+                   </div>
+               </div>
                <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
                <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
                 <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
                 <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
-                <button class="btn btn-secondary btn-small" onclick="downloadLatestHtml()">⬇️ 下载 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
                 <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
            </div>
@@ -11107,6 +11150,24 @@
                 if (arrow) arrow.textContent = '▶';
             }
         }
+
+        // ============ 下拉菜单控制 ============
+        function toggleSettingsDropdown() {
+            const dropdown = document.getElementById('settingsDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
+        }
+        
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('settingsDropdown');
+            const dropdownButton = event.target.closest('.dropdown');
+            
+            if (dropdown && !dropdownButton && dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        });
 
         // ============ GitHub ============
         function showGithubConfig() {
