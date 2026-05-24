@@ -1819,6 +1819,15 @@
       ],
       "createdAt": "2026-05-24T09:49:26.655Z",
       "updatedAt": "2026-05-24T09:49:38.077Z"
+    },
+    {
+      "id": "mpjm2dpre81a5",
+      "content": "嘴巴甜性格狠是咋样的？",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-05-24T10:04:48.495Z",
+      "updatedAt": "2026-05-24T10:11:15.262Z"
     }
   ],
   "practiceBlocks": [
@@ -2748,6 +2757,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-24T09:53:23.919Z"
+    "lastSync": "2026-05-24T09:56:02.601Z"
   }
 }
