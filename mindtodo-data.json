@@ -1321,20 +1321,12 @@
       "type": "task",
       "content": "做糖水（雪梨、银耳、红枣、冰糖）",
       "createdAt": "2026-05-24T03:17:57.386Z",
-      "updatedAt": "2026-05-24T03:17:57.386Z",
+      "updatedAt": "2026-05-24T04:47:48.073Z",
       "tags": [],
       "done": false,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpj7j5ze4ou47",
-          "content": "泡银耳",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2496,17 +2488,17 @@
       "active": true
     },
     {
-      "id": "mpj7jid1zckpi",
+      "id": "mpjaqz604nog5",
       "taskId": "mpj7j5zetq0kk",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-05-24T12:00"
+        "triggerTime": "2026-05-24T20:47"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-05-24T03:18:13.429Z",
+      "createdAt": "2026-05-24T04:48:00.648Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -2740,6 +2732,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-24T01:59:13.872Z"
+    "lastSync": "2026-05-24T03:53:48.544Z"
   }
 }
