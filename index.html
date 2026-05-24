@@ -245,7 +245,7 @@
                        .ai-response-card .ai-search-content {
                            font-size: 14px;
                            line-height: 1.7;
-                           padding: 0;
+                           padding: 5px;
                        }
                        
                        .ai-response-card .ai-search-content p {
@@ -3476,21 +3476,27 @@
       </style>
 </head>
 <body>
-    <div class="header">
-        <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;">🌿 心事与任务</h1>
-         <div class="github-bar">
-             <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
-             <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
-             <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
-             <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
-             <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
-             <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
-             <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
-             <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
-             <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
-             <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
+     <div class="header">
+         <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+             <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;margin:0;">🌿 心事与任务</h1>
+             <div id="githubOperationLog" style="padding:6px 12px;background:var(--bg-secondary);border-radius:4px;font-size:12px;color:var(--text-secondary);min-height:24px;display:none;">
+                 <span id="githubOperationStatus">暂无操作记录</span>
+             </div>
          </div>
-    </div>
+           <div class="github-bar">
+               <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
+               <button class="btn btn-secondary btn-small" onclick="showPageSettings()">页面设置</button>
+               <button class="btn btn-secondary btn-small" onclick="showGithubConfig()">GitHub设置</button>
+               <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
+               <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
+                <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
+                <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
+                <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
+                <button class="btn btn-secondary btn-small" onclick="downloadLatestHtml()">⬇️ 下载 HTML</button>
+                <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
+                <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
+           </div>
+     </div>
     <div class="strong-reminder-banner" id="strongReminderBanner" style="display:none;background:#ffebee;border:1px solid #ffcdd2;padding:12px;margin-bottom:16px;border-radius:8px;">
         <div style="display:flex;align-items:center;gap:8px;">
             <span style="font-size:18px;">⚠️</span>
@@ -8119,7 +8125,7 @@
                 } else {
                     render();
                 }
-                showBanner(msg, 'success');
+                showBanner(msg, 'success', 2000);
             }
         }
 
@@ -8130,7 +8136,7 @@
             block.archivedAt = new Date().toISOString();
             saveData();
             render();
-            showBanner('板块练习已归档', 'success');
+            showBanner('板块练习已归档', 'success', 2000);
         }
 
         function unarchiveBlock(blockId) {
@@ -8140,7 +8146,7 @@
             block.archivedAt = null;
             saveData();
             render();
-            showBanner('板块练习已恢复', 'success');
+            showBanner('板块练习已恢复', 'success', 2000);
         }
 
         function renderToday() {
@@ -11245,41 +11251,49 @@
                      showGithubConfig();
                      return;
                  }
-                 if (res.status === 409) {
-                     hideBanner(loadingBanner);
-                     const reason = sha
-                         ? '文件可能已被其他设备修改，sha 不匹配。'
-                         : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
-                     showBanner('❌ 推送失败 (409): ' + reason, '#f44336', 5000);
-                     return;
-                 }
-                 if (res.status === 422) {
-                     hideBanner(loadingBanner);
-                     const err = await res.json().catch(() => ({}));
-                     showBanner('❌ 推送失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
-                     return;
-                 }
-                 if (res.ok) {
-                     hideBanner(loadingBanner);
-                     data.github.lastSync = nowStr();
-                     saveData();
-                     checkUpdateStatus();
-                     // 推送成功后自动隐藏提示
-                     setTimeout(() => {
-                         const banner = document.getElementById('updateBanner');
-                         if (banner) banner.classList.remove('show');
-                     }, 100);
-                     // 显示成功气泡，自动消失
-                     showBanner('✅ 推送成功！', '#4caf50', 2000);
-                 } else {
-                     hideBanner(loadingBanner);
-                     // 显示失败气泡，自动消失
-                     showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
-                 }
-             } catch(e) {
-                 hideBanner(loadingBanner);
-                 showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
-             }
+                  if (res.status === 409) {
+                      hideBanner(loadingBanner);
+                      const reason = sha
+                          ? '文件可能已被其他设备修改，sha 不匹配。'
+                          : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件，或在创建仓库时勾选"Initialize this repository with a README"。';
+                      updateGithubOperationLog('❌ 推送数据失败 (409): ' + reason, 'error');
+                      showBanner('❌ 推送失败 (409): ' + reason, '#f44336', 5000);
+                      return;
+                  }
+                  if (res.status === 422) {
+                      hideBanner(loadingBanner);
+                      const err = await res.json().catch(() => ({}));
+                      updateGithubOperationLog('❌ 推送数据失败 (422): ' + (err.message || '请求格式错误'), 'error');
+                      showBanner('❌ 推送失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
+                      return;
+                  }
+                  if (res.ok) {
+                      hideBanner(loadingBanner);
+                      data.github.lastSync = nowStr();
+                      saveData();
+                      checkUpdateStatus();
+                      // 推送成功后自动隐藏提示
+                      setTimeout(() => {
+                          const banner = document.getElementById('updateBanner');
+                          if (banner) banner.classList.remove('show');
+                      }, 100);
+                      // 更新操作日志
+                      updateGithubOperationLog('✅ 推送数据成功', 'success');
+                      // 显示成功气泡，自动消失
+                      showBanner('✅ 推送成功！', '#4caf50', 2000);
+                  } else {
+                      hideBanner(loadingBanner);
+                      // 更新操作日志
+                      updateGithubOperationLog('❌ 推送数据失败：HTTP ' + res.status, 'error');
+                      // 显示失败气泡，自动消失
+                      showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
+                  }
+              } catch(e) {
+                  hideBanner(loadingBanner);
+                  // 更新操作日志
+                  updateGithubOperationLog('❌ 网络错误，请检查网络连接', 'error');
+                  showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
+              }
         }
 
          async function pushHtmlToGithub(input) {
@@ -11377,38 +11391,151 @@
                          return;
                      }
  
-                     if (res.status === 409) {
-                         hideBanner(loadingBanner);
-                         showBanner('❌ 推送失败：文件冲突，请刷新页面后重试', '#f44336', 3000);
-                         input.value = '';
-                         return;
-                     }
+                      if (res.status === 409) {
+                          hideBanner(loadingBanner);
+                          updateGithubOperationLog('❌ 推送 HTML 失败：文件冲突', 'error');
+                          showBanner('❌ 推送失败：文件冲突，请刷新页面后重试', '#f44336', 3000);
+                          input.value = '';
+                          return;
+                      }
  
-                     if (res.ok) {
-                         hideBanner(loadingBanner);
-                         // 增加版本号
-                         if (!data.github.version) data.github.version = 1;
-                         data.github.version++;
-                         data.github.lastSync = nowStr();
-                         saveData();
-                         
-                         showBanner('✅ HTML 推送成功！请等待 1-2 分钟让 GitHub Pages 更新', '#4caf50', 4000);
-                         input.value = '';
-                     } else {
-                         hideBanner(loadingBanner);
-                         showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
-                         input.value = '';
-                     }
-                 } catch(e) {
-                     hideBanner(loadingBanner);
-                     showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
-                     input.value = '';
-                 }
+                      if (res.ok) {
+                          hideBanner(loadingBanner);
+                          // 增加版本号
+                          if (!data.github.version) data.github.version = 1;
+                          data.github.version++;
+                          data.github.lastSync = nowStr();
+                          saveData();
+                          
+                          // 更新操作日志
+                          updateGithubOperationLog('✅ 推送 HTML 成功', 'success');
+                          showBanner('✅ HTML 推送成功！请等待 1-2 分钟让 GitHub Pages 更新', '#4caf50', 4000);
+                          input.value = '';
+                      } else {
+                          hideBanner(loadingBanner);
+                          // 更新操作日志
+                          updateGithubOperationLog('❌ 推送 HTML 失败：HTTP ' + res.status, 'error');
+                          showBanner('❌ 推送失败：HTTP ' + res.status, '#f44336', 3000);
+                          input.value = '';
+                      }
+                  } catch(e) {
+                      hideBanner(loadingBanner);
+                      // 更新操作日志
+                      updateGithubOperationLog('❌ 网络错误，请检查网络连接', 'error');
+                      showBanner('❌ 网络错误，请检查网络连接', '#f44336', 3000);
+                      input.value = '';
+                  }
             };
             reader.readAsText(file);
         }
 
-          function showBanner(message, color, duration = 3000) {
+        // 下载GitHub仓库中最新的HTML文件
+        async function downloadLatestHtml() {
+            if (!data.github) {
+                alert('请先配置 GitHub 信息');
+                showGithubConfig();
+                return;
+            }
+
+            const {username, repo, token} = data.github;
+            const path = 'index.html';
+            const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
+
+            try {
+                // 显示加载提示
+                const loadingBanner = showBanner('⏳ 正在获取最新 HTML 文件...', '#2196f3', 0);
+
+                // 获取文件信息
+                const response = await fetch(api, {
+                    headers: {Authorization: `token ${token}`}
+                });
+
+                if (!response.ok) {
+                    hideBanner(loadingBanner);
+                     if (response.status === 404) {
+                         updateGithubOperationLog('❌ 下载 HTML 失败：文件不存在', 'error');
+                         showBanner('❌ 文件不存在，请先推送 HTML 文件', '#f44336', 3000);
+                     } else if (response.status === 401 || response.status === 403) {
+                         updateGithubOperationLog('❌ 下载 HTML 失败：Token 无效', 'error');
+                         showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                         showGithubConfig();
+                     } else {
+                         updateGithubOperationLog('❌ 下载 HTML 失败：HTTP ' + response.status, 'error');
+                         showBanner('❌ 获取文件失败：HTTP ' + response.status, '#f44336', 3000);
+                     }
+                     return;
+                }
+
+                const fileInfo = await response.json();
+
+                // 解码Base64内容
+                const htmlContent = decodeURIComponent(escape(window.atob(fileInfo.content)));
+
+                // 创建下载链接
+                const blob = new Blob([htmlContent], {type: 'text/html'});
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                
+                // 生成文件名（包含时间戳）
+                const now = new Date();
+                const timestamp = now.toISOString().slice(0,19).replace(/[:-]/g, '');
+                a.download = `index_${timestamp}.html`;
+                
+                document.body.appendChild(a);
+                a.click();
+                
+                // 清理
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+
+                 hideBanner(loadingBanner);
+                 // 更新操作日志
+                 updateGithubOperationLog('✅ 下载 HTML 成功', 'success');
+                 showBanner('✅ HTML 文件下载成功！', '#4caf50', 3000);
+
+             } catch (error) {
+                 console.error('下载HTML文件失败:', error);
+                 // 更新操作日志
+                 updateGithubOperationLog('❌ 下载 HTML 失败：' + error.message, 'error');
+                 showBanner('❌ 下载失败：' + error.message, '#f44336', 3000);
+             }
+        }
+
+           // 更新GitHub操作日志
+           function updateGithubOperationLog(message, status = 'info') {
+               const logContainer = document.getElementById('githubOperationLog');
+               const statusElement = document.getElementById('githubOperationStatus');
+               
+               if (!logContainer || !statusElement) return;
+               
+               // 获取当前时间
+               const now = new Date();
+               const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+               
+               // 设置状态颜色
+               const colorMap = {
+                   'success': '#4caf50',
+                   'error': '#f44336',
+                   'warning': '#ff9800',
+                   'info': '#2196f3'
+               };
+               
+               const color = colorMap[status] || colorMap['info'];
+               
+               // 更新日志内容
+               statusElement.innerHTML = `<span style="color:${color};">${message}</span> <span style="color:var(--text-tertiary);margin-left:8px;">${timeStr}</span>`;
+               
+               // 显示日志容器
+               logContainer.style.display = 'block';
+               
+               // 3秒后淡出（但不完全隐藏，保持最后一条记录）
+               setTimeout(() => {
+                   logContainer.style.opacity = '0.7';
+               }, 3000);
+           }
+ 
+           function showBanner(message, color, duration = 0) {
               // 颜色名称映射
               const colorMap = {
                   'success': '#4caf50',
@@ -12470,33 +12597,37 @@
                 const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}${cacheBuster}`, {
                     headers: {Authorization: `token ${token}`}
                 });
-                 if (res.status === 401) {
-                     hideBanner(loadingBanner);
-                     const msg = 'Token 已过期，请重新配置';
-                     if (manual) { alert(msg); showGithubConfig(); }
-                     else { showBanner(msg, 'error'); data.github = null; saveData(); }
-                     return;
-                 }
-                 if (res.status === 404) {
-                     hideBanner(loadingBanner);
-                     if (manual) alert('远程暂无数据文件');
-                     else showBanner('远程暂无数据文件', 'info');
-                     data.firstLoaded = true; saveData(); return;
-                 }
-                 if (res.status === 409) {
-                     hideBanner(loadingBanner);
-                     const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
-                     if (manual) alert(msg);
-                     else showBanner(msg, 'error');
-                     return;
-                 }
-                 if (!res.ok) {
-                     hideBanner(loadingBanner);
-                     const msg = '拉取失败：HTTP ' + res.status;
-                     if (manual) alert(msg);
-                     else showBanner(msg, 'error');
-                     data.firstLoaded = true; saveData(); return;
-                 }
+                  if (res.status === 401) {
+                      hideBanner(loadingBanner);
+                      const msg = 'Token 已过期，请重新配置';
+                      updateGithubOperationLog('❌ 拉取数据失败：Token 已过期', 'error');
+                      if (manual) { alert(msg); showGithubConfig(); }
+                      else { showBanner(msg, 'error', 3000); data.github = null; saveData(); }
+                      return;
+                  }
+                  if (res.status === 404) {
+                      hideBanner(loadingBanner);
+                      updateGithubOperationLog('ℹ️ 远程暂无数据文件', 'info');
+                      if (manual) alert('远程暂无数据文件');
+                      else showBanner('远程暂无数据文件', 'info', 2000);
+                      data.firstLoaded = true; saveData(); return;
+                  }
+                  if (res.status === 409) {
+                      hideBanner(loadingBanner);
+                      const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
+                      updateGithubOperationLog('❌ 拉取数据失败 (409)：仓库未初始化', 'error');
+                      if (manual) alert(msg);
+                      else showBanner(msg, 'error', 3000);
+                      return;
+                  }
+                  if (!res.ok) {
+                      hideBanner(loadingBanner);
+                      const msg = '拉取失败：HTTP ' + res.status;
+                      updateGithubOperationLog('❌ 拉取数据失败：HTTP ' + res.status, 'error');
+                      if (manual) alert(msg);
+                      else showBanner(msg, 'error', 3000);
+                      data.firstLoaded = true; saveData(); return;
+                  }
                 const info = await res.json();
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
@@ -12541,22 +12672,26 @@
                  // 拉取完成后检查并触发提醒
                  checkTriggers();
                 
-                 hideBanner(loadingBanner);
-                 if (manual) {
-                     showBanner('拉取成功', 'success');
-                 } else {
-                     showBanner('自动拉取成功', 'success');
-                 }
-             } catch(e) {
-                 hideBanner(loadingBanner);
-                 const msg = '拉取失败：' + (e.message || '网络错误');
-                 if (manual) {
-                     alert(msg);
-                 } else {
-                     showBanner(msg, 'error');
-                 }
-                 data.firstLoaded = true;
-                 saveData();
+                  hideBanner(loadingBanner);
+                  // 更新操作日志
+                   updateGithubOperationLog('✅ 拉取数据成功', 'success');
+                   if (manual) {
+                       showBanner('拉取成功', 'success', 2000);
+                  } else {
+                      showBanner('自动拉取成功', 'success', 2000);
+                  }
+              } catch(e) {
+                  hideBanner(loadingBanner);
+                  const msg = '拉取失败：' + (e.message || '网络错误');
+                  // 更新操作日志
+                  updateGithubOperationLog('❌ 拉取数据失败：' + (e.message || '网络错误'), 'error');
+                  if (manual) {
+                      alert(msg);
+                  } else {
+                      showBanner(msg, 'error', 3000);
+                  }
+                  data.firstLoaded = true;
+                  saveData();
              }
         }
 
@@ -13706,7 +13841,7 @@
           function addRecentFocus(ammoId) {
               const content = document.getElementById('newFocusContent').value.trim();
               if (!content) {
-                  showBanner('请输入内容', 'error');
+                  showBanner('请输入内容', 'error', 2000);
                   return;
               }
               
@@ -17588,7 +17723,7 @@ ${knowledgeSummary}
              container.innerHTML = `
                  <div class="ai-search-result">
                      ${matchedItemsHtml}
-                     <div class="ai-response-card" style="margin-top:16px;padding:11px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+                     <div class="ai-response-card" style="margin-top:16px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.08);">
                          <div style="display:flex;align-items:center;gap:8px;margin-bottom:13px;padding-bottom:12px;border-bottom:1px solid var(--border);">
                              <span style="font-size:20px;">🤖</span>
                              <h4 style="margin:0;font-size:16px;font-weight:600;color:var(--text-primary);">AI回答</h4>
