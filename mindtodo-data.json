@@ -1315,20 +1315,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-23T07:03:43.445Z"
-    },
-    {
-      "id": "mpiafamgxgxw6",
-      "type": "task",
-      "content": "移动端的ai搜索结果，优化显示，我想文字稍微占页面多些，边距窄点儿。",
-      "createdAt": "2026-05-23T11:51:09.448Z",
-      "updatedAt": "2026-05-23T12:00:27.228Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
