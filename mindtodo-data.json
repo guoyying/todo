@@ -1317,18 +1317,24 @@
       "doneAt": "2026-05-23T07:03:43.445Z"
     },
     {
-      "id": "mpj4pu1dwm37c",
+      "id": "mpj7j5zetq0kk",
       "type": "task",
-      "content": "看下wx的两篇文章",
-      "createdAt": "2026-05-24T01:59:09.649Z",
-      "updatedAt": "2026-05-24T01:59:09.649Z",
-      "tags": [
-        "储备能力"
-      ],
+      "content": "做糖水（雪梨、银耳、红枣、冰糖）",
+      "createdAt": "2026-05-24T03:17:57.386Z",
+      "updatedAt": "2026-05-24T03:17:57.386Z",
+      "tags": [],
       "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpj7j5ze4ou47",
+          "content": "泡银耳",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2477,6 +2483,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-22T09:38:11.463Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mpj7jid1zckpi",
+      "taskId": "mpj7j5zetq0kk",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-05-24T12:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-24T03:18:13.429Z",
       "lastReminderTime": null,
       "active": true
     }
