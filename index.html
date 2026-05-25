@@ -4508,7 +4508,10 @@
                                              <button id="backToAmmoListBtn" class="btn btn-small btn-secondary hidden" onclick="backToAmmoList()">← 返回</button>
                                              <h3 style="margin:0;">💎 弹药库</h3>
                                          </div>
-                                          <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
+                                         <div style="display:flex;gap:8px;">
+                                             <button class="btn btn-small btn-primary" onclick="switchToKnowledgeBase()">🔄 切换</button>
+                                             <button class="btn btn-small btn-secondary" onclick="closeAmmoLibraryPanel()">关闭</button>
+                                         </div>
                                      </div>
                                      <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
                                        <!-- 弹药信息头部容器（冻结） -->
@@ -4573,7 +4576,10 @@
                                 <button id="backToKBListBtn" class="btn btn-small btn-secondary hidden" onclick="backToKBList()">← 返回</button>
                                 <h3 style="margin:0;">📚 知识库</h3>
                             </div>
-                            <button class="btn btn-small btn-secondary" onclick="manualCloseKnowledgeBasePanel()">关闭</button>
+                            <div style="display:flex;gap:8px;">
+                                <button class="btn btn-small btn-primary" onclick="switchToAmmoLibrary()">🔄 切换</button>
+                                <button class="btn btn-small btn-secondary" onclick="manualCloseKnowledgeBasePanel()">关闭</button>
+                            </div>
                         </div>
                         <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
                             <!-- 知识库列表视图 -->
@@ -14671,6 +14677,17 @@
            resetAmmoLibraryPanelState();
        }
        
+       // 切换到知识库
+       function switchToKnowledgeBase() {
+           console.log('从弹药库切换到知识库');
+           // 关闭弹药库面板
+           document.getElementById('ammoLibraryPanel').classList.add('hidden');
+           // 重置弹药库面板状态
+           resetAmmoLibraryPanelState();
+           // 打开知识库面板
+           showKnowledgeBasePanel();
+       }
+       
        // 重置弹药库面板状态
        function resetAmmoLibraryPanelState() {
            // 重置手机端显示状态
@@ -16826,6 +16843,15 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 不重置面板状态，保留搜索结果
      }
      
+     // 切换到弹药库
+     function switchToAmmoLibrary() {
+         console.log('从知识库切换到弹药库');
+         // 关闭知识库面板
+         document.getElementById('knowledgeBasePanel').classList.add('hidden');
+         // 打开弹药库面板
+         showAmmoLibraryPanel();
+     }
+     
      // 手动关闭知识库面板（点击关闭按钮）
      function manualCloseKnowledgeBasePanel() {
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
@@ -16901,8 +16927,16 @@ ${ammoToAnalyze.map((ammo, index) =>
                  <div>更新时间：${formatDate(item.updatedAt)}</div>
              </div>
              <div class="kb-detail-actions">
+                 <button class="btn btn-secondary" onclick="showKBPracticeFrameworks('${item.id}')">🎯 表达练习</button>
                  <button class="btn btn-secondary" onclick="editKB('${item.id}')">编辑</button>
                  <button class="btn btn-danger" onclick="deleteKB('${item.id}', this)">删除</button>
+             </div>
+             
+             <!-- 表达框架选择区域 -->
+             <div id="kbPracticeFrameworks-${item.id}" class="hidden" style="margin-top:16px;padding:12px;background:var(--bg-secondary);border-radius:8px;border:1px solid var(--border);">
+                 <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;">🎯 选择表达框架</div>
+                 <div id="kbFrameworkButtons-${item.id}" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;"></div>
+                 <div id="kbFrameworkPrompt-${item.id}" style="font-size:12px;color:var(--text-secondary);"></div>
              </div>
          `;
      }
@@ -16912,6 +16946,97 @@ ${ammoToAnalyze.map((ammo, index) =>
          document.getElementById('kbListView').classList.remove('hidden');
          document.getElementById('kbDetailView').classList.add('hidden');
          document.getElementById('backToKBListBtn').classList.add('hidden');
+     }
+     
+     // 显示知识库表达框架选择器
+     function showKBPracticeFrameworks(kbId) {
+         const item = data.knowledgeBase.find(kb => kb.id === kbId);
+         if (!item) return;
+         
+         const frameworksContainer = document.getElementById(`kbPracticeFrameworks-${kbId}`);
+         const buttonsContainer = document.getElementById(`kbFrameworkButtons-${kbId}`);
+         
+         // 切换显示状态
+         if (frameworksContainer.classList.contains('hidden')) {
+             frameworksContainer.classList.remove('hidden');
+             
+             // 渲染表达框架按钮
+             const frameworks = [
+                 { type: 'prep', name: 'PREP结构', icon: '📊', description: '观点-理由-例子-观点' },
+                 { type: 'feeling', name: '感受事实期待', icon: '❤️', description: '事实-感受-期待' },
+                 { type: 'star', name: 'STAR法则', icon: '⭐', description: '情境-任务-行动-结果' },
+                 { type: 'kiss', name: 'KISS原则', icon: '💋', description: '保持-改进-开始-停止' },
+             ];
+             
+             buttonsContainer.innerHTML = frameworks.map(fw => `
+                 <button class="btn btn-small btn-secondary" onclick="startKBPractice('${kbId}', '${fw.type}', '${fw.name}')" style="padding:4px 8px;font-size:11px;">
+                     ${fw.icon} ${fw.name}
+                 </button>
+             `).join('');
+             
+             document.getElementById(`kbFrameworkPrompt-${kbId}`).innerHTML = '点击选择一个表达框架开始练习';
+         } else {
+             frameworksContainer.classList.add('hidden');
+         }
+     }
+     
+     // 开始知识库表达练习
+     async function startKBPractice(kbId, frameworkType, frameworkName) {
+         const item = data.knowledgeBase.find(kb => kb.id === kbId);
+         if (!item) return;
+         
+         // 检查AI配置
+         if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+             showToast('请先配置AI功能');
+             showAiConfigModal();
+             return;
+         }
+         
+         const promptDiv = document.getElementById(`kbFrameworkPrompt-${kbId}`);
+         promptDiv.innerHTML = '<div style="color:var(--text-secondary);font-size:12px;padding:8px;">🔄 AI正在生成参考句式...</div>';
+         
+         try {
+             // 框架描述
+             const frameworkDescriptions = {
+                 'prep': 'PREP结构（Point观点-Reason理由-Example例子-Point观点）',
+                 'feeling': '感受事实期待（表达感受-描述事实-说明期待）',
+                 'star': 'STAR法则（Situation情境-Task任务-Action行动-Result结果）',
+                 'kiss': 'KISS原则（Keep (保持)—Improve (改进)—Start (开始)—Stop (停止)）'
+             };
+             
+             // 构建AI提示词
+             const prompt = `任务列表：知识库表达练习
+ 
+ 我有一个知识库内容：
+ ${item.content}
+ 
+ 请使用${frameworkDescriptions[frameworkType]}，基于上述知识库内容生成一个表达练习的参考示例。
+ 
+ 要求：
+ 1. 严格使用${frameworkName}的结构
+ 2. 内容要基于知识库的内容进行扩展和组织
+ 3. 语言要自然流畅，适合口语表达
+ 4. 给出具体的表达示例，每个部分都要有实际内容
+ 5. 使用Markdown格式回复，包括适当的标题和列表`;
+             
+             // 调用AI生成参考句式
+             const response = await callAiApi(prompt, data.aiConfig.model, 'custom');
+             
+             // 显示结果
+             promptDiv.innerHTML = `
+                 <div style="margin-top:8px;padding:8px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
+                     <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px;">📝 ${frameworkName}参考示例</div>
+                     <div class="ai-search-content">${marked.parse(response)}</div>
+                 </div>
+                 <div style="margin-top:8px;font-size:11px;color:var(--text-secondary);">
+                     💡 提示：您可以参考上面的示例，用自己的话重新表达这个知识内容
+                 </div>
+             `;
+             
+         } catch (error) {
+             console.error('生成表达练习参考失败:', error);
+             promptDiv.innerHTML = `<div style="color:var(--danger);font-size:12px;padding:8px;">❌ 生成失败：${error.message}</div>`;
+         }
      }
      
      // 显示新增知识表单
