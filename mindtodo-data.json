@@ -1334,39 +1334,18 @@
     {
       "id": "mpkhf5qqanl2y",
       "type": "task",
-      "content": "退网物资检查工作",
+      "content": "退网物资检查工作：跟晓华敏华姐等商量时间，确认检查内容。",
       "createdAt": "2026-05-25T00:42:32.786Z",
-      "updatedAt": "2026-05-25T06:31:36.826Z",
+      "updatedAt": "2026-05-25T06:39:54.425Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpkhf5qqdu0k6",
-          "content": "打印表格，将问题写进去",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mpkhf5qqym1gt",
-          "content": "ai问下怎样合适？",
-          "estimatedTime": "8min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1779681146739",
-          "content": "问晓华她那部分要不要检查。",
-          "done": true,
-          "estimatedTime": "10",
-          "placedIn": null
-        }
-      ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null,
+      "doneAt": "2026-05-25T06:39:54.425Z",
+      "subtasks": []
     },
     {
       "id": "mpkj8v7lwb9zg",
@@ -2929,6 +2908,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-25T06:31:25.170Z"
+    "lastSync": "2026-05-25T06:31:40.906Z"
   }
 }
