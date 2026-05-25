@@ -2600,7 +2600,7 @@
             "endTime": "18:00",
             "message": "跟老妈聊天时",
             "confirmed": true,
-            "confirmationTime": "2026-05-22T08:34:39.642Z",
+            "confirmationTime": "2026-05-25T08:50:51.012Z",
             "customInterval": "3",
             "customIntervalUnit": "day"
           }
@@ -2610,7 +2610,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-05-22T08:00:23.004Z"
+        "0": "2026-05-25T08:50:48.034Z"
       }
     },
     {
