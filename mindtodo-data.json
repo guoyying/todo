@@ -1330,6 +1330,35 @@
       "unknown": true,
       "subtasks": [],
       "doneAt": "2026-05-24T15:23:23.111Z"
+    },
+    {
+      "id": "mpkhf5qqanl2y",
+      "type": "task",
+      "content": "退网物资检查工作",
+      "createdAt": "2026-05-25T00:42:32.786Z",
+      "updatedAt": "2026-05-25T00:42:32.786Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpkhf5qqdu0k6",
+          "content": "打印表格，将问题写进去",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mpkhf5qqym1gt",
+          "content": "ai问下怎样合适？",
+          "estimatedTime": "8min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -1898,7 +1927,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mpkhd31qo1rzc",
+      "name": "今日的三件大事"
+    }
+  ],
   "tags": [
     "家",
     "自己",
