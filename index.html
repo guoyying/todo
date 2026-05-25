@@ -4567,19 +4567,19 @@
                                 </div>
                                 
                                 <!-- AI搜索表单 -->
-                                <div id="aiSearchForm" class="hidden" style="margin-bottom:16px;padding:11px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
-                                    <div style="margin-bottom:12px;">
+                                <div id="aiSearchForm" class="hidden" style="margin-bottom:8px;padding:11px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                                    <div style="margin-bottom:2px;">
                                         <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">搜索问题</label>
                                         <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." oninput="onSearchQueryInput()" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                     </div>
                                     
                                     <!-- 搜索范围选项 -->
-                                    <div style="margin-bottom:12px;padding:8px;background:var(--bg-secondary);border-radius:4px;border:1px solid var(--border);">
-                                        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer;">
+                                    <div style="margin-bottom:2px;padding:1px;background:var(--bg-secondary);border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+                                        <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text);cursor:pointer;" title="勾选后，AI搜索将同时搜索知识库和弹药库的内容">
                                             <input type="checkbox" id="includeAmmoLibrary" style="width:16px;height:16px;cursor:pointer;">
                                             <span>💎 包含弹药库内容</span>
                                         </label>
-                                        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;margin-left:24px;">勾选后，AI搜索将同时搜索知识库和弹药库的内容</div>
+                                        <button class="btn btn-small btn-primary" onclick="startAIMatching()" id="startMatchingBtn">🎯 开始匹配</button>
                                     </div>
                                     
                                     <!-- 匹配知识库预览 -->
@@ -4594,25 +4594,18 @@
                                         <div id="selectedKnowledgeList" style="max-height:200px;overflow-y:auto;"></div>
                                     </div>
                                     
-                                    <!-- 智能匹配按钮 -->
-                                    <div style="margin-bottom:12px;">
-                                        <button class="btn btn-small btn-primary" onclick="startAIMatching()" id="startMatchingBtn" style="width:100%;">🎯 开始匹配</button>
-                                    </div>
-                                    
                                     <!-- 提示词配置区域 -->
                                     <div style="margin-bottom:12px;">
                                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
                                             <label style="font-size:13px;color:var(--text-secondary);">AI提示词</label>
-                                            <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn">👁️ 隐藏</button>
-                                        </div>
-                                        <div id="aiPromptContainer" style="margin-bottom:8px;">
-                                            <textarea id="aiSearchPrompt" rows="6" placeholder="自定义AI提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
-                                            
-                                            <!-- 提示词操作按钮 -->
-                                            <div style="display:flex;gap:8px;margin-top:8px;">
+                                            <div style="display:flex;gap:8px;">
                                                 <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()">🔄 重置默认</button>
                                                 <button class="btn btn-small btn-primary" onclick="saveAIPrompt()">💾 保存提示词</button>
+                                                <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn">隐藏</button>
                                             </div>
+                                        </div>
+                                        <div id="aiPromptContainer" style="margin-bottom:8px;">
+                                            <textarea id="aiSearchPrompt" rows="4" placeholder="自定义AI提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
                                         </div>
                                     </div>
                                     
@@ -17007,7 +17000,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          const container = document.getElementById('aiPromptContainer');
          const btn = document.getElementById('toggleAIPromptBtn');
          container.classList.remove('hidden');
-         btn.textContent = '👁️ 隐藏';
+         btn.textContent = '隐藏';
          
          // 如果提示词为空，设置默认提示词
          const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -17018,7 +17011,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 初始化匹配预览提示
          const previewContainer = document.getElementById('matchedKnowledgePreview');
          if (previewContainer) {
-             previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+             previewContainer.innerHTML = '';
          }
      }
      
@@ -17048,7 +17041,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          
          if (container.classList.contains('hidden')) {
              container.classList.remove('hidden');
-             btn.textContent = '👁️ 隐藏';
+             btn.textContent = '隐藏';
              
              // 如果提示词为空，设置默认提示词
              const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -17059,7 +17052,7 @@ ${ammoToAnalyze.map((ammo, index) =>
              // 显示提示信息，不自动匹配
              const previewContainer = document.getElementById('matchedKnowledgePreview');
              if (previewContainer) {
-                 previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+                 previewContainer.innerHTML = '';
              }
          } else {
              container.classList.add('hidden');
@@ -17485,7 +17478,7 @@ ${knowledgeList}
         if (!promptContainer.classList.contains('hidden') && previewContainer) {
             const query = document.getElementById('aiSearchQuery').value.trim();
             if (query) {
-                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">点击"🔍 智能匹配"按钮查看匹配结果</div>';
+                previewContainer.innerHTML = '';
             } else {
                 previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:12px;text-align:center;background:var(--bg);border-radius:6px;border:1px dashed var(--border);">请先输入搜索问题</div>';
             }
