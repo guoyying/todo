@@ -1359,6 +1359,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpkj8v7lwb9zg",
+      "type": "task",
+      "content": "尝试：每天上午8.30-9.30处理退网单。如果有退网相关核查，上午10.30-11.30，下午2.30-3.30统一响应。",
+      "createdAt": "2026-05-25T01:33:38.433Z",
+      "updatedAt": "2026-05-25T01:33:38.433Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2541,6 +2555,29 @@
       "createdAt": "2026-05-22T09:38:11.463Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mpkj9sdms41rt",
+      "taskId": "mpkj8v7lwb9zg",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "08:30",
+            "endTime": "09:30",
+            "message": "固定时间处理退网工作",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-05-25T01:34:21.418Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2779,6 +2816,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-24T09:56:02.601Z"
+    "lastSync": "2026-05-25T00:42:36.523Z"
   }
 }
