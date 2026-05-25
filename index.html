@@ -4573,8 +4573,26 @@
                                         <textarea id="aiSearchQuery" rows="3" placeholder="描述你想查找的内容..." oninput="onSearchQueryInput()" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                     </div>
                                     
+                                    <!-- 搜索范围选项 -->
+                                    <div style="margin-bottom:12px;padding:8px;background:var(--bg-secondary);border-radius:4px;border:1px solid var(--border);">
+                                        <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer;">
+                                            <input type="checkbox" id="includeAmmoLibrary" style="width:16px;height:16px;cursor:pointer;">
+                                            <span>💎 包含弹药库内容</span>
+                                        </label>
+                                        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;margin-left:24px;">勾选后，AI搜索将同时搜索知识库和弹药库的内容</div>
+                                    </div>
+                                    
                                     <!-- 匹配知识库预览 -->
                                     <div id="matchedKnowledgePreview" style="margin-bottom:12px;"></div>
+                                    
+                                    <!-- 已选知识库列表 -->
+                                    <div id="selectedKnowledgeSection" class="hidden" style="margin-bottom:12px;padding:10px;background:var(--bg-secondary);border-radius:6px;border:1px solid var(--border);">
+                                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                                            <span style="font-size:13px;font-weight:600;color:var(--text);">📋 已选条目 (<span id="selectedCount">0</span>)</span>
+                                            <button class="btn btn-small btn-secondary" onclick="clearSelectedKnowledge()" style="font-size:11px;">清空</button>
+                                        </div>
+                                        <div id="selectedKnowledgeList" style="max-height:200px;overflow-y:auto;"></div>
+                                    </div>
                                     
                                     <!-- 智能匹配按钮 -->
                                     <div style="margin-bottom:12px;">
@@ -12603,6 +12621,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             initDateTimePicker();
             
+            // 加载保存的AI提示词
+            loadAIPrompt();
+            
             // 启动触发提醒定时器
             console.log('启动触发提醒定时器');
             scheduleNextCheck();
@@ -16755,6 +16776,14 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 确保弹药库面板是关闭的
          document.getElementById('ammoLibraryPanel').classList.add('hidden');
          document.getElementById('knowledgeBasePanel').classList.remove('hidden');
+         
+         // 检查是否有 AI 搜索结果，如果有则不重新渲染
+         const aiSearchResults = document.getElementById('aiSearchResults');
+         if (aiSearchResults && !aiSearchResults.classList.contains('hidden')) {
+             // 有 AI 搜索结果正在显示，不重新渲染知识库列表
+             return;
+         }
+         
          // 只有第一次打开或搜索结果为空时才渲染，保留搜索结果
          const container = document.getElementById('knowledgeBaseList');
          if (container.children.length === 0) {
@@ -17071,10 +17100,14 @@ ${ammoToAnalyze.map((ammo, index) =>
             return;
         }
         
-        // 检查知识库是否有内容
-        if (!data.knowledgeBase || data.knowledgeBase.length === 0) {
+        // 检查知识库和弹药库是否有内容
+        const hasKnowledgeBase = data.knowledgeBase && data.knowledgeBase.length > 0;
+        const hasAmmoLibrary = data.ammoLibrary && data.ammoLibrary.length > 0;
+        const includeAmmoLibrary = document.getElementById('includeAmmoLibrary').checked;
+        
+        if (!hasKnowledgeBase && (!includeAmmoLibrary || !hasAmmoLibrary)) {
             if (previewContainer) {
-                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">知识库为空，请先添加知识</div>';
+                previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">知识库为空，请先添加知识或勾选包含弹药库内容</div>';
             }
             return;
         }
@@ -17092,18 +17125,46 @@ ${ammoToAnalyze.map((ammo, index) =>
         }
         
         try {
-            // 构建知识库列表供AI分析
-            const knowledgeList = data.knowledgeBase.map((kb, index) =>
-                `ID:${index + 1}|内容:${kb.content}|标签:${(kb.tags || []).join(',')}`
-            ).join('\n');
+            // 构建知识库和弹药库列表供AI分析
+            let knowledgeList = '';
+            let allItems = [];
+            let idCounter = 1;
+            
+            // 添加知识库条目
+            if (hasKnowledgeBase) {
+                data.knowledgeBase.forEach((kb, index) => {
+                    knowledgeList += `ID:${idCounter}|类型:知识库|内容:${kb.content}|标签:${(kb.tags || []).join(',')}\n`;
+                    allItems.push({
+                        originalIndex: index,
+                        displayId: idCounter,
+                        type: 'knowledge',
+                        data: kb
+                    });
+                    idCounter++;
+                });
+            }
+            
+            // 添加弹药库条目（如果勾选了包含弹药库内容）
+            if (includeAmmoLibrary && hasAmmoLibrary) {
+                data.ammoLibrary.forEach((ammo, index) => {
+                    knowledgeList += `ID:${idCounter}|类型:弹药库|内容:${ammo.content}|标签:${(ammo.tags || []).join(',')}\n`;
+                    allItems.push({
+                        originalIndex: index,
+                        displayId: idCounter,
+                        type: 'ammo',
+                        data: ammo
+                    });
+                    idCounter++;
+                });
+            }
             
             // 构建AI提示词
             const aiPrompt = `用户问题："${query}"
 
-知识库内容：
+知识库和弹药库内容：
 ${knowledgeList}
 
-请分析用户问题与知识库中每个条目的相关性，并返回最相关的3个条目。
+请分析用户问题与上述条目的相关性，并返回最相关的3个条目。
 
 返回格式要求（严格按JSON格式）：
 {
@@ -17120,7 +17181,8 @@ ${knowledgeList}
 1. 只返回相关度>30的条目
 2. 按相关度从高到低排序
 3. 相关度基于语义理解，不仅仅是关键词匹配
-4. 严格返回JSON格式，不要包含其他文字`;
+4. 可以同时匹配知识库和弹药库的条目
+5. 严格返回JSON格式，不要包含其他文字`;
             
             // 调用AI进行匹配
             const response = await callAiApi(aiPrompt, data.aiConfig.model, 'custom');
@@ -17147,12 +17209,21 @@ ${knowledgeList}
                 const matchedItems = aiResult.matches
                     .filter(match => match.relevance > 30)
                     .slice(0, 3)
-                    .map(match => ({
-                        ...data.knowledgeBase[match.id - 1],
-                        score: match.relevance,
-                        reason: match.reason,
-                        selected: true // 默认选中所有匹配项
-                    }));
+                    .map(match => {
+                        // 根据 displayId 找到对应的条目
+                        const matchedItem = allItems.find(item => item.displayId === match.id);
+                        if (matchedItem) {
+                            return {
+                                ...matchedItem.data,
+                                score: match.relevance,
+                                reason: match.reason,
+                                selected: true, // 默认选中所有匹配项
+                                isAmmo: matchedItem.type === 'ammo' // 标识是否为弹药库条目
+                            };
+                        }
+                        return null;
+                    })
+                    .filter(item => item !== null); // 过滤掉未找到的条目
                 
                 if (matchedItems.length > 0) {
                     // 更新预览显示，带选择功能
@@ -17161,13 +17232,23 @@ ${knowledgeList}
                             <div style="margin-top:12px;padding:12px;background:var(--green-light);border-radius:6px;border:1px solid var(--green-border);">
                                 <div style="font-size:12px;color:var(--green-text);margin-bottom:8px;font-weight:600;">🤖 AI智能匹配结果 (${matchedItems.length}条) - 勾选要纳入分析的条目</div>
                                 <div style="max-height:250px;overflow-y:auto;">
-                                    ${matchedItems.map((item, index) => `
+                                    ${matchedItems.map((item, index) => {
+                                        // 判断来源：通过 isAmmo 字段判断是弹药库还是知识库
+                                        const isAmmoItem = item.isAmmo || false;
+                                        const sourceType = isAmmoItem ? '弹药库' : '知识库';
+                                        const sourceColor = isAmmoItem ? 'var(--primary)' : 'var(--green-text)';
+                                        const sourceBg = isAmmoItem ? 'var(--primary-light)' : 'var(--green-light)';
+                                        
+                                        return `
                                         <div style="padding:8px;background:var(--card);border-radius:4px;margin-bottom:6px;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;" onclick="toggleKnowledgeSelection(${index})" id="kb-item-${index}">
                                             <div style="display:flex;align-items:start;gap:8px;">
                                                 <input type="checkbox" checked style="margin-top:2px;" id="kb-checkbox-${index}" onclick="event.stopPropagation(); toggleKnowledgeSelection(${index})">
                                                 <div style="flex:1;">
                                                     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                                                        <span style="font-size:11px;color:var(--primary);">AI相关度: ${item.score}%</span>
+                                                        <div style="display:flex;gap:6px;align-items:center;">
+                                                            <span style="font-size:11px;color:var(--primary);">AI相关度: ${item.score}%</span>
+                                                            <span style="background:${sourceBg};color:${sourceColor};padding:1px 5px;border-radius:2px;font-size:10px;">${sourceType}</span>
+                                                        </div>
                                                         <span style="font-size:10px;color:var(--text-secondary);">#${index + 1}</span>
                                                     </div>
                                                     <div style="font-size:12px;line-height:1.4;color:var(--text);margin-bottom:4px;white-space:pre-wrap;word-wrap:break-word;max-height:60px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${item.content}</div>
@@ -17180,7 +17261,8 @@ ${knowledgeList}
                                                 </div>
                                             </div>
                                         </div>
-                                    `).join('')}
+                                        `;
+                                    }).join('')}
                                 </div>
                                 <div style="margin-top:8px;display:flex;gap:8px;">
                                     <button class="btn btn-small btn-secondary" onclick="selectAllKnowledge()">全选</button>
@@ -17291,8 +17373,34 @@ ${knowledgeList}
     
     // 获取选中的知识库条目
     function getSelectedKnowledgeItems() {
-        if (!window.currentMatchedItems) return [];
-        return window.currentMatchedItems.filter(item => item.selected);
+        // 从 window.currentMatchedItems 中获取选中的条目
+        if (!window.currentMatchedItems || window.currentMatchedItems.length === 0) {
+            console.log('没有可用的匹配条目');
+            return [];
+        }
+        
+        const selectedItems = window.currentMatchedItems
+            .filter(item => item.selected)
+            .map(item => ({
+                id: item.id,
+                content: item.content,
+                tags: item.tags || [],
+                isAmmo: item.isAmmo || false, // 标识是否为弹药库条目
+                category: item.category,
+                score: item.score,
+                reason: item.reason
+            }));
+        
+        console.log('获取到的选中条目:', selectedItems.length, '条');
+        selectedItems.forEach((item, index) => {
+            console.log(`条目 ${index + 1}:`, {
+                content: item.content.substring(0, 50) + '...',
+                isAmmo: item.isAmmo,
+                tags: item.tags
+            });
+        });
+        
+        return selectedItems;
     }
     
     // 传统匹配算法（作为AI匹配的后备方案）
@@ -17429,7 +17537,7 @@ ${knowledgeList}
     // 获取所有知识库内容用于搜索
     function getAllKnowledgeForSearch() {
         const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
-        return knowledgeData.map(kb => ({
+        let results = knowledgeData.map(kb => ({
             id: kb.id,
             title: kb.title,
             content: kb.content,
@@ -17437,6 +17545,24 @@ ${knowledgeList}
             type: 'knowledge',
             createdAt: kb.createdAt
         }));
+        
+        // 检查是否包含弹药库内容
+        const includeAmmoLibrary = document.getElementById('includeAmmoLibrary') && document.getElementById('includeAmmoLibrary').checked;
+        
+        if (includeAmmoLibrary && data.ammoLibrary && data.ammoLibrary.length > 0) {
+            const ammoItems = data.ammoLibrary.map((ammo, index) => ({
+                id: `ammo_${ammo.id || index}`,
+                title: ammo.content.substring(0, 50) + '...',
+                content: ammo.content,
+                tags: ammo.tags || [],
+                type: 'ammo',
+                category: ammo.category,
+                createdAt: ammo.createdAt
+            }));
+            results = [...results, ...ammoItems];
+        }
+        
+        return results;
     }
     
     // 使用AI匹配知识库内容
@@ -17557,18 +17683,41 @@ ${knowledgeSummary}
         html += '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">找到 ' + results.length + ' 条相关内容</div>';
         
         results.forEach((result, index) => {
-            const kb = knowledgeData.find(k => k.id === result.id);
-            if (!kb) return;
+            // 检查是否是弹药库项目
+            const isAmmo = result.id && result.id.toString().startsWith('ammo_');
+            let kb, title, content, tags;
+            
+            if (isAmmo) {
+                // 从弹药库数据中查找
+                const ammoId = result.id.toString().replace('ammo_', '');
+                const ammo = data.ammoLibrary && data.ammoLibrary.find(a => a.id == ammoId || a.content === result.content);
+                if (ammo) {
+                    title = ammo.content.substring(0, 50) + '...';
+                    content = ammo.content;
+                    tags = ammo.tags || [];
+                } else {
+                    return; // 找不到对应的弹药库条目，跳过
+                }
+            } else {
+                // 从知识库数据中查找
+                kb = knowledgeData.find(k => k.id === result.id);
+                if (!kb) return;
+                title = kb.title;
+                content = kb.content;
+                tags = kb.tags || [];
+            }
             
             const scorePercent = Math.round(result.relevance * 100);
+            const sourceLabel = isAmmo ? '💎 弹药库' : '📚 知识库';
+            
             html += `
-                <div class="ai-search-result-item" onclick="selectAISearchResult('${kb.id}')">
-                    <div class="ai-search-result-title">${escapeHtml(kb.title)}</div>
-                    <div class="ai-search-result-content">${escapeHtml(kb.content.substring(0, 150))}${kb.content.length > 150 ? '...' : ''}</div>
+                <div class="ai-search-result-item" onclick="selectAISearchResult('${result.id}', ${isAmmo})">
+                    <div class="ai-search-result-title">${escapeHtml(title)} ${sourceLabel}</div>
+                    <div class="ai-search-result-content">${escapeHtml(content.substring(0, 150))}${content.length > 150 ? '...' : ''}</div>
                     <div class="ai-search-result-meta">
                         <span class="ai-search-result-score">${scorePercent}% 匹配</span>
                         <span class="ai-search-result-type">${escapeHtml(result.reason)}</span>
-                        <span>📅 ${formatDate(kb.createdAt)}</span>
+                        ${tags.length > 0 ? `<span>🏷️ ${tags.map(t => escapeHtml(t)).join(', ')}</span>` : ''}
                     </div>
                 </div>
             `;
@@ -17579,29 +17728,58 @@ ${knowledgeSummary}
     }
     
     // 选择AI搜索结果
-    function selectAISearchResult(knowledgeId) {
-        const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
-        const knowledge = knowledgeData.find(k => k.id === knowledgeId);
+    function selectAISearchResult(knowledgeId, isAmmo = false) {
+        let knowledge, title, content, tags;
         
-        if (knowledge) {
-            // 将选中的知识添加到已选列表
-            const selectedContainer = document.getElementById('selectedKnowledgeList');
-            const existingItem = selectedContainer.querySelector(`[data-id="${knowledgeId}"]`);
-            
-            if (!existingItem) {
-                const itemHtml = `
-                    <div class="selected-knowledge-item" data-id="${knowledgeId}">
-                        <div class="selected-knowledge-title">${escapeHtml(knowledge.title)}</div>
-                        <div class="selected-knowledge-content">${escapeHtml(knowledge.content.substring(0, 100))}...</div>
-                        <button class="btn btn-small btn-danger" onclick="removeSelectedKnowledge('${knowledgeId}')">✕</button>
-                    </div>
-                `;
-                selectedContainer.insertAdjacentHTML('beforeend', itemHtml);
-                showToast('已添加到搜索范围');
-            } else {
-                showToast('该知识已在搜索范围中');
+        if (isAmmo) {
+            // 处理弹药库条目
+            const ammoId = knowledgeId.toString().replace('ammo_', '');
+            const ammo = data.ammoLibrary && data.ammoLibrary.find(a => a.id == ammoId);
+            if (ammo) {
+                title = ammo.content.substring(0, 50) + '...';
+                content = ammo.content;
+                tags = ammo.tags || [];
+                knowledge = { id: knowledgeId, title, content, tags, isAmmo: true };
+            }
+        } else {
+            // 处理知识库条目
+            const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
+            knowledge = knowledgeData.find(k => k.id === knowledgeId);
+            if (knowledge) {
+                title = knowledge.title;
+                content = knowledge.content;
+                tags = knowledge.tags || [];
+                knowledge.isAmmo = false;
             }
         }
+        
+         if (knowledge) {
+             // 将选中的知识添加到已选列表
+             const selectedContainer = document.getElementById('selectedKnowledgeList');
+             const existingItem = selectedContainer.querySelector(`[data-id="${knowledgeId}"]`);
+             
+             // 显示已选条目区域
+             const selectedSection = document.getElementById('selectedKnowledgeSection');
+             if (selectedSection) {
+                 selectedSection.classList.remove('hidden');
+             }
+             
+             if (!existingItem) {
+                 const sourceLabel = knowledge.isAmmo ? '💎 ' : '📚 ';
+                 const itemHtml = `
+                     <div class="selected-knowledge-item" data-id="${knowledgeId}" data-is-ammo="${knowledge.isAmmo}">
+                         <div class="selected-knowledge-title">${sourceLabel}${escapeHtml(title)}</div>
+                         <div class="selected-knowledge-content">${escapeHtml(content.substring(0, 100))}...</div>
+                         <button class="btn btn-small btn-danger" onclick="removeSelectedKnowledge('${knowledgeId}')">✕</button>
+                     </div>
+                 `;
+                 selectedContainer.insertAdjacentHTML('beforeend', itemHtml);
+                 updateSelectedCount();
+                 showToast('已添加到搜索范围');
+             } else {
+                 showToast('该知识已在搜索范围中');
+             }
+         }
     }
     
     // 移除选中的知识
@@ -17617,14 +17795,37 @@ ${knowledgeSummary}
             }, 200);
         }
     }
-     
-     // 设置默认AI提示词
-     function setDefaultAIPrompt() {
-         const defaultPrompt = `我有一个知识库，包含选中的条目{knowledge}。我的问题是{query}：
+
+    // 设置默认AI提示词
+    function setDefaultAIPrompt() {
+        const defaultPrompt = `我有一个知识库，包含选中的条目{knowledge}。我的问题是{query}：
 请提炼知识库中的本质，针对我的问题给出精炼的解答和具体的操作建议，使用emoji增加可读性`;
-         
-         document.getElementById('aiSearchPrompt').value = defaultPrompt;
-     }
+        
+        document.getElementById('aiSearchPrompt').value = defaultPrompt;
+    }
+
+    // 重置AI提示词为默认值
+    function resetAIPrompt() {
+        setDefaultAIPrompt();
+        showToast('提示词已重置为默认值');
+    }
+
+    // 保存AI提示词
+    function saveAIPrompt() {
+        const prompt = document.getElementById('aiSearchPrompt').value;
+        localStorage.setItem('aiSearchPrompt', prompt);
+        showToast('提示词已保存');
+    }
+
+    // 加载保存的AI提示词
+    function loadAIPrompt() {
+        const savedPrompt = localStorage.getItem('aiSearchPrompt');
+        if (savedPrompt) {
+            document.getElementById('aiSearchPrompt').value = savedPrompt;
+        } else {
+            setDefaultAIPrompt();
+        }
+    }
      
      // 重置AI提示词为默认值
      function resetAIPrompt() {
@@ -17653,6 +17854,18 @@ ${knowledgeSummary}
          }
      }
      
+     // 清除AI搜索结果
+     function clearAISearchResults() {
+         const resultsContainer = document.getElementById('aiSearchResults');
+         if (resultsContainer) {
+             resultsContainer.remove();
+             showToast('搜索结果已清除');
+         }
+         
+         // 重新渲染知识库列表，恢复正常显示
+         renderKnowledgeBase();
+     }
+     
      // 执行AI关联搜索
      async function performAISearch() {
          const query = document.getElementById('aiSearchQuery').value.trim();
@@ -17679,10 +17892,14 @@ ${knowledgeSummary}
          `;
          
          try {
-             // 获取用户选中的知识库条目
-             let knowledgeContext = '';
-             let matchedItems = [];
-             
+              // 获取用户选中的知识库条目
+              let knowledgeContext = '';
+              let matchedItems = [];
+              
+              // 检查是否包含弹药库内容
+              const includeAmmoLibrary = document.getElementById('includeAmmoLibrary').checked;
+              console.log('是否包含弹药库内容:', includeAmmoLibrary);
+              
               // 检查是否有用户选择的条目
               const selectedItems = getSelectedKnowledgeItems();
               
@@ -17695,13 +17912,22 @@ ${knowledgeSummary}
                   console.log('未找到用户选择的条目，知识库为空');
                   // 保持matchedItems为空数组，不进行任何匹配
               }
-             
-             // 构建知识库上下文
-             if (matchedItems.length > 0) {
-                 knowledgeContext = matchedItems.map(kb =>
-                     `内容：${kb.content}\n标签：${(kb.tags || []).join(', ')}\n`
-                 ).join('\n---\n');
-             }
+              
+              // 注意：弹药库条目只能通过AI匹配选择，不会自动添加所有弹药库内容
+              // 用户需要在AI匹配阶段勾选相关的弹药库条目
+              
+              // 构建知识库上下文
+              if (matchedItems.length > 0) {
+                  knowledgeContext = matchedItems.map(item => {
+                      // 使用 isAmmo 字段判断来源
+                      const sourceLabel = item.isAmmo ? '[弹药库]' : '[知识库]';
+                      const categoryLabel = item.category ? `[${item.category}]` : '';
+                      return `内容：${item.content}\n标签：${(item.tags || []).join(', ')}\n${sourceLabel}${categoryLabel}`;
+                  }).join('\n---\n');
+                  console.log('构建的知识库上下文:', knowledgeContext);
+              } else {
+                  console.log('没有选中的条目，知识库上下文为空');
+              }
              
              // 获取自定义提示词或使用默认提示词
              const customPrompt = document.getElementById('aiSearchPrompt').value.trim();
@@ -17744,7 +17970,14 @@ ${knowledgeSummary}
                              ` : ''}
                          </div>
                          <div class="matched-items-list" id="matchedItemsList" style="${isAIMatching ? 'display:none;' : ''}">
-                             ${displayItems.map((item, index) => `
+                             ${displayItems.map((item, index) => {
+                                 // 判断来源：通过 isAmmo 字段判断是弹药库还是知识库
+                                 const isAmmoItem = item.isAmmo || false;
+                                 const sourceType = isAmmoItem ? '弹药库' : '知识库';
+                                 const sourceColor = isAmmoItem ? 'var(--primary)' : 'var(--green-text)';
+                                 const sourceBg = isAmmoItem ? 'var(--primary-light)' : 'var(--green-light)';
+                                 
+                                 return `
                                  <div class="matched-item" style="padding:10px;background:var(--card);border-radius:6px;margin-bottom:8px;border:1px solid var(--border);">
                                      <div style="display:flex;align-items:start;margin-bottom:6px;">
                                          <input type="checkbox"
@@ -17755,7 +17988,10 @@ ${knowledgeSummary}
                                                 ${index < 3 ? 'checked' : ''}>
                                          <div style="flex:1;">
                                              <div style="display:flex;justify-content:space-between;align-items:start;">
-                                                 <span style="font-size:12px;color:${isAIMatching ? 'var(--primary)' : 'var(--text-secondary)'};">${scoreText}: ${item.score}${scoreUnit}</span>
+                                                 <div style="display:flex;gap:6px;align-items:center;">
+                                                     <span style="font-size:12px;color:${isAIMatching ? 'var(--primary)' : 'var(--text-secondary)'};">${scoreText}: ${item.score}${scoreUnit}</span>
+                                                     <span style="background:${sourceBg};color:${sourceColor};padding:2px 6px;border-radius:3px;font-size:11px;">${sourceType}</span>
+                                                 </div>
                                                  <span style="font-size:11px;color:var(--text-secondary);">#${index + 1}</span>
                                              </div>
                                              ${item.reason ? `<div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">💡 ${item.reason}</div>` : ''}
@@ -17768,7 +18004,8 @@ ${knowledgeSummary}
                                          </div>
                                      </div>
                                  </div>
-                             `).join('')}
+                                 `;
+                             }).join('')}
                          </div>
                          ${isAIMatching ? `
                              <div style="margin-top:8px;font-size:12px;color:var(--text-secondary);">
@@ -17779,9 +18016,23 @@ ${knowledgeSummary}
                  `;
              }
              
-             // 显示AI搜索结果
-             const container = document.getElementById('knowledgeBaseList');
-             container.innerHTML = `
+             // 显示AI搜索结果 - 在搜索表单下方显示，保留表单以便二次编辑
+             const resultsContainer = document.getElementById('aiSearchResults');
+             
+             // 如果结果容器不存在，创建它
+             if (!resultsContainer) {
+                 const aiSearchForm = document.getElementById('aiSearchForm');
+                 const newResultsContainer = document.createElement('div');
+                 newResultsContainer.id = 'aiSearchResults';
+                 newResultsContainer.style.marginTop = '16px';
+                 aiSearchForm.parentNode.insertBefore(newResultsContainer, aiSearchForm.nextSibling);
+             }
+             
+             // 清除知识库列表区域的加载状态
+             document.getElementById('knowledgeBaseList').innerHTML = '';
+             
+             // 更新结果内容
+             document.getElementById('aiSearchResults').innerHTML = `
                  <div class="ai-search-result">
                      ${matchedItemsHtml}
                      <div class="ai-response-card" style="margin-top:16px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.08);">
@@ -17789,16 +18040,14 @@ ${knowledgeSummary}
                              <span style="font-size:20px;">🤖</span>
                              <h4 style="margin:0;font-size:16px;font-weight:600;color:var(--text-primary);">AI回答</h4>
                              <span style="margin-left:auto;font-size:12px;color:var(--text-tertiary);background:var(--bg-secondary);padding:4px 8px;border-radius:4px;">智能生成</span>
+                             <button class="btn btn-small btn-secondary" onclick="clearAISearchResults()" style="margin-left:8px;padding:4px 8px;font-size:11px;">清除结果</button>
                          </div>
                          <div class="ai-search-content" style="font-size:14px;line-height:1.8;color:var(--text-primary);">${marked.parse(response)}</div>
-                     </div>
-                     <div style="text-align:center;margin-top:20px;">
-                         <button class="btn btn-secondary" onclick="renderKnowledgeBase()">返回列表</button>
                      </div>
                  </div>
              `;
              
-             hideAISearchForm();
+             // 不隐藏搜索表单，保留以便二次编辑
              
          } catch (error) {
              console.error('AI搜索失败:', error);
