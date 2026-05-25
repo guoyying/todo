@@ -1336,7 +1336,7 @@
       "type": "task",
       "content": "退网物资检查工作",
       "createdAt": "2026-05-25T00:42:32.786Z",
-      "updatedAt": "2026-05-25T03:52:41.598Z",
+      "updatedAt": "2026-05-25T06:00:50.545Z",
       "tags": [
         "检查工作"
       ],
@@ -1361,12 +1361,12 @@
         {
           "id": "1779681146739",
           "content": "问晓华她那部分要不要检查。",
-          "done": false,
+          "done": true,
           "estimatedTime": "10",
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null
     },
     {
       "id": "mpkj8v7lwb9zg",
@@ -2670,6 +2670,13 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mpkt5iu2dwpxvpeo7hc",
+      "content": "你的“一心一意”是主动选择，而他的“分精力”是客观现实。不平衡的根源不是他爱不爱你，而是你内心“公平感”的标尺在报警——你希望自己的付出得到对等的关注和回报，但关系结构本身决定了资源无法完全对称。",
+      "tags": [],
+      "createdAt": "2026-05-25T06:10:58.586Z",
+      "updatedAt": "2026-05-25T06:10:58.586Z"
+    },
     {
       "id": "mpk9401r6067cnbozdr",
       "content": "有主体性的人，不是“不计较”，而是主动选择计较什么、如何计较。  “我的‘计较’是筛选关系的标尺——它帮我识别谁愿意尊重我的边界。” “被说计较时，我可以好奇对方的逻辑，而不是立刻自我怀疑。”",
