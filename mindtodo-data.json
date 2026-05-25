@@ -1336,7 +1336,7 @@
       "type": "task",
       "content": "退网物资检查工作",
       "createdAt": "2026-05-25T00:42:32.786Z",
-      "updatedAt": "2026-05-25T06:00:50.545Z",
+      "updatedAt": "2026-05-25T06:31:36.826Z",
       "tags": [
         "检查工作"
       ],
@@ -1366,7 +1366,7 @@
           "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mpkhd31qo1rzc"
     },
     {
       "id": "mpkj8v7lwb9zg",
@@ -1453,15 +1453,16 @@
       "type": "task",
       "content": "整理视频",
       "createdAt": "2026-05-25T03:07:59.380Z",
-      "updatedAt": "2026-05-25T03:52:47.838Z",
+      "updatedAt": "2026-05-25T06:31:32.109Z",
       "tags": [
         "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null,
+      "doneAt": "2026-05-25T06:31:32.109Z"
     }
   ],
   "normalFeelings": [
@@ -2928,6 +2929,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-25T06:11:33.370Z"
+    "lastSync": "2026-05-25T06:31:25.170Z"
   }
 }
