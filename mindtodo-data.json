@@ -1292,14 +1292,15 @@
       "type": "task",
       "content": "看下两个机房还有无设备、退网状态。联系支局长。%新塘2%数据%，%新塘%交换%",
       "createdAt": "2026-05-22T08:37:18.638Z",
-      "updatedAt": "2026-05-25T02:11:37.759Z",
+      "updatedAt": "2026-05-25T07:50:08.599Z",
       "tags": [
         "杂事"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-25T07:50:08.599Z"
     },
     {
       "id": "mphmui24u2ud2",
@@ -2672,21 +2673,6 @@
       "createdAt": "2026-05-25T02:55:48.646Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mpkuie0us3asm",
-      "taskId": "mpkml8b8k6iy9",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-25T15:48"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-25T06:48:58.494Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2939,6 +2925,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-25T06:49:04.087Z"
+    "lastSync": "2026-05-25T07:35:23.436Z"
   }
 }
