@@ -1431,14 +1431,15 @@
       "type": "task",
       "content": "整理爬虫结果，通报",
       "createdAt": "2026-05-25T03:07:47.001Z",
-      "updatedAt": "2026-05-25T03:07:47.001Z",
+      "updatedAt": "2026-05-25T03:52:12.430Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-25T03:52:12.430Z"
     },
     {
       "id": "mpkmm784xz7mk",
@@ -2896,6 +2897,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-25T03:07:50.479Z"
+    "lastSync": "2026-05-25T03:08:02.944Z"
   }
 }
