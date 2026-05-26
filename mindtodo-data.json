@@ -5,14 +5,22 @@
       "type": "task",
       "content": "好想练习表达啊",
       "createdAt": "2026-04-28T04:26:14.426Z",
-      "updatedAt": "2026-05-26T14:00:41.535Z",
+      "updatedAt": "2026-04-28T05:07:23.776Z",
       "tags": [
         "表达"
       ],
       "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "moi4ity1vb71k",
+          "content": "写一下某场景我想实现什么效果",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ],
       "doneAt": "2026-04-28T05:07:23.775Z"
     },
     {
@@ -59,7 +67,7 @@
       "type": "task",
       "content": "给老公看手机，生日礼物",
       "createdAt": "2026-05-05T13:39:45.637Z",
-      "updatedAt": "2026-05-26T14:00:45.756Z",
+      "updatedAt": "2026-05-06T01:17:50.702Z",
       "tags": [
         "生活",
         "老公"
@@ -67,7 +75,15 @@
       "done": true,
       "dueTime": "",
       "unknown": false,
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "1778029139253",
+          "content": "写下我的想法感受",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
       "placedIn": "slot_motcmxf4o6qv5",
       "doneAt": "2026-05-06T01:17:45.503Z"
     },
@@ -354,6 +370,31 @@
       "subtasks": []
     },
     {
+      "id": "1778720539432",
+      "type": "task",
+      "content": "协助分析团队核查C网基站（非800M）传输电路拆除情况",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-14T01:02:19.432Z",
+      "createdAt": "2026-05-12T08:36:56.947Z",
+      "updatedAt": "2026-05-14T01:02:19.432Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-14T01:02:19.432Z"
+      },
+      "subtasks": []
+    },
+    {
       "id": "mp4whk0escw0x",
       "type": "task",
       "content": "配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单",
@@ -424,6 +465,31 @@
       "subtasks": []
     },
     {
+      "id": "1778998408876",
+      "type": "task",
+      "content": "核查整理各个县分的退网清单，过单",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-17T06:13:28.876Z",
+      "createdAt": "2026-05-15T02:29:59.363Z",
+      "updatedAt": "2026-05-17T06:13:28.876Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-17T06:13:28.876Z"
+      },
+      "subtasks": []
+    },
+    {
       "id": "1778998512458",
       "type": "task",
       "content": "CRM跟进：数字中继配合政企部核查在用业务（现场已拆除，却还在收费）等",
@@ -476,17 +542,24 @@
     {
       "id": "mpahsrj7sccmc",
       "type": "task",
-      "content": "记录老公一周吃了啥和体重。他很快能减下来的啦",
+      "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
       "createdAt": "2026-05-18T00:55:25.795Z",
-      "updatedAt": "2026-05-26T13:59:18.025Z",
+      "updatedAt": "2026-05-18T01:37:05.292Z",
       "tags": [
         "老公"
       ],
-      "done": true,
+      "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "doneAt": "2026-05-26T13:59:18.025Z",
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1779068180038",
+          "content": "1、记录每天吃了什么，吃了多少。可视化",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "1779067283638",
@@ -564,6 +637,38 @@
       "subtasks": []
     },
     {
+      "id": "mpaj5kohgdl7v",
+      "type": "task",
+      "content": "做本周爬虫通报",
+      "createdAt": "2026-05-18T01:33:23.057Z",
+      "updatedAt": "2026-05-18T06:53:52.617Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "placedIn": null,
+      "doneAt": "2026-05-18T06:53:52.617Z",
+      "subtasks": []
+    },
+    {
+      "id": "mpajig9lqebe6",
+      "type": "task",
+      "content": "沙龙：先简单捋一下我要做什么。",
+      "createdAt": "2026-05-18T01:43:23.865Z",
+      "updatedAt": "2026-05-19T01:20:23.323Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "placedIn": null,
+      "doneAt": "2026-05-19T01:20:23.323Z",
+      "subtasks": []
+    },
+    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -596,6 +701,22 @@
       "subtasks": []
     },
     {
+      "id": "mpaw5n8sqwjds",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-05-18T07:37:21.388Z",
+      "updatedAt": "2026-05-18T09:58:52.649Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "30min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-18T09:58:52.649Z"
+    },
+    {
       "id": "mpaw61fygcvn2",
       "type": "task",
       "content": "网安单：宣贯严禁拍摄用户信息并发布至互联网平台的通知。",
@@ -610,6 +731,64 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-18T08:44:11.617Z"
+    },
+    {
+      "id": "mpaw6lz3qgq84",
+      "type": "task",
+      "content": "中山四机楼退网，涉及9个设备。",
+      "createdAt": "2026-05-18T07:38:06.399Z",
+      "updatedAt": "2026-05-19T01:43:16.251Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-19T01:43:16.251Z"
+    },
+    {
+      "id": "1779153570381",
+      "type": "task",
+      "content": "沙龙设计",
+      "tags": [
+        "团支部"
+      ],
+      "done": true,
+      "doneAt": "2026-05-08T06:57:09.764Z",
+      "organizedAt": "2026-05-19T01:19:30.381Z",
+      "createdAt": "2026-05-08T00:57:15.166Z",
+      "updatedAt": "2026-05-19T01:19:30.381Z",
+      "organization": {
+        "goal": "好的，面对这么多任务，时间又有限，确实容易焦虑。别担心，我们一步步拆解，像拼图一样把它们拼起来。先理清“我要做什么”和“别人能帮我做什么”，再按优先级推进。以下是一个分步行动指南，用emoji帮你快速定位重点。✨\n\n---\n\n### 🎯 第一步：明确“我”的核心工作（必须亲力亲为）\n这些事别人没法替代，需要你主导或决策：\n\n1️⃣ **确定沙龙主题系列**  \n   - 思考：本学期/季度想传递什么？（比如：成长、创新、生活美学）  \n   - 行动：列出3-5个备选主题，找1-2位核心成员（如宣传委员、学习委员）头脑风暴，2天内定稿。  \n   - 📌 关键：主题要能吸引目标人群，且可延续。\n\n2️⃣ **纳入讲师人选**  \n   - 筛选标准：专业度、表达能力、与主题契合度。  \n   - 行动：列出5-8位候选，优先联系有合作基础或口碑好的。每人发简短邀请（含主题方向、时间、报酬/福利）。  \n   - ⏰ 时间线：3天内确定首批2-3位讲师。\n\n3️⃣ **制定SOP（标准流程）**  \n   - 核心环节：联系对象 → 确定主题/润色title → 写个人介绍 → 给宝英做海报 → 选参与人 → 写通知发布。  \n   - 行动：用流程图或表格把每步的“谁做、何时做、怎么做”写清楚。  \n   - 🛠️ 工具推荐：飞书/Notion/Excel，方便共享。\n\n---\n\n### 🤝 第二步：分配任务给他人（解放你的时间）\n根据每个人的特长和职责，精准分配：\n\n| 角色 | 可分配的工作 | 具体说明 | 时间要求 |\n|------|--------------|----------|----------|\n| **宣传委员** 📸 | 拍照、写宣传稿、配合宝英做海报 | 1️⃣ 拍照：现场抓拍+特写（提前沟通机位）<br>2️⃣ 宣传稿：沙龙前发预告，后发总结（你提供大纲）<br>3️⃣ 海报：告知宝英主题、讲师、时间等素材 | 拍照：活动当天；<br>稿子：活动后24h内；<br>海报：提前3天出设计稿 |\n| **学习委员** 📚 | 整理资料、对接讲师、筛选参与人 | 1️⃣ 整理讲师个人介绍/PPT（你提供模板）<br>2️⃣ 收集参与人报名信息（问卷星/接龙）<br>3️⃣ 按主题筛选合适人选（你定标准） | 讲师介绍：提前1周；<br>报名筛选：活动前5天 |\n| **宝英** 🎨 | 做海报+视觉设计 | 1️⃣ 根据宣传委员提供的素材设计海报<br>2️⃣ 如有时间，设计活动流程单/签到表 | 海报：活动前3天定稿；<br>其他：活动前1天 |\n\n---\n\n### 📋 第三步：你的行动清单（按时间倒排）\n假设活动在 **2周后**，按周拆分：\n\n#### **第1周：定基调+找资源**\n- [ ] **周一-周二**：定主题系列（选1个主推）+ 列出讲师候选名单  \n- [ ] **周三-周四**：联系2-3位讲师，敲定1位（确认主题、时间）  \n- [ ] **周五**：把讲师信息（照片、简介、Title）发给宝英做海报  \n- [ ] **周末**：写SOP初稿，发给宣传委员和学习委员征求意见  \n\n#### **第2周：执行+细节**\n- [ ] **周一**：发布活动通知（宣传委员写稿，你审核）  \n- [ ] **周二-周三**：学习委员筛选参与人，你确认最终名单  \n- [ ] **周四**：宝英出海报定稿，宣传委员发预热宣传  \n- [ ] **周五**：活动前检查（场地、设备、流程单）  \n- [ ] **活动当天**：宣传委员拍照，你控场，学习委员协助签到  \n\n---\n\n### 💡 额外建议（防翻车）\n- **优先级排序**：主题 > 讲师 > 海报 > 通知。主题和讲师定不下来，后面全卡住。  \n- **风险预案**：提前想好“如果讲师临时鸽了”怎么办？备选主题/讲师。  \n- **沟通效率**：用在线文档（飞书/石墨）同步进度，每天10分钟群内更新。  \n- **时间管理**：每天固定1小时处理沙龙事务，其他时间专注本职。  \n\n---\n\n### 🎉 最后：给自己减负\n- **别追求完美**：第一次办沙龙，能顺利办完就是胜利。  \n- **授权信任**：把任务分出去后，只检查结果，不干涉过程。  \n- **奖励自己**：活动结束后，请自己喝杯奶茶或看场电影。  \n\n加油！你完全能搞定。如果中途遇到卡点，随时回来问。🌟",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-19T01:19:30.381Z"
+      },
+      "subtasks": []
+    },
+    {
+      "id": "mpby5z8qy05vx",
+      "type": "task",
+      "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
+      "createdAt": "2026-05-19T01:21:22.346Z",
+      "updatedAt": "2026-05-21T08:31:50.260Z",
+      "tags": [
+        "杂事",
+        "检查工作"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-21T08:31:50.260Z"
     },
     {
       "id": "mpby9efd4brzt",
@@ -627,6 +806,37 @@
       "subtasks": []
     },
     {
+      "id": "mpbyca4zl2vms",
+      "type": "task",
+      "content": "白云1个退网单处理：白云做的不错，有前、后照片",
+      "createdAt": "2026-05-19T01:26:16.403Z",
+      "updatedAt": "2026-05-19T02:31:58.029Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-19T02:31:58.029Z"
+    },
+    {
+      "id": "mpc0ps4i1wvjc",
+      "type": "task",
+      "content": "增城有20个网元说可以退网，我需要核查是否可以。",
+      "createdAt": "2026-05-19T02:32:45.474Z",
+      "updatedAt": "2026-05-19T03:43:09.726Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-19T03:43:09.724Z"
+    },
+    {
       "id": "mpc0ubbfz12sc",
       "type": "task",
       "content": "润色项目的标题",
@@ -639,6 +849,21 @@
       "dueTime": null,
       "unknown": true,
       "doneAt": "2026-05-19T06:51:14.652Z",
+      "subtasks": []
+    },
+    {
+      "id": "mpcadssoco33q",
+      "type": "task",
+      "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
+      "createdAt": "2026-05-19T07:03:22.632Z",
+      "updatedAt": "2026-05-19T07:58:33.950Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": null,
+      "unknown": true,
+      "doneAt": "2026-05-19T07:58:33.950Z",
       "subtasks": []
     },
     {
@@ -657,6 +882,47 @@
       "doneAt": "2026-05-19T08:17:39.191Z"
     },
     {
+      "id": "mpcd6iv96f7xk",
+      "type": "task",
+      "content": "退网：跟进黄埔之前的退网清单。归属有误、成环的",
+      "createdAt": "2026-05-19T08:21:42.021Z",
+      "updatedAt": "2026-05-19T09:52:47.132Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-19T09:52:47.132Z"
+    },
+    {
+      "id": "1779235080814",
+      "type": "task",
+      "content": "萤火行动：了解更新的检查细则，自制问卷对照检查表",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-05-19T07:09:13.300Z",
+      "organizedAt": "2026-05-19T23:58:00.814Z",
+      "createdAt": "2026-05-19T06:52:45.232Z",
+      "updatedAt": "2026-05-19T23:58:00.814Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "innovation": "",
+        "success": "",
+        "failure": "",
+        "improvement": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-05-19T23:58:00.814Z"
+      },
+      "subtasks": []
+    },
+    {
       "id": "mpdd84tzoeajs",
       "type": "task",
       "content": "所有强提醒的检查alert或showtoast想换样式。",
@@ -672,6 +938,21 @@
       "subtasks": []
     },
     {
+      "id": "mpddi5o2sba46",
+      "type": "task",
+      "content": "过退网单-白云（20min停下来）",
+      "createdAt": "2026-05-20T01:18:30.962Z",
+      "updatedAt": "2026-05-20T02:02:40.498Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-20T02:02:40.498Z"
+    },
+    {
       "id": "mpdf3sykzu03y",
       "type": "task",
       "content": "强提醒用showBanner就行了，设置为灰黑色背景，白色字体",
@@ -685,6 +966,21 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T03:00:46.442Z"
+    },
+    {
+      "id": "mpdfgkvz09m5q",
+      "type": "task",
+      "content": "确定上次是哪个机房要更换牌子，哪个机房合并了。",
+      "createdAt": "2026-05-20T02:13:16.607Z",
+      "updatedAt": "2026-05-20T03:06:09.998Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-20T03:06:09.998Z"
     },
     {
       "id": "mpdfj5goubxdq",
@@ -775,6 +1071,21 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T04:52:54.436Z"
+    },
+    {
+      "id": "mpdk8b3kjhdgi",
+      "type": "task",
+      "content": "网约车去新塘",
+      "createdAt": "2026-05-20T04:26:48.752Z",
+      "updatedAt": "2026-05-20T06:43:30.256Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-20T06:43:30.256Z"
     },
     {
       "id": "mpdp571req5kl",
@@ -899,6 +1210,22 @@
       "doneAt": "2026-05-21T08:44:33.386Z"
     },
     {
+      "id": "mpf6t2dxxtn83",
+      "type": "task",
+      "content": "看增城的退网单",
+      "createdAt": "2026-05-21T07:46:34.965Z",
+      "updatedAt": "2026-05-21T09:43:55.411Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-21T09:43:55.411Z"
+    },
+    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -929,6 +1256,22 @@
       "doneAt": "2026-05-22T01:48:41.186Z"
     },
     {
+      "id": "mpgcotjdvl8ep",
+      "type": "task",
+      "content": "退网单0522",
+      "createdAt": "2026-05-22T03:19:00.745Z",
+      "updatedAt": "2026-05-22T07:42:56.385Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-05-22T07:42:56.385Z"
+    },
+    {
       "id": "mpgcp3fw2525g",
       "type": "task",
       "content": "剪视频",
@@ -943,6 +1286,21 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-22T09:14:15.708Z"
+    },
+    {
+      "id": "mpgo25ke8t8qa",
+      "type": "task",
+      "content": "看下两个机房还有无设备、退网状态。联系支局长。%新塘2%数据%，%新塘%交换%",
+      "createdAt": "2026-05-22T08:37:18.638Z",
+      "updatedAt": "2026-05-25T07:50:08.599Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-25T07:50:08.599Z"
     },
     {
       "id": "mphmui24u2ud2",
@@ -1018,6 +1376,21 @@
       "unknown": true,
       "doneAt": "2026-05-26T01:42:28.924Z",
       "subtasks": []
+    },
+    {
+      "id": "mpkmlxo9obugg",
+      "type": "task",
+      "content": "整理爬虫结果，通报",
+      "createdAt": "2026-05-25T03:07:47.001Z",
+      "updatedAt": "2026-05-25T03:52:12.430Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-25T03:52:12.430Z"
     },
     {
       "id": "mpkmm784xz7mk",
@@ -1112,76 +1485,19 @@
       "doneAt": "2026-05-26T03:12:31.931Z"
     },
     {
-      "id": "1779804271582",
+      "id": "mpm0j819vs9hj",
       "type": "task",
-      "content": "沙龙设计",
+      "content": "沙龙-座谈会工作：ai生成了一篇方案",
+      "createdAt": "2026-05-26T02:25:21.261Z",
+      "updatedAt": "2026-05-26T03:11:12.907Z",
       "tags": [
         "团支部"
       ],
       "done": true,
-      "doneAt": "2026-05-26T03:11:12.907Z",
-      "organizedAt": "2026-05-26T14:04:31.582Z",
-      "createdAt": "2026-05-26T02:25:21.261Z",
-      "updatedAt": "2026-05-26T14:04:31.582Z",
-      "organization": {
-        "goal": "好的，面对这么多任务，时间又有限，确实容易焦虑。别担心，我们一步步拆解，像拼图一样把它们拼起来。先理清“我要做什么”和“别人能帮我做什么”，再按优先级推进。以下是一个分步行动指南，用emoji帮你快速定位重点。✨\n\n---\n\n### 🎯 第一步：明确“我”的核心工作（必须亲力亲为）\n这些事别人没法替代，需要你主导或决策：\n\n1️⃣ **确定沙龙主题系列**  \n   - 思考：本学期/季度想传递什么？（比如：成长、创新、生活美学）  \n   - 行动：列出3-5个备选主题，找1-2位核心成员（如宣传委员、学习委员）头脑风暴，2天内定稿。  \n   - 📌 关键：主题要能吸引目标人群，且可延续。\n\n2️⃣ **纳入讲师人选**  \n   - 筛选标准：专业度、表达能力、与主题契合度。  \n   - 行动：列出5-8位候选，优先联系有合作基础或口碑好的。每人发简短邀请（含主题方向、时间、报酬/福利）。  \n   - ⏰ 时间线：3天内确定首批2-3位讲师。\n\n3️⃣ **制定SOP（标准流程）**  \n   - 核心环节：联系对象 → 确定主题/润色title → 写个人介绍 → 给宝英做海报 → 选参与人 → 写通知发布。  \n   - 行动：用流程图或表格把每步的“谁做、何时做、怎么做”写清楚。  \n   - 🛠️ 工具推荐：飞书/Notion/Excel，方便共享。\n\n---\n\n### 🤝 第二步：分配任务给他人（解放你的时间）\n根据每个人的特长和职责，精准分配：\n\n| 角色 | 可分配的工作 | 具体说明 | 时间要求 |\n|------|--------------|----------|----------|\n| **宣传委员** 📸 | 拍照、写宣传稿、配合宝英做海报 | 1️⃣ 拍照：现场抓拍+特写（提前沟通机位）<br>2️⃣ 宣传稿：沙龙前发预告，后发总结（你提供大纲）<br>3️⃣ 海报：告知宝英主题、讲师、时间等素材 | 拍照：活动当天；<br>稿子：活动后24h内；<br>海报：提前3天出设计稿 |\n| **学习委员** 📚 | 整理资料、对接讲师、筛选参与人 | 1️⃣ 整理讲师个人介绍/PPT（你提供模板）<br>2️⃣ 收集参与人报名信息（问卷星/接龙）<br>3️⃣ 按主题筛选合适人选（你定标准） | 讲师介绍：提前1周；<br>报名筛选：活动前5天 |\n| **宝英** 🎨 | 做海报+视觉设计 | 1️⃣ 根据宣传委员提供的素材设计海报<br>2️⃣ 如有时间，设计活动流程单/签到表 | 海报：活动前3天定稿；<br>其他：活动前1天 |\n\n---\n\n### 📋 第三步：你的行动清单（按时间倒排）\n假设活动在 **2周后**，按周拆分：\n\n#### **第1周：定基调+找资源**\n- [ ] **周一-周二**：定主题系列（选1个主推）+ 列出讲师候选名单  \n- [ ] **周三-周四**：联系2-3位讲师，敲定1位（确认主题、时间）  \n- [ ] **周五**：把讲师信息（照片、简介、Title）发给宝英做海报  \n- [ ] **周末**：写SOP初稿，发给宣传委员和学习委员征求意见  \n\n#### **第2周：执行+细节**\n- [ ] **周一**：发布活动通知（宣传委员写稿，你审核）  \n- [ ] **周二-周三**：学习委员筛选参与人，你确认最终名单  \n- [ ] **周四**：宝英出海报定稿，宣传委员发预热宣传  \n- [ ] **周五**：活动前检查（场地、设备、流程单）  \n- [ ] **活动当天**：宣传委员拍照，你控场，学习委员协助签到  \n\n---\n\n### 💡 额外建议（防翻车）\n- **优先级排序**：主题 > 讲师 > 海报 > 通知。主题和讲师定不下来，后面全卡住。  \n- **风险预案**：提前想好“如果讲师临时鸽了”怎么办？备选主题/讲师。  \n- **沟通效率**：用在线文档（飞书/石墨）同步进度，每天10分钟群内更新。  \n- **时间管理**：每天固定1小时处理沙龙事务，其他时间专注本职。  \n\n---\n\n### 🎉 最后：给自己减负\n- **别追求完美**：第一次办沙龙，能顺利办完就是胜利。  \n- **授权信任**：把任务分出去后，只检查结果，不干涉过程。  \n- **奖励自己**：活动结束后，请自己喝杯奶茶或看场电影。  \n\n加油！你完全能搞定。如果中途遇到卡点，随时回来问。🌟",
-        "completion": "ai生成了一篇方案",
-        "skills": "",
-        "success": "万幢高楼平地起，有了初版才有往上优化的依据",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-26T14:04:31.582Z"
-      },
-      "projectId": "1779804268133",
-      "subtasks": []
-    },
-    {
-      "id": "1779805110655",
-      "type": "task",
-      "content": "退网",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-25T03:52:12.430Z",
-      "organizedAt": "2026-05-26T14:18:30.655Z",
-      "createdAt": "2026-05-25T03:07:47.001Z",
-      "updatedAt": "2026-05-26T14:18:30.655Z",
-      "organization": {
-        "goal": "1、中山四机楼退网，涉及9个设备\n2、还有几个机楼退网的关注下",
-        "completion": "1、协助分析团队核查C网基站（非800M）传输电路拆除情况",
-        "skills": "1、那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发\n2、烽火无网管，可以资源系统看绑定上联端口",
-        "success": "",
-        "problems": "增城烽火下电出了几个故障单",
-        "summary": "白云做的不错，有前、后照片；番禺是稳步推进型，每次都有关电照片。",
-        "organizedAt": "2026-05-26T14:18:30.655Z"
-      },
-      "projectId": "1779778092169",
-      "subtasks": []
-    },
-    {
-      "id": "1779805365755",
-      "type": "task",
-      "content": "萤火行动",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "doneAt": "2026-05-25T07:50:08.599Z",
-      "organizedAt": "2026-05-26T14:22:45.755Z",
-      "createdAt": "2026-05-22T08:37:18.638Z",
-      "updatedAt": "2026-05-26T14:22:45.755Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "把县分的具体问题带回来，落实解决（机房退网的更新）",
-        "success": "了解更新的检查细则，自制问卷对照检查表",
-        "problems": "",
-        "summary": "去增城新塘调研次数多了，也从容了，敢质疑敢问问题了。",
-        "organizedAt": "2026-05-26T14:22:45.755Z"
-      },
-      "projectId": "1779805327657",
-      "subtasks": []
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-05-26T03:11:12.907Z"
     }
   ],
   "normalFeelings": [
@@ -2344,6 +2660,29 @@
       }
     },
     {
+      "id": "mpgcae87yoxkj",
+      "taskId": "mpahsrj7sccmc",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "22:00",
+            "endTime": "09:00",
+            "message": "记录老公吃了啥",
+            "confirmed": true,
+            "confirmationTime": "2026-05-26T23:33:45.453Z"
+          }
+        ]
+      },
+      "createdAt": "2026-05-22T03:07:47.719Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
       "id": "mpkj9sdms41rt",
       "taskId": "mpkj8v7lwb9zg",
       "type": "condition",
@@ -2458,68 +2797,13 @@
       "type": "medium",
       "mainDirection": "",
       "subDirections": [],
-      "milestones": [
-        {
-          "id": "1779805110655",
-          "taskId": "1779805110655",
-          "title": "0526-白云番禺做的不错",
-          "progress": 16,
-          "organizedAt": "2026-05-26T14:18:30.655Z",
-          "organization": {
-            "goal": "1、中山四机楼退网，涉及9个设备\n2、还有几个机楼退网的关注下",
-            "completion": "1、协助分析团队核查C网基站（非800M）传输电路拆除情况",
-            "skills": "1、那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发\n2、烽火无网管，可以资源系统看绑定上联端口",
-            "success": "",
-            "problems": "增城烽火下电出了几个故障单",
-            "summary": "白云做的不错，有前、后照片；番禺是稳步推进型，每次都有关电照片。",
-            "organizedAt": "2026-05-26T14:18:30.655Z"
-          }
-        }
-      ],
-      "manualProgress": 15,
+      "milestones": [],
+      "manualProgress": 0,
       "autoProgress": 0,
       "status": "active",
       "createdAt": "2026-05-26T06:48:12.169Z",
       "updatedAt": "2026-05-26T06:48:12.169Z",
       "targetDate": ""
-    },
-    {
-      "id": "1779804268133",
-      "name": "团支部",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-05-26T14:04:28.133Z",
-      "updatedAt": "2026-05-26T14:04:28.133Z",
-      "subDirections": [],
-      "milestones": [],
-      "manualProgress": 5
-    },
-    {
-      "id": "1779805327657",
-      "name": "检查工作",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-05-26T14:22:07.657Z",
-      "updatedAt": "2026-05-26T14:22:07.657Z",
-      "subDirections": [],
-      "milestones": [
-        {
-          "id": "1779805328717",
-          "taskId": "1779805328717",
-          "title": "开始从容",
-          "progress": 16,
-          "organizedAt": "2026-05-26T14:22:08.717Z",
-          "organization": {
-            "goal": "",
-            "completion": "",
-            "skills": "把县分的具体问题带回来，落实解决（机房退网的更新）",
-            "success": "了解更新的检查细则，自制问卷对照检查表",
-            "problems": "",
-            "summary": "去增城新塘调研次数多了，也从容了，敢质疑敢问问题了。",
-            "organizedAt": "2026-05-26T14:22:08.717Z"
-          }
-        }
-      ]
     }
   ],
   "aiConfig": {
@@ -2689,6 +2973,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-26T14:05:35.272Z"
+    "lastSync": "2026-05-26T13:41:49.633Z"
   }
 }
