@@ -2865,10 +2865,11 @@
                    max-width: none !important;
                    margin: 10px auto !important;
                    max-height: 90vh !important;
+                   padding: 10px !important;
                }
                
                #taskOrganizerModal .modal-body {
-                   padding: 12px !important;
+                   padding: 7px !important;
                    max-height: 85vh !important;
                }
                
@@ -2887,6 +2888,37 @@
                #taskOrganizerModal select {
                    font-size: 13px !important;
                    padding: 8px !important;
+               }
+               
+               /* 已整理任务列表移动端优化 */
+               .organized-task-item {
+                   flex-direction: column !important;
+                   gap: 4px !important;
+               }
+               
+               .organized-task-item .task-content {
+                   width: 100% !important;
+               }
+               
+               .organized-task-item .task-actions-row {
+                   display: flex !important;
+                   align-items: center !important;
+                   justify-content: space-between !important;
+                   width: 100% !important;
+                   gap: 8px !important;
+               }
+               
+               .organized-task-item .task-date {
+                   flex: 1 !important;
+               }
+               
+               .organized-task-item .task-buttons {
+                   display: flex !important;
+                   gap: 4px !important;
+               }
+               
+               .organized-task-item .task-buttons button {
+                   flex: 1 !important;
                }
                
                /* 按钮移动端优化 */
@@ -4457,7 +4489,7 @@
                     </div>
                     
                      <!-- 整理表单 -->
-                     <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:16px;">
+                     <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:5px;">
                          <!-- 合并任务信息 -->
                          <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
                              <div style="font-weight:500;margin-bottom:8px;">🔗 合并任务信息</div>
@@ -16828,6 +16860,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                    const item = document.createElement('div');
                    // 使用更强的内联样式覆盖所有可能的CSS
                    item.style.cssText = 'padding:4px 0 !important;font-size:13px !important;display:flex !important;align-items:center !important;gap:8px !important;background:transparent !important;border:none !important;border-radius:0 !important;margin-bottom:0 !important;box-shadow:none !important;border-left:none !important;';
+                   // 移动端改为纵向布局
+                   item.classList.add('organized-task-item');
                    
                    const doneDate = task.doneAt ? new Date(task.doneAt).toLocaleDateString('zh-CN') + ' (已完成)' : '未知';
                    
@@ -16838,10 +16872,14 @@ ${ammoToAnalyze.map((ammo, index) =>
                    }
                    
                    item.innerHTML = `
-                       <span style="flex:1;word-break:break-word;">${task.content} ${tagsHtml}</span>
-                       <span style="color:var(--text-secondary);font-size:12px;white-space:nowrap;">${doneDate}</span>
-                       <button class="btn btn-small btn-secondary" onclick="viewOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">查看</button>
-                       <button class="btn btn-small btn-secondary" onclick="deleteOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">删除</button>
+                       <span class="task-content" style="flex:1;word-break:break-word;">${task.content} ${tagsHtml}</span>
+                       <div class="task-actions-row">
+                           <span class="task-date" style="color:var(--text-secondary);font-size:12px;white-space:nowrap;">${doneDate}</span>
+                           <div class="task-buttons">
+                               <button class="btn btn-small btn-secondary" onclick="viewOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">查看</button>
+                               <button class="btn btn-small btn-secondary" onclick="deleteOrganizedTask('${task.id}')" style="padding:2px 6px;font-size:11px;">删除</button>
+                           </div>
+                       </div>
                    `;
                    
                    container.appendChild(item);
@@ -17384,6 +17422,65 @@ ${ammoToAnalyze.map((ammo, index) =>
                         ` : '<div style="color:var(--text-secondary);font-size:13px;margin-top:12px;">暂无关联任务</div>'}
                     </div>
                 </div>
+                
+                <!-- 经验总结 -->
+                ${(() => {
+                    // 收集所有有整理数据的关联任务
+                    const organizedTasks = relatedTasks.filter(task => task.organization);
+                    if (organizedTasks.length === 0) return '';
+                    
+                    // 按字段类型分组整理数据
+                    const goals = organizedTasks.map(t => t.organization.goal).filter(g => g).join('；');
+                    const successes = organizedTasks.map(t => t.organization.success).filter(s => s).join('；');
+                    const skills = organizedTasks.map(t => t.organization.skills).filter(s => s).join('；');
+                    const improvements = organizedTasks.map(t => t.organization.improvement).filter(i => i).join('；');
+                    const problems = organizedTasks.map(t => t.organization.problems).filter(p => p).join('；');
+                    
+                    // 如果没有任何内容，不显示
+                    if (!goals && !successes && !skills && !improvements && !problems) return '';
+                    
+                    return `
+                    <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
+                        <strong>💡 经验总结</strong>
+                        <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px;">
+                            ${goals ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--primary);">🎯 目标汇总</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(goals)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${successes ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">✨ 成功经验</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(successes)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${skills ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--info);">📚 技能收获</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(skills)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${improvements ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">🔧 改进建议</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(improvements)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${problems ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--danger);">❌ 遇到问题</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(problems)}</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    `;
+                })()}
             `;
             
             document.getElementById('projectDetailContent').innerHTML = html;
