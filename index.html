@@ -4521,18 +4521,13 @@
                                 </div>
                                 
                                 <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✅ 完成情况（量化指标）</label>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✅ 完成情况</label>
                                     <textarea id="organizerCompletion" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="完成的量化指标，如：完成度100%、节省时间2小时等"></textarea>
                                 </div>
                                 
                                 <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">📚 学到的技能/知识</label>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">📚 技能收获</label>
                                     <textarea id="organizerSkills" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="学到了什么新技能或知识？"></textarea>
-                                </div>
-                                
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">💡 创新的做法/想法</label>
-                                    <textarea id="organizerInnovation" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="有什么创新的做法或想法？"></textarea>
                                 </div>
                             </div>
                             
@@ -4544,18 +4539,8 @@
                                 </div>
                                 
                                 <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">❌ 失败教训</label>
-                                    <textarea id="organizerFailure" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？有什么教训？"></textarea>
-                                </div>
-                                
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🔧 改进建议</label>
-                                    <textarea id="organizerImprovement" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="下次如何改进？"></textarea>
-                                </div>
-                                
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🤔 遇到问题</label>
-                                    <textarea id="organizerProblems" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？"></textarea>
+                                    <label style="display:block;margin-bottom:6px;font-weight:500;">❌ 遇到问题</label>
+                                    <textarea id="organizerProblems" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？有什么教训？"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -16466,10 +16451,7 @@ ${ammoToAnalyze.map((ammo, index) =>
            document.getElementById('organizerGoal').value = '';
            document.getElementById('organizerCompletion').value = '';
            document.getElementById('organizerSkills').value = '';
-           document.getElementById('organizerInnovation').value = '';
            document.getElementById('organizerSuccess').value = '';
-           document.getElementById('organizerFailure').value = '';
-           document.getElementById('organizerImprovement').value = '';
            document.getElementById('organizerProblems').value = '';
            document.getElementById('organizerSummary').value = '';
            document.getElementById('mergedTaskInfo').style.display = 'none';
@@ -16768,10 +16750,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                    goal: document.getElementById('organizerGoal').value.trim(),
                    completion: document.getElementById('organizerCompletion').value.trim(),
                    skills: document.getElementById('organizerSkills').value.trim(),
-                   innovation: document.getElementById('organizerInnovation').value.trim(),
                    success: document.getElementById('organizerSuccess').value.trim(),
-                   failure: document.getElementById('organizerFailure').value.trim(),
-                   improvement: document.getElementById('organizerImprovement').value.trim(),
                    problems: document.getElementById('organizerProblems').value.trim(),
                    summary: document.getElementById('organizerSummary').value.trim(),
                    organizedAt: organizedTime
@@ -16894,15 +16873,36 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 切换到整理任务选项卡
            switchOrganizerTab('organizer');
            
+           // 确保待整理任务列表已展开
+           const container = document.getElementById('pendingTasksContainer');
+           if (container.style.display === 'none') {
+               container.style.display = 'block';
+           }
+           
+           // 重新加载待整理任务列表以确保任务已渲染
+           loadPendingTasksList();
+           
+           // 自动勾选对应的任务
+           setTimeout(() => {
+               const checkbox = document.querySelector(`.pending-task-checkbox[data-task-id="${taskId}"]`);
+               if (checkbox) {
+                   checkbox.checked = true;
+                   // 触发change事件以更新选中状态和数量
+                   checkbox.dispatchEvent(new Event('change'));
+                   // 滚动到该任务位置
+                   const taskItem = checkbox.closest('.pending-task-item');
+                   if (taskItem) {
+                       taskItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                   }
+               }
+           }, 100);
+           
            // 填充表单
            document.getElementById('organizerTaskContent').value = task.content;
            document.getElementById('organizerGoal').value = task.organization.goal || '';
            document.getElementById('organizerCompletion').value = task.organization.completion || '';
            document.getElementById('organizerSkills').value = task.organization.skills || '';
-           document.getElementById('organizerInnovation').value = task.organization.innovation || '';
            document.getElementById('organizerSuccess').value = task.organization.success || '';
-           document.getElementById('organizerFailure').value = task.organization.failure || '';
-           document.getElementById('organizerImprovement').value = task.organization.improvement || '';
            document.getElementById('organizerProblems').value = task.organization.problems || '';
            document.getElementById('organizerSummary').value = task.organization.summary || '';
            
@@ -16954,12 +16954,9 @@ ${ammoToAnalyze.map((ammo, index) =>
                
                if (org.goal) markdown += `**🎯 目标：** ${org.goal}\n\n`;
                if (org.completion) markdown += `**✅ 完成情况：** ${org.completion}\n\n`;
-               if (org.skills) markdown += `**📚 学到的技能/知识：** ${org.skills}\n\n`;
-               if (org.innovation) markdown += `**💡 创新的做法/想法：** ${org.innovation}\n\n`;
+               if (org.skills) markdown += `**📚 技能收获：** ${org.skills}\n\n`;
                if (org.success) markdown += `**✨ 成功经验：** ${org.success}\n\n`;
-               if (org.failure) markdown += `**❌ 失败教训：** ${org.failure}\n\n`;
-               if (org.improvement) markdown += `**🔧 改进建议：** ${org.improvement}\n\n`;
-               if (org.problems) markdown += `**🤔 遇到问题：** ${org.problems}\n\n`;
+               if (org.problems) markdown += `**❌ 遇到问题：** ${org.problems}\n\n`;
                if (org.summary) markdown += `**📝 经验总结：** ${org.summary}\n\n`;
                
                markdown += '---\n\n';
@@ -17431,13 +17428,14 @@ ${ammoToAnalyze.map((ammo, index) =>
                     
                     // 按字段类型分组整理数据
                     const goals = organizedTasks.map(t => t.organization.goal).filter(g => g).join('；');
+                    const completions = organizedTasks.map(t => t.organization.completion).filter(c => c).join('；');
                     const successes = organizedTasks.map(t => t.organization.success).filter(s => s).join('；');
                     const skills = organizedTasks.map(t => t.organization.skills).filter(s => s).join('；');
-                    const improvements = organizedTasks.map(t => t.organization.improvement).filter(i => i).join('；');
                     const problems = organizedTasks.map(t => t.organization.problems).filter(p => p).join('；');
+                    const summaries = organizedTasks.map(t => t.organization.summary).filter(s => s).join('；');
                     
                     // 如果没有任何内容，不显示
-                    if (!goals && !successes && !skills && !improvements && !problems) return '';
+                    if (!goals && !completions && !successes && !skills && !problems && !summaries) return '';
                     
                     return `
                     <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
@@ -17450,24 +17448,24 @@ ${ammoToAnalyze.map((ammo, index) =>
                             </div>
                             ` : ''}
                             
+                            ${completions ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">✅ 完成情况</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(completions)}</div>
+                            </div>
+                            ` : ''}
+                            
                             ${successes ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">✨ 成功经验</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--info);">✨ 成功经验</div>
                                 <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(successes)}</div>
                             </div>
                             ` : ''}
                             
                             ${skills ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--info);">📚 技能收获</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">📚 技能收获</div>
                                 <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(skills)}</div>
-                            </div>
-                            ` : ''}
-                            
-                            ${improvements ? `
-                            <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">🔧 改进建议</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(improvements)}</div>
                             </div>
                             ` : ''}
                             
@@ -17475,6 +17473,13 @@ ${ammoToAnalyze.map((ammo, index) =>
                             <div>
                                 <div style="font-weight:500;margin-bottom:4px;color:var(--danger);">❌ 遇到问题</div>
                                 <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(problems)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${summaries ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--text-secondary);">📝 综合总结</div>
+                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(summaries)}</div>
                             </div>
                             ` : ''}
                         </div>
