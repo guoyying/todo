@@ -1363,28 +1363,6 @@
       "subtasks": []
     },
     {
-      "id": "mpkm6bte72rhi",
-      "type": "task",
-      "content": "看下第二季度的竞赛要学什么",
-      "createdAt": "2026-05-25T02:55:38.834Z",
-      "updatedAt": "2026-05-25T02:55:38.834Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpkm6bteg4iv1",
-          "content": "看回拍摄的照片，写一下我的想法",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
-    },
-    {
       "id": "mpkml8b8k6iy9",
       "type": "task",
       "content": "800M清单整理：本周新增32个",
@@ -1491,30 +1469,32 @@
     {
       "id": "mplz4yn54k4om",
       "type": "task",
-      "content": "问下胡芳华要清单：芳华姐，上周五提到低效清单 SDH需要核查网管的，可以发给我",
+      "content": "低效设备退网：联系胡芳华要清单核查SDH网管业务。",
       "createdAt": "2026-05-26T01:46:16.289Z",
-      "updatedAt": "2026-05-26T01:46:16.289Z",
+      "updatedAt": "2026-05-26T03:12:31.931Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-26T03:12:31.931Z"
     },
     {
       "id": "mpm0j819vs9hj",
       "type": "task",
-      "content": "ai一下生成个座谈会方案，要名字，输入其他需求。",
+      "content": "沙龙-座谈会工作：ai生成了一篇方案",
       "createdAt": "2026-05-26T02:25:21.261Z",
-      "updatedAt": "2026-05-26T02:25:21.261Z",
+      "updatedAt": "2026-05-26T03:11:12.907Z",
       "tags": [
         "团支部"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-26T03:11:12.907Z"
     }
   ],
   "normalFeelings": [
@@ -2511,6 +2491,13 @@
       "type": null,
       "createdAt": "2026-05-24T01:57:24.168Z",
       "tags": []
+    },
+    {
+      "id": "mpm2cjkjqg8ym",
+      "content": "想将当前零散的小任务关联到一个更大的工作目标上，这样可以看到这些小任务是如何服务于一个更大的工作项目",
+      "type": null,
+      "createdAt": "2026-05-26T03:16:08.851Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -2712,21 +2699,6 @@
         ]
       },
       "createdAt": "2026-05-25T01:34:21.418Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpkm6jdyvjyz4",
-      "taskId": "mpkm6bte72rhi",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-26T10:55"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-25T02:55:48.646Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -2981,6 +2953,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-26T02:25:26.930Z"
+    "lastSync": "2026-05-26T02:36:07.733Z"
   }
 }
