@@ -1427,30 +1427,32 @@
     {
       "id": "mplz2j3sbg4yl",
       "type": "task",
-      "content": "退网物资检查：了解下我要看什么",
+      "content": "对退网物资回收、移交采购入库有更多理解了。",
       "createdAt": "2026-05-26T01:44:22.840Z",
-      "updatedAt": "2026-05-26T01:44:22.840Z",
+      "updatedAt": "2026-05-26T09:18:07.690Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-26T09:18:07.690Z"
     },
     {
       "id": "mplz31o2srhq8",
       "type": "task",
-      "content": "ai劳动竞赛，我要上传破0",
+      "content": "ai劳动竞赛",
       "createdAt": "2026-05-26T01:44:46.898Z",
-      "updatedAt": "2026-05-26T01:44:46.898Z",
+      "updatedAt": "2026-05-26T09:17:36.913Z",
       "tags": [
         "数字化"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-26T09:17:36.913Z"
     },
     {
       "id": "mplz3pvednsd2",
@@ -2700,21 +2702,6 @@
         ]
       },
       "createdAt": "2026-05-25T01:34:21.418Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpm2p33emij8d",
-      "taskId": "mplz31o2srhq8",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-26T16:25"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-26T03:25:54.026Z",
       "lastReminderTime": null,
       "active": true
     }
