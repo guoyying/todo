@@ -354,31 +354,6 @@
       "subtasks": []
     },
     {
-      "id": "1778720539432",
-      "type": "task",
-      "content": "协助分析团队核查C网基站（非800M）传输电路拆除情况",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-14T01:02:19.432Z",
-      "createdAt": "2026-05-12T08:36:56.947Z",
-      "updatedAt": "2026-05-14T01:02:19.432Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-14T01:02:19.432Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mp4whk0escw0x",
       "type": "task",
       "content": "配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单",
@@ -446,31 +421,6 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "1778998408876",
-      "type": "task",
-      "content": "核查整理各个县分的退网清单，过单",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-17T06:13:28.876Z",
-      "createdAt": "2026-05-15T02:29:59.363Z",
-      "updatedAt": "2026-05-17T06:13:28.876Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-17T06:13:28.876Z"
-      },
       "subtasks": []
     },
     {
@@ -614,22 +564,6 @@
       "subtasks": []
     },
     {
-      "id": "mpaj5kohgdl7v",
-      "type": "task",
-      "content": "做本周爬虫通报",
-      "createdAt": "2026-05-18T01:33:23.057Z",
-      "updatedAt": "2026-05-18T06:53:52.617Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-05-18T06:53:52.617Z",
-      "subtasks": []
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -662,22 +596,6 @@
       "subtasks": []
     },
     {
-      "id": "mpaw5n8sqwjds",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-05-18T07:37:21.388Z",
-      "updatedAt": "2026-05-18T09:58:52.649Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "30min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-18T09:58:52.649Z"
-    },
-    {
       "id": "mpaw61fygcvn2",
       "type": "task",
       "content": "网安单：宣贯严禁拍摄用户信息并发布至互联网平台的通知。",
@@ -692,38 +610,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-18T08:44:11.617Z"
-    },
-    {
-      "id": "mpaw6lz3qgq84",
-      "type": "task",
-      "content": "中山四机楼退网，涉及9个设备。",
-      "createdAt": "2026-05-18T07:38:06.399Z",
-      "updatedAt": "2026-05-19T01:43:16.251Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T01:43:16.251Z"
-    },
-    {
-      "id": "mpby5z8qy05vx",
-      "type": "task",
-      "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
-      "createdAt": "2026-05-19T01:21:22.346Z",
-      "updatedAt": "2026-05-21T08:31:50.260Z",
-      "tags": [
-        "杂事",
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-21T08:31:50.260Z"
     },
     {
       "id": "mpby9efd4brzt",
@@ -741,37 +627,6 @@
       "subtasks": []
     },
     {
-      "id": "mpbyca4zl2vms",
-      "type": "task",
-      "content": "白云1个退网单处理：白云做的不错，有前、后照片",
-      "createdAt": "2026-05-19T01:26:16.403Z",
-      "updatedAt": "2026-05-19T02:31:58.029Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T02:31:58.029Z"
-    },
-    {
-      "id": "mpc0ps4i1wvjc",
-      "type": "task",
-      "content": "增城有20个网元说可以退网，我需要核查是否可以。",
-      "createdAt": "2026-05-19T02:32:45.474Z",
-      "updatedAt": "2026-05-19T03:43:09.726Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T03:43:09.724Z"
-    },
-    {
       "id": "mpc0ubbfz12sc",
       "type": "task",
       "content": "润色项目的标题",
@@ -784,21 +639,6 @@
       "dueTime": null,
       "unknown": true,
       "doneAt": "2026-05-19T06:51:14.652Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpcadssoco33q",
-      "type": "task",
-      "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
-      "createdAt": "2026-05-19T07:03:22.632Z",
-      "updatedAt": "2026-05-19T07:58:33.950Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-19T07:58:33.950Z",
       "subtasks": []
     },
     {
@@ -817,47 +657,6 @@
       "doneAt": "2026-05-19T08:17:39.191Z"
     },
     {
-      "id": "mpcd6iv96f7xk",
-      "type": "task",
-      "content": "退网：跟进黄埔之前的退网清单。归属有误、成环的",
-      "createdAt": "2026-05-19T08:21:42.021Z",
-      "updatedAt": "2026-05-19T09:52:47.132Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T09:52:47.132Z"
-    },
-    {
-      "id": "1779235080814",
-      "type": "task",
-      "content": "萤火行动：了解更新的检查细则，自制问卷对照检查表",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "doneAt": "2026-05-19T07:09:13.300Z",
-      "organizedAt": "2026-05-19T23:58:00.814Z",
-      "createdAt": "2026-05-19T06:52:45.232Z",
-      "updatedAt": "2026-05-19T23:58:00.814Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-19T23:58:00.814Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mpdd84tzoeajs",
       "type": "task",
       "content": "所有强提醒的检查alert或showtoast想换样式。",
@@ -873,21 +672,6 @@
       "subtasks": []
     },
     {
-      "id": "mpddi5o2sba46",
-      "type": "task",
-      "content": "过退网单-白云（20min停下来）",
-      "createdAt": "2026-05-20T01:18:30.962Z",
-      "updatedAt": "2026-05-20T02:02:40.498Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T02:02:40.498Z"
-    },
-    {
       "id": "mpdf3sykzu03y",
       "type": "task",
       "content": "强提醒用showBanner就行了，设置为灰黑色背景，白色字体",
@@ -901,21 +685,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T03:00:46.442Z"
-    },
-    {
-      "id": "mpdfgkvz09m5q",
-      "type": "task",
-      "content": "确定上次是哪个机房要更换牌子，哪个机房合并了。",
-      "createdAt": "2026-05-20T02:13:16.607Z",
-      "updatedAt": "2026-05-20T03:06:09.998Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T03:06:09.998Z"
     },
     {
       "id": "mpdfj5goubxdq",
@@ -1006,21 +775,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T04:52:54.436Z"
-    },
-    {
-      "id": "mpdk8b3kjhdgi",
-      "type": "task",
-      "content": "网约车去新塘",
-      "createdAt": "2026-05-20T04:26:48.752Z",
-      "updatedAt": "2026-05-20T06:43:30.256Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T06:43:30.256Z"
     },
     {
       "id": "mpdp571req5kl",
@@ -1145,22 +899,6 @@
       "doneAt": "2026-05-21T08:44:33.386Z"
     },
     {
-      "id": "mpf6t2dxxtn83",
-      "type": "task",
-      "content": "看增城的退网单",
-      "createdAt": "2026-05-21T07:46:34.965Z",
-      "updatedAt": "2026-05-21T09:43:55.411Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-21T09:43:55.411Z"
-    },
-    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -1191,22 +929,6 @@
       "doneAt": "2026-05-22T01:48:41.186Z"
     },
     {
-      "id": "mpgcotjdvl8ep",
-      "type": "task",
-      "content": "退网单0522",
-      "createdAt": "2026-05-22T03:19:00.745Z",
-      "updatedAt": "2026-05-22T07:42:56.385Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-22T07:42:56.385Z"
-    },
-    {
       "id": "mpgcp3fw2525g",
       "type": "task",
       "content": "剪视频",
@@ -1221,21 +943,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-22T09:14:15.708Z"
-    },
-    {
-      "id": "mpgo25ke8t8qa",
-      "type": "task",
-      "content": "看下两个机房还有无设备、退网状态。联系支局长。%新塘2%数据%，%新塘%交换%",
-      "createdAt": "2026-05-22T08:37:18.638Z",
-      "updatedAt": "2026-05-25T07:50:08.599Z",
-      "tags": [
-        "杂事"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-25T07:50:08.599Z"
     },
     {
       "id": "mphmui24u2ud2",
@@ -1311,21 +1018,6 @@
       "unknown": true,
       "doneAt": "2026-05-26T01:42:28.924Z",
       "subtasks": []
-    },
-    {
-      "id": "mpkmlxo9obugg",
-      "type": "task",
-      "content": "整理爬虫结果，通报",
-      "createdAt": "2026-05-25T03:07:47.001Z",
-      "updatedAt": "2026-05-25T03:52:12.430Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-25T03:52:12.430Z"
     },
     {
       "id": "mpkmm784xz7mk",
@@ -1441,6 +1133,54 @@
         "organizedAt": "2026-05-26T14:04:31.582Z"
       },
       "projectId": "1779804268133",
+      "subtasks": []
+    },
+    {
+      "id": "1779805110655",
+      "type": "task",
+      "content": "退网",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-25T03:52:12.430Z",
+      "organizedAt": "2026-05-26T14:18:30.655Z",
+      "createdAt": "2026-05-25T03:07:47.001Z",
+      "updatedAt": "2026-05-26T14:18:30.655Z",
+      "organization": {
+        "goal": "1、中山四机楼退网，涉及9个设备\n2、还有几个机楼退网的关注下",
+        "completion": "1、协助分析团队核查C网基站（非800M）传输电路拆除情况",
+        "skills": "1、那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发\n2、烽火无网管，可以资源系统看绑定上联端口",
+        "success": "",
+        "problems": "增城烽火下电出了几个故障单",
+        "summary": "白云做的不错，有前、后照片；番禺是稳步推进型，每次都有关电照片。",
+        "organizedAt": "2026-05-26T14:18:30.655Z"
+      },
+      "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1779805365755",
+      "type": "task",
+      "content": "萤火行动",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-05-25T07:50:08.599Z",
+      "organizedAt": "2026-05-26T14:22:45.755Z",
+      "createdAt": "2026-05-22T08:37:18.638Z",
+      "updatedAt": "2026-05-26T14:22:45.755Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "把县分的具体问题带回来，落实解决（机房退网的更新）",
+        "success": "了解更新的检查细则，自制问卷对照检查表",
+        "problems": "",
+        "summary": "去增城新塘调研次数多了，也从容了，敢质疑敢问问题了。",
+        "organizedAt": "2026-05-26T14:22:45.755Z"
+      },
+      "projectId": "1779805327657",
       "subtasks": []
     }
   ],
@@ -2718,8 +2458,25 @@
       "type": "medium",
       "mainDirection": "",
       "subDirections": [],
-      "milestones": [],
-      "manualProgress": 0,
+      "milestones": [
+        {
+          "id": "1779805110655",
+          "taskId": "1779805110655",
+          "title": "0526-白云番禺做的不错",
+          "progress": 16,
+          "organizedAt": "2026-05-26T14:18:30.655Z",
+          "organization": {
+            "goal": "1、中山四机楼退网，涉及9个设备\n2、还有几个机楼退网的关注下",
+            "completion": "1、协助分析团队核查C网基站（非800M）传输电路拆除情况",
+            "skills": "1、那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发\n2、烽火无网管，可以资源系统看绑定上联端口",
+            "success": "",
+            "problems": "增城烽火下电出了几个故障单",
+            "summary": "白云做的不错，有前、后照片；番禺是稳步推进型，每次都有关电照片。",
+            "organizedAt": "2026-05-26T14:18:30.655Z"
+          }
+        }
+      ],
+      "manualProgress": 15,
       "autoProgress": 0,
       "status": "active",
       "createdAt": "2026-05-26T06:48:12.169Z",
@@ -2736,6 +2493,33 @@
       "subDirections": [],
       "milestones": [],
       "manualProgress": 5
+    },
+    {
+      "id": "1779805327657",
+      "name": "检查工作",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-05-26T14:22:07.657Z",
+      "updatedAt": "2026-05-26T14:22:07.657Z",
+      "subDirections": [],
+      "milestones": [
+        {
+          "id": "1779805328717",
+          "taskId": "1779805328717",
+          "title": "开始从容",
+          "progress": 16,
+          "organizedAt": "2026-05-26T14:22:08.717Z",
+          "organization": {
+            "goal": "",
+            "completion": "",
+            "skills": "把县分的具体问题带回来，落实解决（机房退网的更新）",
+            "success": "了解更新的检查细则，自制问卷对照检查表",
+            "problems": "",
+            "summary": "去增城新塘调研次数多了，也从容了，敢质疑敢问问题了。",
+            "organizedAt": "2026-05-26T14:22:08.717Z"
+          }
+        }
+      ]
     }
   ],
   "aiConfig": {
@@ -2905,6 +2689,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-26T07:48:38.352Z"
+    "lastSync": "2026-05-26T14:05:35.272Z"
   }
 }
