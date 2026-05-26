@@ -2802,6 +2802,23 @@
       "updatedAt": "2026-05-19T00:47:18.674Z"
     }
   ],
+  "projects": [
+    {
+      "id": "1779778092169",
+      "name": "退网_项目",
+      "description": "",
+      "type": "medium",
+      "mainDirection": "",
+      "subDirections": [],
+      "milestones": [],
+      "manualProgress": 0,
+      "autoProgress": 0,
+      "status": "active",
+      "createdAt": "2026-05-26T06:48:12.169Z",
+      "updatedAt": "2026-05-26T06:48:12.169Z",
+      "targetDate": ""
+    }
+  ],
   "aiConfig": {
     "enabled": true,
     "model": "deepseek-chat",
