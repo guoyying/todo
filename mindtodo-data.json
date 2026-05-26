@@ -542,24 +542,17 @@
     {
       "id": "mpahsrj7sccmc",
       "type": "task",
-      "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
+      "content": "记录老公一周吃了啥和体重。他很快能减下来的啦",
       "createdAt": "2026-05-18T00:55:25.795Z",
-      "updatedAt": "2026-05-18T01:37:05.292Z",
+      "updatedAt": "2026-05-26T13:59:18.025Z",
       "tags": [
         "老公"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779068180038",
-          "content": "1、记录每天吃了什么，吃了多少。可视化",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-26T13:59:18.025Z",
+      "subtasks": []
     },
     {
       "id": "1779067283638",
@@ -2658,29 +2651,6 @@
       "lastReminderTimes": {
         "0": "2026-05-25T08:50:48.034Z"
       }
-    },
-    {
-      "id": "mpgcae87yoxkj",
-      "taskId": "mpahsrj7sccmc",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "22:00",
-            "endTime": "09:00",
-            "message": "记录老公吃了啥",
-            "confirmed": true,
-            "confirmationTime": "2026-05-23T00:53:34.611Z"
-          }
-        ]
-      },
-      "createdAt": "2026-05-22T03:07:47.719Z",
-      "lastReminderTime": null,
-      "active": true
     },
     {
       "id": "mpkj9sdms41rt",
