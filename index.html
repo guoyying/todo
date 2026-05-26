@@ -33,6 +33,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 14px;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -1816,6 +1817,14 @@
             z-index: 100;
             padding: 20px;
         }
+        
+        /* 项目管理相关模态框使用更高的z-index，确保显示在其他模态框之上 */
+        #projectManagementPanel,
+        #projectEditModal,
+        #projectDetailModal,
+        #quickCreateProjectModal {
+            z-index: 2000 !important;
+        }
         .modal {
             background: var(--card);
             border-radius: var(--radius);
@@ -2235,10 +2244,264 @@
          .modal-header .close:hover {
              color: var(--text);
          }
-         .modal-body {
-             max-height: 60vh;
-             overflow-y: auto;
-         }
+          .modal-body {
+              max-height: 60vh;
+              overflow-y: auto;
+          }
+          
+          /* 项目管理样式 */
+          .project-card {
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 8px;
+              padding: 16px;
+              transition: all 0.2s ease;
+          }
+          
+          /* 项目列表容器 - 使用网格布局 */
+          #projectsContainer {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+              gap: 12px;
+          }
+          
+          /* 移动端优化 */
+          @media (max-width: 768px) {
+              #projectsContainer {
+                  grid-template-columns: 1fr; /* 移动端单列显示 */
+              }
+          }
+          
+          .project-card:hover {
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              transform: translateY(-2px);
+          }
+          
+          .project-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 12px;
+          }
+          
+          .project-title {
+              font-size: 16px;
+              font-weight: 600;
+              color: var(--text);
+              margin-bottom: 4px;
+          }
+          
+          .project-description {
+              font-size: 13px;
+              color: var(--text-secondary);
+              margin-bottom: 8px;
+          }
+          
+          .project-progress {
+              margin: 12px 0;
+          }
+          
+          .project-progress-bar {
+              height: 8px;
+              background: var(--bg);
+              border-radius: 4px;
+              overflow: hidden;
+              margin-bottom: 6px;
+          }
+          
+          .project-progress-fill {
+              height: 100%;
+              background: linear-gradient(90deg, var(--primary), var(--green-primary));
+              border-radius: 4px;
+              transition: width 0.3s ease;
+          }
+          
+          .project-progress-text {
+              font-size: 12px;
+              color: var(--text-secondary);
+              display: flex;
+              justify-content: space-between;
+          }
+          
+          .project-directions {
+              margin: 12px 0;
+              padding: 10px;
+              background: var(--bg);
+              border-radius: 6px;
+          }
+          
+          .project-direction-item {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 6px 0;
+              font-size: 13px;
+          }
+          
+          .project-direction-checkbox {
+              width: 16px;
+              height: 16px;
+              cursor: pointer;
+          }
+          
+          .project-milestones {
+              margin: 12px 0;
+          }
+          
+          .project-milestone-item {
+              padding: 10px;
+              background: var(--bg);
+              border-radius: 6px;
+              margin-bottom: 8px;
+              border-left: 3px solid var(--primary);
+          }
+          
+          .project-milestone-date {
+              font-size: 11px;
+              color: var(--text-secondary);
+              margin-bottom: 4px;
+          }
+          
+          .project-milestone-title {
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--text);
+              margin-bottom: 6px;
+          }
+          
+          .project-milestone-progress {
+              font-size: 12px;
+              color: var(--primary);
+              font-weight: 500;
+          }
+          
+          .project-actions {
+              display: flex;
+              gap: 8px;
+              margin-top: 12px;
+              padding-top: 12px;
+              border-top: 1px solid var(--border);
+          }
+          
+          .project-status-badge {
+              display: inline-block;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 11px;
+              font-weight: 500;
+          }
+          
+          .project-status-active {
+              background: var(--task-light);
+              color: var(--task);
+          }
+          
+          .project-status-completed {
+              background: var(--primary-light);
+              color: var(--primary);
+          }
+          
+          /* 项目关联弹窗样式 */
+          .project-association-section {
+              padding: 16px;
+              background: var(--bg);
+              border-radius: 8px;
+              margin-top: 16px;
+              border: 1px solid var(--border);
+          }
+          
+          .project-association-title {
+              font-size: 14px;
+              font-weight: 600;
+              margin-bottom: 12px;
+              color: var(--text);
+          }
+          
+          .project-select {
+              width: 100%;
+              padding: 8px 12px;
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              font-size: 14px;
+              background: var(--card);
+              color: var(--text);
+              margin-bottom: 12px;
+          }
+          
+          .milestone-option {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 0;
+          }
+          
+          .milestone-option input[type="checkbox"] {
+              width: 16px;
+              height: 16px;
+              cursor: pointer;
+          }
+          
+          .milestone-title-input {
+              flex: 1;
+              padding: 6px 10px;
+              border: 1px solid var(--border);
+              border-radius: 4px;
+              font-size: 13px;
+              margin-left: 8px;
+          }
+          
+          .progress-slider {
+              width: 100%;
+              margin: 8px 0;
+          }
+          
+          /* 关联项目弹窗样式 */
+          .project-association-popup {
+              position: absolute;
+              top: 60px;
+              right: 20px;
+              width: 320px;
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: 8px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              z-index: 1000;
+              padding: 16px;
+          }
+          
+          .project-association-popup-content {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+          }
+          
+          /* 项目面板样式 */
+          .project-panel-tabs {
+              display: flex;
+              gap: 8px;
+              margin-bottom: 16px;
+              border-bottom: 1px solid var(--border);
+              padding-bottom: 8px;
+          }
+          
+          .project-panel-tab {
+              padding: 6px 12px;
+              border: none;
+              background: transparent;
+              cursor: pointer;
+              font-size: 13px;
+              border-radius: 4px;
+              transition: all 0.2s ease;
+          }
+          
+          .project-panel-tab.active {
+              background: var(--primary);
+              color: white;
+          }
+          
+          .project-panel-tab:hover:not(.active) {
+              background: var(--bg);
+          }
           
           /* 弹药信息头部容器样式 */
           .ammo-info-header {
@@ -3755,9 +4018,9 @@
                     <span style="margin:0 4px;">-</span>
                     <input type="date" id="customEndDate" onchange="renderCompleted()" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
                 </div>
-                <div class="tag-filter" id="completedTagFilter"></div>
-                <button class="btn btn-small btn-primary" onclick="showTaskOrganizer()" style="margin-left:8px;">📋 整理</button>
-            </div>
+                 <div class="tag-filter" id="completedTagFilter"></div>
+                 <button class="btn btn-small btn-primary" onclick="showTaskOrganizer()" style="margin-left:8px;">📋 整理</button>
+             </div>
             <!-- 任务列表可折叠 -->
             <div id="completedList" class="collapsed"></div>
         </div>
@@ -3972,7 +4235,128 @@
         </div>
     </div>
 
-    <!-- 任务整理模态框 -->
+    <!-- 项目管理面板 -->
+    <div class="modal-overlay hidden" id="projectManagementPanel" onclick="closeModal('projectManagementPanel')">
+        <div class="modal" style="max-width: 1200px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>📊 项目管理</h3>
+                <span class="close" onclick="closeModal('projectManagementPanel')">&times;</span>
+            </div>
+            <div class="modal-body" style="max-height:85vh;">
+                <!-- 选项卡 -->
+                <div class="project-panel-tabs">
+                    <button class="project-panel-tab active" onclick="switchProjectTab('all')">全部项目</button>
+                    <button class="project-panel-tab" onclick="switchProjectTab('active')">进行中</button>
+                    <button class="project-panel-tab" onclick="switchProjectTab('completed')">已完成</button>
+                </div>
+                
+                <!-- 项目列表 -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <div style="font-weight:500;">项目列表</div>
+                    <button class="btn btn-primary" onclick="showCreateProjectModal()">+ 新建项目</button>
+                </div>
+                
+                <div id="projectsContainer" style="max-height:500px;overflow-y:auto;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 创建/编辑项目模态框 -->
+    <div class="modal-overlay hidden" id="projectEditModal" onclick="closeModal('projectEditModal')">
+        <div class="modal" style="max-width: 600px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="projectEditModalTitle">新建项目</h3>
+                <span class="close" onclick="closeModal('projectEditModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="projectEditForm" style="display:flex;flex-direction:column;gap:16px;">
+                    <input type="hidden" id="editProjectId">
+                    
+                    <div>
+                        <label style="display:block;margin-bottom:6px;font-weight:500;">项目名称 <span style="color:var(--danger);">*</span></label>
+                        <input type="text" id="editProjectName" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" placeholder="输入项目名称">
+                    </div>
+                    
+                    <div>
+                        <label style="display:block;margin-bottom:6px;font-weight:500;">项目描述</label>
+                        <textarea id="editProjectDescription" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="描述项目的目标和范围"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label style="display:block;margin-bottom:6px;font-weight:500;">项目类型</label>
+                        <select id="editProjectType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                            <option value="short">短期项目 (1-2周)</option>
+                            <option value="medium">中期项目 (1-3个月)</option>
+                            <option value="long">长期项目 (3个月以上)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label style="display:block;margin-bottom:6px;font-weight:500;">大方向</label>
+                        <input type="text" id="editProjectMainDirection" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" placeholder="例如：成为全栈开发者">
+                    </div>
+                    
+                    <div>
+                        <label style="display:block;margin-bottom:6px;font-weight:500;">目标日期</label>
+                        <input type="date" id="editProjectTargetDate" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                    </div>
+                    
+                    <div style="display:flex;gap:8px;">
+                        <button class="btn btn-primary" onclick="saveProject()" style="flex:1;">保存项目</button>
+                        <button class="btn btn-secondary" onclick="closeModal('projectEditModal')" style="flex:1;">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 项目详情模态框 -->
+    <div class="modal-overlay hidden" id="projectDetailModal" onclick="closeModal('projectDetailModal')">
+        <div class="modal" style="max-width: 900px;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="projectDetailTitle">项目详情</h3>
+                <button class="btn btn-small btn-secondary" onclick="closeModal('projectDetailModal')">← 返回</button>
+            </div>
+            <div class="modal-body" style="max-height:85vh;">
+                <div id="projectDetailContent"></div>
+            </div>
+        </div>
+    </div>
+
+     <!-- 快速创建项目弹窗 -->
+     <div class="modal-overlay hidden" id="quickCreateProjectModal" onclick="closeModal('quickCreateProjectModal')">
+         <div class="modal" style="max-width: 500px;" onclick="event.stopPropagation()">
+             <div class="modal-header">
+                 <h3>📊 快速创建项目</h3>
+                 <span class="close" onclick="closeModal('quickCreateProjectModal')">&times;</span>
+             </div>
+             <div class="modal-body">
+                 <div id="quickCreateProjectForm" style="display:flex;flex-direction:column;gap:16px;">
+                     <div>
+                         <label style="display:block;margin-bottom:6px;font-weight:500;">项目名称 <span style="color:var(--danger);">*</span></label>
+                         <input type="text" id="quickProjectName" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" placeholder="输入项目名称">
+                     </div>
+                     
+                     <div>
+                         <label style="display:block;margin-bottom:6px;font-weight:500;">项目描述</label>
+                         <textarea id="quickProjectDescription" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="简要描述项目目标"></textarea>
+                     </div>
+                     
+                     <div>
+                         <label style="display:block;margin-bottom:6px;font-weight:500;">大方向</label>
+                         <input type="text" id="quickProjectMainDirection" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" placeholder="例如：成为全栈开发者">
+                     </div>
+                     
+                     <div style="display:flex;gap:8px;">
+                         <button class="btn btn-primary" onclick="saveQuickProject()" style="flex:1;">创建并选择</button>
+                         <button class="btn btn-secondary" onclick="closeModal('quickCreateProjectModal')" style="flex:1;">取消</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+     <!-- 任务整理模态框 -->
     <div class="modal-overlay hidden" id="taskOrganizerModal" onclick="closeModal('taskOrganizerModal')">
         <div class="modal" style="max-width: 1000px;" onclick="event.stopPropagation()">
             <div class="modal-header">
@@ -3984,6 +4368,62 @@
                 <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
                     <button id="organizerTabBtn" class="btn btn-small btn-primary" onclick="switchOrganizerTab('organizer')">📝 整理任务</button>
                     <button id="organizedTabBtn" class="btn btn-small btn-secondary" onclick="switchOrganizerTab('organized')">✅ 已整理</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProjectManagement()">📊 项目管理</button>
+                </div>
+                
+                <!-- 关联项目弹窗 -->
+                <div id="organizerProjectPopup" class="project-association-popup" style="display:none;">
+                    <div class="project-association-popup-content">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <div style="font-weight:500;">📊 关联项目</div>
+                            <button class="btn btn-small btn-secondary" onclick="closeOrganizerProjectPopup()">✕</button>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">选择项目 <span style="color:var(--danger);">*</span></label>
+                            <select id="organizerProjectSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                <option value="">-- 请选择项目 --</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 快速新建项目 -->
+                        <div id="quickCreateProjectSection" style="display:none;margin-bottom:12px;padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                            <div style="font-weight:500;margin-bottom:8px;">📝 快速新建项目</div>
+                            <div style="margin-bottom:8px;">
+                                <label style="display:block;margin-bottom:4px;font-size:12px;color:var(--text-secondary);">项目名称 <span style="color:var(--danger);">*</span></label>
+                                <input type="text" id="organizerQuickProjectName" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:13px;" placeholder="输入项目名称">
+                            </div>
+                            <div style="margin-bottom:8px;">
+                                <label style="display:block;margin-bottom:4px;font-size:12px;color:var(--text-secondary);">项目描述</label>
+                                <textarea id="organizerQuickProjectDesc" rows="2" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:13px;resize:vertical;" placeholder="简要描述项目目标"></textarea>
+                            </div>
+                            <div style="display:flex;gap:8px;">
+                                <button class="btn btn-small btn-primary" onclick="createQuickProjectForOrganizer()" style="flex:1;">创建并选择</button>
+                                <button class="btn btn-small btn-secondary" onclick="toggleQuickCreateProject(false)" style="flex:1;">取消</button>
+                            </div>
+                        </div>
+                        
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <label style="display:flex;align-items:center;gap:8px;">
+                                <input type="checkbox" id="organizerCreateMilestone">
+                                <span>创建里程碑</span>
+                            </label>
+                            <button class="btn btn-small btn-secondary" onclick="toggleQuickCreateProject(true)">+ 新建项目</button>
+                        </div>
+                        <div id="organizerMilestoneOptions" style="display:none;margin-bottom:12px;padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);">
+                            <div style="margin-bottom:8px;">
+                                <label style="display:block;margin-bottom:6px;font-weight:500;">里程碑标题</label>
+                                <input type="text" id="organizerMilestoneTitle" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" placeholder="输入里程碑标题">
+                            </div>
+                            <div>
+                                <label style="display:block;margin-bottom:6px;font-weight:500;">进度: <span id="organizerMilestoneProgressValue">0</span>%</label>
+                                <input type="range" id="organizerMilestoneProgress" min="0" max="100" value="0" style="width:100%;">
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:8px;">
+                            <button class="btn btn-primary" onclick="confirmOrganizerProject()" style="flex:1;">确认关联</button>
+                            <button class="btn btn-secondary" onclick="closeOrganizerProjectPopup()" style="flex:1;">取消</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 整理任务选项卡 -->
@@ -4016,18 +4456,18 @@
                         </div>
                     </div>
                     
-                    <!-- 整理表单 -->
-                    <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:16px;">
-                        <!-- 合并任务信息 -->
-                        <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
-                            <div style="font-weight:500;margin-bottom:8px;">🔗 合并任务信息</div>
-                            <div id="mergedTaskContent" style="margin-bottom:8px;"></div>
-                            <div style="font-size:12px;color:var(--text-secondary);">
-                                包含任务数：<span id="mergedTaskCount">0</span>
-                            </div>
-                        </div>
-                        
-                        <!-- 任务内容编辑 -->
+                     <!-- 整理表单 -->
+                     <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:16px;">
+                         <!-- 合并任务信息 -->
+                         <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
+                             <div style="font-weight:500;margin-bottom:8px;">🔗 合并任务信息</div>
+                             <div id="mergedTaskContent" style="margin-bottom:8px;"></div>
+                             <div style="font-size:12px;color:var(--text-secondary);">
+                                 包含任务数：<span id="mergedTaskCount">0</span>
+                             </div>
+                         </div>
+                         
+                         <!-- 任务内容编辑 -->
                         <div>
                             <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务内容 <span style="color:var(--danger);">*</span></label>
                             <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="编辑任务内容...（必填）"></textarea>
@@ -5318,6 +5758,7 @@
          ammoLibrary: [], // 弹药库 - 用户个人创建的表达库，从练习记录和感受记录中收集
          recentFocuses: [], // 近期关注的事 [{id, content, createdAt}]
          taskTriggers: [], // 任务触发提醒 [{id, taskId, type: 'time'|'condition', triggerConfig, reminderConfig, createdAt}]
+         projects: [], // 项目管理 [{id, name, description, type, mainDirection, subDirections, milestones, manualProgress, autoProgress, status, createdAt, targetDate}]
            aiConfig: { // AI配置
                enabled: false,
                apiKeys: { // 多个提供商的API密钥
@@ -8100,17 +8541,18 @@
               }
               
               // 安全检查：确保 btnElement 存在且有 parentElement
-            if (!btnElement || !btnElement.parentElement) {
-                // 如果按钮元素无效，使用传统的 confirm 弹窗
-                let msg = '确定要删除吗？';
-                if (type === 'block') msg = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
-                if (type === 'slot') msg = '删除这个时间段？其中的任务会回到待办。';
-                if (type === 'practice-record') msg = `确定要删除第${extraParam}次练习记录吗？`;
-                if (type === 'ammo') msg = '确定要删除这个弹药吗？';
-                if (!confirm(msg)) return;
-                executeDelete(id, type, extraParam);
-                return;
-            }
+              if (!btnElement || !btnElement.parentElement) {
+                  // 如果按钮元素无效，使用传统的 confirm 弹窗
+                  let msg = '确定要删除吗？';
+                  if (type === 'block') msg = '确定要删除这个板块练习吗？所有练习记录都将被删除，无法恢复。';
+                  if (type === 'slot') msg = '删除这个时间段？其中的任务会回到待办。';
+                  if (type === 'practice-record') msg = `确定要删除第${extraParam}次练习记录吗？`;
+                  if (type === 'ammo') msg = '确定要删除这个弹药吗？';
+                  if (type === 'project') msg = '确定要删除这个项目吗？关联的任务将不会被删除。';
+                  if (!confirm(msg)) return;
+                  executeDelete(id, type, extraParam);
+                  return;
+              }
             
             // 在删除按钮旁边显示确认提示
             const container = btnElement.parentElement;
@@ -8127,6 +8569,7 @@
              if (type === 'slot') message = '删除这个时间段？其中的任务会回到待办。';
              if (type === 'practice-record') message = `确定要删除第${extraParam}次练习记录吗？`;
              if (type === 'ammo') message = '确定要删除这个弹药吗？';
+             if (type === 'project') message = '确定要删除这个项目吗？关联的任务将不会被删除。';
              messageSpan.textContent = message;
              confirmDiv.appendChild(messageSpan);
              
@@ -8228,6 +8671,20 @@
                 case 'ammo':
                     data.ammoLibrary = data.ammoLibrary.filter(a => a.id !== id);
                     msg = '弹药已删除';
+                    break;
+                case 'project':
+                    data.projects = data.projects.filter(p => p.id !== id);
+                    // 解除关联任务的 projectId
+                    data.tasks.forEach(task => {
+                        if (task.projectId === id) {
+                            delete task.projectId;
+                        }
+                    });
+                    // 关闭项目详情模态框
+                    closeModal('projectDetailModal');
+                    // 刷新项目列表
+                    loadProjectsList();
+                    msg = '项目已删除';
                     break;
             }
             if (msg) {
@@ -11338,6 +11795,7 @@
                  tagConfig: data.tagConfig,
                  taskTriggers: data.taskTriggers,
                  knowledgeBase: data.knowledgeBase,
+                 projects: data.projects,
                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -15773,10 +16231,27 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 初始化标签选择器（使用renderTags函数）
            renderTags('organizerTags', []);
            
+           // 加载项目列表到关联选择器
+           loadOrganizerProjectList();
+           
            // 默认显示整理任务选项卡
            switchOrganizerTab('organizer');
            
            modal.classList.remove('hidden');
+       }
+       
+       // 加载整理模态框的项目列表
+       function loadOrganizerProjectList() {
+           const select = document.getElementById('organizerProjectSelect');
+           select.innerHTML = '<option value="">-- 请选择项目 --</option>';
+           
+           const projects = data.projects || [];
+           projects.forEach(project => {
+               const option = document.createElement('option');
+               option.value = project.id;
+               option.textContent = project.name;
+               select.appendChild(option);
+           });
        }
        
        // 切换整理选项卡
@@ -16108,6 +16583,116 @@ ${ammoToAnalyze.map((ammo, index) =>
                return;
            }
            
+           // 显示关联项目弹窗
+           showOrganizerProjectPopup();
+       }
+       
+       // 显示关联项目弹窗
+       function showOrganizerProjectPopup() {
+           const popup = document.getElementById('organizerProjectPopup');
+           popup.style.display = 'block';
+           
+           // 加载项目列表
+           loadOrganizerProjectList();
+       }
+       
+       // 关闭关联项目弹窗
+       function closeOrganizerProjectPopup() {
+           const popup = document.getElementById('organizerProjectPopup');
+           popup.style.display = 'none';
+           
+           // 清空选择
+           document.getElementById('organizerProjectSelect').value = '';
+           document.getElementById('organizerCreateMilestone').checked = false;
+           document.getElementById('organizerMilestoneTitle').value = '';
+           document.getElementById('organizerMilestoneProgress').value = 0;
+           document.getElementById('organizerMilestoneProgressValue').textContent = '0';
+           document.getElementById('organizerMilestoneOptions').style.display = 'none';
+           
+           // 隐藏快速新建项目区域
+           toggleQuickCreateProject(false);
+       }
+       
+       // 切换快速新建项目区域显示
+       function toggleQuickCreateProject(show) {
+           const section = document.getElementById('quickCreateProjectSection');
+           if (show) {
+               section.style.display = 'block';
+               // 清空输入框
+               document.getElementById('organizerQuickProjectName').value = '';
+               document.getElementById('organizerQuickProjectDesc').value = '';
+           } else {
+               section.style.display = 'none';
+           }
+       }
+       
+       // 为整理器快速创建项目
+       function createQuickProjectForOrganizer() {
+           const name = document.getElementById('organizerQuickProjectName').value.trim();
+           const description = document.getElementById('organizerQuickProjectDesc').value.trim();
+           
+           if (!name) {
+               alert('请输入项目名称');
+               return;
+           }
+           
+           // 创建新项目
+           const newProject = {
+               id: Date.now().toString(),
+               name: name,
+               description: description,
+               status: 'active',
+               createdAt: nowStr(),
+               updatedAt: nowStr(),
+               subDirections: [],
+               milestones: []
+           };
+           
+           // 添加到项目列表
+           if (!data.projects) {
+               data.projects = [];
+           }
+           data.projects.push(newProject);
+           
+           // 保存数据
+           saveData();
+           
+           // 刷新项目列表并自动选择新创建的项目
+           loadOrganizerProjectList();
+           document.getElementById('organizerProjectSelect').value = newProject.id;
+           
+           // 隐藏快速创建区域
+           toggleQuickCreateProject(false);
+           
+           showToast('项目创建成功');
+       }
+       
+       // 确认关联项目并保存整理
+       function confirmOrganizerProject() {
+           const projectId = document.getElementById('organizerProjectSelect').value;
+           
+           // 验证必须选择项目
+           if (!projectId) {
+               alert('请选择关联项目（必填）');
+               return;
+           }
+           
+           // 执行实际的保存逻辑
+           executeSaveTaskOrganizer(projectId);
+           
+           // 关闭弹窗
+           closeOrganizerProjectPopup();
+       }
+       
+       // 执行保存任务整理的实际逻辑
+       function executeSaveTaskOrganizer(projectId) {
+           const taskContent = document.getElementById('organizerTaskContent').value.trim();
+           const selectedTags = getSelectedTags('organizerTags');
+           const createMilestone = document.getElementById('organizerCreateMilestone').checked;
+           
+           // 获取选中的任务
+           const checkboxes = document.querySelectorAll('.pending-task-checkbox:checked');
+           
            // 获取第一个选中的任务（用于保留原始信息）
            const firstTaskId = checkboxes[0].dataset.taskId;
            const firstTask = data.tasks.find(t => t.id === firstTaskId);
@@ -16134,17 +16719,17 @@ ${ammoToAnalyze.map((ammo, index) =>
            const finalDoneAt = latestDoneAt ? new Date(latestDoneAt).toISOString() : nowStr();
            const organizedTime = nowStr();  // 整理时间
            
-            // 创建新的已完成任务记录
-            const newTask = {
-                id: Date.now().toString(),
-                type: 'task',
-                content: taskContent,
-                tags: selectedTags,
-                done: true,
-                doneAt: finalDoneAt,  // 使用原始任务的完成时间（用于筛选）
-                organizedAt: organizedTime,  // 整理时间（用于显示）
-                createdAt: firstTask.createdAt || nowStr(),
-                updatedAt: organizedTime,  // 更新时间使用整理时间
+           // 创建新的已完成任务记录
+           const newTask = {
+               id: Date.now().toString(),
+               type: 'task',
+               content: taskContent,
+               tags: selectedTags,
+               done: true,
+               doneAt: finalDoneAt,  // 使用原始任务的完成时间（用于筛选）
+               organizedAt: organizedTime,  // 整理时间（用于显示）
+               createdAt: firstTask.createdAt || nowStr(),
+               updatedAt: organizedTime,  // 更新时间使用整理时间
                // 保存整理数据（其他字段选填）
                organization: {
                    goal: document.getElementById('organizerGoal').value.trim(),
@@ -16169,27 +16754,61 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 删除所有选中的原始任务
            data.tasks = data.tasks.filter(task => !taskIdsToDelete.includes(task.id));
            
-            // 添加新的已完成任务
-            data.tasks.push(newTask);
-            
-            console.log('新创建的任务:', newTask);
-            console.log('当前所有任务数量:', data.tasks.length);
-            console.log('已整理任务数量:', data.tasks.filter(t => t.done && t.organization).length);
-            
-            // 清空合并任务ID
-            window.mergedTaskIds = null;
-            
-            saveData();
-            
-            // 刷新列表
-            loadPendingTasksList();
-            loadOrganizedTasksList();
-            renderCompleted();
+           // 添加新的已完成任务
+           data.tasks.push(newTask);
+           
+           console.log('新创建的任务:', newTask);
+           console.log('当前所有任务数量:', data.tasks.length);
+           console.log('已整理任务数量:', data.tasks.filter(t => t.done && t.organization).length);
+           
+           // 处理项目关联
+           if (projectId) {
+               // 关联任务到项目
+           newTask.projectId = projectId;
+           
+           const project = data.projects.find(p => p.id === projectId);
+           if (project) {
+               // 创建里程碑
+               if (createMilestone) {
+                   const milestoneTitle = document.getElementById('organizerMilestoneTitle').value.trim();
+                   const milestoneProgress = parseInt(document.getElementById('organizerMilestoneProgress').value);
+                   
+                   if (!project.milestones) {
+                       project.milestones = [];
+                   }
+                   
+                   project.milestones.push({
+                       id: Date.now().toString(),
+                       taskId: newTask.id,
+                       title: milestoneTitle || newTask.content,
+                       progress: milestoneProgress,
+                       organizedAt: newTask.organizedAt || nowStr(),
+                       organization: {...newTask.organization}
+                   });
+               }
+           }
+           
+           // 保存数据
+           saveData();
            
            // 清空表单
            clearOrganizerForm();
            
-           alert('整理已保存！新任务已添加到待整理任务列表和已整理列表中。');
+           // 刷新界面
+           loadPendingTasksList();
+           loadOrganizedTasksList();
+           renderCompleted();
+           
+           // 显示成功提示
+           let message = '整理已保存';
+           if (projectId) {
+               message += createMilestone ? '，已关联项目并创建里程碑' : '，已关联项目';
+           }
+           showToast(message);
+           
+           // 清空合并任务ID
+           window.mergedTaskIds = null;
+       }
        }
        
         // 加载已整理任务列表
@@ -16333,10 +16952,654 @@ ${ammoToAnalyze.map((ammo, index) =>
            clearOrganizerForm();
            loadOrganizedTasksList();
            
-           alert('所有整理数据已清空');
-       }
-     
-     // 获取默认提示词
+            alert('所有整理数据已清空');
+        }
+        
+        // ==================== 项目管理功能 ====================
+        
+        // 显示项目管理面板
+        function showProjectManagement() {
+            const modal = document.getElementById('projectManagementPanel');
+            modal.classList.remove('hidden');
+            loadProjectsList();
+        }
+        
+        // 切换项目选项卡
+        function switchProjectTab(tab) {
+            // 更新选项卡样式
+            document.querySelectorAll('.project-panel-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 加载对应的项目列表
+            loadProjectsList(tab);
+        }
+        
+        // 加载项目列表
+        function loadProjectsList(filter = 'all') {
+            const container = document.getElementById('projectsContainer');
+            container.innerHTML = '';
+            
+            let projects = data.projects || [];
+            
+            // 根据选项卡筛选
+            if (filter !== 'all') {
+                projects = projects.filter(p => p.status === filter);
+            }
+            
+            if (projects.length === 0) {
+                container.innerHTML = '<div style="color:var(--text-secondary);padding:20px;text-align:center;">暂无项目</div>';
+                return;
+            }
+            
+            projects.forEach(project => {
+                const card = createProjectCard(project);
+                container.appendChild(card);
+            });
+        }
+        
+        // 创建项目卡片
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            
+            const progress = calculateProjectProgress(project);
+            // 如果进度为100%，则标记为已完成
+            const effectiveStatus = progress >= 100 ? 'completed' : project.status;
+            const statusClass = `project-status-${effectiveStatus}`;
+            const statusText = {
+                'active': '进行中',
+                'completed': '已完成'
+            }[effectiveStatus] || effectiveStatus;
+            
+            const completedDirections = project.subDirections ? project.subDirections.filter(d => d.completed).length : 0;
+            const totalDirections = project.subDirections ? project.subDirections.length : 0;
+            const milestonesCount = project.milestones ? project.milestones.length : 0;
+            
+            card.innerHTML = `
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">${escapeHtml(project.name)}</div>
+                        <div class="project-description">${escapeHtml(project.description || '暂无描述')}</div>
+                    </div>
+                    <span class="project-status-badge ${statusClass}">${statusText}</span>
+                </div>
+                
+                <div class="project-progress">
+                    <div class="project-progress-bar">
+                        <div class="project-progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                    <div class="project-progress-text">
+                        <span>进度: ${progress}%</span>
+                        <span>${project.manualProgress > 0 ? '手动设置' : '自动计算'}</span>
+                    </div>
+                </div>
+                
+                ${project.mainDirection ? `
+                <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">
+                    🎯 大方向: ${escapeHtml(project.mainDirection)}
+                </div>
+                ` : ''}
+                
+                ${totalDirections > 0 ? `
+                <div class="project-directions">
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">📋 细分方向 (${completedDirections}/${totalDirections}):</div>
+                    ${project.subDirections.slice(0, 3).map(dir => `
+                        <div class="project-direction-item">
+                            <input type="checkbox" class="project-direction-checkbox"
+                                   data-project-id="${project.id}"
+                                   data-direction-id="${dir.id}"
+                                   ${dir.completed ? 'checked' : ''}
+                                   onchange="toggleSubDirection('${project.id}', '${dir.id}')">
+                            <span style="${dir.completed ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(dir.name)}</span>
+                        </div>
+                    `).join('')}
+                    ${totalDirections > 3 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${totalDirections - 3} 个...</div>` : ''}
+                </div>
+                ` : ''}
+                
+                ${milestonesCount > 0 ? `
+                <div style="font-size:12px;color:var(--text-secondary);margin:8px 0;">
+                    🏆 里程碑: ${milestonesCount} 个
+                </div>
+                ` : ''}
+                
+                <div class="project-actions">
+                    <button class="btn btn-small btn-secondary" onclick="showProjectDetail('${project.id}')">查看详情</button>
+                    <button class="btn btn-small btn-secondary" onclick="showEditProjectModal('${project.id}')">编辑</button>
+                    <button class="btn btn-small btn-danger" onclick="deleteProject('${project.id}')">删除</button>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // 计算项目进度
+        function calculateProjectProgress(project) {
+            // 优先级 1: 手动进度（如果用户明确设置）
+            if (project.manualProgress > 0) {
+                return project.manualProgress;
+            }
+            
+            // 优先级 2: 细分方向完成比例
+            if (project.subDirections && project.subDirections.length > 0) {
+                const completedCount = project.subDirections.filter(d => d.completed).length;
+                const subProgress = Math.round((completedCount / project.subDirections.length) * 100);
+                if (subProgress > 0) return subProgress;
+            }
+            
+            // 优先级 3: 里程碑平均进度
+            if (project.milestones && project.milestones.length > 0) {
+                const totalProgress = project.milestones.reduce((sum, m) => sum + (m.progress || 0), 0);
+                const milestoneProgress = Math.round(totalProgress / project.milestones.length);
+                if (milestoneProgress > 0) return milestoneProgress;
+            }
+            
+            // 优先级 4: 关联任务完成比例
+            const relatedTasks = data.tasks.filter(t => t.projectId === project.id);
+            if (relatedTasks.length > 0) {
+                const completedTasks = relatedTasks.filter(t => t.done).length;
+                return Math.round((completedTasks / relatedTasks.length) * 100);
+            }
+            
+            return 0;
+        }
+        
+        // 更新项目统计
+        // 显示快速创建项目弹窗
+        function showQuickCreateProject() {
+            document.getElementById('quickProjectName').value = '';
+            document.getElementById('quickProjectDescription').value = '';
+            document.getElementById('quickProjectMainDirection').value = '';
+            
+            const modal = document.getElementById('quickCreateProjectModal');
+            modal.classList.remove('hidden');
+        }
+        
+        // 保存快速创建的项目
+        function saveQuickProject() {
+            const name = document.getElementById('quickProjectName').value.trim();
+            const description = document.getElementById('quickProjectDescription').value.trim();
+            const mainDirection = document.getElementById('quickProjectMainDirection').value.trim();
+            
+            if (!name) {
+                alert('请输入项目名称');
+                return;
+            }
+            
+            const newProject = {
+                id: Date.now().toString(),
+                name: name,
+                description: description,
+                type: 'medium',
+                mainDirection: mainDirection,
+                subDirections: [],
+                milestones: [],
+                manualProgress: 0,
+                autoProgress: 0,
+                status: 'active',
+                createdAt: nowStr(),
+                updatedAt: nowStr()
+            };
+            
+            data.projects.push(newProject);
+            saveData();
+            
+            // 关闭快速创建弹窗
+            closeModal('quickCreateProjectModal');
+            
+            // 刷新项目列表并自动选择新创建的项目
+            loadOrganizerProjectList();
+            document.getElementById('organizerProjectSelect').value = newProject.id;
+            
+            showToast('项目创建成功');
+        }
+        
+        // 显示创建项目模态框
+        function showCreateProjectModal() {
+            document.getElementById('projectEditModalTitle').textContent = '新建项目';
+            document.getElementById('editProjectId').value = '';
+            document.getElementById('editProjectName').value = '';
+            document.getElementById('editProjectDescription').value = '';
+            document.getElementById('editProjectType').value = 'medium';
+            document.getElementById('editProjectMainDirection').value = '';
+            document.getElementById('editProjectTargetDate').value = '';
+            
+            const modal = document.getElementById('projectEditModal');
+            modal.classList.remove('hidden');
+        }
+        
+        // 显示编辑项目模态框
+        function showEditProjectModal(projectId) {
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project) {
+                alert('项目不存在');
+                return;
+            }
+            
+            document.getElementById('projectEditModalTitle').textContent = '编辑项目';
+            document.getElementById('editProjectId').value = project.id;
+            document.getElementById('editProjectName').value = project.name;
+            document.getElementById('editProjectDescription').value = project.description || '';
+            document.getElementById('editProjectType').value = project.type || 'medium';
+            document.getElementById('editProjectMainDirection').value = project.mainDirection || '';
+            document.getElementById('editProjectTargetDate').value = project.targetDate || '';
+            
+            const modal = document.getElementById('projectEditModal');
+            modal.classList.remove('hidden');
+        }
+        
+        // 保存项目
+        function saveProject() {
+            const projectId = document.getElementById('editProjectId').value;
+            const name = document.getElementById('editProjectName').value.trim();
+            const description = document.getElementById('editProjectDescription').value.trim();
+            const type = document.getElementById('editProjectType').value;
+            const mainDirection = document.getElementById('editProjectMainDirection').value.trim();
+            const targetDate = document.getElementById('editProjectTargetDate').value;
+            
+            if (!name) {
+                alert('请输入项目名称');
+                return;
+            }
+            
+            if (projectId) {
+                // 编辑现有项目
+                const project = data.projects.find(p => p.id === projectId);
+                if (project) {
+                    project.name = name;
+                    project.description = description;
+                    project.type = type;
+                    project.mainDirection = mainDirection;
+                    project.targetDate = targetDate;
+                    project.updatedAt = nowStr();
+                }
+            } else {
+                // 创建新项目
+                const newProject = {
+                    id: Date.now().toString(),
+                    name: name,
+                    description: description,
+                    type: type,
+                    mainDirection: mainDirection,
+                    subDirections: [],
+                    milestones: [],
+                    manualProgress: 0,
+                    autoProgress: 0,
+                    status: 'active',
+                    createdAt: nowStr(),
+                    updatedAt: nowStr(),
+                    targetDate: targetDate
+                };
+                
+                data.projects.push(newProject);
+            }
+            
+            saveData();
+            closeModal('projectEditModal');
+            loadProjectsList();
+        }
+        
+        // 删除项目（保留函数名以兼容可能的调用）
+        function deleteProject(projectId) {
+            showDeleteConfirm(projectId, 'project', event.target);
+        }
+        
+        // 显示项目详情
+        function showProjectDetail(projectId) {
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project) {
+                alert('项目不存在');
+                return;
+            }
+            
+            const progress = calculateProjectProgress(project);
+            // 如果进度为100%，则标记为已完成
+            const effectiveStatus = progress >= 100 ? 'completed' : project.status;
+            const statusText = {
+                'active': '进行中',
+                'completed': '已完成'
+            }[effectiveStatus] || effectiveStatus;
+            
+            const relatedTasks = data.tasks.filter(t => t.projectId === projectId);
+            
+            let html = `
+                <div style="margin-bottom:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+                        <div>
+                            <h4 style="margin:0 0 8px 0;font-size:18px;">${escapeHtml(project.name)}</h4>
+                            <span class="project-status-badge project-status-${effectiveStatus}">${statusText}</span>
+                        </div>
+                        <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${project.id}', 'project', this)">删除</button>
+                    </div>
+                    
+                    ${project.description ? `<p style="color:var(--text-secondary);margin-bottom:12px;">${escapeHtml(project.description)}</p>` : ''}
+                    
+                    ${project.mainDirection ? `<div style="margin-bottom:12px;"><strong>🎯 大方向:</strong> ${escapeHtml(project.mainDirection)}</div>` : ''}
+                    
+                    <div style="margin-bottom:16px;">
+                        <strong>📈 进度:</strong> ${progress}%
+                        <div class="project-progress-bar" style="margin-top:8px;">
+                            <div class="project-progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 手动调整进度 -->
+                    <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;">
+                        <strong>🔧 手动调整进度</strong>
+                        <div style="margin-top:8px;">
+                            <label style="display:block;margin-bottom:8px;font-size:13px;">当前进度: ${progress}%</label>
+                            <input type="range" min="0" max="100" value="${project.manualProgress || progress}"
+                                   class="progress-slider"
+                                   onchange="updateProjectManualProgress('${project.id}', this.value)">
+                            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary);margin-top:4px;">
+                                <span>0%</span>
+                                <span>${project.manualProgress || progress}%</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display:flex;gap:16px;margin-bottom:16px;font-size:13px;color:var(--text-secondary);">
+                        <span>📅 创建: ${formatDate(project.createdAt)}</span>
+                        ${project.targetDate ? `<span>🎯 目标: ${formatDate(project.targetDate)}</span>` : ''}
+                        ${project.type ? `<span>⏱️ 类型: ${project.type === 'short' ? '短期' : project.type === 'medium' ? '中期' : '长期'}</span>` : ''}
+                    </div>
+                </div>
+                
+                <!-- 细分方向 -->
+                <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
+                    <strong>📋 细分方向</strong>
+                    
+                    <!-- 添加细分方向的输入框 -->
+                    <div style="display:flex;gap:8px;margin-top:12px;margin-bottom:12px;">
+                        <input type="text"
+                               id="newSubDirectionInput"
+                               placeholder="输入新的细分方向..."
+                               style="flex:1;padding:8px;border:1px solid var(--border);border-radius:4px;font-size:14px;"
+                               onkeypress="if(event.key === 'Enter') addSubDirectionFromInput('${project.id}')">
+                        <button class="btn btn-small btn-primary" onclick="addSubDirectionFromInput('${project.id}')">添加</button>
+                    </div>
+                    
+                    ${project.subDirections && project.subDirections.length > 0 ? `
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            ${project.subDirections.map(dir => `
+                                <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--card);border-radius:4px;">
+                                    <input type="checkbox"
+                                           ${dir.completed ? 'checked' : ''}
+                                           onchange="toggleSubDirection('${project.id}', '${dir.id}')">
+                                    <span style="flex:1;${dir.completed ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(dir.name)}</span>
+                                    <button class="btn btn-small btn-danger" onclick="deleteSubDirection('${project.id}', '${dir.id}')">删除</button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : '<div style="color:var(--text-secondary);font-size:13px;">暂无细分方向</div>'}
+                </div>
+                
+                <!-- 里程碑和关联任务两列显示 -->
+                <div style="display:grid;grid-template-columns: 1fr 1fr;gap:16px;margin-bottom:16px;">
+                    <!-- 里程碑 -->
+                    <div style="padding:16px;background:var(--bg);border-radius:8px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <strong>🏆 里程碑</strong>
+                            <span style="font-size:13px;color:var(--text-secondary);">${project.milestones ? project.milestones.length : 0} 个</span>
+                        </div>
+                        
+                        ${project.milestones && project.milestones.length > 0 ? `
+                            <div style="display:flex;flex-direction:column;gap:8px;">
+                                ${project.milestones.map(milestone => `
+                                    <div class="project-milestone-item">
+                                        <div class="project-milestone-date">${formatDate(milestone.organizedAt)}</div>
+                                        <div class="project-milestone-title">${escapeHtml(milestone.title)}</div>
+                                        <div class="project-milestone-progress">进度: ${milestone.progress}%</div>
+                                        ${milestone.organization && milestone.organization.summary ? `
+                                            <div style="margin-top:8px;font-size:13px;color:var(--text-secondary);">
+                                                ${escapeHtml(milestone.organization.summary.substring(0, 100))}${milestone.organization.summary.length > 100 ? '...' : ''}
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : '<div style="color:var(--text-secondary);font-size:13px;">暂无里程碑</div>'}
+                    </div>
+                    
+                    <!-- 关联任务 -->
+                    <div style="padding:16px;background:var(--bg);border-radius:8px;">
+                        <strong>📝 关联任务 (${relatedTasks.length})</strong>
+                        
+                        ${relatedTasks.length > 0 ? `
+                            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+                                ${relatedTasks.slice(0, 5).map(task => `
+                                    <div style="padding:8px;background:var(--card);border-radius:4px;font-size:13px;">
+                                        <div style="display:flex;align-items:center;gap:8px;">
+                                            <span style="${task.done ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(task.content)}</span>
+                                            ${task.organization ? '<span style="color:var(--primary);font-size:11px;">[已整理]</span>' : ''}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                                ${relatedTasks.length > 5 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${relatedTasks.length - 5} 个任务...</div>` : ''}
+                            </div>
+                        ` : '<div style="color:var(--text-secondary);font-size:13px;margin-top:12px;">暂无关联任务</div>'}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('projectDetailContent').innerHTML = html;
+            document.getElementById('projectDetailTitle').textContent = '项目详情';
+            
+            const modal = document.getElementById('projectDetailModal');
+            modal.classList.remove('hidden');
+        }
+        
+        // 从输入框添加细分方向
+        function addSubDirectionFromInput(projectId) {
+            const input = document.getElementById('newSubDirectionInput');
+            const name = input.value.trim();
+            
+            if (!name) {
+                alert('请输入细分方向名称');
+                return;
+            }
+            
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project) {
+                alert('项目不存在');
+                return;
+            }
+            
+            if (!project.subDirections) {
+                project.subDirections = [];
+            }
+            
+            project.subDirections.push({
+                id: Date.now().toString(),
+                name: name,
+                completed: false
+            });
+            
+            saveData();
+            input.value = ''; // 清空输入框
+            showProjectDetail(projectId); // 刷新详情页
+            loadProjectsList(); // 刷新列表
+        }
+        
+        // 添加细分方向（保留函数名以兼容可能的调用）
+        function addSubDirection(projectId) {
+            const input = document.getElementById('newSubDirectionInput');
+            if (input) {
+                input.focus();
+            } else {
+                // 如果输入框不存在，使用传统的prompt方式
+                const name = prompt('请输入细分方向名称:');
+                if (!name || !name.trim()) {
+                    return;
+                }
+                
+                const project = data.projects.find(p => p.id === projectId);
+                if (!project) {
+                    alert('项目不存在');
+                    return;
+                }
+                
+                if (!project.subDirections) {
+                    project.subDirections = [];
+                }
+                
+                project.subDirections.push({
+                    id: Date.now().toString(),
+                    name: name.trim(),
+                    completed: false
+                });
+                
+                saveData();
+                showProjectDetail(projectId);
+                loadProjectsList();
+            }
+        }
+        
+        // 切换细分方向状态
+        function toggleSubDirection(projectId, directionId) {
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project || !project.subDirections) {
+                return;
+            }
+            
+            const direction = project.subDirections.find(d => d.id === directionId);
+            if (direction) {
+                direction.completed = !direction.completed;
+                saveData();
+                
+                // 如果在详情页，刷新详情页
+                const detailModal = document.getElementById('projectDetailModal');
+                if (!detailModal.classList.contains('hidden')) {
+                    showProjectDetail(projectId);
+                }
+                
+                // 刷新项目列表
+                loadProjectsList();
+            }
+        }
+        
+        // 删除细分方向
+        function deleteSubDirection(projectId, directionId) {
+            if (!confirm('确定要删除这个细分方向吗？')) {
+                return;
+            }
+            
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project || !project.subDirections) {
+                return;
+            }
+            
+            project.subDirections = project.subDirections.filter(d => d.id !== directionId);
+            saveData();
+            
+            showProjectDetail(projectId);
+            loadProjectsList();
+        }
+        
+        // 更新项目手动进度
+        function updateProjectManualProgress(projectId, progress) {
+            const project = data.projects.find(p => p.id === projectId);
+            if (!project) {
+                return;
+            }
+            
+            project.manualProgress = parseInt(progress);
+            saveData();
+            
+            // 刷新显示
+            const detailModal = document.getElementById('projectDetailModal');
+            if (!detailModal.classList.contains('hidden')) {
+                showProjectDetail(projectId);
+            }
+            
+            loadProjectsList();
+        }
+        
+        // 监听整理模态框中的里程碑复选框变化
+        document.getElementById('organizerCreateMilestone').addEventListener('change', function() {
+            const options = document.getElementById('organizerMilestoneOptions');
+            options.style.display = this.checked ? 'block' : 'none';
+        });
+        
+        // 监听整理模态框中的进度滑块变化
+        document.getElementById('organizerMilestoneProgress').addEventListener('input', function() {
+            document.getElementById('organizerMilestoneProgressValue').textContent = this.value + '%';
+        });
+        
+        // 监听整理模态框中的项目选择变化
+        document.getElementById('organizerProjectSelect').addEventListener('change', function() {
+            // 当选择项目时，自动填充里程碑标题
+            const taskContent = document.getElementById('organizerTaskContent').value.trim();
+            if (taskContent && this.value) {
+                const milestoneTitle = taskContent.substring(0, 50) + (taskContent.length > 50 ? '...' : '');
+                document.getElementById('organizerMilestoneTitle').value = milestoneTitle;
+            }
+        });
+        
+        // ==================== 工具函数 ====================
+        
+        // 格式化日期
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+        }
+        
+        // HTML转义
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // 显示提示
+        function showToast(message) {
+            // 简单的提示实现
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 6px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+        
+        // 添加动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 获取默认提示词
      function getDefaultSummaryPrompt() {
          return `请根据以下任务列表，生成一份智能汇总报告：
 
@@ -18386,7 +19649,41 @@ ${knowledgeSummary}
          initKnowledgeBase();
          initKeyboardShortcuts();
          initMobileFab();
+         initOrganizerProjectEvents();
      });
+     
+     // 初始化整理模态框项目关联事件
+     function initOrganizerProjectEvents() {
+         // 监听整理模态框中的里程碑复选框变化
+         const createMilestoneCheckbox = document.getElementById('organizerCreateMilestone');
+         if (createMilestoneCheckbox) {
+             createMilestoneCheckbox.addEventListener('change', function() {
+                 const options = document.getElementById('organizerMilestoneOptions');
+                 options.style.display = this.checked ? 'block' : 'none';
+             });
+         }
+         
+         // 监听里程碑进度条变化
+         const milestoneProgress = document.getElementById('organizerMilestoneProgress');
+         if (milestoneProgress) {
+             milestoneProgress.addEventListener('input', function() {
+                 document.getElementById('organizerMilestoneProgressValue').textContent = this.value + '%';
+             });
+         }
+         
+         // 监听项目选择变化
+         const projectSelect = document.getElementById('organizerProjectSelect');
+         if (projectSelect) {
+             projectSelect.addEventListener('change', function() {
+                 // 当选择项目时，自动填充里程碑标题
+                 const taskContent = document.getElementById('organizerTaskContent').value.trim();
+                 if (taskContent && this.value) {
+                     const milestoneTitle = taskContent.substring(0, 50) + (taskContent.length > 50 ? '...' : '');
+                     document.getElementById('organizerMilestoneTitle').value = milestoneTitle;
+                 }
+             });
+         }
+     }
      
      // 初始化移动端浮动按钮
      function initMobileFab() {
