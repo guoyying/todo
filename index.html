@@ -451,26 +451,32 @@
                  font-size: 14px;
              }
              
-                 /* 弹药库面板移动端优化 */
-                  #ammoLibraryPanel .modal {
-                      width: 100% !important;
-                      max-width: 100% !important;
-                      border-radius: 0 !important;
-                      max-height: 95vh !important;
-                      height: auto !important;
-                  }
-                  
-                  #ammoLibraryPanel .modal-header {
-                      padding: 8px 12px !important;
-                      margin-bottom: 6px !important;
-                  }
-                  
-                  #ammoLibraryPanel .modal-body {
-                      padding: 0 !important;
-                      max-height: calc(95vh - 50px) !important;
-                      height: auto !important;
-                  }
-                  
+                 
+                    
+                       /* 弹药库面板移动端优化 */
+                        #ammoLibraryPanel .modal {
+                            width: 90% !important;
+                            max-width: 90% !important;
+                            border-radius: 12px !important;
+                            max-height: 95vh !important;
+                            height: auto !important;
+                            margin: 2.5vh auto !important;
+                            position: fixed !important;
+                            left: 50% !important;
+                            transform: translateX(-50%) !important;
+                            right: auto !important;
+                            padding: 8px !important;
+                        }
+                 #ammoLibraryPanel .modal-header {
+                     padding: 8px 12px !important;
+                     margin-bottom: 6px !important;
+                 }
+                 
+                 #ammoLibraryPanel .modal-body {
+                     padding: 0 !important;
+                     max-height: calc(95vh - 70px) !important;
+                     height: auto !important;
+                 }
                   #ammoLibraryPanel .ammo-info-header {
                       padding: 8px 12px !important;
                   }
@@ -479,11 +485,11 @@
                       font-size: 14px !important;
                   }
                   
-                  #ammoLibraryPanel #modalContentArea {
-                      padding: 6px 12px !important;
-                      flex-direction: column !important;
-                  }
                   
+                 #ammoLibraryPanel #modalContentArea {
+                     padding: 4px 8px !important;
+                     flex-direction: column !important;
+                 }
                   #ammoLibraryPanel #editDigestionContainer {
                       width: 100% !important;
                       max-width: 100% !important;
@@ -508,17 +514,24 @@
               
               .ammo-list-panel > div:nth-child(2) .btn {
                   padding: 4px 8px !important;
-                  font-size: 11px !important;
+                  font-size: 12px !important;
               }
              
-             /* 知识库面板移动端优化 */
-             #knowledgeBasePanel .modal {
-                 width: 100% !important;
-                 max-width: 100% !important;
-                 border-radius: 0 !important;
-                 max-height: 95vh !important;
-                 height: auto !important;
-             }
+             
+            /* 知识库面板移动端优化 */
+            #knowledgeBasePanel .modal {
+                width: 90% !important;
+                max-width: 90% !important;
+                border-radius: 12px !important;
+                max-height: 95vh !important;
+                height: auto !important;
+                margin: 2.5vh auto !important;
+                position: fixed !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                right: auto !important;
+                padding: 8px !important;
+            }
              
              #knowledgeBasePanel .modal-header {
                  padding: 8px 12px !important;
@@ -527,15 +540,14 @@
              
              #knowledgeBasePanel .modal-body {
                  padding: 0 !important;
-                 max-height: calc(95vh - 50px) !important;
+                 max-height: calc(95vh - 70px) !important;
                  height: auto !important;
              }
              
-             #knowledgeBasePanel #kbListView,
-             #knowledgeBasePanel #kbDetailView {
-                 padding: 4px 2px !important;
-             }
-             
+            #knowledgeBasePanel #kbListView,
+            #knowledgeBasePanel #kbDetailView {
+                padding: 2px 4px !important;
+            }
              /* 知识库卡片移动端优化 - 只覆盖需要调整的样式 */
              .kb-item {
                  padding: 10px !important;
@@ -902,12 +914,16 @@
               }
               
               .ammo-digestion-indicator {
-                  width: 28px !important;
-                  padding: 6px 0 !important;
+                  padding: 4px 8px !important;
+                  font-size: 12px !important;
               }
               
               .ammo-digestion-icon {
-                  font-size: 18px !important;
+                  font-size: 12px !important;
+              }
+              
+              .ammo-digestion-progress {
+                  font-size: 11px !important;
               }
               
               .ammo-digestion-progress {
@@ -2358,30 +2374,31 @@
          
          .ammo-digestion-indicator {
              flex-shrink: 0;
-             width: 24px;
              display: flex;
-             flex-direction: column;
              align-items: center;
              gap: 4px;
              cursor: pointer;
-             padding: 4px 0;
+             padding: 4px 8px;
              border-radius: 4px;
              transition: background 0.2s;
+             background: var(--bg);
+             border: 1px solid var(--border);
+             font-size: 12px;
          }
          
          .ammo-digestion-indicator:hover {
-             background: var(--bg);
+             background: var(--border);
          }
          
          .ammo-digestion-icon {
-             font-size: 16px;
+             font-size: 12px;
              line-height: 1;
          }
          
          .ammo-digestion-progress {
-             font-size: 10px;
+             font-size: 11px;
              color: var(--text-secondary);
-             font-weight: 600;
+             font-weight: 500;
          }
          
          .ammo-main-content {
@@ -15216,18 +15233,17 @@
                                   digestionProgress < 0.6 ? '🧡' : '🤍';
                 
                 ammoEl.innerHTML = `
-                  <!-- 左侧消化笔记指示器 -->
-                  <div class="ammo-digestion-indicator" onclick="toggleDigestionSection('${ammo.id}')" title="点击编辑消化笔记">
-                      <div class="ammo-digestion-icon">${progressIcon}</div>
-                      <div class="ammo-digestion-progress">${progressPercent}%</div>
-                  </div>
-                  
-                  <!-- 右侧主要内容 -->
+                  <!-- 主要内容 -->
                   <div class="ammo-main-content">
                       <div class="ammo-item-content">${escapeHtml(ammo.content)}</div>
                       ${ammo.tags && ammo.tags.length ? `<div class="ammo-item-tags">${ammo.tags.map(t => `<span class="ammo-item-tag">${t}</span>`).join('')}</div>` : ''}
                       
                       <div class="ammo-item-actions">
+                          <!-- 消化笔记指示器 -->
+                          <div class="ammo-digestion-indicator" onclick="toggleDigestionSection('${ammo.id}')" title="点击编辑消化笔记">
+                              <div class="ammo-digestion-icon">${progressIcon}</div>
+                              <div class="ammo-digestion-progress">${progressPercent}%</div>
+                          </div>
                           <button class="btn btn-small btn-secondary" onclick="editAmmo('${ammo.id}')">编辑</button>
                           <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${ammo.id}', 'ammo', this)">删除</button>
                       </div>
