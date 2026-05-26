@@ -1387,31 +1387,17 @@
     {
       "id": "mpkml8b8k6iy9",
       "type": "task",
-      "content": "800M清单整理",
+      "content": "800M清单整理：本周新增32个",
       "createdAt": "2026-05-25T03:07:14.132Z",
-      "updatedAt": "2026-05-25T03:07:14.132Z",
+      "updatedAt": "2026-05-26T01:42:28.924Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpkml8b8yd6hn",
-          "content": "先把清单copy到共享文档",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        },
-        {
-          "id": "mpkml8b8vew90",
-          "content": "打开影刀和资源系统界面",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-26T01:42:28.924Z",
+      "subtasks": []
     },
     {
       "id": "mpkmlxo9obugg",
