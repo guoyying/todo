@@ -20102,6 +20102,9 @@ ${knowledgeSummary}
          // 重置AI搜索结果全局变量
          currentAiSearchResult = '';
          
+         // 清除匹配结果数据
+         window.currentMatchedItems = [];
+         
          // 重新渲染知识库列表，恢复正常显示
          renderKnowledgeBase();
      }
@@ -20140,16 +20143,17 @@ ${knowledgeSummary}
               const includeAmmoLibrary = document.getElementById('includeAmmoLibrary').checked;
               console.log('是否包含弹药库内容:', includeAmmoLibrary);
               
-              // 检查是否有用户选择的条目
-              const selectedItems = getSelectedKnowledgeItems();
+              // 检查是否有用户选择的条目（仅在点击了"开始匹配"的情况下）
+              const hasPerformedMatching = window.currentMatchedItems && window.currentMatchedItems.length > 0;
+              const selectedItems = hasPerformedMatching ? getSelectedKnowledgeItems() : [];
               
               if (selectedItems.length > 0) {
                   // 使用用户选中的条目
                   matchedItems = selectedItems;
                   console.log('使用用户选中的知识库条目:', matchedItems.length, '条');
               } else {
-                  // 如果没有用户选择的条目，说明知识库是空的，不包含任何条目内容
-                  console.log('未找到用户选择的条目，知识库为空');
+                  // 如果没有用户选择的条目，说明用户没有进行知识库匹配
+                  console.log('用户未进行知识库匹配，将进行通用AI搜索');
                   // 保持matchedItems为空数组，不进行任何匹配
               }
               
