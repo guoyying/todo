@@ -583,23 +583,6 @@
                  padding: 10px !important;
              }
              
-             /* AI搜索结果样式 - 方案一：现代简约风格 */
-             .ai-search-result {
-                 padding: 5px;
-                 background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                 border-radius: 12px;
-                 margin: 16px 0;
-             }
-             
-             .ai-search-result h4 {
-                 margin: 0 0 16px 0;
-                 font-size: 16px;
-                 color: #2c3e50;
-                 font-weight: 600;
-                 display: flex;
-                 align-items: center;
-                 gap: 8px;
-             }
              
              /* AI回答区域优化 */
              .ai-response-section {
@@ -5767,16 +5750,9 @@
         }
     }
     
-    // 复制AI点子结果
+    // 复制AI点子结果（纯文本格式）
     function copyAiIdeasResult() {
-        if (!currentAiIdeasResult) return;
-        
-        navigator.clipboard.writeText(currentAiIdeasResult).then(() => {
-            showToast('已复制到剪贴板');
-        }).catch(err => {
-            console.error('复制失败:', err);
-            showToast('复制失败');
-        });
+        copyAIContentAsPlainText(currentAiIdeasResult);
     }
     
     // 添加点子为子任务
@@ -14806,10 +14782,9 @@
            return result.choices[0].message.content;
        }
        
-       // 复制AI润色结果
+       // 复制AI润色结果（纯文本格式）
      function copyAiResult() {
-         if (!currentAiContext.polishedContent) return;
-         copyToClipboard(currentAiContext.polishedContent);
+         copyAIContentAsPlainText(currentAiContext.polishedContent);
      }
      
      // 从AI润色结果中选择文本（已废弃，保留以兼容旧代码）
@@ -18930,6 +18905,35 @@ ${ammoToAnalyze.map((ammo, index) =>
              showToast('复制失败');
          });
      }
+     
+     // AI内容复制为纯文本（保留换行）
+     function copyAIContentAsPlainText(content) {
+         if (!content) {
+             showToast('没有可复制的内容');
+             return;
+         }
+         
+         // 将Markdown转换为纯文本，保留换行
+         let plainText = content
+             .replace(/^#+\s*/gm, '') // 移除标题标记
+             .replace(/\*\*(.*?)\*\*/g, '$1') // 移除粗体
+             .replace(/\*(.*?)\*/g, '$1') // 移除斜体
+             .replace(/`(.*?)`/g, '$1') // 移除内联代码
+             .replace(/```[\s\S]*?```/g, '') // 移除代码块
+             .replace(/^-\s*/gm, '') // 移除无序列表标记
+             .replace(/^\d+\.\s*/gm, '') // 移除有序列表标记
+             .replace(/^\*\s*/gm, '') // 移除行首的*符号
+             .replace(/--/g, '') // 移除--符号
+             .replace(/\n{3,}/g, '\n\n') // 限制连续空行
+             .trim();
+         
+         navigator.clipboard.writeText(plainText).then(() => {
+             showToast('已复制为纯文本');
+         }).catch(err => {
+             console.error('复制失败:', err);
+             showToast('复制失败');
+         });
+     }
 
      // ==================== 知识库功能 ====================
      
@@ -19283,11 +19287,11 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 加载保存的提示词
          loadSavedAIPrompt();
          
-         // 默认显示提示词
+         // 默认隐藏提示词
          const container = document.getElementById('aiPromptContainer');
          const btn = document.getElementById('toggleAIPromptBtn');
-         container.classList.remove('hidden');
-         btn.textContent = '隐藏';
+         container.classList.add('hidden');
+         btn.textContent = '显示';
          
          // 如果提示词为空，设置默认提示词
          const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -20338,17 +20342,15 @@ ${knowledgeSummary}
              
              // 更新结果内容
              document.getElementById('aiSearchResults').innerHTML = `
-                 <div class="ai-search-result">
-                     ${matchedItemsHtml}
-                     <div class="ai-response-card" style="margin-top:16px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.08);">
-                         <div style="display:flex;align-items:center;gap:8px;margin-bottom:13px;padding-bottom:12px;border-bottom:1px solid var(--border);">
-                             <span style="font-size:20px;">🤖</span>
-                             <h4 style="margin:0;font-size:16px;font-weight:600;color:var(--text-primary);">AI回答</h4>
-                             <span style="margin-left:auto;font-size:12px;color:var(--text-tertiary);background:var(--bg-secondary);padding:4px 8px;border-radius:4px;">智能生成</span>
-                             <button class="btn btn-small btn-secondary" onclick="clearAISearchResults()" style="margin-left:8px;padding:4px 8px;font-size:11px;">清除结果</button>
-                         </div>
-                         <div class="ai-search-content" style="font-size:14px;line-height:1.8;color:var(--text-primary);">${marked.parse(response)}</div>
+                 ${matchedItemsHtml}
+                 <div class="ai-response-card" style="margin-top:16px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--border);">
+                     <div style="display:flex;align-items:center;gap:8px;margin-bottom:13px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+                         <span style="font-size:20px;">🤖</span>
+                         <h4 style="margin:0;font-size:16px;font-weight:600;color:var(--text-primary);">AI回答</h4>
+                         <span style="margin-left:auto;font-size:12px;color:var(--text-tertiary);background:var(--bg-secondary);padding:4px 8px;border-radius:4px;">智能生成</span>
+                         <button class="btn btn-small btn-secondary" onclick="clearAISearchResults()" style="margin-left:8px;padding:4px 8px;font-size:11px;">清除结果</button>
                      </div>
+                     <div class="ai-search-content" style="font-size:14px;line-height:1.8;color:var(--text-primary);">${marked.parse(response)}</div>
                  </div>
              `;
              
