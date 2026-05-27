@@ -1502,9 +1502,9 @@
     {
       "id": "mpnfiyhfu2ull",
       "type": "task",
-      "content": "看下sdh清单有什么问题",
+      "content": "周一给客资周工发清单（在桌面）",
       "createdAt": "2026-05-27T02:12:49.299Z",
-      "updatedAt": "2026-05-27T02:12:49.299Z",
+      "updatedAt": "2026-05-27T03:09:48.852Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
@@ -2756,6 +2756,21 @@
       "lastReminderTimes": {
         "0": "2026-05-27T00:51:14.720Z"
       }
+    },
+    {
+      "id": "mpnhkh5barxyv",
+      "taskId": "mpnfiyhfu2ull",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-01T09:09"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-05-27T03:09:59.375Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
