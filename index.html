@@ -252,17 +252,21 @@
                            padding: 2px !important;
                        }
                        
-                       /* 模态框通用移动端边距 */
+                       /* 移动端模态框样式 */
                        .modal {
-                           margin: 1px auto !important;
-                           width: 100% !important;
-                           max-width: calc(100vw - 20px) !important; /* 减去左右边距 (8px * 2) */
+                           margin: 14px auto !important;
+                           width: calc(100vw - 28px) !important;
+                           max-width: none !important;
+                           border-radius: 12px !important;
+                           padding: 16px !important;
+                           box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
                        }
                        
                        /* AI帮想点子模态框移动端优化 */
                        #aiIdeasModal .modal {
-                           width: 100% !important;
-                           max-width: calc(100vw - 20px) !important;
+                           width: calc(100vw - 28px) !important;
+                           max-width: none !important;
+                           border-radius: 12px !important;
                        }
                        
                        /* AI内容管理移动端优化 */
@@ -1848,13 +1852,14 @@
         #quickCreateProjectModal {
             z-index: 2000 !important;
         }
+        /* 桌面端模态框样式 */
         .modal {
             background: var(--card);
             border-radius: var(--radius);
             padding: 24px;
             width: 100%;
-            max-width: 420px;
-            max-height: 80vh;
+            max-width: 550px;
+            max-height: 110vh;
             overflow-y: auto;
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
