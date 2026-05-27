@@ -5474,7 +5474,7 @@
    </div>
  
    <!-- AI帮想点子模态框 -->
-   <div class="modal-overlay hidden" id="aiIdeasModal" onclick="closeAiIdeasModal()">
+   <div class="modal-overlay hidden" id="aiIdeasModal" onclick="hideAiIdeasModal()">
        <div class="modal" style="max-width:800px;width:95%;" onclick="event.stopPropagation()">
            <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                <h3>💡 AI帮想点子</h3>
@@ -5575,6 +5575,7 @@
     // 全局变量
     let currentAiIdeasTaskId = null;
     let currentAiIdeasResult = '';
+    let currentAiSearchResult = ''; // AI搜索结果（Markdown格式）
     let currentContextMenuTaskId = null;
     
     // 打开AI帮想点子模态框
@@ -5582,19 +5583,23 @@
         const task = data.tasks.find(t => t.id === taskId);
         if (!task) return;
         
+        // 检查是否是同一个任务，如果是则保留之前的数据
+        const isSameTask = currentAiIdeasTaskId === taskId;
         currentAiIdeasTaskId = taskId;
         
         // 显示任务信息
         const taskContent = document.getElementById('aiIdeasTaskContent');
         taskContent.textContent = task.content;
         
-        // 设置默认提示词
+        // 设置提示词（如果是同一个任务且已有提示词，则保留）
         const promptInput = document.getElementById('aiIdeasPromptInput');
-        const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。
+        if (!isSameTask || !promptInput.value.trim()) {
+            const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。
 
 要求：考虑不同的情况和需求，提供3个可行的选项。使用emoji增加可读性
 任务：${task.content}`;
-        promptInput.value = defaultPrompt;
+            promptInput.value = defaultPrompt;
+        }
         
         // 填充模型选择器
         const modelSelect = document.getElementById('aiIdeasModelSelect');
@@ -5609,19 +5614,36 @@
             modelSelect.appendChild(option);
         });
         
-        // 重置结果区域
+        // 显示结果区域（如果有之前的结果则显示，否则显示默认提示）
         const resultDiv = document.getElementById('aiIdeasResult');
-        resultDiv.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击上方"生成点子"按钮开始</div>';
-        
-        // 禁用操作按钮
-        document.getElementById('aiIdeasCopyBtn').disabled = true;
-        document.getElementById('aiIdeasSaveBtn').disabled = true;
+        if (isSameTask && currentAiIdeasResult) {
+            if (typeof marked !== 'undefined') {
+                resultDiv.innerHTML = marked.parse(currentAiIdeasResult);
+            } else {
+                resultDiv.innerHTML = currentAiIdeasResult.replace(/\n/g, '<br>');
+            }
+            
+            // 启用操作按钮
+            document.getElementById('aiIdeasCopyBtn').disabled = false;
+            document.getElementById('aiIdeasSaveBtn').disabled = false;
+        } else {
+            resultDiv.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击上方"生成点子"按钮开始</div>';
+            
+            // 禁用操作按钮
+            document.getElementById('aiIdeasCopyBtn').disabled = true;
+            document.getElementById('aiIdeasSaveBtn').disabled = true;
+        }
         
         // 显示模态框
         document.getElementById('aiIdeasModal').classList.remove('hidden');
     }
     
-    // 关闭AI帮想点子模态框
+    // 隐藏AI帮想点子模态框（不清理数据）
+    function hideAiIdeasModal() {
+        document.getElementById('aiIdeasModal').classList.add('hidden');
+    }
+    
+    // 关闭AI帮想点子模态框（清理数据）
     function closeAiIdeasModal() {
         document.getElementById('aiIdeasModal').classList.add('hidden');
         currentAiIdeasTaskId = null;
@@ -5841,20 +5863,18 @@
     // 保存AI搜索内容
     function saveAiSearchContent() {
         const query = document.getElementById('aiSearchQuery').value.trim();
-        const aiResponseCard = document.querySelector('.ai-response-card .ai-search-content');
-        const searchResults = aiResponseCard ? aiResponseCard.innerHTML : '';
         
-        if (!query && !searchResults) {
+        if (!query && !currentAiSearchResult) {
             showToast('没有可保存的内容');
             return;
         }
         
         let content = '';
         if (query) {
-            content += `搜索问题：${query}\n\n`;
+            content += `# 搜索问题\n${query}\n\n`;
         }
-        if (searchResults) {
-            content += `AI回答：\n${extractTextFromHtml(searchResults)}`;
+        if (currentAiSearchResult) {
+            content += currentAiSearchResult;
         }
         
         // 使用搜索问题作为标题
@@ -5864,13 +5884,12 @@
     
     // 保存AI想法内容
     function saveAiContent() {
-        const resultDiv = document.getElementById('aiIdeasResult');
-        if (!resultDiv || resultDiv.textContent.includes('点击上方"生成点子"按钮开始')) {
+        if (!currentAiIdeasResult) {
             showToast('请先生成AI点子');
             return;
         }
         
-        const content = extractTextFromHtml(resultDiv.innerHTML);
+        const content = currentAiIdeasResult;
         
         // 获取提示词作为标题
         const promptInput = document.getElementById('aiIdeasPromptInput');
@@ -5899,7 +5918,7 @@
         const markdownPatterns = [
             /^#+\s/,                    // 标题
             /^-\s|\*\s/,                // 列表项
-            /`{3}[\s\S]*?`{3}/,         // 代码块
+            /```[\s\S]*?```/,           // 代码块
             /\[.*?\]\(.*?\)/,           // 链接
             /\*\*[^*]+\*\*|__[^_]+__/,  // 粗体
             /\*[^*]+\*|_[^_]+_/,        // 斜体
@@ -19874,10 +19893,15 @@ ${knowledgeSummary}
         
         if (!results || results.length === 0) {
             previewContainer.innerHTML = '<div class="ai-search-no-results">没有找到匹配的知识内容</div>';
+            currentAiSearchResult = '';
             return;
         }
         
         const knowledgeData = JSON.parse(localStorage.getItem('knowledgeData') || '[]');
+        
+        // 生成Markdown格式的搜索结果总结
+        let markdownContent = `# AI搜索结果\n\n`;
+        markdownContent += `共找到 **${results.length}** 条相关内容：\n\n`;
         
         let html = '<div class="ai-search-results">';
         html += '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">找到 ' + results.length + ' 条相关内容</div>';
@@ -19910,6 +19934,16 @@ ${knowledgeSummary}
             const scorePercent = Math.round(result.relevance * 100);
             const sourceLabel = isAmmo ? '💎 弹药库' : '📚 知识库';
             
+            // 添加到Markdown内容
+            markdownContent += `## ${index + 1}. ${title}\n`;
+            markdownContent += `- **来源**: ${sourceLabel}\n`;
+            markdownContent += `- **匹配度**: ${scorePercent}%\n`;
+            markdownContent += `- **匹配原因**: ${result.reason}\n`;
+            if (tags.length > 0) {
+                markdownContent += `- **标签**: ${tags.join(', ')}\n`;
+            }
+            markdownContent += `- **内容预览**: ${content.substring(0, 200)}${content.length > 200 ? '...' : ''}\n\n`;
+            
             html += `
                 <div class="ai-search-result-item" onclick="selectAISearchResult('${result.id}', ${isAmmo})">
                     <div class="ai-search-result-title">${escapeHtml(title)} ${sourceLabel}</div>
@@ -19925,6 +19959,9 @@ ${knowledgeSummary}
         
         html += '</div>';
         previewContainer.innerHTML = html;
+        
+        // 保存Markdown格式的搜索结果到全局变量
+        currentAiSearchResult = markdownContent;
     }
     
     // 选择AI搜索结果
@@ -20061,6 +20098,9 @@ ${knowledgeSummary}
              resultsContainer.remove();
              showToast('搜索结果已清除');
          }
+         
+         // 重置AI搜索结果全局变量
+         currentAiSearchResult = '';
          
          // 重新渲染知识库列表，恢复正常显示
          renderKnowledgeBase();
@@ -20246,6 +20286,27 @@ ${knowledgeSummary}
                      </div>
                  </div>
              `;
+             
+             // 生成Markdown格式的搜索结果并保存到全局变量
+             let markdownContent = `# AI搜索结果\n\n`;
+             if (matchedItems.length > 0) {
+                 markdownContent += `## 匹配的知识库条目\n\n`;
+                 matchedItems.slice(0, 3).forEach((item, index) => {
+                     const sourceType = item.isAmmo ? '弹药库' : '知识库';
+                     markdownContent += `### ${index + 1}. ${item.content.substring(0, 50)}...\n`;
+                     markdownContent += `- **来源**: ${sourceType}\n`;
+                     markdownContent += `- **匹配度**: ${item.score || 0}分\n`;
+                     if (item.reason) {
+                         markdownContent += `- **匹配原因**: ${item.reason}\n`;
+                     }
+                     if (item.tags && item.tags.length > 0) {
+                         markdownContent += `- **标签**: ${item.tags.join(', ')}\n`;
+                     }
+                     markdownContent += `- **内容预览**: ${item.content.substring(0, 200)}${item.content.length > 200 ? '...' : ''}\n\n`;
+                 });
+             }
+             markdownContent += `## AI回答\n\n${response}`;
+             currentAiSearchResult = markdownContent;
              
              // 不隐藏搜索表单，保留以便二次编辑
              
