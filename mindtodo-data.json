@@ -1514,16 +1514,17 @@
     {
       "id": "mpnfj775u92u5",
       "type": "task",
-      "content": "网管验收3个",
+      "content": "网管验收",
       "createdAt": "2026-05-27T02:13:00.593Z",
-      "updatedAt": "2026-05-27T02:13:00.593Z",
+      "updatedAt": "2026-05-27T07:44:01.972Z",
       "tags": [
         "验收"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-27T07:44:01.972Z"
     },
     {
       "id": "mpnfjko4tat3l",
@@ -2798,21 +2799,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-27T03:09:59.375Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpno6drhr82kt",
-      "taskId": "mpno6248kpr3o",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-05-27T15:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-05-27T06:14:59.117Z",
       "lastReminderTime": null,
       "active": true
     }
