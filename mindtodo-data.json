@@ -1544,16 +1544,17 @@
     {
       "id": "mpnj2212cea8q",
       "type": "task",
-      "content": "3731-太平和108-太平-CHTPHC001",
+      "content": "3731-太平和108-太平-CHTPHC001：偶尔也会有核查不完的情况，先把问题丢出去",
       "createdAt": "2026-05-27T03:51:39.206Z",
-      "updatedAt": "2026-05-27T03:51:39.206Z",
+      "updatedAt": "2026-05-27T08:46:11.001Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-05-27T08:46:11.001Z"
     },
     {
       "id": "mpno6248kpr3o",
