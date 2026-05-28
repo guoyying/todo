@@ -1557,16 +1557,16 @@
       "doneAt": "2026-05-27T08:46:11.001Z"
     },
     {
-      "id": "mpp4jya3fmqfv",
+      "id": "mpq45y2azxibt",
       "type": "task",
-      "content": "云电脑桌面有中午优化的进度，还未推送。",
-      "createdAt": "2026-05-28T06:41:12.267Z",
-      "updatedAt": "2026-05-28T06:41:12.267Z",
+      "content": "将excel放到oppo（清单和群里的excel）",
+      "createdAt": "2026-05-28T23:18:04.978Z",
+      "updatedAt": "2026-05-28T23:18:04.978Z",
       "tags": [
-        "AI"
+        "检查工作"
       ],
       "done": false,
-      "dueTime": "5min",
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
