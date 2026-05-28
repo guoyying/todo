@@ -5338,25 +5338,23 @@
                                     <!-- 提示词配置区域 -->
                                     <div style="margin-bottom:12px;">
                                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-                                            <label style="font-size:13px;color:var(--text-secondary);">AI提示词</label>
+                                            <label style="font-size:13px;color:var(--text-secondary);">AI 提示词</label>
                                             <div style="display:flex;gap:4px;">
+                                                <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()" id="resetAIPromptBtn" title="重置为默认提示词" style="display:none;">🔄</button>
+                                                <button class="btn btn-small btn-primary" onclick="saveAIPrompt()" id="saveAIPromptBtn" title="保存提示词设置" style="display:none;">💾</button>
                                                 <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn" title="显示/隐藏提示词">⚙️</button>
                                             </div>
                                         </div>
                                         <div id="aiPromptContainer" style="margin-bottom:8px;">
-                                            <textarea id="aiSearchPrompt" rows="4" placeholder="自定义AI提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
-                                            <div style="display:flex;gap:4px;margin-top:8px;justify-content:flex-end;">
-                                                <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()" title="重置为默认提示词">🔄</button>
-                                                <button class="btn btn-small btn-primary" onclick="saveAIPrompt()" title="保存提示词设置">💾</button>
-                                            </div>
+                                            <textarea id="aiSearchPrompt" rows="3" placeholder="自定义 AI 提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
                                         </div>
                                     </div>
                                     
                                     <!-- 操作按钮组 -->
                                     <div style="display:flex;gap:8px;justify-content:space-between;">
                                         <div style="display:flex;gap:8px;">
-                                            <button class="btn btn-primary" onclick="performAISearch()" title="执行AI搜索">🔍 搜索</button>
-                                            <button class="btn btn-secondary" onclick="saveAiSearchContent()" title="保存搜索结果">💾 保存</button>
+                                            <button class="btn btn-small btn-primary" onclick="performAISearch()" title="执行AI搜索">🔍 搜索</button>
+                                            <button class="btn btn-small btn-secondary" onclick="saveAiSearchContent()" title="保存搜索结果">💾 保存</button>
                                         </div>
                                         <button class="btn btn-small btn-secondary" onclick="hideAISearchForm()" title="关闭搜索表单">✕</button>
                                     </div>
@@ -19295,8 +19293,14 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 默认隐藏提示词
          const container = document.getElementById('aiPromptContainer');
          const btn = document.getElementById('toggleAIPromptBtn');
+         const resetBtn = document.getElementById('resetAIPromptBtn');
+         const saveBtn = document.getElementById('saveAIPromptBtn');
          container.classList.add('hidden');
-         btn.textContent = '显示';
+         btn.textContent = '⚙️';
+         
+         // 默认隐藏重置和保存按钮
+         if (resetBtn) resetBtn.style.display = 'none';
+         if (saveBtn) saveBtn.style.display = 'none';
          
          // 如果提示词为空，设置默认提示词
          const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -19330,14 +19334,20 @@ ${ammoToAnalyze.map((ammo, index) =>
          }
      }
      
-     // 切换AI提示词显示/隐藏
+     // 切换 AI 提示词显示/隐藏
      function toggleAIPrompt() {
          const container = document.getElementById('aiPromptContainer');
          const btn = document.getElementById('toggleAIPromptBtn');
+         const resetBtn = document.getElementById('resetAIPromptBtn');
+         const saveBtn = document.getElementById('saveAIPromptBtn');
          
          if (container.classList.contains('hidden')) {
              container.classList.remove('hidden');
              btn.textContent = '⚙️';
+             
+             // 显示重置和保存按钮
+             if (resetBtn) resetBtn.style.display = 'inline-block';
+             if (saveBtn) saveBtn.style.display = 'inline-block';
              
              // 如果提示词为空，设置默认提示词
              const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -19353,6 +19363,10 @@ ${ammoToAnalyze.map((ammo, index) =>
          } else {
              container.classList.add('hidden');
              btn.textContent = '⚙️';
+             
+             // 隐藏重置和保存按钮
+             if (resetBtn) resetBtn.style.display = 'none';
+             if (saveBtn) saveBtn.style.display = 'none';
          }
      }
     
