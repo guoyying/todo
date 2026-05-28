@@ -4180,9 +4180,16 @@
                        <a href="#" onclick="downloadLatestHtml();toggleSettingsDropdown();return false;">⬇️ 下载 HTML</a>
                    </div>
                </div>
-               <button class="btn btn-secondary btn-small" onclick="showAmmoLibraryPanel()">💎 弹药库</button>
+               <div class="dropdown">
+                   <button class="btn btn-secondary btn-small" onclick="toggleToolsDropdown()">🧰 工具</button>
+                   <div id="toolsDropdown" class="dropdown-content">
+                       <a href="#" onclick="showAmmoLibraryPanel();toggleToolsDropdown();return false;">💎 弹药库</a>
+                       <a href="#" onclick="showAiContentManager(true);toggleToolsDropdown();return false;">💾 AI 内容</a>
+                       <a href="#" onclick="showProjectManagement();toggleToolsDropdown();return false;">📋 项目管理</a>
+                   </div>
+               </div>
                <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
-                <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
+               <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
                 <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
@@ -5364,8 +5371,8 @@
                                 </div>
                                 <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
                                     <button class="btn btn-small btn-primary" onclick="showAddKBForm()">+ 新增知识</button>
-                                    <button class="btn btn-small btn-secondary" onclick="showAISearchForm()">🤖 AI关联搜索</button>
-                                    <button class="btn btn-small btn-secondary" onclick="showAiContentManager()">💾 AI内容管理</button>
+                                    <button class="btn btn-small btn-secondary" onclick="showAISearchForm()">🤖 AI 关联搜索</button>
+                                    <button class="btn btn-small btn-secondary" onclick="showAiContentManager(false)">💾 AI 内容管理</button>
                                 </div>
                                 
                                 <!-- 新增知识表单 -->
@@ -5447,9 +5454,11 @@
                             <div id="aiContentManagerView" class="hidden" style="flex:1;overflow:auto;padding:16px;">
                                 <div style="margin-bottom:16px;">
                                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-                                        <h4 style="margin:0;color:var(--text);font-size:15px;">💾 已保存的AI内容</h4>
+                                        <button id="aiContentBackBtn" class="btn btn-text" onclick="backToKBListFromAiContent()" style="display:none;font-size:12px;">← 返回</button>
+                                        <h4 style="margin:0;color:var(--text);font-size:15px;">💾 已保存的 AI 内容</h4>
+                                        <button id="aiContentCloseBtn" class="btn btn-small btn-secondary" onclick="closeKnowledgeBasePanel()" style="display:none;font-size:12px;">关闭</button>
                                     </div>
-                                    <input type="text" id="aiContentSearchInput" placeholder="搜索AI内容..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                    <input type="text" id="aiContentSearchInput" placeholder="搜索 AI 内容..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
                                 
                                 <div id="aiContentList" style="max-height:calc(90vh - 200px);overflow-y:auto; padding:0px">
@@ -6100,21 +6109,74 @@
     
     // ============ AI内容管理功能 ============
     
-    // 显示AI内容管理器
-    function showAiContentManager() {
+    // 全局变量：记录是否是从首页直接点击进入 AI 内容管理
+    let isDirectAiContentAccess = false;
+    
+    // 显示 AI 内容管理器
+    function showAiContentManager(fromDirectClick = false) {
+        // 记录进入方式
+        isDirectAiContentAccess = fromDirectClick;
+        
+        // 打开知识库面板
+        const panel = document.getElementById('knowledgeBasePanel');
+        if (panel) {
+            panel.classList.remove('hidden');
+        }
+        
+        // 如果是从首页直接点击，设置遮罩点击事件为直接关闭
+        if (fromDirectClick) {
+            panel.onclick = closeKnowledgeBasePanelFromDirectAiContent;
+        } else {
+            panel.onclick = closeKnowledgeBasePanel;
+        }
+        
         // 隐藏其他视图
         document.getElementById('kbListView').classList.add('hidden');
         document.getElementById('kbDetailView').classList.add('hidden');
         document.getElementById('aiSearchForm').classList.add('hidden');
         
-        // 显示AI内容管理视图
+        // 显示 AI 内容管理视图
         document.getElementById('aiContentManagerView').classList.remove('hidden');
         
-        // 显示返回按钮
-        document.getElementById('backToKBListBtn').classList.remove('hidden');
+        // 根据进入方式显示不同的按钮
+        const backBtn = document.getElementById('aiContentBackBtn');
+        const closeBtn = document.getElementById('aiContentCloseBtn');
         
-        // 渲染AI内容列表
+        if (fromDirectClick) {
+            // 从首页直接点击进入：只显示关闭按钮
+            backBtn.style.display = 'none';
+            closeBtn.style.display = 'block';
+        } else {
+            // 从知识库面板进入：显示返回按钮，隐藏关闭按钮
+            backBtn.style.display = 'block';
+            closeBtn.style.display = 'none';
+        }
+        
+        // 渲染 AI 内容列表
         renderAiContentList();
+    }
+    
+    // 从 AI 内容管理返回知识库列表
+    function backToKBListFromAiContent() {
+        // 隐藏 AI 内容管理视图
+        document.getElementById('aiContentManagerView').classList.add('hidden');
+        document.getElementById('aiSearchForm').classList.add('hidden');
+        
+        // 显示知识库列表视图
+        document.getElementById('kbListView').classList.remove('hidden');
+        
+        // 重置按钮状态
+        const backBtn = document.getElementById('aiContentBackBtn');
+        const closeBtn = document.getElementById('aiContentCloseBtn');
+        if (backBtn) backBtn.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'none';
+        
+        // 如果是从首页直接点击进入的，重置标记
+        if (isDirectAiContentAccess) {
+            isDirectAiContentAccess = false;
+            const panel = document.getElementById('knowledgeBasePanel');
+            if (panel) panel.onclick = closeKnowledgeBasePanel;
+        }
     }
     
     // 渲染AI内容列表
@@ -12493,7 +12555,28 @@
 
         // ============ 下拉菜单控制 ============
         function toggleSettingsDropdown() {
+            // 先关闭工具下拉菜单
+            const toolsDropdown = document.getElementById('toolsDropdown');
+            if (toolsDropdown && toolsDropdown.classList.contains('show')) {
+                toolsDropdown.classList.remove('show');
+            }
+            
+            // 再切换设置下拉菜单
             const dropdown = document.getElementById('settingsDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
+        }
+        
+        function toggleToolsDropdown() {
+            // 先关闭设置下拉菜单
+            const settingsDropdown = document.getElementById('settingsDropdown');
+            if (settingsDropdown && settingsDropdown.classList.contains('show')) {
+                settingsDropdown.classList.remove('show');
+            }
+            
+            // 再切换工具下拉菜单
+            const dropdown = document.getElementById('toolsDropdown');
             if (dropdown) {
                 dropdown.classList.toggle('show');
             }
@@ -12501,11 +12584,27 @@
         
         // 点击页面其他地方关闭下拉菜单
         document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('settingsDropdown');
-            const dropdownButton = event.target.closest('.dropdown');
+            const settingsDropdown = document.getElementById('settingsDropdown');
+            const toolsDropdown = document.getElementById('toolsDropdown');
             
-            if (dropdown && !dropdownButton && dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
+            // 检测是否点击了设置下拉菜单或其按钮
+            const settingsDropdownContainer = event.target.closest('#settingsDropdown') ||
+                                                 event.target.closest('button[onclick="toggleSettingsDropdown()"]') ||
+                                                 event.target.closest('#settingsDropdown').parentElement;
+            
+            // 检测是否点击了工具下拉菜单或其按钮
+            const toolsDropdownContainer = event.target.closest('#toolsDropdown') ||
+                                             event.target.closest('button[onclick="toggleToolsDropdown()"]') ||
+                                             event.target.closest('#toolsDropdown').parentElement;
+            
+            // 关闭设置下拉菜单
+            if (settingsDropdown && !settingsDropdownContainer && settingsDropdown.classList.contains('show')) {
+                settingsDropdown.classList.remove('show');
+            }
+            
+            // 关闭工具下拉菜单
+            if (toolsDropdown && !toolsDropdownContainer && toolsDropdown.classList.contains('show')) {
+                toolsDropdown.classList.remove('show');
             }
         });
 
@@ -19051,6 +19150,25 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 不重置面板状态，保留搜索结果
      }
      
+     // 从首页直接点击 AI 内容时，点击遮罩直接关闭并重置
+     function closeKnowledgeBasePanelFromDirectAiContent() {
+         document.getElementById('knowledgeBasePanel').classList.add('hidden');
+         // 重置状态
+         isDirectAiContentAccess = false;
+         const backBtn = document.getElementById('aiContentBackBtn');
+         const closeBtn = document.getElementById('aiContentCloseBtn');
+         if (backBtn) backBtn.style.display = 'none';
+         if (closeBtn) closeBtn.style.display = 'none';
+         // 重置面板状态
+         document.getElementById('kbListView').classList.remove('hidden');
+         document.getElementById('kbDetailView').classList.add('hidden');
+         document.getElementById('aiContentManagerView').classList.add('hidden');
+         document.getElementById('aiSearchForm').classList.add('hidden');
+         // 恢复默认遮罩点击事件
+         const panel = document.getElementById('knowledgeBasePanel');
+         if (panel) panel.onclick = closeKnowledgeBasePanel;
+     }
+     
      // 切换到弹药库
      function switchToAmmoLibrary() {
          console.log('从知识库切换到弹药库');
@@ -19063,15 +19181,26 @@ ${ammoToAnalyze.map((ammo, index) =>
      // 手动关闭知识库面板（点击关闭按钮）
      function manualCloseKnowledgeBasePanel() {
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
+         // 重置进入方式标记
+         isDirectAiContentAccess = false;
+         // 重置 AI 内容管理视图的按钮状态
+         const backBtn = document.getElementById('aiContentBackBtn');
+         const closeBtn = document.getElementById('aiContentCloseBtn');
+         if (backBtn) backBtn.style.display = 'none';
+         if (closeBtn) closeBtn.style.display = 'none';
          // 重置面板状态和搜索结果
          document.getElementById('kbListView').classList.remove('hidden');
          document.getElementById('kbDetailView').classList.add('hidden');
          document.getElementById('aiContentManagerView').classList.add('hidden');
+         document.getElementById('aiSearchForm').classList.add('hidden');
          document.getElementById('backToKBListBtn').classList.add('hidden');
          // 清空搜索输入框
          document.getElementById('kbSearchInput').value = '';
          // 清空知识库列表
          document.getElementById('knowledgeBaseList').innerHTML = '';
+         // 恢复默认遮罩点击事件
+         const panel = document.getElementById('knowledgeBasePanel');
+         if (panel) panel.onclick = closeKnowledgeBasePanel;
      }
      
      // 渲染知识库列表
