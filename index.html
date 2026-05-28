@@ -1926,71 +1926,113 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
         
-        /* AI内容保存模态框 - 紧凑低调样式 */
+        /* AI 内容保存模态框 - 灰绿色主题风格 */
         #aiContentSaveModal .modal {
-            max-width: 380px;
-            padding: 20px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            max-width: 540px;
+            padding: 26px;
+            background: linear-gradient(135deg, var(--green-light) 0%, var(--card) 100%);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(74, 93, 74, 0.12);
+            border: 1px solid var(--green-border);
         }
         
         #aiContentSaveModal h3 {
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: var(--text);
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--green-text);
             font-weight: 600;
+            padding: 12px 16px;
+            background: var(--green-light);
+            border-radius: 10px;
+            border: 1px solid var(--green-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(74, 93, 74, 0.08);
         }
         
         #aiContentSaveModal .input-group {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         
         #aiContentSaveModal label {
             display: block;
-            margin-bottom: 6px;
-            font-size: 13px;
-            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--green-text);
             font-weight: 500;
         }
         
         #aiContentSaveModal input,
         #aiContentSaveModal select,
         #aiContentSaveModal textarea {
-            font-size: 13px;
-            padding: 8px 10px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background: var(--bg);
+            font-size: 14px;
+            padding: 10px 12px;
+            border: 1px solid var(--green-border);
+            border-radius: 8px;
+            background: var(--card);
             width: 100%;
             box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+        
+        #aiContentSaveModal input:hover,
+        #aiContentSaveModal select:hover,
+        #aiContentSaveModal textarea:hover {
+            border-color: var(--green-text-light);
+        }
+        
+        #aiContentSaveModal input:focus,
+        #aiContentSaveModal select:focus,
+        #aiContentSaveModal textarea:focus {
+            outline: none;
+            border-color: var(--green-primary);
+            background: var(--green-light);
+            box-shadow: 0 0 0 3px rgba(122, 138, 122, 0.15);
         }
         
         #aiContentSaveModal textarea#aiContentTitle {
-            min-height: 38px;
-            max-height: 120px;
+            min-height: 44px;
+            max-height: 100px;
             resize: vertical;
             white-space: normal;
             word-wrap: break-word;
             overflow-wrap: break-word;
-            line-height: 1.4;
+            line-height: 1.5;
             font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
         }
         
         #aiContentSaveModal textarea {
-            min-height: 120px;
+            min-height: 140px;
             resize: vertical;
             font-family: inherit;
+            line-height: 1.6;
+        }
+        
+        #aiContentSaveModal select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5d4a' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
         }
         
         #aiContentSaveModal .modal-actions {
-            margin-top: 16px;
-            gap: 6px;
+            margin-top: 20px;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--green-border);
+            display: flex;
+            justify-content: flex-end;
         }
         
         #aiContentSaveModal .btn {
-            padding: 8px 16px;
-            font-size: 13px;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 8px;
         }
         .modal h3 { margin-bottom: 16px; font-size: 14px; }
         .modal .input-group { margin-bottom: 14px; }
@@ -2001,102 +2043,121 @@
             margin-top: 6px;
         }
         
-        /* Markdown渲染样式 - 统一使用绿色系主题 */
+        /* Markdown 渲染样式 - 灰绿色主题风格 */
+        .ai-content-markdown {
+            padding: 20px;
+            background: var(--green-light);
+            border-radius: 12px;
+            margin: 10px;
+            border: 1px solid var(--green-border);
+        }
+        
         .ai-content-markdown h1, .ai-content-markdown h2, .ai-content-markdown h3 {
-            margin-top: 16px;
-            margin-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 12px;
             font-weight: 600;
+            color: var(--green-text);
         }
         
         .ai-content-markdown h1 {
-            font-size: 18px;
-            color: #2d5a2d;
-            border-bottom: 2px solid #4a7a4a;
-            padding-bottom: 8px;
+            font-size: 20px;
+            color: var(--green-text);
+            border-bottom: 2px solid var(--green-primary);
+            padding-bottom: 10px;
+            margin-top: 0;
         }
         
         .ai-content-markdown h2 {
-            font-size: 16px;
-            color: #3d6b3d;
-            border-bottom: 1px solid #4a7a4a;
-            padding-bottom: 6px;
+            font-size: 18px;
+            color: var(--green-secondary);
+            border-bottom: 1px solid var(--green-border);
+            padding-bottom: 8px;
         }
         
         .ai-content-markdown h3 {
-            font-size: 15px;
-            color: #4d7a4d;
+            font-size: 16px;
+            color: var(--green-text-light);
         }
         
         .ai-content-markdown p {
-            margin: 8px 0;
-            line-height: 1.6;
-            color: #333333;
+            margin: 12px 0;
+            line-height: 1.7;
+            color: var(--text);
         }
         
         .ai-content-markdown ul, .ai-content-markdown ol {
-            margin: 8px 0;
-            padding-left: 20px;
+            margin: 12px 0;
+            padding-left: 24px;
         }
         
         .ai-content-markdown li {
-            margin: 4px 0;
-            line-height: 1.5;
-            color: #333333;
+            margin: 6px 0;
+            line-height: 1.6;
+            color: var(--text);
         }
         
         .ai-content-markdown ul {
             list-style-type: disc;
-            color: #4a7a4a;
+        }
+        
+        .ai-content-markdown ul li::marker {
+            color: var(--green-text-light);
         }
         
         .ai-content-markdown ol {
             list-style-type: decimal;
-            color: #4a7a4a;
+        }
+        
+        .ai-content-markdown ol li::marker {
+            color: var(--green-text-light);
         }
         
         .ai-content-markdown code {
-            background: #e8f5e8;
-            padding: 2px 6px;
-            border-radius: 4px;
+            background: var(--green-light);
+            padding: 3px 8px;
+            border-radius: 6px;
             font-family: 'Courier New', monospace;
             font-size: 13px;
-            color: #1a4a1a;
+            color: var(--green-text);
+            border: 1px solid var(--green-border);
         }
         
         .ai-content-markdown pre {
-            background: #e8f5e8;
-            padding: 12px;
-            border-radius: 8px;
+            background: var(--green-light);
+            padding: 16px;
+            border-radius: 10px;
             overflow-x: auto;
-            margin: 8px 0;
-            border: 1px solid #4a7a4a;
+            margin: 12px 0;
+            border: 1px solid var(--green-border);
         }
         
         .ai-content-markdown pre code {
             background: none;
             padding: 0;
-            color: #1a4a1a;
+            color: var(--green-text);
+            border: none;
+            font-size: 13px;
         }
         
         .ai-content-markdown blockquote {
-            border-left: 4px solid #4a7a4a;
-            padding-left: 12px;
-            margin: 8px 0;
-            background: #f0f8f0;
-            padding: 8px 12px;
-            border-radius: 4px;
-            color: #666666;
+            border-left: 4px solid var(--green-primary);
+            padding-left: 16px;
+            margin: 12px 0;
+            background: var(--green-light);
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: var(--green-text-light);
             font-style: italic;
         }
         
         .ai-content-markdown strong {
             font-weight: 600;
-            color: #1a4a1a;
+            color: var(--green-text);
         }
         
         .ai-content-markdown em {
             font-style: italic;
-            color: #2d5a2d;
+            color: var(--green-secondary);
         }
         
         .ai-content-markdown a {
@@ -5456,7 +5517,6 @@
                                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                                         <button id="aiContentBackBtn" class="btn btn-text" onclick="backToKBListFromAiContent()" style="display:none;font-size:12px;">← 返回</button>
                                         <h4 style="margin:0;color:var(--text);font-size:15px;">💾 已保存的 AI 内容</h4>
-                                        <button id="aiContentCloseBtn" class="btn btn-small btn-secondary" onclick="closeKnowledgeBasePanel()" style="display:none;font-size:12px;">关闭</button>
                                     </div>
                                     <input type="text" id="aiContentSearchInput" placeholder="搜索 AI 内容..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
@@ -5986,7 +6046,7 @@
         resetAiContentSaveModal();
     }
     
-    // 保存AI搜索内容
+    // 保存 AI 搜索内容
     function saveAiSearchContent() {
         const query = document.getElementById('aiSearchQuery').value.trim();
         
@@ -5995,16 +6055,11 @@
             return;
         }
         
-        let content = '';
-        if (query) {
-            content += `# 搜索问题\n${query}\n\n`;
-        }
-        if (currentAiSearchResult) {
-            content += currentAiSearchResult;
-        }
+        // 内容只包含 AI 搜索结果，不包含搜索问题
+        const content = currentAiSearchResult || '';
         
         // 使用搜索问题作为标题
-        const title = query || 'AI搜索结果';
+        const title = query || 'AI 搜索结果';
         showAiContentSaveModal('search', content, title);
     }
     
@@ -6140,16 +6195,13 @@
         
         // 根据进入方式显示不同的按钮
         const backBtn = document.getElementById('aiContentBackBtn');
-        const closeBtn = document.getElementById('aiContentCloseBtn');
         
         if (fromDirectClick) {
-            // 从首页直接点击进入：只显示关闭按钮
+            // 从首页直接点击进入：隐藏返回按钮
             backBtn.style.display = 'none';
-            closeBtn.style.display = 'block';
         } else {
-            // 从知识库面板进入：显示返回按钮，隐藏关闭按钮
+            // 从知识库面板进入：显示返回按钮
             backBtn.style.display = 'block';
-            closeBtn.style.display = 'none';
         }
         
         // 渲染 AI 内容列表
@@ -6167,9 +6219,7 @@
         
         // 重置按钮状态
         const backBtn = document.getElementById('aiContentBackBtn');
-        const closeBtn = document.getElementById('aiContentCloseBtn');
         if (backBtn) backBtn.style.display = 'none';
-        if (closeBtn) closeBtn.style.display = 'none';
         
         // 如果是从首页直接点击进入的，重置标记
         if (isDirectAiContentAccess) {
@@ -6207,8 +6257,8 @@
         container.innerHTML = filteredContents.map(content => `
             <div class="ai-content-item" style="margin-bottom:12px;padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);cursor:pointer;" onclick="showAiContentDetail('${content.id}')">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
-                    <strong style="font-size:14px;color:var(--text);">${escapeHtml(content.title)}</strong>
-                    <span style="font-size:11px;color:var(--text-secondary);">${formatDate(content.createdAt)}</span>
+                    <div style="font-size:14px;color:var(--text);line-height:1.5;max-height:4.5em;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;">${escapeHtml(content.title)}</div>
+                    <span style="font-size:11px;color:var(--text-secondary);white-space:nowrap;margin-left:8px;">${formatDate(content.createdAt)}</span>
                 </div>
                 <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">
                     ${getTypeIcon(content.type)} ${content.type === 'search' ? 'AI搜索' : content.type === 'ideas' ? '任务想法' : '其他内容'}
@@ -6238,7 +6288,14 @@
         modal.style.zIndex = '2000';
         modal.innerHTML = `
             <div class="modal" onclick="event.stopPropagation()">
-                <h3>${escapeHtml(content.title)}</h3>
+                <div style="
+                    background: var(--green-light);
+                    padding:16px;
+                    border-radius:10px;
+                    border:1px solid var(--green-border);
+                ">
+                    <div style="font-size:13px;color:var(--green-text);line-height:1.4;">${escapeHtml(content.title)}</div>
+                </div>
                 <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;">
                     <span style="font-size:13px;color:var(--text-secondary);">${getTypeIcon(content.type)} ${content.type === 'search' ? 'AI 搜索' : content.type === 'ideas' ? '任务想法' : '其他内容'}</span>
                     <span style="font-size:12px;color:var(--text-tertiary);">${formatDate(content.createdAt)}</span>
@@ -19162,9 +19219,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 重置状态
          isDirectAiContentAccess = false;
          const backBtn = document.getElementById('aiContentBackBtn');
-         const closeBtn = document.getElementById('aiContentCloseBtn');
          if (backBtn) backBtn.style.display = 'none';
-         if (closeBtn) closeBtn.style.display = 'none';
          // 重置面板状态
          document.getElementById('kbListView').classList.remove('hidden');
          document.getElementById('kbDetailView').classList.add('hidden');
@@ -19191,9 +19246,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          isDirectAiContentAccess = false;
          // 重置 AI 内容管理视图的按钮状态
          const backBtn = document.getElementById('aiContentBackBtn');
-         const closeBtn = document.getElementById('aiContentCloseBtn');
          if (backBtn) backBtn.style.display = 'none';
-         if (closeBtn) closeBtn.style.display = 'none';
          // 重置面板状态和搜索结果
          document.getElementById('kbListView').classList.remove('hidden');
          document.getElementById('kbDetailView').classList.add('hidden');
@@ -20586,7 +20639,7 @@ ${knowledgeSummary}
              `;
              
              // 生成Markdown格式的搜索结果并保存到全局变量
-             let markdownContent = `# AI搜索结果\n\n`;
+             let markdownContent = '';
              if (matchedItems.length > 0) {
                  markdownContent += `## 匹配的知识库条目\n\n`;
                  matchedItems.slice(0, 3).forEach((item, index) => {
