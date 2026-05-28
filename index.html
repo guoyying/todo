@@ -2160,6 +2160,22 @@
             color: var(--green-secondary);
         }
         
+        /* AI 内容详情页标题展开样式 */
+        .detail-title-text.expanded {
+            -webkit-line-clamp: unset !important;
+            line-clamp: unset !important;
+            max-height: 9999px !important;
+            overflow: visible !important;
+        }
+        
+        .detail-title-text.expanded .expand-indicator {
+            transform: translateY(-50%) rotate(180deg) !important;
+        }
+        
+        .detail-title-text.has-overflow .expand-indicator {
+            display: block !important;
+        }
+        
         .ai-content-markdown a {
             color: #2d5a2d;
             text-decoration: underline;
@@ -5729,7 +5745,7 @@
    <!-- AI内容保存模态框 -->
    <div id="aiContentSaveModal" class="modal-overlay hidden">
        <div class="modal" style="max-width:500px;">
-           <h3>💾 保存AI内容</h3>
+           <h3>💾 保存 AI 内容</h3>
            
            <div class="input-group">
                <label for="aiContentTitle">标题</label>
@@ -6011,7 +6027,7 @@
 
     // ============ AI内容保存功能 ============
     
-    // 显示AI内容保存模态框
+    // 显示 AI 内容保存模态框
     function showAiContentSaveModal(contentType, content, customTitle = null) {
         const modal = document.getElementById('aiContentSaveModal');
         const titleInput = document.getElementById('aiContentTitle');
@@ -6022,13 +6038,13 @@
         let defaultTitle = '';
         if (contentType === 'search') {
             typeSelect.value = 'search';
-            defaultTitle = 'AI搜索结果 - ' + new Date().toLocaleString();
+            defaultTitle = 'AI 搜索结果 - ' + new Date().toLocaleString();
         } else if (contentType === 'ideas') {
             typeSelect.value = 'ideas';
             defaultTitle = '任务想法 - ' + new Date().toLocaleString();
         } else {
             typeSelect.value = 'other';
-            defaultTitle = 'AI内容 - ' + new Date().toLocaleString();
+            defaultTitle = 'AI 内容 - ' + new Date().toLocaleString();
         }
         
         // 使用自定义标题或默认标题
@@ -6040,7 +6056,7 @@
         titleInput.focus();
     }
     
-    // 隐藏AI内容保存模态框
+    // 隐藏 AI 内容保存模态框
     function hideAiContentSaveModal() {
         document.getElementById('aiContentSaveModal').classList.add('hidden');
         resetAiContentSaveModal();
@@ -6289,12 +6305,30 @@
         modal.innerHTML = `
             <div class="modal" onclick="event.stopPropagation()">
                 <div style="
-                    background: var(--green-light);
-                    padding:16px;
-                    border-radius:10px;
-                    border:1px solid var(--green-border);
+                    padding:18px 20px;
+                    position: relative;
                 ">
-                    <div style="font-size:13px;color:var(--green-text);line-height:1.4;">${escapeHtml(content.title)}</div>
+                    <div class="detail-title-text" onclick="var el = this; if (el.classList.contains('expanded')) { el.classList.remove('expanded'); } else { el.classList.add('expanded'); }" style="
+                        font-size:15px;
+                        color:var(--green-text);
+                        font-weight:600;
+                        line-height:1.5;
+                        word-break: break-word;
+                        overflow-wrap: break-word;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        max-height: 4.5em;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                        padding-right: 24px;
+                        position: relative;
+                        border-left: 3px solid var(--green-primary);
+                        padding-left: 8px;
+                    ">${escapeHtml(content.title)}<span class="expand-indicator" style="position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:12px;color:var(--green-primary);display:none;transition:transform 0.3s ease;">▼</span></div>
                 </div>
                 <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;">
                     <span style="font-size:13px;color:var(--text-secondary);">${getTypeIcon(content.type)} ${content.type === 'search' ? 'AI 搜索' : content.type === 'ideas' ? '任务想法' : '其他内容'}</span>
@@ -6317,6 +6351,18 @@
         
         modal.onclick = closeAiContentDetail;
         document.body.appendChild(modal);
+        
+        // 延迟检查标题是否溢出
+        setTimeout(() => {
+            const titleText = modal.querySelector('.detail-title-text');
+            const indicator = modal.querySelector('.expand-indicator');
+            if (titleText && indicator) {
+                if (titleText.scrollHeight > titleText.clientHeight) {
+                    titleText.classList.add('has-overflow');
+                    indicator.style.display = 'block';
+                }
+            }
+        }, 100);
     }
     
     // 关闭AI内容详情
