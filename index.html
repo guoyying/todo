@@ -5339,21 +5339,26 @@
                                     <div style="margin-bottom:12px;">
                                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
                                             <label style="font-size:13px;color:var(--text-secondary);">AI提示词</label>
-                                            <div style="display:flex;gap:8px;">
-                                                <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()">🔄 重置默认</button>
-                                                <button class="btn btn-small btn-primary" onclick="saveAIPrompt()">💾 保存提示词</button>
-                                                <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn">隐藏</button>
+                                            <div style="display:flex;gap:4px;">
+                                                <button class="btn btn-small btn-secondary" onclick="toggleAIPrompt()" id="toggleAIPromptBtn" title="显示/隐藏提示词">⚙️</button>
                                             </div>
                                         </div>
                                         <div id="aiPromptContainer" style="margin-bottom:8px;">
                                             <textarea id="aiSearchPrompt" rows="4" placeholder="自定义AI提示词..." style="width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                                            <div style="display:flex;gap:4px;margin-top:8px;justify-content:flex-end;">
+                                                <button class="btn btn-small btn-secondary" onclick="resetAIPrompt()" title="重置为默认提示词">🔄</button>
+                                                <button class="btn btn-small btn-primary" onclick="saveAIPrompt()" title="保存提示词设置">💾</button>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div style="display:flex;gap:8px;">
-                                        <button class="btn btn-primary" onclick="performAISearch()">🔍 AI搜索</button>
-                                        <button class="btn btn-secondary" onclick="saveAiSearchContent()">💾 保存内容</button>
-                                        <button class="btn btn-secondary" onclick="hideAISearchForm()">取消</button>
+                                    <!-- 操作按钮组 -->
+                                    <div style="display:flex;gap:8px;justify-content:space-between;">
+                                        <div style="display:flex;gap:8px;">
+                                            <button class="btn btn-primary" onclick="performAISearch()" title="执行AI搜索">🔍 搜索</button>
+                                            <button class="btn btn-secondary" onclick="saveAiSearchContent()" title="保存搜索结果">💾 保存</button>
+                                        </div>
+                                        <button class="btn btn-small btn-secondary" onclick="hideAISearchForm()" title="关闭搜索表单">✕</button>
                                     </div>
                                 </div>
                                 
@@ -19332,7 +19337,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          
          if (container.classList.contains('hidden')) {
              container.classList.remove('hidden');
-             btn.textContent = '隐藏';
+             btn.textContent = '⚙️';
              
              // 如果提示词为空，设置默认提示词
              const promptTextarea = document.getElementById('aiSearchPrompt');
@@ -19347,7 +19352,7 @@ ${ammoToAnalyze.map((ammo, index) =>
              }
          } else {
              container.classList.add('hidden');
-             btn.textContent = '👁️ 显示';
+             btn.textContent = '⚙️';
          }
      }
     
