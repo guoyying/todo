@@ -572,6 +572,36 @@
                       gap: 8px !important;
                   }
                   
+                  /* 快速记录弹窗移动端优化 - 自适应容器 */
+                  #quickRecordModal .modal {
+                      width: 90% !important;
+                      max-width: 90% !important;
+                      height: auto !important;
+                      max-height: 85vh !important;
+                      margin: 7.5vh auto !important;
+                      padding: 12px !important;
+                  }
+                  
+                  #quickRecordModal .modal h3 {
+                      font-size: 16px !important;
+                      margin-bottom: 10px !important;
+                  }
+                  
+                  #quickRecordModal .input-group {
+                      margin-bottom: 12px !important;
+                  }
+                  
+                  #quickRecordModal textarea {
+                      font-size: 14px !important;
+                      padding: 8px !important;
+                      min-height: 120px !important;
+                      resize: vertical !important;
+                  }
+                  
+                  #quickRecordModal .modal-actions {
+                      gap: 8px !important;
+                  }
+                  
                   .ammo-list-panel {
                       max-height: none !important;
                       overflow-y: auto !important;
@@ -5438,7 +5468,7 @@
                 </div>
 
                 <!-- 快捷键记录弹窗 -->
-                <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()">
+                <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()" style="z-index: 9999;">
                     <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
                         <h3>⚡ 快速记录</h3>
                         <div class="input-group">
