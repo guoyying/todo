@@ -12588,14 +12588,20 @@
             const toolsDropdown = document.getElementById('toolsDropdown');
             
             // 检测是否点击了设置下拉菜单或其按钮
-            const settingsDropdownContainer = event.target.closest('#settingsDropdown') ||
-                                                 event.target.closest('button[onclick="toggleSettingsDropdown()"]') ||
-                                                 event.target.closest('#settingsDropdown').parentElement;
+            let settingsDropdownContainer = null;
+            const settingsTarget = event.target.closest('#settingsDropdown') ||
+                                     event.target.closest('button[onclick="toggleSettingsDropdown()"]');
+            if (settingsTarget) {
+                settingsDropdownContainer = settingsTarget.parentElement;
+            }
             
             // 检测是否点击了工具下拉菜单或其按钮
-            const toolsDropdownContainer = event.target.closest('#toolsDropdown') ||
-                                             event.target.closest('button[onclick="toggleToolsDropdown()"]') ||
-                                             event.target.closest('#toolsDropdown').parentElement;
+            let toolsDropdownContainer = null;
+            const toolsTarget = event.target.closest('#toolsDropdown') ||
+                                  event.target.closest('button[onclick="toggleToolsDropdown()"]');
+            if (toolsTarget) {
+                toolsDropdownContainer = toolsTarget.parentElement;
+            }
             
             // 关闭设置下拉菜单
             if (settingsDropdown && !settingsDropdownContainer && settingsDropdown.classList.contains('show')) {
