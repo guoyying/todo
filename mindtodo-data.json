@@ -1351,9 +1351,9 @@
     {
       "id": "mpkj8v7lwb9zg",
       "type": "task",
-      "content": "尝试：每天上午8.30-9.30处理退网单。如果有退网相关核查，上午10.30-11.30，下午2.30-3.30统一响应。",
+      "content": "尝试：每天上午9-9.30处理退网单。如果有退网相关核查，上午10.30-11.30，下午2.30-3.30统一响应。",
       "createdAt": "2026-05-25T01:33:38.433Z",
-      "updatedAt": "2026-05-25T01:33:38.433Z",
+      "updatedAt": "2026-05-28T00:53:06.263Z",
       "tags": [
         "退网"
       ],
@@ -2800,32 +2800,6 @@
       "active": true
     },
     {
-      "id": "mpkj9sdms41rt",
-      "taskId": "mpkj8v7lwb9zg",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "08:30",
-            "endTime": "09:30",
-            "message": "固定时间处理退网工作",
-            "confirmed": true,
-            "confirmationTime": "2026-05-27T00:51:32.131Z"
-          }
-        ]
-      },
-      "createdAt": "2026-05-25T01:34:21.418Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-05-27T00:51:14.720Z"
-      }
-    },
-    {
       "id": "mpnhkh5barxyv",
       "taskId": "mpnfiyhfu2ull",
       "type": "time",
@@ -2852,6 +2826,29 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-05-27T15:26:06.276Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mpos4ybxji9ou",
+      "taskId": "mpkj8v7lwb9zg",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "daily",
+            "startTime": "08:45",
+            "endTime": "18:00",
+            "message": "9-9.30处理退网单",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-05-28T00:53:37.101Z",
       "lastReminderTime": null,
       "active": true
     }
