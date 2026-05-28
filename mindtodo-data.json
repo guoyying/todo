@@ -2814,14 +2814,17 @@
             "startTime": "08:45",
             "endTime": "18:00",
             "message": "9-9.30处理退网单",
-            "confirmed": false,
-            "confirmationTime": null
+            "confirmed": true,
+            "confirmationTime": "2026-05-28T04:52:17.328Z"
           }
         ]
       },
       "createdAt": "2026-05-28T00:53:37.101Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-05-28T04:52:01.777Z"
+      }
     }
   ],
   "knowledgeBase": [
@@ -2937,7 +2940,13 @@
       "description": "",
       "type": "medium",
       "mainDirection": "",
-      "subDirections": [],
+      "subDirections": [
+        {
+          "id": "1779943982585",
+          "name": "完成越秀过单，高华姐帐号",
+          "completed": false
+        }
+      ],
       "milestones": [],
       "manualProgress": 0,
       "autoProgress": 0,
