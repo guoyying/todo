@@ -1559,24 +1559,17 @@
     {
       "id": "mpq7vhejvfqo9",
       "type": "task",
-      "content": "我想把退网单都过了",
+      "content": "周五检查完机楼，晚上听老公聊天过了退网单，挺舒服的还。",
       "createdAt": "2026-05-29T01:01:55.291Z",
-      "updatedAt": "2026-05-29T13:38:06.470Z",
+      "updatedAt": "2026-05-29T14:22:10.974Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1780061874773",
-          "content": "今晚先过了增城、白云的。",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-05-29T14:22:10.974Z",
+      "subtasks": []
     },
     {
       "id": "mpqseo9sc0dvm",
@@ -2827,7 +2820,7 @@
             "endTime": "09:00",
             "message": "记录老公吃了啥",
             "confirmed": true,
-            "confirmationTime": "2026-05-26T23:33:45.453Z"
+            "confirmationTime": "2026-05-29T14:21:34.745Z"
           }
         ]
       },
@@ -3247,6 +3240,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-29T12:07:26.293Z"
+    "lastSync": "2026-05-29T13:38:14.906Z"
   }
 }
