@@ -276,12 +276,21 @@
                            padding: 8px !important;
                        }
                        
-                       /* AI 内容详情模态框移动端优化 - 缩短高度 */
+                       /* AI 内容详情模态框移动端优化 - 高度自适应 */
                        .modal-overlay[style*="z-index: 2000"] .modal {
-                           max-height: 80vh !important;
+                           max-height: 85vh !important;
                            max-width: calc(100vw - 28px) !important;
-                           margin: 10vh auto !important;
-                           padding: 12px !important;
+                           margin: 7.5vh auto !important;
+                           padding: 16px !important;
+                           height: auto !important;
+                           min-height: 200px !important;
+                       }
+                       
+                       /* 项目管理面板移动端优化 - 缩短高度并居中 */
+                       #projectManagementPanel .modal {
+                           max-height: 85vh !important;
+                           margin: 7.5vh auto !important;
+                           overflow-y: auto;
                        }
                        
                        .modal-overlay[style*="z-index: 2000"] .ai-content-markdown {
@@ -19376,7 +19385,7 @@ ${ammoToAnalyze.map((ammo, index) =>
              </div>
              
              <!-- 表达框架选择区域 -->
-             <div id="kbPracticeFrameworks-${item.id}" class="hidden" style="margin-top:16px;padding:12px;background:var(--bg-secondary);border-radius:8px;border:1px solid var(--border);">
+             <div id="kbPracticeFrameworks-${item.id}" class="hidden" style="margin-top:16px;padding:12px;background:var(--bg-secondary);">
                  <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;">🎯 选择表达框架</div>
                  <div id="kbFrameworkButtons-${item.id}" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;"></div>
                  <div id="kbFrameworkPrompt-${item.id}" style="font-size:12px;color:var(--text-secondary);"></div>
