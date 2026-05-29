@@ -2980,6 +2980,11 @@
           "id": "1779943982585",
           "name": "完成越秀过单，高华姐帐号",
           "completed": false
+        },
+        {
+          "id": "1780058964349",
+          "name": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
+          "completed": false
         }
       ],
       "milestones": [],
@@ -3220,6 +3225,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-29T11:56:55.220Z"
+    "lastSync": "2026-05-29T12:07:26.293Z"
   }
 }
