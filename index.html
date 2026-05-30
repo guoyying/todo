@@ -252,28 +252,44 @@
                            padding: 2px !important;
                        }
                        
-                       /* 移动端模态框样式 */
-                       .modal {
-                           margin: 20px auto !important;
-                           width: calc(100vw - 28px) !important;
-                           height: calc(100vh - 80px) !important; /* 减去上下边距 */
-                           max-width: none !important;
-                           max-height: none !important;
-                           border-radius: 12px !important;
-                           padding: 16px !important;
-                           box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
-                       }
+/* 移动端统一模态框样式 - 所有模态框自适应高度 */
+.modal-overlay .modal {
+    width: 90% !important;
+    max-width: 90% !important;
+    border-radius: 12px !important;
+    max-height: 80vh !important;
+    height: auto !important;
+    margin: 10vh auto !important;
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    padding: 8px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+    overflow-y: auto !important;  /* 改为 auto 允许滚动 */
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 移动端统一模态框主体样式 - 允许内容滚动 */
+.modal-overlay .modal-body {
+    padding: 0 !important;
+    max-height: calc(80vh - 50px) !important;
+    overflow-y: auto !important;  /* 改为 auto 允许滚动 */
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
                        
-                       /* AI帮想点子模态框移动端优化 */
-                       #aiIdeasModal .modal {
-                           width: calc(100vw - 28px) !important;
-                           max-width: none !important;
-                           border-radius: 12px !important;
-                       }
-                       
-                       /* AI 内容管理移动端优化 */
-                       #aiContentManagerView {
-                           padding: 8px !important;
+                       /* 移动端统一模态框内可滚动区域样式 */
+                       .modal-overlay .modal-body > [id$="View"],
+                       .modal-overlay .modal-body > [id$="Container"],
+                       .modal-overlay .modal-body > [id$="List"] {
+                           flex: 1 !important;
+                           overflow-y: auto !important;
+                           overflow-x: hidden !important;
+                           min-height: 0 !important;
                        }
                        
                        /* AI 内容详情模态框移动端优化 - 高度自适应 */
@@ -286,35 +302,6 @@
                            min-height: 200px !important;
                        }
                        
-                       /* 项目管理面板移动端优化 - 与知识库面板一致 */
-                       #projectManagementPanel .modal {
-                           width: 90% !important;
-                           max-width: 90% !important;
-                           border-radius: 12px !important;
-                           max-height: 85vh !important;
-                           height: auto !important;
-                           margin: 2.5vh auto !important;
-                           position: fixed !important;
-                           left: 50% !important;
-                           transform: translateX(-50%) !important;
-                           right: auto !important;
-                           padding: 8px !important;
-                       }
-                       
-                       /* 项目详情模态框移动端优化 - 与知识库面板一致 */
-                       #projectDetailModal .modal {
-                           width: 90% !important;
-                           max-width: 90% !important;
-                           border-radius: 12px !important;
-                           max-height: 85vh !important;
-                           height: auto !important;
-                           margin: 2.5vh auto !important;
-                           position: fixed !important;
-                           left: 50% !important;
-                           transform: translateX(-50%) !important;
-                           right: auto !important;
-                           padding: 8px !important;
-                       }
                        
                        .modal-overlay[style*="z-index: 2000"] .ai-content-markdown {
                            max-height: 350px !important;
@@ -657,36 +644,11 @@
               }
              
              
-            /* 知识库面板移动端优化 */
-            #knowledgeBasePanel .modal {
-                width: 90% !important;
-                max-width: 90% !important;
-                border-radius: 12px !important;
-                max-height: 85vh !important;
-                height: auto !important;
-                margin: 2.5vh auto !important;
-                position: fixed !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                right: auto !important;
-                padding: 8px !important;
-            }
-             
+            /* 知识库面板头部移动端优化（保留特殊样式） */
              #knowledgeBasePanel .modal-header {
                  padding: 8px 12px !important;
                  margin-bottom: 6px !important;
              }
-             
-             #knowledgeBasePanel .modal-body {
-                 padding: 0 !important;
-                 max-height: calc(95vh - 70px) !important;
-                 height: auto !important;
-             }
-             
-            #knowledgeBasePanel #kbListView,
-            #knowledgeBasePanel #kbDetailView {
-                padding: 2px 4px !important;
-            }
              /* 知识库卡片移动端优化 - 只覆盖需要调整的样式 */
              .kb-item {
                  padding: 10px !important;
@@ -1928,16 +1890,18 @@
             color: var(--text-secondary);
         }
         .collapsed:hover { opacity: 1; }
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            padding: 14px;
-        }
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 14px;
+    height: 100vh;
+    overflow: auto;  /* 改为 auto 允许滚动 */
+}
         
         /* 项目管理相关模态框使用更高的z-index，确保显示在其他模态框之上 */
         #projectManagementPanel,
@@ -1947,16 +1911,16 @@
             z-index: 2000 !important;
         }
         /* 桌面端模态框样式 */
-        .modal {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 24px;
-            width: 100%;
-            max-width: 550px;
-            max-height: 110vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
+.modal {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    width: 100%;
+    max-width: 550px;
+    max-height: calc(100vh - 28px);  /* 减去上下 padding */
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
         
         /* AI 内容保存模态框 - 灰绿色主题风格 */
         #aiContentSaveModal .modal {
@@ -3250,10 +3214,10 @@
                    padding: 10px !important;
                }
                
-               #taskOrganizerModal .modal-body {
-                   padding: 7px !important;
-                   max-height: 85vh !important;
-               }
+#taskOrganizerModal .modal-body {
+padding: 7px !important;
+/* 跟随全局 modal-body 样式，不再单独设置 max-height 和 overflow */
+}
                
                /* 整理表单移动端改为单列布局 */
                #taskOrganizerForm > div:nth-child(5) {
@@ -3488,15 +3452,7 @@
                   font-size: 13px !important;
               }
               
-              /* AI帮想点子模态框移动端优化 */
-              #aiIdeasModal .modal {
-                  width: 95% !important;
-                  max-width: none !important;
-                  max-height: 80vh !important;
-                  border-radius: 0 !important;
-                  padding: 12px !important;
-              }
-              
+              /* AI 帮想点子模态框内部组件移动端优化 */
               #aiIdeasModal .modal-header {
                   padding: 8px 12px !important;
                   margin-bottom: 4px !important;
@@ -4536,12 +4492,12 @@
 
     <!-- 触发提醒设置弹窗 -->
     <div class="modal-overlay hidden" id="triggerSetupModal" onclick="closeModal('triggerSetupModal')">
-        <div class="modal" style="max-width: 600px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>⏰ 设置触发提醒</h3>
                 <span class="close" onclick="closeModal('triggerSetupModal')">&times;</span>
             </div>
-            <div class="modal-body" style="max-height:80vh;">
+            <div class="modal-body">
                 <!-- 任务信息 -->
                 <div id="triggerTaskInfo" style="padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);margin-bottom:16px;"></div>
                 
@@ -4649,12 +4605,12 @@
     
     <!-- 触发提醒管理弹窗 -->
     <div class="modal-overlay hidden" id="triggerManageModal" onclick="closeModal('triggerManageModal')">
-        <div class="modal" style="max-width: 800px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>⏰ 触发提醒管理</h3>
                 <span class="close" onclick="closeModal('triggerManageModal')">&times;</span>
             </div>
-            <div class="modal-body" style="max-height:80vh;">
+            <div class="modal-body">
                 <!-- 任务信息 -->
                 <div id="manageTriggerTaskInfo" style="padding:12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);margin-bottom:16px;"></div>
                 
@@ -4686,12 +4642,12 @@
 
     <!-- 项目管理面板 -->
     <div class="modal-overlay hidden" id="projectManagementPanel" onclick="closeModal('projectManagementPanel')">
-        <div class="modal" style="max-width: 1200px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📊 项目管理</h3>
                 <span class="close" onclick="closeModal('projectManagementPanel')">&times;</span>
             </div>
-            <div class="modal-body" style="max-height:85vh;">
+            <div class="modal-body">
                 <!-- 选项卡 -->
                 <div class="project-panel-tabs">
                     <button class="project-panel-tab active" onclick="switchProjectTab('all')">全部项目</button>
@@ -4712,7 +4668,7 @@
 
     <!-- 创建/编辑项目模态框 -->
     <div class="modal-overlay hidden" id="projectEditModal" onclick="closeModal('projectEditModal')">
-        <div class="modal" style="max-width: 600px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 id="projectEditModalTitle">新建项目</h3>
                 <span class="close" onclick="closeModal('projectEditModal')">&times;</span>
@@ -4761,12 +4717,12 @@
 
     <!-- 项目详情模态框 -->
     <div class="modal-overlay hidden" id="projectDetailModal" onclick="closeModal('projectDetailModal')">
-        <div class="modal" style="max-width: 900px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 id="projectDetailTitle">项目详情</h3>
                 <button class="btn btn-small btn-secondary" onclick="closeModal('projectDetailModal')">← 返回</button>
             </div>
-            <div class="modal-body" style="max-height:85vh;">
+            <div class="modal-body">
                 <div id="projectDetailContent"></div>
             </div>
         </div>
@@ -4774,7 +4730,7 @@
 
      <!-- 快速创建项目弹窗 -->
      <div class="modal-overlay hidden" id="quickCreateProjectModal" onclick="closeModal('quickCreateProjectModal')">
-         <div class="modal" style="max-width: 500px;" onclick="event.stopPropagation()">
+         <div class="modal" onclick="event.stopPropagation()">
              <div class="modal-header">
                  <h3>📊 快速创建项目</h3>
                  <span class="close" onclick="closeModal('quickCreateProjectModal')">&times;</span>
@@ -4807,12 +4763,12 @@
  
      <!-- 任务整理模态框 -->
     <div class="modal-overlay hidden" id="taskOrganizerModal" onclick="closeModal('taskOrganizerModal')">
-        <div class="modal" style="max-width: 1000px;" onclick="event.stopPropagation()">
+        <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📋 已完成任务整理</h3>
                 <span class="close" onclick="closeModal('taskOrganizerModal')">&times;</span>
             </div>
-            <div class="modal-body" style="max-height:85vh;">
+            <div class="modal-body">
                 <!-- 选项卡 -->
                 <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
                     <button id="organizerTabBtn" class="btn btn-small btn-primary" onclick="switchOrganizerTab('organizer')">📝 整理任务</button>
@@ -4990,12 +4946,12 @@
 
      <!-- AI汇总模态框 -->
      <div class="modal-overlay hidden" id="aiSummaryModal" onclick="closeModal('aiSummaryModal')">
-         <div class="modal" style="max-width: 800px;" onclick="event.stopPropagation()">
+         <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3 id="aiSummaryTitle">💡 AI汇总</h3>
                 <span class="close" onclick="closeModal('aiSummaryModal')">&times;</span>
             </div>
-            <div class="modal-body" style="max-height:80vh;">
+            <div class="modal-body">
                 <!-- 选项卡 -->
                 <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
                     <button id="summaryTabBtn" class="btn btn-small btn-primary" onclick="switchSummaryTab('summary')">📊 汇总</button>
@@ -5182,7 +5138,7 @@
 
     <!-- 批量迁移模态框 -->
     <div class="modal-overlay hidden" id="migrationModal">
-        <div class="modal" style="max-width:800px;">
+        <div class="modal">
             <div class="modal-header">
                 <h3>批量迁移往期感受</h3>
                 <span class="close" onclick="closeMigrationModal()">&times;</span>
@@ -5240,7 +5196,7 @@
  
      <!-- 往期汇总模态框 -->
      <div class="modal-overlay hidden" id="oldFeelingSummaryModal" onclick="closeModal('oldFeelingSummaryModal')">
-         <div class="modal" style="max-width:900px;width:95%;" onclick="event.stopPropagation()">
+         <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                 <h3>💭 往期感受汇总</h3>
                 <button class="btn btn-small btn-secondary" onclick="closeModal('oldFeelingSummaryModal')">关闭</button>
@@ -5324,7 +5280,7 @@
  
      <!-- AI润色模态框 -->
      <div class="modal-overlay hidden" id="aiPolishModal" onclick="closeAiPolishModal()">
-         <div class="modal" style="max-width:1000px;width:95%;" onclick="event.stopPropagation()">
+         <div class="modal" onclick="event.stopPropagation()">
              <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
                  <h3>✨ AI润色</h3>
                  <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
@@ -5393,7 +5349,7 @@
  
      <!-- 弹药库侧拉面板 -->
      <div class="modal-overlay hidden" id="ammoLibraryPanel" onclick="closeAmmoLibraryPanel()">
-                                 <div class="modal" style="max-width:700px;width:700px;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
+                                 <div class="modal" onclick="event.stopPropagation()">
                                      <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:8px 16px;border-bottom:1px solid var(--border);">
                                          <div style="display:flex;align-items:center;gap:12px;">
                                              <button id="backToAmmoListBtn" class="btn btn-small btn-secondary hidden" onclick="backToAmmoList()">← 返回</button>
@@ -5446,7 +5402,7 @@
             
                 <!-- 编辑弹药弹窗 -->
                 <div class="modal-overlay hidden" id="editAmmoModal" onclick="closeEditAmmoModal()">
-                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
+                    <div class="modal" onclick="event.stopPropagation()">
                         <h3>✏️ 编辑弹药</h3>
                         <div class="input-group">
                             <label>弹药内容</label>
@@ -5461,8 +5417,8 @@
 
                 <!-- 知识库侧拉面板 -->
                 <div class="modal-overlay hidden" id="knowledgeBasePanel" onclick="closeKnowledgeBasePanel()">
-                    <div class="modal" style="max-width:700px;width:700px;border-left:1px solid var(--border);" onclick="event.stopPropagation()">
-                        <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:8px 16px;border-bottom:1px solid var(--border);">
+                    <div class="modal" onclick="event.stopPropagation()">
+                        <div class="modal-header">
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <button id="backToKBListBtn" class="btn btn-small btn-secondary hidden" onclick="backToKBList()">← 返回</button>
                                 <h3 style="margin:0;">📚 知识库</h3>
@@ -5472,9 +5428,9 @@
                                 <button class="btn btn-small btn-secondary" onclick="manualCloseKnowledgeBasePanel()">关闭</button>
                             </div>
                         </div>
-                        <div class="modal-body" style="padding:0;overflow:hidden;flex:1;display:flex;flex-direction:column;max-height:calc(90vh - 60px);">
+                        <div class="modal-body">
                             <!-- 知识库列表视图 -->
-                            <div id="kbListView" style="flex:1;overflow:auto;padding:16px;">
+                            <div id="kbListView">
                                 <div style="margin-bottom:16px;">
                                     <input type="text" id="kbSearchInput" placeholder="搜索知识... (Ctrl+K 快速记录)" oninput="renderKnowledgeBase()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
@@ -5560,7 +5516,7 @@
                             </div>
                             
                             <!-- AI内容管理视图 -->
-                            <div id="aiContentManagerView" class="hidden" style="flex:1;overflow:auto;padding:16px;">
+                            <div id="aiContentManagerView" class="hidden">
                                 <div style="margin-bottom:16px;">
                                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                                         <button id="aiContentBackBtn" class="btn btn-text" onclick="backToKBListFromAiContent()" style="display:none;font-size:12px;">← 返回</button>
@@ -5586,7 +5542,7 @@
 
                 <!-- 快捷键记录弹窗 -->
                 <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()" style="z-index: 9999;">
-                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
+                    <div class="modal" onclick="event.stopPropagation()">
                         <h3>⚡ 快速记录</h3>
                         <div class="input-group">
                             <label>内容</label>
@@ -5616,7 +5572,7 @@
 
                 <!-- 编辑知识弹窗 -->
                 <div class="modal-overlay hidden" id="editKBModal" onclick="closeEditKBModal()">
-                    <div class="modal" style="max-width:500px;" onclick="event.stopPropagation()">
+                    <div class="modal" onclick="event.stopPropagation()">
                         <h3>✏️ 编辑知识</h3>
                         <div class="input-group">
                             <label>内容</label>
@@ -5635,7 +5591,7 @@
 
                 <!-- AI配置模态框 -->
                  <div class="modal-overlay hidden" id="aiConfigModal">
-          <div class="modal" style="max-width:600px;">
+          <div class="modal">
               <h3>⚙️ AI配置</h3>
               <div class="input-group">
                   <label>启用AI功能</label>
@@ -5776,7 +5732,7 @@
 
    <!-- AI内容保存模态框 -->
    <div id="aiContentSaveModal" class="modal-overlay hidden">
-       <div class="modal" style="max-width:500px;">
+       <div class="modal">
            <h3>💾 保存 AI 内容</h3>
            
            <div class="input-group">
@@ -10728,7 +10684,7 @@
               // 创建添加提醒的弹窗
               const modalHtml = `
                   <div class="modal-overlay" id="addReminderModal" onclick="closeAddReminderModal()">
-                      <div class="modal" style="max-width:400px;" onclick="event.stopPropagation()">
+                      <div class="modal" onclick="event.stopPropagation()">
                           <div class="modal-header">
                               <h3>➕ 添加提醒</h3>
                               <span class="close" onclick="closeAddReminderModal()">&times;</span>
