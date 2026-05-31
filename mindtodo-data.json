@@ -2992,6 +2992,13 @@
       ],
       "createdAt": "2026-05-19T00:34:18.277Z",
       "updatedAt": "2026-05-19T00:47:18.674Z"
+    },
+    {
+      "id": "mptegqwxn6ncracnm1",
+      "content": "罗素说：“聪明人失于轻信，蠢人却失于执拗。”",
+      "tags": [],
+      "createdAt": "2026-05-31T06:29:43.617Z",
+      "updatedAt": "2026-05-31T06:29:43.617Z"
     }
   ],
   "projects": [
@@ -3211,6 +3218,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-29T14:46:11.728Z"
+    "lastSync": "2026-05-31T06:18:35.730Z"
   }
 }
