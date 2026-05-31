@@ -282,31 +282,6 @@
       "doneAt": "2026-05-10T10:44:14.972Z"
     },
     {
-      "id": "1778557112853",
-      "type": "task",
-      "content": "5.11：中心数字化项目收集-确认报什么项目、告知华姐和晓华",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "doneAt": "2026-05-12T03:38:32.853Z",
-      "createdAt": "2026-05-11T08:33:17.055Z",
-      "updatedAt": "2026-05-12T03:38:32.853Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-12T03:38:32.853Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mp2a89egksppd",
       "type": "task",
       "content": "尝试ai做ppt，也许日后用得上",
@@ -465,31 +440,6 @@
       "subtasks": []
     },
     {
-      "id": "1778998408876",
-      "type": "task",
-      "content": "核查整理各个县分的退网清单，过单",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-17T06:13:28.876Z",
-      "createdAt": "2026-05-15T02:29:59.363Z",
-      "updatedAt": "2026-05-17T06:13:28.876Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-17T06:13:28.876Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "1778998512458",
       "type": "task",
       "content": "CRM跟进：数字中继配合政企部核查在用业务（现场已拆除，却还在收费）等",
@@ -637,22 +587,6 @@
       "subtasks": []
     },
     {
-      "id": "mpaj5kohgdl7v",
-      "type": "task",
-      "content": "做本周爬虫通报",
-      "createdAt": "2026-05-18T01:33:23.057Z",
-      "updatedAt": "2026-05-18T06:53:52.617Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-05-18T06:53:52.617Z",
-      "subtasks": []
-    },
-    {
       "id": "mpajig9lqebe6",
       "type": "task",
       "content": "沙龙：先简单捋一下我要做什么。",
@@ -699,22 +633,6 @@
       "placedIn": null,
       "doneAt": "2026-05-18T05:32:58.957Z",
       "subtasks": []
-    },
-    {
-      "id": "mpaw5n8sqwjds",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-05-18T07:37:21.388Z",
-      "updatedAt": "2026-05-18T09:58:52.649Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "30min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-18T09:58:52.649Z"
     },
     {
       "id": "mpaw61fygcvn2",
@@ -822,36 +740,6 @@
       "doneAt": "2026-05-19T02:31:58.029Z"
     },
     {
-      "id": "mpc0ps4i1wvjc",
-      "type": "task",
-      "content": "增城有20个网元说可以退网，我需要核查是否可以。",
-      "createdAt": "2026-05-19T02:32:45.474Z",
-      "updatedAt": "2026-05-19T03:43:09.726Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T03:43:09.724Z"
-    },
-    {
-      "id": "mpc0ubbfz12sc",
-      "type": "task",
-      "content": "润色项目的标题",
-      "createdAt": "2026-05-19T02:36:16.971Z",
-      "updatedAt": "2026-05-19T06:51:14.652Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-19T06:51:14.652Z",
-      "subtasks": []
-    },
-    {
       "id": "mpcadssoco33q",
       "type": "task",
       "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
@@ -880,21 +768,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-19T08:17:39.191Z"
-    },
-    {
-      "id": "mpcd6iv96f7xk",
-      "type": "task",
-      "content": "退网：跟进黄埔之前的退网清单。归属有误、成环的",
-      "createdAt": "2026-05-19T08:21:42.021Z",
-      "updatedAt": "2026-05-19T09:52:47.132Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T09:52:47.132Z"
     },
     {
       "id": "1779235080814",
@@ -936,21 +809,6 @@
       "unknown": true,
       "doneAt": "2026-05-20T02:02:35.324Z",
       "subtasks": []
-    },
-    {
-      "id": "mpddi5o2sba46",
-      "type": "task",
-      "content": "过退网单-白云（20min停下来）",
-      "createdAt": "2026-05-20T01:18:30.962Z",
-      "updatedAt": "2026-05-20T02:02:40.498Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T02:02:40.498Z"
     },
     {
       "id": "mpdf3sykzu03y",
@@ -1056,21 +914,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T06:42:53.986Z"
-    },
-    {
-      "id": "mpdi7yk15fwq7",
-      "type": "task",
-      "content": "数字化项目标题修改：群@，具体要求私发。",
-      "createdAt": "2026-05-20T03:30:33.265Z",
-      "updatedAt": "2026-05-20T04:52:54.436Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T04:52:54.436Z"
     },
     {
       "id": "mpdk8b3kjhdgi",
@@ -1210,22 +1053,6 @@
       "doneAt": "2026-05-21T08:44:33.386Z"
     },
     {
-      "id": "mpf6t2dxxtn83",
-      "type": "task",
-      "content": "看增城的退网单",
-      "createdAt": "2026-05-21T07:46:34.965Z",
-      "updatedAt": "2026-05-21T09:43:55.411Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-21T09:43:55.411Z"
-    },
-    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -1254,22 +1081,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-22T01:48:41.186Z"
-    },
-    {
-      "id": "mpgcotjdvl8ep",
-      "type": "task",
-      "content": "退网单0522",
-      "createdAt": "2026-05-22T03:19:00.745Z",
-      "updatedAt": "2026-05-22T07:42:56.385Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-22T07:42:56.385Z"
     },
     {
       "id": "mpgcp3fw2525g",
@@ -1378,21 +1189,6 @@
       "subtasks": []
     },
     {
-      "id": "mpkmlxo9obugg",
-      "type": "task",
-      "content": "整理爬虫结果，通报",
-      "createdAt": "2026-05-25T03:07:47.001Z",
-      "updatedAt": "2026-05-25T03:52:12.430Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-25T03:52:12.430Z"
-    },
-    {
       "id": "mpkmm784xz7mk",
       "type": "task",
       "content": "整理视频",
@@ -1438,21 +1234,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-26T09:18:07.690Z"
-    },
-    {
-      "id": "mplz31o2srhq8",
-      "type": "task",
-      "content": "ai劳动竞赛",
-      "createdAt": "2026-05-26T01:44:46.898Z",
-      "updatedAt": "2026-05-26T09:17:36.913Z",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-26T09:17:36.913Z"
     },
     {
       "id": "mplz3pvednsd2",
@@ -1525,21 +1306,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-27T07:44:01.972Z"
-    },
-    {
-      "id": "mpnfjko4tat3l",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-05-27T02:13:18.052Z",
-      "updatedAt": "2026-05-27T03:50:49.617Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-27T03:50:49.617Z"
     },
     {
       "id": "mpnj2212cea8q",
@@ -1618,6 +1384,30 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "1780271275544",
+      "type": "task",
+      "content": "ai数字化",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
+      "doneAt": "2026-05-26T09:17:36.913Z",
+      "organizedAt": "2026-05-31T23:47:55.544Z",
+      "createdAt": "2026-05-26T01:44:46.898Z",
+      "updatedAt": "2026-05-31T23:47:55.544Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "success": "",
+        "problems": "做接口人就是要通知成员：润色标题、更新项目进度等",
+        "summary": "",
+        "organizedAt": "2026-05-31T23:47:55.544Z"
+      },
+      "projectId": "1780271273894",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3061,6 +2851,16 @@
       "createdAt": "2026-05-26T06:48:12.169Z",
       "updatedAt": "2026-05-26T06:48:12.169Z",
       "targetDate": ""
+    },
+    {
+      "id": "1780271273894",
+      "name": "数字化",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-05-31T23:47:53.894Z",
+      "updatedAt": "2026-05-31T23:47:53.894Z",
+      "subDirections": [],
+      "milestones": []
     }
   ],
   "aiContents": [
@@ -3262,6 +3062,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-31T15:20:11.123Z"
+    "lastSync": "2026-05-31T23:42:54.663Z"
   }
 }
