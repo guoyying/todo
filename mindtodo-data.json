@@ -1574,9 +1574,9 @@
     {
       "id": "mpqyw1kei4y25",
       "type": "task",
-      "content": "给增城郭工发节电费清单",
+      "content": "给增城郭工发节电费清单（节电费-筛选增城的）",
       "createdAt": "2026-05-29T13:38:11.054Z",
-      "updatedAt": "2026-05-29T13:38:11.054Z",
+      "updatedAt": "2026-05-31T23:38:20.985Z",
       "tags": [
         "退网"
       ],
@@ -1584,6 +1584,40 @@
       "dueTime": "8min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpuf7ldn3ypms",
+      "type": "task",
+      "content": "看下积分",
+      "createdAt": "2026-05-31T23:38:22.331Z",
+      "updatedAt": "2026-05-31T23:38:22.331Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpufdbczffnsz",
+      "type": "task",
+      "content": "核查下从化两个设备业务情况：3731-太平和108-太平-CHTPHC001",
+      "createdAt": "2026-05-31T23:42:49.283Z",
+      "updatedAt": "2026-05-31T23:42:49.283Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpufdbcz2n5su",
+          "content": "对照着转o的清单核查那几条业务情况",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -3228,6 +3262,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-05-31T06:18:35.730Z"
+    "lastSync": "2026-05-31T15:20:11.123Z"
   }
 }
