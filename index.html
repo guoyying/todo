@@ -520,47 +520,29 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
              
                  
                     
-                       /* 弹药库面板移动端优化 */
-                        #ammoLibraryPanel .modal {
-                            width: 90% !important;
-                            max-width: 90% !important;
-                            border-radius: 12px !important;
-                            max-height: 85vh !important;
-                            height: auto !important;
-                            margin: 2.5vh auto !important;
-                            position: fixed !important;
-                            left: 50% !important;
-                            transform: translateX(-50%) !important;
-                            right: auto !important;
-                            padding: 8px !important;
-                        }
-                 #ammoLibraryPanel .modal-header {
-                     padding: 8px 12px !important;
-                     margin-bottom: 6px !important;
-                 }
-                 
-                 #ammoLibraryPanel .modal-body {
-                     padding: 0 !important;
-                     max-height: calc(95vh - 70px) !important;
-                     height: auto !important;
-                 }
-                  #ammoLibraryPanel .ammo-info-header {
-                      padding: 8px 12px !important;
-                  }
-                  
-                  #ammoLibraryPanel .ammo-info-header strong {
-                      font-size: 14px !important;
-                  }
-                  
-                  
-                 #ammoLibraryPanel #modalContentArea {
-                     padding: 4px 8px !important;
-                     flex-direction: column !important;
-                 }
-                  #ammoLibraryPanel #editDigestionContainer {
-                      width: 100% !important;
-                      max-width: 100% !important;
-                  }
+/* 弹药库面板移动端优化 - 跟随全局样式，只保留必要的特殊样式 */
+#ammoLibraryPanel .modal-header {
+    padding: 8px 12px !important;
+    margin-bottom: 6px !important;
+}
+/* 弹药库内容区域特殊样式 */
+#ammoLibraryPanel .ammo-info-header {
+    padding: 8px 12px !important;
+}
+
+#ammoLibraryPanel .ammo-info-header strong {
+    font-size: 14px !important;
+}
+
+#ammoLibraryPanel #modalContentArea {
+    padding: 4px 8px !important;
+    flex-direction: column !important;
+}
+
+#ammoLibraryPanel #editDigestionContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+}
                   
                   /* 编辑弹药模态框移动端优化 - 高度自适应 */
                   #editAmmoModal .modal {
