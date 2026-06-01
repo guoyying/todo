@@ -1358,9 +1358,9 @@
     {
       "id": "mpufdbczffnsz",
       "type": "task",
-      "content": "核查下从化两个设备业务情况：3731-太平和108-太平-CHTPHC001",
+      "content": "核查下从化设备：08-太平-CHTPHC001",
       "createdAt": "2026-05-31T23:42:49.283Z",
-      "updatedAt": "2026-06-01T09:18:51.494Z",
+      "updatedAt": "2026-06-01T09:45:58.052Z",
       "tags": [
         "退网"
       ],
@@ -1422,37 +1422,16 @@
       "type": "task",
       "content": "整理海珠和南沙的报告，照片。",
       "createdAt": "2026-06-01T08:01:22.719Z",
-      "updatedAt": "2026-06-01T08:01:28.856Z",
+      "updatedAt": "2026-06-01T09:45:46.119Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpux6gpr4lwic",
-          "content": "将南沙的报告弄成word，番禺也是。",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
-        },
-        {
-          "id": "mpux6gpraz57h",
-          "content": "照片打包",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
-        },
-        {
-          "id": "mpux6gpr9u5h3",
-          "content": "更新县分的反馈（南沙）-在问题下面弄个‘反馈’即可",
-          "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
-        }
-      ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null,
+      "doneAt": "2026-06-01T09:45:46.119Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
