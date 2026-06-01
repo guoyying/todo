@@ -1134,15 +1134,32 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                   font-size: 11px !important;
               }
               
-              /* 表单元素移动端优化 */
-              textarea, input, select {
-                  font-size: 13px !important;
-                  padding: 6px 8px !important;
+              /* 表单元素移动端优化 - 与桌面端一致 */
+              textarea, input[type="text"], input[type="datetime-local"], select {
+                  width: 100% !important;
+                  padding: 10px 12px !important;
+                  border: 1px solid var(--border) !important;
+                  border-radius: 8px !important;
+                  font-size: 14px !important;
+                  font-family: inherit !important;
+                  background: var(--card) !important;
               }
               
+              textarea:focus, input:focus, select:focus {
+                  outline: none !important;
+                  border-color: var(--primary) !important;
+              }
+              
+              .input-group {
+                  margin-bottom: 14px !important;
+              }
+              
+              .input-group label,
               .form-label {
-                  font-size: 11px !important;
-                  margin-bottom: 4px !important;
+                  display: block !important;
+                  font-size: 13px !important;
+                  color: var(--text-secondary) !important;
+                  margin-bottom: 6px !important;
               }
              
               /* 按钮组移动端优化 */
@@ -4417,7 +4434,11 @@ padding: 7px !important;
           .direction-checkbox-group {
               display: flex;
               flex-wrap: wrap;
-              gap: 6px;
+              gap: 8px;
+              max-height: 200px;
+              overflow-y: auto;
+              padding-right: 4px;
+              align-items: flex-start;
           }
           
           .direction-checkbox {
@@ -4425,6 +4446,7 @@ padding: 7px !important;
           }
           
           .direction-label {
+              display: inline-block;
               padding: 4px 10px;
               background: var(--bg);
               border: 1px solid var(--border);
@@ -4433,6 +4455,10 @@ padding: 7px !important;
               cursor: pointer;
               transition: all 0.2s;
               user-select: none;
+              word-break: break-word;
+              white-space: normal;
+              max-width: 100%;
+              line-height: 1.4;
           }
           
           .direction-checkbox:checked + .direction-label {
@@ -4666,22 +4692,97 @@ padding: 7px !important;
               
               /* 移动端输入区域样式优化 */
               .tracker-input-section {
-                  padding: 15px;
+                  padding: 8px;
+                  background: var(--card);
+                  border-radius: 8px;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+                  margin-bottom: 10px;
+                  box-sizing: border-box;
+                  width: 100%;
+                  max-width: 100%;
+                  overflow-x: hidden;
+              }
+              
+              /* 移动端项目选择框优化 */
+              .tracker-project-select {
+                  margin-bottom: 8px;
+                  padding: 6px;
+                  background: var(--bg);
+                  border-radius: 6px;
+                  border: 1px solid var(--border);
+                  box-sizing: border-box;
+                  width: 100%;
+                  max-width: 100%;
+              }
+              
+              .tracker-project-select label {
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: var(--text);
+                  margin-bottom: 4px;
+                  display: block;
+                  box-sizing: border-box;
+              }
+              
+              .tracker-project-select select {
+                  width: 100%;
+                  max-width: 100%;
+                  padding: 6px 8px;
+                  border: 1px solid var(--border);
+                  border-radius: 6px;
+                  font-size: 14px;
+                  font-family: inherit;
+                  background: var(--card);
+                  cursor: pointer;
+                  transition: border-color 0.2s;
+                  box-sizing: border-box;
+              }
+              
+              .tracker-project-select select:focus {
+                  outline: none;
+                  border-color: var(--primary);
               }
               
               /* 移动端方向复选框更大 */
               .direction-checkbox-group {
-                  gap: 12px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 10px;
+                  max-height: 150px;
+                  overflow-y: auto;
+                  padding-right: 4px;
+                  align-items: flex-start;
               }
               
+              /* 移动端方向按钮样式 */
               .direction-checkbox {
-                  width: 22px;
-                  height: 22px;
+                  display: none;
               }
               
-              .direction-label {
-                  font-size: 15px;
-                  padding: 4px 8px;
+              .direction-btn {
+                  display: inline-block;
+                  padding: 8px 14px;
+                  background: var(--bg);
+                  border: 1px solid var(--border);
+                  border-radius: 16px;
+                  font-size: 14px;
+                  cursor: pointer;
+                  transition: all 0.2s;
+                  user-select: none;
+                  word-break: break-word;
+                  white-space: normal;
+                  line-height: 1.4;
+                  min-height: 40px;
+              }
+              
+              .direction-btn:active {
+                  transform: scale(0.95);
+              }
+              
+              .direction-btn.selected {
+                  background: var(--primary);
+                  color: white;
+                  border-color: var(--primary);
               }
               
               /* 移动端已选方向标签样式 */
@@ -14894,8 +14995,8 @@ padding: 7px !important;
                      showBanner('自动拉取成功', 'success', 2000);
                  }
                  
-                 // 触发拉取完成事件，通知面板重新渲染
-                 window.dispatchEvent(new Event('githubPullComplete'));
+                 // 拉取完成，但不自动渲染，等待用户点击按钮
+                 showBanner('✅ 数据已拉取，点击"刷新"按钮查看更新', '#4caf50', 3000);
               } catch(e) {
                   hideBanner(loadingBanner);
                   const msg = '拉取失败：' + (e.message || '网络错误');
@@ -18685,18 +18786,18 @@ ${ammoToAnalyze.map((ammo, index) =>
                 
                 ${totalDirections > 0 ? `
                 <div class="project-directions">
-                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">📋 细分方向 (${completedDirections}/${totalDirections}):</div>
-                    ${project.subDirections.slice(0, 3).map(dir => `
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">📋 细分方向 (${totalDirections - completedDirections}/${totalDirections}):</div>
+                    ${project.subDirections.filter(dir => !dir.completed).slice(0, 3).map(dir => `
                         <div class="project-direction-item">
                             <input type="checkbox" class="project-direction-checkbox"
                                    data-project-id="${project.id}"
                                    data-direction-id="${dir.id}"
-                                   ${dir.completed ? 'checked' : ''}
                                    onchange="toggleSubDirection('${project.id}', '${dir.id}')">
-                            <span style="${dir.completed ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(dir.name)}</span>
+                            <span>${escapeHtml(dir.name)}</span>
                         </div>
                     `).join('')}
-                    ${totalDirections > 3 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${totalDirections - 3} 个...</div>` : ''}
+                    ${project.subDirections.filter(dir => !dir.completed).length > 3 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${project.subDirections.filter(dir => !dir.completed).length - 3} 个...</div>` : ''}
+                    ${completedDirections > 0 ? `<div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">✓ 已完成 ${completedDirections} 个方向</div>` : ''}
                 </div>
                 ` : ''}
                 
@@ -21387,13 +21488,13 @@ ${knowledgeSummary}
          }
      }
      
-     // 显示移动端项目追踪模态框 - 居中显示
+     // 显示移动端项目追踪模态框 - 居中显示，打开时渲染数据
      function showMobileTrackerModal() {
          const modal = document.getElementById('mobileTrackerModal');
          if (modal) {
              modal.classList.remove('hidden');
-             // 初始化移动端追踪数据
-             initMobileTrackerData();
+             // 打开时才渲染数据
+             renderAllTrackerData('mobile');
          }
      }
      
@@ -21405,11 +21506,33 @@ ${knowledgeSummary}
          }
      }
      
-     // 初始化移动端追踪数据
-     function initMobileTrackerData() {
-         // 使用与桌面端相同的数据和状态
-         renderMobileTrackerTasks();
-         loadMobileTrackerProjects();
+     // 统一渲染所有项目追踪数据（桌面端和移动端共用）
+     function renderAllTrackerData(platform = 'desktop') {
+         // 确保 trackerState 已初始化（从 data.trackerConfig 恢复）
+         if (!trackerState.selectedItems) {
+             trackerState.selectedItems = [];
+         }
+         if (data.trackerConfig && data.trackerConfig.selectedItems) {
+             trackerState.selectedItems = [...data.trackerConfig.selectedItems];
+         }
+         
+         if (platform === 'mobile') {
+             // 移动端：渲染项目列表和已选方向列表
+             loadMobileTrackerProjects();
+             renderMobileTrackerTasks();
+             // 如果有选中的项目，加载其方向
+             if (trackerState.selectedProject) {
+                 loadMobileTrackerDirections();
+             }
+         } else {
+             // 桌面端：渲染项目列表和已选方向列表
+             loadTrackerProjects();
+             renderTrackerTasks();
+             // 如果有选中的项目，加载其方向
+             if (trackerState.selectedProject) {
+                 loadTrackerDirections();
+             }
+         }
      }
      
      // 切换移动端输入区域显示/隐藏
@@ -21508,22 +21631,54 @@ ${knowledgeSummary}
              return;
          }
          
-         const project = data.projects[projectId];
-         if (!project || !project.directions || project.directions.length === 0) {
-             container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">该项目没有配置方向</span>';
+         // 获取该项目定义的细分方向（优先从项目管理数据中获取）
+         const directions = new Set();
+         
+         // 1. 先从项目管理数据中获取方向
+         const project = data.projects?.find(p => p.id === projectId);
+         if (project) {
+             // 如果有 mainDirection，添加它
+             if (project.mainDirection) {
+                 directions.add(project.mainDirection);
+             }
+             // 如果有 subDirections 数组，添加所有未完成的方向
+             if (project.subDirections && Array.isArray(project.subDirections)) {
+                 project.subDirections.forEach(dir => {
+                     if (typeof dir === 'string') {
+                         directions.add(dir);
+                     } else if (dir && dir.name && !dir.completed) {
+                         // 只显示未完成的方向
+                         directions.add(dir.name);
+                     }
+                 });
+             }
+         }
+         
+         // 2. 从任务中补充方向（如果项目管理中没有定义）
+         data.tasks.forEach(task => {
+             if (task.projectId === projectId && task.direction) {
+                 directions.add(task.direction);
+             }
+         });
+         
+         if (directions.size === 0) {
+             container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">该项目暂无细分方向（请在项目管理中配置或添加任务）</span>';
              return;
          }
          
          container.innerHTML = '';
          
-         project.directions.forEach(direction => {
-             const label = document.createElement('label');
-             label.className = 'direction-checkbox';
-             label.innerHTML = `
-                 <input type="checkbox" value="${escapeHtml(direction)}">
-                 <span>${escapeHtml(direction)}</span>
-             `;
-             container.appendChild(label);
+         // 渲染方向按钮（移动端直接作为可点击按钮）
+         directions.forEach(direction => {
+             const button = document.createElement('button');
+             button.className = 'direction-btn';
+             button.textContent = escapeHtml(direction);
+             button.dataset.direction = direction;
+             button.addEventListener('click', function() {
+                 // 切换选中状态
+                 this.classList.toggle('selected');
+             });
+             container.appendChild(button);
          });
      }
      
@@ -21532,23 +21687,22 @@ ${knowledgeSummary}
          const select = document.getElementById('mobileTrackerProjectSelect');
          const projectId = select.value;
          const container = document.getElementById('mobileTrackerDirectionsContainer');
-         const checkboxes = container.querySelectorAll('input[type="checkbox"]:checked');
+         const selectedBtns = container.querySelectorAll('.direction-btn.selected');
          
          if (!projectId) {
              showBanner('请先选择项目', '#ff9800', 1500);
              return;
          }
          
-         if (checkboxes.length === 0) {
+         if (selectedBtns.length === 0) {
              showBanner('请至少选择一个方向', '#ff9800', 1500);
              return;
          }
-         
          const project = data.projects[projectId];
          const projectName = project ? project.name : projectId;
          
-         checkboxes.forEach(cb => {
-             const direction = cb.value;
+         selectedBtns.forEach(btn => {
+             const direction = btn.dataset.direction;
              
              // 检查是否已存在
              const exists = trackerState.selectedItems.some(item =>
@@ -21606,9 +21760,11 @@ ${knowledgeSummary}
      
      // 清空快速记录内容
      function clearQuickRecordContent() {
-         document.getElementById('quickRecordContent').value = '';
-         document.getElementById('quickRecordTags').value = '';
-         document.getElementById('quickRecordContent').focus();
+         const contentEl = document.getElementById('quickRecordContent');
+         const tagsEl = document.getElementById('quickRecordTags');
+         if (contentEl) contentEl.value = '';
+         if (tagsEl) tagsEl.value = '';
+         if (contentEl) contentEl.focus();
          showToast('内容已清空');
      }
      
@@ -21759,17 +21915,43 @@ let trackerState = {
 
 // 初始化项目目标追踪面板
 function initProjectGoalTracker(skipRender = false) {
-    // 从配置中恢复上次的项目选择（如果有）
+    // 只恢复基本配置，不恢复 selectedItems（在打开面板时才恢复）
     if (data.trackerConfig && data.trackerConfig.projectId) {
         trackerState.selectedProject = data.trackerConfig.projectId;
     }
     
-    // 从配置中恢复上次选择的方向
     if (data.trackerConfig && data.trackerConfig.directions) {
         trackerState.selectedDirections = [...data.trackerConfig.directions];
     }
     
-    // 从配置中恢复已选的方向组合列表
+    // 如果 skipRender=true，只初始化结构，不加载数据
+    if (skipRender) {
+        // 设置拖拽功能
+        setupTrackerDrag();
+        
+        // 默认隐藏面板和按钮
+        const tracker = document.getElementById('projectGoalTracker');
+        const toggleBtn = document.getElementById('trackerToggleBtn');
+        if (tracker) tracker.classList.remove('show');
+        if (toggleBtn) toggleBtn.classList.remove('show');
+        
+        // 监听选项卡切换
+        setupTrackerTabListener();
+        
+        setTimeout(() => {
+            const taskArea = document.getElementById('taskArea');
+            const feelingArea = document.getElementById('feelingArea');
+            if (taskArea && taskArea.classList.contains('active')) {
+                if (toggleBtn) toggleBtn.classList.add('show');
+            } else if (feelingArea && feelingArea.classList.contains('active')) {
+                if (tracker) tracker.classList.remove('show');
+                if (toggleBtn) toggleBtn.classList.remove('show');
+            }
+        }, 500);
+        return;  // 跳过数据加载
+    }
+    
+    // skipRender=false 时才恢复 selectedItems 并加载数据
     if (data.trackerConfig && data.trackerConfig.selectedItems) {
         trackerState.selectedItems = [...data.trackerConfig.selectedItems];
     } else {
@@ -21782,29 +21964,12 @@ function initProjectGoalTracker(skipRender = false) {
     // 设置拖拽功能
     setupTrackerDrag();
     
-    // 默认隐藏面板和按钮
-    const tracker = document.getElementById('projectGoalTracker');
-    const toggleBtn = document.getElementById('trackerToggleBtn');
-    if (tracker) tracker.classList.remove('show');
-    if (toggleBtn) toggleBtn.classList.remove('show');
-    
     // 监听选项卡切换，只在"想做的事"选项卡显示
     setupTrackerTabListener();
     
     // 延迟检查，等待页面完全加载和选项卡状态确定
     setTimeout(() => {
-        // 检查当前实际的选项卡状态（通过 DOM 元素判断）
-        const taskArea = document.getElementById('taskArea');
-        const feelingArea = document.getElementById('feelingArea');
-        
-        // 如果任务区域是激活状态（有 active 类或显示）
-        if (taskArea && taskArea.classList.contains('active')) {
-            if (toggleBtn) toggleBtn.classList.add('show');
-        } else if (feelingArea && feelingArea.classList.contains('active')) {
-            // 如果是感受区域，确保隐藏
-            if (tracker) tracker.classList.remove('show');
-            if (toggleBtn) toggleBtn.classList.remove('show');
-        }
+        checkAndShowTrackerPanel();
     }, 500);
     
     // 如果不跳过渲染，则立即渲染数据
@@ -21881,6 +22046,8 @@ function toggleTrackerPanel() {
         tracker.classList.add('show');
         // 确保按钮也显示
         toggleBtn.classList.add('show');
+        // 打开时才渲染数据
+        renderAllTrackerData('desktop');
     }
 }
 
@@ -22103,12 +22270,13 @@ function loadTrackerDirections() {
         if (project.mainDirection) {
             directions.add(project.mainDirection);
         }
-        // 如果有 subDirections 数组，添加所有方向
+        // 如果有 subDirections 数组，只添加未完成的方向
         if (project.subDirections && Array.isArray(project.subDirections)) {
             project.subDirections.forEach(dir => {
                 if (typeof dir === 'string') {
                     directions.add(dir);
-                } else if (dir && dir.name) {
+                } else if (dir && dir.name && !dir.completed) {
+                    // 只显示未完成的方向
                     directions.add(dir.name);
                 }
             });
@@ -22275,21 +22443,11 @@ function escapeHtml(text) {
 document.addEventListener('DOMContentLoaded', () => {
     // 延迟一点时间确保 DOM 完全加载
     setTimeout(() => {
-        // 先初始化面板结构（但不加载数据）
+        // 只初始化面板结构，不渲染数据（数据在打开面板时才渲染）
         initProjectGoalTracker(true);  // true 表示只初始化结构，不渲染数据
         // 初始检查页面状态
         checkAndShowTrackerPanel();
-        
-        // 如果有 GitHub 配置，等待自动拉取完成后再渲染面板数据
-        if (data.github && data.github.username) {
-            // 监听拉取完成事件
-            window.addEventListener('githubPullComplete', () => {
-                // 拉取完成后重新渲染面板
-                setTimeout(() => {
-                    renderTrackerTasks();
-                }, 100);
-            });
-        }
+        // 数据将在用户点击项目追踪按钮时才渲染
     }, 1000);
 });
 
