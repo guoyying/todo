@@ -1356,18 +1356,6 @@
       "doneAt": "2026-06-01T03:25:04.843Z"
     },
     {
-      "id": "mpuf7ldn3ypms",
-      "type": "task",
-      "content": "看下积分",
-      "createdAt": "2026-05-31T23:38:22.331Z",
-      "updatedAt": "2026-05-31T23:38:22.331Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpufdbczffnsz",
       "type": "task",
       "content": "核查下从化两个设备业务情况：3731-太平和108-太平-CHTPHC001",
@@ -1414,18 +1402,6 @@
       "subtasks": []
     },
     {
-      "id": "mpuk9v053tdxc",
-      "type": "task",
-      "content": "每周一都要写工作汇报的，我得优化下，最好能以终为始，将工作周报融入到网页功能中。对我来说，看着每周工作重点是更好的。但我又想融入到项目管理中。",
-      "createdAt": "2026-06-01T02:00:06.197Z",
-      "updatedAt": "2026-06-01T02:03:18.321Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpunazqezfisi",
       "type": "task",
       "content": "每个月都要更新的：1、网络简化共享文档，需要更新县分进度；2、BU的节电费统计；3、s转o月报。看怎么安排时间推进，不要那么被动",
@@ -1436,20 +1412,6 @@
       ],
       "done": false,
       "dueTime": "8min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mpuug9i0fg24u",
-      "type": "task",
-      "content": "我现在觉得积重难返了，好难优化了。考虑要不要重新写需求，还是慢慢理解？不知道咋办呢。",
-      "createdAt": "2026-06-01T06:45:01.080Z",
-      "updatedAt": "2026-06-01T06:45:01.080Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
