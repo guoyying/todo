@@ -2852,7 +2852,7 @@
   "projects": [
     {
       "id": "1779778092169",
-      "name": "退网_项目",
+      "name": "退网",
       "description": "",
       "type": "medium",
       "mainDirection": "",
@@ -2873,7 +2873,7 @@
       "autoProgress": 0,
       "status": "active",
       "createdAt": "2026-05-26T06:48:12.169Z",
-      "updatedAt": "2026-05-26T06:48:12.169Z",
+      "updatedAt": "2026-06-01T06:35:06.402Z",
       "targetDate": ""
     },
     {
@@ -2949,7 +2949,7 @@
         "projectId": "1779778092169",
         "projectName": "退网_项目",
         "direction": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
-        "addedAt": 1780291211646
+        "addedAt": 1780295536099
       }
     ]
   },
