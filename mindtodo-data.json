@@ -1360,7 +1360,7 @@
       "type": "task",
       "content": "核查下从化两个设备业务情况：3731-太平和108-太平-CHTPHC001",
       "createdAt": "2026-05-31T23:42:49.283Z",
-      "updatedAt": "2026-06-01T07:59:55.029Z",
+      "updatedAt": "2026-06-01T09:18:51.494Z",
       "tags": [
         "退网"
       ],
@@ -1370,13 +1370,13 @@
       "subtasks": [
         {
           "id": "mpufdbcz2n5su",
-          "content": "对照着转o的清单核查那几条业务情况",
+          "content": "已完成3731的核查",
           "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "done": true,
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null
     },
     {
       "id": "1780271275544",
