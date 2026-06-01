@@ -6116,8 +6116,7 @@ padding: 7px !important;
                 </div>
 
 <!-- 移动端功能选择菜单 - 小巧版 -->
-<div class="modal-overlay hidden" id="mobileMenuModal" onclick="closeMobileMenu()" style="z-index: 10000; background: transparent !important; align-items: flex-end !important;">
-    <div class="modal" onclick="event.stopPropagation()" style="margin-bottom: 80px; box-shadow: none !important;">
+<div class="modal hidden" id="mobileMenuModal" onclick="closeMobileMenu()" style="z-index: 10000; align-items: flex-end !important; margin-bottom: 80px; box-shadow: none !important;">
         <h3>📱 快速操作</h3>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
             <button class="btn btn-primary" onclick="selectMobileFeature('quickRecord')">
@@ -6132,7 +6131,6 @@ padding: 7px !important;
                 ❌ 取消
             </button>
         </div>
-    </div>
 </div>
                 
                 <!-- 快捷键记录弹窗 -->
@@ -21414,55 +21412,50 @@ ${knowledgeSummary}
           // 获取 FAB 按钮位置，设置模态框位置
           if (fabBtn) {
               const btnRect = fabBtn.getBoundingClientRect();
-              const modalContent = modal.querySelector('.modal');
               
-              if (modalContent) {
-                  // 计算模态框位置：在 FAB 按钮左上方
-                  const modalWidth = 320; // 模态框宽度
-                  const modalHeight = 380; // 模态框高度
-                  const viewportWidth = window.innerWidth;
-                  const viewportHeight = window.innerHeight;
-                  
-                  // FAB 按钮通常在右下角，所以模态框显示在它的左上方
-                  let left = btnRect.left - modalWidth - 10;
-                  let top = btnRect.top - modalHeight - 10;
-                  
-                  // 如果左侧空间不足，显示在 FAB 按钮右侧
-                  if (left < 10) {
-                      left = btnRect.right + 10;
-                  }
-                  
-                  // 如果上方空间不足，显示在 FAB 按钮下方
-                  if (top < 10) {
-                      top = btnRect.bottom + 10;
-                  }
-                  
-                  // 确保不超出右边界
-                  if (left + modalWidth > viewportWidth) {
-                      left = viewportWidth - modalWidth - 10;
-                  }
-                  
-                  // 确保不超出下边界
-                  if (top + modalHeight > viewportHeight) {
-                      top = viewportHeight - modalHeight - 10;
-                  }
-                  
-// 设置模态框位置
-modal.style.position = 'fixed';
-modal.style.left = left + 'px';
-modal.style.top = top + 'px';
-modal.style.width = modalWidth + 'px';
-modal.style.height = modalHeight + 'px';
-modal.style.maxWidth = 'none';
-modal.style.borderRadius = '12px';
-// 移除阴影，使用 CSS 边框代替
-modal.style.zIndex = '10000';
-}
-}
-}
-}
-    
-// 关闭移动端菜单
+              // 计算模态框位置：在 FAB 按钮左上方
+              const modalWidth = 320; // 模态框宽度
+              const modalHeight = 230; // 模态框高度
+              const viewportWidth = window.innerWidth;
+              const viewportHeight = window.innerHeight;
+              
+              // FAB 按钮通常在右下角，所以模态框显示在它的左上方
+              let left = btnRect.left - modalWidth - 10;
+              let top = btnRect.top - modalHeight - 10;
+              
+              // 如果左侧空间不足，显示在 FAB 按钮右侧
+              if (left < 10) {
+                  left = btnRect.right + 10;
+              }
+              
+              // 如果上方空间不足，显示在 FAB 按钮下方
+              if (top < 10) {
+                  top = btnRect.bottom + 10;
+              }
+              
+              // 确保不超出右边界
+              if (left + modalWidth > viewportWidth) {
+                  left = viewportWidth - modalWidth - 10;
+              }
+              
+              // 确保不超出下边界
+              if (top + modalHeight > viewportHeight) {
+                  top = viewportHeight - modalHeight - 10;
+              }
+              
+              // 设置模态框位置
+              modal.style.position = 'fixed';
+              modal.style.left = left + 'px';
+              modal.style.top = top + 'px';
+              modal.style.width = modalWidth + 'px';
+              modal.style.height = modalHeight + 'px';
+              modal.style.maxWidth = 'none';
+              modal.style.borderRadius = '12px';
+          }
+      }
+  }
+      
+  // 关闭移动端菜单
 function closeMobileMenu() {
          document.getElementById('mobileMenuModal').classList.add('hidden');
      }
