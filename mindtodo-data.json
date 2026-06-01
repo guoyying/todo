@@ -2953,11 +2953,6 @@
       "updatedAt": "2026-06-01T01:23:49.847Z"
     }
   ],
-  "trackerConfig": {
-    "projectId": "1779778092169",
-    "directions": [
-      "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网"
-    ],
     "selectedItems": [
       {
         "projectId": "1779778092169",
