@@ -615,8 +615,14 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                   
                   /* 移动端功能选择菜单 */
                   #mobileMenuModal .modal {
-                      width: 90% !important;
-                      max-width: 400px !important;
+                      width: 320px !important;
+                      max-width: 320px !important;
+                      height: 380px !important;
+                      max-height: 380px !important;
+                      margin: 0 !important;
+                      padding: 16px !important;
+                      border-radius: 12px !important;
+                      position: relative !important;
                   }
                   
                   #mobileMenuModal .modal h3 {
@@ -21386,10 +21392,64 @@ ${knowledgeSummary}
          showMobileMenu();
      }
      
-     // 显示移动端功能选择菜单
-     function showMobileMenu() {
-         document.getElementById('mobileMenuModal').classList.remove('hidden');
-     }
+  // 显示移动端功能选择菜单 - 在 FAB 按钮旁边显示
+  function showMobileMenu() {
+      const modal = document.getElementById('mobileMenuModal');
+      const fabBtn = document.getElementById('mobileFab');
+      
+      if (modal) {
+          modal.classList.remove('hidden');
+          
+          // 获取 FAB 按钮位置，设置模态框位置
+          if (fabBtn) {
+              const btnRect = fabBtn.getBoundingClientRect();
+              const modalContent = modal.querySelector('.modal');
+              
+              if (modalContent) {
+                  // 计算模态框位置：在 FAB 按钮左上方
+                  const modalWidth = 320; // 模态框宽度
+                  const modalHeight = 380; // 模态框高度
+                  const viewportWidth = window.innerWidth;
+                  const viewportHeight = window.innerHeight;
+                  
+                  // FAB 按钮通常在右下角，所以模态框显示在它的左上方
+                  let left = btnRect.left - modalWidth - 10;
+                  let top = btnRect.top - modalHeight - 10;
+                  
+                  // 如果左侧空间不足，显示在 FAB 按钮右侧
+                  if (left < 10) {
+                      left = btnRect.right + 10;
+                  }
+                  
+                  // 如果上方空间不足，显示在 FAB 按钮下方
+                  if (top < 10) {
+                      top = btnRect.bottom + 10;
+                  }
+                  
+                  // 确保不超出右边界
+                  if (left + modalWidth > viewportWidth) {
+                      left = viewportWidth - modalWidth - 10;
+                  }
+                  
+                  // 确保不超出下边界
+                  if (top + modalHeight > viewportHeight) {
+                      top = viewportHeight - modalHeight - 10;
+                  }
+                  
+                  // 设置模态框位置
+                  modal.style.position = 'fixed';
+                  modal.style.left = left + 'px';
+                  modal.style.top = top + 'px';
+                  modal.style.width = modalWidth + 'px';
+                  modal.style.height = modalHeight + 'px';
+                  modal.style.maxWidth = 'none';
+                  modal.style.borderRadius = '12px';
+                  modal.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+                  modal.style.zIndex = '10000';
+              }
+          }
+      }
+  }
      
      // 关闭移动端菜单
      function closeMobileMenu() {
@@ -21415,15 +21475,15 @@ ${knowledgeSummary}
          }
      }
      
-     // 显示移动端项目追踪模态框 - 居中显示
-     function showMobileTrackerModal() {
-         const modal = document.getElementById('mobileTrackerModal');
-         if (modal) {
-             modal.classList.remove('hidden');
-             // 初始化移动端追踪数据
-             initMobileTrackerData();
-         }
-     }
+// 显示移动端项目追踪模态框 - 居中显示
+function showMobileTrackerModal() {
+   const modal = document.getElementById('mobileTrackerModal');
+   if (modal) {
+       modal.classList.remove('hidden');
+       // 初始化移动端追踪数据
+       initMobileTrackerData();
+   }
+}
      
      // 关闭移动端项目追踪模态框
      function closeMobileTrackerModal() {
@@ -21443,11 +21503,11 @@ ${knowledgeSummary}
            loadFromTasks: false
        });
        
-       // 渲染已选方向列表（从 trackerState.selectedItems 读取）
-       setTimeout(() => {
-           renderTrackerTasks('mobileTrackerSelectedContainer');
-       }, 100);
-   }
+// 渲染已选方向列表（从 trackerState.selectedItems 读取）
+setTimeout(() => {
+    renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
+}, 100);
+}
      
      // 切换移动端输入区域显示/隐藏
      function toggleMobileTrackerInput() {
@@ -21477,6 +21537,12 @@ ${knowledgeSummary}
     function renderTrackerTasks(containerId = 'trackerTaskList', removeFuncName = 'removeTrackerItem') {
         const container = document.getElementById(containerId);
         if (!container) return;
+        
+        // 移除之前可能存在的委托事件监听器（避免重复绑定）
+        const oldContainer = document.getElementById('event-delegate-' + containerId);
+        if (oldContainer) {
+            oldContainer.removeEventListener('click', container._clickHandler);
+        }
         
         if (trackerState.selectedItems.length === 0) {
             container.innerHTML = `
@@ -21511,23 +21577,48 @@ ${knowledgeSummary}
                     <span class="tracker-selected-arrow">→</span>
                     <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
                 </div>
-                <button class="tracker-remove-btn" onclick="${removeFuncName}(${index})" title="移除这个方向组合">×</button>
+                <button class="tracker-remove-btn" data-index="${index}" title="移除这个方向组合">×</button>
             `;
             container.appendChild(itemDiv);
         });
+        
+// 使用事件委托：只在容器上绑定一次事件
+if (!container._clickHandler) {
+    container._clickHandler = function(e) {
+        const btn = e.target.closest('.tracker-remove-btn');
+        if (btn) {
+            e.stopPropagation();
+            e.preventDefault();
+            const index = parseInt(btn.getAttribute('data-index'));
+            // 使用传入的函数名，支持桌面端和移动端不同的删除函数
+            if (typeof window[removeFuncName] === 'function') {
+                window[removeFuncName](index);
+            }
+        }
+    };
+    container.addEventListener('click', container._clickHandler);
+}
     }
     
-    // 移除已选方向（桌面端和移动端共用）
-    function removeTrackerItem(index, isMobile = false) {
-        trackerState.selectedItems.splice(index, 1);
-        saveTrackerConfig();
-        // 根据平台调用对应的渲染函数
-        if (isMobile) {
-            renderTrackerTasks('mobileTrackerTaskList', 'removeTrackerItem');
-        } else {
-            renderTrackerTasks('trackerTaskList', 'removeTrackerItem');
-        }
-    }
+// 移除已选方向（桌面端专用）
+function removeTrackerItem(index) {
+    // 删除数据
+    trackerState.selectedItems.splice(index, 1);
+    saveTrackerConfig();
+    
+    // 只刷新桌面端列表
+    renderTrackerTasks('trackerTaskList', 'removeTrackerItem');
+}
+
+// 移除已选方向（移动端专用）
+function removeMobileTrackerItem(index) {
+    // 删除数据
+    trackerState.selectedItems.splice(index, 1);
+    saveTrackerConfig();
+    
+    // 只刷新移动端列表
+    renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
+}
      
    // 通用加载项目列表函数（桌面端和移动端共用）
    // config: { selectId, containerId, isMobile, loadFromTasks }
@@ -21594,9 +21685,9 @@ ${knowledgeSummary}
            });
        }
        
-       // 渲染已选列表
-       renderTrackerTasks(isMobile ? 'mobileTrackerTaskList' : 'trackerTaskList', 'removeTrackerItem');
-   }
+// 渲染已选列表
+renderTrackerTasks(isMobile ? 'mobileTrackerTaskList' : 'trackerTaskList', isMobile ? 'removeMobileTrackerItem' : 'removeTrackerItem');
+}
      
      // 统一的加载方向列表函数（桌面端和移动端共用）
      // config: { selectId, containerId, isMobile, saveConfig }
@@ -21775,10 +21866,10 @@ ${knowledgeSummary}
        // 保存配置
        saveTrackerConfig();
        
-       // 立即重新渲染已选列表
-       renderTrackerTasks('mobileTrackerTaskList', 'removeTrackerItem');
-       
-       // 取消所有选中状态
+// 立即重新渲染已选列表
+renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
+
+// 取消所有选中状态
        selectedButtons.forEach(btn => btn.classList.remove('selected'));
        
        showBanner('已添加', '#4caf50', 1500);
@@ -22246,7 +22337,7 @@ function renderTrackerSelectedItems() {
             <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
             <span class="tracker-selected-separator">›</span>
             <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
-            <button class="tracker-remove-btn" onclick="removeTrackerItem(${index})" title="移除">×</button>
+            <button class="tracker-remove-btn" onclick="event.stopPropagation(); removeTrackerItem(${index})" title="移除">×</button>
         `;
         container.appendChild(tag);
     });
