@@ -1360,7 +1360,7 @@
       "type": "task",
       "content": "核查下从化两个设备业务情况：3731-太平和108-太平-CHTPHC001",
       "createdAt": "2026-05-31T23:42:49.283Z",
-      "updatedAt": "2026-05-31T23:42:49.283Z",
+      "updatedAt": "2026-06-01T07:59:55.029Z",
       "tags": [
         "退网"
       ],
@@ -1373,9 +1373,10 @@
           "content": "对照着转o的清单核查那几条业务情况",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mpkhd31qo1rzc"
         }
-      ]
+      ],
+      "placedIn": "slot_mpkhd31qo1rzc"
     },
     {
       "id": "1780271275544",
@@ -1406,14 +1407,52 @@
       "type": "task",
       "content": "每个月都要更新的：1、网络简化共享文档，需要更新县分进度；2、BU的节电费统计；3、s转o月报。看怎么安排时间推进，不要那么被动",
       "createdAt": "2026-06-01T03:24:57.830Z",
-      "updatedAt": "2026-06-01T03:24:57.830Z",
+      "updatedAt": "2026-06-01T08:01:26.886Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": null
+    },
+    {
+      "id": "mpux6gpr1vkd6",
+      "type": "task",
+      "content": "整理海珠和南沙的报告，照片。",
+      "createdAt": "2026-06-01T08:01:22.719Z",
+      "updatedAt": "2026-06-01T08:01:28.856Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpux6gpr4lwic",
+          "content": "将南沙的报告弄成word，番禺也是。",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": "slot_mpkhd31qo1rzc"
+        },
+        {
+          "id": "mpux6gpraz57h",
+          "content": "照片打包",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": "slot_mpkhd31qo1rzc"
+        },
+        {
+          "id": "mpux6gpr9u5h3",
+          "content": "更新县分的反馈（南沙）-在问题下面弄个‘反馈’即可",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": "slot_mpkhd31qo1rzc"
+        }
+      ],
+      "placedIn": "slot_mpkhd31qo1rzc"
     }
   ],
   "normalFeelings": [
@@ -2627,7 +2666,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-05-28T08:51:00.004Z"
+        "0": "2026-06-01T08:00:00.001Z"
       }
     },
     {
@@ -2978,7 +3017,7 @@
     }
   ],
   "trackerConfig": {
-    "projectId": "1780299687739",
+    "projectId": "1779778092169",
     "directions": [
       "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
       "跟进CRM系统的业务清单的清理工作，拆除无效业务",
