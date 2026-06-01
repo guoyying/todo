@@ -504,6 +504,15 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                 .mobile-fab {
                     display: flex !important;
                 }
+                
+                /* 移动端隐藏项目追踪面板和触发按钮 */
+                #projectGoalTracker {
+                    display: none !important;
+                }
+                
+                #trackerToggleBtn {
+                    display: none !important;
+                }
             }
             
             h1 {
@@ -573,14 +582,15 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                       gap: 8px !important;
                   }
                   
-                  /* 快速记录弹窗移动端优化 - 自适应容器 */
+                  /* 快速记录弹窗 - 小巧居中样式 */
                   #quickRecordModal .modal {
                       width: 90% !important;
-                      max-width: 90% !important;
+                      max-width: 500px !important;
                       height: auto !important;
                       max-height: 85vh !important;
-                      margin: 7.5vh auto !important;
-                      padding: 12px !important;
+                      margin: 10vh auto !important;
+                      padding: 16px !important;
+                      border-radius: 12px !important;
                   }
                   
                   #quickRecordModal .modal h3 {
@@ -598,11 +608,57 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                       min-height: 120px !important;
                       resize: vertical !important;
                   }
-                  
+
                   #quickRecordModal .modal-actions {
                       gap: 8px !important;
                   }
                   
+                  /* 移动端功能选择菜单 */
+                  #mobileMenuModal .modal {
+                      width: 90% !important;
+                      max-width: 400px !important;
+                  }
+                  
+                  #mobileMenuModal .modal h3 {
+                      font-size: 18px !important;
+                      margin-bottom: 16px !important;
+                  }
+                  
+                  #mobileMenuModal .btn {
+                      width: 100% !important;
+                      text-align: left !important;
+                      border-radius: 8px !important;
+                  }
+                  
+                  
+                  /* 移动端项目追踪模态框 - 小巧居中样式 */
+                  #mobileTrackerModal .modal {
+                      width: 90% !important;
+                      max-width: 500px !important;
+                      height: auto !important;
+                      max-height: 85vh !important;
+                      margin: 10vh auto !important;
+                      padding: 16px !important;
+                      border-radius: 12px !important;
+                  }
+                  
+                  #mobileTrackerModalContent {
+                      display: flex;
+                      flex-direction: column;
+                      height: 100%;
+                  }
+                  
+                  #mobileTrackerModal .tracker-header {
+                      flex-shrink: 0;
+                      padding: 12px 16px;
+                      border-radius: 12px 12px 0 0;
+                  }
+                  
+                  #mobileTrackerModal .tracker-content {
+                      flex: 1;
+                      overflow-y: auto;
+                      padding: 16px;
+                  }
                   .ammo-list-panel {
                       max-height: none !important;
                       overflow-y: auto !important;
@@ -717,7 +773,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                      max-height: 500px;
                      opacity: 1;
                  }
-             }
+}
              
              .kb-item-content {
                  font-size: 14px !important;
@@ -1892,27 +1948,64 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         #quickCreateProjectModal {
             z-index: 2000 !important;
         }
-        /* 桌面端模态框样式 */
+/* 桌面端模态框样式 - 优化后的统一样式 */
 .modal {
     background: var(--card);
-    border-radius: var(--radius);
-    padding: 24px;
+    border-radius: 12px;
+    padding: 24px 28px;
     width: 100%;
-    max-width: 550px;
-    max-height: calc(100vh - 28px);  /* 减去上下 padding */
+    max-width: 700px;  /* 增加宽度，更适合桌面端显示 */
+    max-height: calc(100vh - 40px);  /* 留出更多顶部和底部空间 */
     overflow-y: auto;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+    border: 1px solid var(--border);
+}
+
+/* 模态框头部统一样式 */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.modal-header .close {
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.modal-header .close:hover {
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* 模态框主体统一样式 */
+.modal-body {
+    padding: 0;
+    max-height: none;
+    overflow-y: auto;
 }
         
-        /* AI 内容保存模态框 - 灰绿色主题风格 */
-        #aiContentSaveModal .modal {
-            max-width: 540px;
-            padding: 26px;
-            background: linear-gradient(135deg, var(--green-light) 0%, var(--card) 100%);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(74, 93, 74, 0.12);
-            border: 1px solid var(--green-border);
-        }
+/* AI 内容保存模态框 - 保留绿灰色主题，但使用统一尺寸 */
+#aiContentSaveModal .modal {
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--card) 100%);
+    border: 1px solid var(--green-border);
+    /* 其他样式跟随全局 .modal */
+}
         
         #aiContentSaveModal h3 {
             font-size: 18px;
@@ -4207,6 +4300,414 @@ padding: 7px !important;
                   padding-right: 32px;
               }
           }
+          
+          /* ========== 项目目标追踪面板（极简版） ========== */
+          #projectGoalTracker {
+              position: fixed;
+              bottom: 80px;
+              right: 20px;
+              width: 320px;
+              max-height: 350px;
+              background: var(--card);
+              border-radius: 12px;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+              border: 1px solid var(--border);
+              z-index: 9998;
+              display: none;
+              flex-direction: column;
+              /* 只对显示/隐藏和最小化添加过渡，拖动时不延迟 */
+              transition: opacity 0.2s ease, transform 0.2s ease, height 0.2s ease;
+          }
+          
+          #projectGoalTracker.show {
+              display: flex;
+          }
+          
+          #projectGoalTracker.minimized {
+              height: 48px;
+              overflow: hidden;
+          }
+          
+          #trackerHeader {
+              cursor: move;
+              user-select: none;
+          }
+          
+          .tracker-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 14px;
+              background: linear-gradient(135deg, var(--primary-light) 0%, var(--card) 100%);
+              border-bottom: 1px solid var(--border);
+              border-radius: 12px 12px 0 0;
+          }
+          
+          .tracker-header h3 {
+              margin: 0;
+              font-size: 15px;
+              font-weight: 600;
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              gap: 6px;
+          }
+          
+          .tracker-controls {
+              display: flex;
+              gap: 6px;
+          }
+          
+          .tracker-controls button {
+              background: none;
+              border: none;
+              cursor: pointer;
+              padding: 4px 6px;
+              border-radius: 4px;
+              font-size: 13px;
+              color: var(--text-secondary);
+              transition: all 0.2s;
+          }
+          
+          .tracker-controls button:hover {
+              background: var(--bg);
+              color: var(--primary);
+          }
+          
+          .tracker-content {
+              flex: 1;
+              overflow-y: auto;
+              padding: 14px;
+          }
+          
+          .tracker-project-select {
+              margin-bottom: 12px;
+          }
+          
+          .tracker-project-select label {
+              display: block;
+              font-size: 12px;
+              font-weight: 500;
+              color: var(--text-secondary);
+              margin-bottom: 4px;
+          }
+          
+          .tracker-project-select select {
+              width: 100%;
+              padding: 6px 10px;
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              font-size: 13px;
+              background: var(--card);
+              cursor: pointer;
+          }
+          
+          .tracker-directions {
+              margin-bottom: 12px;
+          }
+          
+          .tracker-directions label {
+              display: block;
+              font-size: 12px;
+              font-weight: 500;
+              color: var(--text-secondary);
+              margin-bottom: 6px;
+          }
+          
+          .direction-checkbox-group {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 6px;
+          }
+          
+          .direction-checkbox {
+              display: none;
+          }
+          
+          .direction-label {
+              padding: 4px 10px;
+              background: var(--bg);
+              border: 1px solid var(--border);
+              border-radius: 15px;
+              font-size: 12px;
+              cursor: pointer;
+              transition: all 0.2s;
+              user-select: none;
+          }
+          
+          .direction-checkbox:checked + .direction-label {
+              background: var(--primary);
+              color: white;
+              border-color: var(--primary);
+          }
+          
+          .tracker-result {
+              padding: 12px;
+              background: var(--bg);
+              border-radius: 8px;
+              border: 1px solid var(--border);
+          }
+          
+          .tracker-result-title {
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--text);
+              margin-bottom: 8px;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+          }
+          
+          .tracker-result-item {
+              display: flex;
+              justify-content: space-between;
+              padding: 6px 0;
+              border-bottom: 1px solid var(--border);
+              font-size: 12px;
+              color: var(--text-secondary);
+          }
+          
+          .tracker-result-item:last-child {
+              border-bottom: none;
+          }
+          
+          .tracker-result-total {
+              display: flex;
+              justify-content: space-between;
+              padding: 8px 0;
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--primary);
+          }
+          
+          .tracker-empty {
+              text-align: center;
+              padding: 20px 10px;
+              color: var(--text-secondary);
+          }
+          
+          .tracker-empty-icon {
+              font-size: 28px;
+              margin-bottom: 6px;
+              opacity: 0.5;
+          }
+          
+          .tracker-empty-text {
+              font-size: 12px;
+          }
+          
+          /* 已选方向组合列表样式 */
+          .tracker-list-title {
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--primary);
+              margin-bottom: 12px;
+              padding-bottom: 8px;
+              border-bottom: 1px solid var(--border);
+          }
+          
+          .tracker-selected-item {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 8px 10px;
+              margin-bottom: 6px;
+              background: var(--bg-secondary);
+              border-radius: 4px;
+              font-size: 13px;
+          }
+          
+          .tracker-selected-content {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              flex: 1;
+          }
+          
+          .tracker-selected-project {
+              color: var(--text-secondary);
+              font-size: 12px;
+          }
+          
+          .tracker-selected-arrow {
+              color: var(--text-secondary);
+              font-size: 12px;
+          }
+          
+          .tracker-selected-direction {
+              color: var(--text);
+              font-weight: 500;
+          }
+          
+          .tracker-remove-btn {
+              background: transparent;
+              border: none;
+              color: var(--text-secondary);
+              font-size: 18px;
+              cursor: pointer;
+              padding: 0 4px;
+              line-height: 1;
+              transition: color 0.2s;
+          }
+          
+          .tracker-remove-btn:hover {
+              color: #f44336;
+          }
+          
+          /* 输入区域切换按钮 */
+          .tracker-toggle-btn {
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+              width: 32px;
+              height: 32px;
+              background: var(--primary);
+              color: white;
+              border: none;
+              border-radius: 50%;
+              font-size: 16px;
+              cursor: pointer;
+              box-shadow: 0 2px 8px rgba(107, 142, 107, 0.3);
+              transition: all 0.2s;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 10;
+          }
+          
+          .tracker-toggle-btn:hover {
+              transform: scale(1.1);
+              box-shadow: 0 4px 12px rgba(107, 142, 107, 0.4);
+          }
+          
+          /* 输入区域样式 */
+          .tracker-input-section {
+              margin-top: 12px;
+              padding-top: 12px;
+              border-top: 1px solid var(--border);
+              animation: slideDown 0.3s ease;
+          }
+          
+          @keyframes slideDown {
+              from {
+                  opacity: 0;
+                  transform: translateY(-10px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+          
+          /* 折叠按钮容器 */
+          .tracker-collapse-wrapper {
+              margin-top: 12px;
+              margin-bottom: 8px;
+          }
+          
+          /* 面板触发按钮 */
+          #trackerToggleBtn {
+              position: fixed;
+              bottom: 80px;
+              right: 20px;
+              width: 24px;
+              height: 24px;
+              background: var(--primary);
+              color: white;
+              border: none;
+              border-radius: 50%;
+              font-size: 15px;
+              cursor: pointer;
+              box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3);
+              z-index: 9999;
+              transition: all 0.3s ease;
+              display: none;
+              align-items: center;
+              justify-content: center;
+          }
+          
+          #trackerToggleBtn:hover {
+              transform: scale(1.1);
+              box-shadow: 0 6px 16px rgba(107, 142, 107, 0.4);
+          }
+          
+          #trackerToggleBtn.show {
+              display: flex;
+          }
+          
+          /* 移动端适配 */
+          @media (max-width: 768px) {
+              #projectGoalTracker {
+                  width: calc(100% - 20px);
+                  right: 10px;
+                  left: 10px;
+                  bottom: 80px;
+                  max-height: 70vh;  /* 最大高度为屏幕高度的 70% */
+                  overflow-y: auto;  /* 内容过多时滚动 */
+              }
+              
+              #trackerToggleBtn {
+                  bottom: 70px;
+                  right: 15px;
+                  width: 52px;
+                  height: 52px;
+                  font-size: 24px;
+              }
+              
+              /* 移动端折叠按钮更大，更易点击 */
+              .tracker-collapse-wrapper {
+                  margin: 15px 0;
+              }
+              
+              #trackerCollapseBtn {
+                  padding: 12px 16px;
+                  font-size: 15px;
+              }
+              
+              /* 移动端输入区域样式优化 */
+              .tracker-input-section {
+                  padding: 15px;
+              }
+              
+              /* 移动端方向复选框更大 */
+              .direction-checkbox-group {
+                  gap: 12px;
+              }
+              
+              .direction-checkbox {
+                  width: 22px;
+                  height: 22px;
+              }
+              
+              .direction-label {
+                  font-size: 15px;
+                  padding: 4px 8px;
+              }
+              
+              /* 移动端已选方向标签样式 */
+              .tracker-selected-item {
+                  padding: 10px 12px;
+                  font-size: 14px;
+              }
+              
+              .tracker-remove-btn {
+                  width: 28px;
+                  height: 28px;
+                  font-size: 20px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+              
+              /* 移动端面板头部优化 */
+              .tracker-header {
+                  padding: 12px 16px;
+              }
+              
+              .tracker-header h3 {
+                  font-size: 16px;
+              }
+          }
       </style>
 </head>
 <body>
@@ -4924,7 +5425,59 @@ padding: 7px !important;
                 </div>
             </div>
         </div>
+</div>
+
+<!-- 项目目标追踪面板触发按钮 -->
+<button id="trackerToggleBtn" onclick="toggleTrackerPanel()" title="项目目标追踪">🎯</button>
+
+<!-- 项目目标追踪面板 -->
+<div id="projectGoalTracker">
+    <div class="tracker-header" id="trackerHeader">
+        <h3>🎯 项目目标追踪</h3>
+        <div class="tracker-controls">
+            <button onclick="toggleTrackerMinimize()" title="最小化">◐</button>
+            <button onclick="closeTrackerPanel()" title="关闭">✕</button>
+        </div>
     </div>
+    <div class="tracker-content">
+        <!-- 已选方向组合列表（始终显示） -->
+        <div id="trackerTaskList" class="tracker-task-list">
+            <div class="tracker-empty">
+                <div class="tracker-empty-icon">🏷️</div>
+                <div class="tracker-empty-text">暂无已选方向组合</div>
+            </div>
+        </div>
+        
+        <!-- 折叠/展开按钮 -->
+        <div class="tracker-collapse-wrapper">
+            <button id="trackerCollapseBtn" class="btn btn-secondary btn-small" onclick="toggleTrackerInputSection()" style="width:100%;">
+                ➕ 添加方向组合
+            </button>
+        </div>
+        
+        <!-- 项目选择和方向筛选（默认隐藏） -->
+        <div id="trackerInputSection" class="tracker-input-section" style="display:none;">
+            <!-- 项目选择 -->
+            <div class="tracker-project-select">
+                <label>📁 选择项目</label>
+                <select id="trackerProjectSelect" onchange="loadTrackerDirections()">
+                    <option value="">-- 请选择项目 --</option>
+                </select>
+            </div>
+            
+            <!-- 方向筛选 -->
+            <div class="tracker-directions">
+                <label>🏷️ 细分方向</label>
+                <div id="trackerDirectionsContainer" class="direction-checkbox-group">
+                    <span style="font-size:12px;color:var(--text-secondary);">请先选择项目</span>
+                </div>
+                <button class="btn btn-primary btn-small" onclick="addTrackerDirection()" style="margin-top:8px;width:100%;">
+                    ➕ 添加到关注列表
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
      <!-- AI汇总模态框 -->
      <div class="modal-overlay hidden" id="aiSummaryModal" onclick="closeModal('aiSummaryModal')">
@@ -5522,6 +6075,26 @@ padding: 7px !important;
                     </div>
                 </div>
 
+                <!-- 移动端功能选择菜单 -->
+                <div class="modal-overlay hidden" id="mobileMenuModal" onclick="closeMobileMenu()" style="z-index: 10000;">
+                    <div class="modal" onclick="event.stopPropagation()" style="max-width: 400px;">
+                        <h3>📱 快速操作</h3>
+                        <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+                            <button class="btn btn-primary" onclick="selectMobileFeature('quickRecord')" style="padding:16px;font-size:16px;">
+                                ⚡ 快速记录
+                                <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">记录任务、弹药或知识</div>
+                            </button>
+                            <button class="btn btn-secondary" onclick="selectMobileFeature('tracker')" style="padding:16px;font-size:16px;">
+                                🎯 项目追踪
+                                <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">管理项目方向组合</div>
+                            </button>
+                            <button class="btn btn-secondary" onclick="closeMobileMenu()" style="padding:12px;font-size:15px;margin-top:8px;">
+                                ❌ 取消
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 快捷键记录弹窗 -->
                 <div class="modal-overlay hidden" id="quickRecordModal" onclick="closeQuickRecordModal()" style="z-index: 9999;">
                     <div class="modal" onclick="event.stopPropagation()">
@@ -5551,7 +6124,55 @@ padding: 7px !important;
                         </div>
                     </div>
                 </div>
-
+                
+                <!-- 移动端项目追踪模态框 -->
+                <div class="modal-overlay hidden" id="mobileTrackerModal" onclick="closeMobileTrackerModal()" style="z-index: 10001;">
+                    <div class="modal" onclick="event.stopPropagation()" id="mobileTrackerModalContent">
+                        <div class="tracker-header" style="border-radius:12px 12px 0 0;">
+                            <h3>🎯 项目目标追踪</h3>
+                            <button class="btn btn-secondary btn-small" onclick="closeMobileTrackerModal()" style="padding:6px 12px;">✕ 关闭</button>
+                        </div>
+                        <div class="tracker-content" style="max-height:60vh;overflow-y:auto;">
+                            <!-- 已选方向组合列表 -->
+                            <div id="mobileTrackerTaskList" class="tracker-task-list">
+                                <div class="tracker-empty">
+                                    <div class="tracker-empty-icon">🏷️</div>
+                                    <div class="tracker-empty-text">暂无已选方向组合</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 折叠/展开按钮 -->
+                            <div class="tracker-collapse-wrapper">
+                                <button id="mobileTrackerCollapseBtn" class="btn btn-secondary btn-small" onclick="toggleMobileTrackerInput()" style="width:100%;">
+                                    ➕ 添加方向组合
+                                </button>
+                            </div>
+                            
+                            <!-- 项目选择和方向筛选 -->
+                            <div id="mobileTrackerInputSection" class="tracker-input-section" style="display:none;">
+                                <!-- 项目选择 -->
+                                <div class="tracker-project-select">
+                                    <label>📁 选择项目</label>
+                                    <select id="mobileTrackerProjectSelect" onchange="loadMobileTrackerDirections()">
+                                        <option value="">-- 请选择项目 --</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- 方向筛选 -->
+                                <div class="tracker-directions">
+                                    <label>🏷️ 细分方向</label>
+                                    <div id="mobileTrackerDirectionsContainer" class="direction-checkbox-group">
+                                        <span style="font-size:12px;color:var(--text-secondary);">请先选择项目</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-small" onclick="addMobileTrackerDirection()" style="margin-top:8px;width:100%;">
+                                        ➕ 添加到关注列表
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 编辑知识弹窗 -->
                 <div class="modal-overlay hidden" id="editKBModal" onclick="closeEditKBModal()">
                     <div class="modal" onclick="event.stopPropagation()">
@@ -6671,8 +7292,12 @@ padding: 7px !important;
          github: null,
          firstLoaded: false,
          title: '🌿 心事与任务',
-         activeTab: 'feeling', // 'feeling' 或 'task'
-         expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
+          activeTab: 'feeling', // 'feeling' 或 'task'
+          expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
+          trackerConfig: { // 项目目标追踪面板配置
+              projectId: '', // 上次选择的项目
+              directions: [] // 上次选择的方向列表
+          },
          ammoLibrary: [], // 弹药库 - 用户个人创建的表达库，从练习记录和感受记录中收集
          recentFocuses: [], // 近期关注的事 [{id, content, createdAt}]
          taskTriggers: [], // 任务触发提醒 [{id, taskId, type: 'time'|'condition', triggerConfig, reminderConfig, createdAt}]
@@ -12784,10 +13409,11 @@ padding: 7px !important;
                  communicationChecklists: data.communicationChecklists,
                  recentFocuses: data.recentFocuses,
                  tagConfig: data.tagConfig,
-                 taskTriggers: data.taskTriggers,
-                 knowledgeBase: data.knowledgeBase,
-                 projects: data.projects,
-                 aiContents: data.aiContents,
+                  taskTriggers: data.taskTriggers,
+                  knowledgeBase: data.knowledgeBase,
+                  projects: data.projects,
+                  aiContents: data.aiContents,
+                  trackerConfig: data.trackerConfig,
                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -14230,6 +14856,7 @@ padding: 7px !important;
                   if (remote.knowledgeBase) data.knowledgeBase = remote.knowledgeBase;
                   if (remote.projects) data.projects = remote.projects;
                   if (remote.aiContents) data.aiContents = remote.aiContents;
+                  if (remote.trackerConfig) data.trackerConfig = remote.trackerConfig;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
@@ -14256,16 +14883,19 @@ padding: 7px !important;
                  updateAllModelSelectors();
                 
                  // 拉取完成后检查并触发提醒
-                 checkTriggers();
+                checkTriggers();
                 
-                  hideBanner(loadingBanner);
-                  // 更新操作日志
-                   updateGithubOperationLog('✅ 拉取数据成功', 'success');
-                   if (manual) {
-                       showBanner('拉取成功', 'success', 2000);
-                  } else {
-                      showBanner('自动拉取成功', 'success', 2000);
-                  }
+                 hideBanner(loadingBanner);
+                 // 更新操作日志
+                  updateGithubOperationLog('✅ 拉取数据成功', 'success');
+                  if (manual) {
+                      showBanner('拉取成功', 'success', 2000);
+                 } else {
+                     showBanner('自动拉取成功', 'success', 2000);
+                 }
+                 
+                 // 触发拉取完成事件，通知面板重新渲染
+                 window.dispatchEvent(new Event('githubPullComplete'));
               } catch(e) {
                   hideBanner(loadingBanner);
                   const msg = '拉取失败：' + (e.message || '网络错误');
@@ -20724,9 +21354,227 @@ ${knowledgeSummary}
      
      // 移动端浮动按钮点击处理
      function handleMobileFabClick() {
-         showQuickRecordModal();
-         // 自动尝试读取剪贴板内容
-         appendClipboardContent();
+         // 显示功能选择菜单
+         showMobileMenu();
+     }
+     
+     // 显示移动端功能选择菜单
+     function showMobileMenu() {
+         document.getElementById('mobileMenuModal').classList.remove('hidden');
+     }
+     
+     // 关闭移动端菜单
+     function closeMobileMenu() {
+         document.getElementById('mobileMenuModal').classList.add('hidden');
+     }
+     
+     // 选择移动端功能
+     function selectMobileFeature(feature) {
+         closeMobileMenu();
+         
+         if (feature === 'quickRecord') {
+             // 快速记录
+             setTimeout(() => {
+                 showQuickRecordModal();
+                 // 自动尝试读取剪贴板内容
+                 appendClipboardContent();
+             }, 100);
+         } else if (feature === 'tracker') {
+             // 项目追踪 - 打开全屏模态框
+             setTimeout(() => {
+                 showMobileTrackerModal();
+             }, 100);
+         }
+     }
+     
+     // 显示移动端项目追踪模态框 - 居中显示
+     function showMobileTrackerModal() {
+         const modal = document.getElementById('mobileTrackerModal');
+         if (modal) {
+             modal.classList.remove('hidden');
+             // 初始化移动端追踪数据
+             initMobileTrackerData();
+         }
+     }
+     
+     // 关闭移动端项目追踪模态框
+     function closeMobileTrackerModal() {
+         const modal = document.getElementById('mobileTrackerModal');
+         if (modal) {
+             modal.classList.add('hidden');
+         }
+     }
+     
+     // 初始化移动端追踪数据
+     function initMobileTrackerData() {
+         // 使用与桌面端相同的数据和状态
+         renderMobileTrackerTasks();
+         loadMobileTrackerProjects();
+     }
+     
+     // 切换移动端输入区域显示/隐藏
+     function toggleMobileTrackerInput() {
+         const inputSection = document.getElementById('mobileTrackerInputSection');
+         const collapseBtn = document.getElementById('mobileTrackerCollapseBtn');
+         
+         if (inputSection.style.display === 'none') {
+             inputSection.style.display = 'block';
+             if (collapseBtn) {
+                 collapseBtn.innerHTML = '◐ 收起输入框';
+                 collapseBtn.classList.remove('btn-secondary');
+                 collapseBtn.classList.add('btn-primary');
+             }
+         } else {
+             inputSection.style.display = 'none';
+             if (collapseBtn) {
+                 collapseBtn.innerHTML = '➕ 添加方向组合';
+                 collapseBtn.classList.remove('btn-primary');
+                 collapseBtn.classList.add('btn-secondary');
+             }
+         }
+     }
+     
+     // 渲染移动端已选方向列表
+     function renderMobileTrackerTasks() {
+         const container = document.getElementById('mobileTrackerTaskList');
+         
+         if (trackerState.selectedItems.length === 0) {
+             container.innerHTML = `
+                 <div class="tracker-empty">
+                     <div class="tracker-empty-icon">🏷️</div>
+                     <div class="tracker-empty-text">暂无已选方向组合</div>
+                 </div>
+             `;
+             return;
+         }
+         
+         container.innerHTML = '';
+         
+         // 显示标题
+         const titleDiv = document.createElement('div');
+         titleDiv.className = 'tracker-list-title';
+         titleDiv.innerHTML = '📌 当前关注的方向组合';
+         container.appendChild(titleDiv);
+         
+         // 显示已选的方向列表
+         trackerState.selectedItems.forEach((item, index) => {
+             const itemDiv = document.createElement('div');
+             itemDiv.className = 'tracker-selected-item';
+             itemDiv.innerHTML = `
+                 <div class="tracker-selected-content">
+                     <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
+                     <span class="tracker-selected-arrow">→</span>
+                     <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
+                 </div>
+                 <button class="tracker-remove-btn" onclick="removeMobileTrackerItem(${index})" title="移除这个方向组合">×</button>
+             `;
+             container.appendChild(itemDiv);
+         });
+     }
+     
+     // 移除移动端已选方向
+     function removeMobileTrackerItem(index) {
+         trackerState.selectedItems.splice(index, 1);
+         saveTrackerConfig();
+         renderMobileTrackerTasks();
+     }
+     
+     // 加载移动端项目列表
+     function loadMobileTrackerProjects() {
+         const select = document.getElementById('mobileTrackerProjectSelect');
+         if (!select) return;
+         
+         select.innerHTML = '<option value="">-- 请选择项目 --</option>';
+         
+         const sortedProjects = Object.values(data.projects || {}).sort((a, b) => a.name.localeCompare(b.name));
+         const projectMap = new Map();
+         
+         sortedProjects.forEach(project => {
+             const option = document.createElement('option');
+             option.value = project.id;
+             option.textContent = project.name;
+             select.appendChild(option);
+             projectMap.set(project.id, project);
+         });
+     }
+     
+     // 加载移动端方向列表
+     function loadMobileTrackerDirections() {
+         const projectId = document.getElementById('mobileTrackerProjectSelect').value;
+         const container = document.getElementById('mobileTrackerDirectionsContainer');
+         
+         if (!projectId) {
+             container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">请先选择项目</span>';
+             return;
+         }
+         
+         const project = data.projects[projectId];
+         if (!project || !project.directions || project.directions.length === 0) {
+             container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">该项目没有配置方向</span>';
+             return;
+         }
+         
+         container.innerHTML = '';
+         
+         project.directions.forEach(direction => {
+             const label = document.createElement('label');
+             label.className = 'direction-checkbox';
+             label.innerHTML = `
+                 <input type="checkbox" value="${escapeHtml(direction)}">
+                 <span>${escapeHtml(direction)}</span>
+             `;
+             container.appendChild(label);
+         });
+     }
+     
+     // 移动端添加方向
+     function addMobileTrackerDirection() {
+         const select = document.getElementById('mobileTrackerProjectSelect');
+         const projectId = select.value;
+         const container = document.getElementById('mobileTrackerDirectionsContainer');
+         const checkboxes = container.querySelectorAll('input[type="checkbox"]:checked');
+         
+         if (!projectId) {
+             showBanner('请先选择项目', '#ff9800', 1500);
+             return;
+         }
+         
+         if (checkboxes.length === 0) {
+             showBanner('请至少选择一个方向', '#ff9800', 1500);
+             return;
+         }
+         
+         const project = data.projects[projectId];
+         const projectName = project ? project.name : projectId;
+         
+         checkboxes.forEach(cb => {
+             const direction = cb.value;
+             
+             // 检查是否已存在
+             const exists = trackerState.selectedItems.some(item =>
+                 item.projectId === projectId && item.direction === direction
+             );
+             
+             if (!exists) {
+                 trackerState.selectedItems.push({
+                     projectId,
+                     projectName,
+                     direction,
+                     addedAt: Date.now()
+                 });
+             }
+         });
+         
+         // 保存配置
+         saveTrackerConfig();
+         
+         // 立即重新渲染已选列表
+         renderMobileTrackerTasks();
+         
+         // 取消所有复选框
+         checkboxes.forEach(cb => cb.checked = false);
+         
+         showBanner('已添加', '#4caf50', 1500);
      }
      
      // 追加剪贴板内容
@@ -20899,11 +21747,567 @@ ${knowledgeSummary}
          } else {
              console.error('找不到浮动按钮元素');
          }
-     }
-     
-     </script>
-     
-     <!-- 移动端浮动操作按钮 -->
-     <button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
- </body>
- </html>
+}
+
+// ========== 项目目标追踪面板功能 ==========
+let trackerState = {
+    selectedProject: '',
+    selectedDirections: [],
+    selectedItems: [],  // 已选的方向组合列表
+    isMinimized: false
+};
+
+// 初始化项目目标追踪面板
+function initProjectGoalTracker(skipRender = false) {
+    // 从配置中恢复上次的项目选择（如果有）
+    if (data.trackerConfig && data.trackerConfig.projectId) {
+        trackerState.selectedProject = data.trackerConfig.projectId;
+    }
+    
+    // 从配置中恢复上次选择的方向
+    if (data.trackerConfig && data.trackerConfig.directions) {
+        trackerState.selectedDirections = [...data.trackerConfig.directions];
+    }
+    
+    // 从配置中恢复已选的方向组合列表
+    if (data.trackerConfig && data.trackerConfig.selectedItems) {
+        trackerState.selectedItems = [...data.trackerConfig.selectedItems];
+    } else {
+        trackerState.selectedItems = [];
+    }
+    
+    // 加载项目列表
+    loadTrackerProjects();
+    
+    // 设置拖拽功能
+    setupTrackerDrag();
+    
+    // 默认隐藏面板和按钮
+    const tracker = document.getElementById('projectGoalTracker');
+    const toggleBtn = document.getElementById('trackerToggleBtn');
+    if (tracker) tracker.classList.remove('show');
+    if (toggleBtn) toggleBtn.classList.remove('show');
+    
+    // 监听选项卡切换，只在"想做的事"选项卡显示
+    setupTrackerTabListener();
+    
+    // 延迟检查，等待页面完全加载和选项卡状态确定
+    setTimeout(() => {
+        // 检查当前实际的选项卡状态（通过 DOM 元素判断）
+        const taskArea = document.getElementById('taskArea');
+        const feelingArea = document.getElementById('feelingArea');
+        
+        // 如果任务区域是激活状态（有 active 类或显示）
+        if (taskArea && taskArea.classList.contains('active')) {
+            if (toggleBtn) toggleBtn.classList.add('show');
+        } else if (feelingArea && feelingArea.classList.contains('active')) {
+            // 如果是感受区域，确保隐藏
+            if (tracker) tracker.classList.remove('show');
+            if (toggleBtn) toggleBtn.classList.remove('show');
+        }
+    }, 500);
+    
+    // 如果不跳过渲染，则立即渲染数据
+    if (!skipRender) {
+        renderTrackerTasks();
+    }
+}
+
+// 设置选项卡切换监听
+function setupTrackerTabListener() {
+    // 查找选项卡按钮并添加监听
+    const taskTabBtn = document.querySelector('.type-btn[data-type="task"]');
+    const feelingTabBtn = document.querySelector('.type-btn[data-type="feeling"]');
+    
+    if (taskTabBtn) {
+        taskTabBtn.addEventListener('click', function() {
+            setTimeout(() => {
+                const toggleBtn = document.getElementById('trackerToggleBtn');
+                if (toggleBtn) toggleBtn.classList.add('show');
+            }, 200);
+        });
+    }
+    
+    if (feelingTabBtn) {
+        feelingTabBtn.addEventListener('click', function() {
+            setTimeout(() => {
+                const tracker = document.getElementById('projectGoalTracker');
+                const toggleBtn = document.getElementById('trackerToggleBtn');
+                if (tracker) tracker.classList.remove('show');
+                if (toggleBtn) toggleBtn.classList.remove('show');
+            }, 200);
+        });
+    }
+}
+
+// 检查当前页面并显示/隐藏面板
+function checkAndShowTrackerPanel() {
+    const tracker = document.getElementById('projectGoalTracker');
+    const toggleBtn = document.getElementById('trackerToggleBtn');
+    
+    if (!tracker || !toggleBtn) return;
+    
+    // 检查当前是否为"想做的事"选项卡
+    const isTaskPage = isCurrentTaskPage();
+    
+    if (isTaskPage) {
+        // 显示触发按钮
+        toggleBtn.classList.add('show');
+    } else {
+        // 隐藏面板和按钮
+        tracker.classList.remove('show');
+        toggleBtn.classList.remove('show');
+    }
+}
+
+// 判断当前是否为"想做的事"选项卡
+function isCurrentTaskPage() {
+    // 直接检查 data.activeTab
+    return data && data.activeTab === 'task';
+}
+
+// 切换面板显示/隐藏
+function toggleTrackerPanel() {
+    const tracker = document.getElementById('projectGoalTracker');
+    const toggleBtn = document.getElementById('trackerToggleBtn');
+    
+    if (!tracker || !toggleBtn) return;
+    
+    if (tracker.classList.contains('show')) {
+        // 隐藏面板，保留按钮显示
+        tracker.classList.remove('show');
+    } else {
+        // 显示面板
+        tracker.classList.add('show');
+        // 确保按钮也显示
+        toggleBtn.classList.add('show');
+    }
+}
+
+// 关闭面板
+function closeTrackerPanel() {
+    const tracker = document.getElementById('projectGoalTracker');
+    if (tracker) {
+        tracker.classList.remove('show');
+    }
+}
+
+// 已选方向列表（存储 {projectId, projectName, direction}）
+trackerState.selectedItems = trackerState.selectedItems || [];
+
+// 加载项目列表到下拉框
+function loadTrackerProjects() {
+    const select = document.getElementById('trackerProjectSelect');
+    if (!select) return;
+    
+    // 获取所有项目：从项目管理数据 + 任务中引用的项目 ID
+    const projectMap = new Map();
+    
+    // 1. 先从项目管理数据中添加所有项目
+    if (data.projects && data.projects.length > 0) {
+        data.projects.forEach(project => {
+            if (project.id) {
+                projectMap.set(project.id, {
+                    id: project.id,
+                    name: project.name || project.id,
+                    from: 'project'
+                });
+            }
+        });
+    }
+    
+    // 2. 从任务中提取有 projectId 的项目（如果项目管理中没有）
+    data.tasks.forEach(task => {
+        if (task.projectId && task.type === 'task') {
+            if (!projectMap.has(task.projectId)) {
+                projectMap.set(task.projectId, {
+                    id: task.projectId,
+                    name: task.projectId,
+                    from: 'task'
+                });
+            }
+        }
+    });
+    
+    // 清空并重新填充
+    select.innerHTML = '<option value="">-- 请选择项目 --</option>';
+    
+    // 按项目名称排序
+    const sortedProjects = Array.from(projectMap.values()).sort((a, b) =>
+        a.name.localeCompare(b.name, 'zh-CN')
+    );
+    
+    sortedProjects.forEach(project => {
+        const option = document.createElement('option');
+        option.value = project.id;
+        option.textContent = project.name;
+        select.appendChild(option);
+    });
+    
+    // 如果之前有选择的项目，尝试恢复
+    if (trackerState.selectedProject && projectMap.has(trackerState.selectedProject)) {
+        select.value = trackerState.selectedProject;
+    }
+    
+    // 加载已选方向组合列表
+    renderTrackerTasks();
+}
+
+// 添加选中的方向到列表
+function addTrackerDirection() {
+    const select = document.getElementById('trackerProjectSelect');
+    const projectId = select.value;
+    
+    if (!projectId) {
+        showBanner('请先选择项目', '#ff9800', 2000);
+        return;
+    }
+    
+    // 获取当前选中的方向
+    const checkboxes = document.querySelectorAll('.direction-checkbox:checked');
+    if (checkboxes.length === 0) {
+        showBanner('请至少选择一个方向', '#ff9800', 2000);
+        return;
+    }
+    
+    // 获取项目名称
+    const projectName = select.options[select.selectedIndex].text;
+    
+    // 添加每个选中的方向
+    checkboxes.forEach(checkbox => {
+        const direction = checkbox.value;
+        
+        // 检查是否已存在
+        const exists = trackerState.selectedItems.some(item =>
+            item.projectId === projectId && item.direction === direction
+        );
+        
+        if (!exists) {
+            trackerState.selectedItems.push({
+                projectId,
+                projectName,
+                direction,
+                addedAt: Date.now()
+            });
+        }
+    });
+    
+    // 保存配置
+    saveTrackerConfig();
+    
+    // 立即重新渲染已选列表
+    renderTrackerTasks();
+    
+    // 取消所有复选框
+    checkboxes.forEach(cb => cb.checked = false);
+    
+    showBanner('已添加', '#4caf50', 1500);
+}
+
+// 切换显示/隐藏输入区域
+function toggleTrackerInputSection() {
+    const inputSection = document.getElementById('trackerInputSection');
+    const collapseBtn = document.getElementById('trackerCollapseBtn');
+    
+    if (inputSection.style.display === 'none') {
+        // 展开
+        inputSection.style.display = 'block';
+        if (collapseBtn) {
+            collapseBtn.innerHTML = '◐ 收起输入框';
+            collapseBtn.classList.remove('btn-secondary');
+            collapseBtn.classList.add('btn-primary');
+        }
+    } else {
+        // 收起
+        inputSection.style.display = 'none';
+        if (collapseBtn) {
+            collapseBtn.innerHTML = '➕ 添加方向组合';
+            collapseBtn.classList.remove('btn-primary');
+            collapseBtn.classList.add('btn-secondary');
+        }
+    }
+}
+
+// 移除已选方向
+function removeTrackerItem(index) {
+    trackerState.selectedItems.splice(index, 1);
+    saveTrackerConfig();
+    renderTrackerTasks();  // 立即重新渲染已选列表
+}
+
+// 保存配置到 data
+function saveTrackerConfig() {
+    if (!data.trackerConfig) data.trackerConfig = {};
+    data.trackerConfig.selectedItems = trackerState.selectedItems;
+    saveData();
+}
+
+// 渲染已选方向列表
+function renderTrackerSelectedItems() {
+    const container = document.getElementById('trackerSelectedContainer');
+    if (!container) return;
+    
+    if (trackerState.selectedItems.length === 0) {
+        container.innerHTML = `
+            <div class="tracker-empty">
+                <div class="tracker-empty-icon">🏷️</div>
+                <div class="tracker-empty-text">暂无已选方向，请上方选择后添加</div>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = '';
+    
+    trackerState.selectedItems.forEach((item, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'tracker-selected-tag';
+        tag.innerHTML = `
+            <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
+            <span class="tracker-selected-separator">›</span>
+            <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
+            <button class="tracker-remove-btn" onclick="removeTrackerItem(${index})" title="移除">×</button>
+        `;
+        container.appendChild(tag);
+    });
+}
+
+// 加载选中项目的细分方向
+function loadTrackerDirections() {
+    const projectId = document.getElementById('trackerProjectSelect').value;
+    const container = document.getElementById('trackerDirectionsContainer');
+    
+    if (!projectId) {
+        container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">请先选择项目</span>';
+        trackerState.selectedProject = '';
+        trackerState.selectedDirections = [];
+        renderTrackerTasks();
+        return;
+    }
+    
+    trackerState.selectedProject = projectId;
+    
+    // 保存到配置中（用于 GitHub 同步）
+    if (!data.trackerConfig) data.trackerConfig = {};
+    data.trackerConfig.projectId = projectId;
+    data.trackerConfig.directions = [...trackerState.selectedDirections];
+    saveData(); // 保存到本地
+    
+    // 获取该项目定义的细分方向（优先从项目管理数据中获取）
+    const directions = new Set();
+    
+    // 1. 先从项目管理数据中获取方向
+    const project = data.projects?.find(p => p.id === projectId);
+    if (project) {
+        // 如果有 mainDirection，添加它
+        if (project.mainDirection) {
+            directions.add(project.mainDirection);
+        }
+        // 如果有 subDirections 数组，添加所有方向
+        if (project.subDirections && Array.isArray(project.subDirections)) {
+            project.subDirections.forEach(dir => {
+                if (typeof dir === 'string') {
+                    directions.add(dir);
+                } else if (dir && dir.name) {
+                    directions.add(dir.name);
+                }
+            });
+        }
+    }
+    
+    // 2. 从任务中补充方向（如果项目管理中没有定义）
+    data.tasks.forEach(task => {
+        if (task.projectId === projectId && task.direction) {
+            directions.add(task.direction);
+        }
+    });
+    
+    if (directions.size === 0) {
+        container.innerHTML = '<span style="font-size:12px;color:var(--text-secondary);">该项目暂无细分方向（请在项目管理中配置或添加任务）</span>';
+        trackerState.selectedDirections = [];
+        renderTrackerTasks();
+        return;
+    }
+    
+    // 渲染方向复选框
+    container.innerHTML = '';
+    directions.forEach(direction => {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'dir-' + direction.replace(/\s+/g, '-');
+        checkbox.value = direction;
+        checkbox.className = 'direction-checkbox';
+        checkbox.checked = trackerState.selectedDirections.includes(direction);
+        checkbox.onchange = () => {
+            if (checkbox.checked) {
+                if (!trackerState.selectedDirections.includes(direction)) {
+                    trackerState.selectedDirections.push(direction);
+                }
+            } else {
+                trackerState.selectedDirections = trackerState.selectedDirections.filter(d => d !== direction);
+            }
+            
+            // 保存到配置中（用于 GitHub 同步）
+            if (!data.trackerConfig) data.trackerConfig = {};
+            data.trackerConfig.directions = [...trackerState.selectedDirections];
+            saveData(); // 保存到本地
+            
+            renderTrackerTasks();
+        };
+        
+        const label = document.createElement('label');
+        label.htmlFor = checkbox.id;
+        label.className = 'direction-label';
+        label.textContent = direction;
+        
+        container.appendChild(checkbox);
+        container.appendChild(label);
+    });
+    
+    renderTrackerTasks();
+}
+
+// 渲染已选方向组合列表（只显示已选的方向，不显示任务和统计）
+function renderTrackerTasks() {
+    const container = document.getElementById('trackerTaskList');
+    
+    // 显示已选的方向组合列表
+    if (trackerState.selectedItems.length === 0) {
+        container.innerHTML = `
+            <div class="tracker-empty">
+                <div class="tracker-empty-icon">🏷️</div>
+                <div class="tracker-empty-text">暂无已选方向组合<br>请在上方选择项目后勾选方向并点击"添加"</div>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = '';
+    
+    // 显示标题
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'tracker-list-title';
+    titleDiv.innerHTML = '📌 当前关注的方向组合';
+    container.appendChild(titleDiv);
+    
+    // 显示已选的方向列表
+    trackerState.selectedItems.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'tracker-selected-item';
+        itemDiv.innerHTML = `
+            <div class="tracker-selected-content">
+                <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
+                <span class="tracker-selected-arrow">→</span>
+                <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
+            </div>
+            <button class="tracker-remove-btn" onclick="removeTrackerItem(${index})" title="移除这个方向组合">×</button>
+        `;
+        container.appendChild(itemDiv);
+    });
+}
+
+// 切换面板最小化
+function toggleTrackerMinimize() {
+    const tracker = document.getElementById('projectGoalTracker');
+    trackerState.isMinimized = !trackerState.isMinimized;
+    
+    if (trackerState.isMinimized) {
+        tracker.classList.add('minimized');
+    } else {
+        tracker.classList.remove('minimized');
+    }
+}
+
+// 切换面板显示/隐藏
+function toggleTrackerVisibility() {
+    const tracker = document.getElementById('projectGoalTracker');
+    tracker.classList.toggle('hidden');
+}
+
+// 设置面板拖拽功能
+function setupTrackerDrag() {
+    const tracker = document.getElementById('projectGoalTracker');
+    const header = document.getElementById('trackerHeader');
+    
+    if (!tracker || !header) return;
+    
+    let isDragging = false;
+    let startX, startY, startLeft, startTop;
+    
+    header.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        startLeft = tracker.offsetLeft;
+        startTop = tracker.offsetTop;
+        
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+    
+    function onMouseMove(e) {
+        if (!isDragging) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        tracker.style.left = (startLeft + dx) + 'px';
+        tracker.style.top = (startTop + dy) + 'px';
+        tracker.style.bottom = 'auto';
+        tracker.style.right = 'auto';
+    }
+    
+    function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }
+}
+
+// 工具函数：转义 HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// 页面加载完成后初始化面板
+document.addEventListener('DOMContentLoaded', () => {
+    // 延迟一点时间确保 DOM 完全加载
+    setTimeout(() => {
+        // 先初始化面板结构（但不加载数据）
+        initProjectGoalTracker(true);  // true 表示只初始化结构，不渲染数据
+        // 初始检查页面状态
+        checkAndShowTrackerPanel();
+        
+        // 如果有 GitHub 配置，等待自动拉取完成后再渲染面板数据
+        if (data.github && data.github.username) {
+            // 监听拉取完成事件
+            window.addEventListener('githubPullComplete', () => {
+                // 拉取完成后重新渲染面板
+                setTimeout(() => {
+                    renderTrackerTasks();
+                }, 100);
+            });
+        }
+    }, 1000);
+});
+
+
+// 页面加载完成后初始化移动端功能
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            const mobileFab = document.getElementById('mobileFab');
+            if (mobileFab) {
+                // 移动端 FAB 按钮已存在，无需额外初始化
+            }
+        }, 500);
+    });
+}
+</script>
+
+<!-- 移动端浮动操作按钮 -->
+<button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
+</body>
+</html>
