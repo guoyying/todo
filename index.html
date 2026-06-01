@@ -5481,12 +5481,12 @@ padding: 7px !important;
         <!-- 项目选择和方向筛选（默认隐藏） -->
         <div id="trackerInputSection" class="tracker-input-section" style="display:none;">
             <!-- 项目选择 -->
-           <div class="tracker-project-select">
-               <label>📁 选择项目</label>
-               <select id="trackerProjectSelect" onchange="loadTrackerDirectionsWrapper()">
-                   <option value="">-- 请选择项目 --</option>
-               </select>
-           </div>
+          <div class="tracker-project-select">
+              <label>📁 选择项目</label>
+              <select id="trackerProjectSelect" onchange="loadTrackerDirections({selectId: 'trackerProjectSelect', containerId: 'trackerDirectionsContainer', isMobile: false, saveConfig: true})">
+                  <option value="">-- 请选择项目 --</option>
+              </select>
+          </div>
             
             <!-- 方向筛选 -->
             <div class="tracker-directions">
@@ -6174,12 +6174,12 @@ padding: 7px !important;
                             <!-- 项目选择和方向筛选 -->
                             <div id="mobileTrackerInputSection" class="tracker-input-section" style="display:none;">
                                 <!-- 项目选择 -->
-                                <div class="tracker-project-select">
-                                    <label>📁 选择项目</label>
-                                    <select id="mobileTrackerProjectSelect" onchange="loadMobileTrackerDirections()">
-                                        <option value="">-- 请选择项目 --</option>
-                                    </select>
-                                </div>
+                               <div class="tracker-project-select">
+                                   <label>📁 选择项目</label>
+                                   <select id="mobileTrackerProjectSelect" onchange="loadTrackerDirections({selectId: 'mobileTrackerProjectSelect', containerId: 'mobileTrackerDirectionsContainer', isMobile: true, saveConfig: false})">
+                                       <option value="">-- 请选择项目 --</option>
+                                   </select>
+                               </div>
                                 
                                 <!-- 方向筛选 -->
                                 <div class="tracker-directions">
@@ -14917,8 +14917,13 @@ padding: 7px !important;
                      showBanner('自动拉取成功', 'success', 2000);
                  }
                  
-                 // 触发拉取完成事件，通知面板重新渲染
-                 window.dispatchEvent(new Event('githubPullComplete'));
+                  // 重新初始化项目目标追踪面板，确保使用最新的 trackerConfig
+                  if (typeof initProjectGoalTracker === 'function') {
+                      initProjectGoalTracker();
+                  }
+                  
+                  // 触发拉取完成事件
+                  window.dispatchEvent(new Event('githubPullComplete'));
               } catch(e) {
                   hideBanner(loadingBanner);
                   const msg = '拉取失败：' + (e.message || '网络错误');
@@ -21428,13 +21433,21 @@ ${knowledgeSummary}
          }
      }
      
-     // 初始化移动端追踪数据 - 只在打开模态框时渲染
-     function initMobileTrackerData() {
-         // 加载项目列表
-         loadMobileTrackerProjects();
-         // 只在打开模态框时渲染已选列表
-         renderMobileTrackerTasks();
-     }
+   // 初始化移动端追踪数据 - 每次打开模态框都刷新数据
+   function initMobileTrackerData() {
+       // 加载项目列表（会重新从 data.projects 读取，确保数据最新）
+       loadTrackerProjects({
+           selectId: 'mobileTrackerProjectSelect',
+           containerId: 'mobileTrackerDirectionsContainer',
+           isMobile: true,
+           loadFromTasks: false
+       });
+       
+       // 渲染已选方向列表（从 trackerState.selectedItems 读取）
+       setTimeout(() => {
+           renderTrackerTasks('mobileTrackerSelectedContainer');
+       }, 100);
+   }
      
      // 切换移动端输入区域显示/隐藏
      function toggleMobileTrackerInput() {
@@ -21458,81 +21471,132 @@ ${knowledgeSummary}
          }
      }
      
-     // 渲染移动端已选方向列表
-     function renderMobileTrackerTasks() {
-         const container = document.getElementById('mobileTrackerTaskList');
-         
-         if (trackerState.selectedItems.length === 0) {
-             container.innerHTML = `
-                 <div class="tracker-empty">
-                     <div class="tracker-empty-icon">🏷️</div>
-                     <div class="tracker-empty-text">暂无已选方向组合</div>
-                 </div>
-             `;
-             return;
-         }
-         
-         container.innerHTML = '';
-         
-         // 显示标题
-         const titleDiv = document.createElement('div');
-         titleDiv.className = 'tracker-list-title';
-         titleDiv.innerHTML = '📌 当前关注的方向组合';
-         container.appendChild(titleDiv);
-         
-         // 显示已选的方向列表
-         trackerState.selectedItems.forEach((item, index) => {
-             const itemDiv = document.createElement('div');
-             itemDiv.className = 'tracker-selected-item';
-             itemDiv.innerHTML = `
-                 <div class="tracker-selected-content">
-                     <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
-                     <span class="tracker-selected-arrow">→</span>
-                     <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
-                 </div>
-                 <button class="tracker-remove-btn" onclick="removeMobileTrackerItem(${index})" title="移除这个方向组合">×</button>
-             `;
-             container.appendChild(itemDiv);
-         });
-     }
-     
-     // 移除移动端已选方向
-     function removeMobileTrackerItem(index) {
-         trackerState.selectedItems.splice(index, 1);
-         saveTrackerConfig();
-         renderMobileTrackerTasks();
-     }
-     
-    // 加载移动端项目列表
-    function loadMobileTrackerProjects() {
-        const select = document.getElementById('mobileTrackerProjectSelect');
-        if (!select) return;
+    // 通用渲染已选方向列表函数（桌面端和移动端共用）
+    // containerId: 容器 ID
+    // removeFuncName: 移除按钮的函数名（'removeTrackerItem' 或 'removeMobileTrackerItem'）
+    function renderTrackerTasks(containerId = 'trackerTaskList', removeFuncName = 'removeTrackerItem') {
+        const container = document.getElementById(containerId);
+        if (!container) return;
         
-        select.innerHTML = '<option value="">-- 请选择项目 --</option>';
+        if (trackerState.selectedItems.length === 0) {
+            container.innerHTML = `
+                <div class="tracker-empty">
+                    <div class="tracker-empty-icon">🏷️</div>
+                    <div class="tracker-empty-text">暂无已选方向组合<br>请在上方选择项目后勾选方向并点击"添加"</div>
+                </div>
+            `;
+            return;
+        }
         
-        const sortedProjects = Object.values(data.projects || {}).sort((a, b) => a.name.localeCompare(b.name));
-        const projectMap = new Map();
+        container.innerHTML = '';
         
-        sortedProjects.forEach(project => {
-            const option = document.createElement('option');
-            option.value = project.id;
-            option.textContent = project.name;
-            select.appendChild(option);
-            projectMap.set(project.id, project);
+        // 显示标题
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'tracker-list-title';
+        titleDiv.innerHTML = '📌 当前关注的方向组合';
+        container.appendChild(titleDiv);
+        
+        // 显示已选的方向列表（从最新的项目数据中获取项目名称）
+        trackerState.selectedItems.forEach((item, index) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'tracker-selected-item';
+            
+            // 从最新的项目数据中获取项目名称（确保项目被重命名后能正确显示）
+            const project = data.projects?.find(p => p.id === item.projectId);
+            const currentProjectName = project ? project.name : item.projectName;
+            
+            itemDiv.innerHTML = `
+                <div class="tracker-selected-content">
+                    <span class="tracker-selected-project">${escapeHtml(currentProjectName)}</span>
+                    <span class="tracker-selected-arrow">→</span>
+                    <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
+                </div>
+                <button class="tracker-remove-btn" onclick="${removeFuncName}(${index})" title="移除这个方向组合">×</button>
+            `;
+            container.appendChild(itemDiv);
         });
-        
-        // 恢复之前选择的项目（如果有）
-        if (trackerState.selectedProject && projectMap.has(trackerState.selectedProject)) {
-            select.value = trackerState.selectedProject;
-            // 自动加载该项目的细分方向
-            loadTrackerDirections({
-                selectId: 'mobileTrackerProjectSelect',
-                containerId: 'mobileTrackerDirectionsContainer',
-                isMobile: true,
-                saveConfig: false
-            });
+    }
+    
+    // 移除已选方向（桌面端和移动端共用）
+    function removeTrackerItem(index, isMobile = false) {
+        trackerState.selectedItems.splice(index, 1);
+        saveTrackerConfig();
+        // 根据平台调用对应的渲染函数
+        if (isMobile) {
+            renderTrackerTasks('mobileTrackerTaskList', 'removeTrackerItem');
+        } else {
+            renderTrackerTasks('trackerTaskList', 'removeTrackerItem');
         }
     }
+     
+   // 通用加载项目列表函数（桌面端和移动端共用）
+   // config: { selectId, containerId, isMobile, loadFromTasks }
+   function loadTrackerProjects(config) {
+       const { selectId, containerId, isMobile = false, loadFromTasks = true } = config;
+       const select = document.getElementById(selectId);
+       if (!select) return;
+       
+       // 获取所有项目：从项目管理数据 + 任务中引用的项目 ID（可选）
+       const projectMap = new Map();
+       
+       // 1. 先从项目管理数据中添加所有项目
+       if (data.projects && data.projects.length > 0) {
+           data.projects.forEach(project => {
+               if (project.id) {
+                   projectMap.set(project.id, {
+                       id: project.id,
+                       name: project.name || project.id,
+                       from: 'project'
+                   });
+               }
+           });
+       }
+       
+       // 2. 从任务中提取有 projectId 的项目（可选，仅桌面端需要）
+       if (loadFromTasks) {
+           data.tasks.forEach(task => {
+               if (task.projectId && task.type === 'task') {
+                   if (!projectMap.has(task.projectId)) {
+                       projectMap.set(task.projectId, {
+                           id: task.projectId,
+                           name: task.projectId,
+                           from: 'task'
+                       });
+                   }
+               }
+           });
+       }
+       
+       // 清空并重新填充
+       select.innerHTML = '<option value="">-- 请选择项目 --</option>';
+       
+       // 按项目名称排序
+       const sortedProjects = Array.from(projectMap.values()).sort((a, b) =>
+           a.name.localeCompare(b.name, 'zh-CN')
+       );
+       
+       sortedProjects.forEach(project => {
+           const option = document.createElement('option');
+           option.value = project.id;
+           option.textContent = project.name;
+           select.appendChild(option);
+       });
+       
+       // 恢复之前选择的项目（如果有）
+       if (trackerState.selectedProject && projectMap.has(trackerState.selectedProject)) {
+           select.value = trackerState.selectedProject;
+           // 自动加载该项目的细分方向
+           loadTrackerDirections({
+               selectId,
+               containerId,
+               isMobile,
+               saveConfig: !isMobile
+           });
+       }
+       
+       // 渲染已选列表
+       renderTrackerTasks(isMobile ? 'mobileTrackerTaskList' : 'trackerTaskList', 'removeTrackerItem');
+   }
      
      // 统一的加载方向列表函数（桌面端和移动端共用）
      // config: { selectId, containerId, isMobile, saveConfig }
@@ -21669,25 +21733,6 @@ ${knowledgeSummary}
          }
      }
      
-     // 桌面端加载方向列表（使用新方式调用）
-     function loadTrackerDirectionsWrapper() {
-         loadTrackerDirections({
-             selectId: 'trackerProjectSelect',
-             containerId: 'trackerDirectionsContainer',
-             isMobile: false,
-             saveConfig: true
-         });
-     }
-     
-     // 移动端加载方向列表（使用新方式调用）
-     function loadMobileTrackerDirections() {
-         loadTrackerDirections({
-             selectId: 'mobileTrackerProjectSelect',
-             containerId: 'mobileTrackerDirectionsContainer',
-             isMobile: true,
-             saveConfig: false
-         });
-     }
     // 移动端添加方向
     function addMobileTrackerDirection() {
         const select = document.getElementById('mobileTrackerProjectSelect');
@@ -21727,17 +21772,17 @@ ${knowledgeSummary}
             }
         });
         
-        // 保存配置
-        saveTrackerConfig();
-        
-        // 立即重新渲染已选列表
-        renderMobileTrackerTasks();
-        
-        // 取消所有选中状态
-        selectedButtons.forEach(btn => btn.classList.remove('selected'));
-        
-        showBanner('已添加', '#4caf50', 1500);
-    }
+       // 保存配置
+       saveTrackerConfig();
+       
+       // 立即重新渲染已选列表
+       renderTrackerTasks('mobileTrackerTaskList', 'removeTrackerItem');
+       
+       // 取消所有选中状态
+       selectedButtons.forEach(btn => btn.classList.remove('selected'));
+       
+       showBanner('已添加', '#4caf50', 1500);
+   }
      
      // 追加剪贴板内容
      async function appendClipboardContent() {
@@ -21941,15 +21986,31 @@ function initProjectGoalTracker() {
    
   // 设置拖拽功能（但不加载数据，等待按钮点击）
   setupTrackerDrag();
-   
-   // 默认隐藏面板和按钮
-   const tracker = document.getElementById('projectGoalTracker');
-   const toggleBtn = document.getElementById('trackerToggleBtn');
-   if (tracker) tracker.classList.remove('show');
-   if (toggleBtn) toggleBtn.classList.remove('show');
-   
-   // 监听选项卡切换，只在"想做的事"选项卡显示
-   setupTrackerTabListener();
+  
+  // 默认隐藏面板和按钮
+  const tracker = document.getElementById('projectGoalTracker');
+  const toggleBtn = document.getElementById('trackerToggleBtn');
+  if (tracker) tracker.classList.remove('show');
+  if (toggleBtn) toggleBtn.classList.remove('show');
+  
+  // 监听选项卡切换，只在"想做的事"选项卡显示
+  setupTrackerTabListener();
+  
+  // 添加实时监听：当项目管理数据变化时，如果面板是打开状态，自动刷新
+  // 通过监听 data 对象的变化来实现（需要配合 saveData 函数）
+  window.addEventListener('storage', function(e) {
+      if (e.key === 'todoData') {
+          // 数据已更新，如果面板是打开的，重新加载数据
+          if (tracker && tracker.classList.contains('show')) {
+              loadTrackerProjects({
+                  selectId: 'trackerProjectSelect',
+                  containerId: 'trackerDirectionsContainer',
+                  isMobile: false,
+                  loadFromTasks: true
+              });
+          }
+      }
+  });
    
    // 延迟检查，等待页面完全加载和选项卡状态确定
    setTimeout(() => {
@@ -21970,7 +22031,7 @@ function initProjectGoalTracker() {
    // 不立即渲染，等待用户点击追踪按钮后再渲染
 }
 
-// 显示项目目标追踪面板并渲染结果
+// 显示项目目标追踪面板并渲染结果（每次打开都刷新数据）
 function showTrackerPanel() {
    const tracker = document.getElementById('projectGoalTracker');
    
@@ -21981,19 +22042,13 @@ function showTrackerPanel() {
    
    tracker.classList.add('show');
    
-   // 首次显示时加载项目列表和方向
-   if (!trackerState.initialized) {
-       trackerState.initialized = true;
-       // 加载项目列表
-       loadTrackerProjects();
-       // 如果有已选项目，加载其细分方向
-       if (trackerState.selectedProject) {
-           loadTrackerDirectionsWrapper();
-       }
-   }
-   
-   // 渲染已选方向列表
-   renderTrackerTasks();
+   // 每次打开都刷新项目列表和方向（确保数据最新）
+   loadTrackerProjects({
+       selectId: 'trackerProjectSelect',
+       containerId: 'trackerDirectionsContainer',
+       isMobile: false,
+       loadFromTasks: true
+   });
 }
 
 // 设置选项卡切换监听
@@ -22065,78 +22120,18 @@ function toggleTrackerPanel() {
    }
 }
 
-// 关闭面板
+// 关闭面板并重置状态（下次打开时重新加载数据）
 function closeTrackerPanel() {
-    const tracker = document.getElementById('projectGoalTracker');
-    if (tracker) {
-        tracker.classList.remove('show');
-    }
+   const tracker = document.getElementById('projectGoalTracker');
+   if (tracker) {
+       tracker.classList.remove('show');
+       // 重置 initialized 标记，下次打开时重新加载数据
+       trackerState.initialized = false;
+   }
 }
 
 // 已选方向列表（存储 {projectId, projectName, direction}）
 trackerState.selectedItems = trackerState.selectedItems || [];
-
-// 加载项目列表到下拉框
-function loadTrackerProjects() {
-    const select = document.getElementById('trackerProjectSelect');
-    if (!select) return;
-    
-    // 获取所有项目：从项目管理数据 + 任务中引用的项目 ID
-    const projectMap = new Map();
-    
-    // 1. 先从项目管理数据中添加所有项目
-    if (data.projects && data.projects.length > 0) {
-        data.projects.forEach(project => {
-            if (project.id) {
-                projectMap.set(project.id, {
-                    id: project.id,
-                    name: project.name || project.id,
-                    from: 'project'
-                });
-            }
-        });
-    }
-    
-    // 2. 从任务中提取有 projectId 的项目（如果项目管理中没有）
-    data.tasks.forEach(task => {
-        if (task.projectId && task.type === 'task') {
-            if (!projectMap.has(task.projectId)) {
-                projectMap.set(task.projectId, {
-                    id: task.projectId,
-                    name: task.projectId,
-                    from: 'task'
-                });
-            }
-        }
-    });
-    
-    // 清空并重新填充
-    select.innerHTML = '<option value="">-- 请选择项目 --</option>';
-    
-    // 按项目名称排序
-    const sortedProjects = Array.from(projectMap.values()).sort((a, b) =>
-        a.name.localeCompare(b.name, 'zh-CN')
-    );
-    
-    sortedProjects.forEach(project => {
-        const option = document.createElement('option');
-        option.value = project.id;
-        option.textContent = project.name;
-        select.appendChild(option);
-    });
-    
-   // 如果之前有选择的项目，尝试恢复
-   if (trackerState.selectedProject && projectMap.has(trackerState.selectedProject)) {
-       select.value = trackerState.selectedProject;
-       // 恢复项目选择后，自动加载该项目的细分方向
-       if (typeof loadTrackerDirectionsWrapper === 'function') {
-           loadTrackerDirectionsWrapper();
-       }
-   }
-   
-   // 加载已选方向组合列表
-   renderTrackerTasks();
-}
 
 // 添加选中的方向到列表
 function addTrackerDirection() {
@@ -22177,16 +22172,16 @@ function addTrackerDirection() {
         }
     });
     
-    // 保存配置
-    saveTrackerConfig();
-    
-    // 立即重新渲染已选列表
-    renderTrackerTasks();
-    
-    // 取消所有复选框
-    checkboxes.forEach(cb => cb.checked = false);
-    
-    showBanner('已添加', '#4caf50', 1500);
+   // 保存配置
+   saveTrackerConfig();
+   
+   // 立即重新渲染已选列表
+   renderTrackerTasks('trackerTaskList', 'removeTrackerItem');
+   
+   // 取消所有复选框
+   checkboxes.forEach(cb => cb.checked = false);
+   
+   showBanner('已添加', '#4caf50', 1500);
 }
 
 // 切换显示/隐藏输入区域
@@ -22258,44 +22253,6 @@ function renderTrackerSelectedItems() {
 }
 
 
-// 渲染已选方向组合列表（只显示已选的方向，不显示任务和统计）
-function renderTrackerTasks() {
-    const container = document.getElementById('trackerTaskList');
-    
-    // 显示已选的方向组合列表
-    if (trackerState.selectedItems.length === 0) {
-        container.innerHTML = `
-            <div class="tracker-empty">
-                <div class="tracker-empty-icon">🏷️</div>
-                <div class="tracker-empty-text">暂无已选方向组合<br>请在上方选择项目后勾选方向并点击"添加"</div>
-            </div>
-        `;
-        return;
-    }
-    
-    container.innerHTML = '';
-    
-    // 显示标题
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'tracker-list-title';
-    titleDiv.innerHTML = '📌 当前关注的方向组合';
-    container.appendChild(titleDiv);
-    
-    // 显示已选的方向列表
-    trackerState.selectedItems.forEach((item, index) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'tracker-selected-item';
-        itemDiv.innerHTML = `
-            <div class="tracker-selected-content">
-                <span class="tracker-selected-project">${escapeHtml(item.projectName)}</span>
-                <span class="tracker-selected-arrow">→</span>
-                <span class="tracker-selected-direction">${escapeHtml(item.direction)}</span>
-            </div>
-            <button class="tracker-remove-btn" onclick="removeTrackerItem(${index})" title="移除这个方向组合">×</button>
-        `;
-        container.appendChild(itemDiv);
-    });
-}
 
 // 切换面板最小化
 function toggleTrackerMinimize() {
