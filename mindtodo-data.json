@@ -2880,6 +2880,16 @@
           "id": "1780058964349",
           "name": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
           "completed": false
+        },
+        {
+          "id": "1780299628162",
+          "name": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
+          "completed": false
+        },
+        {
+          "id": "1780299650746",
+          "name": "完成二季度的退网现场检查，向云网部提交检查报告",
+          "completed": false
         }
       ],
       "milestones": [],
@@ -2899,6 +2909,48 @@
       "updatedAt": "2026-05-31T23:47:53.894Z",
       "subDirections": [],
       "milestones": []
+    },
+    {
+      "id": "1780299661890",
+      "name": "网信安",
+      "description": "",
+      "type": "medium",
+      "mainDirection": "",
+      "subDirections": [
+        {
+          "id": "1780299674239",
+          "name": "跟进各种工单",
+          "completed": false
+        }
+      ],
+      "milestones": [],
+      "manualProgress": 0,
+      "autoProgress": 0,
+      "status": "active",
+      "createdAt": "2026-06-01T07:41:01.890Z",
+      "updatedAt": "2026-06-01T07:41:01.890Z",
+      "targetDate": ""
+    },
+    {
+      "id": "1780299687739",
+      "name": "新建工程验收",
+      "description": "",
+      "type": "medium",
+      "mainDirection": "",
+      "subDirections": [
+        {
+          "id": "1780299699280",
+          "name": "新建工程验收，配合RPA测试",
+          "completed": false
+        }
+      ],
+      "milestones": [],
+      "manualProgress": 0,
+      "autoProgress": 0,
+      "status": "active",
+      "createdAt": "2026-06-01T07:41:27.739Z",
+      "updatedAt": "2026-06-01T07:41:27.739Z",
+      "targetDate": ""
     }
   ],
   "aiContents": [
@@ -3144,6 +3196,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-01T03:25:02.567Z"
+    "lastSync": "2026-06-01T07:40:00.514Z"
   }
 }
