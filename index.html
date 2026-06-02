@@ -203,6 +203,34 @@
               font-weight: 600;
           }
           
+          .ai-search-content table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 12px 0;
+              font-size: 13px;
+          }
+          
+          .ai-search-content th,
+          .ai-search-content td {
+              border: 1px solid #ddd;
+              padding: 8px 12px;
+              text-align: left;
+          }
+          
+          .ai-search-content th {
+              background: #667eea;
+              color: white;
+              font-weight: 600;
+          }
+          
+          .ai-search-content tr:nth-child(even) {
+              background: #f8f9fa;
+          }
+          
+          .ai-search-content tr:hover {
+              background: #e9ecef;
+          }
+          
           /* 下拉菜单样式 */
           .dropdown {
               position: relative;
@@ -6987,7 +7015,7 @@ padding: 7px !important;
                 <div style="margin-bottom:12px;display:flex;gap:4px;flex-wrap:wrap;">
                     ${content.tags.map(tag => `<span style="font-size:11px;padding:4px 8px;background:var(--primary-light);color:var(--primary);border-radius:4px;">${escapeHtml(tag)}</span>`).join('')}
                 </div>` : ''}
-                <div class="ai-content-markdown" style="background:var(--bg-secondary);padding:16px;border-radius:6px;border:1px solid var(--border);max-height:400px;overflow-y:auto;font-size:14px;line-height:1.6;">
+                <div class="ai-search-content" style="max-height:400px;overflow-y:auto;">
                     ${content.format === 'markdown' && typeof marked !== 'undefined' ? marked.parse(content.content) : escapeHtml(content.content).replace(/\n/g, '<br>')}
                 </div>
                 <div class="modal-actions">
