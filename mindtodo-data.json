@@ -1415,7 +1415,7 @@
       "type": "task",
       "content": "今天要处理海珠的抽查和准备算力的检查。",
       "createdAt": "2026-06-02T02:08:35.643Z",
-      "updatedAt": "2026-06-02T02:08:35.643Z",
+      "updatedAt": "2026-06-02T02:16:33.302Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1426,16 +1426,17 @@
           "content": "打开海珠资料，抽查几个清运单要提供附件资料。",
           "estimatedTime": "8min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mpkhd31qo1rzc"
         },
         {
           "id": "mpw00mrf9vh6r",
           "content": "打开现场已拆除的excel，筛选海珠的，看啥情况",
           "estimatedTime": "10min",
           "done": false,
-          "placedIn": null
+          "placedIn": "slot_mpkhd31qo1rzc"
         }
-      ]
+      ],
+      "placedIn": "slot_mpkhd31qo1rzc"
     },
     {
       "id": "mpw06tgu39gbt",
@@ -1465,6 +1466,21 @@
           "placedIn": "slot_mpkhd31qo1rzc"
         }
       ],
+      "placedIn": "slot_mpkhd31qo1rzc"
+    },
+    {
+      "id": "mpw0aqun6ic6j",
+      "type": "task",
+      "content": "看下少量业务的设备，核查10个看情况",
+      "createdAt": "2026-06-02T02:16:27.503Z",
+      "updatedAt": "2026-06-02T02:16:30.241Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
       "placedIn": "slot_mpkhd31qo1rzc"
     }
   ],
@@ -3310,6 +3326,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-02T02:08:40.622Z"
+    "lastSync": "2026-06-02T02:14:12.427Z"
   }
 }
