@@ -1490,23 +1490,16 @@
       "type": "task",
       "content": "算力检查工作：确定检查时间。",
       "createdAt": "2026-06-02T03:37:06.729Z",
-      "updatedAt": "2026-06-02T07:22:25.933Z",
+      "updatedAt": "2026-06-02T07:55:52.995Z",
       "tags": [
         "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1780384928210",
-          "content": "整理流花机楼清单，发送给冼工",
-          "done": false,
-          "estimatedTime": "10",
-          "placedIn": "slot_mpkhd31qo1rzc"
-        }
-      ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null,
+      "doneAt": "2026-06-02T07:55:52.995Z",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3358,6 +3351,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-02T02:20:34.618Z"
+    "lastSync": "2026-06-02T07:22:31.570Z"
   }
 }
