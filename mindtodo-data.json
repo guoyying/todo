@@ -1431,7 +1431,7 @@
       "type": "task",
       "content": "CRM跟进",
       "createdAt": "2026-06-02T02:13:24.270Z",
-      "updatedAt": "2026-06-02T03:27:30.801Z",
+      "updatedAt": "2026-06-02T07:17:47.241Z",
       "tags": [
         "CRM"
       ],
@@ -1450,11 +1450,11 @@
           "id": "mpw06tgujaowx",
           "content": "看下数字中继电路，是否还挂在已拆除设备上，选几个看。",
           "estimatedTime": "10min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "done": true,
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null
     },
     {
       "id": "mpw0aqun6ic6j",
@@ -1490,14 +1490,22 @@
       "type": "task",
       "content": "算力检查工作：确定检查时间。",
       "createdAt": "2026-06-02T03:37:06.729Z",
-      "updatedAt": "2026-06-02T03:37:10.526Z",
+      "updatedAt": "2026-06-02T07:22:25.933Z",
       "tags": [
         "检查工作"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "1780384928210",
+          "content": "整理流花机楼清单，发送给冼工",
+          "done": false,
+          "estimatedTime": "10",
+          "placedIn": "slot_mpkhd31qo1rzc"
+        }
+      ],
       "placedIn": "slot_mpkhd31qo1rzc"
     }
   ],
