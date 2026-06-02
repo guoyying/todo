@@ -1415,35 +1415,23 @@
       "type": "task",
       "content": "今天要处理海珠的抽查和准备算力的检查。",
       "createdAt": "2026-06-02T02:08:35.643Z",
-      "updatedAt": "2026-06-02T02:41:01.845Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-06-02T03:36:48.263Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "mpw00mrfinvms",
-          "content": "打开海珠资料，抽查几个清运单要提供附件资料。",
-          "estimatedTime": "8min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "mpw00mrf9vh6r",
-          "content": "打开现场已拆除的excel，筛选海珠的，看啥情况",
-          "estimatedTime": "10min",
-          "done": true,
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-02T03:36:48.263Z",
+      "subtasks": []
     },
     {
       "id": "mpw06tgu39gbt",
       "type": "task",
       "content": "CRM跟进",
       "createdAt": "2026-06-02T02:13:24.270Z",
-      "updatedAt": "2026-06-02T02:13:27.778Z",
+      "updatedAt": "2026-06-02T03:27:30.801Z",
       "tags": [
         "CRM"
       ],
@@ -1455,8 +1443,8 @@
           "id": "mpw06tgurq2b3",
           "content": "问下销售部什么是公免",
           "estimatedTime": "4min",
-          "done": false,
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "done": true,
+          "placedIn": null
         },
         {
           "id": "mpw06tgujaowx",
@@ -1496,6 +1484,21 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpw36gtlhlqxc",
+      "type": "task",
+      "content": "算力检查工作：确定检查时间。",
+      "createdAt": "2026-06-02T03:37:06.729Z",
+      "updatedAt": "2026-06-02T03:37:10.526Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mpkhd31qo1rzc"
     }
   ],
   "normalFeelings": [
