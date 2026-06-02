@@ -1436,6 +1436,36 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mpw06tgu39gbt",
+      "type": "task",
+      "content": "CRM跟进",
+      "createdAt": "2026-06-02T02:13:24.270Z",
+      "updatedAt": "2026-06-02T02:13:27.778Z",
+      "tags": [
+        "CRM"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mpw06tgurq2b3",
+          "content": "问下销售部什么是公免",
+          "estimatedTime": "4min",
+          "done": false,
+          "placedIn": "slot_mpkhd31qo1rzc"
+        },
+        {
+          "id": "mpw06tgujaowx",
+          "content": "看下数字中继电路，是否还挂在已拆除设备上，选几个看。",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": "slot_mpkhd31qo1rzc"
+        }
+      ],
+      "placedIn": "slot_mpkhd31qo1rzc"
     }
   ],
   "normalFeelings": [
@@ -2724,8 +2754,8 @@
             "startTime": "09:00",
             "endTime": "18:00",
             "message": "退网进度.月度统计",
-            "confirmed": false,
-            "confirmationTime": null,
+            "confirmed": true,
+            "confirmationTime": "2026-06-02T02:12:26.540Z",
             "customInterval": "28",
             "customIntervalUnit": "day"
           }
@@ -2733,7 +2763,10 @@
       },
       "createdAt": "2026-06-02T02:08:32.489Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-06-02T02:08:59.978Z"
+      }
     }
   ],
   "knowledgeBase": [
@@ -2907,6 +2940,11 @@
         {
           "id": "1780299650746",
           "name": "完成二季度的退网现场检查，向云网部提交检查报告",
+          "completed": false
+        },
+        {
+          "id": "1780366437290",
+          "name": "0业务清单梳理下，有蛮多了（比如番禺）",
           "completed": false
         }
       ],
@@ -3272,6 +3310,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-01T08:02:04.162Z"
+    "lastSync": "2026-06-02T02:08:40.622Z"
   }
 }
