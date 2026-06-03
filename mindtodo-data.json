@@ -1553,21 +1553,6 @@
       "doneAt": "2026-06-03T07:24:34.963Z"
     },
     {
-      "id": "mpxp1yemu0o35",
-      "type": "task",
-      "content": "2、更新项目进度;",
-      "createdAt": "2026-06-03T06:37:13.966Z",
-      "updatedAt": "2026-06-03T08:18:35.428Z",
-      "tags": [
-        "C类-不定期：3-4点"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mpxso71bu5h6w"
-    },
-    {
       "id": "mpxp3bylxyc1i",
       "type": "task",
       "content": "跟进厂家断网事宜",
@@ -1597,36 +1582,6 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mpxqsx314cki2",
-      "type": "task",
-      "content": "更新5月退网成效；310台退网清单",
-      "createdAt": "2026-06-03T07:26:11.581Z",
-      "updatedAt": "2026-06-03T08:18:37.272Z",
-      "tags": [
-        "C类-不定期：3-4点"
-      ],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mpxso71bu5h6w"
-    },
-    {
-      "id": "mpxsnqr42tgf1",
-      "type": "task",
-      "content": "回应客资的工位调整",
-      "createdAt": "2026-06-03T08:18:09.328Z",
-      "updatedAt": "2026-06-03T08:18:44.502Z",
-      "tags": [
-        "A类-快速核查：每天多次"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mpxso71bu5h6w"
     },
     {
       "id": "mpxsr9cj4pl42",
@@ -3488,6 +3443,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T08:19:07.431Z"
+    "lastSync": "2026-06-03T08:21:00.223Z"
   }
 }
