@@ -1544,17 +1544,18 @@
     {
       "id": "mpxp0yxqsimj5",
       "type": "task",
-      "content": "继续核查少量高值业务清单",
+      "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：核查天河61个清单，大量未能在网管找到。个别属于用户机房，或许可通过客户侧光猫改挂到OTN设备实现退网。",
       "createdAt": "2026-06-03T06:36:27.998Z",
-      "updatedAt": "2026-06-03T06:38:26.210Z",
+      "updatedAt": "2026-06-03T07:24:34.963Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpxovznyk187h"
+      "placedIn": null,
+      "doneAt": "2026-06-03T07:24:34.963Z"
     },
     {
       "id": "mpxp1yemu0o35",
@@ -1581,6 +1582,20 @@
       ],
       "done": false,
       "dueTime": "4min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpxqovpglc0cm",
+      "type": "task",
+      "content": "我需要整理下，这些信息如何慢慢推进：网管无业务，可退：2129-市检察院-GZHC070-HB02\n可以转o：1828-工行华南师范行政楼-GZHC418-HA15L。LDC62929016G。\n1428-天河软件园首层IDC-GZHC656-HA06L：LDC39814071G。\nLDC62417082G：1866-较场西机楼11楼数据机房-GZHC393-HA15L在虚拟用户机房是啥意思？",
+      "createdAt": "2026-06-03T07:23:03.172Z",
+      "updatedAt": "2026-06-03T07:23:03.172Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
       "unknown": false,
       "subtasks": []
     }
@@ -3420,6 +3435,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T06:38:22.986Z"
+    "lastSync": "2026-06-03T07:14:07.744Z"
   }
 }
