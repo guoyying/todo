@@ -2133,6 +2133,19 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         #aiContentSaveModal textarea#aiContentTitle {
             min-height: 44px;
             max-height: 100px;
+        }
+        
+        /* contenteditable div 的 placeholder 样式 */
+        #aiContentSaveModal #aiContentText[placeholder]:empty:before {
+            content: attr(placeholder);
+            color: var(--text-secondary);
+            pointer-events: none;
+            display: block;
+        }
+        #aiContentSaveModal #aiContentText[placeholder]:empty:focus:before {
+            content: attr(placeholder);
+            color: var(--text-secondary);
+        }
             resize: vertical;
             white-space: normal;
             word-wrap: break-word;
@@ -6444,8 +6457,16 @@ padding: 7px !important;
            </div>
            
            <div class="input-group">
-               <label for="aiContentText">内容</label>
-               <textarea id="aiContentText" rows="8" placeholder="AI生成的内容将自动填充在这里..." style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;font-family:inherit;"></textarea>
+               <label for="aiContentText">内容 (可编辑)</label>
+               <!-- 使用 contenteditable div 替代 textarea，保留原始换行和 Markdown -->
+               <div id="aiContentText"
+                    contenteditable="true"
+                    placeholder="AI 生成的内容将显示在这里，您可以直接编辑..."
+                    style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;font-family:monospace;white-space:pre-wrap;word-wrap:break-word;min-height:120px;outline:none;overflow-y:auto;">
+               </div>
+               <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">
+                   💡 提示：此处显示 AI 返回的原始内容（保留所有换行和 Markdown 符号），您可以直接编辑。保存时将读取此处内容。
+               </div>
            </div>
            
            <div class="modal-actions">
@@ -6704,7 +6725,7 @@ padding: 7px !important;
 
     // ============ AI内容保存功能 ============
     
-    // 显示 AI 内容保存模态框（修复 Safari 移动端换行符丢失问题）
+    // 显示 AI 内容保存模态框
     function showAiContentSaveModal(contentType, content, customTitle = null) {
         const modal = document.getElementById('aiContentSaveModal');
         const titleInput = document.getElementById('aiContentTitle');
@@ -6727,20 +6748,9 @@ padding: 7px !important;
         // 使用自定义标题或默认标题
         titleInput.value = customTitle || defaultTitle;
         
-        // 修复 Safari 移动端：确保内容中的换行符不被丢失
-        // 先确保内容存在，然后显式设置
-        const safeContent = content || '';
-        
-        // 在 Safari 移动端，直接赋值可能导致换行符丢失，使用 setTimeout 延迟设置
-        setTimeout(() => {
-            contentTextarea.value = safeContent;
-            // 验证设置是否成功（调试用）
-            if (safeContent.includes('\n') && !contentTextarea.value.includes('\n')) {
-                console.warn('⚠️ Safari 检测到换行符丢失，尝试修复...');
-                // 如果换行符丢失，尝试用 \r\n 替代
-                contentTextarea.value = safeContent.replace(/\n/g, '\r\n');
-            }
-        }, 0);
+        // 修改：使用 innerText 赋值，完美保留换行符和原始 Markdown 符号
+        const contentDiv = document.getElementById('aiContentText');
+        contentDiv.innerText = content || '';
         
         // 显示模态框
         modal.classList.remove('hidden');
@@ -6827,7 +6837,9 @@ padding: 7px !important;
         const title = document.getElementById('aiContentTitle').value.trim();
         const type = document.getElementById('aiContentType').value;
         const tags = document.getElementById('aiContentTags').value.trim();
-        const content = document.getElementById('aiContentText').value.trim();
+        // 修改：使用 innerText 读取，确保获取的是用户编辑后的原始文本（含换行符）
+        const contentDiv = document.getElementById('aiContentText');
+        const content = contentDiv.innerText.trim();
         
         if (!title) {
             showToast('请输入标题');
