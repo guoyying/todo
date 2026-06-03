@@ -2156,15 +2156,6 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             content: attr(placeholder);
             color: var(--text-secondary);
         }
-            resize: vertical;
-            white-space: normal;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            line-height: 1.5;
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 500;
-        }
         
         #aiContentSaveModal textarea {
             min-height: 140px;
@@ -5927,12 +5918,12 @@ padding: 7px !important;
          </div>
      </div>
  
-     <!-- AI润色模态框 -->
+     <!-- AI 润色模态框 -->
      <div class="modal-overlay hidden" id="aiPolishModal" onclick="closeAiPolishModal()">
          <div class="modal" onclick="event.stopPropagation()">
              <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-                 <h3>✨ AI润色</h3>
-                 <button class="btn btn-small btn-secondary" onclick="closeAiPolishModal()">关闭</button>
+                 <h3>✨ AI 润色</h3>
+                 <button class="btn btn-small btn-secondary" onclick="manualCloseAiPolishModal()">关闭</button>
              </div>
              <div class="modal-body" style="display:flex;gap:16px;max-height:80vh;">
                  <!-- 左侧：控制面板 -->
@@ -15199,13 +15190,15 @@ padding: 7px !important;
          const feeling = data.normalFeelings.find(f => f.id === feelingId);
          if (!feeling) return;
          
-         // 保存上下文
+         // 保存上下文（如果是同一个感受，保留之前的润色结果；如果是新感受，则清空）
+         const isSameFeeling = currentAiContext.feelingId === feelingId;
+         
          currentAiContext = {
              blockId: null,
              recordId: null,
              feelingId: feelingId,
              originalContent: feeling.content,
-             polishedContent: '',
+             polishedContent: isSameFeeling ? currentAiContext.polishedContent : '', // 同感受保留结果，新感受清空
              selectedText: ''
          };
          
@@ -15228,10 +15221,25 @@ padding: 7px !important;
          }
          
          aiOriginalContent.textContent = currentAiContext.originalContent;
-         aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>';
-         aiCopyBtn.disabled = true;
-         sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          
+         // 根据是否有之前的润色结果，决定显示内容
+         if (currentAiContext.polishedContent) {
+             // 有之前的结果，直接显示
+             if (typeof marked !== 'undefined') {
+                 aiPolishedContent.innerHTML = marked.parse(currentAiContext.polishedContent);
+             } else {
+                 aiPolishedContent.innerHTML = escapeHtml(currentAiContext.polishedContent).replace(/\n/g, '<br>');
+             }
+             const aiCopyBtn = document.getElementById('aiCopyBtn');
+             if (aiCopyBtn) aiCopyBtn.disabled = false;
+         } else {
+             // 没有结果，显示提示
+             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧“开始润色”按钮开始</div>';
+             const aiCopyBtn = document.getElementById('aiCopyBtn');
+             if (aiCopyBtn) aiCopyBtn.disabled = true;
+         }
+         
+         sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          // 设置默认提示词到输入框
          const defaultPromptText = `请帮我挖掘感受背后的成因，并提供一些应对或调整的建议。使用emoji增加可读性（如性（如💭、🏷️、💡等）`;
          customPromptInput.value = defaultPromptText;
@@ -15346,12 +15354,14 @@ padding: 7px !important;
          const record = block.records.find(r => r.id === recordId);
          if (!record) return;
          
-         // 保存上下文
+         // 保存上下文（如果是同一个任务，保留之前的润色结果；如果是新任务，则清空）
+         const isSameTask = currentAiContext.blockId === blockId && currentAiContext.recordId === recordId;
+         
          currentAiContext = {
              blockId: blockId,
              recordId: recordId,
              originalContent: record.content.replace(/第\d+次练习：/, ''),
-             polishedContent: '',
+             polishedContent: isSameTask ? currentAiContext.polishedContent : '', // 同任务保留结果，新任务清空
              selectedText: ''
          };
          
@@ -15374,8 +15384,25 @@ padding: 7px !important;
          }
          
          aiOriginalContent.textContent = currentAiContext.originalContent;
-         aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>';
-         aiCopyBtn.disabled = true;
+         
+         // 根据是否有之前的润色结果，决定显示内容
+         if (currentAiContext.polishedContent) {
+             // 有之前的结果，直接显示
+             if (typeof marked !== 'undefined') {
+                 aiPolishedContent.innerHTML = marked.parse(currentAiContext.polishedContent);
+             } else {
+                 aiPolishedContent.innerHTML = escapeHtml(currentAiContext.polishedContent).replace(/\n/g, '<br>');
+             }
+             // 启用复制按钮（如果存在）
+             const aiCopyBtn = document.getElementById('aiCopyBtn');
+             if (aiCopyBtn) aiCopyBtn.disabled = false;
+         } else {
+             // 没有结果，显示提示
+             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧“开始润色”按钮开始</div>';
+             const aiCopyBtn = document.getElementById('aiCopyBtn');
+             if (aiCopyBtn) aiCopyBtn.disabled = true;
+         }
+         
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          
          // 设置默认提示词到输入框
@@ -15403,11 +15430,19 @@ padding: 7px !important;
  // 设置文本选择监听器
  setupAiResultSelectionListener();
 }
-     // 关闭AI润色模态框
+     // 关闭 AI 润色模态框（点击遮罩层时调用，保留数据）
      function closeAiPolishModal() {
-         closeModal('aiPolishModal');
+         document.getElementById('aiPolishModal').classList.add('hidden');
+         hideTextSelectionBubble(); // 隐藏气泡菜单
+         // 不清除 currentAiContext，保留润色结果和原始内容
+     }
+     
+     // 手动关闭 AI 润色模态框（点击关闭按钮时调用，清除数据）
+     function manualCloseAiPolishModal() {
+         document.getElementById('aiPolishModal').classList.add('hidden');
          hideTextSelectionBubble(); // 隐藏气泡菜单
          
+         // 清除上下文数据
          currentAiContext = {
              blockId: null,
              recordId: null,
@@ -15459,11 +15494,16 @@ padding: 7px !important;
              console.log('从 callAiApi 返回的结果:', result);
              console.log('结果类型:', typeof result);
              console.log('结果长度:', result.length);
-              console.log('结果前100个字符:', result.substring(0, 100));
+              console.log('结果前 100 个字符:', result.substring(0, 100));
               
-              // 处理Markdown格式并显示润色结果
+              // 处理 Markdown 格式并显示润色结果（使用 marked 库，与 AI 帮想点子保持一致）
               currentAiContext.polishedContent = result;
-              polishedContentEl.innerHTML = markdownToHtml(result);
+              if (typeof marked !== 'undefined') {
+                  polishedContentEl.innerHTML = marked.parse(result);
+              } else {
+                  // 降级方案：如果 marked 库未加载，回退到简单的换行处理
+                  polishedContentEl.innerHTML = escapeHtml(result).replace(/\n/g, '<br>');
+              }
              
              console.log('=== 显示到界面的内容 ===');
              console.log('DOM 元素 textContent:', polishedContentEl.textContent);
@@ -19804,84 +19844,7 @@ ${ammoToAnalyze.map((ammo, index) =>
          
          return prompt;
      }
-     
-     // 将Markdown转换为HTML
-     function markdownToHtml(markdown) {
-         if (!markdown) return '';
-         
-         let html = markdown;
-         
-         // 转义HTML特殊字符（防止XSS）
-         html = html.replace(/&/g, '&amp;');
-         html = html.replace(/</g, '&lt;');
-         html = html.replace(/>/g, '&gt;');
-         
-         // 转换标题（#）
-         html = html.replace(/^#{6}\s+(.+)$/gm, '<h6 style="font-size:14px;font-weight:600;margin:8px 0;">$1</h6>');
-         html = html.replace(/^#{5}\s+(.+)$/gm, '<h5 style="font-size:15px;font-weight:600;margin:10px 0;">$1</h5>');
-         html = html.replace(/^#{4}\s+(.+)$/gm, '<h4 style="font-size:16px;font-weight:600;margin:12px 0;">$1</h4>');
-         html = html.replace(/^#{3}\s+(.+)$/gm, '<h3 style="font-size:18px;font-weight:600;margin:14px 0;">$1</h3>');
-         html = html.replace(/^#{2}\s+(.+)$/gm, '<h2 style="font-size:20px;font-weight:600;margin:16px 0;">$1</h2>');
-         html = html.replace(/^#{1}\s+(.+)$/gm, '<h1 style="font-size:22px;font-weight:600;margin:18px 0;">$1</h1>');
-         
-         // 转换粗体（** 或 __）
-         html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-         html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
-         
-         // 转换斜体（* 或 _）
-         html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-         html = html.replace(/_(.+?)_/g, '<em>$1</em>');
-         
-         // 转换删除线（~~）
-         html = html.replace(/~~(.+?)~~/g, '<del>$1</del>');
-         
-         // 转换代码块（```）
-         html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(match, lang, code) {
-             return '<pre style="background:#f5f5f5;padding:12px;border-radius:4px;overflow-x:auto;margin:10px 0;"><code>' + code.trim() + '</code></pre>';
-         });
-         
-         // 转换行内代码（`）
-         html = html.replace(/`([^`]+)`/g, '<code style="background:#f5f5f5;padding:2px 6px;border-radius:3px;font-family:monospace;">$1</code>');
-         
-         // 转换链接 [text](url)
-         html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--primary);">$1</a>');
-         
-         // 转换图片 ![alt](url)
-         html = html.replace(/!\[([^\]]*)\]\(([^\)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;height:auto;margin:10px 0;">');
-         
-         // 转换引用（>）
-         html = html.replace(/^>\s+(.+)$/gm, '<blockquote style="border-left:4px solid var(--primary);padding-left:12px;margin:10px 0;color:var(--text-secondary);">$1</blockquote>');
-         
-         // 转换无序列表（- 或 * 或 +）
-         html = html.replace(/^[-*+]\s+(.+)$/gm, '<li style="margin:4px 0;">$1</li>');
-         // 将连续的li包裹在ul中
-         html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, function(match) {
-             return '<ul style="margin:8px 0;padding-left:20px;">' + match + '</ul>';
-         });
-         
-         // 转换有序列表（数字.）
-         html = html.replace(/^\d+\.\s+(.+)$/gm, '<li style="margin:4px 0;">$1</li>');
-         
-         // 转换分隔线（--- 或 ***）
-         html = html.replace(/^[-*]{3,}\s*$/gm, '<hr style="border:none;border-top:1px solid #ddd;margin:16px 0;">');
-         
-         // 转换换行（更智能地处理换行）
-         // 先将连续的空行（2个或更多\n）替换为段落分隔符
-         html = html.replace(/\n{2,}/g, '</p><p>');
-         // 将单个\n替换为空格（在同一行内）
-         html = html.replace(/\n/g, ' ');
-         // 将段落分隔符转换为实际的段落标签
-         html = '<p>' + html + '</p>';
-         // 清理空的段落标签
-         html = html.replace(/<p>\s*<\/p>/g, '');
-         // 清理段落标签内的多余空格
-         html = html.replace(/<p>\s+/g, '<p>');
-         html = html.replace(/\s+<\/p>/g, '</p>');
-         
-         return html;
-     }
-     
-     // 复制AI汇总内容
+        // 复制 AI 汇总内容
      function copyAISummary() {
          copyToClipboard(null, 'aiSummaryContent');
      }
