@@ -153,6 +153,16 @@
              background: #fafafa;
          }
          
+         /* 确保空行和段落间距正常显示 */
+         .ai-search-content p {
+             margin: 1em 0;
+             min-height: 1em;
+         }
+         .ai-search-content p:empty {
+             min-height: 1em;
+             display: block;
+         }
+         
          .ai-search-content h1,
          .ai-search-content h2,
          .ai-search-content h3 {
