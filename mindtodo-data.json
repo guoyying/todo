@@ -1463,15 +1463,16 @@
       "type": "task",
       "content": "网安:4台服务器上去看下是否密码过期了",
       "createdAt": "2026-06-02T02:20:30.131Z",
-      "updatedAt": "2026-06-02T09:14:14.691Z",
+      "updatedAt": "2026-06-03T02:23:05.770Z",
       "tags": [
         "网安",
         "C类-不定期：3-4点"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-03T02:23:05.769Z"
     },
     {
       "id": "mpw36gtlhlqxc",
@@ -1494,10 +1495,39 @@
       "type": "task",
       "content": "交团费",
       "createdAt": "2026-06-02T09:13:10.387Z",
-      "updatedAt": "2026-06-02T09:14:18.408Z",
+      "updatedAt": "2026-06-03T02:23:12.241Z",
       "tags": [
         "团支部",
         "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1780450727804",
+          "content": "导出团费excel",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1780450869427",
+          "content": "问昂绿啥时候分出去。",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "mpxfylqfhiegs",
+      "type": "task",
+      "content": "1、缴纳党费 2、更新海珠的文件；",
+      "createdAt": "2026-06-03T02:22:41.031Z",
+      "updatedAt": "2026-06-03T02:22:41.031Z",
+      "tags": [
+        "A类-快速核查：每天多次"
       ],
       "done": false,
       "dueTime": "10min",
@@ -2772,7 +2802,7 @@
             "endTime": "18:00",
             "message": "9-9.30处理退网单",
             "confirmed": true,
-            "confirmationTime": "2026-06-02T00:46:19.778Z"
+            "confirmationTime": "2026-06-03T01:38:40.702Z"
           }
         ]
       },
@@ -2780,7 +2810,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-06-02T00:45:00.000Z"
+        "0": "2026-06-03T01:38:38.360Z"
       }
     },
     {
