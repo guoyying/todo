@@ -1528,21 +1528,6 @@
       ]
     },
     {
-      "id": "mpxfylqfhiegs",
-      "type": "task",
-      "content": "1、缴纳6月党费；\n检查工作：1、更新海珠的抽查文件",
-      "createdAt": "2026-06-03T02:22:41.031Z",
-      "updatedAt": "2026-06-03T06:34:30.849Z",
-      "tags": [
-        "A类-快速核查：每天多次"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-03T03:15:22.334Z"
-    },
-    {
       "id": "mpxijem1hemv6",
       "type": "task",
       "content": "1、网管验收；2、更新项目进度",
@@ -1553,6 +1538,20 @@
       ],
       "done": false,
       "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpxp0yxqsimj5",
+      "type": "task",
+      "content": "继续核查少量高值业务清单",
+      "createdAt": "2026-06-03T06:36:27.998Z",
+      "updatedAt": "2026-06-03T06:36:27.998Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
       "unknown": false,
       "subtasks": []
     }
@@ -3382,6 +3381,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T06:32:19.683Z"
+    "lastSync": "2026-06-03T06:34:39.604Z"
   }
 }
