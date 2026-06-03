@@ -6788,10 +6788,11 @@ padding: 7px !important;
     function detectContentFormat(content) {
         if (!content) return 'plain';
         
-        // Markdown特征检测
-        const markdownPatterns = [
+        // 1. 标准 Markdown 特征检测（基于行首）
+        const standardMarkdownPatterns = [
             /^#+\s/,                    // 标题
-            /^-\s|\*\s/,                // 列表项
+            /^-\s|\*\s/,                // 无序列表项
+            /^\d+\.\s/,                 // 有序列表项
             /```[\s\S]*?```/,           // 代码块
             /\[.*?\]\(.*?\)/,           // 链接
             /\*\*[^*]+\*\*|__[^_]+__/,  // 粗体
@@ -6799,21 +6800,77 @@ padding: 7px !important;
             />\s/                        // 引用
         ];
         
-        for (const pattern of markdownPatterns) {
+        for (const pattern of standardMarkdownPatterns) {
             if (pattern.test(content)) {
                 return 'markdown';
             }
         }
         
+        // 2. 丢失换行的 Markdown 智能识别（针对 Safari 移动端粘贴导致换行丢失）
+        const lostNewlineMarkdownScore = {
+            header: /(\s|^)(#{2,})\s+[^#]/g,
+            unorderedList: /[-*]\s+[a-zA-Z\u4e00-\u9fa5]/g,
+            orderedList: /\d+\.\s+[a-zA-Z\u4e00-\u9fa5]/g,
+            link: /\[.+?\]\(.+?\)/g,
+            codeBlock: /```/g,
+            inlineCode: /`[^`]+`/g,
+            bold: /\*\*[^*]+\*\*|__[^_]+__/g,
+            italic: /(?<!\*)\*(?!\*)[^*]+(?<!\*)\*(?!\*)|(?<!_)_(?!_)[^_]+(?<!_)_(?!_)/g,
+            quote: />\s+[a-zA-Z\u4e00-\u9fa5]/g
+        };
+        
+        let markdownScore = 0;
+        
+        for (const [feature, pattern] of Object.entries(lostNewlineMarkdownScore)) {
+            const matches = content.match(pattern);
+            if (matches) {
+                const weights = { header: 3, codeBlock: 3, link: 2, unorderedList: 2, orderedList: 2, bold: 1, italic: 1, inlineCode: 1, quote: 2 };
+                markdownScore += matches.length * (weights[feature] || 1);
+            }
+        }
+        
+        if (markdownScore >= 3) {
+            return 'markdown';
+        }
+        
         return 'plain';
     }
     
-    // 确认保存AI内容
+    // 修复丢失换行的 Markdown，恢复其结构（针对 Safari 移动端）
+    function restoreMarkdownNewlines(content) {
+        if (!content) return content;
+        
+        let restored = content;
+        
+        // 1. 在标题前添加换行（# 前面）
+        restored = restored.replace(/([^\n])(#{2,}\s)/g, '\n$1$2');
+        restored = restored.replace(/(#{1,6}\s)/g, '\n$1');
+        
+        // 2. 在无序列表前添加换行（- 或 * 后跟空格和文字，避免匹配粗体/斜体）
+        restored = restored.replace(/([^\n\s])([-*])\s+([a-zA-Z\u4e00-\u9fa5])/g, '$1\n$2 $3');
+        
+        // 3. 在有序列表前添加换行（数字后跟 . 和空格）
+        restored = restored.replace(/([^\n\s])(\d+\.\s+)([a-zA-Z\u4e00-\u9fa5])/g, '$1\n$2$3');
+        
+        // 4. 在引用前添加换行（> 后跟空格和文字）
+        restored = restored.replace(/([^\n\s])(>\s+)([a-zA-Z\u4e00-\u9fa5])/g, '$1\n$2$3');
+        
+        // 5. 在代码块前后添加换行
+        restored = restored.replace(/([^\n])```/g, '\n$1```');
+        restored = restored.replace(/```([^\n])/g, '```\n$1');
+        
+        // 6. 清理多余的换行
+        restored = restored.replace(/\n{3,}/g, '\n\n');
+        
+        return restored.trim();
+    }
+    
+    // 确认保存 AI 内容
     function confirmSaveAiContent() {
         const title = document.getElementById('aiContentTitle').value.trim();
         const type = document.getElementById('aiContentType').value;
         const tags = document.getElementById('aiContentTags').value.trim();
-        const content = document.getElementById('aiContentText').value.trim();
+        let content = document.getElementById('aiContentText').value.trim();
         
         if (!title) {
             showToast('请输入标题');
@@ -6827,18 +6884,31 @@ padding: 7px !important;
             return;
         }
         
-        // 创建AI内容对象
+        
+        // 检测内容格式
+        const format = detectContentFormat(content);
+        
+        // 如果识别为 Markdown 但内容没有换行符（Safari 移动端粘贴导致换行丢失），自动修复
+        if (format === 'markdown' && !content.includes('\n')) {
+            const restoredContent = restoreMarkdownNewlines(content);
+            if (restoredContent !== content) {
+                document.getElementById('aiContentText').value = restoredContent;
+                content = restoredContent;
+                showToast('已自动修复 Markdown 换行格式');
+            }
+        }
+        
+        // 创建 AI 内容对象
         const aiContent = {
             id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
             title: title,
             type: type,
             tags: tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag) : [],
             content: content,
-            format: detectContentFormat(content), // 检测内容格式
+            format: format,
             createdAt: nowStr(),
             updatedAt: nowStr()
         };
-        
         // 保存到数据中
         if (!data.aiContents) {
             data.aiContents = [];
