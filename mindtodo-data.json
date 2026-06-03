@@ -1557,14 +1557,15 @@
       "type": "task",
       "content": "2、更新项目进度;",
       "createdAt": "2026-06-03T06:37:13.966Z",
-      "updatedAt": "2026-06-03T07:52:59.479Z",
+      "updatedAt": "2026-06-03T08:18:35.428Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpxso71bu5h6w"
     },
     {
       "id": "mpxp3bylxyc1i",
@@ -1602,28 +1603,30 @@
       "type": "task",
       "content": "更新5月退网成效；310台退网清单",
       "createdAt": "2026-06-03T07:26:11.581Z",
-      "updatedAt": "2026-06-03T07:53:10.037Z",
+      "updatedAt": "2026-06-03T08:18:37.272Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpxso71bu5h6w"
     },
     {
       "id": "mpxsnqr42tgf1",
       "type": "task",
       "content": "回应客资的工位调整",
       "createdAt": "2026-06-03T08:18:09.328Z",
-      "updatedAt": "2026-06-03T08:18:09.328Z",
+      "updatedAt": "2026-06-03T08:18:44.502Z",
       "tags": [
         "A类-快速核查：每天多次"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpxso71bu5h6w"
     }
   ],
   "normalFeelings": [
@@ -2262,8 +2265,8 @@
       "name": "今日的三件大事"
     },
     {
-      "id": "slot_mpxqu3l18ljy8",
-      "name": "30分钟做复杂的c类"
+      "id": "slot_mpxso71bu5h6w",
+      "name": "4-4.45：B类"
     }
   ],
   "tags": [
@@ -3471,6 +3474,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T07:37:24.609Z"
+    "lastSync": "2026-06-03T08:18:14.784Z"
   }
 }
