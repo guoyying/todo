@@ -6704,7 +6704,7 @@ padding: 7px !important;
 
     // ============ AI内容保存功能 ============
     
-    // 显示 AI 内容保存模态框
+    // 显示 AI 内容保存模态框（修复 Safari 移动端换行符丢失问题）
     function showAiContentSaveModal(contentType, content, customTitle = null) {
         const modal = document.getElementById('aiContentSaveModal');
         const titleInput = document.getElementById('aiContentTitle');
@@ -6726,7 +6726,21 @@ padding: 7px !important;
         
         // 使用自定义标题或默认标题
         titleInput.value = customTitle || defaultTitle;
-        contentTextarea.value = content || '';
+        
+        // 修复 Safari 移动端：确保内容中的换行符不被丢失
+        // 先确保内容存在，然后显式设置
+        const safeContent = content || '';
+        
+        // 在 Safari 移动端，直接赋值可能导致换行符丢失，使用 setTimeout 延迟设置
+        setTimeout(() => {
+            contentTextarea.value = safeContent;
+            // 验证设置是否成功（调试用）
+            if (safeContent.includes('\n') && !contentTextarea.value.includes('\n')) {
+                console.warn('⚠️ Safari 检测到换行符丢失，尝试修复...');
+                // 如果换行符丢失，尝试用 \r\n 替代
+                contentTextarea.value = safeContent.replace(/\n/g, '\r\n');
+            }
+        }, 0);
         
         // 显示模态框
         modal.classList.remove('hidden');
