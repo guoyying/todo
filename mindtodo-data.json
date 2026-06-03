@@ -1495,7 +1495,7 @@
       "type": "task",
       "content": "交团费",
       "createdAt": "2026-06-02T09:13:10.387Z",
-      "updatedAt": "2026-06-03T06:23:50.119Z",
+      "updatedAt": "2026-06-03T07:28:17.131Z",
       "tags": [
         "团支部",
         "C类-不定期：3-4点"
@@ -1516,30 +1516,32 @@
           "content": "问昂绿啥时候分出去。",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mpxqu3l18ljy8"
         },
         {
           "id": "1780467812189",
           "content": "在企微群发消息，说进群+给团费。",
           "done": false,
           "estimatedTime": "10",
-          "placedIn": null
+          "placedIn": "slot_mpxqu3l18ljy8"
         }
-      ]
+      ],
+      "placedIn": "slot_mpxqu3l18ljy8"
     },
     {
       "id": "mpxijem1hemv6",
       "type": "task",
       "content": "1、网管验收；",
       "createdAt": "2026-06-03T03:34:50.809Z",
-      "updatedAt": "2026-06-03T06:37:05.660Z",
+      "updatedAt": "2026-06-03T07:28:25.679Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mpxqu3l18ljy8"
     },
     {
       "id": "mpxp0yxqsimj5",
@@ -1574,16 +1576,19 @@
     {
       "id": "mpxp3bylxyc1i",
       "type": "task",
-      "content": "问下王工",
+      "content": "跟进厂家断网事宜",
       "createdAt": "2026-06-03T06:38:18.189Z",
-      "updatedAt": "2026-06-03T06:38:18.189Z",
+      "updatedAt": "2026-06-03T07:30:00.557Z",
       "tags": [
-        "A类-快速核查：每天多次"
+        "A类-快速核查：每天多次",
+        "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "4min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": null,
+      "doneAt": "2026-06-03T07:30:00.557Z"
     },
     {
       "id": "mpxqovpglc0cm",
@@ -2240,8 +2245,8 @@
       "name": "今日的三件大事"
     },
     {
-      "id": "slot_mpxovznyk187h",
-      "name": "2.30-3.---B类"
+      "id": "slot_mpxqu3l18ljy8",
+      "name": "30分钟做复杂的c类"
     }
   ],
   "tags": [
@@ -3449,6 +3454,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T07:26:22.500Z"
+    "lastSync": "2026-06-03T07:26:53.982Z"
   }
 }
