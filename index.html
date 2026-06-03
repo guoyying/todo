@@ -14814,11 +14814,16 @@ padding: 7px !important;
                 console.log('往期汇总 - 选择的模型:', selectedModel);
                 console.log('往期汇总 - 模型选择器选项数量:', modelSelect.options.length);
                 
-                 // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
+                 // 调用 AI API（传递自定义提示词标记，让 callAiApi 知道这是完整提示词）
                  const result = await callAiApi(fullPrompt, selectedModel, 'custom');
                  
-                 // 使用markdownToHtml函数处理Markdown格式
-                 content.innerHTML = markdownToHtml(result);
+                 // 使用 marked 库处理 Markdown 格式（与 AI 润色、AI 帮想点子保持一致）
+                 if (typeof marked !== 'undefined') {
+                     content.innerHTML = marked.parse(result);
+                 } else {
+                     // 降级方案：如果 marked 库未加载，回退到简单的换行处理
+                     content.innerHTML = escapeHtml(result).replace(/\n/g, '<br>');
+                 }
                 
             } catch (error) {
                 console.error('往期汇总失败:', error);
@@ -19469,14 +19474,10 @@ ${ammoToAnalyze.map((ammo, index) =>
  汇总要求：
  1. 统计任务总数、标签分布
  2. 按标签分类展示任务（每个标签下列出具体任务）
- 3. 分析任务类型、时间分布
- 4. 提供工作效率评估和建议
- 5. 使用简洁、友好的语言
- 6. 使用emoji增加可读性（如📊、🏷️、💡等）
- 7. 该分段的分段，该用小标题的小标题
- 8. 文本输出，不要有黑体字转为文本的*之类的
-
- 请生成一份结构清晰、内容丰富的汇总报告。`;
+ 3. 提供工作效率评估和建议
+ 4. 使用简洁、友好的语言
+ 5. 使用emoji增加可读性（如📊、🏷️、💡等）
+请生成一份结构清晰、内容丰富的汇总报告。`;
      }
      
      // 恢复默认提示词
@@ -19728,11 +19729,16 @@ ${ammoToAnalyze.map((ammo, index) =>
                console.log('AI汇总 - 选择的模型:', selectedModel);
                console.log('AI汇总 - 模型选择器选项数量:', modelSelect.options.length);
                
-               // 调用AI API（传递自定义提示词标记，让callAiApi知道这是完整提示词）
+               // 调用 AI API（传递自定义提示词标记，让 callAiApi 知道这是完整提示词）
                const result = await callAiApi(fullPrompt, selectedModel, 'custom');
                
-               // 显示结果（将Markdown转换为HTML）
-               content.innerHTML = markdownToHtml(result);
+               // 显示结果（使用 marked 库将 Markdown 转换为 HTML）
+               if (typeof marked !== 'undefined') {
+                   content.innerHTML = marked.parse(result);
+               } else {
+                   // 降级方案：如果 marked 库未加载，回退到简单的换行处理
+                   content.innerHTML = escapeHtml(result).replace(/\n/g, '<br>');
+               }
               
           } catch (error) {
               console.error('AI汇总失败:', error);
@@ -19833,12 +19839,9 @@ ${ammoToAnalyze.map((ammo, index) =>
  汇总要求：
  1. 统计任务总数、标签分布
  2. 按标签分类展示任务（每个标签下列出具体任务）
- 3. 分析任务类型、时间分布
- 4. 提供工作效率评估和建议
- 5. 使用简洁、友好的语言
- 6. 使用emoji增加可读性（如📊、🏷️、💡等）
- 7. 该分段的分段，该用小标题的小标题
- 8. 文本输出，不要有黑体字转为文本的*之类的
+ 3. 提供工作效率评估和建议
+ 4. 使用简洁、友好的语言
+ 5. 使用emoji增加可读性（如📊、🏷️、💡等）
  
  请生成一份结构清晰、内容丰富的汇总报告。`;
          
