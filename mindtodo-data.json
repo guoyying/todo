@@ -490,28 +490,6 @@
       "subtasks": []
     },
     {
-      "id": "mpahsrj7sccmc",
-      "type": "task",
-      "content": "怎么办呢，老公胖了很多。我又想提醒他少吃点，又觉得得巧妙提醒不能让他感觉：怎么连吃都要限制呀。",
-      "createdAt": "2026-05-18T00:55:25.795Z",
-      "updatedAt": "2026-05-18T01:37:05.292Z",
-      "tags": [
-        "老公"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1779068180038",
-          "content": "1、记录每天吃了什么，吃了多少。可视化",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
-    },
-    {
       "id": "1779067283638",
       "type": "task",
       "content": "RPA工作：已优化程序异常处理机制，跳过异常单号并继续执行。",
@@ -1157,20 +1135,6 @@
       "unknown": true,
       "placedIn": null,
       "doneAt": "2026-05-25T06:39:54.425Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpkj8v7lwb9zg",
-      "type": "task",
-      "content": "尝试：每天上午9-9.30处理退网单。如果有退网相关核查，上午10.30-11.30，下午2.30-3.30统一响应。",
-      "createdAt": "2026-05-25T01:33:38.433Z",
-      "updatedAt": "2026-05-28T00:53:06.263Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
       "subtasks": []
     },
     {
@@ -2876,55 +2840,6 @@
       "active": true,
       "lastReminderTimes": {
         "0": "2026-06-01T08:00:00.001Z"
-      }
-    },
-    {
-      "id": "mpgcae87yoxkj",
-      "taskId": "mpahsrj7sccmc",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "22:00",
-            "endTime": "09:00",
-            "message": "记录老公吃了啥",
-            "confirmed": true,
-            "confirmationTime": "2026-05-29T14:21:34.745Z"
-          }
-        ]
-      },
-      "createdAt": "2026-05-22T03:07:47.719Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mpos4ybxji9ou",
-      "taskId": "mpkj8v7lwb9zg",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "daily",
-            "startTime": "08:45",
-            "endTime": "18:00",
-            "message": "9-9.30处理退网单",
-            "confirmed": true,
-            "confirmationTime": "2026-06-03T01:38:40.702Z"
-          }
-        ]
-      },
-      "createdAt": "2026-05-28T00:53:37.101Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-06-03T01:38:38.360Z"
       }
     },
     {
