@@ -7103,7 +7103,9 @@ padding: 7px !important;
         document.getElementById('aiContentTitle').value = content.title;
         document.getElementById('aiContentType').value = content.type;
         document.getElementById('aiContentTags').value = content.tags.join(', ');
-        document.getElementById('aiContentText').value = content.content;
+        // 修复：使用 innerText 填充 contenteditable div，保留原始换行和格式
+        const contentDiv = document.getElementById('aiContentText');
+        contentDiv.innerText = content.content;
         
         // 显示保存模态框并设置编辑模式
         const modal = document.getElementById('aiContentSaveModal');
@@ -7127,7 +7129,9 @@ padding: 7px !important;
         const title = document.getElementById('aiContentTitle').value.trim();
         const type = document.getElementById('aiContentType').value;
         const tags = document.getElementById('aiContentTags').value.trim();
-        const newContent = document.getElementById('aiContentText').value.trim();
+        // 修复：使用 innerText 读取 contenteditable div 的内容，保留原始换行和格式
+        const contentDiv = document.getElementById('aiContentText');
+        const newContent = contentDiv.innerText.trim();
         
         if (!title) {
             showToast('请输入标题');
