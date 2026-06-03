@@ -1598,6 +1598,20 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpxqsx314cki2",
+      "type": "task",
+      "content": "更新5月退网成效",
+      "createdAt": "2026-06-03T07:26:11.581Z",
+      "updatedAt": "2026-06-03T07:26:11.581Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3435,6 +3449,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T07:14:07.744Z"
+    "lastSync": "2026-06-03T07:25:31.606Z"
   }
 }
