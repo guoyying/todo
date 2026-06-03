@@ -1574,9 +1574,10 @@
       "type": "task",
       "content": "我需要整理下，这些信息如何慢慢推进：网管无业务，可退：2129-市检察院-GZHC070-HB02\n可以转o：1828-工行华南师范行政楼-GZHC418-HA15L。LDC62929016G。\n1428-天河软件园首层IDC-GZHC656-HA06L：LDC39814071G。\nLDC62417082G：1866-较场西机楼11楼数据机房-GZHC393-HA15L在虚拟用户机房是啥意思？",
       "createdAt": "2026-06-03T07:23:03.172Z",
-      "updatedAt": "2026-06-03T07:23:03.172Z",
+      "updatedAt": "2026-06-03T09:54:45.825Z",
       "tags": [
-        "退网"
+        "退网",
+        "B类-定期复杂"
       ],
       "done": false,
       "dueTime": "20min",
@@ -1588,14 +1589,15 @@
       "type": "task",
       "content": "收团费，发到群里表格。发个接龙",
       "createdAt": "2026-06-03T08:20:53.395Z",
-      "updatedAt": "2026-06-03T08:20:53.395Z",
+      "updatedAt": "2026-06-03T09:29:23.948Z",
       "tags": [
         "团支部"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-03T09:29:23.948Z"
     }
   ],
   "normalFeelings": [
@@ -2154,13 +2156,13 @@
     },
     {
       "id": "mpxsg4onwp9fs",
-      "content": "我发现自己还是能更狠一点，像张枝一样。有什么问题直接说，对方不配合很难沟通也直接说出来。",
+      "content": "我发现自己还是能更狠一点，像张一样。有什么问题直接说，对方不配合很难沟通也直接说出来。",
       "tags": [
         "观点看法",
         "观察记录"
       ],
       "createdAt": "2026-06-03T08:12:14.135Z",
-      "updatedAt": "2026-06-03T08:12:14.135Z"
+      "updatedAt": "2026-06-03T08:55:21.246Z"
     }
   ],
   "practiceBlocks": [
@@ -2232,10 +2234,6 @@
     {
       "id": "slot_mpkhd31qo1rzc",
       "name": "今日的三件大事"
-    },
-    {
-      "id": "slot_mpxso71bu5h6w",
-      "name": "4-4.45：B类"
     }
   ],
   "tags": [
@@ -2826,6 +2824,10 @@
       "textColor": "#333333",
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
+    },
+    "B类-定期复杂": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "taskTriggers": [
@@ -3443,6 +3445,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T08:21:00.223Z"
+    "lastSync": "2026-06-03T08:54:45.327Z"
   }
 }
