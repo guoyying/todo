@@ -1534,6 +1534,20 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-06-03T03:15:22.334Z"
+    },
+    {
+      "id": "mpxijem1hemv6",
+      "type": "task",
+      "content": "1、网管验收；2、华为上网问题（跟黄工说）",
+      "createdAt": "2026-06-03T03:34:50.809Z",
+      "updatedAt": "2026-06-03T03:34:50.809Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
