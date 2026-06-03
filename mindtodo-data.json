@@ -1511,15 +1511,30 @@
       "type": "task",
       "content": "1、网管验收；",
       "createdAt": "2026-06-03T03:34:50.809Z",
-      "updatedAt": "2026-06-03T07:28:25.679Z",
+      "updatedAt": "2026-06-03T08:09:39.864Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mpxqu3l18ljy8"
+      "subtasks": [
+        {
+          "id": "1780474084869",
+          "content": "复盘整个验收过程1、excel无法读取；2、网管搜不到名字-》直接跳过这张单了。",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1780474137263",
+          "content": "步骤：下载这几张单的excel；copy程序界面",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
+        }
+      ],
+      "placedIn": null
     },
     {
       "id": "mpxp0yxqsimj5",
@@ -1540,9 +1555,9 @@
     {
       "id": "mpxp1yemu0o35",
       "type": "task",
-      "content": "2、更新项目进度",
+      "content": "2、更新项目进度;",
       "createdAt": "2026-06-03T06:37:13.966Z",
-      "updatedAt": "2026-06-03T06:37:13.966Z",
+      "updatedAt": "2026-06-03T07:52:59.479Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
@@ -1585,14 +1600,28 @@
     {
       "id": "mpxqsx314cki2",
       "type": "task",
-      "content": "更新5月退网成效",
+      "content": "更新5月退网成效；310台退网清单",
       "createdAt": "2026-06-03T07:26:11.581Z",
-      "updatedAt": "2026-06-03T07:26:11.581Z",
+      "updatedAt": "2026-06-03T07:53:10.037Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpxsnqr42tgf1",
+      "type": "task",
+      "content": "回应客资的工位调整",
+      "createdAt": "2026-06-03T08:18:09.328Z",
+      "updatedAt": "2026-06-03T08:18:09.328Z",
+      "tags": [
+        "A类-快速核查：每天多次"
+      ],
+      "done": false,
+      "dueTime": "5min",
       "unknown": false,
       "subtasks": []
     }
@@ -2150,6 +2179,16 @@
       ],
       "createdAt": "2026-06-03T03:36:48.683Z",
       "updatedAt": "2026-06-03T03:36:48.683Z"
+    },
+    {
+      "id": "mpxsg4onwp9fs",
+      "content": "我发现自己还是能更狠一点，像张枝一样。有什么问题直接说，对方不配合很难沟通也直接说出来。",
+      "tags": [
+        "观点看法",
+        "观察记录"
+      ],
+      "createdAt": "2026-06-03T08:12:14.135Z",
+      "updatedAt": "2026-06-03T08:12:14.135Z"
     }
   ],
   "practiceBlocks": [
@@ -3432,6 +3471,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T07:30:11.957Z"
+    "lastSync": "2026-06-03T07:37:24.609Z"
   }
 }
