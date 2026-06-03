@@ -1530,9 +1530,9 @@
     {
       "id": "mpxijem1hemv6",
       "type": "task",
-      "content": "1、网管验收；2、更新项目进度",
+      "content": "1、网管验收；",
       "createdAt": "2026-06-03T03:34:50.809Z",
-      "updatedAt": "2026-06-03T06:30:13.229Z",
+      "updatedAt": "2026-06-03T06:37:05.660Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
@@ -1549,6 +1549,20 @@
       "updatedAt": "2026-06-03T06:36:27.998Z",
       "tags": [
         "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mpxp1yemu0o35",
+      "type": "task",
+      "content": "2、更新项目进度",
+      "createdAt": "2026-06-03T06:37:13.966Z",
+      "updatedAt": "2026-06-03T06:37:13.966Z",
+      "tags": [
+        "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "20min",
@@ -3381,6 +3395,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-03T06:34:39.604Z"
+    "lastSync": "2026-06-03T06:36:43.686Z"
   }
 }
