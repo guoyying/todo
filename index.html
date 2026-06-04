@@ -4859,18 +4859,24 @@ padding: 7px !important;
           
           .timeline-controls {
               display: flex;
-              gap: 12px;
+              gap: 10px;
               align-items: center;
           }
           
           .date-selector {
-              padding: 6px 12px;
-              border: 1px solid var(--border);
-              border-radius: 6px;
-              font-size: 14px;
-              background: var(--card);
-              color: var(--text);
+              padding: 8px 12px;
+              border: 1px solid rgba(100, 149, 197, 0.3);
+              border-radius: 8px;
+              font-size: 13px;
+              background: rgba(255, 255, 255, 0.8);
+              color: #2c5282;
               cursor: pointer;
+              transition: all 0.2s;
+          }
+          
+          .date-selector:hover {
+              border-color: rgba(100, 149, 197, 0.5);
+              background: rgba(255, 255, 255, 1);
           }
           
           .timeline-container {
@@ -4924,6 +4930,7 @@ padding: 7px !important;
               border: 1px solid var(--border);
               border-radius: 6px;
               background: #fafafa;
+              margin-right: 20px;
           }
           
           /* 时间刻度 */
@@ -4992,76 +4999,84 @@ padding: 7px !important;
               text-align: center;
           }
           
-          /* 紧凑编辑弹窗 - 气泡样式 */
+          /* 紧凑编辑弹窗 - 简约现代风格 */
           .timeblock-edit-popup {
               position: absolute;
-              background: #fff;
-              border: 2px solid #4a90d9;
+              background: #ffffff;
               border-radius: 12px;
-              box-shadow: 0 8px 24px rgba(74, 144, 217, 0.3);
-              padding: 16px;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+              padding: 18px;
               z-index: 9999 !important;
-              min-width: 220px;
-              animation: popupSlideIn 0.2s ease-out;
+              min-width: 240px;
+              animation: popupFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+              backdrop-filter: blur(8px);
           }
           
-          @keyframes popupSlideIn {
+          @keyframes popupFadeIn {
               from {
                   opacity: 0;
-                  transform: translateY(-10px);
+                  transform: translateY(-6px) scale(0.98);
               }
               to {
                   opacity: 1;
-                  transform: translateY(0);
+                  transform: translateY(0) scale(1);
               }
           }
           
           /* 气泡箭头 */
-          .timeblock-edit-popup::before {
+          .timeblock-edit-popup::after {
               content: '';
               position: absolute;
-              bottom: -8px;
+              bottom: -6px;
               left: 50%;
               transform: translateX(-50%);
-              border-width: 8px 8px 0;
-              border-style: solid;
-              border-color: #4a90d9 transparent transparent transparent;
+              width: 12px;
+              height: 12px;
+              background: #ffffff;
+              transform: translateX(-50%) rotate(45deg);
+              box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.06);
           }
           
           .timeblock-edit-popup .popup-header {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 14px;
-              font-weight: 600;
+              margin-bottom: 16px;
+              font-weight: 500;
               font-size: 14px;
-              color: #333;
-              padding-bottom: 8px;
-              border-bottom: 1px solid #e8e8e8;
+              color: #1a1a1a;
           }
           
           .timeblock-edit-popup .popup-close {
               cursor: pointer;
-              font-size: 20px;
-              opacity: 0.5;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 6px;
+              font-size: 18px;
               color: #999;
               transition: all 0.2s;
               line-height: 1;
           }
           
           .timeblock-edit-popup .popup-close:hover {
-              opacity: 1;
-              color: #ff4444;
-              transform: rotate(90deg);
+              background: #f5f5f5;
+              color: #333;
           }
           
           .timeblock-edit-popup .popup-body .input-group {
-              margin-bottom: 12px;
+              margin-bottom: 14px;
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group:last-of-type {
+              margin-bottom: 18px;
           }
           
           .timeblock-edit-popup .popup-body .input-group label {
               display: block;
-              margin-bottom: 5px;
+              margin-bottom: 6px;
               font-size: 12px;
               color: #666;
               font-weight: 500;
@@ -5070,53 +5085,66 @@ padding: 7px !important;
           .timeblock-edit-popup .popup-body .input-group input,
           .timeblock-edit-popup .popup-body .input-group select {
               width: 100%;
-              padding: 8px 10px;
-              border: 1px solid #ddd;
-              border-radius: 6px;
+              padding: 10px 12px;
+              border: 1px solid #e5e5e5;
+              border-radius: 8px;
               font-size: 13px;
-              transition: border-color 0.2s;
+              transition: all 0.2s;
+              background: #fafafa;
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group input:hover,
+          .timeblock-edit-popup .popup-body .input-group select:hover {
+              border-color: #d0d0d0;
+              background: #fff;
           }
           
           .timeblock-edit-popup .popup-body .input-group input:focus,
           .timeblock-edit-popup .popup-body .input-group select:focus {
               outline: none;
-              border-color: #4a90d9;
-              box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.1);
+              border-color: #6b8e6b;
+              background: #fff;
+              box-shadow: 0 0 0 3px rgba(107, 142, 107, 0.1);
           }
           
           .timeblock-edit-popup .popup-actions {
               display: flex;
-              gap: 10px;
+              gap: 8px;
               justify-content: flex-end;
-              margin-top: 16px;
+              margin-top: 8px;
           }
           
           .btn-sm {
               padding: 8px 16px;
               font-size: 13px;
-              border-radius: 6px;
+              border-radius: 8px;
               font-weight: 500;
               transition: all 0.2s;
-          }
-          
-          .btn-sm.btn-primary {
-              background: #4a90d9;
-              color: white;
+              cursor: pointer;
               border: none;
           }
           
+          .btn-sm.btn-primary {
+              background: #6b8e6b;
+              color: white;
+          }
+          
           .btn-sm.btn-primary:hover {
-              background: #357abd;
+              background: #5a7a5a;
+              transform: translateY(-1px);
+              box-shadow: 0 2px 8px rgba(107, 142, 107, 0.25);
           }
           
           .btn-sm.btn-secondary {
-              background: #f5f5f5;
+              background: transparent;
               color: #666;
-              border: 1px solid #ddd;
+              border: 1px solid #e0e0e0;
           }
           
           .btn-sm.btn-secondary:hover {
-              background: #e8e8e8;
+              background: #f5f5f5;
+              border-color: #d0d0d0;
+              color: #333;
           }
           
           /* 拖拽时的放置区域 */
@@ -5131,118 +5159,226 @@ padding: 7px !important;
               z-index: 5;
           }
           
-          /* 统计视图 */
+          /* 下拉菜单样式 */
+          .dropdown {
+              position: relative;
+          }
+          
+          .dropdown-toggle {
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              padding: 6px 12px;
+              background: rgba(255, 255, 255, 0.7);
+              border: 1px solid rgba(100, 149, 197, 0.25);
+              border-radius: 8px;
+              font-size: 12px;
+              color: #2c5282;
+              cursor: pointer;
+              transition: all 0.2s;
+              white-space: nowrap;
+          }
+          
+          .dropdown-toggle:hover {
+              background: rgba(255, 255, 255, 1);
+              border-color: rgba(100, 149, 197, 0.4);
+          }
+          
+          .dropdown-menu {
+              position: absolute;
+              top: calc(100% + 4px);
+              left: 0;
+              min-width: 140px;
+              background: white;
+              border: 1px solid rgba(100, 149, 197, 0.2);
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(100, 149, 197, 0.15);
+              padding: 6px;
+              z-index: 1000;
+              display: none !important;
+          }
+          
+          .dropdown-menu.active {
+              display: block !important;
+              animation: dropdownSlideIn 0.2s ease;
+          }
+          
+          @keyframes dropdownSlideIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-5px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+          
+          .dropdown-item {
+              padding: 8px 12px;
+              border-radius: 6px;
+              font-size: 12px;
+              color: #4a5568;
+              cursor: pointer;
+              transition: all 0.2s;
+              display: block; /* 默认块级显示 */
+          }
+          
+          .dropdown-item:hover {
+              background: rgba(100, 149, 197, 0.1);
+              color: #2c5282;
+          }
+          
+          /* 标签池中的标签项样式覆盖 */
+          #timelineTagPool .dropdown-item {
+              display: inline-block;
+              margin: 3px;
+              padding: 4px 10px;
+              border: none;
+              cursor: grab;
+          }
+          
+          #timelineTagPool .dropdown-item:hover {
+              background: transparent;
+              color: inherit;
+              transform: none;
+          }
+          
+          .custom-date-input {
+              width: 100%;
+              margin-top: 4px;
+              padding: 6px 8px;
+              border: 1px solid rgba(100, 149, 197, 0.3);
+              border-radius: 6px;
+              font-size: 12px;
+          }
+          /* 统计视图 - 简约风格 */
           .timeline-stats {
               margin-top: 16px;
-              padding: 12px;
-              background: var(--green-light);
-              border-radius: 8px;
-              border: 1px solid var(--green-border);
+              padding: 14px;
+              background: rgba(255, 255, 255, 0.6);
+              border-radius: 10px;
+              border: 1px solid rgba(100, 149, 197, 0.2);
           }
           
           .timeline-stats-title {
               font-size: 14px;
               font-weight: 600;
-              color: var(--green-text);
-              margin-bottom: 8px;
+              color: #2c5282;
+              margin-bottom: 10px;
           }
           
           .timeline-stats-grid {
               display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-              gap: 8px;
+              grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+              gap: 10px;
           }
           
           .timeline-stat-item {
-              padding: 8px;
-              background: var(--card);
-              border-radius: 6px;
-              border: 1px solid var(--border);
+              padding: 10px;
+              background: rgba(255, 255, 255, 0.8);
+              border-radius: 8px;
+              border: 1px solid rgba(100, 149, 197, 0.15);
+              transition: all 0.2s;
+          }
+          
+          .timeline-stat-item:hover {
+              background: rgba(255, 255, 255, 1);
+              border-color: rgba(100, 149, 197, 0.3);
+              transform: translateY(-2px);
+              box-shadow: 0 4px 12px rgba(100, 149, 197, 0.1);
           }
           
           .timeline-stat-tag {
               font-size: 12px;
               font-weight: 600;
+              color: #2c5282;
               margin-bottom: 4px;
           }
           
           .timeline-stat-time {
               font-size: 13px;
-              color: var(--text-secondary);
+              color: #718096;
           }
-          /* ========== 时间轴侧边栏样式 ========== */
+          /* ========== 时间轴侧边栏样式 - 简约淡蓝色 ========== */
           .timeline-sidebar {
               position: fixed;
-              right: -320px;
-              top: 0;
-              width: 300px;
-              height: 100vh;
-              background: var(--card);
-              box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+              right: -340px;
+              top: 50%; transform: translateY(-50%);
+              width: 320px;
+              height: 95vh;
+              background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+              box-shadow: -4px 0 20px rgba(100, 149, 197, 0.15);
               z-index: 9999;
-              transition: right 0.3s ease;
+              transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               overflow-y: auto;
-              padding: 16px;
+              padding: 20px;
           }
           
           .timeline-sidebar.active {
-              right: 0;
+              right: 20px;
           }
           
           .timeline-sidebar-header {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 16px;
-              padding-bottom: 12px;
-              border-bottom: 1px solid var(--border);
+              margin-bottom: 10px;
+              padding-bottom: 14px;
+              border-bottom: 1px solid rgba(100, 149, 197, 0.2);
           }
           
           .timeline-sidebar-header h3 {
               margin: 0;
-              font-size: 16px;
-              color: var(--text);
+              font-size: 17px;
+              color: #2c5282;
+              font-weight: 600;
           }
           
           .timeline-close-btn {
               background: none;
               border: none;
-              font-size: 24px;
+              font-size: 26px;
               cursor: pointer;
-              color: var(--text-secondary);
+              color: #718096;
               padding: 0;
               line-height: 1;
+              transition: all 0.2s;
           }
           
           .timeline-close-btn:hover {
-              color: var(--danger);
+              color: #4299e1;
+              transform: rotate(90deg);
           }
           
-          /* 侧边栏切换按钮 */
+          /* 侧边栏切换按钮 - 淡蓝色 */
           .timeline-toggle-btn {
               position: fixed;
               right: 0;
               top: 50%;
               transform: translateY(-50%);
-              background: var(--primary);
+              background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
               color: white;
               border: none;
-              padding: 12px 8px;
-              border-radius: 8px 0 0 8px;
+              padding: 14px 10px;
+              border-radius: 10px 0 0 10px;
               cursor: pointer;
               z-index: 9998;
               font-size: 13px;
-              box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
-              transition: all 0.3s ease;
+              font-weight: 500;
+              box-shadow: -3px 3px 12px rgba(66, 153, 225, 0.3);
+              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           }
           
           .timeline-toggle-btn:hover {
-              background: var(--green-primary);
+              background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+              transform: translateY(-50%) translateX(-5px);
+              box-shadow: -4px 4px 16px rgba(66, 153, 225, 0.4);
               transform: translateY(-50%) translateX(-5px);
           }
           
           .timeline-sidebar.active + .timeline-toggle-btn {
-              right: 300px;
+              right: 340px;
           }
           
           /* 移动端适配 */
@@ -5250,6 +5386,10 @@ padding: 7px !important;
               .timeline-sidebar {
                   width: 280px;
                   right: -280px;
+              }
+              
+              .timeline-sidebar.active {
+                  right: 0;
               }
               
               .timeline-sidebar.active + .timeline-toggle-btn {
@@ -5561,27 +5701,33 @@ padding: 7px !important;
     <div class="timeline-sidebar" id="timelineSidebar">
         <div class="timeline-sidebar-header">
             <h3>⏰ 时间轴</h3>
+            <div class="timeline-header-actions">
+                <!-- 日期筛选下拉菜单 -->
+                <div class="dropdown">
+                    <button class="dropdown-toggle" id="dateDropdownBtn" onclick="toggleDropdown('dateDropdown')">
+                        📅 <span id="currentDateLabel">今天</span>
+                    </button>
+                    <div class="dropdown-menu" id="dateDropdown">
+                        <div class="dropdown-item" onclick="selectDate('today')">今天</div>
+                        <div class="dropdown-item" onclick="selectDate('yesterday')">昨天</div>
+                        <div class="dropdown-item" onclick="selectDate('custom')">自定义日期...</div>
+                    </div>
+                    <input type="date" id="timelineCustomDate" class="custom-date-input" style="display:none;" onchange="loadTimelineForDate()">
+                </div>
+                
+                <!-- 标签池下拉菜单 -->
+                <div class="dropdown">
+                    <button class="dropdown-toggle" id="tagPoolDropdownBtn" onclick="toggleDropdown('tagPoolDropdown')">
+                        🏷️ 标签
+                    </button>
+                    <div class="dropdown-menu" id="tagPoolDropdown">
+                        <div id="timelineTagPool" style="display:flex;flex-wrap:wrap;gap:4px;">
+                            <!-- 动态生成标签 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
             <button class="timeline-close-btn" onclick="toggleTimelineSidebar()">×</button>
-        </div>
-        
-        <div class="timeline-controls" style="margin-bottom:12px;">
-            <select class="date-selector" id="timelineDateSelector" onchange="changeTimelineDate()">
-                <option value="today">今天</option>
-                <option value="yesterday">昨天</option>
-                <option value="custom">自定义日期</option>
-            </select>
-            <input type="date" id="timelineCustomDate" style="display:none;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;" onchange="loadTimelineForDate()">
-        </div>
-        
-        <!-- 标签池（默认折叠） -->
-        <div class="tag-pool-wrapper" id="tagPoolWrapper">
-            <div class="tag-pool-toggle" onclick="toggleTagPool()">
-                <span id="tagPoolToggleIcon">▶</span>
-                <span>标签池</span>
-            </div>
-            <div class="tag-pool" id="timelineTagPool" style="min-height:40px; display:none;">
-                <!-- 动态生成标签 -->
-            </div>
         </div>
         
         <!-- 时间轴主体 -->
@@ -23456,22 +23602,33 @@ function manualCloseOrganizerAiPanel() {
         }
         
         // 渲染标签
+        if (tags.size === 0) {
+            tagPool.innerHTML = '<div style="color:#718096;font-size:12px;padding:8px;">暂无标签</div>';
+            return;
+        }
+        
         Array.from(tags).forEach(tagName => {
             const tagConfig = data.tagConfig[tagName] || {};
             const color = tagConfig.color || '#6b8e6b';
             
             const tagEl = document.createElement('div');
-            tagEl.className = 'tag-pool-item';
+            tagEl.className = 'dropdown-item tag-pool-item';
             tagEl.textContent = tagName;
+            tagEl.style.display = 'inline-block';
+            tagEl.style.margin = '3px';
+            tagEl.style.padding = '4px 10px';
+            tagEl.style.borderRadius = '6px';
             tagEl.style.backgroundColor = color;
             tagEl.style.color = tagConfig.textColor || '#ffffff';
+            tagEl.style.border = 'none';
+            tagEl.style.cursor = 'grab';
             tagEl.draggable = true;
             tagEl.addEventListener('dragstart', handleTagDragStart);
             
             // 点击筛选（可选功能）
             tagEl.addEventListener('click', (e) => {
                 if (e.shiftKey) {
-                    // Shift+ 点击筛选该标签的时间块
+                    e.stopPropagation();
                     filterTimelineByTag(tagName);
                 }
             });
@@ -23889,37 +24046,74 @@ function manualCloseOrganizerAiPanel() {
     }
     
     
-    // 切换日期
-    function changeTimelineDate() {
-        const selector = document.getElementById('timelineDateSelector');
-        const customDate = document.getElementById('timelineCustomDate');
-        const value = selector.value;
-        
-        if (value === 'custom') {
-            customDate.style.display = 'inline-block';
-        } else {
-            customDate.style.display = 'none';
-            
-            if (value === 'today') {
-                currentTimelineDate = getTodayDate();
-            } else if (value === 'yesterday') {
-                currentTimelineDate = getYesterdayDate();
+    // 切换下拉菜单显示
+    function toggleDropdown(dropdownId) {
+        // 关闭其他所有下拉菜单
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu.id !== dropdownId) {
+                menu.classList.remove('active');
             }
-            
-            loadTimelineForDate();
+        });
+        
+        // 切换当前下拉菜单
+        const menu = document.getElementById(dropdownId);
+        if (menu) {
+            menu.classList.toggle('active');
         }
     }
     
-    // 加载指定日期的时间轴
-    function loadTimelineForDate() {
-        const customDate = document.getElementById('timelineCustomDate');
+    // 选择日期
+    function selectDate(dateType) {
+        const customDateInput = document.getElementById('timelineCustomDate');
+        const currentDateLabel = document.getElementById('currentDateLabel');
         
-        if (customDate.style.display !== 'none' && customDate.value) {
-            currentTimelineDate = customDate.value;
+        if (dateType === 'today') {
+            currentTimelineDate = getTodayDate();
+            currentDateLabel.textContent = '今天';
+            customDateInput.style.display = 'none';
+        } else if (dateType === 'yesterday') {
+            currentTimelineDate = getYesterdayDate();
+            currentDateLabel.textContent = '昨天';
+            customDateInput.style.display = 'none';
+        } else if (dateType === 'custom') {
+            customDateInput.style.display = 'block';
+            customDateInput.focus();
+            return; // 不立即加载，等待用户选择日期
         }
         
+        loadTimelineForDate();
+        // 关闭下拉菜单
+        document.getElementById('dateDropdown').classList.remove('active');
+    }
+    
+    // 自定义日期输入变化
+    function onCustomDateChange() {
+        const customDateInput = document.getElementById('timelineCustomDate');
+        if (customDateInput.value) {
+            currentTimelineDate = customDateInput.value;
+            currentDateLabel.textContent = customDateInput.value;
+            loadTimelineForDate();
+        }
+    }
+    // 加载指定日期的时间轴
+    function loadTimelineForDate() {
         renderTimeline();
         renderTimelineStats();
+    }
+    
+    // 点击外部关闭下拉菜单
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+    });
+    
+    // 自定义日期输入框事件
+    const customDateInput = document.getElementById('timelineCustomDate');
+    if (customDateInput) {
+        customDateInput.addEventListener('change', onCustomDateChange);
     }
     
     // 切换统计视图
