@@ -1181,9 +1181,11 @@
       "type": "task",
       "content": "网管验收+RPA测试",
       "createdAt": "2026-06-03T03:34:50.809Z",
-      "updatedAt": "2026-06-04T02:13:22.092Z",
+      "updatedAt": "2026-06-04T03:13:00.169Z",
       "tags": [
-        "B类-定期复杂"
+        "B类-定期复杂",
+        "RPA",
+        "验收"
       ],
       "done": false,
       "dueTime": "10min",
@@ -2482,10 +2484,8 @@
       "activeTextColor": "#FFFFFF"
     },
     "RPA": {
-      "color": "#ffe0b2",
-      "textColor": "#333333",
-      "activeValue": "#e65100",
-      "activeTextColor": "#FFFFFF"
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     },
     "CRM": {
       "color": "#ffe0b2",
@@ -2524,6 +2524,10 @@
       "activeTextColor": "#FFFFFF"
     },
     "B类-定期复杂": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
+    },
+    "验收": {
       "color": "#f5f5f0",
       "textColor": "#333333"
     }
@@ -3117,6 +3121,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T02:11:50.091Z"
+    "lastSync": "2026-06-04T03:12:40.340Z"
   }
 }
