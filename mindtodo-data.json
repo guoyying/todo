@@ -2528,6 +2528,16 @@
           "id": "1780610049164",
           "name": "关注中山四 等几个机楼的退网",
           "completed": false
+        },
+        {
+          "id": "1780613624521",
+          "name": "自动化周报企微提醒",
+          "completed": false
+        },
+        {
+          "id": "1780613651710",
+          "name": "每月填报数据进一步流程化",
+          "completed": false
         }
       ],
       "milestones": [
@@ -2885,6 +2895,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T21:31:19.027Z"
+    "lastSync": "2026-06-04T21:54:16.965Z"
   }
 }
