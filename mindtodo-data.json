@@ -1149,20 +1149,6 @@
       "subtasks": []
     },
     {
-      "id": "mpz4wwfmb5rox",
-      "type": "task",
-      "content": "检查下高华姐的帐号退网单",
-      "createdAt": "2026-06-04T06:48:58.162Z",
-      "updatedAt": "2026-06-04T06:48:58.162Z",
-      "tags": [
-        "C类-不定期：3-4点"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mpz50rpaey35x",
       "type": "task",
       "content": "跟客资说下工位的事情",
@@ -1175,6 +1161,37 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpz5om5dafa2o",
+      "type": "task",
+      "content": "打印明天检查的excel",
+      "createdAt": "2026-06-04T07:10:31.201Z",
+      "updatedAt": "2026-06-04T07:11:19.527Z",
+      "tags": [
+        "检查工作",
+        "B类-定期复杂"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mpz5oy116b2o3"
+    },
+    {
+      "id": "mpz5orz9qvp7x",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-06-04T07:10:38.757Z",
+      "updatedAt": "2026-06-04T07:11:21.088Z",
+      "tags": [
+        "B类-定期复杂"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mpz5oy116b2o3"
     }
   ],
   "normalFeelings": [
@@ -1811,6 +1828,10 @@
     {
       "id": "slot_mpkhd31qo1rzc",
       "name": "今日的三件大事"
+    },
+    {
+      "id": "slot_mpz5oy116b2o3",
+      "name": "B类-定期复杂 15:15-15:45"
     }
   ],
   "tags": [
@@ -2416,7 +2437,19 @@
       "textColor": "#333333"
     }
   },
-  "dailyTimeline": {},
+  "dailyTimeline": {
+    "2026-06-04": [
+      {
+        "id": "block_1780557046597",
+        "tag": "B类-定期复杂",
+        "startTime": "15:15",
+        "endTime": "15:45",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mpz5oy116b2o3"
+      }
+    ]
+  },
   "taskTriggers": [
     {
       "id": "mpgc9rbgy7m17",
