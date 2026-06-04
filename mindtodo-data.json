@@ -298,22 +298,6 @@
       "subtasks": []
     },
     {
-      "id": "mp4rq5qtlzymw",
-      "type": "task",
-      "content": "ISOC业务系统补充定级备案名称",
-      "createdAt": "2026-05-14T00:46:43.349Z",
-      "updatedAt": "2026-05-15T00:47:56.443Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T00:47:56.443Z",
-      "subtasks": []
-    },
-    {
       "id": "1778720539432",
       "type": "task",
       "content": "协助分析团队核查C网基站（非800M）传输电路拆除情况",
@@ -336,21 +320,6 @@
         "summary": "",
         "organizedAt": "2026-05-14T01:02:19.432Z"
       },
-      "subtasks": []
-    },
-    {
-      "id": "mp4whk0escw0x",
-      "type": "task",
-      "content": "配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单",
-      "createdAt": "2026-05-14T03:00:00.014Z",
-      "updatedAt": "2026-05-20T01:10:09.618Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "30min",
-      "unknown": false,
-      "doneAt": "2026-05-20T01:10:09.618Z",
       "subtasks": []
     },
     {
@@ -377,22 +346,6 @@
         "organizedAt": "2026-05-14T06:51:40.797Z"
       },
       "subtasks": []
-    },
-    {
-      "id": "mp6lpfmz93x9s",
-      "type": "task",
-      "content": "网安单：转发负载策略收敛专项工作。收集处理转发策略",
-      "createdAt": "2026-05-15T07:33:44.171Z",
-      "updatedAt": "2026-05-19T01:25:45.171Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T01:25:45.171Z"
     },
     {
       "id": "mp7r0gnotxyuj",
@@ -484,56 +437,6 @@
       "subtasks": []
     },
     {
-      "id": "1779067419916",
-      "type": "task",
-      "content": "三级系统资产更新：60个网关网元中选出退网设备，SOC删除。",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "doneAt": "2026-04-29T03:54:29.721Z",
-      "createdAt": "2026-04-29T03:54:29.721Z",
-      "updatedAt": "2026-04-29T03:54:29.721Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-04-29T03:54:29.721Z"
-      },
-      "subtasks": []
-    },
-    {
-      "id": "1779067475376",
-      "type": "task",
-      "content": "上单拆除奥普泰-5320的光路",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "doneAt": "2026-05-13T03:30:49.494Z",
-      "createdAt": "2026-05-13T03:30:49.494Z",
-      "updatedAt": "2026-05-13T03:30:49.494Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-13T03:30:49.494Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -548,38 +451,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-18T07:23:46.031Z"
-    },
-    {
-      "id": "mpaq6ln2mukuw",
-      "type": "task",
-      "content": "承载网络拓扑的事情，NOC要提供能看的出架构、管理走向和业务走向的",
-      "createdAt": "2026-05-18T04:50:08.270Z",
-      "updatedAt": "2026-05-18T05:32:58.957Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-18T05:32:58.957Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpaw61fygcvn2",
-      "type": "task",
-      "content": "网安单：宣贯严禁拍摄用户信息并发布至互联网平台的通知。",
-      "createdAt": "2026-05-18T07:37:39.790Z",
-      "updatedAt": "2026-05-18T08:44:11.617Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-18T08:44:11.617Z"
     },
     {
       "id": "mpaw6lz3qgq84",
@@ -776,21 +647,6 @@
       "subtasks": []
     },
     {
-      "id": "mpdhgi4cxfv27",
-      "type": "task",
-      "content": "响应NOC的扫描工作：问能不能扫描几台4a的服务器",
-      "createdAt": "2026-05-20T03:09:12.252Z",
-      "updatedAt": "2026-05-20T03:32:32.750Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T03:32:32.750Z"
-    },
-    {
       "id": "mpdhi8rb5g2ho",
       "type": "task",
       "content": "处理CRM的清单：规整非数字中继清单",
@@ -866,21 +722,6 @@
       "subtasks": []
     },
     {
-      "id": "mpdqe3q962els",
-      "type": "task",
-      "content": "NOC开始打4台我们维护的服务器，以及涉及老旧设备的网扫描的主意了",
-      "createdAt": "2026-05-20T07:19:16.833Z",
-      "updatedAt": "2026-05-20T09:25:53.759Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-20T09:25:53.759Z",
-      "subtasks": []
-    },
-    {
       "id": "mpequ8cfo838g",
       "type": "task",
       "content": "优化桌面和移动端任务文本框显示",
@@ -941,21 +782,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-21T09:18:54.568Z"
-    },
-    {
-      "id": "mpf6sd30kqfmu",
-      "type": "task",
-      "content": "答复NOC：华为烽火的url要提供；提供网关网元的安全策略（没有）；省soc漏洞扫描结果。",
-      "createdAt": "2026-05-21T07:46:02.172Z",
-      "updatedAt": "2026-05-21T08:44:33.386Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "9min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-21T08:44:33.386Z"
     },
     {
       "id": "mpf6tfubo8emz",
@@ -1335,22 +1161,6 @@
       "doneAt": "2026-06-02T09:07:32.169Z"
     },
     {
-      "id": "mpw0fy2b4d7et",
-      "type": "task",
-      "content": "网信安：跟进四台服务器纳入省SOC扫描事宜。",
-      "createdAt": "2026-06-02T02:20:30.131Z",
-      "updatedAt": "2026-06-03T06:33:18.497Z",
-      "tags": [
-        "网安",
-        "C类-不定期：3-4点"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-03T02:23:05.769Z"
-    },
-    {
       "id": "mpw36gtlhlqxc",
       "type": "task",
       "content": "算力检查工作：确定检查时间。",
@@ -1420,23 +1230,6 @@
       "doneAt": "2026-06-03T07:24:34.963Z"
     },
     {
-      "id": "mpxp3bylxyc1i",
-      "type": "task",
-      "content": "跟进厂家断网事宜",
-      "createdAt": "2026-06-03T06:38:18.189Z",
-      "updatedAt": "2026-06-03T07:30:00.557Z",
-      "tags": [
-        "A类-快速核查：每天多次",
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "4min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-03T07:30:00.557Z"
-    },
-    {
       "id": "mpxqovpglc0cm",
       "type": "task",
       "content": "我需要整理下，这些信息如何慢慢推进：网管无业务，可退：2129-市检察院-GZHC070-HB02\n【已提问】可以转o：1828-工行华南师范行政楼-GZHC418-HA15L。LDC62929016G。\n1428-天河软件园首层IDC-GZHC656-HA06L：LDC39814071G。\nLDC62417082G：1866-较场西机楼11楼数据机房-GZHC393-HA15L在虚拟用户机房是啥意思？",
@@ -1473,6 +1266,30 @@
         "organizedAt": "2026-06-03T23:32:20.358Z"
       },
       "projectId": "1780529538525",
+      "subtasks": []
+    },
+    {
+      "id": "1780541679146",
+      "type": "task",
+      "content": "网信安工作",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
+      "doneAt": "2026-06-03T07:30:00.557Z",
+      "organizedAt": "2026-06-04T02:54:39.146Z",
+      "createdAt": "2026-06-03T06:38:18.189Z",
+      "updatedAt": "2026-06-04T02:54:39.146Z",
+      "organization": {
+        "goal": "",
+        "completion": "好的，根据您提供的任务列表，已进行归类、合并和整理，并按序号输出如下：\n\n\n\n\n系统备案与资产更新\n\n\n\n\nISOC业务系统补充定级备案名称。\n三级系统资产更新：从60个网关网元中选出退网设备，并在SOC中删除。\n网络评估与拓扑整理\n\n\n\n\n配合做传输网评估：整理烽火OTN清单、本地NCE清单、传输网管清单。\n承载网络拓扑事宜：需提供能看出架构、管理走向和业务走向的拓扑图。\n网安专项工作\n\n\n\n\n网安单：转发负载策略收敛专项工作，收集并处理转发策略。\n网安单：宣贯严禁拍摄用户信息并发布至互联网平台的通知。\n设备退网与光路拆除\n\n\n\n\n上单拆除奥普泰-5320的光路。\n服务器扫描与SOC对接\n\n\n\n\n响应NOC的扫描工作：询问能否扫描几台4A服务器。\nNOC开始对4台维护服务器及老旧设备进行扫描。\n答复NOC：提供华为、烽火的URL；提供网关网元的安全策略（没有）；提供省SOC漏洞扫描结果。\n网信安：跟进四台服务器纳入省SOC扫描事宜。\n跟进断网事宜\n\n\n\n\n跟进厂家断网事宜。",
+        "skills": "",
+        "success": "",
+        "problems": "导致每次外部检查或评估都需要临时突击整理，效率低下",
+        "summary": "有望将当前 被动、碎片化 的工作模式，转变为 主动、系统化、高可复用的高效模式\n目标： 在一个月内，完成所有传输设备、网关网元、服务器的静态台账（型号、版本、位置、责任人）和动态拓扑（架构、管理走向、业务流向）的梳理与系统化录入。\n收益： 一旦基线建立，未来任何“配合评估”、“提供清单”的任务都将从“找数据”变为“查系统”，效率提升50%以上。",
+        "organizedAt": "2026-06-04T02:54:39.146Z"
+      },
+      "projectId": "1780299661890",
       "subtasks": []
     }
   ],
