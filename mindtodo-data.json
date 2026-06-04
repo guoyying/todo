@@ -1369,11 +1369,11 @@
     {
       "id": "mpxijem1hemv6",
       "type": "task",
-      "content": "1、网管验收；",
+      "content": "网管验收+RPA测试",
       "createdAt": "2026-06-03T03:34:50.809Z",
-      "updatedAt": "2026-06-04T01:13:30.764Z",
+      "updatedAt": "2026-06-04T02:11:46.173Z",
       "tags": [
-        "C类-不定期：3-4点"
+        "B类-定期复杂"
       ],
       "done": false,
       "dueTime": "10min",
@@ -1382,19 +1382,26 @@
         {
           "id": "1780474084869",
           "content": "复盘整个验收过程1、excel无法读取；2、网管搜不到名字-》直接跳过这张单了。",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "placedIn": null
         },
         {
           "id": "1780474137263",
           "content": "步骤：下载这几张单的excel；copy程序界面",
           "done": false,
           "estimatedTime": "5min",
-          "placedIn": "slot_mpkhd31qo1rzc"
+          "placedIn": null
+        },
+        {
+          "id": "1780539044068",
+          "content": "问题是：某张单有很多要优化的地方，我又不好意思全都说出来。而且微信上说感觉效率低，为什么会有这样的感觉呢？",
+          "done": false,
+          "estimatedTime": "5min",
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mpkhd31qo1rzc"
+      "placedIn": null
     },
     {
       "id": "mpxp0yxqsimj5",
