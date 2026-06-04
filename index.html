@@ -2077,6 +2077,19 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     max-height: none;
     overflow-y: auto;
 }
+
+/* 任务整理模态框：让 modal-body 自适应并独立滚动 */
+#taskOrganizerModal .modal {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: calc(100vh - 20px) !important;
+}
+
+#taskOrganizerModal .modal-body {
+    flex: 1 !important;              /* 占据剩余空间 */
+    overflow-y: auto !important;     /* 独立滚动 */
+    max-height: none !important;
+}
         
 /* AI 内容保存模态框 - 保留绿灰色主题，但使用统一尺寸 */
 #aiContentSaveModal .modal {
@@ -8285,7 +8298,11 @@ padding: 7px !important;
             }
             allBtn.textContent = '全部';
             allBtn.onclick = () => {
+                // 清除所有选中标签
                 container.dataset.selectedTags = '[]';
+                // 重置筛选模式为包含模式
+                container.dataset.filterMode = 'include';
+                
                 if (containerId === 'todayTagFilter') {
                     renderToday();
                 } else if (containerId === 'feelingTagFilter') {
@@ -8297,6 +8314,10 @@ padding: 7px !important;
                 } else if (containerId === 'completedTagFilter') {
                     renderCompleted();
                 } else if (containerId === 'organizerPendingTagFilter') {
+                    // 重新渲染标签筛选器（更新模式按钮和选中状态）
+                    const pendingTasks = data.tasks.filter(task => task.done);
+                    renderTagFilter(containerId, pendingTasks, []);
+                    // 加载待整理任务列表
                     loadPendingTasksList();
                 }
             };
@@ -8339,6 +8360,13 @@ padding: 7px !important;
                         renderTagFilter(containerId, pendingTasks, currentTags);
                         // 加载待整理任务列表
                         loadPendingTasksList();
+                        // 自动展开任务列表
+                        const container = document.getElementById('pendingTasksContainer');
+                        const toggleBtn = document.getElementById('pendingTasksToggleBtn');
+                        if (container && toggleBtn && container.style.display === 'none') {
+                            container.style.display = 'block';
+                            toggleBtn.textContent = '📂 收起';
+                        }
                     }
                 };
                 container.appendChild(span);
@@ -22593,7 +22621,9 @@ function initializeAiModelSelect(selectId) {
 function getSelectedPendingTaskIds() {
     const selectedIds = [];
     document.querySelectorAll('.pending-task-checkbox:checked').forEach(cb => {
-        selectedIds.push(parseInt(cb.dataset.taskId));
+        const rawId = cb.dataset.taskId;
+        const numId = parseInt(rawId);
+        selectedIds.push({ raw: rawId, num: numId });
     });
     return selectedIds;
 }
@@ -22645,13 +22675,25 @@ async function generateOrganizerAiSummary() {
         return;
     }
     
-    // 获取任务详情
-    const selectedTasks = data.tasks.filter(task => selectedTaskIds.includes(task.id));
+    // 🔍 调试：打印选中的 ID 结构
+    console.log('选中的 ID 结构:', selectedTaskIds);
+    
+    // 获取任务详情（同时匹配字符串和数字 ID）
+    const selectedTasks = data.tasks.filter(task => {
+        const taskIdStr = String(task.id);
+        const taskIdNum = Number(task.id);
+        
+        return selectedTaskIds.some(idObj => {
+            return String(idObj.raw) === taskIdStr || idObj.num === taskIdNum;
+        });
+    });
     
     // 构建分析内容
     const tasksContent = selectedTasks.map(task => {
         return `【任务 ${task.id}】${task.content}`;
     }).join('\n\n');
+    
+    console.log('构建的任务内容:', tasksContent);
     
     const fullPrompt = `${prompt}\n\n待分析任务列表：\n${tasksContent}`;
     
@@ -22667,8 +22709,8 @@ async function generateOrganizerAiSummary() {
     }
     
     try {
-        // 调用 AI 接口
-        const result = await callAiApi(fullPrompt, model, 'ai-summary');
+        // 调用 AI 接口（第三个参数传 null，确保 fullPrompt 完整传给模型）
+        const result = await callAiApi(fullPrompt, model, null);
         
         // 显示结果（使用 marked 库格式化 Markdown）
         if (resultContainer && result) {
