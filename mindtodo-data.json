@@ -1233,6 +1233,20 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpzc6fv16rhjt",
+      "type": "task",
+      "content": "点击项目追踪-单击细分方向-跳转到已完成任务整理，逻辑是什么？",
+      "createdAt": "2026-06-04T10:12:20.557Z",
+      "updatedAt": "2026-06-04T10:12:20.557Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
