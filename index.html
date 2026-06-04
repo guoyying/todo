@@ -5188,8 +5188,8 @@ padding: 7px !important;
           .dropdown-menu {
               position: absolute;
               top: calc(100% + 4px);
-              left: 0;
-              min-width: 140px;
+              right: 0px;
+              min-width: 250px;
               background: white;
               border: 1px solid rgba(100, 149, 197, 0.2);
               border-radius: 8px;
@@ -5197,6 +5197,7 @@ padding: 7px !important;
               padding: 6px;
               z-index: 1000;
               display: none !important;
+              width: 100%
           }
           
           .dropdown-menu.active {
@@ -5309,11 +5310,11 @@ padding: 7px !important;
               width: 320px;
               height: 95vh;
               background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
-              box-shadow: -4px 0 20px rgba(100, 149, 197, 0.15);
               z-index: 1;
               transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               overflow-y: auto;
               padding: 20px;
+              border-radius: 5px
           }
           
           .timeline-sidebar.active {
@@ -5373,13 +5374,13 @@ padding: 7px !important;
           
           .timeline-toggle-btn:hover {
               background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
-              transform: translateY(-50%) translateX(-5px);
+              transform: translateY(-50%);
               box-shadow: -4px 4px 16px rgba(66, 153, 225, 0.4);
-              transform: translateY(-50%) translateX(-5px);
+              transform: translateY(-50%);
           }
           
           .timeline-sidebar.active + .timeline-toggle-btn {
-              right: 340px;
+              right: 330px;
           }
           
           /* 移动端适配 */
@@ -23655,12 +23656,13 @@ function manualCloseOrganizerAiPanel() {
         // 计算位置
         updateTimeBlockPosition(blockEl, blockData);
         
-        // 内容 - 统一显示格式
-        const displayStartTime = blockData.startTime;
-        
-        blockEl.innerHTML = `
-            <div class="time-block-time">${displayStartTime}</div>
-        `;
+         // 内容 - 显示 startTime-endTime
+         const displayStartTime = blockData.startTime;
+         const displayEndTime = blockData.endTime;
+ 
+         blockEl.innerHTML = `
+             <div class="time-block-time">${displayStartTime} - ${displayEndTime}</div>
+         `;
         
         // 事件绑定 - 统一使用双击编辑，弹出气泡弹窗
         blockEl.addEventListener('dblclick', (e) => {
@@ -24004,6 +24006,7 @@ function manualCloseOrganizerAiPanel() {
                 <div class="popup-actions">
                     <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); saveCompactEdit('${blockData.id}')">保存</button>
                     <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); this.closest('.timeblock-edit-popup').remove()">取消</button>
+                    <button class="btn btn-danger btn-sm" style="margin-left: auto;" onclick="event.stopPropagation(); deleteTimeBlock('${blockData.id}')">删除</button>
                 </div>
             </div>
         `;
@@ -24046,7 +24049,32 @@ function manualCloseOrganizerAiPanel() {
         }
     }
     
+    // 删除时间块
+    function deleteTimeBlock(blockId) {
+        if (!confirm('确定要删除这个时间块吗？')) {
+            return;
+        }
+        
+        const blocks = data.dailyTimeline[currentTimelineDate] || [];
+        const blockIndex = blocks.findIndex(b => b.id === blockId);
+        
+        if (blockIndex !== -1) {
+            // 从数组中移除
+            blocks.splice(blockIndex, 1);
+            
+            // 如果数组为空，删除该日期的数据
+            if (blocks.length === 0) {
+                delete data.dailyTimeline[currentTimelineDate];
+            }
+            
+            saveData();
+            renderTimeline();
+            renderSlots();
+            document.querySelector('.timeblock-edit-popup')?.remove();
+        }
+    }
     
+
     // 切换下拉菜单显示
     function toggleDropdown(dropdownId) {
         // 关闭其他所有下拉菜单
