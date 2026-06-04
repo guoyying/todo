@@ -2084,6 +2084,14 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     border: 1px solid var(--green-border);
     /* 其他样式跟随全局 .modal */
 }
+
+/* 任务整理模态框专属尺寸（仅桌面端） */
+#taskOrganizerModal .modal {
+    max-width: 900px;         /* 更宽，适合展示任务列表和表单 */
+    max-height: calc(100vh - 10px); /* 更高，充分利用屏幕空间 */
+    min-height: 700px;        /* 最小高度，确保足够高 */
+    height: auto;             /* 高度自适应 */
+}
         
         #aiContentSaveModal h3 {
             font-size: 18px;
@@ -5350,7 +5358,7 @@ padding: 7px !important;
      </div>
  
      <!-- 任务整理模态框 -->
-    <div class="modal-overlay hidden" id="taskOrganizerModal" onclick="closeModal('taskOrganizerModal')">
+     <div class="modal-overlay hidden" id="taskOrganizerModal">
         <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📋 已完成任务整理</h3>
@@ -5449,7 +5457,40 @@ padding: 7px !important;
                         </div>
                     </div>
                     
-                     <!-- 整理表单 -->
+                    <!-- AI 分析面板 -->
+                    <div id="organizerAiPanel" style="margin-top:16px;margin-bottom:16px;padding:12px;background:var(--green-light);border-radius:8px;border:1px solid var(--primary);display:none;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                            <div style="font-weight:500;font-size:14px;">🤖 AI 分析选中任务</div>
+                            <button class="btn btn-small btn-secondary" onclick="manualCloseOrganizerAiPanel()" style="padding:2px 8px;font-size:11px;">✕ 清空并关闭</button>
+                        </div>
+                        
+                        <!-- 提示词输入（默认展开） -->
+                        <div style="margin-bottom:12px;">
+                            <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">分析问题</label>
+                            <textarea id="organizerAiPrompt" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;" placeholder="输入自定义提示词，留空使用默认提示词"></textarea>
+                        </div>
+                        
+                        <!-- 模型选择（自动选择默认模型） -->
+                        <div style="margin-bottom:12px;">
+                            <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">AI 模型</label>
+                            <select id="organizerAiModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+                                <!-- 选项由 JS 动态填充，自动选中默认模型 -->
+                            </select>
+                        </div>
+                        
+                        <!-- 操作按钮 -->
+                        <div style="display:flex;gap:8px;margin-bottom:12px;">
+                            <button class="btn btn-primary" onclick="generateOrganizerAiSummary()" id="organizerAiGenerateBtn" style="flex:1;font-size:13px;">🚀 开始分析</button>
+                            <button class="btn btn-secondary" onclick="copyOrganizerAiResult()" id="organizerAiCopyBtn" disabled style="flex:1;font-size:13px;">📋 复制结果</button>
+                        </div>
+                        
+                        <!-- 结果展示 -->
+                        <div id="organizerAiResult" class="ai-search-content" style="max-height:300px;overflow-y:auto;background:var(--card);border-radius:6px;padding:12px;font-size:13px;min-height:100px;">
+                            <div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方“开始分析”按钮，AI 将针对选中的任务生成分析结果</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 整理表单 -->
                      <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:5px;">
                          <!-- 合并任务信息 -->
                          <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
@@ -11289,6 +11330,11 @@ padding: 7px !important;
           function closeModal(modalId) {
               const modal = document.getElementById(modalId);
               if (modal) {
+                  // 点击×按钮关闭：不设置标志位，下次打开时会清空数据
+                  // 确保标志位为 false（或不存在）
+                  if (modalId === 'taskOrganizerModal') {
+                      modal.dataset.closedByOverlay = 'false';
+                  }
                   modal.classList.add('hidden');
               }
           }
@@ -17994,34 +18040,48 @@ ${ammoToAnalyze.map((ammo, index) =>
            // generateAISummary(type);
        }
        
-       // 显示任务整理模态框
-       function showTaskOrganizer() {
-           const modal = document.getElementById('taskOrganizerModal');
-           
-           // 清空表单
-           clearOrganizerForm();
-           
-            // 初始化待整理任务标签筛选器（包括已整理的任务）
-            const pendingTasks = data.tasks.filter(task => task.done);
-            renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
-           
-           // 加载待整理任务列表
-           loadPendingTasksList();
-           
-           // 加载已整理的任务列表
-           loadOrganizedTasksList();
-           
-           // 初始化标签选择器（使用renderTags函数）
-           renderTags('organizerTags', []);
-           
-           // 加载项目列表到关联选择器
-           loadOrganizerProjectList();
-           
-           // 默认显示整理任务选项卡
-           switchOrganizerTab('organizer');
-           
-           modal.classList.remove('hidden');
-       }
+     // 显示任务整理模态框
+     function showTaskOrganizer() {
+         const modal = document.getElementById('taskOrganizerModal');
+         
+         // 检查是否是因为点击遮罩而关闭的（保留数据）
+         const wasClosedByOverlay = modal.dataset.closedByOverlay === 'true';
+         
+         // 如果是首次打开或点击×关闭的，清空表单；如果是点击遮罩关闭的，保留数据
+         if (!wasClosedByOverlay) {
+             clearOrganizerForm();
+         }
+         
+         // 重置标志位
+         modal.dataset.closedByOverlay = 'false';
+         
+         // 初始化待整理任务标签筛选器（包括已整理的任务）
+         const pendingTasks = data.tasks.filter(task => task.done);
+         renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
+         
+         // 加载待整理任务列表
+         loadPendingTasksList();
+         
+         // 加载已整理的任务列表
+         loadOrganizedTasksList();
+         
+         // 初始化标签选择器（使用 renderTags 函数）
+         renderTags('organizerTags', []);
+         
+         // 加载项目列表到关联选择器
+         loadOrganizerProjectList();
+         
+         // 初始化 AI 模型选择器
+         initializeAiModelSelect('organizerAiModelSelect');
+         
+         // 默认显示整理任务选项卡
+         switchOrganizerTab('organizer');
+         
+         modal.classList.remove('hidden');
+         
+         // 设置模态框关闭事件监听
+         setupOrganizerModalCloseHandler();
+     }
        
        // 加载整理模态框的项目列表
        function loadOrganizerProjectList() {
@@ -18155,6 +18215,19 @@ ${ammoToAnalyze.map((ammo, index) =>
                        taskItem.classList.add('selected');
                    } else {
                        taskItem.classList.remove('selected');
+                   }
+                   
+                   // 显示/隐藏 AI 面板：有选中任务时显示，否则隐藏
+                   const aiPanel = document.getElementById('organizerAiPanel');
+                   if (aiPanel) {
+                       const selectedCount = document.querySelectorAll('.pending-task-checkbox:checked').length;
+                       if (selectedCount > 0) {
+                           aiPanel.style.display = 'block';
+                           // 首次显示时设置默认提示词（如果输入框为空）
+                           setOrganizerAiDefaultPrompt();
+                       } else {
+                           aiPanel.style.display = 'none';
+                       }
                    }
                });
                // 初始化选中状态
@@ -22471,6 +22544,234 @@ if (document.readyState === 'loading') {
             }
         }, 500);
     });
+}
+
+// ==================== 任务整理 AI 面板功能 ====================
+
+// 初始化 AI 模型选择器
+function initializeAiModelSelect(selectId) {
+    const select = document.getElementById(selectId);
+    if (!select) return;
+    
+    // 清空现有选项
+    select.innerHTML = '';
+    
+    // 添加可用的 AI 模型选项（从 data.aiConfig.models 获取）
+    if (data.aiConfig && data.aiConfig.models && data.aiConfig.models.length > 0) {
+        const defaultModelId = data.aiConfig.model; // 获取全局默认模型 ID
+        
+        data.aiConfig.models.forEach(model => {
+            const option = document.createElement('option');
+            const modelId = model.id || model.name;
+            option.value = modelId;
+            option.textContent = model.displayName || model.name || model.id;
+            
+            // 自动选中全局默认模型
+            if (defaultModelId && modelId === defaultModelId) {
+                option.selected = true;
+            }
+            
+            select.appendChild(option);
+        });
+        
+        // 如果没有默认模型或默认模型不在列表中，选中第一个
+        if (!select.value && select.options.length > 0) {
+            select.selectedIndex = 0;
+        }
+    } else {
+        // 如果没有配置模型，添加一个默认提示
+        const noModelOption = document.createElement('option');
+        noModelOption.value = '';
+        noModelOption.textContent = '-- 请先在设置中配置 AI 模型 --';
+        noModelOption.disabled = true;
+        noModelOption.selected = true;
+        select.appendChild(noModelOption);
+    }
+}
+
+// 获取选中的待整理任务 ID 列表
+function getSelectedPendingTaskIds() {
+    const selectedIds = [];
+    document.querySelectorAll('.pending-task-checkbox:checked').forEach(cb => {
+        selectedIds.push(parseInt(cb.dataset.taskId));
+    });
+    return selectedIds;
+}
+
+// 获取 AI 分析默认提示词（复用任务汇总的默认提示词）
+function getDefaultOrganizerAiPrompt() {
+    return `请根据以下选中的任务列表，生成一份用于汇报的报告：
+
+分析要求：
+1. 分析任务之间的关联性和共同点
+2. 提供工作效率评估和改进建议
+3. 使用 emoji 增加可读性（如（如📊、🏷️、💡、🎯等）
+请生成一份结构清晰、用于汇报的报告。`;
+}
+
+// 设置 AI 面板的默认提示词
+function setOrganizerAiDefaultPrompt() {
+    const promptInput = document.getElementById('organizerAiPrompt');
+    if (promptInput && !promptInput.value.trim()) {
+        promptInput.value = getDefaultOrganizerAiPrompt();
+    }
+}
+
+// 生成 AI 分析摘要
+async function generateOrganizerAiSummary() {
+    const promptInput = document.getElementById('organizerAiPrompt');
+    const modelSelect = document.getElementById('organizerAiModelSelect');
+    const resultContainer = document.getElementById('organizerAiResult');
+    const generateBtn = document.getElementById('organizerAiGenerateBtn');
+    const copyBtn = document.getElementById('organizerAiCopyBtn');
+    
+    // 验证输入
+    const prompt = promptInput?.value.trim();
+    if (!prompt) {
+        showBanner('请输入分析问题', '#ff9800', 2000);
+        return;
+    }
+    
+    const model = modelSelect?.value;
+    if (!model) {
+        showBanner('请选择 AI 模型', '#ff9800', 2000);
+        return;
+    }
+    
+    // 获取选中的任务
+    const selectedTaskIds = getSelectedPendingTaskIds();
+    if (selectedTaskIds.length === 0) {
+        showBanner('请至少选择一个待整理任务', '#ff9800', 2000);
+        return;
+    }
+    
+    // 获取任务详情
+    const selectedTasks = data.tasks.filter(task => selectedTaskIds.includes(task.id));
+    
+    // 构建分析内容
+    const tasksContent = selectedTasks.map(task => {
+        return `【任务 ${task.id}】${task.content}`;
+    }).join('\n\n');
+    
+    const fullPrompt = `${prompt}\n\n待分析任务列表：\n${tasksContent}`;
+    
+    // 显示加载状态
+    if (resultContainer) {
+        resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">🤖 AI 正在分析中...</div>';
+    }
+    
+    // 禁用按钮
+    if (generateBtn) {
+        generateBtn.disabled = true;
+        generateBtn.textContent = '分析中...';
+    }
+    
+    try {
+        // 调用 AI 接口
+        const result = await callAiApi(fullPrompt, model, 'ai-summary');
+        
+        // 显示结果（使用 marked 库格式化 Markdown）
+        if (resultContainer && result) {
+            if (typeof marked !== 'undefined') {
+                resultContainer.innerHTML = marked.parse(result);
+            } else {
+                // 降级方案：简单的换行处理
+                resultContainer.innerHTML = escapeHtml(result).replace(/\n/g, '<br>');
+            }
+            if (copyBtn) {
+                copyBtn.disabled = false;
+            }
+        }
+    } catch (error) {
+        console.error('AI 分析失败:', error);
+        if (resultContainer) {
+            resultContainer.innerHTML = `<div style="color:var(--danger);text-align:center;padding:20px;">❌ 分析失败：${error.message || '未知错误'}</div>`;
+        }
+    } finally {
+        // 恢复按钮状态
+        if (generateBtn) {
+            generateBtn.disabled = false;
+            generateBtn.textContent = '🚀 开始分析';
+        }
+    }
+}
+
+// 复制 AI 分析结果
+function copyOrganizerAiResult() {
+    const resultContainer = document.getElementById('organizerAiResult');
+    if (!resultContainer) return;
+    
+    // 获取纯文本内容
+    const text = resultContainer.innerText || resultContainer.textContent;
+    if (!text) {
+        showBanner('没有可复制的内容', '#ff9800', 2000);
+        return;
+    }
+    
+    // 复制到剪贴板
+    navigator.clipboard.writeText(text).then(() => {
+        showBanner('已复制到剪贴板', '#4caf50', 2000);
+    }).catch(err => {
+        console.error('复制失败:', err);
+        showBanner('复制失败，请手动复制', '#ff9800', 2000);
+    });
+}
+
+// 手动关闭 AI 面板（清空数据）
+function manualCloseOrganizerAiPanel() {
+    const panel = document.getElementById('organizerAiPanel');
+    const promptInput = document.getElementById('organizerAiPrompt');
+    const resultContainer = document.getElementById('organizerAiResult');
+    const copyBtn = document.getElementById('organizerAiCopyBtn');
+    
+    // 隐藏面板
+    if (panel) panel.style.display = 'none';
+    
+    // 清空输入和结果
+    if (promptInput) promptInput.value = '';
+    if (resultContainer) {
+        resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方“开始分析”按钮，AI 将针对选中的任务生成分析结果</div>';
+    }
+    if (copyBtn) copyBtn.disabled = true;
+}
+
+// 设置模态框关闭事件监听
+function setupOrganizerModalCloseHandler() {
+    const modal = document.getElementById('taskOrganizerModal');
+    
+    // 移除旧的监听器（如果存在）
+    if (modal._closeHandler) {
+        modal.removeEventListener('click', modal._closeHandler);
+    }
+    
+    // 创建新的监听器：点击遮罩时设置标志位并关闭模态框
+    modal._closeHandler = function(e) {
+        if (e.target === modal) {
+            // 标记为点击遮罩关闭（保留数据）
+            modal.dataset.closedByOverlay = 'true';
+            modal.classList.add('hidden');
+        }
+    };
+    
+    modal.addEventListener('click', modal._closeHandler);
+}
+
+// 手动关闭 AI 面板（清空数据）
+function manualCloseOrganizerAiPanel() {
+    const panel = document.getElementById('organizerAiPanel');
+    const promptInput = document.getElementById('organizerAiPrompt');
+    const resultContainer = document.getElementById('organizerAiResult');
+    const copyBtn = document.getElementById('organizerAiCopyBtn');
+    
+    // 隐藏面板
+    if (panel) panel.style.display = 'none';
+    
+    // 清空输入和结果
+    if (promptInput) promptInput.value = '';
+    if (resultContainer) {
+        resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方"开始分析"按钮，AI 将针对选中的任务生成分析结果</div>';
+    }
+    if (copyBtn) copyBtn.disabled = true;
 }
 </script>
 
