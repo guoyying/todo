@@ -3455,9 +3455,11 @@ padding: 7px !important;
                #pendingTasksContainer {
                    max-height: 200px !important;
                }
-                               /* 已整理任务列表移动端优化 */
+                               /* 已整理任务列表移动端优化 - 自适应高度 */
                                #organizedTasksContainer {
-                                   max-height: 300px !important;
+                                   max-height: none !important;  /* 移除高度限制 */
+                                   min-height: 200px !important; /* 最小高度，避免太矮 */
+                                   overflow-y: auto !important;  /* 内容多时自动滚动 */
                                }
                                
                                /* 已整理任务项样式 - 覆盖.item样式 */
