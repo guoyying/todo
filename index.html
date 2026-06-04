@@ -4652,6 +4652,14 @@ padding: 7px !important;
               align-items: center;
               gap: 6px;
               flex: 1;
+              cursor: pointer;              /* 鼠标变为手型 */
+              padding: 4px 8px;            /* 增加点击区域 */
+              border-radius: 6px;          /* 圆角 */
+              transition: background 0.2s; /* 过渡动画 */
+          }
+          
+          .tracker-selected-content:hover {
+              background: var(--primary-light); /* 悬停时高亮 */
           }
           
           .tracker-selected-project {
@@ -4835,6 +4843,454 @@ padding: 7px !important;
               .tracker-header h3 {
                   font-size: 16px;
               }
+          }
+          
+          /* ========== 时间轴样式 ========== */
+          .timeline-section {
+              margin-top: 24px;
+          }
+          
+          .timeline-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 16px;
+          }
+          
+          .timeline-controls {
+              display: flex;
+              gap: 12px;
+              align-items: center;
+          }
+          
+          .date-selector {
+              padding: 6px 12px;
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              font-size: 14px;
+              background: var(--card);
+              color: var(--text);
+              cursor: pointer;
+          }
+          
+          .timeline-container {
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: var(--radius);
+              padding: 16px;
+              box-shadow: var(--shadow);
+          }
+          
+          /* 标签池 */
+          .tag-pool {
+              display: flex;
+              gap: 8px;
+              flex-wrap: wrap;
+              margin-bottom: 0;
+              padding: 12px;
+              background: var(--green-light);
+              border-radius: 8px;
+              border: 1px solid var(--green-border);
+              transition: margin-bottom 0.2s ease;
+          }
+          
+          .tag-pool-wrapper.expanded .tag-pool {
+              margin-bottom: 16px;
+          }
+          
+          .tag-pool-item {
+              padding: 6px 12px;
+              border-radius: 6px;
+              font-size: 13px;
+              cursor: grab;
+              transition: all 0.2s ease;
+              user-select: none;
+          }
+          
+          .tag-pool-item:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          }
+          
+          .tag-pool-item:active {
+              cursor: grabbing;
+          }
+          
+          /* 时间轴主体 */
+          .timeline-body {
+              position: relative;
+              min-height: 600px;
+              height: 600px;
+              border: 1px solid var(--border);
+              border-radius: 6px;
+              background: #fafafa;
+          }
+          
+          /* 时间刻度 */
+          .timeline-scale {
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              width: 60px;
+              border-right: 1px solid var(--border);
+              background: var(--card);
+          }
+          
+          .timeline-hour {
+              position: absolute;
+              left: 0;
+              right: 0;
+              border-bottom: 1px solid var(--border);
+              font-size: 12px;
+              color: var(--text-secondary);
+              padding: 4px 8px;
+          }
+          
+          .timeline-hour-label {
+              position: absolute;
+              left: 8px;
+              transform: translateY(-50%);
+              font-size: 12px;
+              color: var(--text-secondary);
+          }
+          
+          .timeline-quarter {
+              position: absolute;
+              left: 0;
+              right: 0;
+              border-bottom: 1px dashed #ddd;
+          }
+          
+          /* 时间块 - 统一只显示时间 */
+          .time-block {
+              position: absolute;
+              left: 60px;
+              right: 0;
+              border-radius: 6px;
+              padding: 8px;
+              font-size: 12px;
+              color: white;
+              cursor: move;
+              overflow: hidden;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              transition: box-shadow 0.2s ease;
+              z-index: 10;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+          
+          .time-block:hover {
+              box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+          }
+          
+          .time-block-time {
+              font-size: 13px;
+              font-weight: 600;
+              opacity: 1;
+              text-align: center;
+          }
+          
+          /* 紧凑编辑弹窗 - 气泡样式 */
+          .timeblock-edit-popup {
+              position: absolute;
+              background: #fff;
+              border: 2px solid #4a90d9;
+              border-radius: 12px;
+              box-shadow: 0 8px 24px rgba(74, 144, 217, 0.3);
+              padding: 16px;
+              z-index: 9999 !important;
+              min-width: 220px;
+              animation: popupSlideIn 0.2s ease-out;
+          }
+          
+          @keyframes popupSlideIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-10px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+          
+          /* 气泡箭头 */
+          .timeblock-edit-popup::before {
+              content: '';
+              position: absolute;
+              bottom: -8px;
+              left: 50%;
+              transform: translateX(-50%);
+              border-width: 8px 8px 0;
+              border-style: solid;
+              border-color: #4a90d9 transparent transparent transparent;
+          }
+          
+          .timeblock-edit-popup .popup-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 14px;
+              font-weight: 600;
+              font-size: 14px;
+              color: #333;
+              padding-bottom: 8px;
+              border-bottom: 1px solid #e8e8e8;
+          }
+          
+          .timeblock-edit-popup .popup-close {
+              cursor: pointer;
+              font-size: 20px;
+              opacity: 0.5;
+              color: #999;
+              transition: all 0.2s;
+              line-height: 1;
+          }
+          
+          .timeblock-edit-popup .popup-close:hover {
+              opacity: 1;
+              color: #ff4444;
+              transform: rotate(90deg);
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group {
+              margin-bottom: 12px;
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group label {
+              display: block;
+              margin-bottom: 5px;
+              font-size: 12px;
+              color: #666;
+              font-weight: 500;
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group input,
+          .timeblock-edit-popup .popup-body .input-group select {
+              width: 100%;
+              padding: 8px 10px;
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              font-size: 13px;
+              transition: border-color 0.2s;
+          }
+          
+          .timeblock-edit-popup .popup-body .input-group input:focus,
+          .timeblock-edit-popup .popup-body .input-group select:focus {
+              outline: none;
+              border-color: #4a90d9;
+              box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.1);
+          }
+          
+          .timeblock-edit-popup .popup-actions {
+              display: flex;
+              gap: 10px;
+              justify-content: flex-end;
+              margin-top: 16px;
+          }
+          
+          .btn-sm {
+              padding: 8px 16px;
+              font-size: 13px;
+              border-radius: 6px;
+              font-weight: 500;
+              transition: all 0.2s;
+          }
+          
+          .btn-sm.btn-primary {
+              background: #4a90d9;
+              color: white;
+              border: none;
+          }
+          
+          .btn-sm.btn-primary:hover {
+              background: #357abd;
+          }
+          
+          .btn-sm.btn-secondary {
+              background: #f5f5f5;
+              color: #666;
+              border: 1px solid #ddd;
+          }
+          
+          .btn-sm.btn-secondary:hover {
+              background: #e8e8e8;
+          }
+          
+          /* 拖拽时的放置区域 */
+          .timeline-drop-zone {
+              position: absolute;
+              left: 60px;
+              right: 0;
+              background: rgba(107, 142, 107, 0.1);
+              border: 2px dashed var(--primary);
+              border-radius: 6px;
+              pointer-events: none;
+              z-index: 5;
+          }
+          
+          /* 统计视图 */
+          .timeline-stats {
+              margin-top: 16px;
+              padding: 12px;
+              background: var(--green-light);
+              border-radius: 8px;
+              border: 1px solid var(--green-border);
+          }
+          
+          .timeline-stats-title {
+              font-size: 14px;
+              font-weight: 600;
+              color: var(--green-text);
+              margin-bottom: 8px;
+          }
+          
+          .timeline-stats-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+              gap: 8px;
+          }
+          
+          .timeline-stat-item {
+              padding: 8px;
+              background: var(--card);
+              border-radius: 6px;
+              border: 1px solid var(--border);
+          }
+          
+          .timeline-stat-tag {
+              font-size: 12px;
+              font-weight: 600;
+              margin-bottom: 4px;
+          }
+          
+          .timeline-stat-time {
+              font-size: 13px;
+              color: var(--text-secondary);
+          }
+          /* ========== 时间轴侧边栏样式 ========== */
+          .timeline-sidebar {
+              position: fixed;
+              right: -320px;
+              top: 0;
+              width: 300px;
+              height: 100vh;
+              background: var(--card);
+              box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+              z-index: 9999;
+              transition: right 0.3s ease;
+              overflow-y: auto;
+              padding: 16px;
+          }
+          
+          .timeline-sidebar.active {
+              right: 0;
+          }
+          
+          .timeline-sidebar-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 16px;
+              padding-bottom: 12px;
+              border-bottom: 1px solid var(--border);
+          }
+          
+          .timeline-sidebar-header h3 {
+              margin: 0;
+              font-size: 16px;
+              color: var(--text);
+          }
+          
+          .timeline-close-btn {
+              background: none;
+              border: none;
+              font-size: 24px;
+              cursor: pointer;
+              color: var(--text-secondary);
+              padding: 0;
+              line-height: 1;
+          }
+          
+          .timeline-close-btn:hover {
+              color: var(--danger);
+          }
+          
+          /* 侧边栏切换按钮 */
+          .timeline-toggle-btn {
+              position: fixed;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              background: var(--primary);
+              color: white;
+              border: none;
+              padding: 12px 8px;
+              border-radius: 8px 0 0 8px;
+              cursor: pointer;
+              z-index: 9998;
+              font-size: 13px;
+              box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
+              transition: all 0.3s ease;
+          }
+          
+          .timeline-toggle-btn:hover {
+              background: var(--green-primary);
+              transform: translateY(-50%) translateX(-5px);
+          }
+          
+          .timeline-sidebar.active + .timeline-toggle-btn {
+              right: 300px;
+          }
+          
+          /* 移动端适配 */
+          @media (max-width: 768px) {
+              .timeline-sidebar {
+                  width: 280px;
+                  right: -280px;
+              }
+              
+              .timeline-sidebar.active + .timeline-toggle-btn {
+                  right: 280px;
+              }
+          }
+          
+          /* 标签池切换样式 */
+          .tag-pool-wrapper {
+              margin-bottom: 12px;
+          }
+          
+          .tag-pool-toggle {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 12px;
+              background: var(--green-light);
+              border: 1px solid var(--green-border);
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 13px;
+              color: var(--green-text);
+              transition: all 0.2s ease;
+          }
+          
+          .tag-pool-toggle:hover {
+              background: var(--green-border);
+          }
+          
+          .tag-pool-toggle #tagPoolToggleIcon {
+              font-size: 10px;
+              transition: transform 0.2s ease;
+          }
+          
+          .tag-pool-wrapper.expanded .tag-pool-toggle #tagPoolToggleIcon {
+              transform: rotate(90deg);
+          }
+          
+          .tag-pool-wrapper.expanded .tag-pool {
+              display: flex !important;
           }
       </style>
 </head>
@@ -5100,6 +5556,53 @@ padding: 7px !important;
             </button>
         </div>
     </div>
+
+    <!-- 24 小时时间轴侧边栏 -->
+    <div class="timeline-sidebar" id="timelineSidebar">
+        <div class="timeline-sidebar-header">
+            <h3>⏰ 时间轴</h3>
+            <button class="timeline-close-btn" onclick="toggleTimelineSidebar()">×</button>
+        </div>
+        
+        <div class="timeline-controls" style="margin-bottom:12px;">
+            <select class="date-selector" id="timelineDateSelector" onchange="changeTimelineDate()">
+                <option value="today">今天</option>
+                <option value="yesterday">昨天</option>
+                <option value="custom">自定义日期</option>
+            </select>
+            <input type="date" id="timelineCustomDate" style="display:none;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;" onchange="loadTimelineForDate()">
+        </div>
+        
+        <!-- 标签池（默认折叠） -->
+        <div class="tag-pool-wrapper" id="tagPoolWrapper">
+            <div class="tag-pool-toggle" onclick="toggleTagPool()">
+                <span id="tagPoolToggleIcon">▶</span>
+                <span>标签池</span>
+            </div>
+            <div class="tag-pool" id="timelineTagPool" style="min-height:40px; display:none;">
+                <!-- 动态生成标签 -->
+            </div>
+        </div>
+        
+        <!-- 时间轴主体 -->
+        <div class="timeline-body" id="timelineBody" style="height:300px;">
+            <!-- 时间刻度 -->
+            <div class="timeline-scale" id="timelineScale"></div>
+            <!-- 时间块动态生成 -->
+            <div class="timeline-drop-zone" id="timelineDropZone" style="display:none;"></div>
+        </div>
+        
+        <!-- 统计视图 -->
+        <div class="timeline-stats hidden" id="timelineStats" style="margin-top:12px;">
+            <div class="timeline-stats-title">📊 时间统计</div>
+            <div class="timeline-stats-grid" id="timelineStatsGrid"></div>
+        </div>
+    </div>
+    
+    <!-- 侧边栏切换按钮 -->
+    <button class="timeline-toggle-btn" id="timelineToggleBtn" onclick="toggleTimelineSidebar()">
+        ⏰ 时间轴
+    </button>
 
     <!-- 触发提醒设置弹窗 -->
     <div class="modal-overlay hidden" id="triggerSetupModal" onclick="closeModal('triggerSetupModal')">
@@ -7462,6 +7965,7 @@ padding: 7px !important;
          commonTaskTags: ['生活','工作'],
          commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
          tagConfig: {}, // 标签颜色配置 {tagName: {color: '#4CAF50', textColor: '#FFFFFF'}}
+         dailyTimeline: {}, // 每日时间轴 {date: [{id, tag, startTime, duration, summary}]}
          github: null,
          firstLoaded: false,
          title: '🌿 心事与任务',
@@ -10383,9 +10887,26 @@ padding: 7px !important;
                      console.log('删除成功，消息:', msg);
                     break;
                   case 'slot':
+                      // 删除时间段时，将关联的时间块的 slotId 设为 null（静默）
                       data.slots = data.slots.filter(s => s.id !== id);
+                      
+                      // 遍历所有日期的时间轴数据，将关联该时间段 ID 的时间块静默
+                      Object.keys(data.dailyTimeline).forEach(date => {
+                          if (data.dailyTimeline[date]) {
+                              data.dailyTimeline[date].forEach(block => {
+                                  if (block.slotId === id) {
+                                      block.slotId = null; // 静默：不再关联时间段
+                                  }
+                              });
+                          }
+                      });
+                      
                       saveData();
                       renderSlots();
+                      // 如果当前在任务标签页，重新渲染以更新时间轴
+                      if (data.activeTab === 'task') {
+                          render();
+                      }
                       msg = ''; // 不显示气泡提示
                      break;
                  case 'subtask':
@@ -13602,6 +14123,7 @@ padding: 7px !important;
                  communicationChecklists: data.communicationChecklists,
                  recentFocuses: data.recentFocuses,
                  tagConfig: data.tagConfig,
+                 dailyTimeline: data.dailyTimeline,
                   taskTriggers: data.taskTriggers,
                   knowledgeBase: data.knowledgeBase,
                   projects: data.projects,
@@ -15034,6 +15556,7 @@ padding: 7px !important;
                   if (remote.communicationChecklists) data.communicationChecklists = remote.communicationChecklists;
                   if (remote.recentFocuses) data.recentFocuses = remote.recentFocuses;
                   if (remote.tagConfig) data.tagConfig = remote.tagConfig;
+                  if (remote.dailyTimeline) data.dailyTimeline = remote.dailyTimeline;
                   if (remote.taskTriggers) data.taskTriggers = remote.taskTriggers;
                   if (remote.knowledgeBase) data.knowledgeBase = remote.knowledgeBase;
                   if (remote.projects) data.projects = remote.projects;
@@ -18077,17 +18600,29 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 检查是否是因为点击遮罩而关闭的（保留数据）
          const wasClosedByOverlay = modal.dataset.closedByOverlay === 'true';
          
-         // 如果是首次打开或点击×关闭的，清空表单；如果是点击遮罩关闭的，保留数据
-         if (!wasClosedByOverlay) {
-             clearOrganizerForm();
-         }
+        // 如果是首次打开或点击×关闭的，清空表单和筛选器；如果是点击遮罩关闭的，保留数据
+        if (!wasClosedByOverlay) {
+            clearOrganizerForm();
+            // 清空标签筛选器（重置为全部）
+            const tagFilter = document.getElementById('organizerPendingTagFilter');
+            if (tagFilter) {
+                tagFilter.dataset.selectedTags = '[]';
+                tagFilter.dataset.filterMode = 'include';
+            }
+        }
          
          // 重置标志位
          modal.dataset.closedByOverlay = 'false';
          
-         // 初始化待整理任务标签筛选器（包括已整理的任务）
-         const pendingTasks = data.tasks.filter(task => task.done);
-         renderTagFilter('organizerPendingTagFilter', pendingTasks, []);
+        // 初始化待整理任务标签筛选器（包括已整理的任务）
+        const pendingTasks = data.tasks.filter(task => task.done);
+        
+        // 读取之前保存的选中标签（点击遮罩关闭时会保留，点击×关闭时会被清空）
+        const existingTagFilter = document.getElementById('organizerPendingTagFilter');
+        const savedSelectedTags = existingTagFilter?.dataset.selectedTags || '[]';
+        
+        // 重新渲染标签筛选器，使用保存的选中状态
+        renderTagFilter('organizerPendingTagFilter', pendingTasks, JSON.parse(savedSelectedTags));
          
          // 加载待整理任务列表
          loadPendingTasksList();
@@ -21716,6 +22251,7 @@ setTimeout(() => {
 // 使用事件委托：只在容器上绑定一次事件
 if (!container._clickHandler) {
     container._clickHandler = function(e) {
+        // 1. 处理移除按钮点击
         const btn = e.target.closest('.tracker-remove-btn');
         if (btn) {
             e.stopPropagation();
@@ -21724,6 +22260,18 @@ if (!container._clickHandler) {
             // 使用传入的函数名，支持桌面端和移动端不同的删除函数
             if (typeof window[removeFuncName] === 'function') {
                 window[removeFuncName](index);
+            }
+            return;
+        }
+        
+        // 2. 处理方向内容点击（打开整理模态框）
+        const content = e.target.closest('.tracker-selected-content');
+        if (content) {
+            e.stopPropagation();
+            e.preventDefault();
+            // 打开整理模态框
+            if (typeof showTaskOrganizer === 'function') {
+                showTaskOrganizer();
             }
         }
     };
@@ -22574,6 +23122,11 @@ if (document.readyState === 'loading') {
             }
         }, 500);
     });
+    
+    // 初始化时间轴
+    setTimeout(() => {
+        initTimeline();
+    }, 1000);
 }
 
 // ==================== 任务整理 AI 面板功能 ====================
@@ -22810,14 +23363,677 @@ function manualCloseOrganizerAiPanel() {
     // 隐藏面板
     if (panel) panel.style.display = 'none';
     
-    // 清空输入和结果
-    if (promptInput) promptInput.value = '';
-    if (resultContainer) {
-        resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方"开始分析"按钮，AI 将针对选中的任务生成分析结果</div>';
+        // 清空输入和结果
+        if (promptInput) promptInput.value = '';
+        if (resultContainer) {
+            resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方\"开始分析\"按钮，AI 将针对选中的任务生成分析结果</div>';
+        }
+        if (copyBtn) copyBtn.disabled = true;
     }
-    if (copyBtn) copyBtn.disabled = true;
-}
-</script>
+    
+    // ========== 24 小时时间轴功能 ==========
+    
+    // 当前选中的日期
+    let currentTimelineDate = getTodayDate();
+    
+    // 获取今天日期 (YYYY-MM-DD)
+    function getTodayDate() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+    
+    // 获取昨天日期
+    function getYesterdayDate() {
+        const now = new Date();
+        now.setDate(now.getDate() - 1);
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+    
+    // 初始化时间轴
+    function initTimeline() {
+        renderTimeline();
+        renderTimelineScale();
+        setupTimelineDragAndDrop();
+    }
+    
+    // 渲染时间轴
+    function renderTimeline() {
+        const timelineBody = document.getElementById('timelineBody');
+        const tagPool = document.getElementById('timelineTagPool');
+        
+        if (!timelineBody || !tagPool) return;
+        
+        // 清空时间块（保留刻度）
+        const existingBlocks = timelineBody.querySelectorAll('.time-block');
+        existingBlocks.forEach(block => block.remove());
+        
+        // 获取当前日期的时间轴数据
+        const dailyData = data.dailyTimeline[currentTimelineDate] || [];
+        
+        // 渲染时间块
+        dailyData.forEach(block => {
+            createTimeBlock(block);
+        });
+        
+        // 渲染标签池
+        renderTagPool();
+    }
+    
+    // 渲染标签池
+    function renderTagPool() {
+        const tagPool = document.getElementById('timelineTagPool');
+        if (!tagPool) return;
+        
+        tagPool.innerHTML = '';
+        
+        // 收集所有任务相关的标签：commonTaskTags + 任务中使用的标签
+        const tags = new Set();
+        
+        // 添加常用任务标签
+        if (data.commonTaskTags) {
+            data.commonTaskTags.forEach(tag => tags.add(tag));
+        }
+        
+        // 添加任务中实际使用的标签
+        if (data.tasks) {
+            data.tasks.forEach(task => {
+                if (task.tags && Array.isArray(task.tags)) {
+                    task.tags.forEach(tag => tags.add(tag));
+                }
+            });
+        }
+        
+        // 如果还是没有标签，提示用户
+        if (tags.size === 0) {
+            tagPool.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;">暂无标签，请在"想做的事"中添加标签</div>';
+            return;
+        }
+        
+        // 渲染标签
+        Array.from(tags).forEach(tagName => {
+            const tagConfig = data.tagConfig[tagName] || {};
+            const color = tagConfig.color || '#6b8e6b';
+            
+            const tagEl = document.createElement('div');
+            tagEl.className = 'tag-pool-item';
+            tagEl.textContent = tagName;
+            tagEl.style.backgroundColor = color;
+            tagEl.style.color = tagConfig.textColor || '#ffffff';
+            tagEl.draggable = true;
+            tagEl.addEventListener('dragstart', handleTagDragStart);
+            
+            // 点击筛选（可选功能）
+            tagEl.addEventListener('click', (e) => {
+                if (e.shiftKey) {
+                    // Shift+ 点击筛选该标签的时间块
+                    filterTimelineByTag(tagName);
+                }
+            });
+            
+            tagPool.appendChild(tagEl);
+        });
+    }
+    
+    // 创建时间块
+    function createTimeBlock(blockData) {
+        const timelineBody = document.getElementById('timelineBody');
+        if (!timelineBody) return;
+        
+        const tagConfig = data.tagConfig[blockData.tag] || {};
+        const color = tagConfig.color || '#6b8e6b';
+        
+        const blockEl = document.createElement('div');
+        blockEl.className = 'time-block';
+        blockEl.id = blockData.id;
+        blockEl.style.backgroundColor = color;
+        blockEl.style.color = tagConfig.textColor || '#ffffff';
+        
+        // 计算位置
+        updateTimeBlockPosition(blockEl, blockData);
+        
+        // 内容 - 统一显示格式
+        const displayStartTime = blockData.startTime;
+        
+        blockEl.innerHTML = `
+            <div class="time-block-time">${displayStartTime}</div>
+        `;
+        
+        // 事件绑定 - 统一使用双击编辑，弹出气泡弹窗
+        blockEl.addEventListener('dblclick', (e) => {
+            if (!e.target.classList.contains('time-block-delete')) {
+                e.stopPropagation();
+                editTimeBlockCompact(blockData, blockEl);
+            }
+        });
+        
+        // 拖拽
+        blockEl.draggable = true;
+        blockEl.addEventListener('dragstart', handleTimeBlockDragStart);
+        
+        timelineBody.appendChild(blockEl);
+    }
+    
+    // 更新时间块位置（工作时间段放大）
+    function updateTimeBlockPosition(element, blockData) {
+        const startTime = parseTime(blockData.startTime);
+        const top = timeToPosition(startTime);
+        const endTime = timeToPosition(startTime + blockData.duration);
+        const height = endTime - top;
+        
+        element.style.top = `${top}px`;
+        element.style.height = `${height}px`;
+    }
+    
+    // 时间转换为位置（8:00-18:00 放大显示）
+    function timeToPosition(minutes) {
+        const workStart = 8 * 60;  // 8:00
+        const workEnd = 18 * 60;   // 18:00
+        const workDuration = workEnd - workStart; // 600 分钟
+        
+        // 工作时间段占 70% 高度，非工作时间占 30%
+        const totalHeight = 600;
+        const workHeight = totalHeight * 0.7; // 420px
+        const nonWorkHeight = totalHeight * 0.3; // 180px
+        
+        if (minutes < workStart) {
+            // 0:00-8:00 (480 分钟) -> 0-90px (12.5% 压缩)
+            return (minutes / workStart) * (nonWorkHeight / 2);
+        } else if (minutes <= workEnd) {
+            // 8:00-18:00 (600 分钟) -> 90-510px (放大)
+            return (nonWorkHeight / 2) + ((minutes - workStart) / workDuration) * workHeight;
+        } else {
+            // 18:00-24:00 (360 分钟) -> 510-600px (16.7% 压缩)
+            return (nonWorkHeight / 2) + workHeight + ((minutes - workEnd) / (24 * 60 - workEnd)) * (nonWorkHeight / 2);
+        }
+    }
+    
+    // 渲染时间刻度
+    function renderTimelineScale() {
+        const timelineScale = document.getElementById('timelineScale');
+        const timelineBody = document.getElementById('timelineBody');
+        
+        if (!timelineScale || !timelineBody) return;
+        
+        timelineScale.innerHTML = '';
+        
+        // 添加小时刻度（使用新的时间转换函数）
+        for (let hour = 0; hour < 24; hour++) {
+            const hourEl = document.createElement('div');
+            hourEl.className = 'timeline-hour';
+            hourEl.style.top = `${timeToPosition(hour * 60)}px`;
+            
+            const label = document.createElement('div');
+            label.className = 'timeline-hour-label';
+            label.textContent = `${String(hour).padStart(2, '0')}:00`;
+            hourEl.appendChild(label);
+            
+            timelineScale.appendChild(hourEl);
+            
+            // 添加 15 分钟刻度（工作时间段更密集）
+            for (let quarter = 1; quarter < 4; quarter++) {
+                const quarterEl = document.createElement('div');
+                quarterEl.className = 'timeline-quarter';
+                quarterEl.style.top = `${timeToPosition(hour * 60 + quarter * 15)}px`;
+                timelineScale.appendChild(quarterEl);
+            }
+        }
+        
+        // 设置时间轴高度
+        timelineBody.style.height = '600px';
+    }
+    
+    // 格式化时间 (HH:MM)
+    function formatTime(minutes) {
+        const hour = Math.floor(minutes / 60);
+        const min = Math.floor(minutes % 60);
+        return `${String(hour).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+    }
+    
+    // 格式化时长
+    function formatDuration(minutes) {
+        if (minutes >= 60) {
+            const h = Math.floor(minutes / 60);
+            const m = minutes % 60;
+            return m > 0 ? `${h}小时${m}分钟` : `${h}小时`;
+        }
+        return `${minutes}分钟`;
+    }
+    
+    // 解析时间 (HH:MM -> minutes from 00:00)
+    function parseTime(timeStr) {
+        const [hour, min] = timeStr.split(':').map(Number);
+        return hour * 60 + min;
+    }
+    
+    // 位置转换为时间（反向转换）
+    function positionToTime(position) {
+        const workStart = 8 * 60;  // 8:00
+        const workEnd = 18 * 60;   // 18:00
+        const workDuration = workEnd - workStart; // 600 分钟
+        
+        const totalHeight = 600;
+        const workHeight = totalHeight * 0.7; // 420px
+        const nonWorkHeight = totalHeight * 0.3; // 180px
+        const halfNonWork = nonWorkHeight / 2; // 90px
+        
+        if (position < halfNonWork) {
+            // 0:00-8:00 区域
+            return (position / halfNonWork) * workStart;
+        } else if (position < halfNonWork + workHeight) {
+            // 8:00-18:00 区域
+            return workStart + ((position - halfNonWork) / workHeight) * workDuration;
+        } else {
+            // 18:00-24:00 区域
+            return workEnd + ((position - halfNonWork - workHeight) / (halfNonWork)) * (24 * 60 - workEnd);
+        }
+    }
+    
+    // 标签拖拽开始
+    function handleTagDragStart(e) {
+        e.dataTransfer.setData('tag', e.target.textContent);
+        e.dataTransfer.setData('type', 'new');
+    }
+    
+    // 时间块拖拽开始
+    function handleTimeBlockDragStart(e) {
+        e.dataTransfer.setData('blockId', e.target.id);
+        e.dataTransfer.setData('type', 'move');
+    }
+    
+    // 设置时间轴拖拽放置
+    function setupTimelineDragAndDrop() {
+        const timelineBody = document.getElementById('timelineBody');
+        const dropZone = document.getElementById('timelineDropZone');
+        
+        if (!timelineBody) return;
+        
+        timelineBody.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            
+            const rect = timelineBody.getBoundingClientRect();
+            const y = e.clientY - rect.top;
+            const startTime = positionToTime(y);
+            const roundedStart = Math.round(startTime / 15) * 15; // 15 分钟粒度
+            
+            // 显示放置区域
+            dropZone.style.display = 'block';
+            dropZone.style.top = `${timeToPosition(roundedStart)}px`;
+            dropZone.style.height = '30px';
+        });
+        
+        timelineBody.addEventListener('dragleave', (e) => {
+            if (!timelineBody.contains(e.relatedTarget)) {
+                dropZone.style.display = 'none';
+            }
+        });
+        
+        timelineBody.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.display = 'none';
+            
+            const rect = timelineBody.getBoundingClientRect();
+            const y = e.clientY - rect.top;
+            const startTime = positionToTime(y);
+            const roundedStart = Math.round(startTime / 15) * 15; // 15 分钟粒度
+            
+            const tag = e.dataTransfer.getData('tag');
+            const type = e.dataTransfer.getData('type');
+            
+            if (type === 'new' && tag) {
+                // 新建时间块
+                createTimeBlockData(tag, roundedStart, 30); // 默认 30 分钟
+            } else if (type === 'move') {
+                // 移动时间块
+                const blockId = e.dataTransfer.getData('blockId');
+                moveTimeBlock(blockId, roundedStart);
+            }
+        });
+    }
+    
+    // 创建时间块数据
+    function createTimeBlockData(tag, startTime, duration) {
+        if (!data.dailyTimeline[currentTimelineDate]) {
+            data.dailyTimeline[currentTimelineDate] = [];
+        }
+        
+        const endTime = startTime + duration;
+        const blockId = 'block_' + Date.now();
+        
+        // 创建时间段并获取 ID
+        const slotId = createOrUpdateSlot(tag, formatTime(startTime), formatTime(endTime), null);
+        
+        const block = {
+            id: blockId,
+            tag: tag,
+            startTime: formatTime(startTime),
+            endTime: formatTime(endTime),
+            duration: duration,
+            summary: '',
+            slotId: slotId // 关联的时间段 ID
+        };
+        
+        data.dailyTimeline[currentTimelineDate].push(block);
+        createTimeBlock(block);
+        
+        saveData();
+    }
+    
+    // 创建或更新时间段（Slot）
+    // 如果 slotId 存在则更新，否则创建新时间段
+    function createOrUpdateSlot(tag, startTime, endTime, slotId) {
+        const slotName = `${tag} ${startTime}-${endTime}`;
+        
+        if (slotId) {
+            // 更新现有时间段
+            const slot = data.slots.find(s => s.id === slotId);
+            if (slot) {
+                slot.name = slotName;
+                return slotId;
+            }
+        }
+        
+        // 创建新时间段
+        const newSlotId = 'slot_' + genId();
+        data.slots.push({
+            id: newSlotId,
+            name: slotName
+        });
+        
+        return newSlotId;
+    }
+    
+    // 移动时间块
+    function moveTimeBlock(blockId, newStartTime) {
+        const blocks = data.dailyTimeline[currentTimelineDate] || [];
+        const block = blocks.find(b => b.id === blockId);
+        
+        if (block) {
+            block.startTime = formatTime(newStartTime);
+            const newEndTime = formatTime(newStartTime + block.duration);
+            block.endTime = newEndTime;
+            
+            // 更新关联的时间段名称
+            if (block.slotId) {
+                createOrUpdateSlot(block.tag, block.startTime, block.endTime, block.slotId);
+            }
+            
+            saveData();
+            renderTimeline();
+            // 立即渲染时间段任务板
+            renderSlots();
+        }
+    }
+    
+    // 删除时间块
+    function deleteTimeBlock(blockId) {
+        if (!confirm('确定删除这个时间块吗？')) return;
+        
+        const blocks = data.dailyTimeline[currentTimelineDate] || [];
+        const index = blocks.findIndex(b => b.id === blockId);
+        
+        if (index !== -1) {
+            // 只删除时间块，不删除时间段（时间段可能已被使用）
+            blocks.splice(index, 1);
+            
+            saveData();
+            renderTimeline();
+            // 立即渲染时间段任务板
+            renderSlots();
+        }
+    }
+    
+    // 紧凑编辑模式 - 在时间块上方显示气泡弹窗
+    function editTimeBlockCompact(blockData, blockEl) {
+        // 移除已有的编辑弹窗
+        const existingPopup = document.querySelector('.timeblock-edit-popup');
+        if (existingPopup) {
+            existingPopup.remove();
+        }
+        
+        const popup = document.createElement('div');
+        popup.className = 'timeblock-edit-popup';
+        
+        // 计算弹窗位置 - 显示在时间块上方
+        const rect = blockEl.getBoundingClientRect();
+        const timelineRect = document.getElementById('timelineBody').getBoundingClientRect();
+        
+        // 弹窗宽度
+        const popupWidth = 240;
+        
+        // 计算水平位置（居中于时间块）
+        let leftPos = (rect.left - timelineRect.left) + (rect.width / 2) - (popupWidth / 2);
+        
+        // 确保不超出边界
+        if (leftPos < 10) leftPos = 10;
+        if (leftPos + popupWidth > timelineRect.width - 10) {
+            leftPos = timelineRect.width - popupWidth - 10;
+        }
+        
+        // 垂直位置（时间块上方）
+        const topPos = (rect.top - timelineRect.top) - 10 - 180; // 上方 10px + 弹窗高度约 180px
+        
+        popup.style.left = `${leftPos}px`;
+        popup.style.top = `${Math.max(10, topPos)}px`;
+        
+        popup.innerHTML = `
+            <div class="popup-header" onclick="event.stopPropagation()">
+                <span>编辑时间块</span>
+                <span class="popup-close" onclick="event.stopPropagation(); this.closest('.timeblock-edit-popup').remove()">×</span>
+            </div>
+            <div class="popup-body" onclick="event.stopPropagation()">
+                <div class="input-group">
+                    <label>开始时间</label>
+                    <input type="time" class="edit-start-time" value="${blockData.startTime}">
+                </div>
+                <div class="input-group">
+                    <label>时长 (分钟)</label>
+                    <input type="number" class="edit-duration" value="${blockData.duration}" min="15" step="15">
+                </div>
+                <div class="input-group">
+                    <label>标签</label>
+                    <select class="edit-tag">
+                        ${Object.keys(data.tagConfig || {}).map(tag =>
+                            `<option value="${tag}" ${tag === blockData.tag ? 'selected' : ''}>${tag}</option>`
+                        ).join('')}
+                    </select>
+                </div>
+                <div class="popup-actions">
+                    <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); saveCompactEdit('${blockData.id}')">保存</button>
+                    <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); this.closest('.timeblock-edit-popup').remove()">取消</button>
+                </div>
+            </div>
+        `;
+        
+        // 阻止弹窗内部点击事件冒泡
+        popup.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        document.getElementById('timelineBody').appendChild(popup);
+    }
+    
+    // 保存紧凑编辑
+    function saveCompactEdit(blockId) {
+        const startTime = document.querySelector('.edit-start-time').value;
+        const duration = parseInt(document.querySelector('.edit-duration').value);
+        const tag = document.querySelector('.edit-tag').value;
+        
+        const blocks = data.dailyTimeline[currentTimelineDate] || [];
+        const block = blocks.find(b => b.id === blockId);
+        
+        if (block) {
+            block.startTime = startTime;
+            block.duration = duration;
+            block.tag = tag;
+            
+            // 更新 endTime
+            const endTime = parseTime(startTime) + duration;
+            block.endTime = formatTime(endTime);
+            
+            // 更新关联的时间段名称
+            if (block.slotId) {
+                createOrUpdateSlot(block.tag, block.startTime, block.endTime, block.slotId);
+            }
+            
+            saveData();
+            renderTimeline();
+            renderSlots();
+            document.querySelector('.timeblock-edit-popup')?.remove();
+        }
+    }
+    
+    
+    // 切换日期
+    function changeTimelineDate() {
+        const selector = document.getElementById('timelineDateSelector');
+        const customDate = document.getElementById('timelineCustomDate');
+        const value = selector.value;
+        
+        if (value === 'custom') {
+            customDate.style.display = 'inline-block';
+        } else {
+            customDate.style.display = 'none';
+            
+            if (value === 'today') {
+                currentTimelineDate = getTodayDate();
+            } else if (value === 'yesterday') {
+                currentTimelineDate = getYesterdayDate();
+            }
+            
+            loadTimelineForDate();
+        }
+    }
+    
+    // 加载指定日期的时间轴
+    function loadTimelineForDate() {
+        const customDate = document.getElementById('timelineCustomDate');
+        
+        if (customDate.style.display !== 'none' && customDate.value) {
+            currentTimelineDate = customDate.value;
+        }
+        
+        renderTimeline();
+        renderTimelineStats();
+    }
+    
+    // 切换统计视图
+    function toggleTimelineStats() {
+        const stats = document.getElementById('timelineStats');
+        stats.classList.toggle('hidden');
+        
+        if (!stats.classList.contains('hidden')) {
+            renderTimelineStats();
+        }
+    }
+    
+    // 渲染统计视图
+    function renderTimelineStats() {
+        const statsGrid = document.getElementById('timelineStatsGrid');
+        if (!statsGrid) return;
+        
+        statsGrid.innerHTML = '';
+        
+        const blocks = data.dailyTimeline[currentTimelineDate] || [];
+        
+        // 按标签统计
+        const stats = {};
+        blocks.forEach(block => {
+            if (!stats[block.tag]) {
+                stats[block.tag] = 0;
+            }
+            stats[block.tag] += block.duration;
+        });
+        
+        if (Object.keys(stats).length === 0) {
+            statsGrid.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;">暂无数据</div>';
+            return;
+        }
+        
+        Object.keys(stats).forEach(tag => {
+            const tagConfig = data.tagConfig[tag] || {};
+            const color = tagConfig.color || '#6b8e6b';
+            const minutes = stats[tag];
+            
+            const statEl = document.createElement('div');
+            statEl.className = 'timeline-stat-item';
+            statEl.innerHTML = `
+                <div class="timeline-stat-tag" style="color:${color}">${tag}</div>
+                <div class="timeline-stat-time">${formatDuration(minutes)}</div>
+            `;
+            statsGrid.appendChild(statEl);
+        });
+    }
+    
+    // 按标签筛选时间轴
+    function filterTimelineByTag(tagName) {
+        const blocks = document.querySelectorAll('.time-block');
+        let hasVisible = false;
+        
+        blocks.forEach(block => {
+            const blockTag = block.querySelector('.time-block-tag').textContent;
+            if (blockTag === tagName) {
+                block.style.display = 'block';
+                hasVisible = true;
+            } else {
+                block.style.display = 'none';
+            }
+        });
+        
+        // 再次点击取消筛选
+        if (!hasVisible) {
+            blocks.forEach(block => block.style.display = 'block');
+        }
+    }
+    
+    // 切换时间轴侧边栏
+    function toggleTimelineSidebar() {
+        const sidebar = document.getElementById('timelineSidebar');
+        const toggleBtn = document.getElementById('timelineToggleBtn');
+        
+        if (sidebar) {
+            sidebar.classList.toggle('active');
+            
+            // 更新按钮文字
+            if (toggleBtn) {
+                if (sidebar.classList.contains('active')) {
+                    toggleBtn.textContent = '隐藏';
+                } else {
+                    toggleBtn.textContent = '⏰ 时间轴';
+                }
+            }
+            
+            // 如果刚打开，重新渲染时间轴
+            if (sidebar.classList.contains('active')) {
+                setTimeout(() => {
+                    renderTimeline();
+                    renderTimelineStats();
+                }, 350);
+            }
+        }
+    }
+    
+    // 切换标签池展开/折叠
+    function toggleTagPool() {
+        const wrapper = document.getElementById('tagPoolWrapper');
+        const tagPool = document.getElementById('timelineTagPool');
+        
+        if (wrapper) {
+            wrapper.classList.toggle('expanded');
+            
+            if (wrapper.classList.contains('expanded')) {
+                tagPool.style.display = 'flex';
+            } else {
+                tagPool.style.display = 'none';
+            }
+        }
+    }
+    </script>
 
 <!-- 移动端浮动操作按钮 -->
 <button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
