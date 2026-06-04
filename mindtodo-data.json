@@ -387,31 +387,6 @@
       "subtasks": []
     },
     {
-      "id": "1779067283638",
-      "type": "task",
-      "content": "RPA工作：已优化程序异常处理机制，跳过异常单号并继续执行。",
-      "tags": [
-        "RPA"
-      ],
-      "done": true,
-      "doneAt": "2026-05-13T02:13:17.103Z",
-      "createdAt": "2026-05-13T02:13:17.103Z",
-      "updatedAt": "2026-05-13T02:13:17.103Z",
-      "organization": {
-        "goal": "",
-        "completion": "优化程序异常处理机制，跳过异常单号并继续执行；本周开展批量处理测试",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-18T02:13:17.103Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -590,21 +565,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T03:21:13.259Z"
-    },
-    {
-      "id": "mpdh789bk9ga6",
-      "type": "task",
-      "content": "网管验收0520",
-      "createdAt": "2026-05-20T03:01:59.567Z",
-      "updatedAt": "2026-05-20T03:54:02.313Z",
-      "tags": [
-        "验收"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "doneAt": "2026-05-20T03:54:02.313Z",
-      "subtasks": []
     },
     {
       "id": "mpdi4kh57fknz",
@@ -912,21 +872,6 @@
       "doneAt": "2026-06-01T01:44:04.443Z"
     },
     {
-      "id": "mpnfj775u92u5",
-      "type": "task",
-      "content": "网管验收",
-      "createdAt": "2026-05-27T02:13:00.593Z",
-      "updatedAt": "2026-05-27T07:44:01.972Z",
-      "tags": [
-        "验收"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-27T07:44:01.972Z"
-    },
-    {
       "id": "mpnj2212cea8q",
       "type": "task",
       "content": "3731-太平和108-太平-CHTPHC001：偶尔也会有核查不完的情况，先把问题丢出去",
@@ -1176,6 +1121,31 @@
         "organizedAt": "2026-06-04T03:40:41.911Z"
       },
       "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1780549322659",
+      "type": "task",
+      "content": "RPA+网管验收",
+      "tags": [
+        "RPA",
+        "验收"
+      ],
+      "done": true,
+      "doneAt": "2026-05-27T07:44:01.972Z",
+      "organizedAt": "2026-06-04T05:02:02.659Z",
+      "createdAt": "2026-05-27T02:13:00.593Z",
+      "updatedAt": "2026-06-04T05:02:02.659Z",
+      "organization": {
+        "goal": "面临一个双重目标：\n1、验收工作本身：确认任务是否完成、质量是否达标。\n2、测试RPA程序：利用这些验收单作为样本，验证RPA程序（特别是其异常处理机制）是否按预期工作。",
+        "completion": "优化程序异常处理机制，跳过异常单号并继续执行；\n测试过程中，发现取‘网管名称’异常、excel格式兼容问题，提出修改提取逻辑的建议；",
+        "skills": "",
+        "success": "",
+        "problems": "计划开展批量处理测试：选了2个单号依旧有许多问题，且优化速度慢。",
+        "summary": "",
+        "organizedAt": "2026-06-04T05:02:02.659Z"
+      },
+      "projectId": "1780299687739",
       "subtasks": []
     }
   ],
