@@ -362,31 +362,6 @@
       "subtasks": []
     },
     {
-      "id": "1778998512458",
-      "type": "task",
-      "content": "CRM跟进：数字中继配合政企部核查在用业务（现场已拆除，却还在收费）等",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "doneAt": "2026-05-17T06:15:12.458Z",
-      "createdAt": "2026-05-14T06:52:41.288Z",
-      "updatedAt": "2026-05-17T06:15:12.458Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-17T06:15:12.458Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "1778998612842",
       "type": "task",
       "content": "固网清单整理（4月）",
@@ -483,21 +458,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-21T08:31:50.260Z"
-    },
-    {
-      "id": "mpby9efd4brzt",
-      "type": "task",
-      "content": "CRM跟进一下：问两个人的进度",
-      "createdAt": "2026-05-19T01:24:01.993Z",
-      "updatedAt": "2026-05-19T02:00:43.586Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-19T02:00:43.586Z",
-      "subtasks": []
     },
     {
       "id": "mpbyca4zl2vms",
@@ -647,21 +607,6 @@
       "subtasks": []
     },
     {
-      "id": "mpdhi8rb5g2ho",
-      "type": "task",
-      "content": "处理CRM的清单：规整非数字中继清单",
-      "createdAt": "2026-05-20T03:10:33.431Z",
-      "updatedAt": "2026-05-20T06:57:25.269Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": "18min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T06:57:25.269Z"
-    },
-    {
       "id": "mpdi4kh57fknz",
       "type": "task",
       "content": "过三码单：还得是催才想起来过单。",
@@ -735,22 +680,6 @@
       "unknown": false,
       "doneAt": "2026-05-21T03:53:24.451Z",
       "subtasks": []
-    },
-    {
-      "id": "mpf6pbot62i71",
-      "type": "task",
-      "content": "黄洁华说很多都是公免",
-      "createdAt": "2026-05-21T07:43:40.397Z",
-      "updatedAt": "2026-05-21T09:17:00.037Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": "6min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-21T09:17:00.037Z"
     },
     {
       "id": "mpf6qrcz0xdej",
@@ -953,21 +882,6 @@
       "doneAt": "2026-05-26T09:18:07.690Z"
     },
     {
-      "id": "mplz3pvednsd2",
-      "type": "task",
-      "content": "CRM：不好搞，核查发现有的设备资源查不到了。",
-      "createdAt": "2026-05-26T01:45:18.266Z",
-      "updatedAt": "2026-05-26T03:41:06.598Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-26T03:41:06.597Z"
-    },
-    {
       "id": "mplz4yn54k4om",
       "type": "task",
       "content": "低效设备退网：联系胡芳华要清单核查SDH网管业务。",
@@ -1114,22 +1028,6 @@
       "subtasks": []
     },
     {
-      "id": "mpw06tgu39gbt",
-      "type": "task",
-      "content": "跟进CRM系统的业务清单的清理工作，拆除无效业务：核查数字中继清单（67条业务资源系统已退网，相关设备可退；63个在用业务，部分设备已退网、在用）",
-      "createdAt": "2026-06-02T02:13:24.270Z",
-      "updatedAt": "2026-06-02T09:12:30.072Z",
-      "tags": [
-        "CRM"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-06-02T09:12:30.072Z",
-      "subtasks": []
-    },
-    {
       "id": "mpw36gtlhlqxc",
       "type": "task",
       "content": "算力检查工作：确定检查时间。",
@@ -1252,6 +1150,30 @@
         "problems": "",
         "summary": "",
         "organizedAt": "2026-06-04T03:20:30.843Z"
+      },
+      "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1780544441911",
+      "type": "task",
+      "content": "CRM系统在用，设备现场已拆除核查",
+      "tags": [
+        "CRM"
+      ],
+      "done": true,
+      "doneAt": "2026-06-02T09:12:30.072Z",
+      "organizedAt": "2026-06-04T03:40:41.911Z",
+      "createdAt": "2026-06-02T02:13:24.270Z",
+      "updatedAt": "2026-06-04T03:40:41.911Z",
+      "organization": {
+        "goal": "",
+        "completion": "核查了数字中继清单：\n67条业务：确认在资源系统中已退网，相关设备可退。\n63条在用业务：发现部分设备已退网但业务仍显示在用，需进一步处理（迁转至虚拟网元或上拆单）。\n\n下一步：等待业支反馈剩余513条非数字中继业务（公免公纳找云网部或销售部，其余政企部处理）",
+        "skills": "",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-06-04T03:40:41.911Z"
       },
       "projectId": "1779778092169",
       "subtasks": []
