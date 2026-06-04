@@ -1161,6 +1161,20 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mpz50rpaey35x",
+      "type": "task",
+      "content": "跟客资说下工位的事情",
+      "createdAt": "2026-06-04T06:51:58.654Z",
+      "updatedAt": "2026-06-04T06:51:58.654Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2992,6 +3006,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T03:13:07.575Z"
+    "lastSync": "2026-06-04T06:49:04.129Z"
   }
 }
