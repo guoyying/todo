@@ -1168,16 +1168,16 @@
       "type": "task",
       "content": "打印明天检查的excel",
       "createdAt": "2026-06-04T07:10:31.201Z",
-      "updatedAt": "2026-06-04T07:11:19.527Z",
+      "updatedAt": "2026-06-04T07:39:59.842Z",
       "tags": [
-        "检查工作",
-        "B类-定期复杂"
+        "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpz5oy116b2o3"
+      "placedIn": null,
+      "doneAt": "2026-06-04T07:39:59.842Z"
     },
     {
       "id": "mpz5orz9qvp7x",
