@@ -1184,15 +1184,30 @@
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-06-04T07:10:38.757Z",
-      "updatedAt": "2026-06-04T07:11:21.088Z",
+      "updatedAt": "2026-06-04T07:55:40.276Z",
       "tags": [
         "B类-定期复杂"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mpz5oy116b2o3"
+      "placedIn": null,
+      "doneAt": "2026-06-04T07:55:40.276Z"
+    },
+    {
+      "id": "mpz7vv62t8nmv",
+      "type": "task",
+      "content": "写一下目前rpa的问题，以及怎么办？",
+      "createdAt": "2026-06-04T08:12:08.714Z",
+      "updatedAt": "2026-06-04T08:12:08.714Z",
+      "tags": [
+        "RPA"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1832,11 +1847,11 @@
     },
     {
       "id": "slot_mpz5oy116b2o3",
-      "name": "B类-定期复杂 15:15-15:45"
+      "name": "B类-定期复杂 15:15-16:15"
     },
     {
       "id": "slot_mpz5q3ub6ahk0",
-      "name": "C类-不定期：3-4点 15:50-16:20"
+      "name": "C类-不定期：3-4点 16:30-17:00"
     }
   ],
   "tags": [
@@ -2392,8 +2407,10 @@
       "activeTextColor": "#FFFFFF"
     },
     "RPA": {
-      "color": "#f5f5f0",
-      "textColor": "#333333"
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
     },
     "CRM": {
       "color": "#ffe0b2",
@@ -2448,16 +2465,16 @@
         "id": "block_1780557046597",
         "tag": "B类-定期复杂",
         "startTime": "15:15",
-        "endTime": "15:45",
-        "duration": 30,
+        "endTime": "16:15",
+        "duration": 60,
         "summary": "",
         "slotId": "slot_mpz5oy116b2o3"
       },
       {
         "id": "block_1780557100786",
         "tag": "C类-不定期：3-4点",
-        "startTime": "15:50",
-        "endTime": "16:20",
+        "startTime": "16:30",
+        "endTime": "17:00",
         "duration": 30,
         "summary": "",
         "slotId": "slot_mpz5q3ub6ahk0"
@@ -2480,7 +2497,7 @@
             "endTime": "18:00",
             "message": "跟老妈聊天时",
             "confirmed": true,
-            "confirmationTime": "2026-06-01T08:01:54.573Z",
+            "confirmationTime": "2026-06-04T08:06:19.539Z",
             "customInterval": "3",
             "customIntervalUnit": "day"
           }
@@ -2490,7 +2507,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-06-01T08:00:00.001Z"
+        "0": "2026-06-04T08:00:00.002Z"
       }
     },
     {
@@ -3053,6 +3070,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T07:12:10.199Z"
+    "lastSync": "2026-06-04T07:40:06.195Z"
   }
 }
