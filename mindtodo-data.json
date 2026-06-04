@@ -1043,21 +1043,6 @@
       "subtasks": []
     },
     {
-      "id": "mpqyw1kei4y25",
-      "type": "task",
-      "content": "给增城郭工发节电费清单（节电费-筛选增城的）",
-      "createdAt": "2026-05-29T13:38:11.054Z",
-      "updatedAt": "2026-06-01T03:25:04.843Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-01T03:25:04.843Z"
-    },
-    {
       "id": "1780271275544",
       "type": "task",
       "content": "ai数字化",
@@ -1145,22 +1130,6 @@
       "subtasks": []
     },
     {
-      "id": "mpw0aqun6ic6j",
-      "type": "task",
-      "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：\n核查了17个天河1高值的设备。学会了“3244荔枝湾去15208，就是o网。所以凯旋新世界sdh到otn网的客户端设备能通”",
-      "createdAt": "2026-06-02T02:16:27.503Z",
-      "updatedAt": "2026-06-02T09:09:37.775Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-02T09:07:32.169Z"
-    },
-    {
       "id": "mpw36gtlhlqxc",
       "type": "task",
       "content": "算力检查工作：确定检查时间。",
@@ -1216,37 +1185,6 @@
       "placedIn": null
     },
     {
-      "id": "mpxp0yxqsimj5",
-      "type": "task",
-      "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：核查天河61个清单，大量未能在网管找到。个别属于用户机房，或许可通过客户侧光猫改挂到OTN设备实现退网。",
-      "createdAt": "2026-06-03T06:36:27.998Z",
-      "updatedAt": "2026-06-03T07:24:34.963Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-03T07:24:34.963Z"
-    },
-    {
-      "id": "mpxqovpglc0cm",
-      "type": "task",
-      "content": "已核查一个可退网元；已问县分两个业务能否转o；已问虚拟用户设备问题",
-      "createdAt": "2026-06-03T07:23:03.172Z",
-      "updatedAt": "2026-06-04T03:12:33.217Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-04T03:12:33.217Z"
-    },
-    {
       "id": "1780529540358",
       "type": "task",
       "content": "团支部工作",
@@ -1292,6 +1230,30 @@
         "organizedAt": "2026-06-04T02:54:39.146Z"
       },
       "projectId": "1780299661890",
+      "subtasks": []
+    },
+    {
+      "id": "1780543230843",
+      "type": "task",
+      "content": "退网：协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-06-04T03:12:33.217Z",
+      "organizedAt": "2026-06-04T03:20:30.843Z",
+      "createdAt": "2026-06-03T07:23:03.172Z",
+      "updatedAt": "2026-06-04T03:20:30.843Z",
+      "organization": {
+        "goal": "",
+        "completion": "本周已核查核查天河61个高值为1清单，2个网元可退；2个网元业务转O可行。",
+        "skills": "",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "organizedAt": "2026-06-04T03:20:30.843Z"
+      },
+      "projectId": "1779778092169",
       "subtasks": []
     }
   ],
@@ -3121,6 +3083,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T03:12:40.340Z"
+    "lastSync": "2026-06-04T03:13:07.575Z"
   }
 }
