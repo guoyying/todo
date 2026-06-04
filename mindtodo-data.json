@@ -108,58 +108,6 @@
       ]
     },
     {
-      "id": "motcwxcppkjqx",
-      "type": "task",
-      "content": "下班前更新下4月退网成效",
-      "createdAt": "2026-05-06T01:06:36.889Z",
-      "updatedAt": "2026-05-06T05:28:24.454Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [
-        {
-          "id": "motcwxcpahez5",
-          "content": "看下要填写什么字段",
-          "estimatedTime": "5min",
-          "done": true,
-          "placedIn": null
-        },
-        {
-          "id": "1778033602462",
-          "content": "写一下怎么做这个数据，大概步骤。到todo拆解里。写完放到子任务这里",
-          "done": true,
-          "estimatedTime": "4min",
-          "placedIn": null
-        },
-        {
-          "id": "1778034535574",
-          "content": "更新美哥的退网表格。",
-          "done": true,
-          "estimatedTime": "14min",
-          "placedIn": null
-        },
-        {
-          "id": "1778034567291",
-          "content": "点击3月最晚那天，记录退网数据（网元名称、退网状态）---记录最新的退网数据--到excel表里。",
-          "done": true,
-          "estimatedTime": "10min",
-          "placedIn": null
-        },
-        {
-          "id": "1778039697929",
-          "content": "搜索几个设备的功耗",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-06T05:28:22.146Z",
-      "placedIn": null
-    },
-    {
       "id": "mov5h80y7lmsh",
       "type": "task",
       "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
@@ -282,47 +230,6 @@
       "subtasks": []
     },
     {
-      "id": "mp2fftiuqsid2",
-      "type": "task",
-      "content": "提交隐患整改单（1981白云设备）",
-      "createdAt": "2026-05-12T09:27:13.206Z",
-      "updatedAt": "2026-05-14T00:47:48.416Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-14T00:47:48.416Z",
-      "subtasks": []
-    },
-    {
-      "id": "1778720539432",
-      "type": "task",
-      "content": "协助分析团队核查C网基站（非800M）传输电路拆除情况",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-14T01:02:19.432Z",
-      "createdAt": "2026-05-12T08:36:56.947Z",
-      "updatedAt": "2026-05-14T01:02:19.432Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "那些突如其来的任务，反而能给自己灵感和学习。跟同事沟通时了解到：资源0，网管就要为0，否则就是有问题的。给我退网核查信心和启发",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-14T01:02:19.432Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "1778741500797",
       "type": "task",
       "content": "优化todo功能",
@@ -362,31 +269,6 @@
       "subtasks": []
     },
     {
-      "id": "1778998612842",
-      "type": "task",
-      "content": "固网清单整理（4月）",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-05-17T06:16:52.842Z",
-      "createdAt": "2026-05-09T01:56:57.108Z",
-      "updatedAt": "2026-05-17T06:16:52.842Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-17T06:16:52.842Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mpaq4joepf98n",
       "type": "task",
       "content": "我想看小红书的-不喜欢聊天。记录一个信息",
@@ -403,22 +285,6 @@
       "doneAt": "2026-05-18T07:23:46.031Z"
     },
     {
-      "id": "mpaw6lz3qgq84",
-      "type": "task",
-      "content": "中山四机楼退网，涉及9个设备。",
-      "createdAt": "2026-05-18T07:38:06.399Z",
-      "updatedAt": "2026-05-19T01:43:16.251Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T01:43:16.251Z"
-    },
-    {
       "id": "mpby5z8qy05vx",
       "type": "task",
       "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
@@ -433,37 +299,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-21T08:31:50.260Z"
-    },
-    {
-      "id": "mpbyca4zl2vms",
-      "type": "task",
-      "content": "白云1个退网单处理：白云做的不错，有前、后照片",
-      "createdAt": "2026-05-19T01:26:16.403Z",
-      "updatedAt": "2026-05-19T02:31:58.029Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-19T02:31:58.029Z"
-    },
-    {
-      "id": "mpcadssoco33q",
-      "type": "task",
-      "content": "增城的20个退往清单：筛选华为，核查网管无的。有业务，就等拆除再上单。烽火的：拆除了再上单。因为无网管判断不了在用业务情况。",
-      "createdAt": "2026-05-19T07:03:22.632Z",
-      "updatedAt": "2026-05-19T07:58:33.950Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-19T07:58:33.950Z",
-      "subtasks": []
     },
     {
       "id": "mpcb5bw6esfoh",
@@ -567,21 +402,6 @@
       "doneAt": "2026-05-20T03:21:13.259Z"
     },
     {
-      "id": "mpdi4kh57fknz",
-      "type": "task",
-      "content": "过三码单：还得是催才想起来过单。",
-      "createdAt": "2026-05-20T03:27:55.049Z",
-      "updatedAt": "2026-05-20T06:42:53.986Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T06:42:53.986Z"
-    },
-    {
       "id": "mpdk8b3kjhdgi",
       "type": "task",
       "content": "网约车去新塘",
@@ -610,21 +430,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T08:12:03.968Z"
-    },
-    {
-      "id": "mpdq77sb27hg4",
-      "type": "task",
-      "content": "800M的IP化改造（传输退网）项目，剩余10多条无法配置光路。核查网管有无其他在用业务",
-      "createdAt": "2026-05-20T07:13:55.499Z",
-      "updatedAt": "2026-05-20T09:12:23.778Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-20T09:12:23.778Z",
-      "subtasks": []
     },
     {
       "id": "mpequ8cfo838g",
@@ -657,22 +462,6 @@
       "subtasks": []
     },
     {
-      "id": "mpf6s3nfgf3vi",
-      "type": "task",
-      "content": "问客资县分没权限修改设备归属的解决方法",
-      "createdAt": "2026-05-21T07:45:49.947Z",
-      "updatedAt": "2026-05-21T09:18:54.568Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "3min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-21T09:18:54.568Z"
-    },
-    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -686,21 +475,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-21T08:31:56.843Z"
-    },
-    {
-      "id": "mpfbfb6uek1qk",
-      "type": "task",
-      "content": "补环，我自己去查电信大厦的端口位置。",
-      "createdAt": "2026-05-21T09:55:51.270Z",
-      "updatedAt": "2026-05-22T01:48:41.186Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-22T01:48:41.186Z"
     },
     {
       "id": "mpgcp3fw2525g",
@@ -780,21 +554,6 @@
       "subtasks": []
     },
     {
-      "id": "mpkml8b8k6iy9",
-      "type": "task",
-      "content": "800M清单整理：本周新增32个",
-      "createdAt": "2026-05-25T03:07:14.132Z",
-      "updatedAt": "2026-05-26T01:42:28.924Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-26T01:42:28.924Z",
-      "subtasks": []
-    },
-    {
       "id": "mpkmm784xz7mk",
       "type": "task",
       "content": "整理视频",
@@ -842,21 +601,6 @@
       "doneAt": "2026-05-26T09:18:07.690Z"
     },
     {
-      "id": "mplz4yn54k4om",
-      "type": "task",
-      "content": "低效设备退网：联系胡芳华要清单核查SDH网管业务。",
-      "createdAt": "2026-05-26T01:46:16.289Z",
-      "updatedAt": "2026-05-26T03:12:31.931Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-26T03:12:31.931Z"
-    },
-    {
       "id": "mpnfiyhfu2ull",
       "type": "task",
       "content": "周一给客资周工发清单（在桌面）",
@@ -870,36 +614,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-06-01T01:44:04.443Z"
-    },
-    {
-      "id": "mpnj2212cea8q",
-      "type": "task",
-      "content": "3731-太平和108-太平-CHTPHC001：偶尔也会有核查不完的情况，先把问题丢出去",
-      "createdAt": "2026-05-27T03:51:39.206Z",
-      "updatedAt": "2026-05-27T08:46:11.001Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-27T08:46:11.001Z"
-    },
-    {
-      "id": "mpq7vhejvfqo9",
-      "type": "task",
-      "content": "周五检查完机楼，晚上听老公聊天过了退网单，挺舒服的还。",
-      "createdAt": "2026-05-29T01:01:55.291Z",
-      "updatedAt": "2026-05-29T14:22:10.974Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "doneAt": "2026-05-29T14:22:10.974Z",
-      "subtasks": []
     },
     {
       "id": "1780271275544",
@@ -1268,6 +982,30 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1780609946445",
+      "type": "task",
+      "content": "退网工作",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-05-29T14:22:10.974Z",
+      "organizedAt": "2026-06-04T21:52:26.445Z",
+      "createdAt": "2026-05-29T01:01:55.291Z",
+      "updatedAt": "2026-06-04T21:52:26.445Z",
+      "organization": {
+        "goal": "1、【每周通报、每周退网清单个性化提醒】建立“到期预警+自动催办”机制 ：设置提醒，提前2天自动通知下一环节负责人。减少人工催办成本。\n2、对于类似“客资无权限”的共性问题，整理FAQ",
+        "completion": "1、设备退网与资源清理。涉及物理设备的退网流程，核心是确认设备“空载”状态（无在用业务）并完成系统流程。",
+        "skills": "网管系统操作： 熟练掌握了通过网管系统核查设备在用业务的技巧，并能针对不同设备类型（华为、烽火）采取不同策略。\n📊 数据处理能力： 提升了在800M清单等任务中对大量数据进行筛选、整理和分析的能力。\n🤝 跨部门沟通技巧： 在处理客资权限、退网单催办等任务中，锻炼了与不同部门同事沟通、协调及推动问题的能力。\n📸 现场作业流程： 掌握了退网作业中“前后照片”等证据留存的标准化操作。",
+        "success": "1、分类处理法： 针对不同厂商/设备类型（如华为、烽火）制定差异化策略（如“华为查网管，烽火等拆除”），有效提升了增城退网任务的效率。",
+        "problems": "1、网管盲区： 增城退网 和 800M项目 均遇到“无网管监控”的设备，无法直接判断业务状态，需依赖现场确认或业务台账。\n2、补环任务 需要“自己去查端口位置”，说明现有资料库（如电信大厦）的端口信息可能不准确或不完整",
+        "summary": "1、 “先把问题丢出去”是一个很好的沟通技巧，将不确定性告知相关方，避免问题在后期集中爆发。",
+        "organizedAt": "2026-06-04T21:52:26.445Z"
+      },
+      "projectId": "1779778092169",
       "subtasks": []
     }
   ],
@@ -2785,9 +2523,31 @@
           "id": "1780366437290",
           "name": "0业务清单梳理下，有蛮多了（比如番禺）",
           "completed": false
+        },
+        {
+          "id": "1780610049164",
+          "name": "关注中山四 等几个机楼的退网",
+          "completed": false
         }
       ],
-      "milestones": [],
+      "milestones": [
+        {
+          "id": "1780609946446",
+          "taskId": "1780609946445",
+          "title": "二季度退网",
+          "progress": 0,
+          "organizedAt": "2026-06-04T21:52:26.445Z",
+          "organization": {
+            "goal": "1、【每周通报、每周退网清单个性化提醒】建立“到期预警+自动催办”机制 ：设置提醒，提前2天自动通知下一环节负责人。减少人工催办成本。\n2、对于类似“客资无权限”的共性问题，整理FAQ",
+            "completion": "1、设备退网与资源清理。涉及物理设备的退网流程，核心是确认设备“空载”状态（无在用业务）并完成系统流程。",
+            "skills": "网管系统操作： 熟练掌握了通过网管系统核查设备在用业务的技巧，并能针对不同设备类型（华为、烽火）采取不同策略。\n📊 数据处理能力： 提升了在800M清单等任务中对大量数据进行筛选、整理和分析的能力。\n🤝 跨部门沟通技巧： 在处理客资权限、退网单催办等任务中，锻炼了与不同部门同事沟通、协调及推动问题的能力。\n📸 现场作业流程： 掌握了退网作业中“前后照片”等证据留存的标准化操作。",
+            "success": "1、分类处理法： 针对不同厂商/设备类型（如华为、烽火）制定差异化策略（如“华为查网管，烽火等拆除”），有效提升了增城退网任务的效率。",
+            "problems": "1、网管盲区： 增城退网 和 800M项目 均遇到“无网管监控”的设备，无法直接判断业务状态，需依赖现场确认或业务台账。\n2、补环任务 需要“自己去查端口位置”，说明现有资料库（如电信大厦）的端口信息可能不准确或不完整",
+            "summary": "1、 “先把问题丢出去”是一个很好的沟通技巧，将不确定性告知相关方，避免问题在后期集中爆发。",
+            "organizedAt": "2026-06-04T21:52:26.445Z"
+          }
+        }
+      ],
       "manualProgress": 0,
       "autoProgress": 0,
       "status": "active",
@@ -3125,6 +2885,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T21:30:36.277Z"
+    "lastSync": "2026-06-04T21:31:19.027Z"
   }
 }
