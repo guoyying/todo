@@ -1402,7 +1402,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
               visibility: hidden;
               transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
               transform: scale(0.8);
-              z-index: 10;
+              z-index: 1;
           }
           /* 桌面端：悬停显示删除按钮 */
           @media (hover: hover) {
@@ -5382,12 +5382,31 @@ padding: 7px !important;
           .timeline-sidebar.active + .timeline-toggle-btn {
               right: 330px;
           }
+
+          /* ========== 时间轴内日期下拉菜单专属样式 ========== */
+          .timeline-sidebar .timeline-date-dropdown {
+              z-index: 2 !important;
+              min-width: 0;
+              width: max-content;
+              max-width: 200px;
+          }
+          
+          /* ========== 时间轴内标签下拉菜单专属样式 ========== */
+          .timeline-sidebar .timeline-tag-dropdown {
+              z-index: 2 !important;
+              width: 100%;
+              max-width: 200px;
+              max-height: 300px;
+              overflow-y: auto;
+              min-width: 200px !important;
+          }
           
           /* 移动端适配 */
           @media (max-width: 768px) {
               .timeline-sidebar {
                   width: 280px;
                   right: -280px;
+                  height:80vh;
               }
               
               .timeline-sidebar.active {
@@ -5709,7 +5728,7 @@ padding: 7px !important;
                     <button class="dropdown-toggle" id="dateDropdownBtn" onclick="toggleDropdown('dateDropdown')">
                         📅 <span id="currentDateLabel">今天</span>
                     </button>
-                    <div class="dropdown-menu" id="dateDropdown">
+                    <div class="dropdown-menu timeline-date-dropdown" id="dateDropdown">
                         <div class="dropdown-item" onclick="selectDate('today')">今天</div>
                         <div class="dropdown-item" onclick="selectDate('yesterday')">昨天</div>
                         <div class="dropdown-item" onclick="selectDate('custom')">自定义日期...</div>
@@ -5722,7 +5741,7 @@ padding: 7px !important;
                     <button class="dropdown-toggle" id="tagPoolDropdownBtn" onclick="toggleDropdown('tagPoolDropdown')">
                         🏷️ 标签
                     </button>
-                    <div class="dropdown-menu" id="tagPoolDropdown">
+                    <div class="dropdown-menu timeline-tag-dropdown" id="tagPoolDropdown">
                         <div id="timelineTagPool" style="display:flex;flex-wrap:wrap;gap:4px;">
                             <!-- 动态生成标签 -->
                         </div>
@@ -8273,30 +8292,6 @@ padding: 7px !important;
                             });
                        }
                       
-                        // 迁移标签颜色配置
-                        if (!data.tagConfig) {
-                            data.tagConfig = {};
-                            const defaultColors = [
-                                { value: '#e8f0e8', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
-                                { value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
-                                { value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
-                            ];
-                            let colorIndex = 0;
-                            
-                            [...data.commonTaskTags, ...data.commonFeelingTags].forEach(tag => {
-                                if (!data.tagConfig[tag]) {
-                                    const colorConfig = defaultColors[colorIndex % defaultColors.length];
-                                    data.tagConfig[tag] = {
-                                        color: colorConfig.value,
-                                        textColor: colorConfig.textColor,
-                                        activeValue: colorConfig.activeValue,
-                                        activeTextColor: colorConfig.activeTextColor
-                                    };
-                                    colorIndex++;
-                                }
-                            });
-                            saveData();
-                        }
                         
                         if (parsed.aiConfig) {
                             // 合并aiConfig,确保apiKeys正确合并
@@ -13635,7 +13630,8 @@ padding: 7px !important;
             const TAG_COLORS = [
                 { name: '绿色', value: '#f5f5f0', textColor: '#333333', activeValue: '#6b8e6b', activeTextColor: '#FFFFFF' },
                 { name: '蓝色', value: '#b3d4fc', textColor: '#333333', activeValue: '#1565c0', activeTextColor: '#FFFFFF' },
-                { name: '橙色', value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' }
+                { name: '橙色', value: '#ffe0b2', textColor: '#333333', activeValue: '#e65100', activeTextColor: '#FFFFFF' },
+                { name: '红色', value: '#ffebee', textColor: '#333333', activeValue: '#c62828', activeTextColor: '#FFFFFF' }  // 红色：淡红背景黑字 / 深红背景白字
             ];
             
             // 获取当前标签的颜色配置
@@ -22397,33 +22393,42 @@ setTimeout(() => {
         });
         
 // 使用事件委托：只在容器上绑定一次事件
-if (!container._clickHandler) {
-    container._clickHandler = function(e) {
-        // 1. 处理移除按钮点击
+if (!container._handlers) {
+    container._handlers = { click: null, dblclick: null };
+    
+    // 单击事件：处理移除按钮
+    container._handlers.click = function(e) {
         const btn = e.target.closest('.tracker-remove-btn');
         if (btn) {
             e.stopPropagation();
             e.preventDefault();
             const index = parseInt(btn.getAttribute('data-index'));
-            // 使用传入的函数名，支持桌面端和移动端不同的删除函数
             if (typeof window[removeFuncName] === 'function') {
                 window[removeFuncName](index);
             }
-            return;
         }
-        
-        // 2. 处理方向内容点击（打开整理模态框）
+    };
+    
+    // 双击事件：打开整理模态框并切换到"已整理"选项卡
+    container._handlers.dblclick = function(e) {
         const content = e.target.closest('.tracker-selected-content');
         if (content) {
             e.stopPropagation();
             e.preventDefault();
-            // 打开整理模态框
             if (typeof showTaskOrganizer === 'function') {
                 showTaskOrganizer();
+                // 切换到"已整理"选项卡
+                setTimeout(() => {
+                    if (typeof switchOrganizerTab === 'function') {
+                        switchOrganizerTab('organized');
+                    }
+                }, 100);
             }
         }
     };
-    container.addEventListener('click', container._clickHandler);
+    
+    container.addEventListener('click', container._handlers.click);
+    container.addEventListener('dblclick', container._handlers.dblclick);
 }
     }
     
