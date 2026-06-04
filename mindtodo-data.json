@@ -1255,6 +1255,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mq00el5l4g4r7",
+      "type": "task",
+      "content": "统计团费的收集",
+      "createdAt": "2026-06-04T21:30:31.449Z",
+      "updatedAt": "2026-06-04T21:30:31.449Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
