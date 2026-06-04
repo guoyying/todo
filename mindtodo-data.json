@@ -1147,6 +1147,20 @@
       },
       "projectId": "1780299687739",
       "subtasks": []
+    },
+    {
+      "id": "mpz4wwfmb5rox",
+      "type": "task",
+      "content": "检查下高华姐的帐号退网单",
+      "createdAt": "2026-06-04T06:48:58.162Z",
+      "updatedAt": "2026-06-04T06:48:58.162Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2378,14 +2392,17 @@
       "activeTextColor": "#FFFFFF"
     },
     "B类-定期复杂": {
-      "color": "#f5f5f0",
-      "textColor": "#333333"
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
     },
     "验收": {
       "color": "#f5f5f0",
       "textColor": "#333333"
     }
   },
+  "dailyTimeline": {},
   "taskTriggers": [
     {
       "id": "mpgc9rbgy7m17",
