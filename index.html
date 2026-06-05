@@ -5155,14 +5155,14 @@ padding: 7px !important;
           @media (max-width: 768px) {
               .timeblock-edit-popup {
                   position: absolute !important;
-                  right: 0 !important;
-                  top: 100% !important;
-                  margin-top: 8px !important;
-                  max-width: 200px !important;
+                  /* 移除 right/top/margin，让 JS 控制位置 */
+                  max-width: 260px !important;
+                  min-width: 240px !important;
                   padding: 14px !important;
                   border-radius: 10px !important;
                   font-size: 13px !important;
-                  z-index:1 !important;
+                  z-index: 10000 !important; /* 确保在最上层 */
+                  box-shadow: 0 4px 20px rgba(100, 149, 190, 0.2) !important;
               }
               
               .timeblock-edit-popup .popup-header {
@@ -5198,42 +5198,45 @@ padding: 7px !important;
               }
           }
           
-          /* 移动端优化 - 自定义日期选择器（小巧贴近按钮） */
+          /* 移动端优化 - 自定义日期选择器（自适应内容） */
           @media (max-width: 768px) {
               .custom-date-picker {
                   position: absolute !important;
                   right: 0 !important;
                   top: 100% !important;
                   margin-top: 6px !important;
-                  max-width: 150px !important; /* 限制最大宽度 */
-                  min-width: 150px !important; /* 允许内容收缩 */
+                  /* 移除 display，让 JS 控制显示/隐藏 */
+                  min-width: 140px !important;
+                  max-width: 240px !important;
                   padding: 10px !important;
                   border-radius: 8px !important;
                   background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%) !important;
                   box-sizing: border-box !important;
+                  white-space: nowrap !important;
               }
               
               .custom-date-picker input[type="date"] {
-                  width: 100% !important;
+                  width: 100% !important; /* 填满容器宽度 */
+                  box-sizing: border-box !important;
                   padding: 6px 10px !important;
                   font-size: 13px !important;
                   margin-bottom: 8px !important;
+                  min-width: 0 !important; /* 允许收缩 */
               }
               
               .date-picker-actions {
                   gap: 6px !important;
-                  width: 100% !important; /* 确保按钮行不撑开 */
+                  display: flex !important;
+                  justify-content: flex-end !important;
               }
               
               .date-picker-actions .btn {
-                  flex: 1 !important; /* 按钮平均分配宽度 */
-                  max-width: 50% !important; /* 限制单个按钮最大宽度 */
                   padding: 6px 10px !important;
                   font-size: 12px !important;
                   box-sizing: border-box !important;
+                  white-space: nowrap !important;
               }
           }
-          
           /* 拖拽时的放置区域 */
           .timeline-drop-zone {
               position: absolute;
