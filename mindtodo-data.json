@@ -940,7 +940,7 @@
       "type": "task",
       "content": "工程验收：验收群里的一张单子",
       "createdAt": "2026-06-04T09:42:02.755Z",
-      "updatedAt": "2026-06-04T23:21:35.118Z",
+      "updatedAt": "2026-06-05T09:40:49.964Z",
       "tags": [
         "验收",
         "B类-定期复杂"
@@ -948,7 +948,8 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq0qgw4wlewmf"
     },
     {
       "id": "mq00el5l4g4r7",
@@ -1796,8 +1797,8 @@
       "name": "今日的三件大事"
     },
     {
-      "id": "slot_mq0oz7n5ijzv7",
-      "name": "C类-不定期：3-4点 17:00-17:30"
+      "id": "slot_mq0qgw4wlewmf",
+      "name": "B类-定期复杂 17:40-18:00"
     }
   ],
   "tags": [
@@ -2506,7 +2507,16 @@
         "endTime": "17:30",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq0oz7n5ijzv7"
+        "slotId": null
+      },
+      {
+        "id": "block_1780652409008",
+        "tag": "B类-定期复杂",
+        "startTime": "17:40",
+        "endTime": "18:00",
+        "duration": 20,
+        "summary": "",
+        "slotId": "slot_mq0qgw4wlewmf"
       }
     ]
   },
