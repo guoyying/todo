@@ -1705,6 +1705,10 @@
     {
       "id": "slot_mpkhd31qo1rzc",
       "name": "今日的三件大事"
+    },
+    {
+      "id": "slot_mq0b0xwab7k6u",
+      "name": "C类-不定期：3-4点 10:45-11:30"
     }
   ],
   "tags": [
@@ -2345,6 +2349,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-05": [
+      {
+        "id": "block_1780626470554",
+        "tag": "C类-不定期：3-4点",
+        "startTime": "10:45",
+        "endTime": "11:30",
+        "duration": 45,
+        "summary": "",
+        "slotId": "slot_mq0b0xwab7k6u"
+      }
     ]
   },
   "taskTriggers": [
@@ -2977,6 +2992,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T02:26:33.134Z"
+    "lastSync": "2026-06-05T02:27:39.690Z"
   }
 }
