@@ -4983,7 +4983,7 @@ padding: 7px !important;
               overflow: hidden;
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               transition: box-shadow 0.2s ease;
-              z-index: 10;
+              z-index: 1;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -5000,17 +5000,18 @@ padding: 7px !important;
               text-align: center;
           }
           
-          /* 紧凑编辑弹窗 - 简约现代风格 */
+          /* 紧凑编辑弹窗 - 简约淡蓝色风格 */
           .timeblock-edit-popup {
               position: absolute;
-              background: #ffffff;
+              background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
               border-radius: 12px;
-              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+              box-shadow: 0 4px 20px rgba(100, 149, 190, 0.12), 0 1px 4px rgba(100, 149, 190, 0.08);
               padding: 18px;
               z-index: 9999 !important;
               min-width: 240px;
               animation: popupFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
               backdrop-filter: blur(8px);
+              border: 1px solid rgba(100, 149, 190, 0.15);
           }
           
           @keyframes popupFadeIn {
@@ -5033,9 +5034,11 @@ padding: 7px !important;
               transform: translateX(-50%);
               width: 12px;
               height: 12px;
-              background: #ffffff;
+              background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
               transform: translateX(-50%) rotate(45deg);
-              box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.06);
+              box-shadow: 2px 2px 6px rgba(100, 149, 190, 0.1);
+              border-bottom: 1px solid rgba(100, 149, 190, 0.15);
+              border-right: 1px solid rgba(100, 149, 190, 0.15);
           }
           
           .timeblock-edit-popup .popup-header {
@@ -5045,7 +5048,7 @@ padding: 7px !important;
               margin-bottom: 16px;
               font-weight: 500;
               font-size: 14px;
-              color: #1a1a1a;
+              color: #2c5282;
           }
           
           .timeblock-edit-popup .popup-close {
@@ -5057,14 +5060,14 @@ padding: 7px !important;
               justify-content: center;
               border-radius: 6px;
               font-size: 18px;
-              color: #999;
+              color: #718096;
               transition: all 0.2s;
               line-height: 1;
           }
           
           .timeblock-edit-popup .popup-close:hover {
-              background: #f5f5f5;
-              color: #333;
+              background: rgba(100, 149, 190, 0.1);
+              color: #2c5282;
           }
           
           .timeblock-edit-popup .popup-body .input-group {
@@ -5079,7 +5082,7 @@ padding: 7px !important;
               display: block;
               margin-bottom: 6px;
               font-size: 12px;
-              color: #666;
+              color: #4a5568;
               font-weight: 500;
           }
           
@@ -5087,25 +5090,25 @@ padding: 7px !important;
           .timeblock-edit-popup .popup-body .input-group select {
               width: 100%;
               padding: 10px 12px;
-              border: 1px solid #e5e5e5;
+              border: 1px solid #e2e8f0;
               border-radius: 8px;
               font-size: 13px;
               transition: all 0.2s;
-              background: #fafafa;
+              background: #f8fafc;
           }
           
           .timeblock-edit-popup .popup-body .input-group input:hover,
           .timeblock-edit-popup .popup-body .input-group select:hover {
-              border-color: #d0d0d0;
+              border-color: #cbd5e0;
               background: #fff;
           }
           
           .timeblock-edit-popup .popup-body .input-group input:focus,
           .timeblock-edit-popup .popup-body .input-group select:focus {
               outline: none;
-              border-color: #6b8e6b;
+              border-color: #63b3ed;
               background: #fff;
-              box-shadow: 0 0 0 3px rgba(107, 142, 107, 0.1);
+              box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.15);
           }
           
           .timeblock-edit-popup .popup-actions {
@@ -5126,26 +5129,26 @@ padding: 7px !important;
           }
           
           .btn-sm.btn-primary {
-              background: #6b8e6b;
+              background: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
               color: white;
           }
           
           .btn-sm.btn-primary:hover {
-              background: #5a7a5a;
+              background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
               transform: translateY(-1px);
-              box-shadow: 0 2px 8px rgba(107, 142, 107, 0.25);
+              box-shadow: 0 2px 8px rgba(99, 179, 237, 0.3);
           }
           
           .btn-sm.btn-secondary {
               background: transparent;
-              color: #666;
-              border: 1px solid #e0e0e0;
+              color: #4a5568;
+              border: 1px solid #e2e8f0;
           }
           
           .btn-sm.btn-secondary:hover {
-              background: #f5f5f5;
-              border-color: #d0d0d0;
-              color: #333;
+              background: rgba(100, 149, 190, 0.05);
+              border-color: #cbd5e0;
+              color: #2c5282;
           }
           
           /* 拖拽时的放置区域 */
