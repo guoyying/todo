@@ -1046,6 +1046,20 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq0b0motjx3to",
+      "type": "task",
+      "content": "标签的颜色是不是没保存在推送和拉取？",
+      "createdAt": "2026-06-05T02:27:36.029Z",
+      "updatedAt": "2026-06-05T02:27:36.029Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
