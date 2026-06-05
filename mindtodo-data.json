@@ -996,15 +996,15 @@
       "type": "task",
       "content": "视频如何做成放大的效果？背景是虚化的",
       "createdAt": "2026-06-04T23:21:38.228Z",
-      "updatedAt": "2026-06-05T02:26:26.438Z",
+      "updatedAt": "2026-06-05T03:43:18.092Z",
       "tags": [
-        "储备能力",
-        "C类-不定期：3-4点"
+        "储备能力"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-05T03:43:18.092Z"
     },
     {
       "id": "mq0axodb6ihvu",
@@ -3000,6 +3000,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T03:34:45.291Z"
+    "lastSync": "2026-06-05T03:34:51.632Z"
   }
 }
