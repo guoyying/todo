@@ -2400,8 +2400,10 @@
       "activeTextColor": "#FFFFFF"
     },
     "B类-定期复杂": {
-      "color": "#f5f5f0",
-      "textColor": "#333333"
+      "color": "#ffebee",
+      "textColor": "#333333",
+      "activeValue": "#c62828",
+      "activeTextColor": "#FFFFFF"
     },
     "验收": {
       "color": "#f5f5f0",
