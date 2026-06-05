@@ -925,7 +925,7 @@
       "type": "task",
       "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：筛选其他县分的看下情况。",
       "createdAt": "2026-06-04T09:40:23.170Z",
-      "updatedAt": "2026-06-04T23:21:23.113Z",
+      "updatedAt": "2026-06-05T09:59:43.656Z",
       "tags": [
         "退网",
         "B类-定期复杂"
@@ -940,16 +940,16 @@
       "type": "task",
       "content": "工程验收：验收群里的一张单子",
       "createdAt": "2026-06-04T09:42:02.755Z",
-      "updatedAt": "2026-06-05T09:40:49.964Z",
+      "updatedAt": "2026-06-05T09:59:50.489Z",
       "tags": [
-        "验收",
-        "B类-定期复杂"
+        "验收"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0qgw4wlewmf"
+      "placedIn": null,
+      "doneAt": "2026-06-05T09:59:50.489Z"
     },
     {
       "id": "mq00el5l4g4r7",
@@ -2403,10 +2403,8 @@
       "activeTextColor": "#FFFFFF"
     },
     "B类-定期复杂": {
-      "color": "#ffebee",
-      "textColor": "#333333",
-      "activeValue": "#c62828",
-      "activeTextColor": "#FFFFFF"
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     },
     "验收": {
       "color": "#f5f5f0",
@@ -3150,6 +3148,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T09:34:23.212Z"
+    "lastSync": "2026-06-05T09:40:59.043Z"
   }
 }
