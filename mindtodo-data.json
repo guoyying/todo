@@ -1759,10 +1759,6 @@
     {
       "id": "slot_mpkhd31qo1rzc",
       "name": "今日的三件大事"
-    },
-    {
-      "id": "slot_mq0b0xwab7k6u",
-      "name": "C类-不定期：3-4点 11:00-11:45"
     }
   ],
   "tags": [
@@ -2414,7 +2410,7 @@
         "endTime": "11:45",
         "duration": 45,
         "summary": "",
-        "slotId": "slot_mq0b0xwab7k6u"
+        "slotId": null
       }
     ]
   },
