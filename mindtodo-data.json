@@ -1068,6 +1068,20 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq0dvhsfo1hbs",
+      "type": "task",
+      "content": "太平分水（800M）C网基站-TPFSWC001-A01，烽火；太平分水（800M基站）-TPYTC1HWSDH2.5G001-HA01【单子有，清单无】",
+      "createdAt": "2026-06-05T03:47:35.247Z",
+      "updatedAt": "2026-06-05T03:47:35.247Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3000,6 +3014,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T03:34:51.632Z"
+    "lastSync": "2026-06-05T03:43:23.224Z"
   }
 }
