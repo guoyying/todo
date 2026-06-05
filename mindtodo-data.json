@@ -1139,16 +1139,16 @@
       "type": "task",
       "content": "整理算力的检查结果和照片",
       "createdAt": "2026-06-05T08:59:20.129Z",
-      "updatedAt": "2026-06-05T08:59:28.163Z",
+      "updatedAt": "2026-06-05T09:34:15.368Z",
       "tags": [
-        "检查工作",
-        "C类-不定期：3-4点"
+        "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0oz7n5ijzv7"
+      "placedIn": null,
+      "doneAt": "2026-06-05T09:34:15.368Z"
     }
   ],
   "normalFeelings": [
@@ -3092,6 +3092,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T08:59:47.893Z"
+    "lastSync": "2026-06-05T09:19:19.228Z"
   }
 }
