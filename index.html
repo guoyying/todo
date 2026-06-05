@@ -4759,7 +4759,7 @@ padding: 7px !important;
               cursor: pointer;
               box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3);
               z-index: 1;
-              transition: all 0.3s ease;
+              transition: right 0.35s ease;
               display: none;
               align-items: center;
               justify-content: center;
@@ -5362,14 +5362,16 @@ padding: 7px !important;
               background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
               color: white;
               border: none;
-              padding: 14px 10px;
               border-radius: 10px 0 0 10px;
               cursor: pointer;
               z-index: 1;
               font-size: 13px;
               font-weight: 500;
               box-shadow: -3px 3px 12px rgba(66, 153, 225, 0.3);
-              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+              writing-mode: vertical-rl;  /* 文字从上到下，从右到左 */
+              white-space: nowrap;        /* 防止换行 */
+              padding: 14px 10px;
           }
           
           .timeline-toggle-btn:hover {
@@ -5417,7 +5419,50 @@ padding: 7px !important;
                   right: 280px;
               }
           }
+
+          /* 自定义日期下拉面板样式 */
+          .custom-date-picker {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              margin-top: 4px;
+              background: white;
+              border: 1px solid rgba(100, 149, 197, 0.2);
+              border-radius: 8px;
+              box-shadow: 0 4px 16px rgba(100, 149, 197, 0.15);
+              padding: 12px;
+              z-index: 1;
+              min-width: 80px;
+          }
           
+          .custom-date-picker input[type="date"] {
+              width: 100%;
+              padding: 8px 12px;
+              border: 1px solid rgba(100, 149, 197, 0.3);
+              border-radius: 6px;
+              font-size: 14px;
+              margin-bottom: 10px;
+              background: #fafafa;
+          }
+          
+          .custom-date-picker input[type="date"]:focus {
+              outline: none;
+              border-color: rgba(100, 149, 197, 0.5);
+              background: white;
+          }
+          
+          .date-picker-actions {
+              display: flex;
+              gap: 8px;
+              justify-content: flex-end;
+          }
+          
+          .date-picker-actions .btn {
+              padding: 6px 12px;
+              font-size: 13px;
+              border-radius: 6px;
+          }
+
           /* 标签池切换样式 */
           .tag-pool-wrapper {
               margin-bottom: 12px;
@@ -5731,9 +5776,16 @@ padding: 7px !important;
                     <div class="dropdown-menu timeline-date-dropdown" id="dateDropdown">
                         <div class="dropdown-item" onclick="selectDate('today')">今天</div>
                         <div class="dropdown-item" onclick="selectDate('yesterday')">昨天</div>
-                        <div class="dropdown-item" onclick="selectDate('custom')">自定义日期...</div>
+                        <div class="dropdown-item" onclick="showCustomDatePicker()">自定义日期...</div>
                     </div>
-                    <input type="date" id="timelineCustomDate" class="custom-date-input" style="display:none;" onchange="loadTimelineForDate()">
+                    <!-- 自定义日期下拉面板 -->
+                    <div id="customDatePicker" class="custom-date-picker" style="display:none;">
+                        <input type="date" id="timelineCustomDate" onchange="selectCustomDate()">
+                        <div class="date-picker-actions">
+                            <button class="btn btn-small" onclick="cancelCustomDate()">取消</button>
+                            <button class="btn btn-small btn-primary" onclick="confirmCustomDate()">确定</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 标签池下拉菜单 -->
@@ -5768,7 +5820,7 @@ padding: 7px !important;
     
     <!-- 侧边栏切换按钮 -->
     <button class="timeline-toggle-btn" id="timelineToggleBtn" onclick="toggleTimelineSidebar()">
-        ⏰ 时间轴
+    ⏰
     </button>
 
     <!-- 触发提醒设置弹窗 -->
@@ -24096,25 +24148,64 @@ function manualCloseOrganizerAiPanel() {
         }
     }
     
-    // 选择日期
-    function selectDate(dateType) {
-        const customDateInput = document.getElementById('timelineCustomDate');
+    // 显示自定义日期下拉面板
+    function showCustomDatePicker() {
+        const datePicker = document.getElementById('customDatePicker');
+        const dateInput = document.getElementById('timelineCustomDate');
+        
+        // 关闭其他下拉菜单
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.classList.remove('active');
+        });
+        
+        // 显示日期选择面板
+        datePicker.style.display = 'block';
+        
+        // 设置默认值为今天
+        if (!dateInput.value) {
+            dateInput.value = getTodayDate();
+        }
+        
+        dateInput.focus();
+    }
+    
+    // 选择自定义日期（确定按钮）
+    function confirmCustomDate() {
+        const datePicker = document.getElementById('customDatePicker');
+        const dateInput = document.getElementById('timelineCustomDate');
         const currentDateLabel = document.getElementById('currentDateLabel');
         
+        if (dateInput.value) {
+            currentTimelineDate = dateInput.value;
+            currentDateLabel.textContent = dateInput.value;
+            loadTimelineForDate();
+        }
+        
+        // 关闭日期选择面板
+        datePicker.style.display = 'none';
+    }
+    
+    // 取消选择自定义日期
+    function cancelCustomDate() {
+        const datePicker = document.getElementById('customDatePicker');
+        datePicker.style.display = 'none';
+    }
+    
+    // 选择日期
+    function selectDate(dateType) {
+        const currentDateLabel = document.getElementById('currentDateLabel');
+
         if (dateType === 'today') {
             currentTimelineDate = getTodayDate();
             currentDateLabel.textContent = '今天';
-            customDateInput.style.display = 'none';
         } else if (dateType === 'yesterday') {
             currentTimelineDate = getYesterdayDate();
             currentDateLabel.textContent = '昨天';
-            customDateInput.style.display = 'none';
         } else if (dateType === 'custom') {
-            customDateInput.style.display = 'block';
-            customDateInput.focus();
+            showCustomDatePicker();
             return; // 不立即加载，等待用户选择日期
         }
-        
+
         loadTimelineForDate();
         // 关闭下拉菜单
         document.getElementById('dateDropdown').classList.remove('active');
@@ -24141,13 +24232,20 @@ function manualCloseOrganizerAiPanel() {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.classList.remove('active');
             });
+            // 点击外部也关闭自定义日期选择面板
+            const datePicker = document.getElementById('customDatePicker');
+            if (datePicker && datePicker.style.display === 'block') {
+                datePicker.style.display = 'none';
+            }
         }
     });
     
-    // 自定义日期输入框事件
+    // 自定义日期输入框：选择日期时实时更新（可选）
     const customDateInput = document.getElementById('timelineCustomDate');
     if (customDateInput) {
-        customDateInput.addEventListener('change', onCustomDateChange);
+        customDateInput.addEventListener('change', function() {
+            // 可以在这里添加实时预览逻辑（如果需要）
+        });
     }
     
     // 切换统计视图
@@ -24230,9 +24328,9 @@ function manualCloseOrganizerAiPanel() {
             // 更新按钮文字
             if (toggleBtn) {
                 if (sidebar.classList.contains('active')) {
-                    toggleBtn.textContent = '隐藏';
+                    toggleBtn.textContent = '⏰';
                 } else {
-                    toggleBtn.textContent = '⏰ 时间轴';
+                    toggleBtn.textContent = '⏰';
                 }
             }
             
