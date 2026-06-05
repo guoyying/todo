@@ -955,16 +955,17 @@
       "type": "task",
       "content": "统计团费的收集",
       "createdAt": "2026-06-04T21:30:31.449Z",
-      "updatedAt": "2026-06-05T02:28:24.658Z",
+      "updatedAt": "2026-06-05T03:06:16.195Z",
       "tags": [
         "团支部",
         "C类-不定期：3-4点"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0b0xwab7k6u"
+      "placedIn": null,
+      "doneAt": "2026-06-05T03:06:16.195Z"
     },
     {
       "id": "1780609946445",
@@ -1010,30 +1011,32 @@
       "type": "task",
       "content": "看下工位的问题",
       "createdAt": "2026-06-05T02:25:18.239Z",
-      "updatedAt": "2026-06-05T02:28:30.759Z",
+      "updatedAt": "2026-06-05T03:08:00.437Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0b0xwab7k6u"
+      "placedIn": null,
+      "doneAt": "2026-06-05T03:08:00.437Z"
     },
     {
       "id": "mq0ay273o1h2s",
       "type": "task",
       "content": "提供节电清单",
       "createdAt": "2026-06-05T02:25:36.159Z",
-      "updatedAt": "2026-06-05T02:28:21.720Z",
+      "updatedAt": "2026-06-05T03:11:11.766Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0b0xwab7k6u"
+      "placedIn": null,
+      "doneAt": "2026-06-05T03:11:11.766Z"
     },
     {
       "id": "mq0ayfi6v052z",
@@ -1712,7 +1715,7 @@
     },
     {
       "id": "slot_mq0b0xwab7k6u",
-      "name": "C类-不定期：3-4点 10:45-11:30"
+      "name": "C类-不定期：3-4点 11:00-11:45"
     }
   ],
   "tags": [
@@ -2358,8 +2361,8 @@
       {
         "id": "block_1780626470554",
         "tag": "C类-不定期：3-4点",
-        "startTime": "10:45",
-        "endTime": "11:30",
+        "startTime": "11:00",
+        "endTime": "11:45",
         "duration": 45,
         "summary": "",
         "slotId": "slot_mq0b0xwab7k6u"
