@@ -2424,6 +2424,48 @@
       "textColor": "#333333",
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
+    },
+    "网安": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "杂事": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "表达": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "工作": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "生活": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "光路资源核查": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "等待反馈": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "dailyTimeline": {
