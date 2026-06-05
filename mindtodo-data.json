@@ -1131,7 +1131,7 @@
       "type": "task",
       "content": "政绩观集中研讨，请各党员“紧扣树立和践行正确政绩观要求，结合自身思想、工作、作风实际”提前准备发言内容。\n（二）研讨主题：“政绩为谁树、树什么政绩、靠什么树政绩”",
       "createdAt": "2026-06-05T08:05:30.401Z",
-      "updatedAt": "2026-06-05T08:58:51.645Z",
+      "updatedAt": "2026-06-05T08:59:24.605Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
@@ -1139,14 +1139,14 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq0oz7n5ijzv7"
+      "placedIn": null
     },
     {
       "id": "mq0p0ekhh3wr2",
       "type": "task",
       "content": "整理算力的检查结果和照片",
       "createdAt": "2026-06-05T08:59:20.129Z",
-      "updatedAt": "2026-06-05T08:59:20.129Z",
+      "updatedAt": "2026-06-05T08:59:28.163Z",
       "tags": [
         "检查工作",
         "C类-不定期：3-4点"
@@ -1154,7 +1154,8 @@
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq0oz7n5ijzv7"
     }
   ],
   "normalFeelings": [
@@ -3098,6 +3099,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T08:59:05.785Z"
+    "lastSync": "2026-06-05T08:59:32.291Z"
   }
 }
