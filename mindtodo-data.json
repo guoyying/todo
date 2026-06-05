@@ -1795,10 +1795,6 @@
     {
       "id": "slot_mpkhd31qo1rzc",
       "name": "今日的三件大事"
-    },
-    {
-      "id": "slot_mq0qgw4wlewmf",
-      "name": "B类-定期复杂 17:40-18:00"
     }
   ],
   "tags": [
@@ -2514,7 +2510,7 @@
         "endTime": "18:00",
         "duration": 20,
         "summary": "",
-        "slotId": "slot_mq0qgw4wlewmf"
+        "slotId": null
       }
     ]
   },
@@ -3148,6 +3144,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T09:40:59.043Z"
+    "lastSync": "2026-06-05T09:59:54.817Z"
   }
 }
