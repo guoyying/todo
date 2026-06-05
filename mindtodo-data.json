@@ -2418,6 +2418,12 @@
       "textColor": "#333333",
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
+    },
+    "A类-快速核查：每天多次": {
+      "color": "#f5f5f0",
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "dailyTimeline": {
@@ -3092,6 +3098,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T09:19:19.228Z"
+    "lastSync": "2026-06-05T09:34:23.212Z"
   }
 }
