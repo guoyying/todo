@@ -955,9 +955,10 @@
       "type": "task",
       "content": "统计团费的收集",
       "createdAt": "2026-06-04T21:30:31.449Z",
-      "updatedAt": "2026-06-04T21:30:31.449Z",
+      "updatedAt": "2026-06-05T00:53:09.030Z",
       "tags": [
-        "团支部"
+        "团支部",
+        "C类-不定期：3-4点"
       ],
       "done": false,
       "dueTime": "10min",
@@ -2226,10 +2227,8 @@
       "activeTextColor": "#FFFFFF"
     },
     "C类-不定期：3-4点": {
-      "color": "#b3d4fc",
-      "textColor": "#333333",
-      "activeValue": "#1565c0",
-      "activeTextColor": "#FFFFFF"
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     },
     "B类-定期复杂": {
       "color": "#ffebee",
@@ -2887,6 +2886,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-04T22:56:24.772Z"
+    "lastSync": "2026-06-05T00:52:48.536Z"
   }
 }
