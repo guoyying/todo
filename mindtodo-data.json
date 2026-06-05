@@ -1075,24 +1075,16 @@
       "type": "task",
       "content": "太平分水（800M）C网基站-TPFSWC001-A01，烽火；太平分水（800M基站）-TPYTC1HWSDH2.5G001-HA01【单子有，清单无】\n1045-从化龙潭(800M)-CHDCHC002-HA01【清单无】3720-从化良口",
       "createdAt": "2026-06-05T03:47:35.247Z",
-      "updatedAt": "2026-06-05T08:58:48.910Z",
+      "updatedAt": "2026-06-05T09:18:50.316Z",
       "tags": [
-        "退网",
-        "C类-不定期：3-4点"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1780640240814",
-          "content": "记录花都哪台设备不能退",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": "slot_mq0oz7n5ijzv7"
-        }
-      ],
-      "placedIn": "slot_mq0oz7n5ijzv7"
+      "placedIn": null,
+      "doneAt": "2026-06-05T09:18:50.316Z",
+      "subtasks": []
     },
     {
       "id": "mq0dx58babkjs",
