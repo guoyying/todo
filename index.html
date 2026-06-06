@@ -279,11 +279,76 @@
            .dropdown-content.show {
                display: block;
            }
+                     /* 整理字段 - 桌面端双列，移动端单列 */
+                     .organizer-fields-container {
+                         display: grid;
+                         grid-template-columns: 1fr 1fr;
+                         gap: 12px;
+                     }
+                     
+                     .collapsible-field {
+                         background: var(--card);
+                         border: 1px solid var(--border);
+                         border-radius: 8px;
+                         overflow: hidden;
+                     }
+                     
+                     .field-header {
+                         display: flex;
+                         justify-content: space-between;
+                         align-items: center;
+                         padding: 5px 6px;
+                         background: var(--green-light);
+                         cursor: pointer;
+                         font-weight: 500;
+                         color: var(--green-text);
+                         user-select: none;
+                     }
+                     
+                     .field-header:hover {
+                         background: var(--green-border);
+                     }
+                     
+                     .toggle-icon {
+                         font-size: 12px;
+                         transition: transform 0.3s ease;
+                     }
+                     
+                     .field-header.collapsed-field .toggle-icon {
+                         transform: rotate(-90deg);
+                     }
+                     
+                     .field-body {
+                         padding: 6px;
+                         transition: all 0.3s ease;
+                         overflow: hidden;
+                     }
+                     
+                     .field-header.collapsed-field + .field-body {
+                         max-height: 0;
+                         padding-top: 0;
+                         padding-bottom: 0;
+                         opacity: 0;
+                     }
+                     
+                     /* 移动端单列布局 */
+                     @media (max-width: 768px) {
+                         .organizer-fields-container {
+                             grid-template-columns: 1fr;
+                         }
+                     }
+                     
                      /* 响应式设计 - 手机端优化 */
-                    @media (max-width: 768px) {
-                       body {
-                           padding: 8px;
-                       }
+                     @media (max-width: 768px) {
+                         /* 整理字段移动端单列 */
+                         .organizer-fields-grid {
+                             grid-template-columns: 1fr;
+                             gap: 12px;
+                         }
+                         
+                         body {
+                             padding: 8px;
+                         }
                        
                        /* 模态框背景层移动端边距 */
                        .modal-overlay {
@@ -1368,6 +1433,79 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             flex-wrap: wrap;
             gap: 6px;
             margin-top: 6px;
+        }
+        
+        /* 要点编辑器样式 */
+        .points-editor {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .point-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        
+        .point-item .point-text {
+            flex: 1;
+            word-break: break-word;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+        
+        .point-item .point-text:hover {
+            background: rgba(122, 138, 122, 0.1);
+        }
+        
+        .point-item .point-text.editing {
+            cursor: text;
+            background: white;
+            border: 1px solid var(--primary);
+            padding: 4px 8px;
+        }
+        
+        .point-item .point-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        
+        .point-item textarea.point-input {
+            display: block;
+            width: 100%;
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        .point-item .point-del {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .point-item .point-del:hover {
+            background: var(--danger);
+            color: white;
         }
          .tag {
              padding: 4px 10px;
@@ -6329,8 +6467,8 @@ padding: 7px !important;
                          
                          <!-- 任务内容编辑 -->
                         <div>
-                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务内容 <span style="color:var(--danger);">*</span></label>
-                            <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="编辑任务内容...（必填）"></textarea>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 任务主题 <span style="color:var(--danger);">*</span></label>
+                            <textarea id="organizerTaskContent" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="一句话写下…（必填）"></textarea>
                         </div>
                         
                         <!-- 标签选择 -->
@@ -6338,45 +6476,127 @@ padding: 7px !important;
                             <label style="display:block;margin-bottom:6px;font-weight:500;">🏷️ 标签 <span style="color:var(--danger);">*</span></label>
                             <div id="organizerTags" class="tags-select"></div>
                         </div>
-                        
-                        <!-- 整理字段 -->
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                        <!-- 整理字段 - 桌面端双列，移动端单列 -->
+                        <div class="organizer-fields-container">
                             <!-- 左列 -->
                             <div style="display:flex;flex-direction:column;gap:12px;">
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">🎯 目标</label>
-                                    <textarea id="organizerGoal" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="任务的目标是什么？"></textarea>
+                                <!-- 阶段目标达成 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>🎯 阶段目标达成</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerGoalList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerGoalInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="这个阶段计划达成什么？最终完成度如何（用数据说话：完成率、节省时长、误差降低）">
+                                            <button onclick="addPoint('organizerGoal')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✅ 完成情况</label>
-                                    <textarea id="organizerCompletion" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="完成的量化指标，如：完成度100%、节省时间2小时等"></textarea>
+                                <!-- 关键产出与节点 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>✅ 关键产出与节点</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerCompletionList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerCompletionInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="是否按时交付？是 / 否（若否，简述原因）；列出具体产出（如：需求文档 V2.0、用户画像数据）">
+                                            <button onclick="addPoint('organizerCompletion')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">📚 技能收获</label>
-                                    <textarea id="organizerSkills" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="学到了什么新技能或知识？"></textarea>
+                                <!-- 新知摄取 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>📚 新知摄取</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerSkillsList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerSkillsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="新学到的知识 / 技能 / 工具：一句话概括">
+                                            <button onclick="addPoint('organizerSkills')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 成功经验 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>✨ 成功经验</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerSuccessList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerSuccessInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="值得延续的做法（如：提前对齐需求、每日站会）">
+                                            <button onclick="addPoint('organizerSuccess')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- 右列 -->
                             <div style="display:flex;flex-direction:column;gap:12px;">
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">✨ 成功经验</label>
-                                    <textarea id="organizerSuccess" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="哪些做法是成功的？"></textarea>
+                                <!-- 好用的方法 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>💡 好用的方法</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerMethodsList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerMethodsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="如情绪调节、效率工具、沟通技巧">
+                                            <button onclick="addPoint('organizerMethods')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                <div>
-                                    <label style="display:block;margin-bottom:6px;font-weight:500;">❌ 遇到问题</label>
-                                    <textarea id="organizerProblems" rows="2" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="遇到了什么问题？有什么教训？"></textarea>
+                                <!-- 遇到问题 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>❌ 遇到问题</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerProblemsList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerProblemsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="技术难点、资源不足、流程卡点">
+                                            <button onclick="addPoint('organizerProblems')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 资产沉淀 -->
+                                <div class="collapsible-field">
+                                    <div class="field-header" onclick="toggleField(this)">
+                                        <span>📦 资产沉淀</span>
+                                        <span class="toggle-icon">▼</span>
+                                    </div>
+                                    <div class="field-body">
+                                        <div id="organizerAssetsList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div style="display:flex;gap:6px;">
+                                            <input type="text" id="organizerAssetsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="可沉淀的资产：如 SOP、复用模板、检查清单">
+                                            <button onclick="addPoint('organizerAssets')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
                         <!-- 经验总结 -->
                         <div>
-                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 经验总结</label>
-                            <textarea id="organizerSummary" rows="4" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;" placeholder="综合以上内容，总结这个任务的经验和收获"></textarea>
+                            <label style="display:block;margin-bottom:6px;font-weight:500;">📝 下一步计划</label>
+                            <div id="organizerSummaryList" class="points-editor" style="margin-bottom:8px;"></div>
+                            <div style="display:flex;gap:6px;">
+                                <input type="text" id="organizerSummaryInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="具体、可执行的行动">
+                                <button onclick="addPoint('organizerSummary')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                            </div>
                         </div>
                         
                         <!-- 操作按钮 -->
@@ -8265,7 +8485,19 @@ padding: 7px !important;
     // 选中的日期（用于显示特定日期的感受）
     let selectedDate = null;
     
-     let data = {
+    // 整理字段配置 - 统一管理整理字段名称，修改一处即可同步到所有地方
+    const ORGANIZATION_FIELDS = {
+        goal: { label: '🎯 阶段目标达成', key: 'goal' },
+        completion: { label: '✅ 关键产出与节点', key: 'completion' },
+        skills: { label: '📚 新知摄取', key: 'skills' },
+        methods: { label: '💡 好用的方法', key: 'methods' },
+        assets: { label: '📦 资产沉淀', key: 'assets' },
+        success: { label: '✨ 成功经验', key: 'success' },
+        problems: { label: '❌ 遇到问题', key: 'problems' },
+        summary: { label: '📝 下一步计划', key: 'summary' }
+    };
+    
+    let data = {
          tasks: [], // 待办任务
          normalFeelings: [], // 普通感受
          practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
@@ -19136,13 +19368,10 @@ ${ammoToAnalyze.map((ammo, index) =>
        // 清空整理表单
        function clearOrganizerForm() {
            document.getElementById('organizerTaskContent').value = '';
-           document.getElementById('organizerGoal').value = '';
-           document.getElementById('organizerCompletion').value = '';
-           document.getElementById('organizerSkills').value = '';
-           document.getElementById('organizerSuccess').value = '';
-           document.getElementById('organizerProblems').value = '';
-           document.getElementById('organizerSummary').value = '';
            document.getElementById('mergedTaskInfo').style.display = 'none';
+           
+           // 清空所有要点
+           clearAllPoints();
            
            // 清空标签选择
            renderTags('organizerTags', []);
@@ -19259,6 +19488,131 @@ ${ammoToAnalyze.map((ammo, index) =>
            renderCompleted();
            
            alert(`已删除 ${taskIds.length} 个任务`);
+       }
+       
+        // 要点编辑器相关函数
+        const pointData = {
+            organizerGoal: [],
+            organizerCompletion: [],
+            organizerSkills: [],
+            organizerSuccess: [],
+            organizerProblems: [],
+            organizerSummary: [],
+            organizerMethods: [],
+            organizerAssets: []
+        };
+       
+       // 编辑要点（多行模式）
+       function editPoint(field, index) {
+           const container = document.getElementById(field + 'List');
+           const pointItem = container.children[index];
+           if (!pointItem) return;
+           
+           const currentText = pointData[field][index];
+           
+           // 创建多行文本框
+           const textarea = document.createElement('textarea');
+           textarea.className = 'point-input';
+           textarea.value = currentText;
+           textarea.rows = 3;
+           textarea.style.width = '100%';
+           textarea.style.resize = 'vertical';
+           
+           // 替换文本节点
+           const textSpan = pointItem.querySelector('.point-text');
+           const delBtn = pointItem.querySelector('.point-del');
+           
+           // 隐藏删除按钮，替换文本为文本框
+           delBtn.style.display = 'none';
+           textSpan.replaceWith(textarea);
+           
+           // 自动聚焦和选择文本
+           textarea.focus();
+           textarea.select();
+           
+           // 保存编辑
+           const saveEdit = () => {
+               const newValue = textarea.value.trim();
+               if (newValue) {
+                   pointData[field][index] = newValue;
+               } else {
+                   // 如果为空，删除该要点
+                   pointData[field].splice(index, 1);
+               }
+               renderPoints(field);
+           };
+           
+           // 失焦自动保存
+           textarea.addEventListener('blur', () => {
+               saveEdit();
+           });
+       }
+        // 折叠字段功能
+        function toggleField(header) {
+            header.classList.toggle('collapsed-field');
+        }
+        
+        // 添加要点
+        function addPoint(field) {
+           const input = document.getElementById(field + 'Input');
+           const value = input.value.trim();
+           
+           if (!value) {
+               alert('请输入要点内容');
+               return;
+           }
+           
+           pointData[field].push(value);
+           input.value = '';
+           renderPoints(field);
+       }
+       
+       // 删除要点
+       function deletePoint(field, index) {
+           pointData[field].splice(index, 1);
+           renderPoints(field);
+       }
+       
+       // 渲染要点列表
+       function renderPoints(field) {
+           const container = document.getElementById(field + 'List');
+           container.innerHTML = '';
+           
+           pointData[field].forEach((point, index) => {
+               const pointItem = document.createElement('div');
+               pointItem.className = 'point-item';
+               pointItem.innerHTML = `
+                   <span class="point-text" title="点击编辑">• ${point}</span>
+                   <span class="point-del" onclick="deletePoint('${field}', ${index})">✕</span>
+               `;
+               
+               // 添加点击编辑事件
+               const textSpan = pointItem.querySelector('.point-text');
+               textSpan.addEventListener('click', () => editPoint(field, index));
+               
+               container.appendChild(pointItem);
+           });
+       }
+       
+       // 获取要点文本（用换行符连接）
+       function getPointsText(field) {
+           return pointData[field].join('\n');
+       }
+       
+       // 清空所有要点
+       function clearAllPoints() {
+           Object.keys(pointData).forEach(field => {
+               pointData[field] = [];
+               renderPoints(field);
+               document.getElementById(field + 'Input').value = '';
+           });
+       }
+       
+       // 从文本加载要点（用于编辑时）
+       function loadPointsFromText(field, text) {
+           if (!text) return;
+           pointData[field] = text.split('\n').filter(p => p.trim());
+           renderPoints(field);
        }
        
        // 保存任务整理
@@ -19435,12 +19789,14 @@ ${ammoToAnalyze.map((ammo, index) =>
                updatedAt: organizedTime,  // 更新时间使用整理时间
                // 保存整理数据（其他字段选填）
                organization: {
-                   goal: document.getElementById('organizerGoal').value.trim(),
-                   completion: document.getElementById('organizerCompletion').value.trim(),
-                   skills: document.getElementById('organizerSkills').value.trim(),
-                   success: document.getElementById('organizerSuccess').value.trim(),
-                   problems: document.getElementById('organizerProblems').value.trim(),
-                   summary: document.getElementById('organizerSummary').value.trim(),
+                   goal: getPointsText('organizerGoal'),
+                   completion: getPointsText('organizerCompletion'),
+                   skills: getPointsText('organizerSkills'),
+                   success: getPointsText('organizerSuccess'),
+                   problems: getPointsText('organizerProblems'),
+                   summary: getPointsText('organizerSummary'),
+                   methods: getPointsText('organizerMethods'),
+                   assets: getPointsText('organizerAssets'),
                    organizedAt: organizedTime
                }
            };
@@ -19464,27 +19820,28 @@ ${ammoToAnalyze.map((ammo, index) =>
            // 处理项目关联
            if (projectId) {
                // 关联任务到项目
-           newTask.projectId = projectId;
-           
-           const project = data.projects.find(p => p.id === projectId);
-           if (project) {
-               // 创建里程碑
-               if (createMilestone) {
-                   const milestoneTitle = document.getElementById('organizerMilestoneTitle').value.trim();
-                   const milestoneProgress = parseInt(document.getElementById('organizerMilestoneProgress').value);
-                   
-                   if (!project.milestones) {
-                       project.milestones = [];
+               newTask.projectId = projectId;
+               
+               const project = data.projects.find(p => p.id === projectId);
+               if (project) {
+                   // 创建里程碑
+                   if (createMilestone) {
+                       const milestoneTitle = document.getElementById('organizerMilestoneTitle').value.trim();
+                       const milestoneProgress = parseInt(document.getElementById('organizerMilestoneProgress').value);
+                       
+                       if (!project.milestones) {
+                           project.milestones = [];
+                       }
+                       
+                       project.milestones.push({
+                           id: Date.now().toString(),
+                           taskId: newTask.id,
+                           title: milestoneTitle || newTask.content,
+                           progress: milestoneProgress,
+                           organizedAt: newTask.organizedAt || nowStr(),
+                           organization: {...newTask.organization}
+                       });
                    }
-                   
-                   project.milestones.push({
-                       id: Date.now().toString(),
-                       taskId: newTask.id,
-                       title: milestoneTitle || newTask.content,
-                       progress: milestoneProgress,
-                       organizedAt: newTask.organizedAt || nowStr(),
-                       organization: {...newTask.organization}
-                   });
                }
            }
            
@@ -19506,9 +19863,8 @@ ${ammoToAnalyze.map((ammo, index) =>
            }
            showToast(message);
            
-           // 清空合并任务ID
+           // 清空合并任务 ID
            window.mergedTaskIds = null;
-       }
        }
        
         // 加载已整理任务列表
@@ -19587,12 +19943,16 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 填充表单
            document.getElementById('organizerTaskContent').value = task.content;
-           document.getElementById('organizerGoal').value = task.organization.goal || '';
-           document.getElementById('organizerCompletion').value = task.organization.completion || '';
-           document.getElementById('organizerSkills').value = task.organization.skills || '';
-           document.getElementById('organizerSuccess').value = task.organization.success || '';
-           document.getElementById('organizerProblems').value = task.organization.problems || '';
-           document.getElementById('organizerSummary').value = task.organization.summary || '';
+           
+           // 加载要点数据
+           loadPointsFromText('organizerGoal', task.organization.goal);
+           loadPointsFromText('organizerCompletion', task.organization.completion);
+           loadPointsFromText('organizerSkills', task.organization.skills);
+           loadPointsFromText('organizerSuccess', task.organization.success);
+           loadPointsFromText('organizerProblems', task.organization.problems);
+           loadPointsFromText('organizerSummary', task.organization.summary);
+           loadPointsFromText('organizerMethods', task.organization.methods);
+           loadPointsFromText('organizerAssets', task.organization.assets);
            
            // 设置标签（使用renderTags函数）
            const taskTags = task.tags || [];
@@ -19646,6 +20006,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                if (org.success) markdown += `**✨ 成功经验：** ${org.success}\n\n`;
                if (org.problems) markdown += `**❌ 遇到问题：** ${org.problems}\n\n`;
                if (org.summary) markdown += `**📝 经验总结：** ${org.summary}\n\n`;
+               if (org.methods) markdown += `**💡 好用的方法：** ${org.methods}\n\n`;
+               if (org.assets) markdown += `**📦 资产沉淀：** ${org.assets}\n\n`;
                
                markdown += '---\n\n';
            });
@@ -20114,16 +20476,18 @@ ${ammoToAnalyze.map((ammo, index) =>
                     const organizedTasks = relatedTasks.filter(task => task.organization);
                     if (organizedTasks.length === 0) return '';
                     
-                    // 按字段类型分组整理数据
-                    const goals = organizedTasks.map(t => t.organization.goal).filter(g => g).join('；');
-                    const completions = organizedTasks.map(t => t.organization.completion).filter(c => c).join('；');
-                    const successes = organizedTasks.map(t => t.organization.success).filter(s => s).join('；');
-                    const skills = organizedTasks.map(t => t.organization.skills).filter(s => s).join('；');
-                    const problems = organizedTasks.map(t => t.organization.problems).filter(p => p).join('；');
-                    const summaries = organizedTasks.map(t => t.organization.summary).filter(s => s).join('；');
+                    // 按字段类型分组整理数据（用换行符连接不同任务的内容）
+                    const goals = organizedTasks.map(t => t.organization.goal).filter(g => g).join('\n');
+                    const completions = organizedTasks.map(t => t.organization.completion).filter(c => c).join('\n');
+                    const successes = organizedTasks.map(t => t.organization.success).filter(s => s).join('\n');
+                    const skills = organizedTasks.map(t => t.organization.skills).filter(s => s).join('\n');
+                    const problems = organizedTasks.map(t => t.organization.problems).filter(p => p).join('\n');
+                    const summaries = organizedTasks.map(t => t.organization.summary).filter(s => s).join('\n');
+                    const methods = organizedTasks.map(t => t.organization.methods).filter(m => m).join('\n');
+                    const assets = organizedTasks.map(t => t.organization.assets).filter(a => a).join('\n');
                     
                     // 如果没有任何内容，不显示
-                    if (!goals && !completions && !successes && !skills && !problems && !summaries) return '';
+                    if (!goals && !completions && !successes && !skills && !problems && !summaries && !methods && !assets) return '';
                     
                     return `
                     <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
@@ -20131,43 +20495,57 @@ ${ammoToAnalyze.map((ammo, index) =>
                         <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px;">
                             ${goals ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--primary);">🎯 目标汇总</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(goals)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--primary);">${ORGANIZATION_FIELDS.goal.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(goals)}</div>
                             </div>
                             ` : ''}
                             
                             ${completions ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">✅ 完成情况</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(completions)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">${ORGANIZATION_FIELDS.completion.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(completions)}</div>
                             </div>
                             ` : ''}
                             
                             ${successes ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--info);">✨ 成功经验</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(successes)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--info);">${ORGANIZATION_FIELDS.success.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(successes)}</div>
                             </div>
                             ` : ''}
                             
                             ${skills ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">📚 技能收获</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(skills)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">${ORGANIZATION_FIELDS.skills.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(skills)}</div>
                             </div>
                             ` : ''}
                             
                             ${problems ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--danger);">❌ 遇到问题</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(problems)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--danger);">${ORGANIZATION_FIELDS.problems.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(problems)}</div>
                             </div>
                             ` : ''}
                             
                             ${summaries ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--text-secondary);">📝 综合总结</div>
-                                <div style="font-size:13px;color:var(--text-secondary);">${escapeHtml(summaries)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--text-secondary);">${ORGANIZATION_FIELDS.summary.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(summaries)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${methods ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--primary);">${ORGANIZATION_FIELDS.methods.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(methods)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${assets ? `
+                            <div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">${ORGANIZATION_FIELDS.assets.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(assets)}</div>
                             </div>
                             ` : ''}
                         </div>
