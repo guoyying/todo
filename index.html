@@ -303,6 +303,7 @@
                          font-weight: 500;
                          color: var(--green-text);
                          user-select: none;
+                         font-size: 13px;
                      }
                      
                      .field-header:hover {
@@ -335,6 +336,84 @@
                      @media (max-width: 768px) {
                          .organizer-fields-container {
                              grid-template-columns: 1fr;
+                         }
+                     }
+                     
+                     /* 整理字段输入框帮助提示 */
+                     .input-with-help {
+                         position: relative;
+                         display: flex;
+                         align-items: center;
+                         flex: 1;
+                         overflow: visible;
+                     }
+                     
+                     .input-with-help input {
+                         flex: 1;
+                         padding: 6px 32px 6px 6px;
+                         border: 1px solid var(--border);
+                         border-radius: 6px;
+                         font-size: 12px !important;
+                         width: 100%;
+                     }
+                     
+                     .field-help-btn {
+                         position: absolute;
+                         right: 8px;
+                         width: 20px;
+                         height: 20px;
+                         min-width: 20px;
+                         border-radius: 50%;
+                         background: var(--green-light);
+                         color: var(--green-text);
+                         border: 1px solid var(--green-border);
+                         cursor: pointer;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+                         font-size: 11px;
+                         font-weight: bold;
+                         transition: all 0.2s ease;
+                         padding: 0;
+                         z-index: 10;
+                     }
+                     
+                     .field-help-btn:hover {
+                         background: var(--green-border);
+                         transform: scale(1.1);
+                     }
+                     
+                     /* 全局帮助提示容器 */
+                     .global-help-popover {
+                         position: fixed;
+                         background: #fff;
+                         border: 1px solid var(--border);
+                         border-radius: 8px;
+                         padding: 12px;
+                         box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+                         z-index: 99999;
+                         min-width: 220px;
+                         max-width: 400px;
+                         font-size: 13px;
+                         line-height: 1.6;
+                         color: var(--text);
+                         display: none;
+                         pointer-events: none;
+                     }
+                     
+                     .global-help-popover.show {
+                         display: block;
+                         animation: popoverFade 0.2s ease;
+                     }
+                     
+                     @keyframes popoverFade {
+                         from {
+                             opacity: 0;
+                             transform: translateY(-5px);
+                         }
+                         to {
+                             opacity: 1;
+                             transform: translateY(0);
                          }
                      }
                      
@@ -6488,9 +6567,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerGoalList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerGoalInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="这个阶段计划达成什么？最终完成度如何（用数据说话：完成率、节省时长、误差降低）">
-                                            <button onclick="addPoint('organizerGoal')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerGoalInput" placeholder="这个阶段计划达成什么？">
+                                                <button class="field-help-btn" data-btn-id="goal" onclick="toggleHelp(event, this, '这个阶段计划达成什么？最终完成度如何（用数据说话：完成率、节省时长、误差降低）')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerGoal')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6503,9 +6585,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerCompletionList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerCompletionInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="是否按时交付？是 / 否（若否，简述原因）；列出具体产出（如：需求文档 V2.0、用户画像数据）">
-                                            <button onclick="addPoint('organizerCompletion')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerCompletionInput" placeholder="是否按时交付？">
+                                                <button class="field-help-btn" data-btn-id="completion" onclick="toggleHelp(event, this, '是否按时交付？是 / 否（若否，简述原因）；列出具体产出（如：需求文档 V2.0、用户画像数据）')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerCompletion')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6518,9 +6603,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerSkillsList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerSkillsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="新学到的知识 / 技能 / 工具：一句话概括">
-                                            <button onclick="addPoint('organizerSkills')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerSkillsInput" placeholder="新学到的知识 / 技能 / 工具">
+                                                <button class="field-help-btn" data-btn-id="skills" onclick="toggleHelp(event, this, '新学到的知识 / 技能 / 工具：一句话概括')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerSkills')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6533,9 +6621,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerSuccessList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerSuccessInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="值得延续的做法（如：提前对齐需求、每日站会）">
-                                            <button onclick="addPoint('organizerSuccess')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerSuccessInput" placeholder="值得延续的做法">
+                                                <button class="field-help-btn" data-btn-id="success" onclick="toggleHelp(event, this, '值得延续的做法（如：提前对齐需求、每日站会）')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerSuccess')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6551,9 +6642,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerMethodsList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerMethodsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="如情绪调节、效率工具、沟通技巧">
-                                            <button onclick="addPoint('organizerMethods')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerMethodsInput" placeholder="如情绪调节、效率工具">
+                                                <button class="field-help-btn" data-btn-id="methods" onclick="toggleHelp(event, this, '如情绪调节、效率工具、沟通技巧')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerMethods')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6566,9 +6660,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerProblemsList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerProblemsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="技术难点、资源不足、流程卡点">
-                                            <button onclick="addPoint('organizerProblems')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerProblemsInput" placeholder="技术难点、资源不足、流程卡点">
+                                                <button class="field-help-btn" data-btn-id="problems" onclick="toggleHelp(event, this, '技术难点、资源不足、流程卡点')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerProblems')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6581,9 +6678,12 @@ padding: 7px !important;
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerAssetsList" class="points-editor" style="margin-bottom:8px;"></div>
-                                        <div style="display:flex;gap:6px;">
-                                            <input type="text" id="organizerAssetsInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="可沉淀的资产：如 SOP、复用模板、检查清单">
-                                            <button onclick="addPoint('organizerAssets')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                                        <div style="display:flex;gap:6px;align-items:center;">
+                                            <div class="input-with-help">
+                                                <input type="text" id="organizerAssetsInput" placeholder="如 SOP、复用模板、检查清单">
+                                                <button class="field-help-btn" data-btn-id="assets" onclick="toggleHelp(event, this, '如 SOP、复用模板、检查清单')" title="查看完整提示">?</button>
+                                            </div>
+                                            <button onclick="addPoint('organizerAssets')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -6593,9 +6693,12 @@ padding: 7px !important;
                         <div>
                             <label style="display:block;margin-bottom:6px;font-weight:500;">📝 下一步计划</label>
                             <div id="organizerSummaryList" class="points-editor" style="margin-bottom:8px;"></div>
-                            <div style="display:flex;gap:6px;">
-                                <input type="text" id="organizerSummaryInput" style="flex:1;padding:6px;border:1px solid var(--border);border-radius:6px;font-size:13px;" placeholder="具体、可执行的行动">
-                                <button onclick="addPoint('organizerSummary')" style="padding:6px 12px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">➕ 添加</button>
+                            <div style="display:flex;gap:6px;align-items:center;">
+                                <div class="input-with-help">
+                                    <input type="text" id="organizerSummaryInput" placeholder="具体、可执行的行动">
+                                    <button class="field-help-btn" data-btn-id="summary" onclick="toggleHelp(event, this, '具体、可执行的行动')" title="查看完整提示">?</button>
+                                </div>
+                                <button onclick="addPoint('organizerSummary')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                             </div>
                         </div>
                         
@@ -19552,6 +19655,66 @@ ${ammoToAnalyze.map((ammo, index) =>
             header.classList.toggle('collapsed-field');
         }
         
+        // 切换帮助提示显示/隐藏
+        function toggleHelp(event, btn, hintText) {
+            // 注意：不调用 stopPropagation()，让事件继续冒泡到 document
+            
+            // 获取全局 popover
+            const popover = document.getElementById('globalHelpPopover');
+            if (!popover) {
+                return;
+            }
+            
+            
+            // 检查是否已经显示
+            const isShowing = popover.classList.contains('show');
+            const currentTargetBtn = popover.dataset.targetBtn || '';
+            if (isShowing && currentTargetBtn === btn.dataset.btnId) {
+                // 如果点击的是同一个按钮，则关闭
+                popover.classList.remove('show');
+                // 恢复按钮浅色样式
+                btn.style.background = '';
+                btn.style.color = '';
+                popover.dataset.targetBtn = '';
+                return;
+            }
+            
+            // 显示新的提示
+            popover.textContent = hintText;
+            popover.classList.add('show');
+            btn.style.background = 'var(--green-text)';
+            btn.style.color = '#fff';
+            // 计算 popover 位置
+            const btnRect = btn.getBoundingClientRect();
+            const popoverWidth = popover.offsetWidth;
+            const popoverHeight = popover.offsetHeight;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            // 默认位置：按钮下方右侧对齐
+            let left = btnRect.right;
+            let top = btnRect.bottom + 8;
+            
+            // 如果超出右边界，调整到左侧显示
+            if (left + popoverWidth > viewportWidth) {
+                left = btnRect.left - popoverWidth;
+            }
+            
+            // 如果超出下边界，调整到按钮上方显示
+            if (top + popoverHeight > viewportHeight) {
+                top = btnRect.top - popoverHeight - 8;
+            }
+            
+            // 确保不超出左边界
+            if (left < 0) {
+                left = 10;
+            }
+            
+            popover.style.left = left + 'px';
+            popover.style.top = top + 'px';
+            popover.dataset.targetBtn = btn.dataset.btnId || '';
+        }
+        
         // 添加要点
         function addPoint(field) {
            const input = document.getElementById(field + 'Input');
@@ -24810,7 +24973,6 @@ function manualCloseOrganizerAiPanel() {
             }
         }
     }
-    
     // 切换标签池展开/折叠
     function toggleTagPool() {
         const wrapper = document.getElementById('tagPoolWrapper');
@@ -24830,5 +24992,33 @@ function manualCloseOrganizerAiPanel() {
 
 <!-- 移动端浮动操作按钮 -->
 <button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
+
+<!-- 全局帮助提示容器 -->
+<div id="globalHelpPopover" class="global-help-popover"></div>
+
+<script>
+    // 点击页面其他区域关闭帮助提示 - 使用 capture 阶段，在 stopPropagation 之前捕获
+    window.addEventListener('click', function(event) {
+        const popover = document.getElementById('globalHelpPopover');
+        if (!popover || !popover.classList.contains('show')) {
+            return;
+        }
+        
+        // 如果点击的不是 popover 本身
+        const isClickOnPopover = popover.contains(event.target);
+        
+        if (!isClickOnPopover) {
+            popover.classList.remove('show');
+            popover.style.left = '';
+            popover.style.top = '';
+            // 恢复所有帮助按钮的浅色样式
+            document.querySelectorAll('.field-help-btn').forEach(btn => {
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            popover.dataset.targetBtn = '';
+        }
+    }, true);
+</script>
 </body>
 </html>
