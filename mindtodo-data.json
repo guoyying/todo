@@ -1034,21 +1034,6 @@
       "doneAt": "2026-06-05T03:28:18.764Z"
     },
     {
-      "id": "mq0devimnjqp9",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-06-05T03:34:39.886Z",
-      "updatedAt": "2026-06-05T03:58:42.477Z",
-      "tags": [
-        "退网",
-        "B类-定期复杂"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mq0dvhsfo1hbs",
       "type": "task",
       "content": "太平分水（800M）C网基站-TPFSWC001-A01，烽火；太平分水（800M基站）-TPYTC1HWSDH2.5G001-HA01【单子有，清单无】\n1045-从化龙潭(800M)-CHDCHC002-HA01【清单无】3720-从化良口",
@@ -1127,20 +1112,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-06-05T09:34:15.368Z"
-    },
-    {
-      "id": "mq0snxxe972nx",
-      "type": "task",
-      "content": "整理界面的字段输入框优化。比如移动端太窄了。按行排列吧。",
-      "createdAt": "2026-06-05T10:41:37.154Z",
-      "updatedAt": "2026-06-05T10:41:37.154Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": []
     },
     {
       "id": "1780728167845",
