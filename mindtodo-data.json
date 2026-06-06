@@ -2555,6 +2555,51 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mq2xry8lj04lk",
+      "taskId": "mpzb1ceao6liz",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-08T08:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-06T22:40:14.613Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq2xs5n3ab6tg",
+      "taskId": "mq0e9nqeqbtzq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-08T06:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-06T22:40:24.207Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq2xsa2f1409v",
+      "taskId": "mq0n36htpsbn4",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-08T06:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-06T22:40:29.943Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
