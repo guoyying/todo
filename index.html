@@ -8489,8 +8489,8 @@ padding: 7px !important;
                 day.classList.add('selected');
             }
             
-            day.addEventListener('click', function() {
-                selectDate(i);
+            day.addEventListener('click', function(e) {
+                selectCalendarDate(i);
             });
             
             grid.appendChild(day);
@@ -8508,14 +8508,27 @@ padding: 7px !important;
         }
     }
     
-    // 选择日期
-    function selectDate(day) {
+    // 选择日期（日历）
+    function selectCalendarDate(day) {
         const year = currentPickerDate.getFullYear();
         const month = currentPickerDate.getMonth();
-        pickerSelectedDate = new Date(year, month, day);
+        
+        // 创建新的日期对象，保留时分秒
+        const newDate = new Date(year, month, day);
+        newDate.setHours(pickerSelectedHour);
+        newDate.setMinutes(pickerSelectedMinute);
+        
+        
+        pickerSelectedDate = newDate;
+        
+        // 重新渲染日历以更新选中状态
         renderCalendar();
+        
+        // 更新显示
+        if (typeof updateDateTimeDisplay === 'function') {
+            updateDateTimeDisplay();
+        }
     }
-    
     // 导航月份
     function navigateMonth(delta) {
         currentPickerDate.setMonth(currentPickerDate.getMonth() + delta);
@@ -8547,6 +8560,30 @@ padding: 7px !important;
         } else {
             panel.style.display = 'none';
             overlay.classList.remove('active');
+        }
+    }
+    
+    // 更新日期时间显示
+    function updateDateTimeDisplay() {
+        if (!pickerSelectedDate) {
+            return;
+        }
+        
+        const year = pickerSelectedDate.getFullYear();
+        const month = (pickerSelectedDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = pickerSelectedDate.getDate().toString().padStart(2, '0');
+        const hour = pickerSelectedHour.toString().padStart(2, '0');
+        const minute = pickerSelectedMinute.toString().padStart(2, '0');
+        
+        const displayInput = document.getElementById('triggerDateTimeDisplay');
+        const hiddenInput = document.getElementById('triggerDateTime');
+        
+        if (displayInput) {
+            displayInput.value = `${year}-${month}-${day} ${hour}:${minute}`;
+        }
+        
+        if (hiddenInput) {
+            hiddenInput.value = `${year}-${month}-${day}T${hour}:${minute}`;
         }
     }
     
