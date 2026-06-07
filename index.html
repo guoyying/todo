@@ -5829,6 +5829,7 @@ padding: 7px !important;
                    <div id="toolsDropdown" class="dropdown-content">
                        <a href="#" onclick="showAmmoLibraryPanel();toggleToolsDropdown();return false;">💎 弹药库</a>
                        <a href="#" onclick="showAiContentManager(true);toggleToolsDropdown();return false;">💾 AI 内容</a>
+                       <a href="#" onclick="showTaskOrganizer();toggleToolsDropdown();return false;">📝 整理</a>
                        <a href="#" onclick="showProjectManagement();toggleToolsDropdown();return false;">📋 项目管理</a>
                    </div>
                </div>
@@ -6410,8 +6411,8 @@ padding: 7px !important;
             <div class="modal-body">
                 <!-- 选项卡 -->
                 <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px;">
-                    <button id="organizerTabBtn" class="btn btn-small btn-primary" onclick="switchOrganizerTab('organizer')">📝 整理任务</button>
-                    <button id="organizedTabBtn" class="btn btn-small btn-secondary" onclick="switchOrganizerTab('organized')">✅ 已整理</button>
+                    <button id="organizedTabBtn" class="btn btn-small btn-primary" onclick="switchOrganizerTab('organized')">✅ 已整理</button>
+                    <button id="organizerTabBtn" class="btn btn-small btn-secondary" onclick="switchOrganizerTab('organizer')">📝 整理任务</button>
                     <button class="btn btn-small btn-secondary" onclick="showProjectManagement()">📊 项目管理</button>
                 </div>
                 
@@ -7299,11 +7300,29 @@ padding: 7px !important;
                                             <input type="checkbox" id="includeAmmoLibrary" style="width:16px;height:16px;cursor:pointer;">
                                             <span>💎 包含弹药库内容</span>
                                         </label>
-                                        <button class="btn btn-small btn-primary" onclick="startAIMatching()" id="startMatchingBtn">🎯 开始匹配</button>
+                                        <div style="display:flex;gap:6px;">
+                                            <button class="btn btn-small btn-secondary" onclick="showManualSelectModal()" id="manualSelectBtn" title="手动选择知识库条目">📝 手动选择</button>
+                                            <button class="btn btn-small btn-primary" onclick="startAIMatching()" id="startMatchingBtn">🎯 开始匹配</button>
+                                        </div>
                                     </div>
                                     
                                     <!-- 匹配知识库预览 -->
                                     <div id="matchedKnowledgePreview" style="margin-bottom:12px;"></div>
+                                    
+                                    <!-- 手动选择知识库区域（默认隐藏） - 紧凑版 -->
+                                    <div id="manualSelectSection" class="hidden" style="margin-bottom:8px;padding:8px;background:var(--bg-secondary);border-radius:4px;border:1px solid var(--border);">
+                                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                            <div style="font-size:12px;font-weight:600;color:var(--text);">📝 手动选择</div>
+                                            <div style="display:flex;gap:4px;">
+                                                <button class="btn btn-small btn-secondary" onclick="toggleSelectAllManualItems()" id="selectAllBtn" style="padding:4px 8px;font-size:11px;">全选</button>
+                                                <button class="btn btn-small btn-secondary" onclick="closeManualSelectSection()" style="padding:4px 8px;font-size:11px;">关闭</button>
+                                                <button class="btn btn-small btn-primary" onclick="confirmManualSelection()" id="confirmManualSelectBtn" style="padding:4px 8px;font-size:11px;">确定 (<span id="manualSelectCount">0</span>)</button>
+                                            </div>
+                                        </div>
+                                        <div id="manualSelectList" style="max-height:300px;overflow-y:auto;">
+                                            <!-- 动态生成知识库列表 -->
+                                        </div>
+                                    </div>
                                     
                                     <!-- 已选知识库列表 -->
                                     <div id="selectedKnowledgeSection" class="hidden" style="margin-bottom:12px;padding:10px;background:var(--bg-secondary);border-radius:6px;border:1px solid var(--border);">
@@ -15212,6 +15231,7 @@ padding: 7px !important;
         function updateSelectedCount() {
             const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]:checked');
             const count = checkboxes.length;
+            console.log('Selected count:', count);
             document.getElementById('selectedCount').textContent = count;
             
             migrationSelected = Array.from(checkboxes).map(cb => parseInt(cb.value));
@@ -19296,9 +19316,9 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 初始化 AI 模型选择器
          initializeAiModelSelect('organizerAiModelSelect');
          
-         // 默认显示整理任务选项卡
-         switchOrganizerTab('organizer');
          
+                 // 默认显示已整理选项卡
+                 switchOrganizerTab('organized');
          modal.classList.remove('hidden');
          
          // 设置模态框关闭事件监听
@@ -22156,14 +22176,298 @@ ${knowledgeList}
         updateSelectedCount();
     }
     
-    // 更新选择计数显示
+    // 更新选择计数显示（支持手动选择和 AI 匹配，累加显示）
     function updateSelectedCount() {
-        if (!window.currentMatchedItems) return;
-        
-        const selectedCount = window.currentMatchedItems.filter(item => item.selected).length;
         const countElement = document.getElementById('selectedCount');
+        if (!countElement) return;
+        
+        // 累加：已确认的条目 + 当前正在选择的条目
+        const confirmedCount = window.currentMatchedItems ? window.currentMatchedItems.length : 0;
+        const selectingCount = window.manualSelectedItems ? window.manualSelectedItems.length : 0;
+        const totalCount = confirmedCount + selectingCount;
+        
+        countElement.textContent = `${totalCount}`;
+    }
+    
+    // 手动选择相关函数
+    
+    // 显示手动选择区域（展开方式）
+    function showManualSelectModal() {
+        const section = document.getElementById('manualSelectSection');
+        const listContainer = document.getElementById('manualSelectList');
+        
+        if (!section || !listContainer) return;
+        
+        // 检查知识库是否有内容
+        if (!data.knowledgeBase || data.knowledgeBase.length === 0) {
+            showToast('知识库为空，请先添加知识条目');
+            return;
+        }
+        
+        // 初始化手动选择项
+        window.manualSelectedItems = window.manualSelectedItems || [];
+        
+        // 渲染知识库列表 - 双行紧凑版（无缩进，左对齐）
+        listContainer.innerHTML = data.knowledgeBase.map((item, index) => {
+            const isSelected = window.manualSelectedItems.some(selected => selected.id === item.id);
+            // 移除每行开头的空格和制表符
+            const cleanContent = item.content.split('\n').map(line => line.trimStart()).join('\n');
+            
+            return `
+            <div style="padding:5px;background:var(--card);border-radius:3px;margin-bottom:3px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;"
+                 onclick="toggleManualSelectItem(${index})"
+                 onmouseenter="this.style.borderColor='var(--primary)';this.style.background='var(--green-light)';"
+                 onmouseleave="if(!${isSelected}){this.style.borderColor='var(--border)';this.style.background='var(--card)';}"
+                 id="manual-item-${index}"
+                 style="${isSelected ? 'background:var(--green-light);border-color:var(--primary);' : ''}">
+                <div style="display:flex;align-items:flex-start;gap:5px;">
+                    <input type="checkbox"
+                           style="width:13px;height:13px;cursor:pointer;flex-shrink:0;margin-top:2px;"
+                           id="manual-checkbox-${index}"
+                           ${isSelected ? 'checked' : ''}
+                           onclick="event.stopPropagation(); toggleManualSelectItem(${index})">
+                    <div style="flex:1;min-width:0;">
+                        <div style="font-size:11px;line-height:1.45;color:var(--text);height:42px;overflow:hidden;word-wrap:break-word;text-align:left;">
+                            ${cleanContent}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }).join('');
+        
+        // 更新计数
+        updateManualSelectCount();
+        
+        // 显示区域（展开方式）
+        section.classList.remove('hidden');
+        
+        // 滚动到手动选择区域
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+    
+    // 切换手动选择项状态
+    function toggleManualSelectItem(index) {
+        const item = data.knowledgeBase[index];
+        if (!item) return;
+        
+        const itemIndex = window.manualSelectedItems.findIndex(selected => selected.id === item.id);
+        
+        if (itemIndex > -1) {
+            // 已选中，取消选择
+            window.manualSelectedItems.splice(itemIndex, 1);
+        } else {
+            // 未选中，直接添加
+            // 添加到选择列表
+            window.manualSelectedItems.push({
+                id: item.id,
+                content: item.content,
+                tags: item.tags || [],
+                isAmmo: false,
+                selected: true
+            });
+        }
+        
+        // 更新 UI 状态
+        const itemDiv = document.getElementById(`manual-item-${index}`);
+        const checkbox = document.getElementById(`manual-checkbox-${index}`);
+        
+        if (itemDiv && checkbox) {
+            const isSelected = window.manualSelectedItems.some(selected => selected.id === item.id);
+            checkbox.checked = isSelected;
+            
+            if (isSelected) {
+                itemDiv.style.background = 'var(--green-light)';
+                itemDiv.style.borderColor = 'var(--green-border)';
+                itemDiv.style.opacity = '1';
+            } else {
+                itemDiv.style.background = 'var(--card)';
+                itemDiv.style.borderColor = 'var(--border)';
+                itemDiv.style.opacity = '1';
+            }
+        }
+        
+        // 更新计数
+        updateManualSelectCount();
+        updateSelectedCount();
+    }
+    
+    // 更新手动选择计数
+    function updateManualSelectCount() {
+        const countElement = document.getElementById('manualSelectCount');
         if (countElement) {
-            countElement.textContent = `已选择: ${selectedCount}条`;
+            countElement.textContent = window.manualSelectedItems ? window.manualSelectedItems.length : 0;
+        }
+    }
+    
+    // 切换全选手动选择项（全选/全不选）
+    function toggleSelectAllManualItems() {
+        if (!data.knowledgeBase || data.knowledgeBase.length === 0) return;
+        
+        const selectAllBtn = document.getElementById('selectAllBtn');
+        const allItemsSelected = window.manualSelectedItems && window.manualSelectedItems.length === data.knowledgeBase.length;
+        
+        if (allItemsSelected) {
+            // 当前已全部选中，改为全不选
+            window.manualSelectedItems = [];
+            
+            // 更新所有复选框状态
+            data.knowledgeBase.forEach((item, index) => {
+                const checkbox = document.getElementById(`manual-checkbox-${index}`);
+                const itemDiv = document.getElementById(`manual-item-${index}`);
+                
+                if (checkbox && itemDiv) {
+                    checkbox.checked = false;
+                    itemDiv.style.background = 'var(--card)';
+                    itemDiv.style.borderColor = 'var(--border)';
+                }
+            });
+            
+            if (selectAllBtn) selectAllBtn.textContent = '全选';
+        } else {
+            // 当前未全部选中，改为全选
+            window.manualSelectedItems = [];
+            data.knowledgeBase.forEach((item) => {
+                window.manualSelectedItems.push({
+                    id: item.id,
+                    content: item.content,
+                    tags: item.tags || [],
+                    isAmmo: false,
+                    selected: true
+                });
+            });
+            
+            // 更新所有复选框状态
+            data.knowledgeBase.forEach((item, index) => {
+                const checkbox = document.getElementById(`manual-checkbox-${index}`);
+                const itemDiv = document.getElementById(`manual-item-${index}`);
+                
+                if (checkbox && itemDiv) {
+                    checkbox.checked = true;
+                    itemDiv.style.background = 'var(--green-light)';
+                    itemDiv.style.borderColor = 'var(--green-border)';
+                }
+            });
+            
+            if (selectAllBtn) selectAllBtn.textContent = '全不选';;
+        }
+        
+        updateManualSelectCount();
+    }
+    
+    // 确认手动选择
+    function confirmManualSelection() {
+        if (!window.manualSelectedItems || window.manualSelectedItems.length === 0) {
+            showToast('请先选择至少一条条目');
+            return;
+        }
+        
+        // 将手动选择的条目转换为匹配格式
+        window.currentMatchedItems = window.manualSelectedItems.map(item => ({
+            ...item,
+            score: 100, // 手动选择默认为 100 分
+            reason: '手动选择'
+        }));
+        
+        // 更新已选知识库列表显示
+        updateSelectedKnowledgeList();
+        
+        // 关闭手动选择区域
+        closeManualSelectSection();
+    }
+    
+    // 更新已选知识库列表显示
+    function updateSelectedKnowledgeList() {
+        if (!window.currentMatchedItems || window.currentMatchedItems.length === 0) {
+            const selectedSection = document.getElementById('selectedKnowledgeSection');
+            if (selectedSection) {
+                selectedSection.classList.add('hidden');
+            }
+            return;
+        }
+        
+        const selectedContainer = document.getElementById('selectedKnowledgeList');
+        const selectedSection = document.getElementById('selectedKnowledgeSection');
+        
+        if (!selectedContainer || !selectedSection) return;
+        
+        // 显示已选条目区域
+        selectedSection.classList.remove('hidden');
+        
+        // 渲染已选列表
+        selectedContainer.innerHTML = window.currentMatchedItems.map((item, index) => {
+            const sourceLabel = item.isAmmo ? '💎 ' : '📚 ';
+            const contentPreview = item.content.substring(0, 80) + (item.content.length > 80 ? '...' : '');
+            
+            return `
+            <div class="selected-knowledge-item" style="padding:8px;background:var(--card);border-radius:6px;margin-bottom:6px;border:1px solid var(--border);display:flex;align-items:center;gap:8px;">
+                <div style="flex:1;min-width:0;">
+                    <div style="font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                        ${sourceLabel}${contentPreview}
+                    </div>
+                    ${item.reason && item.reason !== '手动选择' ? `
+                        <div style="font-size:10px;color:var(--text-secondary);margin-top:2px;">💡 ${item.reason}</div>
+                    ` : ''}
+                </div>
+                <button class="btn btn-small btn-danger" onclick="removeManualSelectedItem(${index})" style="padding:2px 6px;font-size:11px;">✕</button>
+            </div>
+            `;
+        }).join('');
+        
+        // 更新计数
+        updateSelectedCount();
+    }
+    
+    // 移除手动选择的条目
+    function removeManualSelectedItem(index) {
+        if (!window.currentMatchedItems || !window.currentMatchedItems[index]) return;
+        
+        window.currentMatchedItems.splice(index, 1);
+        
+        // 同步更新 manualSelectedItems
+        if (window.manualSelectedItems) {
+            window.manualSelectedItems.splice(index, 1);
+        }
+        
+        // 重新渲染列表
+        updateSelectedKnowledgeList();
+        
+        // 如果列表为空，隐藏区域
+        if (window.currentMatchedItems.length === 0) {
+            const selectedSection = document.getElementById('selectedKnowledgeSection');
+            if (selectedSection) {
+                selectedSection.classList.add('hidden');
+            }
+        }
+    }
+    
+    // 清空已选知识库
+    function clearSelectedKnowledge() {
+        window.currentMatchedItems = [];
+        window.manualSelectedItems = [];
+        
+        const selectedContainer = document.getElementById('selectedKnowledgeList');
+        const selectedSection = document.getElementById('selectedKnowledgeSection');
+        
+        if (selectedContainer) {
+            selectedContainer.innerHTML = '';
+        }
+        
+        if (selectedSection) {
+            selectedSection.classList.add('hidden');
+        }
+        
+        showToast('已清空所有选择');
+    }
+    
+    
+    // 关闭手动选择区域
+    function closeManualSelectSection() {
+        const section = document.getElementById('manualSelectSection');
+        if (section) {
+            section.classList.add('hidden');
         }
     }
     
