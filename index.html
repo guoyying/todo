@@ -14419,19 +14419,31 @@ padding: 7px !important;
                 }
             }
             
-            // 获取选中的颜色（如果没有颜色选择器，使用默认颜色）
-            const selectedColorElement = document.querySelector('.color-option.selected');
-            const defaultColor = '#f5f5f0';
-            const defaultTextColor = '#333333';
-            const selectedColor = selectedColorElement ? selectedColorElement.dataset.color : defaultColor;
-            const selectedTextColor = selectedColorElement ? selectedColorElement.dataset.textColor : defaultTextColor;
-            
             // 保存标签颜色配置
             if (!data.tagConfig) data.tagConfig = {};
-            data.tagConfig[newTag] = {
-                color: selectedColor,
-                textColor: selectedTextColor
-            };
+            
+            // 如果是新标签（不是编辑现有标签），检查是否已有颜色配置
+            if (!currentTag || currentTag !== newTag) {
+                // 如果是从现有标签列表选择的标签，保留其原有颜色配置
+                if (data.tagConfig[newTag]) {
+                    // 标签已有颜色配置，保持不变
+                } else {
+                    // 获取选中的颜色（如果没有颜色选择器，使用默认颜色）
+                    const selectedColorElement = document.querySelector('.color-option.selected');
+                    const defaultColor = '#f5f5f0';
+                    const defaultTextColor = '#333333';
+                    const selectedColor = selectedColorElement ? selectedColorElement.dataset.color : defaultColor;
+                    const selectedTextColor = selectedColorElement ? selectedColorElement.dataset.textColor : defaultTextColor;
+                    
+                    data.tagConfig[newTag] = {
+                        color: selectedColor,
+                        textColor: selectedTextColor
+                    };
+                }
+            } else {
+                // 编辑现有标签名称，颜色配置保持不变
+                // 不需要更新颜色配置
+            }
             
             item.updatedAt = nowStr();
             saveData(); render();
