@@ -7015,7 +7015,7 @@ padding: 7px !important;
                 </div>
 
                 <div style="background:#f0f7ff;padding:10px;border-radius:4px;margin-bottom:15px;">
-                    <strong>已选择：</strong> <span id="selectedCount">0</span> 条记录
+                    <strong>已选择：</strong> <span id="migrationSelectedCount">0</span> 条记录
                 </div>
             </div>
             <div class="modal-footer">
@@ -7327,7 +7327,7 @@ padding: 7px !important;
                                     <!-- 已选知识库列表 -->
                                     <div id="selectedKnowledgeSection" class="hidden" style="margin-bottom:12px;padding:10px;background:var(--bg-secondary);border-radius:6px;border:1px solid var(--border);">
                                         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-                                            <span style="font-size:13px;font-weight:600;color:var(--text);">📋 已选条目 (<span id="selectedCount">0</span>)</span>
+                                            <span style="font-size:13px;font-weight:600;color:var(--text);">📋 已选条目 (<span id="selectedKnowledgeCount">0</span>)</span>
                                             <button class="btn btn-small btn-secondary" onclick="clearSelectedKnowledge()" style="font-size:11px;">清空</button>
                                         </div>
                                         <div id="selectedKnowledgeList" style="max-height:200px;overflow-y:auto;"></div>
@@ -15191,7 +15191,7 @@ padding: 7px !important;
                 const div = document.createElement('div');
                 div.style.cssText = 'display:flex;align-items:center;padding:8px;border-bottom:1px solid #eee;';
                 div.innerHTML = `
-                    <input type="checkbox" id="mig_${index}" value="${index}" onchange="updateSelectedCount()" style="margin-right:10px;">
+                    <input type="checkbox" id="mig_${index}" value="${index}" onchange="updateMigrationCount()" style="margin-right:10px;">
                     <span style="flex:1;">${feeling.content.substring(0, 50)}${feeling.content.length > 50 ? '...' : ''}</span>
                     <span style="color:#999;font-size:12px;">${fmtTime(feeling.createdAt)}</span>
                 `;
@@ -15199,7 +15199,7 @@ padding: 7px !important;
             });
             
             document.getElementById('selectAll').checked = false;
-            document.getElementById('selectedCount').textContent = '0';
+            document.getElementById('migrationSelectedCount').textContent = '0';
             document.getElementById('blockSelect').value = 'new';
             document.getElementById('newBlockInput').style.display = 'block'; // 默认显示新建输入框
             
@@ -15225,14 +15225,18 @@ padding: 7px !important;
             const selectAll = document.getElementById('selectAll').checked;
             const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]');
             checkboxes.forEach(cb => cb.checked = selectAll);
-            updateSelectedCount();
+            updateMigrationCount();
         }
 
-        function updateSelectedCount() {
+        function updateMigrationCount() {
             const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]:checked');
             const count = checkboxes.length;
-            console.log('Selected count:', count);
-            document.getElementById('selectedCount').textContent = count;
+            
+            // 更新迁移列表专用的计数显示
+            const countElement = document.getElementById('migrationSelectedCount');
+            if (countElement) {
+                countElement.textContent = count;
+            }
             
             migrationSelected = Array.from(checkboxes).map(cb => parseInt(cb.value));
         }
@@ -22083,7 +22087,7 @@ ${knowledgeList}
                                 <div style="margin-top:8px;display:flex;gap:8px;">
                                     <button class="btn btn-small btn-secondary" onclick="selectAllKnowledge()">全选</button>
                                     <button class="btn btn-small btn-secondary" onclick="deselectAllKnowledge()">全不选</button>
-                                    <span style="font-size:12px;color:var(--text-secondary);margin-left:auto;" id="selectedCount">已选择: ${matchedItems.length}条</span>
+                                    <span style="font-size:12px;color:var(--text-secondary);margin-left:auto;" id="aiMatchedSelectedCount">已选择：${matchedItems.length}条</span>
                                 </div>
                             </div>
                         `;
@@ -22176,17 +22180,29 @@ ${knowledgeList}
         updateSelectedCount();
     }
     
-    // 更新选择计数显示（支持手动选择和 AI 匹配，累加显示）
+    // 更新选择计数显示（只统计已确认的条目）
     function updateSelectedCount() {
-        const countElement = document.getElementById('selectedCount');
-        if (!countElement) return;
+        const totalCount = window.currentMatchedItems ? window.currentMatchedItems.length : 0;
         
-        // 累加：已确认的条目 + 当前正在选择的条目
-        const confirmedCount = window.currentMatchedItems ? window.currentMatchedItems.length : 0;
-        const selectingCount = window.manualSelectedItems ? window.manualSelectedItems.length : 0;
-        const totalCount = confirmedCount + selectingCount;
+        // 1. 更新“已选条目”区域的计数（已确认的总数）
+        const knowledgeCountElement = document.getElementById('selectedKnowledgeCount');
+        if (knowledgeCountElement) {
+            knowledgeCountElement.textContent = `${totalCount}`;
+        }
         
-        countElement.textContent = `${totalCount}`;
+        // 2. 更新 AI 搜索结果区域的计数（只统计当前列表中已勾选的条目）
+        const aiCountElement = document.getElementById('aiMatchedSelectedCount');
+        if (aiCountElement && window.currentMatchedItems) {
+            // 统计 currentMatchedItems 中 selected=true 的数量
+            const aiSelectedCount = window.currentMatchedItems.filter(item => item.selected).length;
+            aiCountElement.textContent = `已选择：${aiSelectedCount}条`;
+        }
+        
+        // 3. 兼容旧 ID（如果存在）
+        const oldCountElement = document.getElementById('selectedCount');
+        if (oldCountElement) {
+            oldCountElement.textContent = `${totalCount}`;
+        }
     }
     
     // 手动选择相关函数
@@ -22357,24 +22373,34 @@ ${knowledgeList}
         updateManualSelectCount();
     }
     
-    // 确认手动选择
+    // 确认手动选择（追加到已选列表）
     function confirmManualSelection() {
         if (!window.manualSelectedItems || window.manualSelectedItems.length === 0) {
             showToast('请先选择至少一条条目');
             return;
         }
         
-        // 将手动选择的条目转换为匹配格式
-        window.currentMatchedItems = window.manualSelectedItems.map(item => ({
+        // 初始化 currentMatchedItems（如果不存在）
+        if (!window.currentMatchedItems) {
+            window.currentMatchedItems = [];
+        }
+        
+        // 将手动选择的条目转换为匹配格式并追加
+        const newItems = window.manualSelectedItems.map(item => ({
             ...item,
             score: 100, // 手动选择默认为 100 分
-            reason: '手动选择'
+            reason: '手动选择',
+            selected: true // 确保被选中
         }));
+        
+        // 追加到现有列表（而不是覆盖）
+        window.currentMatchedItems = window.currentMatchedItems.concat(newItems);
         
         // 更新已选知识库列表显示
         updateSelectedKnowledgeList();
         
-        // 关闭手动选择区域
+        // 清空手动选择列表并关闭区域
+        window.manualSelectedItems = [];
         closeManualSelectSection();
     }
     
