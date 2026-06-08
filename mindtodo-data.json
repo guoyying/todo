@@ -793,9 +793,9 @@
     {
       "id": "mpzb1ceao6liz",
       "type": "task",
-      "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：筛选其他县分的看下情况。",
+      "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：筛选越秀的看下情况。",
       "createdAt": "2026-06-04T09:40:23.170Z",
-      "updatedAt": "2026-06-05T09:59:43.656Z",
+      "updatedAt": "2026-06-08T02:22:18.683Z",
       "tags": [
         "退网",
         "B类-定期复杂"
@@ -890,30 +890,31 @@
       "type": "task",
       "content": "越秀过单退网",
       "createdAt": "2026-06-05T03:58:36.134Z",
-      "updatedAt": "2026-06-05T06:17:14.300Z",
+      "updatedAt": "2026-06-08T02:27:14.601Z",
       "tags": [
-        "退网",
-        "B类-定期复杂"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-08T02:27:14.601Z"
     },
     {
       "id": "mq0n36htpsbn4",
       "type": "task",
       "content": "政绩观集中研讨，请各党员“紧扣树立和践行正确政绩观要求，结合自身思想、工作、作风实际”提前准备发言内容。\n（二）研讨主题：“政绩为谁树、树什么政绩、靠什么树政绩”",
       "createdAt": "2026-06-05T08:05:30.401Z",
-      "updatedAt": "2026-06-05T08:59:24.605Z",
+      "updatedAt": "2026-06-08T02:27:10.333Z",
       "tags": [
-        "C类-不定期：3-4点"
+        "党"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-08T02:27:10.333Z"
     },
     {
       "id": "mq0p0ekhh3wr2",
@@ -2315,6 +2316,10 @@
       "textColor": "#333333",
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
+    },
+    "党": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "dailyTimeline": {
@@ -3005,6 +3010,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-05T10:39:29.484Z"
+    "lastSync": "2026-06-08T01:56:09.588Z"
   }
 }
