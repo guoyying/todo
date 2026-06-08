@@ -259,14 +259,15 @@
       "type": "task",
       "content": "跟小明传达宋总思想",
       "createdAt": "2026-05-16T02:50:02.964Z",
-      "updatedAt": "2026-05-16T02:50:08.600Z",
+      "updatedAt": "2026-06-08T08:07:07.211Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-08T08:07:07.211Z"
     },
     {
       "id": "mpaq4joepf98n",
@@ -2473,34 +2474,6 @@
     ]
   },
   "taskTriggers": [
-    {
-      "id": "mpgc9rbgy7m17",
-      "taskId": "mp7r0gnotxyuj",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "custom",
-            "startTime": "16:00",
-            "endTime": "18:00",
-            "message": "跟老妈聊天时",
-            "confirmed": true,
-            "confirmationTime": "2026-06-04T08:06:19.539Z",
-            "customInterval": "3",
-            "customIntervalUnit": "day"
-          }
-        ]
-      },
-      "createdAt": "2026-05-22T03:07:18.028Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-06-04T08:00:00.002Z"
-      }
-    },
     {
       "id": "mpw00kbt2rgm7",
       "taskId": "mpunazqezfisi",
