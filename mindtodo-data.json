@@ -1016,15 +1016,16 @@
       "type": "task",
       "content": "网管验收了那个单子",
       "createdAt": "2026-06-08T02:38:07.836Z",
-      "updatedAt": "2026-06-08T03:50:02.603Z",
+      "updatedAt": "2026-06-08T03:55:29.366Z",
       "tags": [
         "C类-不定期：3-4点"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq4o9z3tlu4xy"
+      "placedIn": null,
+      "doneAt": "2026-06-08T03:55:29.366Z"
     },
     {
       "id": "mq4lq7jtbzuiy",
@@ -1738,12 +1739,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq4o9z3tlu4xy",
-      "name": "B类-定期复杂 10:45-12:15"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2472,7 +2468,7 @@
         "endTime": "12:15",
         "duration": 90,
         "summary": "",
-        "slotId": "slot_mq4o9z3tlu4xy"
+        "slotId": null
       }
     ]
   },
@@ -3113,6 +3109,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-08T03:48:13.202Z"
+    "lastSync": "2026-06-08T03:50:07.898Z"
   }
 }
