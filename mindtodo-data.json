@@ -1010,6 +1010,77 @@
       },
       "projectId": "1780299687739",
       "subtasks": []
+    },
+    {
+      "id": "mq4lpq70hvp3q",
+      "type": "task",
+      "content": "网管验收了那个单子",
+      "createdAt": "2026-06-08T02:38:07.836Z",
+      "updatedAt": "2026-06-08T02:38:07.836Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq4lq7jtbzuiy",
+      "type": "task",
+      "content": "从化的几个网元跟进下看看",
+      "createdAt": "2026-06-08T02:38:30.329Z",
+      "updatedAt": "2026-06-08T02:38:30.329Z",
+      "tags": [
+        "C类-不定期：3-4点"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq4lqey5d2pec",
+      "type": "task",
+      "content": "爬虫",
+      "createdAt": "2026-06-08T02:38:39.917Z",
+      "updatedAt": "2026-06-08T02:38:39.917Z",
+      "tags": [
+        "A类-快速核查：每天多次"
+      ],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq4lqu1zo081z",
+      "type": "task",
+      "content": "写下检查报告0",
+      "createdAt": "2026-06-08T02:38:59.495Z",
+      "updatedAt": "2026-06-08T02:38:59.495Z",
+      "tags": [
+        "B类-定期复杂"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq4lrdokly83r",
+      "type": "task",
+      "content": "跟小明说昨天的情况",
+      "createdAt": "2026-06-08T02:39:24.932Z",
+      "updatedAt": "2026-06-08T02:39:24.932Z",
+      "tags": [
+        "C类-不定期：3-4点",
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3010,6 +3081,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-08T01:56:09.588Z"
+    "lastSync": "2026-06-08T02:27:20.955Z"
   }
 }
