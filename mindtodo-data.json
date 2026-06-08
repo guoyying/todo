@@ -1077,15 +1077,15 @@
       "type": "task",
       "content": "跟小明说昨天的情况",
       "createdAt": "2026-06-08T02:39:24.932Z",
-      "updatedAt": "2026-06-08T02:39:24.932Z",
+      "updatedAt": "2026-06-08T10:35:07.017Z",
       "tags": [
-        "C类-不定期：3-4点",
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-08T10:35:07.017Z"
     },
     {
       "id": "mq4lttsv98ee6",
@@ -2558,6 +2558,21 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mq52rvthec0zq",
+      "taskId": "mq4lqu1zo081z",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-09T09:35"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-08T10:35:41.909Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
