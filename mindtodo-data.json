@@ -1113,14 +1113,15 @@
       "type": "task",
       "content": "将本周的进度更新到todo网页里-项目管理的细分方向吧",
       "createdAt": "2026-06-08T08:07:51.382Z",
-      "updatedAt": "2026-06-08T08:07:51.383Z",
+      "updatedAt": "2026-06-08T08:16:44.639Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq4xs7wgyohac"
     },
     {
       "id": "mq4xj5ohtovqe",
@@ -1135,6 +1136,21 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq4xt1wa01oui",
+      "type": "task",
+      "content": "萤火行动推进：找人、了解新要求",
+      "createdAt": "2026-06-08T08:16:38.362Z",
+      "updatedAt": "2026-06-08T08:16:42.128Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mq4xs7wgyohac"
     }
   ],
   "normalFeelings": [
@@ -1776,7 +1792,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq4xs7wgyohac",
+      "name": "C类-不定期：3-4点 16:15-16:45"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2508,6 +2529,15 @@
         "duration": 90,
         "summary": "",
         "slotId": null
+      },
+      {
+        "id": "block_1780906559488",
+        "tag": "C类-不定期：3-4点",
+        "startTime": "16:15",
+        "endTime": "16:45",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq4xs7wgyohac"
       }
     ]
   },
@@ -2740,16 +2770,6 @@
           "completed": false
         },
         {
-          "id": "1780299650746",
-          "name": "完成二季度的退网现场检查，向云网部提交检查报告",
-          "completed": false
-        },
-        {
-          "id": "1780366437290",
-          "name": "0业务清单梳理下，有蛮多了（比如番禺）",
-          "completed": false
-        },
-        {
           "id": "1780610049164",
           "name": "关注中山四 等几个机楼的退网",
           "completed": false
@@ -2762,6 +2782,21 @@
         {
           "id": "1780613651710",
           "name": "每月填报数据进一步流程化",
+          "completed": false
+        },
+        {
+          "id": "1780908344889",
+          "name": "0业务清单梳理下，有蛮多了（比如番禺）",
+          "completed": false
+        },
+        {
+          "id": "1780908409192",
+          "name": "低效设备退网：督促县分完成退网和清运工作，6月需完成50%，当前进度是38.8%，加快0业务设备退网和清运工作。",
+          "completed": false
+        },
+        {
+          "id": "1780908423509",
+          "name": "退网设备现场检查：本周完成二季度的退网现场检查，向云网部提交检查报告。",
           "completed": false
         }
       ],
@@ -2922,44 +2957,44 @@
     }
   ],
   "trackerConfig": {
-    "projectId": "1779778092169",
+    "projectId": "1780299687739",
     "directions": [
-      "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
-      "跟进CRM系统的业务清单的清理工作，拆除无效业务",
-      "完成二季度的退网现场检查，向云网部提交检查报告",
       "跟进各种工单",
-      "新建工程验收，配合RPA测试"
+      "新建工程验收，配合RPA测试",
+      "0业务清单梳理下，有蛮多了（比如番禺）",
+      "低效设备退网：督促县分完成退网和清运工作，6月需完成50%，当前进度是38.8%，加快0业务设备退网和清运工作。",
+      "退网设备现场检查：本周完成二季度的退网现场检查，向云网部提交检查报告。"
     ],
     "selectedItems": [
       {
         "projectId": "1779778092169",
-        "projectName": "退网_项目",
-        "direction": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网",
-        "addedAt": 1780295536099
+        "projectName": "退网",
+        "direction": "0业务清单梳理下，有蛮多了（比如番禺）",
+        "addedAt": 1780908502162
       },
       {
         "projectId": "1779778092169",
         "projectName": "退网",
-        "direction": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
-        "addedAt": 1780299717337
+        "direction": "低效设备退网：督促县分完成退网和清运工作，6月需完成50%，当前进度是38.8%，加快0业务设备退网和清运工作。",
+        "addedAt": 1780908502162
       },
       {
         "projectId": "1779778092169",
         "projectName": "退网",
-        "direction": "完成二季度的退网现场检查，向云网部提交检查报告",
-        "addedAt": 1780299717337
+        "direction": "退网设备现场检查：本周完成二季度的退网现场检查，向云网部提交检查报告。",
+        "addedAt": 1780908502162
       },
       {
         "projectId": "1780299661890",
         "projectName": "网信安",
         "direction": "跟进各种工单",
-        "addedAt": 1780299725571
+        "addedAt": 1780908510761
       },
       {
         "projectId": "1780299687739",
         "projectName": "新建工程验收",
         "direction": "新建工程验收，配合RPA测试",
-        "addedAt": 1780299729684
+        "addedAt": 1780908528621
       }
     ]
   },
@@ -3130,6 +3165,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-08T08:09:02.294Z"
+    "lastSync": "2026-06-08T08:15:54.306Z"
   }
 }
