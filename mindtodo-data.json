@@ -662,7 +662,7 @@
       "createdAt": "2026-06-08T02:38:07.836Z",
       "updatedAt": "2026-06-08T03:55:29.366Z",
       "tags": [
-        "C类-不定期"
+        "C类-复杂-被动响应"
       ],
       "done": true,
       "dueTime": "15min",
@@ -770,7 +770,7 @@
       "createdAt": "2026-06-09T00:50:21.091Z",
       "updatedAt": "2026-06-09T08:48:18.887Z",
       "tags": [
-        "B类-定期复杂"
+        "B类-复杂-主动"
       ],
       "done": false,
       "dueTime": "20min",
@@ -969,7 +969,7 @@
       "updatedAt": "2026-06-09T06:53:31.531Z",
       "tags": [
         "检查工作",
-        "C类-不定期"
+        "C类-复杂-被动响应"
       ],
       "done": false,
       "dueTime": "10min",
@@ -1000,7 +1000,7 @@
       "updatedAt": "2026-06-09T06:52:52.373Z",
       "tags": [
         "检查工作",
-        "C类-不定期"
+        "C类-复杂-被动响应"
       ],
       "done": false,
       "dueTime": "15min",
@@ -2276,12 +2276,6 @@
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
     },
-    "B类-定期复杂": {
-      "color": "#ffebee",
-      "textColor": "#333333",
-      "activeValue": "#c62828",
-      "activeTextColor": "#FFFFFF"
-    },
     "验收": {
       "color": "#f5f5f0",
       "textColor": "#333333",
@@ -2352,10 +2346,16 @@
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
     },
-    "C类-不定期": {
+    "C类-复杂-被动响应": {
       "color": "#b3d4fc",
       "textColor": "#333333",
       "activeValue": "#1565c0",
+      "activeTextColor": "#FFFFFF"
+    },
+    "B类-复杂-主动": {
+      "color": "#ffebee",
+      "textColor": "#333333",
+      "activeValue": "#c62828",
       "activeTextColor": "#FFFFFF"
     }
   },
