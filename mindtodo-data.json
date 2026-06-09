@@ -768,7 +768,7 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-09T08:48:18.887Z",
+      "updatedAt": "2026-06-09T09:24:02.952Z",
       "tags": [
         "B类-复杂-主动"
       ],
@@ -786,7 +786,7 @@
         {
           "id": "1780994884021",
           "content": "看下端子读取的问题",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -1046,6 +1046,35 @@
       ],
       "done": false,
       "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq6fpn8xvr9i4",
+      "type": "task",
+      "content": "客户端load一下25年末退网的清单（25年共享表），爬一下目前的客户端进度",
+      "createdAt": "2026-06-09T09:25:38.673Z",
+      "updatedAt": "2026-06-09T09:25:38.673Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq6fq0o03zh8y",
+      "type": "task",
+      "content": "提醒增城走退网（低效的）",
+      "createdAt": "2026-06-09T09:25:56.064Z",
+      "updatedAt": "2026-06-09T09:25:56.064Z",
+      "tags": [
+        "退网",
+        "C类-复杂-被动响应"
+      ],
+      "done": false,
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
@@ -1689,12 +1718,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq6bmlnb5y1jm",
-      "name": "RPA 16:00-16:20"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2478,7 +2502,7 @@
         "endTime": "16:20",
         "duration": 20,
         "summary": "",
-        "slotId": "slot_mq6bmlnb5y1jm"
+        "slotId": null
       },
       {
         "id": "block_1780990306963",
@@ -3183,6 +3207,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T09:00:17.978Z"
+    "lastSync": "2026-06-09T09:04:51.260Z"
   }
 }
