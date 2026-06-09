@@ -230,31 +230,6 @@
       "subtasks": []
     },
     {
-      "id": "1778741500797",
-      "type": "task",
-      "content": "优化todo功能",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "doneAt": "2026-05-14T06:51:40.797Z",
-      "createdAt": "2026-05-11T09:13:20.998Z",
-      "updatedAt": "2026-05-14T06:51:40.797Z",
-      "organization": {
-        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
-        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药\n弹药库气泡优化 \n手机端子任务显示长度优化；\n关系问题沟通清单优化；\nAI润色默认提示词优化；\n网页版弹药库面板宽度、字体优化；",
-        "skills": "",
-        "innovation": "",
-        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-14T06:51:40.797Z"
-      },
-      "subtasks": []
-    },
-    {
       "id": "mp7r0gnotxyuj",
       "type": "task",
       "content": "跟小明传达宋总思想",
@@ -302,21 +277,6 @@
       "doneAt": "2026-05-21T08:31:50.260Z"
     },
     {
-      "id": "mpcb5bw6esfoh",
-      "type": "task",
-      "content": "将api密码的配置保存到本地",
-      "createdAt": "2026-05-19T07:24:47.094Z",
-      "updatedAt": "2026-05-19T08:17:39.191Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-19T08:17:39.191Z"
-    },
-    {
       "id": "1779235080814",
       "type": "task",
       "content": "萤火行动：了解更新的检查细则，自制问卷对照检查表",
@@ -341,36 +301,6 @@
         "organizedAt": "2026-05-19T23:58:00.814Z"
       },
       "subtasks": []
-    },
-    {
-      "id": "mpdd84tzoeajs",
-      "type": "task",
-      "content": "所有强提醒的检查alert或showtoast想换样式。",
-      "createdAt": "2026-05-20T01:10:43.319Z",
-      "updatedAt": "2026-05-20T02:02:35.324Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "doneAt": "2026-05-20T02:02:35.324Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpdf3sykzu03y",
-      "type": "task",
-      "content": "强提醒用showBanner就行了，设置为灰黑色背景，白色字体",
-      "createdAt": "2026-05-20T02:03:20.540Z",
-      "updatedAt": "2026-05-20T03:00:46.442Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T03:00:46.442Z"
     },
     {
       "id": "mpdfgkvz09m5q",
@@ -431,21 +361,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-05-20T08:12:03.968Z"
-    },
-    {
-      "id": "mpequ8cfo838g",
-      "type": "task",
-      "content": "优化桌面和移动端任务文本框显示",
-      "createdAt": "2026-05-21T00:19:35.487Z",
-      "updatedAt": "2026-05-21T03:53:24.451Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "doneAt": "2026-05-21T03:53:24.451Z",
-      "subtasks": []
     },
     {
       "id": "mpf6tfubo8emz",
@@ -1089,6 +1004,32 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-06-09T03:49:31.763Z"
+    },
+    {
+      "id": "1780978896920",
+      "type": "task",
+      "content": "优化todo功能",
+      "tags": [
+        "AI"
+      ],
+      "done": true,
+      "doneAt": "2026-05-21T03:53:24.451Z",
+      "organizedAt": "2026-06-09T04:21:36.920Z",
+      "createdAt": "2026-05-21T00:19:35.487Z",
+      "updatedAt": "2026-06-09T04:21:36.920Z",
+      "organization": {
+        "goal": "为了挖掘已完成任务的价值，我需要对数据做清洗",
+        "completion": "新增表达框架和AI生成应用场景功能；\n优化手机端和网页端的待办显示效果：尽量展示文字又不占用空间\n优化模型反馈回答结果的显示效果（markdown显示）\n优化智能推荐功能：AI提炼弹药库笔记本质，智能推荐相关弹药\n弹药库气泡优化 \n手机端子任务显示长度优化；\n关系问题沟通清单优化；\nAI润色默认提示词优化；\n网页版弹药库面板宽度、字体优化；",
+        "skills": "",
+        "success": "不清晰全流程，那就先做一版脑子里呈现的。有了这版，再往上优化。\n正确的AI协作流程应是：先由人分析出问题原因，再让AI基于原因进行修改。 而不是直接把问题现象抛给AI，让AI自己既找原因又出方案。",
+        "problems": "",
+        "summary": "",
+        "methods": "",
+        "assets": "",
+        "organizedAt": "2026-06-09T04:21:36.920Z"
+      },
+      "projectId": "1780978895521",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2874,6 +2815,16 @@
       "status": "active",
       "createdAt": "2026-06-09T02:07:40.323Z",
       "updatedAt": "2026-06-09T02:07:40.323Z",
+      "subDirections": [],
+      "milestones": []
+    },
+    {
+      "id": "1780978895521",
+      "name": "AI",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-06-09T04:21:35.521Z",
+      "updatedAt": "2026-06-09T04:21:35.521Z",
       "subDirections": [],
       "milestones": []
     }
