@@ -1093,11 +1093,10 @@
       "type": "task",
       "content": "我想重新做个白边框的模糊蓝色背景的就行了。裁剪9：16",
       "createdAt": "2026-06-08T02:41:19.135Z",
-      "updatedAt": "2026-06-08T14:46:38.512Z",
+      "updatedAt": "2026-06-09T00:53:13.772Z",
       "tags": [
         "C类-不定期：3-4点",
-        "生活",
-        "RPA"
+        "生活"
       ],
       "done": false,
       "dueTime": "10min",
@@ -1145,6 +1144,20 @@
       "tags": [],
       "done": false,
       "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq5xewpgn2ai9",
+      "type": "task",
+      "content": "问下黄埔的退网怎么回事",
+      "createdAt": "2026-06-09T00:53:24.628Z",
+      "updatedAt": "2026-06-09T00:53:24.628Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "15min",
       "unknown": false,
       "subtasks": []
     }
@@ -2349,7 +2362,9 @@
   "tagConfig": {
     "退网": {
       "color": "#f5f5f0",
-      "textColor": "#333333"
+      "textColor": "#333333",
+      "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
     },
     "RPA": {
       "color": "#f5f5f0",
