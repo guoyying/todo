@@ -6571,27 +6571,27 @@ padding: 7px !important;
                                         <div style="display:flex;gap:6px;align-items:center;">
                                             <div class="input-with-help">
                                                 <input type="text" id="organizerGoalInput" placeholder="这个阶段计划达成什么？">
-                                                <button class="field-help-btn" data-btn-id="goal" onclick="toggleHelp(event, this, '这个阶段计划达成什么？最终完成度如何（用数据说话：完成率、节省时长、误差降低）')" title="查看完整提示">?</button>
+                                                <button class="field-help-btn" data-btn-id="goal" onclick="toggleHelp(event, this, '这个阶段计划达成什么? 成果量化（完成率100%\节省时长2h\误差降低30%等）?交付品（需求文档 V2.0\用户画像数据等）')" title="查看完整提示">?</button>
                                             </div>
                                             <button onclick="addPoint('organizerGoal')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- 关键产出与节点 -->
+                                <!-- 下次这样做更好 -->
                                 <div class="collapsible-field">
                                     <div class="field-header" onclick="toggleField(this)">
-                                        <span>✅ 关键产出与节点</span>
+                                        <span>💡 下次这样做更好</span>
                                         <span class="toggle-icon">▼</span>
                                     </div>
                                     <div class="field-body">
-                                        <div id="organizerCompletionList" class="points-editor" style="margin-bottom:8px;"></div>
+                                        <div id="organizerImprovementList" class="points-editor" style="margin-bottom:8px;"></div>
                                         <div style="display:flex;gap:6px;align-items:center;">
                                             <div class="input-with-help">
-                                                <input type="text" id="organizerCompletionInput" placeholder="是否按时交付？">
-                                                <button class="field-help-btn" data-btn-id="completion" onclick="toggleHelp(event, this, '是否按时交付？是 / 否（若否，简述原因）；列出具体产出（如：需求文档 V2.0、用户画像数据）')" title="查看完整提示">?</button>
+                                                <input type="text" id="organizerImprovementInput" placeholder="下次可以如何改进？">
+                                                <button class="field-help-btn" data-btn-id="improvement" onclick="toggleHelp(event, this, '下次可以如何改进？具体的优化建议、改进方法、避免的陷阱')" title="查看完整提示">?</button>
                                             </div>
-                                            <button onclick="addPoint('organizerCompletion')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
+                                            <button onclick="addPoint('organizerImprovement')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
                                     </div>
                                 </div>
@@ -8647,7 +8647,7 @@ padding: 7px !important;
     // 整理字段配置 - 统一管理整理字段名称，修改一处即可同步到所有地方
     const ORGANIZATION_FIELDS = {
         goal: { label: '🎯 阶段目标达成', key: 'goal' },
-        completion: { label: '✅ 关键产出与节点', key: 'completion' },
+        improvement: { label: '💡 下次这样做更好', key: 'improvement' },
         skills: { label: '📚 新知摄取', key: 'skills' },
         methods: { label: '💡 好用的方法', key: 'methods' },
         assets: { label: '📦 资产沉淀', key: 'assets' },
@@ -19721,7 +19721,7 @@ ${ammoToAnalyze.map((ammo, index) =>
         // 要点编辑器相关函数
         const pointData = {
             organizerGoal: [],
-            organizerCompletion: [],
+            organizerImprovement: [],
             organizerSkills: [],
             organizerSuccess: [],
             organizerProblems: [],
@@ -20078,7 +20078,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                // 保存整理数据（其他字段选填）
                organization: {
                    goal: getPointsText('organizerGoal'),
-                   completion: getPointsText('organizerCompletion'),
+                   improvement: getPointsText('organizerImprovement'),
                    skills: getPointsText('organizerSkills'),
                    success: getPointsText('organizerSuccess'),
                    problems: getPointsText('organizerProblems'),
@@ -20234,7 +20234,7 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 加载要点数据
            loadPointsFromText('organizerGoal', task.organization.goal);
-           loadPointsFromText('organizerCompletion', task.organization.completion);
+           loadPointsFromText('organizerImprovement', task.organization.improvement);
            loadPointsFromText('organizerSkills', task.organization.skills);
            loadPointsFromText('organizerSuccess', task.organization.success);
            loadPointsFromText('organizerProblems', task.organization.problems);
@@ -20766,7 +20766,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                     
                     // 按字段类型分组整理数据（用换行符连接不同任务的内容）
                     const goals = organizedTasks.map(t => t.organization.goal).filter(g => g).join('\n');
-                    const completions = organizedTasks.map(t => t.organization.completion).filter(c => c).join('\n');
+                    const improvements = organizedTasks.map(t => t.organization.improvement).filter(i => i).join('\n');
                     const successes = organizedTasks.map(t => t.organization.success).filter(s => s).join('\n');
                     const skills = organizedTasks.map(t => t.organization.skills).filter(s => s).join('\n');
                     const problems = organizedTasks.map(t => t.organization.problems).filter(p => p).join('\n');
@@ -20788,10 +20788,10 @@ ${ammoToAnalyze.map((ammo, index) =>
                             </div>
                             ` : ''}
                             
-                            ${completions ? `
+                            ${improvements ? `
                             <div>
-                                <div style="font-weight:500;margin-bottom:4px;color:var(--success);">${ORGANIZATION_FIELDS.completion.label}</div>
-                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(completions)}</div>
+                                <div style="font-weight:500;margin-bottom:4px;color:var(--warning);">${ORGANIZATION_FIELDS.improvement.label}</div>
+                                <div style="font-size:13px;color:var(--text-secondary);white-space:pre-wrap;">${escapeHtml(improvements)}</div>
                             </div>
                             ` : ''}
                             
