@@ -1034,6 +1034,20 @@
       },
       "projectId": "1780299687739",
       "subtasks": []
+    },
+    {
+      "id": "mq6eyo1bx5e0c",
+      "type": "task",
+      "content": "核查下客建的800M清单",
+      "createdAt": "2026-06-09T09:04:39.983Z",
+      "updatedAt": "2026-06-09T09:04:39.983Z",
+      "tags": [
+        "C类-复杂-被动响应"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3169,6 +3183,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T08:52:44.872Z"
+    "lastSync": "2026-06-09T09:00:17.978Z"
   }
 }
