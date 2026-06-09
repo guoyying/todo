@@ -795,14 +795,15 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-09T02:46:06.423Z",
+      "updatedAt": "2026-06-09T07:31:34.822Z",
       "tags": [
         "B类-定期复杂"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq6bmlnb5y1jm"
     },
     {
       "id": "mq5xewpgn2ai9",
@@ -1018,6 +1019,20 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null
+    },
+    {
+      "id": "mq6bo5ovao141",
+      "type": "task",
+      "content": "更新核查工具的进度",
+      "createdAt": "2026-06-09T07:32:30.799Z",
+      "updatedAt": "2026-06-09T07:32:30.799Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1661,8 +1676,12 @@
   ],
   "slots": [
     {
-      "id": "slot_mq69csnt04og9",
-      "name": "C类-不定期 14:30-15:15"
+      "id": "slot_mq6bmlnb5y1jm",
+      "name": "RPA 16:00-16:20"
+    },
+    {
+      "id": "slot_mq6bn7v73l545",
+      "name": "B类-定期复杂 15:30-16:00"
     }
   ],
   "tags": [
@@ -2439,7 +2458,25 @@
         "endTime": "15:15",
         "duration": 45,
         "summary": "",
-        "slotId": "slot_mq69csnt04og9"
+        "slotId": null
+      },
+      {
+        "id": "block_1780990278167",
+        "tag": "RPA",
+        "startTime": "16:00",
+        "endTime": "16:20",
+        "duration": 20,
+        "summary": "",
+        "slotId": "slot_mq6bmlnb5y1jm"
+      },
+      {
+        "id": "block_1780990306963",
+        "tag": "B类-定期复杂",
+        "startTime": "15:30",
+        "endTime": "16:00",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq6bn7v73l545"
       }
     ]
   },
@@ -3128,6 +3165,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T07:08:23.709Z"
+    "lastSync": "2026-06-09T07:30:53.391Z"
   }
 }
