@@ -1027,20 +1027,6 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null
-    },
-    {
-      "id": "mq6bo5ovao141",
-      "type": "task",
-      "content": "更新核查工具的进度",
-      "createdAt": "2026-06-09T07:32:30.799Z",
-      "updatedAt": "2026-06-09T07:32:30.799Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3169,6 +3155,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T07:32:36.748Z"
+    "lastSync": "2026-06-09T08:06:37.067Z"
   }
 }
