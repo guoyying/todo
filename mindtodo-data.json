@@ -1166,9 +1166,31 @@
       "type": "task",
       "content": "花都的单子可以过呢",
       "createdAt": "2026-06-09T00:56:52.448Z",
-      "updatedAt": "2026-06-09T00:56:52.448Z",
+      "updatedAt": "2026-06-09T00:57:08.944Z",
       "tags": [
         "B类-定期复杂"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1780966618208",
+          "content": "共享表更新删除单子信息",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "mq5yffnm5e24h",
+      "type": "task",
+      "content": "记录华为查看业务的方法（飞书）-》跟进白云设备核查的",
+      "createdAt": "2026-06-09T01:21:48.802Z",
+      "updatedAt": "2026-06-09T01:21:48.802Z",
+      "tags": [
+        "退网"
       ],
       "done": false,
       "dueTime": "10min",
@@ -3211,6 +3233,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T00:53:31.213Z"
+    "lastSync": "2026-06-09T00:56:56.991Z"
   }
 }
