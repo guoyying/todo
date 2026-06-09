@@ -7713,7 +7713,7 @@ padding: 7px !important;
         if (!isSameTask || !promptInput.value.trim()) {
             const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。
 
-要求：考虑不同的情况和需求，提供3个可行的选项。使用emoji增加可读性
+要求：考虑不同的情况和需求，提供可行的方法。使用emoji增加可读性
 任务：${task.content}`;
             promptInput.value = defaultPrompt;
         }
@@ -7794,7 +7794,7 @@ padding: 7px !important;
             if (!prompt) {
                 prompt = `请帮我针对这个任务想一些具体的点子或建议。
 
-要求：考虑不同的情况和需求，提供3个可行的选项。使用emoji增加可读性
+要求：考虑不同的情况和需求，提供可行的方法。使用emoji增加可读性
 任务：${task.content}`;
             }
             
@@ -12227,6 +12227,9 @@ padding: 7px !important;
             const hasExistingTags = existingTags.length > 0;
             const selectableTags = availableTags.filter(tag => !existingTags.includes(tag));
             
+            // 存储已删除的标签（用于从任务中移除）
+            const deletedTags = [];
+            
             // 检查是否有子任务
             const hasSubtasks = item.subtasks && item.subtasks.length > 0;
             const undoneSubtasks = hasSubtasks ? item.subtasks.filter(st => !st.done) : [];
@@ -12235,6 +12238,35 @@ padding: 7px !important;
             const tagLabel = hasExistingTags ? '输入新标签（可选）' : '输入新标签 <span style="color: var(--danger);">* 必填</span>';
             const tagPlaceholder = hasExistingTags ? '输入标签名称（可选，已有标签：' + existingTags.join('、') + '）' : '输入标签名称';
             const tagsLabel = hasExistingTags ? '或选择现有标签（可选）' : '或选择现有标签 <span style="color: var(--danger);">* 必须选择至少一个标签</span>';
+            
+            // 生成已选标签的 HTML（带删除按钮）
+            let existingTagsHtml = '';
+            if (hasExistingTags) {
+                existingTagsHtml = `
+                    <div class="input-group">
+                        <label>已选标签（点击×删除）</label>
+                        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                            ${existingTags.map(tag => {
+                                // 获取标签颜色配置
+                                let bgColor = '#f5f5f0';
+                                let textColor = '#333333';
+                                if (data.tagConfig && data.tagConfig[tag]) {
+                                    bgColor = data.tagConfig[tag].color;
+                                    textColor = data.tagConfig[tag].textColor;
+                                }
+                                return `
+                                    <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid ${bgColor};border-radius:12px;font-size:12px;background:${bgColor};color:${textColor};">
+                                        ${tag}
+                                        <span style="cursor:pointer;color:#c87070;font-weight:bold;margin-left:4px;"
+                                            onclick="deleteMandatoryTag('${tag}', '${id}')"
+                                            title="删除此标签">×</span>
+                                    </span>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }
             
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
@@ -12274,6 +12306,7 @@ padding: 7px !important;
                 <div class="modal">
                     <h3>🏷️ 完成任务 <span style="color: var(--danger);">* 必选</span></h3>
                     ${subtaskReminder}
+                    ${existingTagsHtml}
                     <div class="input-group">
                         <label>任务内容 <span style="color: var(--danger);">* 必填</span></label>
                         <textarea id="taskContentInput"
@@ -12292,6 +12325,7 @@ padding: 7px !important;
                 </div>
             `;
             document.body.appendChild(modal);
+            modal.dataset.itemId = id; // 保存 itemId 供删除标签函数使用
             setTimeout(() => {
                 const input = document.getElementById('mandatoryTagInput');
                 input.focus();
@@ -12312,6 +12346,24 @@ padding: 7px !important;
             if (modal) {
                 modal.remove();
             }
+        }
+        
+        // 删除强制标签（从已选标签中移除）
+        function deleteMandatoryTag(tag, itemId) {
+            const item = data.tasks.find(i => i.id === itemId);
+            if (!item) return;
+            
+            // 从任务标签中移除
+            if (item.tags && item.tags.includes(tag)) {
+                item.tags = item.tags.filter(t => t !== tag);
+            }
+            
+            // 重新渲染对话框
+            const modal = document.getElementById('mandatoryTagModal');
+            if (modal) {
+                modal.remove();
+            }
+            showMandatoryTagEditor(itemId);
         }
 
         // 保存强制标签并完成任务
