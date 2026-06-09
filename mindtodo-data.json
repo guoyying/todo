@@ -448,21 +448,6 @@
       "subtasks": []
     },
     {
-      "id": "mpf6qrcz0xdej",
-      "type": "task",
-      "content": "退网物资检查，我把组员拉群告知他们此事。",
-      "createdAt": "2026-05-21T07:44:47.363Z",
-      "updatedAt": "2026-05-22T02:09:33.416Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "doneAt": "2026-05-22T02:09:33.416Z",
-      "subtasks": []
-    },
-    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -539,22 +524,6 @@
       "doneAt": "2026-05-24T15:23:23.111Z"
     },
     {
-      "id": "mpkhf5qqanl2y",
-      "type": "task",
-      "content": "退网物资检查工作：跟晓华敏华姐等商量时间，确认检查内容。",
-      "createdAt": "2026-05-25T00:42:32.786Z",
-      "updatedAt": "2026-05-25T06:39:54.425Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-05-25T06:39:54.425Z",
-      "subtasks": []
-    },
-    {
       "id": "mpkmm784xz7mk",
       "type": "task",
       "content": "整理视频",
@@ -569,37 +538,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-05-25T06:31:32.109Z"
-    },
-    {
-      "id": "mpku7nvqdxb7k",
-      "type": "task",
-      "content": "检查工作跟进：确认时间；跟几个县分说检查时间、要准备的台账。",
-      "createdAt": "2026-05-25T06:40:38.054Z",
-      "updatedAt": "2026-05-25T07:35:16.166Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-05-25T07:35:16.166Z"
-    },
-    {
-      "id": "mplz2j3sbg4yl",
-      "type": "task",
-      "content": "对退网物资回收、移交采购入库有更多理解了。",
-      "createdAt": "2026-05-26T01:44:22.840Z",
-      "updatedAt": "2026-05-26T09:18:07.690Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-26T09:18:07.690Z"
     },
     {
       "id": "mpnfiyhfu2ull",
@@ -654,54 +592,6 @@
       "unknown": false,
       "subtasks": [],
       "placedIn": null
-    },
-    {
-      "id": "mpux6gpr1vkd6",
-      "type": "task",
-      "content": "整理海珠和南沙的报告，照片。",
-      "createdAt": "2026-06-01T08:01:22.719Z",
-      "updatedAt": "2026-06-01T09:45:46.119Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-06-01T09:45:46.119Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpw00mrf7vnwb",
-      "type": "task",
-      "content": "完成二季度的退网现场检查，向云网部提交检查报告：抽查几个海珠的清运单。准备算力的检查。",
-      "createdAt": "2026-06-02T02:08:35.643Z",
-      "updatedAt": "2026-06-02T09:10:31.972Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "placedIn": null,
-      "doneAt": "2026-06-02T03:36:48.263Z",
-      "subtasks": []
-    },
-    {
-      "id": "mpw36gtlhlqxc",
-      "type": "task",
-      "content": "算力检查工作：确定检查时间。",
-      "createdAt": "2026-06-02T03:37:06.729Z",
-      "updatedAt": "2026-06-02T07:55:52.995Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-06-02T07:55:52.995Z",
-      "subtasks": []
     },
     {
       "id": "1780529540358",
@@ -774,22 +664,6 @@
       },
       "projectId": "1779778092169",
       "subtasks": []
-    },
-    {
-      "id": "mpz5om5dafa2o",
-      "type": "task",
-      "content": "打印明天检查的excel",
-      "createdAt": "2026-06-04T07:10:31.201Z",
-      "updatedAt": "2026-06-04T07:39:59.842Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-04T07:39:59.842Z"
     },
     {
       "id": "mpzb1ceao6liz",
@@ -917,22 +791,6 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-06-08T02:27:10.333Z"
-    },
-    {
-      "id": "mq0p0ekhh3wr2",
-      "type": "task",
-      "content": "整理算力的检查结果和照片",
-      "createdAt": "2026-06-05T08:59:20.129Z",
-      "updatedAt": "2026-06-05T09:34:15.368Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-05T09:34:15.368Z"
     },
     {
       "id": "1780883128401",
@@ -1195,6 +1053,32 @@
         "organizedAt": "2026-06-09T01:26:49.204Z"
       },
       "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1780970861639",
+      "type": "task",
+      "content": "检查工作：退网物资检查。",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-06-05T09:34:15.368Z",
+      "organizedAt": "2026-06-09T02:07:41.639Z",
+      "createdAt": "2026-06-05T08:59:20.129Z",
+      "updatedAt": "2026-06-09T02:07:41.639Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "沟通协调、组建团队（拉群沟通），到具体执行和后期整理（写检查报告），形成了完整的任务链。\n对退网物资回收、移交采购入库有更多理解了",
+        "success": "",
+        "problems": "",
+        "summary": "使用共享日历等协同看板（如飞书、钉钉等）统一发布检查时间，替代零散的群消息沟通，提升信息透明度。\n在检查工作启动前，组织一次简短的线上培训，明确所有组员的职责、检查标准和交付物要求，减少因信息不对称导致的返工。",
+        "methods": "将退网物资的检查内容、所需台账固化为标准模板（让县分填充）。下次开展类似工作时，可直接复用；也能减少理解县分台账格式的时间",
+        "assets": "",
+        "organizedAt": "2026-06-09T02:07:41.639Z"
+      },
+      "projectId": "1780970860323",
       "subtasks": []
     }
   ],
@@ -2949,6 +2833,16 @@
       "subDirections": [],
       "milestones": [],
       "manualProgress": 24
+    },
+    {
+      "id": "1780970860323",
+      "name": "检查工作",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-06-09T02:07:40.323Z",
+      "updatedAt": "2026-06-09T02:07:40.323Z",
+      "subDirections": [],
+      "milestones": []
     }
   ],
   "aiContents": [
@@ -3218,6 +3112,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T01:44:37.864Z"
+    "lastSync": "2026-06-09T01:45:00.216Z"
   }
 }
