@@ -670,16 +670,16 @@
       "type": "task",
       "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：筛选越秀的0业务",
       "createdAt": "2026-06-04T09:40:23.170Z",
-      "updatedAt": "2026-06-09T00:51:37.800Z",
+      "updatedAt": "2026-06-09T02:28:31.132Z",
       "tags": [
-        "退网",
-        "B类-定期复杂"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq5xcctr00msu"
+      "placedIn": null,
+      "doneAt": "2026-06-09T02:28:31.132Z"
     },
     {
       "id": "mq00el5l4g4r7",
@@ -892,20 +892,6 @@
       "subtasks": []
     },
     {
-      "id": "mq4lqu1zo081z",
-      "type": "task",
-      "content": "写下检查报告",
-      "createdAt": "2026-06-08T02:38:59.495Z",
-      "updatedAt": "2026-06-08T09:41:08.125Z",
-      "tags": [
-        "B类-定期复杂"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mq4lrdokly83r",
       "type": "task",
       "content": "跟小明说昨天的情况",
@@ -925,15 +911,15 @@
       "type": "task",
       "content": "我想重新做个白边框的模糊蓝色背景的就行了。裁剪9：16",
       "createdAt": "2026-06-08T02:41:19.135Z",
-      "updatedAt": "2026-06-09T00:53:13.772Z",
+      "updatedAt": "2026-06-09T02:28:12.155Z",
       "tags": [
-        "C类-不定期：3-4点",
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-09T02:28:12.155Z"
     },
     {
       "id": "mq4xhr9y9gjy5",
@@ -1056,7 +1042,7 @@
       "subtasks": []
     },
     {
-      "id": "1780970861639",
+      "id": "1780971814562",
       "type": "task",
       "content": "检查工作：退网物资检查。",
       "tags": [
@@ -1064,11 +1050,11 @@
       ],
       "done": true,
       "doneAt": "2026-06-05T09:34:15.368Z",
-      "organizedAt": "2026-06-09T02:07:41.639Z",
+      "organizedAt": "2026-06-09T02:23:34.562Z",
       "createdAt": "2026-06-05T08:59:20.129Z",
-      "updatedAt": "2026-06-09T02:07:41.639Z",
+      "updatedAt": "2026-06-09T02:23:34.562Z",
       "organization": {
-        "goal": "",
+        "goal": "填写检查表，对照每一项跟县分要表和数据。目前处于等待县分反馈阶段",
         "completion": "",
         "skills": "沟通协调、组建团队（拉群沟通），到具体执行和后期整理（写检查报告），形成了完整的任务链。\n对退网物资回收、移交采购入库有更多理解了",
         "success": "",
@@ -1076,9 +1062,23 @@
         "summary": "使用共享日历等协同看板（如飞书、钉钉等）统一发布检查时间，替代零散的群消息沟通，提升信息透明度。\n在检查工作启动前，组织一次简短的线上培训，明确所有组员的职责、检查标准和交付物要求，减少因信息不对称导致的返工。",
         "methods": "将退网物资的检查内容、所需台账固化为标准模板（让县分填充）。下次开展类似工作时，可直接复用；也能减少理解县分台账格式的时间",
         "assets": "",
-        "organizedAt": "2026-06-09T02:07:41.639Z"
+        "organizedAt": "2026-06-09T02:23:34.562Z"
       },
       "projectId": "1780970860323",
+      "subtasks": []
+    },
+    {
+      "id": "mq60tl4exefbw",
+      "type": "task",
+      "content": "回复县分的问题",
+      "createdAt": "2026-06-09T02:28:48.302Z",
+      "updatedAt": "2026-06-09T02:28:48.302Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
       "subtasks": []
     }
   ],
@@ -1721,12 +1721,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq5xcctr00msu",
-      "name": "B类-定期复杂 08:51-09:21"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2483,7 +2478,7 @@
         "endTime": "09:21",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq5xcctr00msu"
+        "slotId": null
       }
     ]
   },
@@ -3112,6 +3107,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T01:45:00.216Z"
+    "lastSync": "2026-06-09T02:07:53.529Z"
   }
 }
