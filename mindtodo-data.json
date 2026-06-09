@@ -988,7 +988,7 @@
       "type": "task",
       "content": "花都的单子可以过呢",
       "createdAt": "2026-06-09T00:56:52.448Z",
-      "updatedAt": "2026-06-09T00:57:08.944Z",
+      "updatedAt": "2026-06-09T03:22:55.187Z",
       "tags": [
         "B类-定期复杂"
       ],
@@ -1001,25 +1001,26 @@
           "content": "共享表更新删除单子信息",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mq61gerpz1f8h"
         }
-      ]
+      ],
+      "placedIn": "slot_mq61gerpz1f8h"
     },
     {
       "id": "mq5yffnm5e24h",
       "type": "task",
       "content": "记录华为查看业务的方法（飞书）-》跟进白云设备核查的",
       "createdAt": "2026-06-09T01:21:48.802Z",
-      "updatedAt": "2026-06-09T02:47:21.102Z",
+      "updatedAt": "2026-06-09T03:23:09.171Z",
       "tags": [
-        "退网",
-        "C类-不定期：3-4点"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq61gerpz1f8h"
+      "placedIn": null,
+      "doneAt": "2026-06-09T03:23:09.171Z"
     },
     {
       "id": "1780968409204",
@@ -1078,11 +1079,8 @@
       "type": "task",
       "content": "回复县分的问题",
       "createdAt": "2026-06-09T02:28:48.302Z",
-      "updatedAt": "2026-06-09T02:47:22.466Z",
-      "tags": [
-        "退网",
-        "C类-不定期：3-4点"
-      ],
+      "updatedAt": "2026-06-09T03:23:03.102Z",
+      "tags": [],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
@@ -2532,6 +2530,21 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mq62wwhpsqf0i",
+      "taskId": "mq5xaz37p76zu",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-09T15:27"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-09T03:27:22.237Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
