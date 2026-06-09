@@ -2520,6 +2520,21 @@
       "createdAt": "2026-06-09T08:49:11.439Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mq6ej82h77r34",
+      "taskId": "mq69aihgsmqgy",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-10T10:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-09T08:52:39.449Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -2695,6 +2710,13 @@
       ],
       "createdAt": "2026-05-19T00:34:18.277Z",
       "updatedAt": "2026-05-19T00:47:18.674Z"
+    },
+    {
+      "id": "mq6eimkbjasknc2gdto",
+      "content": "要记得，有时候允许别人用他们的方式完成（哪怕慢一点），反而能让你腾出精力去做更值得的事。比如，思考下一个更有价值的工具，或者休息一下",
+      "tags": [],
+      "createdAt": "2026-06-09T08:52:11.580Z",
+      "updatedAt": "2026-06-09T08:52:11.580Z"
     }
   ],
   "projects": [
