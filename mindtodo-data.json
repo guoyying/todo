@@ -825,7 +825,7 @@
       "type": "task",
       "content": "花都的单子可以过呢",
       "createdAt": "2026-06-09T00:56:52.448Z",
-      "updatedAt": "2026-06-09T06:27:11.908Z",
+      "updatedAt": "2026-06-09T06:28:02.249Z",
       "tags": [
         "B类-定期复杂"
       ],
@@ -838,10 +838,10 @@
           "content": "共享表更新删除单子信息",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mq69csnt04og9"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mq69csnt04og9"
     },
     {
       "id": "mq5yffnm5e24h",
@@ -984,7 +984,7 @@
       "type": "task",
       "content": "看去增城的路线，跟对方商量时间以及网约车。",
       "createdAt": "2026-06-09T06:25:54.964Z",
-      "updatedAt": "2026-06-09T06:25:59.222Z",
+      "updatedAt": "2026-06-09T06:27:56.897Z",
       "tags": [
         "检查工作",
         "C类-不定期"
@@ -992,7 +992,8 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq69csnt04og9"
     },
     {
       "id": "mq69b11n9fpyb",
@@ -1014,7 +1015,7 @@
       "type": "task",
       "content": "整理退网检查的资料吧",
       "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-09T06:27:07.251Z",
+      "updatedAt": "2026-06-09T06:28:00.533Z",
       "tags": [
         "检查工作",
         "C类-不定期"
@@ -1022,7 +1023,8 @@
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq69csnt04og9"
     }
   ],
   "normalFeelings": [
@@ -1664,7 +1666,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq69csnt04og9",
+      "name": "C类-不定期 14:30-15:15"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2431,6 +2438,15 @@
         "duration": 30,
         "summary": "",
         "slotId": null
+      },
+      {
+        "id": "block_1780986461465",
+        "tag": "C类-不定期",
+        "startTime": "14:30",
+        "endTime": "15:15",
+        "duration": 45,
+        "summary": "",
+        "slotId": "slot_mq69csnt04og9"
       }
     ]
   },
@@ -3104,6 +3120,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T06:27:13.442Z"
+    "lastSync": "2026-06-09T06:27:23.046Z"
   }
 }
