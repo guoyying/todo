@@ -796,7 +796,7 @@
       "type": "task",
       "content": "协同S转O的SDH的客户侧设备的转O，同步完成接入层的设备退网：筛选越秀的0业务",
       "createdAt": "2026-06-04T09:40:23.170Z",
-      "updatedAt": "2026-06-09T00:50:18.035Z",
+      "updatedAt": "2026-06-09T00:51:37.800Z",
       "tags": [
         "退网",
         "B类-定期复杂"
@@ -804,7 +804,8 @@
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mq5xcctr00msu"
     },
     {
       "id": "mq00el5l4g4r7",
@@ -1787,7 +1788,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq5xcctr00msu",
+      "name": "B类-定期复杂 08:51-09:21"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2533,6 +2539,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-09": [
+      {
+        "id": "block_1780966285551",
+        "tag": "B类-定期复杂",
+        "startTime": "08:51",
+        "endTime": "09:21",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq5xcctr00msu"
+      }
     ]
   },
   "taskTriggers": [
@@ -3165,6 +3182,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-08T14:47:46.787Z"
+    "lastSync": "2026-06-09T00:50:26.761Z"
   }
 }
