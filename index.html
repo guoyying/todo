@@ -10513,13 +10513,19 @@ padding: 7px !important;
              let slotTotal = 0;
               data.slots.forEach(slot => {
                   // 显示所有任务的子任务（包括未知任务和普通任务）
+                  // 过滤条件：未完成 + 无触发提醒
                   const placed = data.tasks.filter(i =>
+                      !i.done &&
+                      // 过滤掉有触发提醒的任务
+                      !(data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) &&
                       i.subtasks &&
                       i.subtasks.some(st => st.placedIn === slot.id && !st.done)
                   );
                   // 获取直接放在时间段中的任务，但排除那些已经有子任务在时间段中的任务
                   const simpleTasks = data.tasks.filter(i =>
                       !i.done &&
+                      // 过滤掉有触发提醒的任务
+                      !(data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) &&
                       i.placedIn === slot.id &&
                       !placed.some(p => p.id === i.id)  // 排除已经有子任务在时间段中的任务
                   );
@@ -12200,11 +12206,12 @@ padding: 7px !important;
             if (!item.done) {
                 // 检查强提醒
                 if (!checkStrongReminderForTask(id)) {
-                    showToast('存在强提醒任务，无法标记任务为完成！请先处理超过12小时未更新的任务。', { duration: 5000 });
+                    showToast('存在强提醒任务，无法标记任务为完成！请先处理超过 12 小时未更新的任务。', { duration: 5000 });
                     return;
                 }
                 
-                showMandatoryTagEditor(id);
+                // 显示选择对话框：标记完成 or 触发时间提醒
+                showCompleteOrRemindDialog(id);
             } else {
                 // 如果任务从完成变为未完成，直接切换状态
                 item.done = false;
@@ -12212,6 +12219,65 @@ padding: 7px !important;
                 item.updatedAt = nowStr();
                 saveData(); render();
             }
+        }
+        
+        // 显示选择对话框：标记完成 or 触发时间提醒
+        function showCompleteOrRemindDialog(id) {
+            const item = data.tasks.find(i => i.id === id);
+            if (!item) return;
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.id = 'completeOrRemindModal';
+            
+            modal.innerHTML = `
+                <div class="modal" style="max-width: 400px;">
+                    <h3>📋 任务处理</h3>
+                    <div style="padding: 20px 0;">
+                        <p style="margin-bottom: 20px; color: var(--text-secondary); font-size: 13px;">
+                            任务：<strong>${escapeHtml(item.content)}</strong>
+                        </p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <button class="btn btn-primary" onclick="completeTaskFromDialog('${id}')" style="padding: 12px 20px; font-size: 14px;">
+                                ✅ 标记为已完成
+                            </button>
+                            
+                            <button class="btn btn-secondary" onclick="triggerTimeReminderFromDialog('${id}')" style="padding: 12px 20px; font-size: 14px;">
+                                ⏰ 触发时间提醒
+                            </button>
+                            
+                            <button class="btn btn-text" onclick="closeCompleteOrRemindModal()" style="margin-top: 8px;">
+                                取消
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.remove('hidden'), 10);
+        }
+        
+        // 关闭选择对话框
+        function closeCompleteOrRemindModal() {
+            const modal = document.getElementById('completeOrRemindModal');
+            if (modal) modal.remove();
+        }
+        
+        // 从对话框完成任务
+        function completeTaskFromDialog(id) {
+            closeCompleteOrRemindModal();
+            showMandatoryTagEditor(id);
+        }
+        
+        // 从对话框触发时间提醒（复用 handleContextMenuAction）
+        function triggerTimeReminderFromDialog(id) {
+            closeCompleteOrRemindModal();
+            // 设置当前上下文任务 ID
+            currentContextMenuTaskId = id;
+            // 复用右键菜单的触发提醒逻辑
+            handleContextMenuAction('trigger');
         }
 
         // 强制标签选择对话框
