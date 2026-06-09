@@ -997,7 +997,7 @@
       "type": "task",
       "content": "整理退网检查的资料吧",
       "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-09T06:52:52.373Z",
+      "updatedAt": "2026-06-09T09:59:20.206Z",
       "tags": [
         "检查工作",
         "C类-复杂-被动响应"
@@ -1005,7 +1005,15 @@
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "1780999148273",
+          "content": "剩余三个县分的excel整理",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
       "placedIn": null
     },
     {
@@ -2545,21 +2553,6 @@
       }
     },
     {
-      "id": "mq6eerkfpzvx7",
-      "taskId": "mq69c29fe115s",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-09T17:49"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-09T08:49:11.439Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mq6ej82h77r34",
       "taskId": "mq69aihgsmqgy",
       "type": "time",
@@ -3207,6 +3200,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T09:04:51.260Z"
+    "lastSync": "2026-06-09T09:26:01.570Z"
   }
 }
