@@ -39,30 +39,6 @@
       "doneAt": "2026-04-28T06:50:23.479Z"
     },
     {
-      "id": "mol8s7a83aslu",
-      "type": "task",
-      "content": "找客资要一份光路清单，我要看下跟局内s转o是否包含在内",
-      "createdAt": "2026-04-30T08:48:48.608Z",
-      "updatedAt": "2026-05-06T02:20:45.474Z",
-      "tags": [
-        "光路资源核查"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778033763729",
-          "content": "写一下怎么描述我需要的东西",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": "slot_moten4pz99gkp"
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-06T02:20:35.173Z"
-    },
-    {
       "id": "mosodmjpkbp8e",
       "type": "task",
       "content": "给老公看手机，生日礼物",
@@ -108,30 +84,6 @@
       ]
     },
     {
-      "id": "mov5h80y7lmsh",
-      "type": "task",
-      "content": "光路资源核查工作，看下客资的清单，了解情况写下来",
-      "createdAt": "2026-05-07T07:13:59.266Z",
-      "updatedAt": "2026-05-07T09:25:10.001Z",
-      "tags": [
-        "光路资源核查"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778144680655",
-          "content": "vlookup匹配一下s转o和客资的清单",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null,
-      "doneAt": "2026-05-07T09:25:10.001Z"
-    },
-    {
       "id": "mow76h05nk0m9",
       "type": "task",
       "content": "给零食毕妤欣",
@@ -144,36 +96,6 @@
       "subtasks": [],
       "placedIn": "slot_mowar7lmny89b",
       "doneAt": "2026-05-08T03:28:03.276Z"
-    },
-    {
-      "id": "mow819wdo7zu4",
-      "type": "task",
-      "content": "光路资源梳理一遍来龙去脉，写下接下来要做的事",
-      "createdAt": "2026-05-08T01:13:20.221Z",
-      "updatedAt": "2026-05-08T10:21:21.920Z",
-      "tags": [
-        "光路资源核查"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1778223869890",
-          "content": "梳理下已退网设备的业务情况",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        },
-        {
-          "id": "1778223885931",
-          "content": "整理出清单和s转o的清单重合情况，文字版描述",
-          "done": true,
-          "estimatedTime": "5min",
-          "placedIn": null
-        }
-      ],
-      "doneAt": "2026-05-08T10:21:10.964Z"
     },
     {
       "id": "moxvp5eha1sim",
@@ -1029,6 +951,32 @@
         "organizedAt": "2026-06-09T04:21:36.920Z"
       },
       "projectId": "1780978895521",
+      "subtasks": []
+    },
+    {
+      "id": "1780980765493",
+      "type": "task",
+      "content": "配合其他部门的杂事：光路资源核查",
+      "tags": [
+        "光路资源核查"
+      ],
+      "done": true,
+      "doneAt": "2026-05-08T10:21:10.964Z",
+      "organizedAt": "2026-06-09T04:52:45.493Z",
+      "createdAt": "2026-05-08T01:13:20.221Z",
+      "updatedAt": "2026-06-09T04:52:45.493Z",
+      "organization": {
+        "goal": "",
+        "completion": "",
+        "skills": "",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "methods": "将本次“临时性”的专项工作，固化为可复用的“标准化”操作流程，持续提升团队工作效率。\n采用“问题-现状-行动”的结构化记录方式。 示例模板\n 🔍 核查发现： [记录具体事实，如“清单中缺少XX条光路”] 🧠 原因分析： [分析缺失原因，如“客资未同步最新割接数据”] 📝 待办事项： [明确下一步行动，如“向客资申请补充数据，并更新资源台账”]\n避免重复劳动，确保所有核查结果都能直接转化为可执行的行动计划，实现工作流的无缝衔接。",
+        "assets": "",
+        "organizedAt": "2026-06-09T04:52:45.493Z"
+      },
+      "projectId": "1780980764710",
       "subtasks": []
     }
   ],
@@ -2827,6 +2775,16 @@
       "updatedAt": "2026-06-09T04:21:35.521Z",
       "subDirections": [],
       "milestones": []
+    },
+    {
+      "id": "1780980764710",
+      "name": "一些杂事",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-06-09T04:52:44.710Z",
+      "updatedAt": "2026-06-09T04:52:44.710Z",
+      "subDirections": [],
+      "milestones": []
     }
   ],
   "aiContents": [
@@ -3106,6 +3064,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T03:27:30.440Z"
+    "lastSync": "2026-06-09T04:22:19.761Z"
   }
 }
