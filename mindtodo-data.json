@@ -689,7 +689,7 @@
       "createdAt": "2026-06-08T02:38:07.836Z",
       "updatedAt": "2026-06-08T03:55:29.366Z",
       "tags": [
-        "C类-不定期：3-4点"
+        "C类-不定期"
       ],
       "done": true,
       "dueTime": "15min",
@@ -954,20 +954,6 @@
       "subtasks": []
     },
     {
-      "id": "mq65zk6ge40s3",
-      "type": "task",
-      "content": "新增字段：下次这样做更好",
-      "createdAt": "2026-06-09T04:53:25.096Z",
-      "updatedAt": "2026-06-09T04:53:25.096Z",
-      "tags": [
-        "AI"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "1780981869334",
       "type": "task",
       "content": "检查工作：退网物资检查。",
@@ -991,6 +977,51 @@
         "organizedAt": "2026-06-09T05:11:09.334Z"
       },
       "projectId": "1780970860323",
+      "subtasks": []
+    },
+    {
+      "id": "mq69aihgsmqgy",
+      "type": "task",
+      "content": "看去增城的路线，跟对方商量时间以及网约车。",
+      "createdAt": "2026-06-09T06:25:54.964Z",
+      "updatedAt": "2026-06-09T06:25:59.222Z",
+      "tags": [
+        "检查工作",
+        "C类-不定期"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq69b11n9fpyb",
+      "type": "task",
+      "content": "自己更新下id，从化的",
+      "createdAt": "2026-06-09T06:26:19.019Z",
+      "updatedAt": "2026-06-09T06:26:19.019Z",
+      "tags": [
+        "退网",
+        "C类-不定期"
+      ],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq69c29fe115s",
+      "type": "task",
+      "content": "整理退网检查的资料吧",
+      "createdAt": "2026-06-09T06:27:07.251Z",
+      "updatedAt": "2026-06-09T06:27:07.251Z",
+      "tags": [
+        "检查工作",
+        "C类-不定期"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
       "subtasks": []
     }
   ],
@@ -2234,12 +2265,6 @@
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
     },
-    "C类-不定期：3-4点": {
-      "color": "#b3d4fc",
-      "textColor": "#333333",
-      "activeValue": "#1565c0",
-      "activeTextColor": "#FFFFFF"
-    },
     "B类-定期复杂": {
       "color": "#ffebee",
       "textColor": "#333333",
@@ -2314,6 +2339,12 @@
       "color": "#f5f5f0",
       "textColor": "#333333",
       "activeValue": "#6b8e6b",
+      "activeTextColor": "#FFFFFF"
+    },
+    "C类-不定期": {
+      "color": "#b3d4fc",
+      "textColor": "#333333",
+      "activeValue": "#1565c0",
       "activeTextColor": "#FFFFFF"
     }
   },
