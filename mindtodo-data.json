@@ -825,23 +825,16 @@
       "type": "task",
       "content": "花都的单子可以过呢",
       "createdAt": "2026-06-09T00:56:52.448Z",
-      "updatedAt": "2026-06-09T06:39:58.356Z",
+      "updatedAt": "2026-06-09T07:08:14.645Z",
       "tags": [
-        "B类-定期复杂"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1780966618208",
-          "content": "共享表更新删除单子信息",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-09T07:08:14.645Z",
+      "subtasks": []
     },
     {
       "id": "mq5yffnm5e24h",
@@ -3150,6 +3143,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T06:28:16.122Z"
+    "lastSync": "2026-06-09T06:57:33.253Z"
   }
 }
