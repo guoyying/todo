@@ -1110,6 +1110,21 @@
       },
       "projectId": "1780299687739",
       "subtasks": []
+    },
+    {
+      "id": "mq7qmswkwdij2",
+      "type": "task",
+      "content": "1、处理从化退网单 2、搜一下花都第一个退网单在哪个环节了？如果没有，pick 0业务网元让县分上单",
+      "createdAt": "2026-06-10T07:19:07.988Z",
+      "updatedAt": "2026-06-10T07:19:07.988Z",
+      "tags": [
+        "退网",
+        "C类-复杂-被动响应"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3273,6 +3288,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T06:48:05.036Z"
+    "lastSync": "2026-06-10T07:04:32.857Z"
   }
 }
