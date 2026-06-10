@@ -768,7 +768,7 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-10T03:47:01.582Z",
+      "updatedAt": "2026-06-10T04:58:00.723Z",
       "tags": [
         "B类-复杂-主动"
       ],
@@ -787,6 +787,13 @@
           "id": "1780994884021",
           "content": "看下端子读取的问题",
           "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781067472186",
+          "content": "看下为什么爬不了端子信息？",
+          "done": false,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -1742,12 +1749,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq7db3o2un38j",
-      "name": "B类-复杂-主动 11:15-11:45"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2560,7 +2562,7 @@
         "endTime": "11:45",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq7db3o2un38j"
+        "slotId": null
       }
     ]
   },
@@ -2592,6 +2594,21 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mq7lvjabmau3v",
+      "taskId": "mq5xaz37p76zu",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-12T09:05"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-10T05:05:57.347Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3244,6 +3261,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T03:54:39.287Z"
+    "lastSync": "2026-06-10T04:54:55.501Z"
   }
 }
