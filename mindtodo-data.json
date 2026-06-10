@@ -768,7 +768,7 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-10T01:06:16.523Z",
+      "updatedAt": "2026-06-10T03:47:01.582Z",
       "tags": [
         "B类-复杂-主动"
       ],
@@ -779,9 +779,9 @@
         {
           "id": "1780992372160",
           "content": "测试异常单子+正常单子，会否跳过",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
-          "placedIn": "slot_mq7db3o2un38j"
+          "placedIn": null
         },
         {
           "id": "1780994884021",
@@ -791,7 +791,7 @@
           "placedIn": null
         }
       ],
-      "placedIn": "slot_mq7db3o2un38j"
+      "placedIn": null
     },
     {
       "id": "mq5xewpgn2ai9",
@@ -1040,7 +1040,7 @@
       "type": "task",
       "content": "核查下客建的800M清单",
       "createdAt": "2026-06-09T09:04:39.983Z",
-      "updatedAt": "2026-06-10T01:06:38.293Z",
+      "updatedAt": "2026-06-10T03:46:41.351Z",
       "tags": [
         "C类-复杂-被动响应"
       ],
@@ -1051,6 +1051,13 @@
         {
           "id": "1781053592006",
           "content": "填充县分接口人",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781063129657",
+          "content": "举个例子给对方",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -2599,6 +2606,21 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mq7j1wysiwd11",
+      "taskId": "mq6eyo1bx5e0c",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-10T12:45"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-10T03:46:56.164Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3251,6 +3273,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T02:21:59.091Z"
+    "lastSync": "2026-06-10T03:21:07.220Z"
   }
 }
