@@ -68,8 +68,10 @@
       "type": "task",
       "content": "沈奕斐的内容还蛮有用的，想学",
       "createdAt": "2026-05-05T14:33:07.786Z",
-      "updatedAt": "2026-05-06T01:07:11.591Z",
-      "tags": [],
+      "updatedAt": "2026-06-10T04:19:32.587Z",
+      "tags": [
+        "储备能力"
+      ],
       "done": true,
       "dueTime": null,
       "unknown": true,
@@ -187,9 +189,8 @@
       "type": "task",
       "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
       "createdAt": "2026-05-19T01:21:22.346Z",
-      "updatedAt": "2026-05-21T08:31:50.260Z",
+      "updatedAt": "2026-06-10T04:18:50.410Z",
       "tags": [
-        "杂事",
         "检查工作"
       ],
       "done": true,
@@ -320,9 +321,9 @@
       "type": "task",
       "content": "看下两个机房还有无设备、退网状态。联系支局长。%新塘2%数据%，%新塘%交换%",
       "createdAt": "2026-05-22T08:37:18.638Z",
-      "updatedAt": "2026-05-25T07:50:08.599Z",
+      "updatedAt": "2026-06-10T04:19:22.536Z",
       "tags": [
-        "杂事"
+        "检查工作"
       ],
       "done": true,
       "dueTime": "10min",
@@ -3268,6 +3269,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T03:21:07.220Z"
+    "lastSync": "2026-06-10T04:18:03.314Z"
   }
 }
