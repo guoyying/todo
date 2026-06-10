@@ -68,10 +68,8 @@
       "type": "task",
       "content": "沈奕斐的内容还蛮有用的，想学",
       "createdAt": "2026-05-05T14:33:07.786Z",
-      "updatedAt": "2026-06-10T04:19:32.587Z",
-      "tags": [
-        "储备能力"
-      ],
+      "updatedAt": "2026-05-06T01:07:11.591Z",
+      "tags": [],
       "done": true,
       "dueTime": null,
       "unknown": true,
@@ -189,8 +187,9 @@
       "type": "task",
       "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
       "createdAt": "2026-05-19T01:21:22.346Z",
-      "updatedAt": "2026-06-10T04:18:50.410Z",
+      "updatedAt": "2026-05-21T08:31:50.260Z",
       "tags": [
+        "杂事",
         "检查工作"
       ],
       "done": true,
@@ -321,9 +320,9 @@
       "type": "task",
       "content": "看下两个机房还有无设备、退网状态。联系支局长。%新塘2%数据%，%新塘%交换%",
       "createdAt": "2026-05-22T08:37:18.638Z",
-      "updatedAt": "2026-06-10T04:19:22.536Z",
+      "updatedAt": "2026-05-25T07:50:08.599Z",
       "tags": [
-        "检查工作"
+        "杂事"
       ],
       "done": true,
       "dueTime": "10min",
@@ -1039,31 +1038,17 @@
     {
       "id": "mq6eyo1bx5e0c",
       "type": "task",
-      "content": "核查下客建的800M清单",
+      "content": "核查下客建的800M清单：我还知道了网管激活业务-无接入号-或许能在资源系统-局内业务找到对应的板卡",
       "createdAt": "2026-06-09T09:04:39.983Z",
-      "updatedAt": "2026-06-10T03:46:41.351Z",
+      "updatedAt": "2026-06-10T04:54:46.382Z",
       "tags": [
-        "C类-复杂-被动响应"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781053592006",
-          "content": "填充县分接口人",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781063129657",
-          "content": "举个例子给对方",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-10T04:54:46.382Z",
+      "subtasks": []
     },
     {
       "id": "mq6fpn8xvr9i4",
@@ -1757,7 +1742,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq7db3o2un38j",
+      "name": "B类-复杂-主动 11:15-11:45"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2570,7 +2560,7 @@
         "endTime": "11:45",
         "duration": 30,
         "summary": "",
-        "slotId": null
+        "slotId": "slot_mq7db3o2un38j"
       }
     ]
   },
@@ -2602,21 +2592,6 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
-    },
-    {
-      "id": "mq7j1wysiwd11",
-      "taskId": "mq6eyo1bx5e0c",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-10T12:45"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-10T03:46:56.164Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3269,6 +3244,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T04:18:03.314Z"
+    "lastSync": "2026-06-10T03:54:39.287Z"
   }
 }
