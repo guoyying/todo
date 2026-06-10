@@ -966,16 +966,16 @@
       "type": "task",
       "content": "看去增城的路线，跟对方商量时间以及网约车。",
       "createdAt": "2026-06-09T06:25:54.964Z",
-      "updatedAt": "2026-06-09T06:53:31.531Z",
+      "updatedAt": "2026-06-10T02:17:47.307Z",
       "tags": [
-        "检查工作",
-        "C类-复杂-被动响应"
+        "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-10T02:17:47.307Z"
     },
     {
       "id": "mq69b11n9fpyb",
@@ -1779,10 +1779,6 @@
     }
   ],
   "slots": [
-    {
-      "id": "slot_mq7d9zbf80b12",
-      "name": "C类-复杂-被动响应 09:05-09:35"
-    },
     {
       "id": "slot_mq7db3o2un38j",
       "name": "B类-复杂-主动 11:00-11:30"
@@ -2591,7 +2587,7 @@
         "endTime": "09:35",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq7d9zbf80b12"
+        "slotId": null
       },
       {
         "id": "block_1781053567058",
@@ -2632,21 +2628,6 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
-    },
-    {
-      "id": "mq6ej82h77r34",
-      "taskId": "mq69aihgsmqgy",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-10T10:00"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-09T08:52:39.449Z",
-      "lastReminderTime": null,
-      "active": true
     },
     {
       "id": "mq7dyo0u8yorv",
