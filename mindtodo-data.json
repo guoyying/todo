@@ -1139,6 +1139,43 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq7tet72xecdm",
+      "type": "task",
+      "content": "我想做个sop，把工作、照片整理、做菜等步骤都写入，做清洗，然后做知识问答。",
+      "createdAt": "2026-06-10T08:36:53.966Z",
+      "updatedAt": "2026-06-10T08:36:53.966Z",
+      "tags": [
+        "AI",
+        "数字化"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": true,
+      "subtasks": [
+        {
+          "id": "mq7tet72bcfq9",
+          "content": "把现有的工作流程copy到本地word，按照文件清洗好。",
+          "estimatedTime": "10min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mq7tet72j32qp",
+          "content": "了解怎么更新知识库信息，更快更好",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        },
+        {
+          "id": "mq7tet72r2xaa",
+          "content": "了解图片能否识别反馈？",
+          "estimatedTime": "5min",
+          "done": false,
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -3345,6 +3382,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-10T08:13:15.134Z"
+    "lastSync": "2026-06-10T08:35:11.806Z"
   }
 }
