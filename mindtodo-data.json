@@ -995,33 +995,18 @@
     {
       "id": "mq69c29fe115s",
       "type": "task",
-      "content": "整理退网检查的资料吧",
+      "content": "整理退网检查的资料，上传",
       "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-10T01:24:11.330Z",
+      "updatedAt": "2026-06-10T03:14:13.095Z",
       "tags": [
-        "检查工作",
-        "C类-复杂-被动响应"
+        "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1780999148273",
-          "content": "剩余三个县分的excel整理",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781054644754",
-          "content": "上传材料",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-10T03:14:13.095Z",
+      "subtasks": []
     },
     {
       "id": "1780995348006",
@@ -1099,16 +1084,16 @@
       "type": "task",
       "content": "提醒增城走退网（低效的）",
       "createdAt": "2026-06-09T09:25:56.064Z",
-      "updatedAt": "2026-06-10T01:29:04.485Z",
+      "updatedAt": "2026-06-10T03:21:00.273Z",
       "tags": [
-        "退网",
-        "C类-复杂-被动响应"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-10T03:21:00.273Z"
     },
     {
       "id": "mq7ddk29z6fhx",
@@ -1767,7 +1752,7 @@
   "slots": [
     {
       "id": "slot_mq7db3o2un38j",
-      "name": "B类-复杂-主动 11:00-11:30"
+      "name": "B类-复杂-主动 11:15-11:45"
     }
   ],
   "tags": [
@@ -2578,8 +2563,8 @@
       {
         "id": "block_1781053567058",
         "tag": "B类-复杂-主动",
-        "startTime": "11:00",
-        "endTime": "11:30",
+        "startTime": "11:15",
+        "endTime": "11:45",
         "duration": 30,
         "summary": "",
         "slotId": "slot_mq7db3o2un38j"
@@ -2614,21 +2599,6 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
-    },
-    {
-      "id": "mq7dyo0u8yorv",
-      "taskId": "mq69c29fe115s",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-10T11:24"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-10T01:24:26.526Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
