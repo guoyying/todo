@@ -1125,6 +1125,20 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq7rvvzukr77f",
+      "type": "task",
+      "content": "问下今天能不能有指引？",
+      "createdAt": "2026-06-10T07:54:11.514Z",
+      "updatedAt": "2026-06-10T07:54:11.514Z",
+      "tags": [
+        "检查工作"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1699,6 +1713,15 @@
       ],
       "createdAt": "2026-06-05T02:03:30.293Z",
       "updatedAt": "2026-06-05T02:03:30.293Z"
+    },
+    {
+      "id": "mq7sapqpd97jl",
+      "content": "用最终汇报的框架去整理日常工作，既积累素材又提前演练，准备效率超高。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-06-10T08:05:43.249Z",
+      "updatedAt": "2026-06-10T08:13:07.721Z"
     }
   ],
   "practiceBlocks": [
@@ -1766,7 +1789,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq7s1a4m56x1q",
+      "name": "B类-复杂-主动 16:00-16:30"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2580,6 +2608,15 @@
         "duration": 30,
         "summary": "",
         "slotId": null
+      },
+      {
+        "id": "block_1781078303110",
+        "tag": "B类-复杂-主动",
+        "startTime": "16:00",
+        "endTime": "16:30",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq7s1a4m56x1q"
       }
     ]
   },
@@ -2624,6 +2661,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-10T05:05:57.347Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq7rw4808rx5o",
+      "taskId": "mq7rvvzukr77f",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-10T16:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-10T07:54:22.176Z",
       "lastReminderTime": null,
       "active": true
     }
