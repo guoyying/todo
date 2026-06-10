@@ -997,7 +997,7 @@
       "type": "task",
       "content": "整理退网检查的资料吧",
       "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-10T01:05:31.428Z",
+      "updatedAt": "2026-06-10T01:24:11.330Z",
       "tags": [
         "检查工作",
         "C类-复杂-被动响应"
@@ -1009,12 +1009,19 @@
         {
           "id": "1780999148273",
           "content": "剩余三个县分的excel整理",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781054644754",
+          "content": "上传材料",
           "done": false,
           "estimatedTime": "",
-          "placedIn": "slot_mq7d9zbf80b12"
+          "placedIn": null
         }
       ],
-      "placedIn": "slot_mq7d9zbf80b12"
+      "placedIn": null
     },
     {
       "id": "1780995348006",
@@ -1092,7 +1099,7 @@
       "type": "task",
       "content": "提醒增城走退网（低效的）",
       "createdAt": "2026-06-09T09:25:56.064Z",
-      "updatedAt": "2026-06-10T01:05:49.923Z",
+      "updatedAt": "2026-06-10T01:29:04.485Z",
       "tags": [
         "退网",
         "C类-复杂-被动响应"
@@ -1101,7 +1108,7 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mq7d9zbf80b12"
+      "placedIn": null
     },
     {
       "id": "mq7dcnrklb193",
@@ -2638,6 +2645,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-09T08:52:39.449Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq7dyo0u8yorv",
+      "taskId": "mq69c29fe115s",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-10T11:24"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-10T01:24:26.526Z",
       "lastReminderTime": null,
       "active": true
     }
