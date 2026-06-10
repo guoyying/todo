@@ -1756,12 +1756,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq7db3o2un38j",
-      "name": "B类-复杂-主动 11:15-11:45"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2574,7 +2569,7 @@
         "endTime": "11:45",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq7db3o2un38j"
+        "slotId": null
       }
     ]
   },
