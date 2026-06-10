@@ -768,7 +768,7 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-09T09:24:02.952Z",
+      "updatedAt": "2026-06-10T01:06:16.523Z",
       "tags": [
         "B类-复杂-主动"
       ],
@@ -781,7 +781,7 @@
           "content": "测试异常单子+正常单子，会否跳过",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mq7db3o2un38j"
         },
         {
           "id": "1780994884021",
@@ -791,7 +791,7 @@
           "placedIn": null
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mq7db3o2un38j"
     },
     {
       "id": "mq5xewpgn2ai9",
@@ -997,7 +997,7 @@
       "type": "task",
       "content": "整理退网检查的资料吧",
       "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-09T09:59:20.206Z",
+      "updatedAt": "2026-06-10T01:05:31.428Z",
       "tags": [
         "检查工作",
         "C类-复杂-被动响应"
@@ -1011,10 +1011,10 @@
           "content": "剩余三个县分的excel整理",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mq7d9zbf80b12"
         }
       ],
-      "placedIn": null
+      "placedIn": "slot_mq7d9zbf80b12"
     },
     {
       "id": "1780995348006",
@@ -1048,41 +1048,72 @@
       "type": "task",
       "content": "核查下客建的800M清单",
       "createdAt": "2026-06-09T09:04:39.983Z",
-      "updatedAt": "2026-06-09T09:04:39.983Z",
+      "updatedAt": "2026-06-10T01:06:38.293Z",
       "tags": [
         "C类-复杂-被动响应"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781053592006",
+          "content": "填充县分接口人",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mq6fpn8xvr9i4",
       "type": "task",
       "content": "客户端load一下25年末退网的清单（25年共享表），爬一下目前的客户端进度",
       "createdAt": "2026-06-09T09:25:38.673Z",
-      "updatedAt": "2026-06-09T09:25:38.673Z",
+      "updatedAt": "2026-06-10T01:03:33.876Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781053387140",
+          "content": "筛选下工行、中行和邮政的客户端设备，装新拆旧完成可退",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mq6fq0o03zh8y",
       "type": "task",
       "content": "提醒增城走退网（低效的）",
       "createdAt": "2026-06-09T09:25:56.064Z",
-      "updatedAt": "2026-06-09T09:25:56.064Z",
+      "updatedAt": "2026-06-10T01:05:49.923Z",
       "tags": [
         "退网",
         "C类-复杂-被动响应"
       ],
       "done": false,
       "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mq7d9zbf80b12"
+    },
+    {
+      "id": "mq7dcnrklb193",
+      "type": "task",
+      "content": "ai优化点：知识库-ai关联搜索-每次点击搜索能不能清除上一次的结果先？",
+      "createdAt": "2026-06-10T01:07:19.760Z",
+      "updatedAt": "2026-06-10T01:07:19.760Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
       "unknown": false,
       "subtasks": []
     }
@@ -1726,7 +1757,16 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq7d9zbf80b12",
+      "name": "C类-复杂-被动响应 09:05-09:35"
+    },
+    {
+      "id": "slot_mq7db3o2un38j",
+      "name": "B类-复杂-主动 11:00-11:30"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2521,6 +2561,26 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-10": [
+      {
+        "id": "block_1781053514763",
+        "tag": "C类-复杂-被动响应",
+        "startTime": "09:05",
+        "endTime": "09:35",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq7d9zbf80b12"
+      },
+      {
+        "id": "block_1781053567058",
+        "tag": "B类-复杂-主动",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq7db3o2un38j"
+      }
     ]
   },
   "taskTriggers": [
@@ -3208,6 +3268,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-09T23:40:27.772Z"
+    "lastSync": "2026-06-10T01:02:55.651Z"
   }
 }
