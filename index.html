@@ -23135,26 +23135,25 @@ ${knowledgeSummary}
          const resultsContainer = document.getElementById('aiSearchResults');
          if (resultsContainer) {
              resultsContainer.remove();
-             showToast('搜索结果已清除');
          }
          
          // 重置AI搜索结果全局变量
          currentAiSearchResult = '';
          
-         // 清除匹配结果数据
-         window.currentMatchedItems = [];
-         
          // 重新渲染知识库列表，恢复正常显示
          renderKnowledgeBase();
      }
      
-     // 执行AI关联搜索
+     // 执行 AI 关联搜索
      async function performAISearch() {
          const query = document.getElementById('aiSearchQuery').value.trim();
          if (!query) {
              showToast('请输入搜索问题');
              return;
          }
+         
+         // 先清除之前的搜索结果
+         clearAISearchResults();
          
          // 检查AI配置
          if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
