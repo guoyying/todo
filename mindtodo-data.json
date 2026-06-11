@@ -1180,18 +1180,6 @@
       "doneAt": "2026-06-10T09:41:10.585Z"
     },
     {
-      "id": "mq8yh2dq9ves2",
-      "type": "task",
-      "content": "报名考综合维护认证",
-      "createdAt": "2026-06-11T03:46:23.438Z",
-      "updatedAt": "2026-06-11T03:46:23.438Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mq94cw0yhvq7p",
       "type": "task",
       "content": "网安单看下",
@@ -1208,17 +1196,17 @@
     {
       "id": "mq94ekt6teant",
       "type": "task",
-      "content": "1、党会签到；2、将发言内容填写到表格；3、萤火行动更新预约情况；4、上传萤火行动照片",
+      "content": "萤火行动更新预约情况；上传萤火行动照片",
       "createdAt": "2026-06-11T06:32:25.050Z",
-      "updatedAt": "2026-06-11T06:32:25.050Z",
+      "updatedAt": "2026-06-11T08:13:40.425Z",
       "tags": [
-        "杂事",
-        "B类-复杂-主动"
+        "检查工作"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-11T08:13:40.425Z"
     },
     {
       "id": "mq94eyy0ck7we",
@@ -1239,9 +1227,10 @@
       "type": "task",
       "content": "过资产的单子：打开sop-对照过单",
       "createdAt": "2026-06-11T06:33:34.748Z",
-      "updatedAt": "2026-06-11T06:33:34.748Z",
+      "updatedAt": "2026-06-11T06:57:10.722Z",
       "tags": [
-        "拆运一体"
+        "拆运一体",
+        "B类-复杂-主动"
       ],
       "done": false,
       "dueTime": "15min",
@@ -1899,8 +1888,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mq94fgjvg026u",
-      "name": "C类-复杂-被动响应 14:30-15:00"
+      "id": "slot_mq95ah7mh1446",
+      "name": "B类-复杂-主动 15:00-16:00"
     }
   ],
   "tags": [
@@ -2735,7 +2724,16 @@
         "endTime": "15:00",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq94fgjvg026u"
+        "slotId": null
+      },
+      {
+        "id": "block_1781161033378",
+        "tag": "B类-复杂-主动",
+        "startTime": "15:00",
+        "endTime": "16:00",
+        "duration": 60,
+        "summary": "",
+        "slotId": "slot_mq95ah7mh1446"
       }
     ]
   },
@@ -2810,6 +2808,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-11T06:56:43.745Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq9796y49szh0",
+      "taskId": "mq94g2l8ltkcm",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-11T17:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-11T07:52:12.652Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3501,6 +3514,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-11T06:32:36.380Z"
+    "lastSync": "2026-06-11T06:56:53.812Z"
   }
 }
