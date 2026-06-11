@@ -1009,7 +1009,7 @@
       "type": "task",
       "content": "客户端清单 → 爬虫，记录进度数据 📊 对比当前实际进度",
       "createdAt": "2026-06-09T09:25:38.673Z",
-      "updatedAt": "2026-06-10T09:53:17.301Z",
+      "updatedAt": "2026-06-11T06:30:39.355Z",
       "tags": [
         "退网",
         "C类-复杂-被动响应"
@@ -1023,6 +1023,13 @@
           "content": "筛选下工行、中行和邮政的客户端设备，装新拆旧完成可退",
           "done": false,
           "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781159424825",
+          "content": "对比今天和初始进度，退了多少个客户端设备",
+          "done": false,
+          "estimatedTime": "8min",
           "placedIn": null
         }
       ]
@@ -1181,6 +1188,20 @@
       "tags": [],
       "done": false,
       "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq94cw0yhvq7p",
+      "type": "task",
+      "content": "网安单看下",
+      "createdAt": "2026-06-11T06:31:06.274Z",
+      "updatedAt": "2026-06-11T06:31:06.274Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": "8min",
       "unknown": false,
       "subtasks": []
     }
@@ -2715,21 +2736,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-11T01:28:45.848Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mq8ygtc1d8i0d",
-      "taskId": "mq6fpn8xvr9i4",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-11T14:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-11T03:46:11.713Z",
       "lastReminderTime": null,
       "active": true
     }
