@@ -1219,6 +1219,34 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq94eyy0ck7we",
+      "type": "task",
+      "content": "看下ai团队知识库，我要做啥",
+      "createdAt": "2026-06-11T06:32:43.368Z",
+      "updatedAt": "2026-06-11T06:32:43.368Z",
+      "tags": [
+        "数字化"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mq94g2l8ltkcm",
+      "type": "task",
+      "content": "过资产的单子：打开sop-对照过单",
+      "createdAt": "2026-06-11T06:33:34.748Z",
+      "updatedAt": "2026-06-11T06:33:34.748Z",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1869,7 +1897,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mq94fgjvg026u",
+      "name": "C类-复杂-被动响应 14:30-15:00"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2693,6 +2726,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-11": [
+      {
+        "id": "block_1781159586187",
+        "tag": "C类-复杂-被动响应",
+        "startTime": "14:30",
+        "endTime": "15:00",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mq94fgjvg026u"
+      }
     ]
   },
   "taskTriggers": [
@@ -3442,6 +3486,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-11T06:31:21.362Z"
+    "lastSync": "2026-06-11T06:32:36.380Z"
   }
 }
