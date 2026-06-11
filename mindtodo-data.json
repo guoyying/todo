@@ -1146,15 +1146,15 @@
       "type": "task",
       "content": "知识库语料清洗：已尝试SOP清洗+放入模型平台。发现不能召回图片。下一步打算用dify尝试（参考抖音教程）",
       "createdAt": "2026-06-10T08:36:53.966Z",
-      "updatedAt": "2026-06-10T09:42:23.133Z",
+      "updatedAt": "2026-06-11T01:28:26.606Z",
       "tags": [
         "AI",
         "数字化"
       ],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": true,
-      "doneAt": "2026-06-10T09:42:23.133Z",
+      "doneAt": null,
       "subtasks": []
     },
     {
@@ -2734,6 +2734,21 @@
       "createdAt": "2026-06-11T01:20:49.644Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mq8tk2s8vq3oj",
+      "taskId": "mq7tet72xecdm",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-11T16:28"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-11T01:28:45.848Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3413,6 +3428,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-11T01:20:56.667Z"
+    "lastSync": "2026-06-11T01:23:12.354Z"
   }
 }
