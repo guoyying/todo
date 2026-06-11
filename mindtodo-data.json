@@ -1204,6 +1204,21 @@
       "dueTime": "8min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mq94ekt6teant",
+      "type": "task",
+      "content": "1、党会签到；2、将发言内容填写到表格；3、萤火行动更新预约情况；4、上传萤火行动照片",
+      "createdAt": "2026-06-11T06:32:25.050Z",
+      "updatedAt": "2026-06-11T06:32:25.050Z",
+      "tags": [
+        "杂事",
+        "B类-复杂-主动"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3427,6 +3442,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-11T06:31:12.177Z"
+    "lastSync": "2026-06-11T06:31:21.362Z"
   }
 }
