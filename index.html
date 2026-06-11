@@ -7605,9 +7605,44 @@ padding: 7px !important;
                        </div>
                    
                    <div>
-                       <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">自定义提示词（可选）</label>
-                       <textarea id="aiIdeasPromptInput" rows="3" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+                       <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">提示词模式</label>
+                       <select id="aiIdeasPromptMode" onchange="toggleAiIdeasPromptMode()" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;margin-bottom:8px;">
+                           <option value="custom">自定义提示词</option>
+                           <option value="probe">探路任务助手（回答 4 个问题）</option>
+                       </select>
+                       
+                       <!-- 自定义提示词输入框 -->
+                       <div id="aiIdeasCustomPromptContainer">
+                           <textarea id="aiIdeasPromptInput" rows="3" placeholder="留空使用默认提示词，或输入自定义提示词..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
                        </div>
+                       
+                       <!-- 探路任务助手问题容器（默认隐藏） -->
+                       <div id="aiIdeasProbeQuestionsContainer" style="display:none;">
+                           <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">请回答以下问题，帮助 AI 更好地理解任务背景：</div>
+                           
+                           <div style="margin-bottom:8px;">
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">1️⃣ 任务背景：这个任务最终要达到什么目的？谁会在意结果？</label>
+                               <textarea id="probeQuestion1" rows="2" placeholder="例如：这个任务是为了提升客户满意度，我的直属领导和客户都会在意结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:8px;">
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">2️⃣ 权力信息：对方对我的绩效有没有评价权？他布置任务是否代表领导？</label>
+                               <textarea id="probeQuestion2" rows="2" placeholder="例如：对方是我的项目经理，对我的绩效有 30% 的评价权，这次任务是他代表部门领导布置的..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:8px;">
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">3️⃣ 利益关系：这件事做砸了会怎样？做好了谁会受益？</label>
+                               <textarea id="probeQuestion3" rows="2" placeholder="例如：做砸了可能会影响项目进度，导致客户投诉；做好了可以提升团队声誉，获得领导认可..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
+                           </div>
+                           
+                           <div style="margin-bottom:8px;">
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">4️⃣ 评估标准：怎样算 60 分？怎样算 100 分？</label>
+                               <textarea id="probeQuestion4" rows="2" placeholder="例如：60 分是按时完成任务基本要求，100 分是超出预期，获得客户书面表扬..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
+                           </div>
+                           
+                           <button class="btn btn-small btn-primary" onclick="generateProbePrompt()" style="width:100%;margin-top:8px;font-size:12px;">🎯 生成探路任务提示词</button>
+                       </div>
+                   </div>
                        
                        <div style="display:flex;justify-content:center;">
                            <button class="btn btn-primary" onclick="generateAiIdeas()" id="aiIdeasGenerateBtn">🚀 生成点子</button>
@@ -7755,12 +7790,87 @@ padding: 7px !important;
         document.getElementById('aiIdeasModal').classList.remove('hidden');
     }
     
-    // 隐藏AI帮想点子模态框（不清理数据）
+    // 切换 AI 帮想点子提示词模式
+    function toggleAiIdeasPromptMode() {
+        const modeSelect = document.getElementById('aiIdeasPromptMode');
+        const customContainer = document.getElementById('aiIdeasCustomPromptContainer');
+        const probeContainer = document.getElementById('aiIdeasProbeQuestionsContainer');
+        
+        if (modeSelect.value === 'custom') {
+            customContainer.style.display = 'block';
+            probeContainer.style.display = 'none';
+        } else {
+            customContainer.style.display = 'none';
+            probeContainer.style.display = 'block';
+        }
+    }
+    
+    // 生成探路任务提示词
+    function generateProbePrompt() {
+        const q1 = document.getElementById('probeQuestion1').value.trim();
+        const q2 = document.getElementById('probeQuestion2').value.trim();
+        const q3 = document.getElementById('probeQuestion3').value.trim();
+        const q4 = document.getElementById('probeQuestion4').value.trim();
+        
+        if (!q1 || !q2 || !q3 || !q4) {
+            showToast('请完整回答所有 4 个问题');
+            return;
+        }
+        
+        // 获取当前任务内容
+        const taskContentEl = document.getElementById('aiIdeasTaskContent');
+        const taskContent = taskContentEl ? taskContentEl.textContent.trim() : '';
+        
+        if (!taskContent) {
+            showToast('未找到当前任务内容');
+            return;
+        }
+        
+        // 构建探路任务提示词（包含问题和回答）
+        const probePrompt = `请帮我针对以下任务，生成 2 个具体的"探路任务"（小步快跑、低风险验证的行动方案）。
+
+【任务背景】
+问题：这个任务最终要达到什么目的？谁会在意结果？
+回答：${q1}
+
+【权力信息】
+问题：对方对我的绩效有没有评价权？他布置任务是否代表领导？
+回答：${q2}
+
+【利益关系】
+问题：这件事做砸了会怎样？做好了谁会受益？
+回答：${q3}
+
+【评估标准】
+问题：怎样算 60 分？怎样算 100 分？
+回答：${q4}
+
+【当前任务】
+${taskContent}
+
+要求：
+1. 每个探路任务应该是小步、低风险、可快速验证的行动
+2. 说明每个探路任务的目的、预期结果、风险等级
+3. 给出执行建议和时间估算
+4. 使用 Markdown 格式，清晰易读`;
+        
+        // 将生成的提示词填入自定义提示词输入框
+        const promptInput = document.getElementById('aiIdeasPromptInput');
+        promptInput.value = probePrompt;
+        
+        // 切换回自定义提示词模式
+        document.getElementById('aiIdeasPromptMode').value = 'custom';
+        toggleAiIdeasPromptMode();
+        
+        showToast('已生成探路任务提示词，点击"生成点子"开始');
+    }
+    
+    // 隐藏 AI 帮想点子模态框（不清理数据）
     function hideAiIdeasModal() {
         document.getElementById('aiIdeasModal').classList.add('hidden');
     }
     
-    // 关闭AI帮想点子模态框（清理数据）
+    // 关闭 AI 帮想点子模态框（清理数据）
     function closeAiIdeasModal() {
         document.getElementById('aiIdeasModal').classList.add('hidden');
         currentAiIdeasTaskId = null;
@@ -7769,6 +7879,28 @@ padding: 7px !important;
         // 禁用操作按钮
         document.getElementById('aiIdeasCopyBtn').disabled = true;
         document.getElementById('aiIdeasSaveBtn').disabled = true;
+        
+        // 重置提示词模式为自定义提示词
+        document.getElementById('aiIdeasPromptMode').value = 'custom';
+        toggleAiIdeasPromptMode();
+        
+        // 清空自定义提示词输入框
+        const promptInput = document.getElementById('aiIdeasPromptInput');
+        if (promptInput) {
+            promptInput.value = '';
+        }
+        
+        // 清空探路问题输入框
+        document.getElementById('probeQuestion1').value = '';
+        document.getElementById('probeQuestion2').value = '';
+        document.getElementById('probeQuestion3').value = '';
+        document.getElementById('probeQuestion4').value = '';
+        
+        // 重置结果区域为初始提示
+        const resultDiv = document.getElementById('aiIdeasResult');
+        if (resultDiv) {
+            resultDiv.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击上方"生成点子"按钮开始</div>';
+        }
     }
     
     // 生成AI点子
