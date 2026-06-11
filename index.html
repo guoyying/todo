@@ -7589,20 +7589,25 @@ padding: 7px !important;
            <div class="modal-body" style="display:flex;flex-direction:column;gap:16px;max-height:80vh;">
                <!-- 任务信息和控制面板按行放置 -->
                <div style="display:flex;gap:16px;">
-                   <!-- 任务信息 -->
-                   <div style="flex:1;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
-                       <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">当前任务</label>
-                       <div id="aiIdeasTaskContent" style="font-size:15px;line-height:1.6;"></div>
-                   </div>
-                   
-                   <!-- 控制面板 -->
-                   <div style="flex:0 0 320px;display:flex;flex-direction:column;gap:12px;">
-                       <div>
+                   <!-- 左侧：模型选择 + 任务信息 -->
+                   <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+                       <!-- 模型选择 -->
+                       <div style="padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
                            <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">选择模型</label>
                            <select id="aiIdeasModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                <!-- 动态生成模型选项 -->
                            </select>
                        </div>
+                       
+                       <!-- 任务信息 -->
+                       <div style="flex:1;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                           <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">当前任务</label>
+                           <div id="aiIdeasTaskContent" style="font-size:15px;line-height:1.6;"></div>
+                       </div>
+                   </div>
+                   
+                   <!-- 右侧：控制面板 -->
+                   <div style="flex:0 0 320px;display:flex;flex-direction:column;gap:12px;">
                    
                    <div>
                        <label style="display:block;margin-bottom:8px;font-size:13px;color:var(--text-secondary);">提示词模式</label>
@@ -7621,22 +7626,22 @@ padding: 7px !important;
                            <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">请回答以下问题，帮助 AI 更好地理解任务背景：</div>
                            
                            <div style="margin-bottom:8px;">
-                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">1️⃣ 任务背景：这个任务最终要达到什么目的？谁会在意结果？</label>
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">1️⃣ 背景：这个任务最终要达到什么目的/谁会在意结果</label>
                                <textarea id="probeQuestion1" rows="2" placeholder="例如：这个任务是为了提升客户满意度，我的直属领导和客户都会在意结果..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
                            </div>
                            
                            <div style="margin-bottom:8px;">
-                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">2️⃣ 权力信息：对方对我的绩效有没有评价权？他布置任务是否代表领导？</label>
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">2️⃣ 权力：对方对我的绩效有没有评价权/他布置任务是否代表领导</label>
                                <textarea id="probeQuestion2" rows="2" placeholder="例如：对方是我的项目经理，对我的绩效有 30% 的评价权，这次任务是他代表部门领导布置的..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
                            </div>
                            
                            <div style="margin-bottom:8px;">
-                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">3️⃣ 利益关系：这件事做砸了会怎样？做好了谁会受益？</label>
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">3️⃣ 利益：这件事做砸了会怎样/做好了谁会受益/我会收获什么/什么事会因此被挤占</label>
                                <textarea id="probeQuestion3" rows="2" placeholder="例如：做砸了可能会影响项目进度，导致客户投诉；做好了可以提升团队声誉，获得领导认可..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
                            </div>
                            
                            <div style="margin-bottom:8px;">
-                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">4️⃣ 评估标准：怎样算 60 分？怎样算 100 分？</label>
+                               <label style="font-size:12px;color:var(--text);display:block;margin-bottom:4px;">4️⃣ 评估标准：怎样算 60 分/怎样算 100 分</label>
                                <textarea id="probeQuestion4" rows="2" placeholder="例如：60 分是按时完成任务基本要求，100 分是超出预期，获得客户书面表扬..." style="width:100%;padding:6px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:inherit;resize:vertical;"></textarea>
                            </div>
                            
@@ -7827,22 +7832,22 @@ padding: 7px !important;
         }
         
         // 构建探路任务提示词（包含问题和回答）
-        const probePrompt = `请帮我针对以下任务，生成 2 个具体的"探路任务"（小步快跑、低风险验证的行动方案）。
+        const probePrompt = `请帮我针对以下任务，生成 2 个具体的"探路任务"。
 
-【任务背景】
-问题：这个任务最终要达到什么目的？谁会在意结果？
+【背景】
+问题：这个任务最终要达到什么目的/谁会在意结果
 回答：${q1}
 
-【权力信息】
-问题：对方对我的绩效有没有评价权？他布置任务是否代表领导？
+【权力】
+问题：对方对我的绩效有没有评价权/他布置任务是否代表领导
 回答：${q2}
 
-【利益关系】
-问题：这件事做砸了会怎样？做好了谁会受益？
+【利益】
+问题：这件事做砸了会怎样/做好了谁会受益/我会收获什么/什么事会因此被挤占
 回答：${q3}
 
 【评估标准】
-问题：怎样算 60 分？怎样算 100 分？
+问题：怎样算 60 分/怎样算 100 分？
 回答：${q4}
 
 【当前任务】
