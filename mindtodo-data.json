@@ -1007,9 +1007,9 @@
     {
       "id": "mq6fpn8xvr9i4",
       "type": "task",
-      "content": "客户端清单 → 爬虫，记录进度数据 📊 对比当前实际进度",
+      "content": "251231-260608退了77台用户端设备。下一步：找高值1的看网管",
       "createdAt": "2026-06-09T09:25:38.673Z",
-      "updatedAt": "2026-06-11T08:49:22.089Z",
+      "updatedAt": "2026-06-11T08:55:46.219Z",
       "tags": [
         "退网",
         "C类-复杂-被动响应"
@@ -1021,7 +1021,7 @@
         {
           "id": "1781053387140",
           "content": "筛选下工行、中行和邮政的客户端设备，装新拆旧完成可退",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         },
@@ -1887,16 +1887,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mq95ah7mh1446",
-      "name": "B类-复杂-主动 15:00-16:00"
-    },
-    {
-      "id": "slot_mq98yesz2d41b",
-      "name": "C类-复杂-被动响应 16:40-17:10"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2738,7 +2729,7 @@
         "endTime": "16:00",
         "duration": 60,
         "summary": "",
-        "slotId": "slot_mq95ah7mh1446"
+        "slotId": null
       },
       {
         "id": "block_1781167188851",
@@ -2747,7 +2738,7 @@
         "endTime": "17:10",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mq98yesz2d41b"
+        "slotId": null
       }
     ]
   },
@@ -2807,6 +2798,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-11T07:52:12.652Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq99iqvyl58sj",
+      "taskId": "mq94cw0yhvq7p",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-11T17:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-11T08:55:37.630Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mq99j88mbr5of",
+      "taskId": "mq6fpn8xvr9i4",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-12T08:50"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-11T08:56:00.118Z",
       "lastReminderTime": null,
       "active": true
     }
