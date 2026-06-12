@@ -7364,8 +7364,8 @@ padding: 7px !important;
                                 </div>
                             </div>
                             
-                            <!-- AI内容管理视图 -->
-                            <div id="aiContentManagerView" class="hidden">
+                            <!-- AI 内容管理视图 -->
+                            <div id="aiContentManagerView" class="hidden" style="display:flex;flex-direction:column;flex:1;min-height:0;">
                                 <div style="margin-bottom:16px;">
                                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                                         <button id="aiContentBackBtn" class="btn btn-text" onclick="backToKBListFromAiContent()" style="display:none;font-size:12px;">← 返回</button>
@@ -7374,8 +7374,8 @@ padding: 7px !important;
                                     <input type="text" id="aiContentSearchInput" placeholder="搜索 AI 内容..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
                                 
-                                <div id="aiContentList" style="max-height:calc(90vh - 200px);overflow-y:auto; padding:0px">
-                                    <!-- 动态生成AI内容列表 -->
+                                <div id="aiContentList" style="flex:1;overflow-y:auto;padding:0px;min-height:0;">
+                                    <!-- 动态生成 AI 内容列表 -->
                                 </div>
                             </div>
                             
