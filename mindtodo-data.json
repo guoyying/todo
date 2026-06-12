@@ -805,6 +805,20 @@
       },
       "projectId": "1780970860323",
       "subtasks": []
+    },
+    {
+      "id": "mqaomb5bjffrl",
+      "type": "task",
+      "content": "我想用影刀+python组合开发出多种自动化小工具",
+      "createdAt": "2026-06-12T08:46:04.271Z",
+      "updatedAt": "2026-06-12T08:46:04.271Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
