@@ -1009,7 +1009,7 @@
       "type": "task",
       "content": "251231-260608退了77台用户端设备。下一步：找高值1的看网管",
       "createdAt": "2026-06-09T09:25:38.673Z",
-      "updatedAt": "2026-06-11T08:55:46.219Z",
+      "updatedAt": "2026-06-12T00:55:27.632Z",
       "tags": [
         "退网",
         "C类-复杂-被动响应"
@@ -1030,6 +1030,13 @@
           "content": "对比今天和初始进度，退了多少个客户端设备",
           "done": true,
           "estimatedTime": "8min",
+          "placedIn": null
+        },
+        {
+          "id": "1781225707024",
+          "content": "打开客户端清单，找一个高值1的",
+          "done": false,
+          "estimatedTime": "",
           "placedIn": null
         }
       ]
@@ -1151,9 +1158,9 @@
     {
       "id": "mq7tet72xecdm",
       "type": "task",
-      "content": "知识库语料清洗：已尝试SOP清洗+放入模型平台。发现不能召回图片",
+      "content": "知识库语料清洗：已尝试SOP清洗+放入模型平台",
       "createdAt": "2026-06-10T08:36:53.966Z",
-      "updatedAt": "2026-06-12T00:42:45.197Z",
+      "updatedAt": "2026-06-12T00:55:45.749Z",
       "tags": [
         "AI",
         "数字化"
@@ -1162,7 +1169,15 @@
       "dueTime": null,
       "unknown": true,
       "doneAt": null,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781225736085",
+          "content": "将我sop的图片放入word",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mq7tfc7n9e1h0",
@@ -1182,9 +1197,9 @@
     {
       "id": "mq94cw0yhvq7p",
       "type": "task",
-      "content": "网安单看下",
+      "content": "网安单：找下曾工支撑，发截图",
       "createdAt": "2026-06-11T06:31:06.274Z",
-      "updatedAt": "2026-06-11T06:31:06.274Z",
+      "updatedAt": "2026-06-12T00:54:56.764Z",
       "tags": [
         "网安"
       ],
@@ -1211,9 +1226,9 @@
     {
       "id": "mq94eyy0ck7we",
       "type": "task",
-      "content": "ai团队知识库，打开内容管理做第一步",
+      "content": "ai团队知识库",
       "createdAt": "2026-06-11T06:32:43.368Z",
-      "updatedAt": "2026-06-11T10:20:44.771Z",
+      "updatedAt": "2026-06-12T00:54:24.304Z",
       "tags": [
         "数字化",
         "C类-复杂-被动响应"
@@ -3464,6 +3479,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-11T11:11:59.811Z"
+    "lastSync": "2026-06-12T00:54:12.572Z"
   }
 }
