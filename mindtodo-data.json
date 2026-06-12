@@ -995,7 +995,8 @@
       "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "doneAt": "2026-06-12T03:40:27.303Z"
+      "doneAt": "2026-06-12T03:40:27.303Z",
+      "subtasks": []
     },
     {
       "id": "mq6fq0o03zh8y",
@@ -1207,15 +1208,16 @@
       "type": "task",
       "content": "过退网单和三码单",
       "createdAt": "2026-06-12T02:09:54.383Z",
-      "updatedAt": "2026-06-12T03:13:18.997Z",
+      "updatedAt": "2026-06-12T05:01:19.623Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-12T05:01:19.623Z"
     }
   ],
   "normalFeelings": [
@@ -2760,21 +2762,6 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
-    },
-    {
-      "id": "mqacqskzzrgns",
-      "taskId": "mqaagu6n2626d",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-12T11:50"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-12T03:13:38.099Z",
-      "lastReminderTime": null,
-      "active": true
     },
     {
       "id": "mqadrvaaf1e7t",
