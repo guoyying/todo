@@ -1158,26 +1158,18 @@
     {
       "id": "mq7tet72xecdm",
       "type": "task",
-      "content": "知识库语料清洗：已尝试SOP清洗+放入模型平台",
+      "content": "知识库语料清洗：已尝试SOP清洗。用企微机器人实现了图片召回",
       "createdAt": "2026-06-10T08:36:53.966Z",
-      "updatedAt": "2026-06-12T02:09:40.557Z",
+      "updatedAt": "2026-06-12T02:18:24.451Z",
       "tags": [
         "AI",
         "数字化"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": true,
-      "doneAt": null,
-      "subtasks": [
-        {
-          "id": "1781225736085",
-          "content": "云电脑中打开sop，将图片copy-放入word",
-          "done": false,
-          "estimatedTime": "10",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-12T02:18:24.451Z",
+      "subtasks": []
     },
     {
       "id": "mq7tfc7n9e1h0",
@@ -1259,14 +1251,15 @@
       "type": "task",
       "content": "过退网单和三码单",
       "createdAt": "2026-06-12T02:09:54.383Z",
-      "updatedAt": "2026-06-12T02:09:54.384Z",
+      "updatedAt": "2026-06-12T02:11:12.835Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mqaaicpznbg7t"
     }
   ],
   "normalFeelings": [
@@ -1917,7 +1910,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mqaaicpznbg7t",
+      "name": "B类-复杂-主动 10:30-11:00"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2770,6 +2768,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-12": [
+      {
+        "id": "block_1781230265063",
+        "tag": "B类-复杂-主动",
+        "startTime": "10:30",
+        "endTime": "11:00",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mqaaicpznbg7t"
+      }
     ]
   },
   "taskTriggers": [
@@ -3494,6 +3503,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-12T00:56:00.217Z"
+    "lastSync": "2026-06-12T02:11:02.760Z"
   }
 }
