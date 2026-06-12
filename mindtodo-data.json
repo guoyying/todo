@@ -768,7 +768,7 @@
       "type": "task",
       "content": "测试一下RPA和网管验收单子",
       "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-10T04:58:00.723Z",
+      "updatedAt": "2026-06-12T03:13:13.147Z",
       "tags": [
         "B类-复杂-主动"
       ],
@@ -792,7 +792,7 @@
         },
         {
           "id": "1781067472186",
-          "content": "看下为什么爬不了端子信息？",
+          "content": "看下为什么爬不了端子信息？-打开共享表copy网元，搜索下",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -1251,7 +1251,7 @@
       "type": "task",
       "content": "过退网单和三码单",
       "createdAt": "2026-06-12T02:09:54.383Z",
-      "updatedAt": "2026-06-12T02:11:12.835Z",
+      "updatedAt": "2026-06-12T03:13:18.997Z",
       "tags": [
         "退网"
       ],
@@ -1259,7 +1259,7 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mqaaicpznbg7t"
+      "placedIn": null
     }
   ],
   "normalFeelings": [
@@ -2811,17 +2811,17 @@
       }
     },
     {
-      "id": "mqa8oqmhe76sk",
-      "taskId": "mq5xaz37p76zu",
+      "id": "mqacqskzzrgns",
+      "taskId": "mqaagu6n2626d",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-06-12T11:00"
+        "triggerTime": "2026-06-12T11:50"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-06-12T01:20:03.785Z",
+      "createdAt": "2026-06-12T03:13:38.099Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3503,6 +3503,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-12T02:11:02.760Z"
+    "lastSync": "2026-06-12T02:18:31.436Z"
   }
 }
