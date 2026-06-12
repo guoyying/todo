@@ -183,108 +183,6 @@
       "doneAt": "2026-05-18T07:23:46.031Z"
     },
     {
-      "id": "mpby5z8qy05vx",
-      "type": "task",
-      "content": "萤火行动：去增城新塘调研。这次数量多了，也从容多了，敢质疑敢问问题了。",
-      "createdAt": "2026-05-19T01:21:22.346Z",
-      "updatedAt": "2026-05-21T08:31:50.260Z",
-      "tags": [
-        "杂事",
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-21T08:31:50.260Z"
-    },
-    {
-      "id": "1779235080814",
-      "type": "task",
-      "content": "萤火行动：了解更新的检查细则，自制问卷对照检查表",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "doneAt": "2026-05-19T07:09:13.300Z",
-      "organizedAt": "2026-05-19T23:58:00.814Z",
-      "createdAt": "2026-05-19T06:52:45.232Z",
-      "updatedAt": "2026-05-19T23:58:00.814Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "innovation": "",
-        "success": "",
-        "failure": "",
-        "improvement": "",
-        "problems": "",
-        "summary": "",
-        "organizedAt": "2026-05-19T23:58:00.814Z"
-      },
-      "subtasks": []
-    },
-    {
-      "id": "mpdfgkvz09m5q",
-      "type": "task",
-      "content": "确定上次是哪个机房要更换牌子，哪个机房合并了。",
-      "createdAt": "2026-05-20T02:13:16.607Z",
-      "updatedAt": "2026-05-20T03:06:09.998Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T03:06:09.998Z"
-    },
-    {
-      "id": "mpdfj5goubxdq",
-      "type": "task",
-      "content": "还是写一下检查的内容（资产检查）无所谓什么，就是让自己先熟悉信息",
-      "createdAt": "2026-05-20T02:15:16.584Z",
-      "updatedAt": "2026-05-20T03:21:13.259Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T03:21:13.259Z"
-    },
-    {
-      "id": "mpdk8b3kjhdgi",
-      "type": "task",
-      "content": "网约车去新塘",
-      "createdAt": "2026-05-20T04:26:48.752Z",
-      "updatedAt": "2026-05-20T06:43:30.256Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T06:43:30.256Z"
-    },
-    {
-      "id": "mpdp571req5kl",
-      "type": "task",
-      "content": "梳理这周我可以做的检查工作",
-      "createdAt": "2026-05-20T06:44:21.615Z",
-      "updatedAt": "2026-05-20T08:12:03.968Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-05-20T08:12:03.968Z"
-    },
-    {
       "id": "mpf6tfubo8emz",
       "type": "task",
       "content": "视频剪辑，就做15分钟。",
@@ -615,22 +513,6 @@
       "doneAt": "2026-06-09T02:28:12.155Z"
     },
     {
-      "id": "mq4xt1wa01oui",
-      "type": "task",
-      "content": "萤火行动推进：找人、了解新要求",
-      "createdAt": "2026-06-08T08:16:38.362Z",
-      "updatedAt": "2026-06-08T08:52:46.813Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-08T08:52:46.812Z"
-    },
-    {
       "id": "mq5xaz37p76zu",
       "type": "task",
       "content": "测试一下RPA和网管验收单子，推进不查询局端端子和校验光功率基准的优化",
@@ -699,64 +581,6 @@
       "subtasks": []
     },
     {
-      "id": "1780981869334",
-      "type": "task",
-      "content": "检查工作：退网物资检查。",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "doneAt": "2026-06-05T09:34:15.368Z",
-      "organizedAt": "2026-06-09T05:11:09.334Z",
-      "createdAt": "2026-06-05T08:59:20.129Z",
-      "updatedAt": "2026-06-09T05:11:09.334Z",
-      "organization": {
-        "goal": "填写检查表，对照每一项跟县分要表和数据。目前处于等待县分反馈阶段",
-        "improvement": "将退网物资的检查内容、所需台账固化为标准模板（让县分填充）。下次开展类似工作时，可直接复用；也能减少理解县分台账格式的时间\n在检查工作启动前，组织一次简短的线上培训，明确所有组员的职责、检查标准和交付物要求，减少因信息不对称导致的返工。\n使用共享日历等协同看板（如飞书、钉钉等）统一发布检查时间，替代零散的群消息沟通，提升信息透明度。",
-        "skills": "沟通协调、组建团队（拉群沟通），到具体执行和后期整理（写检查报告），形成了完整的任务链。\n对退网物资回收、移交采购入库有更多理解了",
-        "success": "",
-        "problems": "",
-        "summary": "",
-        "methods": "",
-        "assets": "",
-        "organizedAt": "2026-06-09T05:11:09.334Z"
-      },
-      "projectId": "1780970860323",
-      "subtasks": []
-    },
-    {
-      "id": "mq69aihgsmqgy",
-      "type": "task",
-      "content": "看去增城的路线，跟对方商量时间以及网约车。",
-      "createdAt": "2026-06-09T06:25:54.964Z",
-      "updatedAt": "2026-06-10T02:17:47.307Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-10T02:17:47.307Z"
-    },
-    {
-      "id": "mq69c29fe115s",
-      "type": "task",
-      "content": "整理退网检查的资料，上传",
-      "createdAt": "2026-06-09T06:27:07.251Z",
-      "updatedAt": "2026-06-10T03:14:13.095Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-06-10T03:14:13.095Z",
-      "subtasks": []
-    },
-    {
       "id": "mq6eyo1bx5e0c",
       "type": "task",
       "content": "核查下客建的800M清单：我还知道了网管激活业务-无接入号-或许能在资源系统-局内业务找到对应的板卡",
@@ -814,21 +638,6 @@
       "subtasks": []
     },
     {
-      "id": "mq7rvvzukr77f",
-      "type": "task",
-      "content": "问下今天能不能有指引？",
-      "createdAt": "2026-06-10T07:54:11.514Z",
-      "updatedAt": "2026-06-10T09:40:42.432Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-10T09:40:42.432Z"
-    },
-    {
       "id": "mq7tet72xecdm",
       "type": "task",
       "content": "知识库语料清洗：已尝试SOP清洗。用企微机器人实现了图片召回",
@@ -873,21 +682,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-06-12T02:09:08.390Z"
-    },
-    {
-      "id": "mq94ekt6teant",
-      "type": "task",
-      "content": "萤火行动更新预约情况；上传萤火行动照片",
-      "createdAt": "2026-06-11T06:32:25.050Z",
-      "updatedAt": "2026-06-11T08:13:40.425Z",
-      "tags": [
-        "检查工作"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-11T08:13:40.425Z"
     },
     {
       "id": "mq94eyy0ck7we",
@@ -958,6 +752,58 @@
         "organizedAt": "2026-06-12T07:48:30.341Z"
       },
       "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1781250907339",
+      "type": "task",
+      "content": "【*】萤火行动：了解更新的检查细则，自制问卷对照检查表",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-06-11T08:13:40.425Z",
+      "organizedAt": "2026-06-12T07:55:07.339Z",
+      "createdAt": "2026-06-11T06:32:25.050Z",
+      "updatedAt": "2026-06-12T07:55:07.339Z",
+      "organization": {
+        "goal": "",
+        "improvement": "将关联性强的任务打包。例如，将“看去增城的路线”、“跟对方商量时间”、“约网约车”合并为一个 【出行任务包】 ，并附上Checklist：  确认对方时间  规划最优路线  预定网约车（预留缓冲时间）  准备随身携带材料（问卷、证件等）",
+        "skills": "",
+        "success": "",
+        "problems": "萤火行动挺麻烦的，每次都要找检查点-约时间-看交通路线，频繁沟通协调时间远大于检查时间本身",
+        "summary": "",
+        "methods": "自制问卷对照检查表，用自己的话提问",
+        "assets": "",
+        "organizedAt": "2026-06-12T07:55:07.339Z"
+      },
+      "projectId": "1780970860323",
+      "subtasks": []
+    },
+    {
+      "id": "1781250929506",
+      "type": "task",
+      "content": "【*】检查工作：退网物资检查。",
+      "tags": [
+        "检查工作"
+      ],
+      "done": true,
+      "doneAt": "2026-06-05T09:34:15.368Z",
+      "organizedAt": "2026-06-12T07:55:29.506Z",
+      "createdAt": "2026-06-05T08:59:20.129Z",
+      "updatedAt": "2026-06-12T07:55:29.506Z",
+      "organization": {
+        "goal": "填写检查表，对照每一项跟县分要表和数据。目前处于等待县分反馈阶段",
+        "improvement": "将退网物资的检查内容、所需台账固化为标准模板（让县分填充）。下次开展类似工作时，可直接复用；也能减少理解县分台账格式的时间\n在检查工作启动前，组织一次简短的线上培训，明确所有组员的职责、检查标准和交付物要求，减少因信息不对称导致的返工。\n使用共享日历等协同看板（如飞书、钉钉等）统一发布检查时间，替代零散的群消息沟通，提升信息透明度。",
+        "skills": "沟通协调、组建团队（拉群沟通），到具体执行和后期整理（写检查报告），形成了完整的任务链。\n对退网物资回收、移交采购入库有更多理解了",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "methods": "",
+        "assets": "",
+        "organizedAt": "2026-06-12T07:55:29.506Z"
+      },
+      "projectId": "1780970860323",
       "subtasks": []
     }
   ],
@@ -3197,6 +3043,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-12T03:40:35.885Z"
+    "lastSync": "2026-06-12T07:48:41.700Z"
   }
 }
