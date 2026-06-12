@@ -986,39 +986,16 @@
     {
       "id": "mq6fpn8xvr9i4",
       "type": "task",
-      "content": "251231-260608退了77台用户端设备。下一步：找高值1的看网管",
+      "content": "251231-260608退了77台用户端设备，可作为进度报上去",
       "createdAt": "2026-06-09T09:25:38.673Z",
-      "updatedAt": "2026-06-12T00:55:27.632Z",
+      "updatedAt": "2026-06-12T03:40:27.303Z",
       "tags": [
-        "退网",
-        "C类-复杂-被动响应"
+        "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781053387140",
-          "content": "筛选下工行、中行和邮政的客户端设备，装新拆旧完成可退",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781159424825",
-          "content": "对比今天和初始进度，退了多少个客户端设备",
-          "done": true,
-          "estimatedTime": "8min",
-          "placedIn": null
-        },
-        {
-          "id": "1781225707024",
-          "content": "打开客户端清单，找一个高值1的",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-12T03:40:27.303Z"
     },
     {
       "id": "mq6fq0o03zh8y",
@@ -1889,12 +1866,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mqaaicpznbg7t",
-      "name": "B类-复杂-主动 10:30-11:00"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2756,7 +2728,7 @@
         "endTime": "11:00",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mqaaicpznbg7t"
+        "slotId": null
       }
     ]
   },
@@ -3482,6 +3454,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-12T03:13:43.927Z"
+    "lastSync": "2026-06-12T03:23:06.667Z"
   }
 }
