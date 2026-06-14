@@ -819,6 +819,34 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mqdmgamit8vrb",
+      "type": "task",
+      "content": "老公的生日蛋糕订哪一家呢？",
+      "createdAt": "2026-06-14T10:08:42.954Z",
+      "updatedAt": "2026-06-14T10:08:42.954Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqdmgrkuk6jqb",
+      "type": "task",
+      "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
+      "createdAt": "2026-06-14T10:09:04.926Z",
+      "updatedAt": "2026-06-14T10:09:04.926Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
