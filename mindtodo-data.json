@@ -2406,17 +2406,17 @@
       "active": true
     },
     {
-      "id": "mqbp5rpvvo61e",
+      "id": "mqd4j7jcssv5n",
       "taskId": "mqaomb5bjffrl",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-06-14T07:41"
+        "triggerTime": "2026-06-15T08:01"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-06-13T01:48:58.387Z",
+      "createdAt": "2026-06-14T01:47:05.832Z",
       "lastReminderTime": null,
       "active": true
     }
