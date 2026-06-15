@@ -764,7 +764,7 @@
       "type": "task",
       "content": "我想用影刀+python组合开发出多种自动化小工具",
       "createdAt": "2026-06-12T08:46:04.271Z",
-      "updatedAt": "2026-06-15T05:32:53.196Z",
+      "updatedAt": "2026-06-15T06:48:45.915Z",
       "tags": [
         "AI"
       ],
@@ -777,7 +777,7 @@
           "content": "完善价目表的其他分类和价格",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mqeupli36jbeu"
         },
         {
           "id": "1781501553867",
@@ -837,7 +837,7 @@
       "type": "task",
       "content": "有无知识库问答助手可以返回对应视频链接？我希望提问比如：番茄鸡蛋面怎么做？能返回小红书或读音收藏的视频。",
       "createdAt": "2026-06-14T11:05:40.757Z",
-      "updatedAt": "2026-06-15T01:36:34.726Z",
+      "updatedAt": "2026-06-15T06:48:33.575Z",
       "tags": [
         "AI",
         "B类-复杂-主动"
@@ -845,14 +845,22 @@
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781506092315",
+          "content": "打开内容管理找到第一步，deepseek搜索怎么获取小红书收藏-api？",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mqeizp6q1gofx",
       "type": "task",
       "content": "RPA网管验收",
       "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-15T05:04:44.584Z",
+      "updatedAt": "2026-06-15T06:47:48.698Z",
       "tags": [
         "RPA",
         "验收"
@@ -864,11 +872,19 @@
         {
           "id": "1781499873801",
           "content": "将两个流水号交换一下跑一次",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
+        },
+        {
+          "id": "1781505983489",
+          "content": "核对两个流水号的信息",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": "slot_mqeupli36jbeu"
         }
-      ]
+      ],
+      "placedIn": "slot_mqeupli36jbeu"
     },
     {
       "id": "1781491932214",
@@ -916,12 +932,27 @@
       "type": "task",
       "content": "将自己的尝试放到项目管理中，做里程碑吧。",
       "createdAt": "2026-06-15T06:08:34.392Z",
-      "updatedAt": "2026-06-15T06:08:34.392Z",
+      "updatedAt": "2026-06-15T06:47:50.685Z",
       "tags": [
         "数字化"
       ],
       "done": false,
       "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mqeupli36jbeu"
+    },
+    {
+      "id": "mqetcvzj58jk6",
+      "type": "task",
+      "content": "爬虫结果通报，添加上在途的网元提醒，我得私戳县分或在群里@县分。",
+      "createdAt": "2026-06-15T06:09:47.503Z",
+      "updatedAt": "2026-06-15T06:09:47.503Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "15min",
       "unknown": false,
       "subtasks": []
     }
@@ -1574,7 +1605,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mqeupli36jbeu",
+      "name": "C类-复杂-被动响应 14:50-15:20"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2464,6 +2500,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-15": [
+      {
+        "id": "block_1781506060059",
+        "tag": "C类-复杂-被动响应",
+        "startTime": "14:50",
+        "endTime": "15:20",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mqeupli36jbeu"
+      }
     ]
   },
   "taskTriggers": [
@@ -2507,6 +2554,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-15T02:27:52.730Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqeunseqheqqk",
+      "taskId": "mqetas88nsm58",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-22T11:08"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-15T06:46:15.698Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3245,6 +3307,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T05:32:59.230Z"
+    "lastSync": "2026-06-15T06:08:38.264Z"
   }
 }
