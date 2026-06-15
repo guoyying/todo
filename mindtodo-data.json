@@ -784,24 +784,17 @@
     {
       "id": "mqdmgamit8vrb",
       "type": "task",
-      "content": "老公的生日蛋糕订哪一家呢？",
+      "content": "老公的生日蛋糕确定圣安娜",
       "createdAt": "2026-06-14T10:08:42.954Z",
-      "updatedAt": "2026-06-15T03:56:25.506Z",
+      "updatedAt": "2026-06-15T05:04:07.737Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781495771524",
-          "content": "跟他商量下",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "subtasks": [],
+      "doneAt": "2026-06-15T05:04:07.737Z"
     },
     {
       "id": "mqdmgrkuk6jqb",
@@ -852,7 +845,7 @@
       "type": "task",
       "content": "RPA网管验收",
       "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-15T01:19:36.003Z",
+      "updatedAt": "2026-06-15T05:04:44.584Z",
       "tags": [
         "RPA",
         "验收"
@@ -860,7 +853,15 @@
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781499873801",
+          "content": "将两个流水号交换一下跑一次",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "1781491932214",
@@ -2470,21 +2471,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-15T02:27:52.730Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqeoll3j8xqof",
-      "taskId": "mqdmgamit8vrb",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-15T12:46"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-15T03:56:35.215Z",
       "lastReminderTime": null,
       "active": true
     }
