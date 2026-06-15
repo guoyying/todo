@@ -811,14 +811,22 @@
       "type": "task",
       "content": "我想用影刀+python组合开发出多种自动化小工具",
       "createdAt": "2026-06-12T08:46:04.271Z",
-      "updatedAt": "2026-06-12T08:46:04.271Z",
+      "updatedAt": "2026-06-15T01:15:46.583Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781486134407",
+          "content": "完善价目表的其他分类和价格",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mqdmgamit8vrb",
@@ -839,7 +847,7 @@
       "type": "task",
       "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
       "createdAt": "2026-06-14T10:09:04.926Z",
-      "updatedAt": "2026-06-14T11:04:51.282Z",
+      "updatedAt": "2026-06-15T01:17:41.554Z",
       "tags": [
         "生活"
       ],
@@ -850,7 +858,7 @@
         {
           "id": "1781434839681",
           "content": "番茄鸡蛋卤子（小红书收藏的教程），超市买点牛肉片，",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -859,11 +867,26 @@
     {
       "id": "mqdohjths9riw",
       "type": "task",
-      "content": "知识库，怎么调用小红书或读音收藏的视频",
+      "content": "有无知识库问答助手可以返回对应视频链接？我希望提问比如：番茄鸡蛋面怎么做？能返回小红书或读音收藏的视频。",
       "createdAt": "2026-06-14T11:05:40.757Z",
-      "updatedAt": "2026-06-14T11:05:40.757Z",
+      "updatedAt": "2026-06-15T01:19:09.687Z",
       "tags": [
         "AI"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqeizp6q1gofx",
+      "type": "task",
+      "content": "RPA网管验收",
+      "createdAt": "2026-06-15T01:19:36.003Z",
+      "updatedAt": "2026-06-15T01:19:36.003Z",
+      "tags": [
+        "RPA",
+        "验收"
       ],
       "done": false,
       "dueTime": "20min",
@@ -2456,17 +2479,17 @@
       "active": true
     },
     {
-      "id": "mqd4j7jcssv5n",
-      "taskId": "mqaomb5bjffrl",
+      "id": "mqeiv3fwp49l6",
+      "taskId": "mqdmgamit8vrb",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-06-15T08:01"
+        "triggerTime": "2026-06-15T11:11"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-06-14T01:47:05.832Z",
+      "createdAt": "2026-06-15T01:16:01.196Z",
       "lastReminderTime": null,
       "active": true
     }
