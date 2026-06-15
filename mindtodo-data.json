@@ -895,6 +895,35 @@
       },
       "projectId": "1780299661890",
       "subtasks": []
+    },
+    {
+      "id": "mqetas88nsm58",
+      "type": "task",
+      "content": "拆运一体发邮件",
+      "createdAt": "2026-06-15T06:08:09.320Z",
+      "updatedAt": "2026-06-15T06:08:09.320Z",
+      "tags": [
+        "C类-复杂-被动响应",
+        "拆运一体"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqetbbkoe5lb2",
+      "type": "task",
+      "content": "将自己的尝试放到项目管理中，做里程碑吧。",
+      "createdAt": "2026-06-15T06:08:34.392Z",
+      "updatedAt": "2026-06-15T06:08:34.392Z",
+      "tags": [
+        "数字化"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
