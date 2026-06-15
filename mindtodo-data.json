@@ -847,7 +847,7 @@
       "type": "task",
       "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
       "createdAt": "2026-06-14T10:09:04.926Z",
-      "updatedAt": "2026-06-15T01:17:41.554Z",
+      "updatedAt": "2026-06-15T02:27:29.593Z",
       "tags": [
         "生活"
       ],
@@ -859,6 +859,13 @@
           "id": "1781434839681",
           "content": "番茄鸡蛋卤子（小红书收藏的教程），超市买点牛肉片，",
           "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781490429176",
+          "content": "拌包菜-xhs的教程",
+          "done": false,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -899,9 +906,10 @@
       "type": "task",
       "content": "网安接单",
       "createdAt": "2026-06-15T01:38:21.355Z",
-      "updatedAt": "2026-06-15T01:38:21.355Z",
+      "updatedAt": "2026-06-15T01:44:59.546Z",
       "tags": [
-        "网安"
+        "网安",
+        "C类-复杂-被动响应"
       ],
       "done": false,
       "dueTime": "10min",
@@ -2507,15 +2515,30 @@
       "createdAt": "2026-06-15T01:16:01.196Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqelfi8qlt3pn",
+      "taskId": "mqdmgrkuk6jqb",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-16T10:12"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-15T02:27:52.730Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
     {
       "id": "mqdp79iap7qk49ak0op",
-      "content": "在喂多巴胺快乐。过度摄入多巴胺会摧毁孩子的自驱力和学习力，真正的学霸是能量高，自驱力和学习力强的孩子。所以我养娃，不会让他过度刷题，报班，走马观花的旅游，而是在学习主线外，给孩子找了很多支点。下面给大家分享我总结的一些方法：1生活支 点：培养孩子自理能力。\n家庭劳动日：每周六上午，是我们家雷打不动的家庭\n劳动日。我负责厨房，队友卫生间，儿子负责客厅。\n从擦桌子到整理书架。一开始儿子拖地像画画，现在\n都能独自换被套",
+      "content": "喂多巴胺快乐：过度摄入多巴胺会摧毁孩子的自驱力和学习力，真正的学霸是能量高，自驱力和学习力强的孩子。所以我养娃，是在学习主线外，给孩子找很多支点。生活支点：培养孩子自理能力。家庭劳动日：每周六上午，是我们家雷打不动的家庭劳动日。我负责厨房，队友卫生间，儿子负责客厅。从擦桌子到整理书架。一开始儿子拖地像画画，现在都能独自换被套。",
       "tags": [],
       "createdAt": "2026-06-14T11:25:40.451Z",
-      "updatedAt": "2026-06-14T11:25:40.451Z"
+      "updatedAt": "2026-06-15T02:29:26.430Z"
     },
     {
       "id": "mq8sg7f3rrfx9dl0a3p",
@@ -3213,6 +3236,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T01:19:40.296Z"
+    "lastSync": "2026-06-15T01:38:25.704Z"
   }
 }
