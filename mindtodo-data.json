@@ -846,7 +846,7 @@
       "type": "task",
       "content": "RPA网管验收",
       "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-15T07:01:07.529Z",
+      "updatedAt": "2026-06-15T09:28:32.302Z",
       "tags": [
         "RPA",
         "验收"
@@ -866,6 +866,13 @@
           "id": "1781505983489",
           "content": "核对两个流水号的信息",
           "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781515696851",
+          "content": "群里条4张单看看。",
+          "done": false,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -2604,6 +2611,21 @@
       "createdAt": "2026-06-15T07:38:48.577Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqf0gxj60lxwb",
+      "taskId": "mqeizp6q1gofx",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-16T08:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-15T09:28:53.442Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3331,6 +3353,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T08:50:58.898Z"
+    "lastSync": "2026-06-15T09:28:10.183Z"
   }
 }
