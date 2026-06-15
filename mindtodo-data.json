@@ -946,18 +946,19 @@
     {
       "id": "mqewk1ax988xy",
       "type": "task",
-      "content": "过退网单和拆运单",
+      "content": "过拆运单",
       "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-06-15T07:39:53.640Z",
+      "updatedAt": "2026-06-15T08:27:53.083Z",
       "tags": [
         "退网",
         "拆运一体"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mqewk5s6ko1hn"
+      "placedIn": null,
+      "doneAt": "2026-06-15T08:27:53.083Z"
     }
   ],
   "normalFeelings": [
@@ -1608,12 +1609,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mqewk5s6ko1hn",
-      "name": "B类-复杂-主动 15:40-16:10"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2521,7 +2517,7 @@
         "endTime": "16:10",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mqewk5s6ko1hn"
+        "slotId": null
       }
     ]
   },
@@ -3340,6 +3336,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T07:39:10.094Z"
+    "lastSync": "2026-06-15T08:06:08.675Z"
   }
 }
