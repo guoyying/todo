@@ -764,7 +764,7 @@
       "type": "task",
       "content": "我想用影刀+python组合开发出多种自动化小工具",
       "createdAt": "2026-06-12T08:46:04.271Z",
-      "updatedAt": "2026-06-15T06:48:45.915Z",
+      "updatedAt": "2026-06-15T07:38:17.661Z",
       "tags": [
         "AI"
       ],
@@ -775,9 +775,9 @@
         {
           "id": "1781486134407",
           "content": "完善价目表的其他分类和价格",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
-          "placedIn": "slot_mqeupli36jbeu"
+          "placedIn": null
         },
         {
           "id": "1781501553867",
@@ -1590,12 +1590,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mqeupli36jbeu",
-      "name": "C类-复杂-被动响应 14:50-15:20"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2494,7 +2489,7 @@
         "endTime": "15:20",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mqeupli36jbeu"
+        "slotId": null
       }
     ]
   },
@@ -2569,6 +2564,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-15T07:01:28.152Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqewjd6pirbyc",
+      "taskId": "mqdohjths9riw",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-16T08:08"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-15T07:38:48.577Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3298,6 +3308,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T07:07:14.864Z"
+    "lastSync": "2026-06-15T07:10:15.823Z"
   }
 }
