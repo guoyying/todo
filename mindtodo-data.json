@@ -869,9 +869,10 @@
       "type": "task",
       "content": "有无知识库问答助手可以返回对应视频链接？我希望提问比如：番茄鸡蛋面怎么做？能返回小红书或读音收藏的视频。",
       "createdAt": "2026-06-14T11:05:40.757Z",
-      "updatedAt": "2026-06-15T01:19:09.687Z",
+      "updatedAt": "2026-06-15T01:36:34.726Z",
       "tags": [
-        "AI"
+        "AI",
+        "B类-复杂-主动"
       ],
       "done": false,
       "dueTime": "20min",
@@ -890,6 +891,20 @@
       ],
       "done": false,
       "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqejntijusf1v",
+      "type": "task",
+      "content": "网安接单",
+      "createdAt": "2026-06-15T01:38:21.355Z",
+      "updatedAt": "2026-06-15T01:38:21.355Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": "10min",
       "unknown": false,
       "subtasks": []
     }
@@ -3198,6 +3213,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-14T11:25:48.066Z"
+    "lastSync": "2026-06-15T01:19:40.296Z"
   }
 }
