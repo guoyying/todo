@@ -1347,7 +1347,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                   margin-bottom: 6px !important;
               }
               
-              .scenario-card-title {
+               .scenario-card-title {
                   font-size: 12px !important;
                   margin-bottom: 4px !important;
               }
@@ -1367,7 +1367,128 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                   margin-bottom: 4px !important;
               }
              
-              /* 按钮组移动端优化 */
+               /* 按钮组移动端优化 */
+
+              /* ========== 练习表达模块样式 ========== */
+              /* 练习表达面板样式 */
+              #practiceExpressionPanel .modal {
+                  max-width: 900px;
+                  max-height: 90vh;
+                  display: flex;
+                  flex-direction: column;
+              }
+              
+              #practiceExpressionPanel .modal-header {
+                  padding: 12px 16px;
+                  border-bottom: 1px solid var(--border);
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+              }
+              
+              #practiceExpressionPanel .modal-body {
+                  padding: 16px;
+                  overflow-y: auto;
+                  flex: 1;
+              }
+              
+              /* 素材列表样式 */
+              .practice-material-item {
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 8px;
+                  padding: 8px;
+                  margin-bottom: 6px;
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: 6px;
+                  cursor: pointer;
+                  transition: all 0.2s ease;
+              }
+              
+              .practice-material-item:hover {
+                  border-color: var(--primary);
+                  box-shadow: 0 2px 8px rgba(107, 142, 107, 0.15);
+              }
+              
+              .practice-material-item.selected {
+                  border-color: var(--primary);
+                  background: var(--primary-light);
+              }
+              
+              .practice-material-checkbox {
+                  flex-shrink: 0;
+                  width: 18px;
+                  height: 18px;
+                  margin-top: 2px;
+                  cursor: pointer;
+              }
+              
+              .practice-material-content {
+                  flex: 1;
+                  min-width: 0;
+              }
+              
+              .practice-material-text {
+                  font-size: 13px;
+                  line-height: 1.5;
+                  color: var(--text);
+                  word-wrap: break-word;
+              }
+              
+              .practice-material-meta {
+                  font-size: 11px;
+                  color: var(--text-secondary);
+                  margin-top: 4px;
+              }
+              
+              /* 场景详情样式 */
+              #scenarioDetails {
+                  font-size: 13px;
+                  line-height: 1.6;
+              }
+              
+              /* AI 反馈内容样式 */
+              #aiFeedbackContent {
+                  line-height: 1.8;
+                  font-size: 14px;
+              }
+              
+              #aiFeedbackContent p {
+                  margin: 0.8em 0;
+              }
+              
+              #aiFeedbackContent ul,
+              #aiFeedbackContent ol {
+                  padding-left: 20px;
+                  margin: 0.8em 0;
+              }
+              
+              #aiFeedbackContent li {
+                  margin-bottom: 0.4em;
+              }
+              
+              #aiFeedbackContent strong {
+                  color: var(--primary);
+                  font-weight: 600;
+              }
+              
+              /* 移动端优化 */
+              @media (max-width: 768px) {
+                  #practiceExpressionPanel .modal {
+                      max-width: 100%;
+                      max-height: 100vh;
+                      border-radius: 0;
+                  }
+                  
+                  .practice-material-item {
+                      padding: 6px !important;
+                  }
+                  
+                  .practice-material-text {
+                      font-size: 12px !important;
+                  }
+              }
               .btn-group {
                   flex-direction: column !important;
                   gap: 6px !important;
@@ -5827,6 +5948,7 @@ padding: 7px !important;
                <div class="dropdown">
                    <button class="btn btn-secondary btn-small" onclick="toggleToolsDropdown()">🧰 工具</button>
                    <div id="toolsDropdown" class="dropdown-content">
+                       <a href="#" onclick="showPracticeExpressionPanel();toggleToolsDropdown();return false;">🎯 练习表达</a>
                        <a href="#" onclick="showAmmoLibraryPanel();toggleToolsDropdown();return false;">💎 弹药库</a>
                        <a href="#" onclick="showAiContentManager(true);toggleToolsDropdown();return false;">💾 AI 内容</a>
                        <a href="#" onclick="showTaskOrganizer();toggleToolsDropdown();return false;">📝 整理</a>
@@ -7501,7 +7623,111 @@ padding: 7px !important;
                     </div>
                 </div>
 
-                <!-- AI配置模态框 -->
+                <!-- 练习表达面板 -->
+                <div class="modal-overlay hidden" id="practiceExpressionPanel" onclick="hidePracticeExpressionPanel()">
+                    <div class="modal" onclick="event.stopPropagation()" style="max-width:900px;">
+                        <div class="modal-header">
+                            <h3>🎯 练习表达</h3>
+                            <button class="btn btn-secondary btn-small" onclick="closePracticeExpressionPanel()">关闭</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 顶部选项卡：素材库分类 -->
+                            <div class="type-select" style="margin-bottom:16px;">
+                                <div class="type-btn active" data-type="ammo" onclick="switchPracticeMaterialTab('ammo')">💎 弹药库</div>
+                                <div class="type-btn" data-type="knowledge" onclick="switchPracticeMaterialTab('knowledge')">📚 知识库</div>
+                                <div class="type-btn" data-type="task" onclick="switchPracticeMaterialTab('task')">📝 已整理任务</div>
+                            </div>
+
+                            <!-- 素材选择区域 -->
+                            <div id="practiceMaterialSection" style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                                    <label style="font-size:14px;font-weight:600;color:var(--text);">📦 选择素材</label>
+                                    <div style="font-size:12px;color:var(--text-secondary);" id="selectedMaterialCount">已选择 0 项</div>
+                                </div>
+                                <div id="practiceMaterialList" style="max-height:200px;overflow-y:auto;padding:8px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
+                                    <!-- 动态生成素材列表 -->
+                                </div>
+                            </div>
+
+                            <!-- 场景选择/管理 -->
+                            <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                                    <label style="font-size:14px;font-weight:600;color:var(--text);">🎬 场景</label>
+                                    <button class="btn btn-small btn-primary" onclick="showAddScenarioForm()">+ 新增场景</button>
+                                </div>
+                                <div style="display:flex;gap:8px;margin-bottom:8px;">
+                                    <select id="scenarioSelect" onchange="loadScenarioDetails()" style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                        <option value="">-- 选择场景 --</option>
+                                    </select>
+                                    <button class="btn btn-small btn-secondary" onclick="editCurrentScenario()">✏️ 编辑</button>
+                                    <button class="btn btn-small btn-secondary" onclick="deleteCurrentScenario()">🗑️ 删除</button>
+                                </div>
+                                <div id="scenarioDetails" style="font-size:13px;color:var(--text-secondary);padding:8px;background:var(--card);border-radius:6px;display:none;">
+                                    <!-- 场景详情 -->
+                                </div>
+                            </div>
+
+                            <!-- 问题输入 -->
+                            <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                                <div class="input-group">
+                                    <label>你想要什么风格？</label>
+                                    <input type="text" id="practiceQuestion" placeholder="例如：幽默/简短" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                </div>
+                                <div class="input-group" style="margin-top:12px;">
+                                    <label>表达时长多少？</label>
+                                    <input type="text" id="practiceDuration" placeholder="例如：3-5 分钟" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                </div>
+                            </div>
+
+                            <!-- 提示词编辑 -->
+                            <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                                    <label style="font-size:14px;font-weight:600;color:var(--text);">📝 提示词</label>
+                                    <button class="btn btn-small btn-secondary" onclick="regeneratePrompt()">🔄 重新生成</button>
+                                </div>
+                                <textarea id="practicePrompt" rows="6" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;font-family:monospace;resize:vertical;" placeholder="提示词将自动合并素材、问题和回答内容..."></textarea>
+                            </div>
+
+                            <!-- AI 反馈按钮 -->
+                            <div style="display:flex;gap:12px;">
+                                <button class="btn btn-primary" onclick="submitForAIFeedback()" style="white-space:nowrap;padding:8px 16px;">🤖 获取 AI 反馈</button>
+                                <button class="btn btn-secondary" onclick="clearPracticeForm()" style="white-space:nowrap;padding:8px 16px;">🗑️ 清空表单</button>
+                            </div>
+
+                            <!-- AI 反馈结果 -->
+                            <div id="aiFeedbackSection" style="margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:none;">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                                    <h4 style="margin:0;font-size:14px;">💡 AI 反馈</h4>
+                                    <button class="btn btn-small btn-primary" onclick="addFeedbackAsTodo()">➕ 添加为待办</button>
+                                </div>
+                                <div id="aiFeedbackContent" style="padding:12px;background:var(--card);border-radius:6px;border:1px solid var(--border);line-height:1.8;font-size:14px;">
+                                    <!-- AI 反馈内容 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新增场景弹窗 -->
+                <div class="modal-overlay hidden" id="addScenarioModal" onclick="closeAddScenarioModal()">
+                    <div class="modal" onclick="event.stopPropagation()">
+                        <h3>➕ 新增场景</h3>
+                        <div class="input-group">
+                            <label>场景名称</label>
+                            <input type="text" id="newScenarioName" placeholder="例如：团队会议汇报">
+                        </div>
+                        <div class="input-group">
+                            <label>场景描述</label>
+                            <textarea id="newScenarioDescription" rows="4" placeholder="描述这个场景的特点和注意事项..."></textarea>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-secondary" onclick="closeAddScenarioModal()">取消</button>
+                            <button class="btn btn-primary" onclick="saveNewScenario()">保存</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI 配置模态框 -->
                  <div class="modal-overlay hidden" id="aiConfigModal">
           <div class="modal">
               <h3>⚙️ AI配置</h3>
@@ -8864,7 +9090,10 @@ ${taskContent}
                    { id: 'moonshot-v1-32k', name: 'Kimi 32K', provider: 'moonshot' },
                    { id: 'moonshot-v1-128k', name: 'Kimi 128K', provider: 'moonshot' }
               ]
-          }
+          },
+         // 练习表达模块数据
+         practiceScenarios: [], // 场景管理 [{id, name, description, practiceCount, createdAt, updatedAt}]
+         practiceMaterialStats: {} // 素材练习次数统计 {materialId: {type: 'ammo'|'knowledge'|'task', count: 0}}
      };
         let editingId = null;
         let recording = null;
@@ -8973,8 +9202,16 @@ ${taskContent}
                             if (parsed.aiConfig.apiKey && !data.aiConfig.apiKeys.openai) {
                                 data.aiConfig.apiKeys.openai = parsed.aiConfig.apiKey;
                             }
-                            // 不覆盖models数组，保持最新的模型列表
-                            // models数组在代码中定义，包含所有支持的模型
+                            // 不覆盖 models 数组，保持最新的模型列表
+                            // models 数组在代码中定义，包含所有支持的模型
+                        }
+                        
+                        // 加载练习表达模块数据
+                        if (parsed.practiceScenarios) {
+                            data.practiceScenarios = parsed.practiceScenarios;
+                        }
+                        if (parsed.practiceMaterialStats) {
+                            data.practiceMaterialStats = parsed.practiceMaterialStats;
                         }
                  } catch(e) { console.error('Load data error:', e); }
              }
@@ -15072,7 +15309,10 @@ ${taskContent}
                   projects: data.projects,
                   aiContents: data.aiContents,
                   trackerConfig: data.trackerConfig,
-                 aiConfig: {
+                  // 练习表达模块数据
+                  practiceScenarios: data.practiceScenarios,
+                  practiceMaterialStats: data.practiceMaterialStats,
+                  aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
                      models: data.aiConfig.models
@@ -16510,6 +16750,9 @@ ${taskContent}
                   if (remote.projects) data.projects = remote.projects;
                   if (remote.aiContents) data.aiContents = remote.aiContents;
                   if (remote.trackerConfig) data.trackerConfig = remote.trackerConfig;
+                  // 拉取练习表达模块数据
+                  if (remote.practiceScenarios) data.practiceScenarios = remote.practiceScenarios;
+                  if (remote.practiceMaterialStats) data.practiceMaterialStats = remote.practiceMaterialStats;
                  if (remote.aiConfig) {
                      if (remote.aiConfig.enabled !== undefined) data.aiConfig.enabled = remote.aiConfig.enabled;
                      if (remote.aiConfig.model) data.aiConfig.model = remote.aiConfig.model;
@@ -16964,7 +17207,7 @@ ${taskContent}
  2. 共情与确认
  3. 提炼关键逻辑
  4. 价值升华
- 5. 使用emoji增加可读性（如性（如💭、🏷️、💡等）`;
+ 5. 使用emoji增加可读性（如💭、🏷️、💡等）`;
  customPromptInput.value = defaultPromptText;
  
  // 填充模型选择器
@@ -17092,7 +17335,7 @@ ${taskContent}
    2. 共情与确认
    3. 提炼关键逻辑
    4. 价值升华
-   5.使用emoji增加可读性（如性（如💭、🏷️、💡等）
+   5.使用emoji增加可读性（如💭、🏷️、💡等）
    
    文本：${content}`;
               
@@ -25622,6 +25865,502 @@ function manualCloseOrganizerAiPanel() {
                 tagPool.style.display = 'none';
             }
         }
+    }
+
+    // ========== 练习表达模块功能 ==========
+    let currentPracticeMaterialTab = 'ammo'; // 当前素材选项卡：ammo, knowledge, task
+    let selectedMaterials = []; // 已选择的素材 [{id, type, content, meta}]
+    let currentEditingScenarioId = null; // 当前编辑的场景 ID
+
+        // 显示练习表达面板
+        function showPracticeExpressionPanel() {
+            console.log('打开练习表达面板');
+            document.getElementById('practiceExpressionPanel').classList.remove('hidden');
+            initPracticeExpressionPanel();
+        }
+    
+        // 隐藏练习表达面板（点击遮罩层调用，只隐藏不清空）
+        function hidePracticeExpressionPanel() {
+            console.log('隐藏练习表达面板');
+            document.getElementById('practiceExpressionPanel').classList.add('hidden');
+        }
+    
+        // 关闭练习表达面板（点击关闭按钮调用，隐藏并清空表单）
+        function closePracticeExpressionPanel() {
+            console.log('关闭练习表达面板');
+            document.getElementById('practiceExpressionPanel').classList.add('hidden');
+            // 清空表单
+            clearPracticeForm();
+        }
+    // 初始化练习表达面板
+    function initPracticeExpressionPanel() {
+        // 渲染场景选择器
+        renderScenarioSelect();
+        // 渲染素材列表（默认弹药库）
+        renderPracticeMaterialList();
+    }
+
+    // 切换素材选项卡
+    function switchPracticeMaterialTab(tabType) {
+        currentPracticeMaterialTab = tabType;
+        
+        // 更新选项卡样式
+        document.querySelectorAll('#practiceExpressionPanel .type-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.type === tabType) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // 清空已选素材
+        selectedMaterials = [];
+        updateSelectedMaterialCount();
+        
+        // 重新渲染素材列表
+        renderPracticeMaterialList();
+    }
+
+    // 渲染素材列表
+    function renderPracticeMaterialList() {
+        const container = document.getElementById('practiceMaterialList');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        let materials = [];
+        
+        if (currentPracticeMaterialTab === 'ammo') {
+            // 弹药库
+            materials = (data.ammoLibrary || []).map(ammo => ({
+                id: ammo.id,
+                type: 'ammo',
+                content: ammo.content,
+                meta: `创建时间：${ammo.createdAt || '未知'}`,
+                practiceCount: data.practiceMaterialStats[ammo.id]?.count || 0
+            }));
+        } else if (currentPracticeMaterialTab === 'knowledge') {
+            // 知识库
+            materials = (data.knowledgeBase || []).map(kb => ({
+                id: kb.id,
+                type: 'knowledge',
+                content: kb.content,
+                meta: `标签：${(kb.tags || []).join(' ') || '无'} | 更新：${kb.updatedAt || '未知'}`,
+                practiceCount: data.practiceMaterialStats[kb.id]?.count || 0
+            }));
+        } else if (currentPracticeMaterialTab === 'task') {
+            // 已整理任务（type 为 task、done 为 true、有 organization 字段）
+            materials = (data.tasks || [])
+                .filter(task => task.type === 'task' && task.done === true && task.organization)
+                .map(task => ({
+                    id: task.id,
+                    type: 'task',
+                    content: task.content,
+                    orgData: task.organization, // 保存 organization 对象，用于生成提示词时合并
+                    meta: `完成时间：${task.doneAt || '未知'} | 练习 ${data.practiceMaterialStats[task.id]?.count || 0} 次`,
+                    practiceCount: data.practiceMaterialStats[task.id]?.count || 0
+                }));
+        }
+        
+        if (materials.length === 0) {
+            container.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-secondary);font-size:13px;">暂无素材</div>';
+            return;
+        }
+        
+        materials.forEach(material => {
+            const isSelected = selectedMaterials.some(m => m.id === material.id && m.type === material.type);
+            const practiceCount = material.practiceCount || 0;
+            
+            const item = document.createElement('div');
+            item.className = 'practice-material-item' + (isSelected ? ' selected' : '');
+            item.onclick = (e) => {
+                if (e.target.type !== 'checkbox') {
+                    toggleMaterialSelection(material);
+                }
+            };
+            
+            item.innerHTML = `
+                <input type="checkbox" class="practice-material-checkbox" ${isSelected ? 'checked' : ''}
+                    onclick="event.stopPropagation(); toggleMaterialSelection({id: '${material.id}', type: '${material.type}', content: '${escapeHtml(material.content)}', meta: '${escapeHtml(material.meta)}', practiceCount: ${practiceCount}})">
+                <div class="practice-material-content">
+                    <div class="practice-material-text">${escapeHtml(material.content)}</div>
+                    <div class="practice-material-meta">
+                        ${material.meta} | 练习${practiceCount}次
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(item);
+        });
+    }
+
+    // 切换素材选择
+    function toggleMaterialSelection(material) {
+        const index = selectedMaterials.findIndex(m => m.id === material.id && m.type === material.type);
+        
+        if (index > -1) {
+            // 取消选择
+            selectedMaterials.splice(index, 1);
+        } else {
+            // 添加选择
+            selectedMaterials.push(material);
+        }
+        
+        updateSelectedMaterialCount();
+        renderPracticeMaterialList();
+        regeneratePrompt();
+    }
+
+    // 更新已选素材计数
+    function updateSelectedMaterialCount() {
+        const counter = document.getElementById('selectedMaterialCount');
+        if (counter) {
+            counter.textContent = `已选择 ${selectedMaterials.length} 项`;
+        }
+    }
+
+    // 渲染场景选择器
+    function renderScenarioSelect() {
+        const select = document.getElementById('scenarioSelect');
+        if (!select) return;
+        
+        select.innerHTML = '<option value="">-- 选择场景 --</option>';
+        
+        (data.practiceScenarios || []).forEach(scenario => {
+            const option = document.createElement('option');
+            option.value = scenario.id;
+            option.textContent = `${scenario.name} (练习${scenario.practiceCount || 0}次)`;
+            select.appendChild(option);
+        });
+    }
+
+    // 加载场景详情
+    function loadScenarioDetails() {
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        const details = document.getElementById('scenarioDetails');
+        
+        if (!scenarioId || !details) {
+            details.style.display = 'none';
+            return;
+        }
+        
+        const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
+        if (!scenario) {
+            details.style.display = 'none';
+            return;
+        }
+        
+        details.style.display = 'block';
+        details.innerHTML = `
+            <strong>${scenario.name}</strong><br>
+            ${scenario.description || '无描述'}<br>
+            <span style="font-size:12px;color:var(--text-secondary);margin-top:4px;display:block;">
+                创建：${scenario.createdAt || '未知'} | 最后更新：${scenario.updatedAt || '未知'} | 练习次数：${scenario.practiceCount || 0}
+            </span>
+        `;
+    }
+
+    // 显示新增场景表单
+    function showAddScenarioForm() {
+        currentEditingScenarioId = null;
+        document.getElementById('newScenarioName').value = '';
+        document.getElementById('newScenarioDescription').value = '';
+        document.getElementById('addScenarioModal').classList.remove('hidden');
+    }
+
+    // 关闭新增场景弹窗
+    function closeAddScenarioModal() {
+        document.getElementById('addScenarioModal').classList.add('hidden');
+    }
+
+    // 保存新场景
+    function saveNewScenario() {
+        const name = document.getElementById('newScenarioName').value.trim();
+        const description = document.getElementById('newScenarioDescription').value.trim();
+        
+        if (!name) {
+            showToast('请输入场景名称');
+            return;
+        }
+        
+        if (currentEditingScenarioId) {
+            // 编辑现有场景
+            const scenario = data.practiceScenarios.find(s => s.id === currentEditingScenarioId);
+            if (scenario) {
+                scenario.name = name;
+                scenario.description = description;
+                scenario.updatedAt = new Date().toISOString();
+            }
+        } else {
+            // 新增场景
+            const newScenario = {
+                id: genId(),
+                name: name,
+                description: description,
+                practiceCount: 0,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            data.practiceScenarios.push(newScenario);
+        }
+        
+        saveData();
+        renderScenarioSelect();
+        closeAddScenarioModal();
+        showToast('场景已保存');
+    }
+
+    // 编辑当前场景
+    function editCurrentScenario() {
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        if (!scenarioId) {
+            showToast('请先选择场景');
+            return;
+        }
+        
+        const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
+        if (!scenario) {
+            showToast('场景不存在');
+            return;
+        }
+        
+        currentEditingScenarioId = scenario.id;
+        document.getElementById('newScenarioName').value = scenario.name;
+        document.getElementById('newScenarioDescription').value = scenario.description || '';
+        document.getElementById('addScenarioModal').classList.remove('hidden');
+    }
+
+    // 删除当前场景
+    function deleteCurrentScenario() {
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        if (!scenarioId) {
+            showToast('请先选择场景');
+            return;
+        }
+        
+        if (!confirm('确定要删除这个场景吗？')) {
+            return;
+        }
+        
+        const index = data.practiceScenarios.findIndex(s => s.id === scenarioId);
+        if (index > -1) {
+            data.practiceScenarios.splice(index, 1);
+            saveData();
+            renderScenarioSelect();
+            document.getElementById('scenarioSelect').value = '';
+            loadScenarioDetails();
+            showToast('场景已删除');
+        }
+    }
+
+    // 重新生成提示词
+    function regeneratePrompt() {
+        const promptArea = document.getElementById('practicePrompt');
+        if (!promptArea) return;
+        
+        const question = document.getElementById('practiceQuestion').value.trim();
+        const duration = document.getElementById('practiceDuration').value.trim();
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        
+        let prompt = '请帮助我练习表达。\n\n';
+        
+        // 添加场景信息
+        if (scenarioId) {
+            const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
+            if (scenario) {
+                prompt += `【场景】\n${scenario.name}\n${scenario.description || ''}\n\n`;
+            }
+        }
+        
+        // 添加用户输入的问题
+        if (question) {
+            prompt += `【风格】\n${question}\n\n`;
+        }
+        
+        // 添加时长
+        if (duration) {
+            prompt += `【表达时长】\n${duration}\n\n`;
+        }
+        
+        // 添加素材
+        if (selectedMaterials.length > 0) {
+            prompt += `【参考素材】\n`;
+            selectedMaterials.forEach((material, index) => {
+                let content = `${index + 1}. ${material.content}`;
+                // 对于已整理任务，添加 organization 内容
+                if (material.type === 'task' && material.orgData) {
+                    const org = material.orgData;
+                    const orgParts = [];
+                    if (org.goal) orgParts.push(`🎯 目标：${org.goal}`);
+                    if (org.completion) orgParts.push(`✅ 完成情况：${org.completion}`);
+                    if (org.skills) orgParts.push(`📚 技能提升：${org.skills}`);
+                    if (org.success) orgParts.push(`🌟 成功经验：${org.success}`);
+                    if (org.problems) orgParts.push(`⚠️ 遇到问题：${org.problems}`);
+                    if (org.summary) orgParts.push(`📝 总结：${org.summary}`);
+                    if (orgParts.length > 0) {
+                        content += `\n\n【整理说明】\n${orgParts.join('\n\n')}`;
+                    }
+                }
+                prompt += `${content}\n`;
+            });
+            prompt += '\n';
+        }
+        
+        prompt += `【你的任务】\n请根据以上信息，为我提供表达内容。`;
+        
+        promptArea.value = prompt;
+    }
+
+    // 清空表单
+    function clearPracticeForm() {
+        document.getElementById('practiceQuestion').value = '';
+        document.getElementById('practiceDuration').value = '';
+        document.getElementById('practicePrompt').value = '';
+        document.getElementById('aiFeedbackSection').style.display = 'none';
+        document.getElementById('scenarioSelect').value = '';
+        loadScenarioDetails();
+        selectedMaterials = [];
+        updateSelectedMaterialCount();
+        renderPracticeMaterialList();
+    }
+
+    // 提交获取 AI 反馈
+    async function submitForAIFeedback() {
+        const prompt = document.getElementById('practicePrompt').value.trim();
+        
+        if (!prompt) {
+            showToast('请先生成提示词');
+            return;
+        }
+        
+        if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+            showToast('请先启用 AI 功能并配置 API 密钥');
+            showAiConfigModal();
+            return;
+        }
+        
+        const feedbackContent = document.getElementById('aiFeedbackContent');
+        const feedbackSection = document.getElementById('aiFeedbackSection');
+        
+        feedbackContent.innerHTML = '<div style="color:var(--text-secondary);padding:20px;text-align:center;">🤖 AI 正在思考...</div>';
+        feedbackSection.style.display = 'block';
+        
+        try {
+            // 传递空字符串作为 content，自定义提示词作为第三个参数
+            // 这样 callAiApi 会直接使用自定义提示词，不会追加额外的"文本："内容
+            const response = await callAiApi('', data.aiConfig.model, prompt);
+            
+            // 格式化 Markdown 响应
+            const formattedResponse = formatAiResponse(response);
+            feedbackContent.innerHTML = formattedResponse;
+            
+            // 记录练习次数
+            recordPracticeSession();
+            
+            showToast('AI 反馈已生成');
+        } catch (error) {
+            console.error('AI 反馈失败:', error);
+            feedbackContent.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center;">❌ AI 反馈失败：${error.message}</div>`;
+            showToast('AI 反馈失败，请检查 API 配置');
+        }
+    }
+
+    // 记录练习会话
+    function recordPracticeSession() {
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        
+        // 更新场景练习次数
+        if (scenarioId) {
+            const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
+            if (scenario) {
+                scenario.practiceCount = (scenario.practiceCount || 0) + 1;
+                scenario.updatedAt = new Date().toISOString();
+            }
+        }
+        
+        // 更新素材练习次数
+        selectedMaterials.forEach(material => {
+            if (!data.practiceMaterialStats[material.id]) {
+                data.practiceMaterialStats[material.id] = {
+                    type: material.type,
+                    count: 0
+                };
+            }
+            data.practiceMaterialStats[material.id].count++;
+        });
+        
+        saveData();
+        
+        // 重新渲染场景选择器（更新练习次数）
+        renderScenarioSelect();
+        
+        // 重新渲染素材列表（更新练习次数）
+        renderPracticeMaterialList();
+    }
+
+    // 添加反馈为待办
+    function addFeedbackAsTodo() {
+        const feedbackContent = document.getElementById('aiFeedbackContent').innerHTML;
+        
+        if (!feedbackContent || feedbackContent.includes('AI 正在思考') || feedbackContent.includes('AI 反馈失败')) {
+            showToast('没有可添加的反馈内容');
+            return;
+        }
+        
+        // 提取纯文本内容
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = feedbackContent;
+        const plainText = tempDiv.textContent || tempDiv.innerText || '';
+        
+        if (!plainText.trim()) {
+            showToast('反馈内容为空');
+            return;
+        }
+        
+        // 创建待办任务
+        const question = document.getElementById('practiceQuestion').value.trim();
+        const newTask = {
+            id: genId(),
+            type: 'task',
+            content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText.substring(0, 500)}${plainText.length > 500 ? '...' : ''}`,
+            done: false,
+            createdAt: new Date().toISOString(),
+            tags: ['练习表达']
+        };
+        
+        data.tasks.push(newTask);
+        saveData();
+        renderTaskList();
+        
+        showToast('已添加为待办');
+    }
+
+    // 格式化 AI 响应
+    function formatAiResponse(markdown) {
+        if (!markdown) return '';
+        
+        let html = markdown
+            .replace(/###\s+(.+?)(?=\n|$)/g, '<h3 style="margin:16px 0 8px 0;font-size:15px;color:var(--primary);">$1</h3>')
+            .replace(/##\s+(.+?)(?=\n|$)/g, '<h2 style="margin:18px 0 10px 0;font-size:16px;color:var(--primary);border-bottom:1px solid var(--border);padding-bottom:4px;">$1</h2>')
+            .replace(/#\s+(.+?)(?=\n|$)/g, '<h1 style="margin:20px 0 12px 0;font-size:18px;color:var(--primary);">$1</h1>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--text);font-weight:600;">$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em style="font-style:italic;">$1</em>')
+            .replace(/~~(.+?)~~/g, '<del style="color:var(--text-secondary);">$1</del>')
+            .replace(/`(.+?)`/g, '<code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px;font-family:monospace;">$1</code>')
+            .replace(/```([\s\S]*?)```/g, '<pre style="background:var(--bg);padding:12px;border-radius:6px;overflow-x:auto;margin:12px 0;"><code>$1</code></pre>')
+            .replace(/\n-\s+(.+)$/gm, '<div style="margin:6px 0;padding-left:16px;">• $1</div>')
+            .replace(/\n\d+\.\s+(.+)$/gm, '<div style="margin:6px 0;padding-left:16px;">$1</div>')
+            .replace(/\n\n/g, '<div style="margin:12px 0;"></div>')
+            .replace(/\n/g, '<br/>');
+        
+        return html;
+    }
+
+    // 转义 HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
     }
     </script>
 
