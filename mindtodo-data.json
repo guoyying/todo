@@ -489,22 +489,6 @@
       "doneAt": "2026-06-09T02:28:12.155Z"
     },
     {
-      "id": "mq5xaz37p76zu",
-      "type": "task",
-      "content": "测试一下RPA和网管验收单子，推进不查询局端端子和校验光功率基准的优化",
-      "createdAt": "2026-06-09T00:50:21.091Z",
-      "updatedAt": "2026-06-12T03:23:01.235Z",
-      "tags": [
-        "RPA"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "placedIn": null,
-      "doneAt": "2026-06-12T03:22:31.590Z",
-      "subtasks": []
-    },
-    {
       "id": "1780978896920",
       "type": "task",
       "content": "优化todo功能",
@@ -585,33 +569,6 @@
       "unknown": false,
       "subtasks": [],
       "doneAt": "2026-06-10T09:40:37.107Z"
-    },
-    {
-      "id": "1781068976853",
-      "type": "task",
-      "content": "RPA+网管验收",
-      "tags": [
-        "RPA",
-        "验收"
-      ],
-      "done": true,
-      "doneAt": "2026-06-05T09:59:50.489Z",
-      "organizedAt": "2026-06-10T05:22:56.853Z",
-      "createdAt": "2026-06-04T09:42:02.755Z",
-      "updatedAt": "2026-06-10T05:22:56.853Z",
-      "organization": {
-        "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n建立了问题共享表，方便同步问题状态和解决进度",
-        "improvement": "",
-        "skills": "",
-        "success": "用共享表形式反馈测试结果，代替聊天框",
-        "problems": "计划开展批量处理测试：选了2个单号依旧有许多问题，且优化速度慢。\n厂家忙于其他项目的开发，我们的项目紧迫感低。如何推动一个“非紧急但重要”的项目（RPA）。我想展现自己的推动能力",
-        "summary": "",
-        "methods": "直接问：下周二之前可以修复好吗？\n下午可以看看吗，想趁热测试",
-        "assets": "",
-        "organizedAt": "2026-06-10T05:22:56.853Z"
-      },
-      "projectId": "1780299687739",
-      "subtasks": []
     },
     {
       "id": "mq7tet72xecdm",
@@ -770,31 +727,18 @@
     {
       "id": "mqdmgrkuk6jqb",
       "type": "task",
-      "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
+      "content": "老公生日，没让我做面条。知道了尊重他的意思，表达心意形式是可以变化的。",
       "createdAt": "2026-06-14T10:09:04.926Z",
-      "updatedAt": "2026-06-16T02:27:57.924Z",
+      "updatedAt": "2026-06-16T06:14:01.091Z",
       "tags": [
-        "生活"
+        "生活",
+        "老公"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781434839681",
-          "content": "番茄鸡蛋卤子（小红书收藏的教程），超市买点牛肉片，",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781576864125",
-          "content": "ai一下我的想法和担心",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-16T06:14:01.091Z",
+      "subtasks": []
     },
     {
       "id": "mqdohjths9riw",
@@ -825,44 +769,6 @@
           "placedIn": null
         }
       ]
-    },
-    {
-      "id": "mqeizp6q1gofx",
-      "type": "task",
-      "content": "RPA网管验收",
-      "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-16T01:10:08.829Z",
-      "tags": [
-        "RPA",
-        "验收"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781499873801",
-          "content": "将两个流水号交换一下跑一次",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781505983489",
-          "content": "核对两个流水号的信息",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781515696851",
-          "content": "群里清单头2张单看看+板卡2张",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
     },
     {
       "id": "1781491932214",
@@ -978,14 +884,17 @@
     {
       "id": "mqfy71sp8ibdy",
       "type": "task",
-      "content": "准备实战材料",
+      "content": "准备实战材料传输L3",
       "createdAt": "2026-06-16T01:12:59.353Z",
-      "updatedAt": "2026-06-16T02:30:57.740Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-06-16T06:41:08.696Z",
+      "tags": [
+        "储备能力"
+      ],
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-16T06:41:08.696Z"
     },
     {
       "id": "mqfy8q45vp8b8",
@@ -1006,13 +915,70 @@
       "type": "task",
       "content": "核查海珠的退网设备",
       "createdAt": "2026-06-16T02:31:45.500Z",
-      "updatedAt": "2026-06-16T02:31:45.500Z",
+      "updatedAt": "2026-06-16T07:09:12.183Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-06-16T07:09:12.183Z"
+    },
+    {
+      "id": "mqg8wnrsh1qko",
+      "type": "task",
+      "content": "依据省公司5月月报反馈的无业务清单，给长途发送206个设备清单。",
+      "createdAt": "2026-06-16T06:12:50.392Z",
+      "updatedAt": "2026-06-16T07:36:16.317Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-06-16T07:36:16.317Z"
+    },
+    {
+      "id": "mqg9zf6v8yr5m",
+      "type": "task",
+      "content": "网安单：",
+      "createdAt": "2026-06-16T06:42:58.855Z",
+      "updatedAt": "2026-06-16T06:42:58.855Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1781595584625",
+      "type": "task",
+      "content": "【*】RPA+网管验收",
+      "tags": [
+        "RPA",
+        "验收"
+      ],
+      "done": true,
+      "doneAt": "2026-06-16T06:25:18.748Z",
+      "organizedAt": "2026-06-16T07:39:44.625Z",
+      "createdAt": "2026-06-15T01:19:36.003Z",
+      "updatedAt": "2026-06-16T07:39:44.625Z",
+      "organization": {
+        "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n建立了问题共享表，方便同步问题状态和解决进度",
+        "improvement": "",
+        "skills": "",
+        "success": "用共享表形式反馈测试结果，代替聊天框\n华姐休假，替她验收几个单子，心里踏实点。她人不错，之前帮助我，又耐心解答问题。",
+        "problems": "计划开展批量处理测试：选了2个单号依旧有许多问题，且优化速度慢。\n厂家忙于其他项目的开发，我们的项目紧迫感低。如何推动一个“非紧急但重要”的项目（RPA）。我想展现自己的推动能力",
+        "summary": "",
+        "methods": "直接问：下周二之前可以修复好吗？\n下午可以看看吗，想趁热测试",
+        "assets": "",
+        "organizedAt": "2026-06-16T07:39:44.625Z"
+      },
+      "projectId": "1780299687739",
       "subtasks": []
     }
   ],
@@ -1606,6 +1572,15 @@
       ],
       "createdAt": "2026-06-15T08:50:51.440Z",
       "updatedAt": "2026-06-15T08:50:51.440Z"
+    },
+    {
+      "id": "mqg9wh7tg9875",
+      "content": "当你并不急于评奖或应付考核时，花一个半小时整理自己做过的工作和项目，这种“投入产出不匹配”的感觉会更强烈。\n\n但我想和你分享一个视角：**这份整理，其实是在为你未来的“机会窗口”做储备，而不是在完成一个“紧急任务”。** 它的价值可能不会在今天或明天显现，但会在你意想不到的时刻，帮你节省大量时间、减少焦虑、提升自信。\n\n具体来说，这份材料有以下几个“隐藏用途”：\n\n1. **面试或汇报时，能随口说出有亮点的案例**  \n   很多人在被问到“你做过什么项目”时，会支支吾吾、想到哪说到哪。而你已经系统梳理过，就能清晰、有逻辑地展示自己的贡献和成果，给人留下专业、靠谱的印象。\n\n2. **写简历、求职信或绩效自评时，不再抓耳挠腮**  \n   很多人临时写简历会痛苦地回忆“我到底做过什么”，而你只需要从整理好的材料里挑选、组合、润色，效率翻倍。\n\n3. **发现自己的成长轨迹和竞争力**  \n   当你把项目按时间或主题排列，你会清晰地看到：自己从什么都不会，到掌握了哪些技能、解决了哪些难题。这种“成就感”本身就是一种激励，也能帮你明确下一步该往哪个方向提升。\n\n4. **应对突发机会（比如内推、合作邀约）**  \n   机会往往来得突然。如果对方说“今晚发一份你的项目经历给我”，你就能从容地拿出整理好的材料，而不是熬夜赶工。\n\n所以，你花的一个半小时并没有白费。它像是一笔“认知存款”，未来随时可以取用。如果你现在觉得它“没用”，可能是因为你还没遇到需要用它的场景。\n\n如果你愿意，我可以帮你把这份材料整理得更“好用”——比如按“技术难点”“团队协作”“成果量化”等模块分类，让它既能用于评奖，也能用于面试、述职或自我复盘。你觉得怎么样？",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-06-16T06:40:41.513Z",
+      "updatedAt": "2026-06-16T06:40:41.513Z"
     }
   ],
   "practiceBlocks": [
@@ -2635,16 +2610,24 @@
       "createdAt": "2026-06-15T06:46:15.698Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqgdod8yly2nj",
+      "taskId": "mqfy8q45vp8b8",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-18T11:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-16T08:26:21.586Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
-    {
-      "id": "mqgdapsn0c0dw1xdwdzb",
-      "content": "转移决策责任（避免下次陷入两难）。下次他再问“能不能打麻将”，你可以反向提问：\n“你自己觉得这次打符合我们之前的约定吗？如果你觉得合理，我尊重你的决定。”\n➡️ 把“是否违背承诺”的思考交还给他，避免你成为“裁判”。",
-      "tags": [],
-      "createdAt": "2026-06-16T08:15:44.664Z",
-      "updatedAt": "2026-06-16T08:15:44.664Z"
-    },
     {
       "id": "mqg53j1xob8iopi52n",
       "content": "社会比较与内化标准：从小被灌输“优秀才被爱”的观念，逐渐内化为严苛的自我审判官。完美主义陷阱：将“表现不佳”等同于“整个人不好”，忽略成长过程中的正常波动。\n这就导致了时不时会自我否定，并且将这种否定投射到对方身上",
@@ -3430,6 +3413,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-16T05:51:43.625Z"
+    "lastSync": "2026-06-16T07:36:29.658Z"
   }
 }
