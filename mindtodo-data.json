@@ -770,31 +770,18 @@
     {
       "id": "mqdmgrkuk6jqb",
       "type": "task",
-      "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
+      "content": "老公生日，没让我做面条。知道了尊重他的意思，表达心意形式是可以变化的。",
       "createdAt": "2026-06-14T10:09:04.926Z",
-      "updatedAt": "2026-06-16T02:27:57.924Z",
+      "updatedAt": "2026-06-16T06:14:01.091Z",
       "tags": [
-        "生活"
+        "生活",
+        "老公"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781434839681",
-          "content": "番茄鸡蛋卤子（小红书收藏的教程），超市买点牛肉片，",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781576864125",
-          "content": "ai一下我的想法和担心",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-16T06:14:01.091Z",
+      "subtasks": []
     },
     {
       "id": "mqdohjths9riw",
@@ -1012,6 +999,20 @@
       ],
       "done": false,
       "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqg8wnrsh1qko",
+      "type": "task",
+      "content": "将桌面退网的excel和ppt放到退网文件夹，找到26年省公司算的目标清单吧。",
+      "createdAt": "2026-06-16T06:12:50.392Z",
+      "updatedAt": "2026-06-16T06:12:50.392Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "15min",
       "unknown": false,
       "subtasks": []
     }
