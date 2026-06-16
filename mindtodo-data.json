@@ -801,7 +801,7 @@
       "type": "task",
       "content": "有无知识库问答助手可以返回对应视频链接？我希望提问比如：番茄鸡蛋面怎么做？能返回小红书或读音收藏的视频。",
       "createdAt": "2026-06-14T11:05:40.757Z",
-      "updatedAt": "2026-06-15T06:48:33.575Z",
+      "updatedAt": "2026-06-16T01:11:44.771Z",
       "tags": [
         "AI",
         "B类-复杂-主动"
@@ -813,6 +813,13 @@
         {
           "id": "1781506092315",
           "content": "打开内容管理找到第一步，deepseek搜索怎么获取小红书收藏-api？",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781572300271",
+          "content": "在电脑浏览器上访问小红书网页版并登录 。  点击右上角的头像，进入 “设置与隐私” -> “账户设置” -> “数据管理” 。  点击 “个人信息导出”，在弹出的窗口中勾选 “收藏”，然后提交申请 。  小红书会在24小时内将数据下载链接发送到你的绑定邮箱。下载的压缩包里会有一个 collection.json 文件，里面就包含了你的收藏夹信息。",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -824,7 +831,7 @@
       "type": "task",
       "content": "RPA网管验收",
       "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-15T09:28:32.302Z",
+      "updatedAt": "2026-06-16T01:10:08.829Z",
       "tags": [
         "RPA",
         "验收"
@@ -849,7 +856,7 @@
         },
         {
           "id": "1781515696851",
-          "content": "群里条4张单看看。",
+          "content": "群里清单头2张单看看+板卡2张",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -949,11 +956,47 @@
     {
       "id": "mqf0igjvi1ni9",
       "type": "task",
-      "content": "给省公司反馈弱口令核查结果吧。",
+      "content": "给省公司反馈弱口令核查结果吧。内容：已完成设备弱口令排查，反馈设备交付时已完成密码修改。",
       "createdAt": "2026-06-15T09:30:04.747Z",
-      "updatedAt": "2026-06-15T09:30:04.747Z",
+      "updatedAt": "2026-06-16T01:12:42.802Z",
       "tags": [
         "网安"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": [
+        {
+          "id": "1781572086168",
+          "content": "抄送给高华、泳哥",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
+    },
+    {
+      "id": "mqfy71sp8ibdy",
+      "type": "task",
+      "content": "准备实战材料",
+      "createdAt": "2026-06-16T01:12:59.353Z",
+      "updatedAt": "2026-06-16T01:13:09.153Z",
+      "tags": [
+        "C类-复杂-被动响应"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqfy8q45vp8b8",
+      "type": "task",
+      "content": "了解下老公的心理，我怎样做对他更好",
+      "createdAt": "2026-06-16T01:14:17.525Z",
+      "updatedAt": "2026-06-16T01:14:17.525Z",
+      "tags": [
+        "老公"
       ],
       "done": false,
       "dueTime": "10min",
@@ -2590,32 +2633,17 @@
       "active": true
     },
     {
-      "id": "mqewjd6pirbyc",
+      "id": "mqfy61vxiw93t",
       "taskId": "mqdohjths9riw",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-06-16T08:08"
+        "triggerTime": "2026-06-16T13:06"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-06-15T07:38:48.577Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqf0gxj60lxwb",
-      "taskId": "mqeizp6q1gofx",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-16T08:40"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-15T09:28:53.442Z",
+      "createdAt": "2026-06-16T01:12:12.813Z",
       "lastReminderTime": null,
       "active": true
     }
