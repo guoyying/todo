@@ -772,7 +772,7 @@
       "type": "task",
       "content": "老公，生日那天做什么菜长寿面是要的，在加点什么？其他的既减肥又好看，也好吃。",
       "createdAt": "2026-06-14T10:09:04.926Z",
-      "updatedAt": "2026-06-15T02:27:29.593Z",
+      "updatedAt": "2026-06-16T02:27:57.924Z",
       "tags": [
         "生活"
       ],
@@ -788,8 +788,8 @@
           "placedIn": null
         },
         {
-          "id": "1781490429176",
-          "content": "拌包菜-xhs的教程",
+          "id": "1781576864125",
+          "content": "ai一下我的想法和担心",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -980,10 +980,8 @@
       "type": "task",
       "content": "准备实战材料",
       "createdAt": "2026-06-16T01:12:59.353Z",
-      "updatedAt": "2026-06-16T01:13:09.153Z",
-      "tags": [
-        "C类-复杂-被动响应"
-      ],
+      "updatedAt": "2026-06-16T02:30:57.740Z",
+      "tags": [],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
@@ -2603,21 +2601,6 @@
       }
     },
     {
-      "id": "mqelfi8qlt3pn",
-      "taskId": "mqdmgrkuk6jqb",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-16T10:12"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-15T02:27:52.730Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mqeunseqheqqk",
       "taskId": "mqetas88nsm58",
       "type": "time",
@@ -2644,6 +2627,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-16T01:12:12.813Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqg0zh3un2nz3",
+      "taskId": "mqfy71sp8ibdy",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-16T11:05"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-16T02:31:04.794Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3390,6 +3388,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-15T09:52:47.421Z"
+    "lastSync": "2026-06-16T01:14:21.761Z"
   }
 }
