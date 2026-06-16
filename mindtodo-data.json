@@ -2167,6 +2167,13 @@
           }
         ]
       }
+    },
+    {
+      "id": "mqg7h86zh8ghx",
+      "content": "每个人确认自我价值的方式不同，源于内在需求（如被认可、被赋权）的差异。\n【识别】你的方式属于 “成就型认可”（通过完成具体事情获得赞赏），而非 “主导型控制”（通过掌控他人获得满足）。\n【建议】清晰表达你的需求，对老公说：“我做好这件事后，如果你能直接夸我一句‘你真棒’，我会特别开心”\n避免让他用“给你加任务/授权”的方式表达认可（那可能反而让你压力大）。",
+      "type": null,
+      "createdAt": "2026-06-16T05:32:50.747Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -2626,21 +2633,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-15T06:46:15.698Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqfy61vxiw93t",
-      "taskId": "mqdohjths9riw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-16T13:06"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-16T01:12:12.813Z",
       "lastReminderTime": null,
       "active": true
     }
