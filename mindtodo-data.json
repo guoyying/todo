@@ -816,40 +816,19 @@
     {
       "id": "mqeizp6q1gofx",
       "type": "task",
-      "content": "RPA网管验收",
+      "content": "RPA网管验收:华姐休假，替她验收几个单子。心里踏实点，之前她也帮我了，也很耐心解答我的问题",
       "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-16T01:10:08.829Z",
+      "updatedAt": "2026-06-16T06:25:18.748Z",
       "tags": [
         "RPA",
         "验收"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781499873801",
-          "content": "将两个流水号交换一下跑一次",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781505983489",
-          "content": "核对两个流水号的信息",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781515696851",
-          "content": "群里清单头2张单看看+板卡2张",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ],
-      "placedIn": null
+      "placedIn": null,
+      "doneAt": "2026-06-16T06:25:18.748Z",
+      "subtasks": []
     },
     {
       "id": "1781491932214",
@@ -3424,6 +3403,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-16T05:50:52.907Z"
+    "lastSync": "2026-06-16T06:14:09.727Z"
   }
 }
