@@ -936,9 +936,9 @@
     {
       "id": "mqg9zf6v8yr5m",
       "type": "task",
-      "content": "网安单：",
+      "content": "网安单：漏洞扫描",
       "createdAt": "2026-06-16T06:42:58.855Z",
-      "updatedAt": "2026-06-16T06:42:58.855Z",
+      "updatedAt": "2026-06-16T09:13:52.694Z",
       "tags": [
         "网安"
       ],
@@ -2640,6 +2640,21 @@
       "createdAt": "2026-06-16T08:26:21.586Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqgfdys16b4nh",
+      "taskId": "mqg9zf6v8yr5m",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-17T09:02"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-16T09:14:15.505Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3438,6 +3453,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-16T08:45:19.331Z"
+    "lastSync": "2026-06-16T09:04:08.518Z"
   }
 }
