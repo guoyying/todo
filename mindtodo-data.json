@@ -944,14 +944,17 @@
     {
       "id": "mqfy71sp8ibdy",
       "type": "task",
-      "content": "准备实战材料",
+      "content": "准备实战材料传输L3",
       "createdAt": "2026-06-16T01:12:59.353Z",
-      "updatedAt": "2026-06-16T02:30:57.740Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-06-16T06:41:08.696Z",
+      "tags": [
+        "储备能力"
+      ],
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-16T06:41:08.696Z"
     },
     {
       "id": "mqfy8q45vp8b8",
@@ -972,23 +975,39 @@
       "type": "task",
       "content": "核查海珠的退网设备",
       "createdAt": "2026-06-16T02:31:45.500Z",
-      "updatedAt": "2026-06-16T02:31:45.500Z",
+      "updatedAt": "2026-06-16T07:09:12.183Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-16T07:09:12.183Z"
     },
     {
       "id": "mqg8wnrsh1qko",
       "type": "task",
-      "content": "将桌面退网的excel和ppt放到退网文件夹，找到26年省公司算的目标清单吧。",
+      "content": "依据省公司5月月报反馈的无业务清单，给长途发送206个设备清单。",
       "createdAt": "2026-06-16T06:12:50.392Z",
-      "updatedAt": "2026-06-16T06:12:50.392Z",
+      "updatedAt": "2026-06-16T07:36:16.317Z",
       "tags": [
         "退网"
+      ],
+      "done": true,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": [],
+      "doneAt": "2026-06-16T07:36:16.317Z"
+    },
+    {
+      "id": "mqg9zf6v8yr5m",
+      "type": "task",
+      "content": "网安单：",
+      "createdAt": "2026-06-16T06:42:58.855Z",
+      "updatedAt": "2026-06-16T06:42:58.855Z",
+      "tags": [
+        "网安"
       ],
       "done": false,
       "dueTime": "15min",
@@ -2624,6 +2643,21 @@
       "createdAt": "2026-06-15T06:46:15.698Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqg9zpxrybgon",
+      "taskId": "mqfy8q45vp8b8",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-16T16:12"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-16T06:43:12.783Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3412,6 +3446,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-16T06:37:11.495Z"
+    "lastSync": "2026-06-16T06:41:02.914Z"
   }
 }
