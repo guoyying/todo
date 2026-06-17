@@ -2658,36 +2658,6 @@
       "active": true
     },
     {
-      "id": "mqhb3xcl05vb8",
-      "taskId": "mqdohjths9riw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-17T11:10"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-17T00:02:14.805Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqhdy8gi3sbcw",
-      "taskId": "mqhcw4mlrpph5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-17T11:00"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-17T01:21:48.114Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mqhfp1ert4lqz",
       "taskId": "mqgecmlm1vz94",
       "type": "time",
@@ -2704,6 +2674,13 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mqhi5i269qz2357busm",
+      "content": "重点工作名称：[网络简化] 低效设备退网\n背景/痛点： 1、没有关电照片，退网流程不规范，存在资源系统已退网，实际未关电的不一致问题。2、一台设备完成下电退网周期不短，通常要经过核查在用业务、提醒县分上单走退网流程、跟进设备关电等。全流程需要县分综维人员和综维优等共同配合完成，有时候我们核查设备在资源系统、网管业务核查后不能确定，要联系县分配合核查，有时候关电时才出现客户报障，设备退网流程终止…环节多、周期长，原本设备退网流程多为在企微沟通、excel标记进度，非常麻烦而且效率低。",
+      "tags": [],
+      "createdAt": "2026-06-17T03:19:25.614Z",
+      "updatedAt": "2026-06-17T03:19:25.614Z"
+    },
     {
       "id": "mqgm0wd03x0laz5s6rz",
       "content": "时间盒更关心的是：这段时间结束时，你能交出一个怎样的结果？\n比如15分钟写出一个初稿，10分钟整理出会议纪要，5分钟列出明天最重要的三件事。它不只是让你坐在那里专注，而是让你带着一个小成果进入这段时间。",
@@ -3361,12 +3338,12 @@
   },
   "practiceScenarios": [
     {
-      "id": "mqhat6wxab63d",
-      "name": "跟CRM对接的同事说些什么",
-      "description": "自然不突兀，我蛮久没联系对方了。我是想问问核查进度如何了",
-      "practiceCount": 1,
-      "createdAt": "2026-06-16T23:53:53.986Z",
-      "updatedAt": "2026-06-16T23:54:20.743Z"
+      "id": "mqhi6l2lsdhq0",
+      "name": "中午跟同事吃饭闲聊",
+      "description": "覆盖素材重点，轻松自然符合饭堂语境",
+      "practiceCount": 0,
+      "createdAt": "2026-06-17T03:20:16.173Z",
+      "updatedAt": "2026-06-17T03:20:16.173Z"
     }
   ],
   "practiceMaterialStats": {
