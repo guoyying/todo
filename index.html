@@ -25958,7 +25958,7 @@ function manualCloseOrganizerAiPanel() {
                     type: 'task',
                     content: task.content,
                     orgData: task.organization, // 保存 organization 对象，用于生成提示词时合并
-                    meta: `完成时间：${task.doneAt || '未知'} | 练习 ${data.practiceMaterialStats[task.id]?.count || 0} 次`,
+                    meta: `完成时间：${task.doneAt || '未知'}`,
                     practiceCount: data.practiceMaterialStats[task.id]?.count || 0
                 }));
         }
