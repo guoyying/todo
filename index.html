@@ -25876,20 +25876,17 @@ function manualCloseOrganizerAiPanel() {
 
         // 显示练习表达面板
         function showPracticeExpressionPanel() {
-            console.log('打开练习表达面板');
             document.getElementById('practiceExpressionPanel').classList.remove('hidden');
             initPracticeExpressionPanel();
         }
     
         // 隐藏练习表达面板（点击遮罩层调用，只隐藏不清空）
         function hidePracticeExpressionPanel() {
-            console.log('隐藏练习表达面板');
             document.getElementById('practiceExpressionPanel').classList.add('hidden');
         }
     
         // 关闭练习表达面板（点击关闭按钮调用，隐藏并清空表单）
         function closePracticeExpressionPanel() {
-            console.log('关闭练习表达面板');
             document.getElementById('practiceExpressionPanel').classList.add('hidden');
             // 清空表单
             clearPracticeForm();
@@ -26331,8 +26328,8 @@ function manualCloseOrganizerAiPanel() {
         
         data.tasks.push(newTask);
         saveData();
-        renderTaskList();
-        
+        render();
+        //renderTaskList();
         showToast('已添加为待办');
     }
 
