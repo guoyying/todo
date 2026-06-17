@@ -981,20 +981,6 @@
       "dueTime": "10min",
       "unknown": false,
       "subtasks": []
-    },
-    {
-      "id": "mqhq59w404lkc",
-      "type": "task",
-      "content": "我给你一段内容，请你帮我把内容填充到这个框架中，100字内即可框架【】。内容：",
-      "createdAt": "2026-06-17T07:03:11.956Z",
-      "updatedAt": "2026-06-17T07:03:11.957Z",
-      "tags": [
-        "储备能力"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1605,6 +1591,16 @@
       ],
       "createdAt": "2026-06-16T13:12:57.702Z",
       "updatedAt": "2026-06-16T13:23:02.458Z"
+    },
+    {
+      "id": "mqhrb1jmdwm9e",
+      "content": "一个下午搞好高潜ppt，按领导思路。笔记本拆解小步骤，一个个打勾真的能缓解焦虑",
+      "tags": [
+        "观察记录",
+        "观点看法"
+      ],
+      "createdAt": "2026-06-17T07:35:40.690Z",
+      "updatedAt": "2026-06-17T07:35:40.690Z"
     }
   ],
   "practiceBlocks": [
