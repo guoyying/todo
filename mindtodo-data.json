@@ -1006,6 +1006,20 @@
         "练习表达"
       ],
       "subtasks": []
+    },
+    {
+      "id": "mqhq59w404lkc",
+      "type": "task",
+      "content": "我给你一段内容，请你帮我把内容填充到这个框架中，100字内即可框架【】。内容：",
+      "createdAt": "2026-06-17T07:03:11.956Z",
+      "updatedAt": "2026-06-17T07:03:11.957Z",
+      "tags": [
+        "储备能力"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2665,21 +2679,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-16T08:26:21.586Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqhfp1ert4lqz",
-      "taskId": "mqgecmlm1vz94",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-17T14:15"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-17T02:10:38.307Z",
       "lastReminderTime": null,
       "active": true
     }
