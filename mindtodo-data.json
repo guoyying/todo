@@ -995,6 +995,20 @@
           "placedIn": null
         }
       ]
+    },
+    {
+      "id": "mqhcw4mlrpph5",
+      "type": "task",
+      "content": "看下漏洞扫描的情况，打开省soc观察。下一步：跟黄反馈",
+      "createdAt": "2026-06-17T00:52:10.221Z",
+      "updatedAt": "2026-06-17T00:52:10.221Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
