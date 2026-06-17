@@ -556,21 +556,6 @@
       "subtasks": []
     },
     {
-      "id": "mq7ddk29z6fhx",
-      "type": "task",
-      "content": "先写个过单sop，拆运一体的。问晓华流程走完没",
-      "createdAt": "2026-06-10T01:08:01.617Z",
-      "updatedAt": "2026-06-10T09:40:37.107Z",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-10T09:40:37.107Z"
-    },
-    {
       "id": "mq7tet72xecdm",
       "type": "task",
       "content": "知识库语料清洗：已尝试SOP清洗。用企微机器人实现了图片召回",
@@ -600,21 +585,6 @@
       "unknown": false,
       "doneAt": "2026-06-15T09:53:10.820Z",
       "subtasks": []
-    },
-    {
-      "id": "mq94g2l8ltkcm",
-      "type": "task",
-      "content": "过资产的单子6个",
-      "createdAt": "2026-06-11T06:33:34.748Z",
-      "updatedAt": "2026-06-11T10:20:58.748Z",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-11T10:20:58.748Z"
     },
     {
       "id": "1781250510341",
@@ -821,23 +791,6 @@
       "doneAt": "2026-06-15T08:05:57.311Z"
     },
     {
-      "id": "mqewk1ax988xy",
-      "type": "task",
-      "content": "过拆运单",
-      "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-06-15T08:27:53.083Z",
-      "tags": [
-        "退网",
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": null,
-      "doneAt": "2026-06-15T08:27:53.083Z"
-    },
-    {
       "id": "mqez2jtxjk4o4",
       "type": "task",
       "content": "跟进DCIBOX弱口令整改的事情：用ai帮我提炼要点+将厂家作为对象说话，效果老好了。省得我转换表述",
@@ -980,6 +933,32 @@
       "done": false,
       "dueTime": "10min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1781685862716",
+      "type": "task",
+      "content": "【*】拆运一体",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-06-15T08:27:53.083Z",
+      "organizedAt": "2026-06-17T08:44:22.716Z",
+      "createdAt": "2026-06-15T07:39:19.833Z",
+      "updatedAt": "2026-06-17T08:44:22.716Z",
+      "organization": {
+        "goal": "邮件通知施工方，可实施8张拆运单\n已过单4张",
+        "improvement": "",
+        "skills": "",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "methods": "",
+        "assets": "拆运一体过单sop",
+        "organizedAt": "2026-06-17T08:44:22.716Z"
+      },
+      "projectId": "1781685860305",
       "subtasks": []
     }
   ],
@@ -3107,6 +3086,16 @@
       "status": "active",
       "createdAt": "2026-06-09T04:52:44.710Z",
       "updatedAt": "2026-06-09T04:52:44.710Z",
+      "subDirections": [],
+      "milestones": []
+    },
+    {
+      "id": "1781685860305",
+      "name": "拆运一体",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-06-17T08:44:20.305Z",
+      "updatedAt": "2026-06-17T08:44:20.305Z",
       "subDirections": [],
       "milestones": []
     }
