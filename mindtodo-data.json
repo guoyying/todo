@@ -927,20 +927,6 @@
       "doneAt": "2026-06-16T07:36:16.317Z"
     },
     {
-      "id": "mqg9zf6v8yr5m",
-      "type": "task",
-      "content": "网安单：漏洞扫描",
-      "createdAt": "2026-06-16T06:42:58.855Z",
-      "updatedAt": "2026-06-16T09:13:52.694Z",
-      "tags": [
-        "网安"
-      ],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "1781595584625",
       "type": "task",
       "content": "【*】RPA+网管验收",
@@ -972,7 +958,7 @@
       "type": "task",
       "content": "高潜资料准备",
       "createdAt": "2026-06-16T08:45:13.450Z",
-      "updatedAt": "2026-06-17T00:01:55.391Z",
+      "updatedAt": "2026-06-17T02:10:28.287Z",
       "tags": [
         "储备能力"
       ],
@@ -983,14 +969,14 @@
         {
           "id": "1781611088177",
           "content": "网络简化-退网，有没有专业一点的名字？",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         },
         {
           "id": "1781654498514",
           "content": "完成用章申请和填写excel内容",
-          "done": false,
+          "done": true,
           "estimatedTime": "",
           "placedIn": null
         }
@@ -2672,21 +2658,6 @@
       "active": true
     },
     {
-      "id": "mqgfdys16b4nh",
-      "taskId": "mqg9zf6v8yr5m",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-17T09:02"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-16T09:14:15.505Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mqhb3xcl05vb8",
       "taskId": "mqdohjths9riw",
       "type": "time",
@@ -2698,6 +2669,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-17T00:02:14.805Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqhdy8gi3sbcw",
+      "taskId": "mqhcw4mlrpph5",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-17T11:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-17T01:21:48.114Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqhfp1ert4lqz",
+      "taskId": "mqgecmlm1vz94",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-17T14:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-17T02:10:38.307Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3541,6 +3542,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-16T12:45:04.922Z"
+    "lastSync": "2026-06-17T00:52:13.819Z"
   }
 }
