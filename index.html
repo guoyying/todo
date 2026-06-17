@@ -5941,7 +5941,8 @@ padding: 7px !important;
                    <button class="btn btn-secondary btn-small" onclick="toggleSettingsDropdown()">⚙️ 设置</button>
                    <div id="settingsDropdown" class="dropdown-content">
                        <a href="#" onclick="showPageSettings();toggleSettingsDropdown();return false;">📄 页面设置</a>
-                       <a href="#" onclick="showGithubConfig();toggleSettingsDropdown();return false;">🔧 GitHub设置</a>
+                       <a href="#" onclick="showGithubConfig();toggleSettingsDropdown();return false;">🔧 GitHub 设置</a>
+                       <a href="#" onclick="pullFromGithub(true);toggleSettingsDropdown();return false;">⬇️ 拉取数据</a>
                        <a href="#" onclick="downloadLatestHtml();toggleSettingsDropdown();return false;">⬇️ 下载 HTML</a>
                    </div>
                </div>
@@ -5950,13 +5951,12 @@ padding: 7px !important;
                    <div id="toolsDropdown" class="dropdown-content">
                        <a href="#" onclick="showPracticeExpressionPanel();toggleToolsDropdown();return false;">🎯 练习表达</a>
                        <a href="#" onclick="showAmmoLibraryPanel();toggleToolsDropdown();return false;">💎 弹药库</a>
-                       <a href="#" onclick="showAiContentManager(true);toggleToolsDropdown();return false;">💾 AI 内容</a>
                        <a href="#" onclick="showTaskOrganizer();toggleToolsDropdown();return false;">📝 整理</a>
                        <a href="#" onclick="showProjectManagement();toggleToolsDropdown();return false;">📋 项目管理</a>
                    </div>
                </div>
                <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
-               <button class="btn btn-secondary btn-small" onclick="pullFromGithub(true)">拉取</button>
+               <button class="btn btn-secondary btn-small" onclick="showAiContentManager(true)">💾 AI 内容</button>
                 <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
@@ -7669,13 +7669,15 @@ padding: 7px !important;
 
                             <!-- 问题输入 -->
                             <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
-                                <div class="input-group">
-                                    <label>你想要什么风格？</label>
-                                    <input type="text" id="practiceQuestion" placeholder="例如：幽默/简短" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
-                                </div>
-                                <div class="input-group" style="margin-top:12px;">
-                                    <label>表达时长多少？</label>
-                                    <input type="text" id="practiceDuration" placeholder="例如：3-5 分钟" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                                    <div class="input-group">
+                                        <label>你想要什么风格？</label>
+                                        <input type="text" id="practiceQuestion" placeholder="例如：幽默/简短" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>表达时长多少？</label>
+                                        <input type="text" id="practiceDuration" placeholder="例如：3-5 分钟" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                    </div>
                                 </div>
                             </div>
 
