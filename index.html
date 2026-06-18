@@ -6665,9 +6665,9 @@ padding: 7px !important;
                     
                     <!-- 整理表单 -->
                      <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:5px;">
-                         <!-- 快速返回按钮 -->
-                         <div style="margin-bottom:12px;">
-                             <button class="btn btn-secondary" onclick="scrollToOrganizerAiPanel()" style="width:100%;font-size:13px;">
+                         <!-- 快速返回按钮 - 冻结样式 -->
+                         <div style="position:sticky;top:10px;z-index:1000;margin-bottom:12px;">
+                             <button class="btn btn-secondary" onclick="scrollToOrganizerAiPanel()" style="width:100%;font-size:14px;font-weight:500;padding:12px 20px;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:white;border:none;border-radius:8px;box-shadow:0 4px 12px rgba(102,126,234,0.4);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;">
                                  ⬆️ 返回 AI 分析面板
                              </button>
                          </div>
@@ -7303,19 +7303,9 @@ padding: 7px !important;
                      </div>
                  </div>
                  
-                  <!-- 文本选择气泡菜单 -->
-                  <div id="textSelectionBubble" class="hidden" style="position:absolute;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;display:flex;align-items:center;gap:8px;">
-                      <span style="font-size:12px;color:var(--text-secondary);">添加到</span>
-                      <button class="btn btn-primary btn-small" onclick="addSelectedTextToAmmoViaBubble()" title="添加到弹药库">💎</button>
-                      <button class="btn btn-secondary btn-small" onclick="addSelectedTextToKnowledgeViaBubble()" title="添加到知识库">📚</button>
-                      <button class="btn btn-secondary btn-small" onclick="addSelectedTextToQuickRecordViaBubble()" title="快速记录">⚡</button>
-                      <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
-                  </div>
-                 
-             </div>
-         </div>
-     </div>
- 
+           </div>
+       </div>
+   </div>
      <!-- 弹药库侧拉面板 -->
      <div class="modal-overlay hidden" id="ammoLibraryPanel" onclick="closeAmmoLibraryPanel()">
                                  <div class="modal" onclick="event.stopPropagation()">
@@ -8035,10 +8025,12 @@ padding: 7px !important;
             document.getElementById('aiIdeasSaveBtn').disabled = true;
         }
         
+        // 为 AI 点子区域设置文本选择监听器
+        setupAiResultSelectionListeners();
+        
         // 显示模态框
         document.getElementById('aiIdeasModal').classList.remove('hidden');
     }
-    
     // 切换 AI 帮想点子提示词模式
     function toggleAiIdeasPromptMode() {
         const modeSelect = document.getElementById('aiIdeasPromptMode');
@@ -17087,10 +17079,9 @@ ${taskContent}
              modelSelect.appendChild(option);
          });
          
-         // 设置文本选择监听器
-         setupAiResultSelectionListener();
-         }
-         
+                 // 设置所有 AI 结果区域的文本选择监听器
+                 setupAiResultSelectionListeners();
+                 }
          // 显示感受记录的智能推荐弹药
      async function showFeelingAmmoSuggestion(feelingId) {
          const feeling = data.normalFeelings.find(f => f.id === feelingId);
@@ -17261,10 +17252,9 @@ ${taskContent}
      }
      modelSelect.appendChild(option);
  });
- 
- // 设置文本选择监听器
- setupAiResultSelectionListener();
-}
+  // 设置所有 AI 结果区域的文本选择监听器
+  setupAiResultSelectionListeners();
+ }
      // 关闭 AI 润色模态框（点击遮罩层时调用，保留数据）
      function closeAiPolishModal() {
          document.getElementById('aiPolishModal').classList.add('hidden');
@@ -17669,49 +17659,55 @@ ${taskContent}
              showToast('请先选择文本');
          }
      }
-     
-     // 监听润色结果区域的文本选择
-     function setupAiResultSelectionListener() {
-         const polishedContentEl = document.getElementById('aiPolishedContent');
+     // 通用函数：为指定元素添加文本选择监听器（可重复调用）
+     function setupAiResultSelectionListeners() {
+         const selectors = [
+             { id: 'aiPolishedContent', source: 'aiPolish' },
+             { id: 'aiIdeasResult', source: 'aiIdeas' },
+             { id: 'aiSearchResults', source: 'aiSearch' },
+             { id: 'organizerAiResult', source: 'organizerAi' }
+         ];
          
-         // 监听鼠标抬起事件（选择文本结束时触发）
-         polishedContentEl.addEventListener('mouseup', function() {
-             setTimeout(() => {
-                 const selection = window.getSelection();
-                 const selectedText = selection.toString().trim();
-                 
-                 // 检查选择是否在润色结果区域内
-                 if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
-                     currentAiContext.selectedText = selectedText;
-                     showTextSelectionBubble(selection);
-                 } else {
-                     hideTextSelectionBubble();
-                 }
-             }, 10);
-         });
-         
-         // 监听触摸结束事件（移动端）
-         polishedContentEl.addEventListener('touchend', function() {
-             setTimeout(() => {
-                 const selection = window.getSelection();
-                 const selectedText = selection.toString().trim();
-                 
-                 // 检查选择是否在润色结果区域内
-                 if (selectedText && polishedContentEl.contains(selection.anchorNode)) {
-                     currentAiContext.selectedText = selectedText;
-                     showTextSelectionBubble(selection);
-                 } else {
-                     hideTextSelectionBubble();
-                 }
-             }, 10);
-         });
-         
-         // 点击其他地方隐藏气泡
-         document.addEventListener('mousedown', function(e) {
-             const bubble = document.getElementById('textSelectionBubble');
-             if (!bubble.contains(e.target) && !polishedContentEl.contains(e.target)) {
-                 hideTextSelectionBubble();
-             }
+         selectors.forEach(({ id, source }) => {
+             let el = document.getElementById(id);
+             if (!el) return;
+             
+             // 移除之前的监听器（通过克隆节点）
+             const newEl = el.cloneNode(true);
+             el.parentNode.replaceChild(newEl, el);
+             el = newEl; // 更新 el 为新元素
+             
+             // 监听鼠标抬起事件
+             el.addEventListener('mouseup', function(e) {
+                 setTimeout(() => {
+                     const selection = window.getSelection();
+                     const selectedText = selection.toString().trim();
+                     if (selectedText && el.contains(selection.anchorNode)) {
+                         currentAiContext.selectedText = selectedText;
+                         currentAiContext.sourceElement = source;
+                         showTextSelectionBubble(selection);
+                     } else {
+                         hideTextSelectionBubble();
+                     }
+                 }, 10);
+             });
+             
+             // 监听触摸结束事件（移动端）
+             el.addEventListener('touchend', function() {
+                 setTimeout(() => {
+                     const selection = window.getSelection();
+                     const selectedText = selection.toString().trim();
+                     
+                     if (selectedText && el.contains(selection.anchorNode)) {
+                         currentAiContext.selectedText = selectedText;
+                         currentAiContext.sourceElement = source;
+                         showTextSelectionBubble(selection);
+                     } else {
+                         hideTextSelectionBubble();
+                     }
+                 }, 10);
+             });
+             
          });
      }
      
@@ -17737,8 +17733,11 @@ ${taskContent}
          bubble.style.top = top + 'px';
          bubble.classList.remove('hidden');
          
-         // 清空之前的输入
-         document.getElementById('bubbleAmmoTags').value = '';
+         // 清空之前的输入（如果元素存在）
+         const bubbleAmmoTags = document.getElementById('bubbleAmmoTags');
+         if (bubbleAmmoTags) {
+             bubbleAmmoTags.value = '';
+         }
      }
      
      // 隐藏文本选择气泡菜单
@@ -19900,6 +19899,9 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 重置标志位
          modal.dataset.closedByOverlay = 'false';
          
+         // 设置滚动监听，控制固定返回按钮
+         setTimeout(() => setupOrganizerFormScrollListener(), 100);
+         
         // 初始化待整理任务标签筛选器（包括已整理的任务）
         const pendingTasks = data.tasks.filter(task => task.done);
         
@@ -20076,6 +20078,8 @@ ${ammoToAnalyze.map((ammo, index) =>
                            aiPanel.style.display = 'block';
                            // 首次显示时设置默认提示词（如果输入框为空）
                            setOrganizerAiDefaultPrompt();
+                           // 为 AI 分析结果区域设置文本选择监听器
+                           setupAiResultSelectionListeners();
                        } else {
                            aiPanel.style.display = 'none';
                        }
@@ -20148,6 +20152,36 @@ ${ammoToAnalyze.map((ammo, index) =>
            if (aiPanel) {
                aiPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
            }
+       }
+       
+       // 设置整理表单滚动监听，控制固定返回按钮的显示
+       function setupOrganizerFormScrollListener() {
+           const form = document.getElementById('taskOrganizerForm');
+           const returnBtn = document.getElementById('quickReturnBtn');
+           
+           if (!form || !returnBtn) return;
+           
+           // 检查表单是否可滚动
+           const checkScroll = () => {
+               const isScrollable = form.scrollHeight > form.clientHeight;
+               returnBtn.style.display = isScrollable ? 'block' : 'none';
+           };
+           
+           // 初始检查
+           checkScroll();
+           
+           // 监听滚动事件
+           form.addEventListener('scroll', () => {
+               // 当滚动超过一定距离时显示按钮
+               if (form.scrollTop > 20) {
+                   returnBtn.style.display = 'block';
+               } else {
+                   returnBtn.style.display = 'none';
+               }
+           });
+           
+           // 监听窗口大小变化
+           window.addEventListener('resize', checkScroll);
        }
        
        // 清空整理表单
@@ -23223,6 +23257,9 @@ ${knowledgeList}
                 previewContainer.innerHTML = '<div style="color:var(--text-secondary);font-size:13px;padding:8px;text-align:center;">未找到匹配的知识库条目</div>';
             }
         }
+        
+        // 为搜索结果区域设置文本选择监听器
+        setupAiResultSelectionListeners();
     }
     
     // 搜索问题输入监听
@@ -23417,7 +23454,7 @@ ${knowledgeSummary}
           .slice(0, 3);
     }
     
-    // 显示AI搜索结果
+    // 显示 AI 匹配结果
     function displayAISearchResults(results) {
         const previewContainer = document.getElementById('matchedKnowledgePreview');
         
@@ -23489,6 +23526,9 @@ ${knowledgeSummary}
         
         html += '</div>';
         previewContainer.innerHTML = html;
+        
+        // 为 AI 搜索结果区域设置文本选择监听器
+        setupAiResultSelectionListeners();
         
         // 保存Markdown格式的搜索结果到全局变量
         currentAiSearchResult = markdownContent;
@@ -23841,12 +23881,14 @@ ${knowledgeSummary}
              
              // 不隐藏搜索表单，保留以便二次编辑
              
-         } catch (error) {
-             console.error('AI搜索失败:', error);
-             showToast('AI搜索失败：' + error.message);
-         }
+     } catch (error) {
+         console.error('AI 搜索失败:', error);
+         showToast('AI 搜索失败：' + error.message);
      }
      
+     // 为 AI 搜索结果区域设置文本选择监听器
+     setupAiResultSelectionListeners();
+ }
      // 传统匹配算法（作为AI匹配的后备方案）
      async function performTraditionalMatching(query) {
          let matchedItems = [];
@@ -26501,5 +26543,15 @@ function manualCloseOrganizerAiPanel() {
         }
     }, true);
 </script>
+
+<!-- 文本选择气泡菜单（body 最外层，确保在所有模态框之上） -->
+<div id="textSelectionBubble" class="hidden" style="position:fixed;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999999;display:flex;align-items:center;gap:8px;">
+    <span style="font-size:12px;color:var(--text-secondary);">添加到</span>
+    <button class="btn btn-primary btn-small" onclick="addSelectedTextToAmmoViaBubble()" title="添加到弹药库">💎</button>
+    <button class="btn btn-secondary btn-small" onclick="addSelectedTextToKnowledgeViaBubble()" title="添加到知识库">📚</button>
+    <button class="btn btn-secondary btn-small" onclick="addSelectedTextToQuickRecordViaBubble()" title="快速记录">⚡</button>
+    <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
+</div>
+
 </body>
 </html>
