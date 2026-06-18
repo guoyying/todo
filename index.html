@@ -6652,12 +6652,25 @@ padding: 7px !important;
                         
                         <!-- 结果展示 -->
                         <div id="organizerAiResult" class="ai-search-content" style="max-height:300px;overflow-y:auto;background:var(--card);border-radius:6px;padding:12px;font-size:13px;min-height:100px;">
-                            <div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方“开始分析”按钮，AI 将针对选中的任务生成分析结果</div>
+                            <div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方"开始分析"按钮，AI 将针对选中的任务生成分析结果</div>
+                        </div>
+                        
+                        <!-- 快速定位按钮 -->
+                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+                            <button class="btn btn-secondary" onclick="scrollToOrganizerFields()" style="width:100%;font-size:13px;">
+                                ⬇️ 跳转到整理字段
+                            </button>
                         </div>
                     </div>
                     
                     <!-- 整理表单 -->
                      <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:5px;">
+                         <!-- 快速返回按钮 -->
+                         <div style="margin-bottom:12px;">
+                             <button class="btn btn-secondary" onclick="scrollToOrganizerAiPanel()" style="width:100%;font-size:13px;">
+                                 ⬆️ 返回 AI 分析面板
+                             </button>
+                         </div>
                          <!-- 合并任务信息 -->
                          <div id="mergedTaskInfo" style="padding:12px;background:var(--primary-light);border-radius:6px;border:1px solid var(--primary);display:none;">
                              <div style="font-weight:500;margin-bottom:8px;">🔗 合并任务信息</div>
@@ -6682,18 +6695,18 @@ padding: 7px !important;
                         <div class="organizer-fields-container">
                             <!-- 左列 -->
                             <div style="display:flex;flex-direction:column;gap:12px;">
-                                <!-- 阶段目标达成 -->
+                                <!-- 行动、阶段成效 -->
                                 <div class="collapsible-field">
                                     <div class="field-header" onclick="toggleField(this)">
-                                        <span>🎯 阶段目标达成</span>
+                                        <span>🎯 行动、阶段成效</span>
                                         <span class="toggle-icon">▼</span>
                                     </div>
                                     <div class="field-body">
                                         <div id="organizerGoalList" class="points-editor" style="margin-bottom:8px;"></div>
                                         <div style="display:flex;gap:6px;align-items:center;">
                                             <div class="input-with-help">
-                                                <input type="text" id="organizerGoalInput" placeholder="这个阶段计划达成什么？">
-                                                <button class="field-help-btn" data-btn-id="goal" onclick="toggleHelp(event, this, '这个阶段计划达成什么? 成果量化（完成率100%\节省时长2h\误差降低30%等）?交付品（需求文档 V2.0\用户画像数据等）')" title="查看完整提示">?</button>
+                                                <input type="text" id="organizerGoalInput" placeholder="有哪些行动、阶段计划成效、实际成效">
+                                                <button class="field-help-btn" data-btn-id="goal" onclick="toggleHelp(event, this, '这项工作采取了哪些行动举措方法？这个阶段计划达成怎样的效果？实际成果量化（完成率100%\节省时长2h\误差降低30%等）?交付品（需求文档等）')" title="查看完整提示">?</button>
                                             </div>
                                             <button onclick="addPoint('organizerGoal')" style="padding:4px 8px;background:var(--primary);color:white;border:none;border-radius:6px;cursor:pointer;font-size:12px;">➕</button>
                                         </div>
@@ -7261,8 +7274,9 @@ padding: 7px !important;
                      <div style="margin-bottom:12px;">
                          <button class="btn btn-primary" onclick="startAiPolish()" id="aiPolishBtn" style="width:100%;">开始润色</button>
                      </div>
-                     <div style="margin-bottom:12px;">
-                         <button class="btn btn-secondary" onclick="copyAiResult()" id="aiCopyBtn" disabled style="width:100%;">复制结果</button>
+                     <div style="display:flex;gap:8px;margin-bottom:12px;">
+                         <button class="btn btn-secondary" onclick="copyAiResult()" id="aiCopyBtn" disabled style="flex:1;">📋 复制</button>
+                         <button class="btn btn-secondary" onclick="saveAiContent()" id="aiPolishSaveBtn" disabled style="flex:1;">💾 保存</button>
                      </div>
                      
                      <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);">
@@ -7291,8 +7305,10 @@ padding: 7px !important;
                  
                   <!-- 文本选择气泡菜单 -->
                   <div id="textSelectionBubble" class="hidden" style="position:absolute;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:100;display:flex;align-items:center;gap:8px;">
-                      <span style="font-size:12px;color:var(--text-secondary);">添加到弹药库</span>
-                      <button class="btn btn-primary btn-small" onclick="addSelectedTextViaBubble()">💎</button>
+                      <span style="font-size:12px;color:var(--text-secondary);">添加到</span>
+                      <button class="btn btn-primary btn-small" onclick="addSelectedTextToAmmoViaBubble()" title="添加到弹药库">💎</button>
+                      <button class="btn btn-secondary btn-small" onclick="addSelectedTextToKnowledgeViaBubble()" title="添加到知识库">📚</button>
+                      <button class="btn btn-secondary btn-small" onclick="addSelectedTextToQuickRecordViaBubble()" title="快速记录">⚡</button>
                       <button class="btn btn-secondary btn-small" onclick="hideTextSelectionBubble()">✕</button>
                   </div>
                  
@@ -7923,9 +7939,9 @@ padding: 7px !important;
            <div class="input-group">
                <label for="aiContentType">内容类型</label>
                <select id="aiContentType">
-                   <option value="search">AI搜索结果</option>
+                   <option value="search">AI 搜索结果</option>
                    <option value="ideas">任务想法</option>
-                   <option value="other">其他AI内容</option>
+                   <option value="feeling">感受</option>
                </select>
            </div>
            
@@ -8355,27 +8371,41 @@ ${taskContent}
         showAiContentSaveModal('search', content, title);
     }
     
-    // 保存AI想法内容
-    function saveAiContent() {
-        if (!currentAiIdeasResult) {
-            showToast('请先生成AI点子');
-            return;
-        }
-        
-        const content = currentAiIdeasResult;
-        
-        // 获取提示词作为标题
-        const promptInput = document.getElementById('aiIdeasPromptInput');
-        let title = '任务想法';
-        
-        if (promptInput && promptInput.value.trim()) {
-            // 使用完整提示词作为标题
-            title = promptInput.value.trim();
-        }
-        
-        showAiContentSaveModal('ideas', content, title);
-    }
     
+    // 保存 AI 内容（支持 AI 想法和 AI 润色）
+    function saveAiContent() {
+        // 判断是 AI 润色还是 AI 想法
+        if (currentAiContext && currentAiContext.polishedContent) {
+            // AI 润色结果
+            const content = currentAiContext.polishedContent;
+            const originalContent = currentAiContext.originalContent || '原文';
+            
+            // 使用原文前 20 个字作为标题
+            let title = 'AI 润色';
+            if (originalContent && originalContent !== '原文') {
+                const text = originalContent.substring(0, 100).trim();
+                title = text + (originalContent.length > 100 ? '...' : '');
+            }
+            
+            showAiContentSaveModal('polish', content, title);
+        } else if (currentAiIdeasResult) {
+            // AI 想法结果
+            const content = currentAiIdeasResult;
+            
+            // 获取提示词作为标题
+            const promptInput = document.getElementById('aiIdeasPromptInput');
+            let title = '任务想法';
+            
+            if (promptInput && promptInput.value.trim()) {
+                // 使用完整提示词作为标题
+                title = promptInput.value.trim();
+            }
+            
+            showAiContentSaveModal('ideas', content, title);
+        } else {
+            showToast('请先生成 AI 内容');
+        }
+    }
     // 从HTML中提取纯文本
     function extractTextFromHtml(html) {
         const tempDiv = document.createElement('div');
@@ -9011,7 +9041,7 @@ ${taskContent}
     
     // 整理字段配置 - 统一管理整理字段名称，修改一处即可同步到所有地方
     const ORGANIZATION_FIELDS = {
-        goal: { label: '🎯 阶段目标达成', key: 'goal' },
+        goal: { label: '🎯 行动、阶段成效', key: 'goal' },
         improvement: { label: '💡 下次这样做更好', key: 'improvement' },
         skills: { label: '📚 新知摄取', key: 'skills' },
         methods: { label: '💡 好用的方法', key: 'methods' },
@@ -17029,11 +17059,15 @@ ${taskContent}
              }
              const aiCopyBtn = document.getElementById('aiCopyBtn');
              if (aiCopyBtn) aiCopyBtn.disabled = false;
+             const aiSaveBtn = document.getElementById('aiPolishSaveBtn');
+             if (aiSaveBtn) aiSaveBtn.disabled = false;
          } else {
              // 没有结果，显示提示
-             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧“开始润色”按钮开始</div>';
+             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>';
              const aiCopyBtn = document.getElementById('aiCopyBtn');
              if (aiCopyBtn) aiCopyBtn.disabled = true;
+             const aiSaveBtn = document.getElementById('aiPolishSaveBtn');
+             if (aiSaveBtn) aiSaveBtn.disabled = true;
          }
          
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
@@ -17190,14 +17224,18 @@ ${taskContent}
              } else {
                  aiPolishedContent.innerHTML = escapeHtml(currentAiContext.polishedContent).replace(/\n/g, '<br>');
              }
-             // 启用复制按钮（如果存在）
+             // 启用复制按钮和保存按钮（如果存在）
              const aiCopyBtn = document.getElementById('aiCopyBtn');
              if (aiCopyBtn) aiCopyBtn.disabled = false;
+             const aiSaveBtn = document.getElementById('aiPolishSaveBtn');
+             if (aiSaveBtn) aiSaveBtn.disabled = false;
          } else {
              // 没有结果，显示提示
-             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧“开始润色”按钮开始</div>';
+             aiPolishedContent.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px 20px;">点击左侧"开始润色"按钮开始</div>';
              const aiCopyBtn = document.getElementById('aiCopyBtn');
              if (aiCopyBtn) aiCopyBtn.disabled = true;
+             const aiSaveBtn = document.getElementById('aiPolishSaveBtn');
+             if (aiSaveBtn) aiSaveBtn.disabled = true;
          }
          
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
@@ -17286,12 +17324,6 @@ ${taskContent}
              
              // 调用AI API进行润色
              const result = await callAiApi(currentAiContext.originalContent, modelId, customPrompt);
-             
-             console.log('=== API 返回结果处理 ===');
-             console.log('从 callAiApi 返回的结果:', result);
-             console.log('结果类型:', typeof result);
-             console.log('结果长度:', result.length);
-              console.log('结果前 100 个字符:', result.substring(0, 100));
               
               // 处理 Markdown 格式并显示润色结果（使用 marked 库，与 AI 帮想点子保持一致）
               currentAiContext.polishedContent = result;
@@ -17302,12 +17334,10 @@ ${taskContent}
                   polishedContentEl.innerHTML = escapeHtml(result).replace(/\n/g, '<br>');
               }
              
-             console.log('=== 显示到界面的内容 ===');
-             console.log('DOM 元素 textContent:', polishedContentEl.textContent);
-             console.log('DOM 元素 innerHTML:', polishedContentEl.innerHTML);
              
-             // 启用复制按钮
+             // 启用复制按钮和保存按钮
              document.getElementById('aiCopyBtn').disabled = false;
+             document.getElementById('aiPolishSaveBtn').disabled = false;
              
              // 滚动到润色结果区域顶部，方便用户查看和选择文本
              polishedContentEl.scrollTop = 0;
@@ -17717,25 +17747,88 @@ ${taskContent}
          bubble.classList.add('hidden');
      }
      
-     // 通过气泡菜单添加选中的文本到弹药库
-     function addSelectedTextViaBubble() {
-         const selectedText = currentAiContext.selectedText;
-         if (!selectedText) {
-             showToast('请先选择文本');
-             return;
-         }
-         
-         // 添加到弹药库（不指定类型和标签）
-         addAmmoToLibrary(selectedText, null, null);
-         
-         // 隐藏气泡
-         hideTextSelectionBubble();
-         
-         // 清除选择
-         window.getSelection().removeAllRanges();
-         
-         showToast('已添加到弹药库');
-     }
+      // 通过气泡菜单添加选中的文本到弹药库
+      function addSelectedTextToAmmoViaBubble() {
+          const selectedText = currentAiContext.selectedText;
+          if (!selectedText) {
+              showToast('请先选择文本');
+              return;
+          }
+          
+          // 添加到弹药库（不指定类型和标签）
+          addAmmoToLibrary(selectedText, null, null);
+          
+          // 隐藏气泡
+          hideTextSelectionBubble();
+          
+          // 清除选择
+          window.getSelection().removeAllRanges();
+          
+          showToast('已添加到弹药库');
+      }
+      
+      // 通过气泡菜单添加选中的文本到知识库
+      function addSelectedTextToKnowledgeViaBubble() {
+          const selectedText = currentAiContext.selectedText;
+          if (!selectedText) {
+              showToast('请先选择文本');
+              return;
+          }
+          
+          // 添加到知识库
+          const newItem = {
+              id: generateId(),
+              content: selectedText,
+              tags: [],
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString()
+          };
+          
+          data.knowledgeBase.push(newItem);
+          saveData();
+          
+          // 隐藏气泡
+          hideTextSelectionBubble();
+          
+          // 清除选择
+          window.getSelection().removeAllRanges();
+          
+          showToast('已添加到知识库');
+      }
+      
+      // 通过气泡菜单快速记录选中的文本（支持追加）
+      function addSelectedTextToQuickRecordViaBubble() {
+          const selectedText = currentAiContext.selectedText;
+          if (!selectedText) {
+              showToast('请先选择文本');
+              return;
+          }
+          
+          const textarea = document.getElementById('quickRecordContent');
+          const currentContent = textarea.value;
+          
+          // 如果已有内容，追加到新内容后面
+          if (currentContent.trim()) {
+              textarea.value = currentContent + '\n\n' + selectedText;
+          } else {
+              textarea.value = selectedText;
+          }
+          
+          // 滚动到底部
+          textarea.scrollTop = textarea.scrollHeight;
+          
+          // 隐藏气泡
+          hideTextSelectionBubble();
+          
+          // 清除选择
+          window.getSelection().removeAllRanges();
+          
+          // 显示快速记录模态框（如果未打开）
+          const modal = document.getElementById('quickRecordModal');
+          if (modal.classList.contains('hidden')) {
+              showQuickRecordModal();
+          }
+      }
      // 通用函数：添加弹药到弹药库
      function addAmmoToLibrary(content, type, tagsInput) {
          const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
@@ -20039,6 +20132,22 @@ ${ammoToAnalyze.map((ammo, index) =>
            const isHidden = container.style.display === 'none';
            container.style.display = isHidden ? 'block' : 'none';
            document.getElementById('pendingTasksToggleBtn').textContent = isHidden ? '📂 收起' : '📂 展开';
+       }
+       
+       // 滚动到整理字段区域
+       function scrollToOrganizerFields() {
+           const fieldsContainer = document.querySelector('.organizer-fields-container');
+           if (fieldsContainer) {
+               fieldsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+           }
+       }
+       
+       // 滚动到 AI 分析面板
+       function scrollToOrganizerAiPanel() {
+           const aiPanel = document.getElementById('organizerAiPanel');
+           if (aiPanel) {
+               aiPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+           }
        }
        
        // 清空整理表单
@@ -24900,13 +25009,12 @@ function getSelectedPendingTaskIds() {
 
 // 获取 AI 分析默认提示词（复用任务汇总的默认提示词）
 function getDefaultOrganizerAiPrompt() {
-    return `请根据以下选中的任务列表，生成一份用于汇报的报告：
-
-分析要求：
-1. 分析任务之间的关联性和共同点
-2. 提供工作效率评估和改进建议
-3. 使用 emoji 增加可读性（如（如📊、🏷️、💡、🎯等）
-请生成一份结构清晰、用于汇报的报告。`;
+    return `请根据以下选中的任务列表，完成分析：
+要求：
+1.将选中的任务作为整体，提炼出“总成果”，并用数据或可衡量的指标进行概括性描述；
+2.分析任务之间的关联性和共同点
+3.提供工作效率评估和改进建议
+4.使用 emoji 增加可读性（如（如📊、🏷️、💡、🎯等）`;
 }
 
 // 设置 AI 面板的默认提示词
