@@ -994,14 +994,22 @@
       "type": "task",
       "content": "过退网单",
       "createdAt": "2026-06-18T01:11:16.429Z",
-      "updatedAt": "2026-06-18T01:11:16.429Z",
+      "updatedAt": "2026-06-18T07:05:14.680Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781766298447",
+          "content": "截图，识别",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mqitc2syp4vz3",
@@ -1033,30 +1041,33 @@
       "subtasks": []
     },
     {
-      "id": "mqj3wekvwixcb",
-      "type": "task",
-      "content": "我要找个同事盖中心章，但我怕遇到另一个领导。因为之前他跟我提过座谈会的事情，我很害怕遇到他让他想起来cue到我。我压根不想做这玩意",
-      "createdAt": "2026-06-18T06:15:58.927Z",
-      "updatedAt": "2026-06-18T06:15:58.927Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mqj5n7pv8r3j2",
       "type": "task",
       "content": "1）目前感受记录-ai润色应该有划词记录到弹药库的功能吧？增加个快速记录入口。把划词记录功能复用到ai帮想点子中。",
       "createdAt": "2026-06-18T07:04:49.363Z",
-      "updatedAt": "2026-06-18T07:04:49.363Z",
+      "updatedAt": "2026-06-18T07:07:12.182Z",
       "tags": [
         "AI"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1781766318029",
+          "content": "修改整理已完成的提示词：请根据以下选中的任务列表，生成一份用于汇报的报告：",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1781766359314",
+          "content": "目前整理-整理任务-整理字段在分析选中任务下方。很多时候都要滚动查看再回来写，好麻烦。有什么更方便的途径？",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -3578,6 +3589,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-18T03:54:11.036Z"
+    "lastSync": "2026-06-18T07:04:53.582Z"
   }
 }
