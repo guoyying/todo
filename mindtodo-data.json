@@ -995,6 +995,48 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mqit0ecxjg0tf",
+      "type": "task",
+      "content": "黄埔设备备注每一台的情况，哪些要删除的。1）打开设备核查清单-网络部审批、预计能退-截图粘贴 2）思考类似‘不能退’的情况怎么备注（就在共享文档上吧）3）打开聊天框-2台成环设备，共享表标注 4）",
+      "createdAt": "2026-06-18T01:11:09.489Z",
+      "updatedAt": "2026-06-18T01:11:09.489Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "15min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqit0jpp7cneh",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-06-18T01:11:16.429Z",
+      "updatedAt": "2026-06-18T01:11:16.429Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqitc2syp4vz3",
+      "type": "task",
+      "content": "买鼠标和鼠标垫",
+      "createdAt": "2026-06-18T01:20:14.386Z",
+      "updatedAt": "2026-06-18T01:20:14.386Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "8min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3524,6 +3566,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-17T20:33:01.375Z"
+    "lastSync": "2026-06-18T00:48:59.721Z"
   }
 }
