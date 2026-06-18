@@ -836,20 +836,6 @@
       "doneAt": "2026-06-16T06:41:08.696Z"
     },
     {
-      "id": "mqfy8q45vp8b8",
-      "type": "task",
-      "content": "了解下老公的心理，我怎样做对他更好",
-      "createdAt": "2026-06-16T01:14:17.525Z",
-      "updatedAt": "2026-06-16T01:14:17.525Z",
-      "tags": [
-        "老公"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mqg10cikdig93",
       "type": "task",
       "content": "核查海珠的退网设备",
@@ -924,24 +910,17 @@
     {
       "id": "mqhcw4mlrpph5",
       "type": "task",
-      "content": "看下漏洞扫描的情况，打开省soc观察  ",
+      "content": "6月省SOC主机维护作业扫描任务，给100个中高危漏洞申请白名单；",
       "createdAt": "2026-06-17T00:52:10.221Z",
-      "updatedAt": "2026-06-17T15:04:39.598Z",
+      "updatedAt": "2026-06-18T03:49:18.827Z",
       "tags": [
         "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781708675967",
-          "content": "回单",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-18T03:49:18.827Z",
+      "subtasks": []
     },
     {
       "id": "1781685862716",
@@ -2714,21 +2693,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-15T06:46:15.698Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqgdod8yly2nj",
-      "taskId": "mqfy8q45vp8b8",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-18T11:15"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-16T08:26:21.586Z",
       "lastReminderTime": null,
       "active": true
     },
