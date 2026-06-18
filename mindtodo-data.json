@@ -929,6 +929,17 @@
       },
       "projectId": "1779778092169",
       "subtasks": []
+    },
+    {
+      "id": "mqjc5bl8l9p00",
+      "type": "task",
+      "content": "🎯 练习表达反馈：无情境\n\n当然，以下是为你设计的短句表达，适合闲聊时引导老公兴趣：“下周我汇报网络简化工作，主要就是拆旧设备、省电费、腾机房。”（停顿，看对方反应）“你猜我们去年拆了多少台旧设备？——1000台，省了40万电费。”（如果对方有兴趣，可以继续：）“还腾出了3000平米机房空间，相当于好几个篮球场呢。”这样既简洁，又留出互动空间，对方自然会被数字和比喻吸引。",
+      "done": false,
+      "createdAt": "2026-06-18T10:06:51.884Z",
+      "tags": [
+        "练习表达"
+      ],
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3281,10 +3292,10 @@
     {
       "id": "mqhzkilxi8wyw",
       "name": "我要跟老公描述下周二的汇报内容",
-      "description": "就说原本没有想着讲这个的，后来领导说这个工作是中心的重点工作，所以要围绕来讲",
-      "practiceCount": 1,
+      "description": "闲聊，注意不要长篇大论，做好能短句引导对方兴趣提问",
+      "practiceCount": 2,
       "createdAt": "2026-06-17T11:26:59.637Z",
-      "updatedAt": "2026-06-17T11:27:32.705Z"
+      "updatedAt": "2026-06-18T10:05:33.798Z"
     }
   ],
   "practiceMaterialStats": {
@@ -3297,6 +3308,10 @@
       "count": 2
     },
     "mqhzjj5ksseiqfa48g9": {
+      "type": "knowledge",
+      "count": 2
+    },
+    "mqja7nsqtv9ab6sg94l": {
       "type": "knowledge",
       "count": 2
     }
