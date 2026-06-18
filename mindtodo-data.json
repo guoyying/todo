@@ -978,38 +978,17 @@
     {
       "id": "mqit0ecxjg0tf",
       "type": "task",
-      "content": "黄埔设备备注每一台的情况，哪些要删除的。1）打开设备核查清单-网络部审批、预计能退-截图粘贴 2）思考类似‘不能退’的情况怎么备注（就在共享文档上吧）3）打开聊天框-2台成环设备，共享表标注 4）",
+      "content": "梳理黄埔能退网的清单，逐个更新不能退网的。",
       "createdAt": "2026-06-18T01:11:09.489Z",
-      "updatedAt": "2026-06-18T01:11:09.489Z",
+      "updatedAt": "2026-06-18T07:08:49.391Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mqit0jpp7cneh",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-06-18T01:11:16.429Z",
-      "updatedAt": "2026-06-18T07:05:14.680Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781766298447",
-          "content": "截图，识别",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "subtasks": [],
+      "doneAt": "2026-06-18T07:08:49.391Z"
     },
     {
       "id": "mqitc2syp4vz3",
@@ -1027,47 +1006,30 @@
       "doneAt": "2026-06-18T03:54:04.107Z"
     },
     {
-      "id": "mqiucnjxfyy65",
+      "id": "mqj708xrwt4d9",
       "type": "task",
-      "content": "写下退网进度，网络部催促转为网监评估……等等",
-      "createdAt": "2026-06-18T01:48:40.893Z",
-      "updatedAt": "2026-06-18T01:48:40.893Z",
+      "content": "核查海珠的设备是否屏蔽告警了。",
+      "createdAt": "2026-06-18T07:42:57.087Z",
+      "updatedAt": "2026-06-18T07:42:57.087Z",
       "tags": [
         "退网"
       ],
       "done": false,
-      "dueTime": "5min",
+      "dueTime": "15min",
       "unknown": false,
       "subtasks": []
     },
     {
-      "id": "mqj5n7pv8r3j2",
+      "id": "mqj70hb5g316x",
       "type": "task",
-      "content": "1）目前感受记录-ai润色应该有划词记录到弹药库的功能吧？增加个快速记录入口。把划词记录功能复用到ai帮想点子中。",
-      "createdAt": "2026-06-18T07:04:49.363Z",
-      "updatedAt": "2026-06-18T07:07:12.182Z",
-      "tags": [
-        "AI"
-      ],
+      "content": "看下天河几台设备网管是否离线",
+      "createdAt": "2026-06-18T07:43:07.937Z",
+      "updatedAt": "2026-06-18T07:43:07.937Z",
+      "tags": [],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781766318029",
-          "content": "修改整理已完成的提示词：请根据以下选中的任务列表，生成一份用于汇报的报告：",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1781766359314",
-          "content": "目前整理-整理任务-整理字段在分析选中任务下方。很多时候都要滚动查看再回来写，好麻烦。有什么更方便的途径？",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2695,6 +2657,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-06-18": [
+      {
+        "id": "block_1781766586279",
+        "tag": "C类-复杂-被动响应",
+        "startTime": "15:10",
+        "endTime": "15:40",
+        "duration": 30,
+        "summary": "",
+        "slotId": null
+      }
     ]
   },
   "taskTriggers": [
@@ -3589,6 +3562,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-18T07:04:53.582Z"
+    "lastSync": "2026-06-18T07:07:39.786Z"
   }
 }
