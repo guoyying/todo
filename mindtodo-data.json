@@ -1008,14 +1008,15 @@
       "type": "task",
       "content": "买鼠标和鼠标垫",
       "createdAt": "2026-06-18T01:20:14.386Z",
-      "updatedAt": "2026-06-18T01:20:14.386Z",
+      "updatedAt": "2026-06-18T03:54:04.107Z",
       "tags": [
         "生活"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "8min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-18T03:54:04.107Z"
     },
     {
       "id": "mqiucnjxfyy65",
