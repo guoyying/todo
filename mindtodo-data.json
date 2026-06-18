@@ -1031,6 +1031,32 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mqj3wekvwixcb",
+      "type": "task",
+      "content": "我要找个同事盖中心章，但我怕遇到另一个领导。因为之前他跟我提过座谈会的事情，我很害怕遇到他让他想起来cue到我。我压根不想做这玩意",
+      "createdAt": "2026-06-18T06:15:58.927Z",
+      "updatedAt": "2026-06-18T06:15:58.927Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqj5n7pv8r3j2",
+      "type": "task",
+      "content": "1）目前感受记录-ai润色应该有划词记录到弹药库的功能吧？增加个快速记录入口。把划词记录功能复用到ai帮想点子中。",
+      "createdAt": "2026-06-18T07:04:49.363Z",
+      "updatedAt": "2026-06-18T07:04:49.363Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2234,6 +2260,13 @@
       "content": "认知负荷过重 🧠：将演讲视为“临时任务”，而非日常工作的自然延伸，导致临场时需大量回溯、整合碎片信息，产生“没话讲”的焦虑。",
       "type": null,
       "createdAt": "2026-06-16T13:14:55.456Z",
+      "tags": []
+    },
+    {
+      "id": "mqj5j4luq54jg",
+      "content": "当你把任务写下来时，实际上提前完成了最耗能的部分——决策。大脑需要消耗大量能量来思考“做什么、怎么做、第一步是什么”。一旦拆解并记录，这些信息就被“外包”给了纸张或电子设备。等到你真正行动时，大脑只需执行，无需重新决策，启动成本大幅下降，痛苦感自然减轻。",
+      "type": null,
+      "createdAt": "2026-06-18T07:01:38.706Z",
       "tags": []
     }
   ],
