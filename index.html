@@ -10302,7 +10302,13 @@ ${taskContent}
                       textInput.style.fontFamily = 'inherit';
                       textInput.style.padding = '2px';
                       textInput.style.resize = 'vertical';
-                      textInput.style.minHeight = '20px';
+                      // 移动端：根据内容长度动态设置 rows（超过 150 字符显示 3 行）
+                      // 桌面端：使用 minHeight 让内容自动扩展
+                      if (isMobile) {
+                          textInput.rows = item.content.length > 150 ? 5 : 3;
+                      } else {
+                          textInput.style.minHeight = item.content.length > 150 ? '40px' : '20px';
+                      }
                       textInput.style.maxHeight = '200px';
                       textInput.style.overflow = 'auto';
                       textInput.style.whiteSpace = 'pre-wrap';
