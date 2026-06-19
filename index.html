@@ -6656,9 +6656,12 @@ padding: 7px !important;
                         </div>
                         
                         <!-- 快速定位按钮 -->
-                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-                            <button class="btn btn-secondary" onclick="scrollToOrganizerFields()" style="width:100%;font-size:13px;">
-                                ⬇️ 跳转到整理字段
+                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:center;">
+                            <button onclick="scrollToOrganizerFields()" style="width:60%;font-size:13px;font-weight:600;padding:6px 24px;background:#1890ff;color:white;border:none;border-radius:6px;box-shadow:0 2px 8px rgba(24, 144, 255, 0.3);cursor:pointer;transition:all 0.3s;">
+                                <span style="display:inline-flex;align-items:center;gap:8px;">
+                                    <span style="font-size:16px;">⬇️</span>
+                                    <span>跳转到整理字段</span>
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -6666,9 +6669,12 @@ padding: 7px !important;
                     <!-- 整理表单 -->
                      <div id="taskOrganizerForm" style="display:flex;flex-direction:column;gap:5px;">
                          <!-- 快速返回按钮 - 冻结样式 -->
-                         <div style="position:sticky;top:10px;z-index:1000;margin-bottom:12px;">
-                             <button class="btn btn-secondary" onclick="scrollToOrganizerAiPanel()" style="width:100%;font-size:14px;font-weight:500;padding:12px 20px;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:white;border:none;border-radius:8px;box-shadow:0 4px 12px rgba(102,126,234,0.4);cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;">
-                                 ⬆️ 返回 AI 分析面板
+                         <div style="position:sticky;top:10px;z-index:1000;margin-bottom:12px;display:flex;justify-content:center;">
+                             <button onclick="scrollToOrganizerAiPanel()" style="width:60%;font-size:13px;font-weight:600;padding:6px 24px;background:#e8a6dd;color:white;border:none;border-radius:6px;box-shadow:0 2px 8px rgba(236, 112, 236, 0.3);cursor:pointer;transition:all 0.3s;">
+                                 <span style="display:inline-flex;align-items:center;gap:8px;">
+                                     <span style="font-size:16px;">👆</span>
+                                     <span>返回 AI 分析面板</span>
+                                 </span>
                              </button>
                          </div>
                          <!-- 合并任务信息 -->
@@ -12884,18 +12890,49 @@ ${taskContent}
             item.doneAt = nowStr();
             item.updatedAt = nowStr();
             
-             // 从时间段中移除
-             if (item.placedIn) {
-                 item.placedIn = null;
-             }
-             
-             // 关闭弹窗
-             const modal = document.getElementById('mandatoryTagModal');
-             if (modal) {
-                 modal.remove();
-             }
-             
-             render();
+            // 如果是练习表达任务，统计练习次数
+            if (item.practiceExpression) {
+                // 创建临时的 selectedMaterials 和 scenarioId
+                const tempScenarioId = item.practiceExpression.scenarioId;
+                const tempMaterialIds = item.practiceExpression.materialIds || [];
+                
+                // 更新场景练习次数
+                if (tempScenarioId) {
+                    const scenario = data.practiceScenarios.find(s => s.id === tempScenarioId);
+                    if (scenario) {
+                        scenario.practiceCount = (scenario.practiceCount || 0) + 1;
+                        scenario.updatedAt = new Date().toISOString();
+                    }
+                }
+                
+                // 更新素材练习次数
+                tempMaterialIds.forEach(materialId => {
+                    if (!data.practiceMaterialStats[materialId]) {
+                        data.practiceMaterialStats[materialId] = {
+                            type: 'unknown',
+                            count: 0
+                        };
+                    }
+                    data.practiceMaterialStats[materialId].count++;
+                });
+                
+                // 移除 practiceExpression 标记，避免重复统计
+                delete item.practiceExpression;
+            }
+            
+            // 从时间段中移除
+            if (item.placedIn) {
+                item.placedIn = null;
+            }
+            
+            // 关闭弹窗
+            const modal = document.getElementById('mandatoryTagModal');
+            if (modal) {
+                modal.remove();
+            }
+            
+            saveData();
+            render();
          }
 
         function toggleSubtask(itemId, subId) {
@@ -26402,10 +26439,7 @@ function manualCloseOrganizerAiPanel() {
             const formattedResponse = formatAiResponse(response);
             feedbackContent.innerHTML = formattedResponse;
             
-            // 记录练习次数
-            recordPracticeSession();
-            
-            showToast('AI 反馈已生成');
+            showToast('AI 反馈已生成，添加为待办并完成后可统计练习次数');
         } catch (error) {
             console.error('AI 反馈失败:', error);
             feedbackContent.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center;">❌ AI 反馈失败：${error.message}</div>`;
@@ -26467,19 +26501,25 @@ function manualCloseOrganizerAiPanel() {
         
         // 创建待办任务
         const question = document.getElementById('practiceQuestion').value.trim();
+        const scenarioId = document.getElementById('scenarioSelect').value;
+        
         const newTask = {
             id: genId(),
             type: 'task',
             content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText.substring(0, 500)}${plainText.length > 500 ? '...' : ''}`,
             done: false,
             createdAt: new Date().toISOString(),
-            tags: ['练习表达']
+            tags: ['练习表达'],
+            // 保存练习表达的相关信息，用于完成后统计
+            practiceExpression: {
+                scenarioId: scenarioId || null,
+                materialIds: selectedMaterials.map(m => m.id)
+            }
         };
         
         data.tasks.push(newTask);
         saveData();
         render();
-        //renderTaskList();
         showToast('已添加为待办');
     }
 
