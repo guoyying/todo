@@ -3293,7 +3293,7 @@
       "id": "mqhzkilxi8wyw",
       "name": "我要跟老公描述下周二的汇报内容",
       "description": "今天放假，不想让老公觉得我放假还在聊工作。",
-      "practiceCount": 8,
+      "practiceCount": 1,
       "createdAt": "2026-06-17T11:26:59.637Z",
       "updatedAt": "2026-06-19T03:56:29.959Z"
     }
@@ -3305,15 +3305,15 @@
     },
     "mqhi5i269qz2357busm": {
       "type": "knowledge",
-      "count": 2
+      "count": 1
     },
     "mqhzjj5ksseiqfa48g9": {
       "type": "knowledge",
-      "count": 2
+      "count": 1
     },
     "mqja7nsqtv9ab6sg94l": {
       "type": "knowledge",
-      "count": 16
+      "count": 1
     }
   },
   "aiConfig": {
