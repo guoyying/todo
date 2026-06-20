@@ -3334,36 +3334,12 @@
   },
   "practiceScenarios": [
     {
-      "id": "mqhi6l2lsdhq0",
-      "name": "中午跟同事吃饭闲聊",
-      "description": "覆盖素材重点，轻松自然符合饭堂语境",
-      "practiceCount": 2,
-      "createdAt": "2026-06-17T03:20:16.173Z",
-      "updatedAt": "2026-06-19T16:21:37.034Z"
-    },
-    {
-      "id": "mqhzkilxi8wyw",
-      "name": "我要跟老公描述我的工作内容",
-      "description": "“随时能说、不用等机会”，两三句话，闲聊",
-      "practiceCount": 1,
-      "createdAt": "2026-06-17T11:26:59.637Z",
-      "updatedAt": "2026-06-20T05:31:47.350Z"
-    },
-    {
-      "id": "mqlnxe6b61hwb",
-      "name": "还有哪些场景会用到这些方法？",
-      "description": "",
-      "practiceCount": 0,
-      "createdAt": "2026-06-20T01:12:09.731Z",
-      "updatedAt": "2026-06-20T01:12:09.731Z"
-    },
-    {
       "id": "mqlqiz99osjsf",
-      "name": "陪老公医院候诊",
-      "description": "",
+      "name": "应用到其他场景",
+      "description": "提炼以下这句话的本质，生成具体的应用场景（工作、生活等）",
       "practiceCount": 0,
       "createdAt": "2026-06-20T02:24:56.061Z",
-      "updatedAt": "2026-06-20T02:24:56.061Z"
+      "updatedAt": "2026-06-20T05:51:04.403Z"
     },
     {
       "id": "mqlx8s74e53nt",
@@ -3563,6 +3539,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-20T05:39:48.217Z"
+    "lastSync": "2026-06-20T05:46:31.815Z"
   }
 }
