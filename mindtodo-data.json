@@ -955,6 +955,24 @@
       "subtasks": [],
       "doneAt": "2026-06-19T16:21:37.033Z",
       "updatedAt": "2026-06-19T16:21:37.034Z"
+    },
+    {
+      "id": "mqlngbjyd5ppk",
+      "type": "task",
+      "content": "🎯十五运开幕式，真是挺盛大的！听说他们通信保障做得特别好，零故障零中断，真不容易。  就是这次十五运开幕式，我们团队负责奥体中心的通信保障，从机房巡检到备件储备，还提前做了全流程的实战演练，模拟设备故障那种。  （语气轻松）  当时我们守在公安、武警那些关键业务的链路旁边，压力还挺大的，不过最后一切顺利。",
+      "done": false,
+      "createdAt": "2026-06-20T00:58:53.182Z",
+      "tags": [
+        "练习表达"
+      ],
+      "practiceExpression": {
+        "scenarioId": "mqhzkilxi8wyw",
+        "materialIds": [
+          "mqlmw225hp6meiyczyt"
+        ]
+      },
+      "subtasks": [],
+      "updatedAt": "2026-06-20T00:59:36.549Z"
     }
   ],
   "normalFeelings": [
@@ -3314,10 +3332,10 @@
     {
       "id": "mqhzkilxi8wyw",
       "name": "我要跟老公描述下周二的汇报内容",
-      "description": "今天放假，不想让老公觉得我放假还在聊工作。",
+      "description": "今天放假，不想让老公觉得我放假还在聊工作。我想在日常对话中不自觉提起，结合近期新闻热点",
       "practiceCount": 1,
       "createdAt": "2026-06-17T11:26:59.637Z",
-      "updatedAt": "2026-06-19T03:56:29.959Z"
+      "updatedAt": "2026-06-20T00:50:44.010Z"
     }
   ],
   "practiceMaterialStats": {
@@ -3509,6 +3527,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-18T10:06:59.115Z"
+    "lastSync": "2026-06-20T00:43:19.542Z"
   }
 }
