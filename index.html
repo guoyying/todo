@@ -26513,7 +26513,7 @@ function manualCloseOrganizerAiPanel() {
         const newTask = {
             id: genId(),
             type: 'task',
-            content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText.substring(0, 500)}${plainText.length > 500 ? '...' : ''}`,
+            content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText}`,
             done: false,
             createdAt: new Date().toISOString(),
             tags: ['练习表达'],
