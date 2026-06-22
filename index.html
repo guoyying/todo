@@ -7662,11 +7662,11 @@ padding: 7px !important;
                                 </div>
                             </div>
 
-                            <!-- 场景选择/管理 -->
+                            <!-- 要求选择/管理 -->
                             <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
                                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-                                    <label style="font-size:14px;font-weight:600;color:var(--text);">🎬 场景</label>
-                                    <button class="btn btn-small btn-primary" onclick="showAddScenarioForm()">+ 新增场景</button>
+                                    <label style="font-size:14px;font-weight:600;color:var(--text);">📝 要求</label>
+                                    <button class="btn btn-small btn-primary" onclick="showAddScenarioForm()">+ 新增要求</button>
                                 </div>
                                 <div style="display:flex;gap:8px;margin-bottom:8px;">
                                     <select id="scenarioSelect" onchange="loadScenarioDetails()" style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
@@ -7723,17 +7723,13 @@ padding: 7px !important;
                     </div>
                 </div>
 
-                <!-- 新增场景弹窗 -->
+                <!-- 新增要求弹窗 -->
                 <div class="modal-overlay hidden" id="addScenarioModal" onclick="closeAddScenarioModal()">
                     <div class="modal" onclick="event.stopPropagation()">
-                        <h3>➕ 新增场景</h3>
+                        <h3>➕ 新增要求</h3>
                         <div class="input-group">
-                            <label>场景名称</label>
-                            <input type="text" id="newScenarioName" placeholder="例如：团队会议汇报">
-                        </div>
-                        <div class="input-group">
-                            <label>场景描述</label>
-                            <textarea id="newScenarioDescription" rows="4" placeholder="描述这个场景的特点和注意事项..."></textarea>
+                            <label>要求</label>
+                            <textarea id="newScenarioName" rows="6" placeholder="描述你的要求和注意事项..."></textarea>
                         </div>
                         <div class="modal-actions">
                             <button class="btn btn-secondary" onclick="closeAddScenarioModal()">取消</button>
@@ -26216,7 +26212,7 @@ function manualCloseOrganizerAiPanel() {
         const select = document.getElementById('scenarioSelect');
         if (!select) return;
         
-        select.innerHTML = '<option value="">-- 选择场景 --</option>';
+        select.innerHTML = '<option value="">-- 选择要求 --</option>';
         
         (data.practiceScenarios || []).forEach(scenario => {
             const option = document.createElement('option');
@@ -26226,37 +26222,34 @@ function manualCloseOrganizerAiPanel() {
         });
     }
 
-    // 加载场景详情
-    function loadScenarioDetails() {
-        const scenarioId = document.getElementById('scenarioSelect').value;
-        const details = document.getElementById('scenarioDetails');
-        
-        if (!scenarioId || !details) {
-            details.style.display = 'none';
-            return;
+        // 加载要求详情
+        function loadScenarioDetails() {
+            const scenarioId = document.getElementById('scenarioSelect').value;
+            const details = document.getElementById('scenarioDetails');
+            
+            if (!scenarioId || !details) {
+                details.style.display = 'none';
+                return;
+            }
+            
+            const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
+            if (!scenario) {
+                details.style.display = 'none';
+                return;
+            }
+            
+            details.style.display = 'block';
+            details.innerHTML = `
+                <strong>${scenario.name}</strong><br>
+                <span style="font-size:12px;color:var(--text-secondary);margin-top:4px;display:block;">
+                    创建：${scenario.createdAt || '未知'} | 最后更新：${scenario.updatedAt || '未知'} | 练习次数：${scenario.practiceCount || 0}
+                </span>
+            `;
         }
-        
-        const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
-        if (!scenario) {
-            details.style.display = 'none';
-            return;
-        }
-        
-        details.style.display = 'block';
-        details.innerHTML = `
-            <strong>${scenario.name}</strong><br>
-            ${scenario.description || '无描述'}<br>
-            <span style="font-size:12px;color:var(--text-secondary);margin-top:4px;display:block;">
-                创建：${scenario.createdAt || '未知'} | 最后更新：${scenario.updatedAt || '未知'} | 练习次数：${scenario.practiceCount || 0}
-            </span>
-        `;
-    }
-
     // 显示新增场景表单
     function showAddScenarioForm() {
         currentEditingScenarioId = null;
         document.getElementById('newScenarioName').value = '';
-        document.getElementById('newScenarioDescription').value = '';
         document.getElementById('addScenarioModal').classList.remove('hidden');
     }
 
@@ -26268,10 +26261,9 @@ function manualCloseOrganizerAiPanel() {
     // 保存新场景
     function saveNewScenario() {
         const name = document.getElementById('newScenarioName').value.trim();
-        const description = document.getElementById('newScenarioDescription').value.trim();
         
         if (!name) {
-            showToast('请输入场景名称');
+            showToast('请输入要求');
             return;
         }
         
@@ -26280,7 +26272,7 @@ function manualCloseOrganizerAiPanel() {
             const scenario = data.practiceScenarios.find(s => s.id === currentEditingScenarioId);
             if (scenario) {
                 scenario.name = name;
-                scenario.description = description;
+                scenario.description = '';
                 scenario.updatedAt = new Date().toISOString();
             }
         } else {
@@ -26288,7 +26280,7 @@ function manualCloseOrganizerAiPanel() {
             const newScenario = {
                 id: genId(),
                 name: name,
-                description: description,
+                description: '',
                 practiceCount: 0,
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString()
@@ -26319,7 +26311,7 @@ function manualCloseOrganizerAiPanel() {
     function editCurrentScenario() {
         const scenarioId = document.getElementById('scenarioSelect').value;
         if (!scenarioId) {
-            showToast('请先选择场景');
+            showToast('请先选择要求');
             return;
         }
         
@@ -26331,7 +26323,6 @@ function manualCloseOrganizerAiPanel() {
         
         currentEditingScenarioId = scenario.id;
         document.getElementById('newScenarioName').value = scenario.name;
-        document.getElementById('newScenarioDescription').value = scenario.description || '';
         document.getElementById('addScenarioModal').classList.remove('hidden');
     }
 
@@ -26339,11 +26330,11 @@ function manualCloseOrganizerAiPanel() {
     function deleteCurrentScenario() {
         const scenarioId = document.getElementById('scenarioSelect').value;
         if (!scenarioId) {
-            showToast('请先选择场景');
+            showToast('请先选择要求');
             return;
         }
         
-        if (!confirm('确定要删除这个场景吗？')) {
+        if (!confirm('确定要删除这个要求吗？')) {
             return;
         }
         
@@ -26354,7 +26345,7 @@ function manualCloseOrganizerAiPanel() {
             renderScenarioSelect();
             document.getElementById('scenarioSelect').value = '';
             loadScenarioDetails();
-            showToast('场景已删除');
+            showToast('要求已删除');
         }
     }
 
@@ -26373,7 +26364,7 @@ function manualCloseOrganizerAiPanel() {
         if (scenarioId) {
             const scenario = data.practiceScenarios.find(s => s.id === scenarioId);
             if (scenario) {
-                prompt += `【场景】\n${scenario.name}\n${scenario.description || ''}\n\n`;
+                prompt += `【要求】\n${scenario.name}\n\n`;
             }
         }
         
@@ -26411,7 +26402,7 @@ function manualCloseOrganizerAiPanel() {
             prompt += '\n';
         }
         
-        prompt += `【你的任务】\n请根据以上信息，将【补充信息】作为背景，为我提供表达内容。直接说出来像在念报告，请帮我自然提起这个话题，这样我能顺利练习素材。`;
+        prompt += `【你的任务】\n请根据以上要求和补充信息，为我提供表达内容。`;
         
         promptArea.value = prompt;
     }
