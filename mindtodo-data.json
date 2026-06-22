@@ -924,6 +924,32 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mqojryj1wnxnl",
+      "type": "task",
+      "content": "拍照总结表-照片发企微-另存为，保存到word-转为pdf；打开材料提交要求文件，找到证明材料的提交要求；",
+      "createdAt": "2026-06-22T01:39:16.237Z",
+      "updatedAt": "2026-06-22T01:39:16.237Z",
+      "tags": [
+        "储备能力"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqojx946egyhq",
+      "type": "task",
+      "content": "问下RPA进度咋样了",
+      "createdAt": "2026-06-22T01:43:23.238Z",
+      "updatedAt": "2026-06-22T01:43:23.238Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "6min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3493,6 +3519,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-21T03:17:48.315Z"
+    "lastSync": "2026-06-22T01:37:24.257Z"
   }
 }
