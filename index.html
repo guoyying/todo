@@ -10298,12 +10298,27 @@ ${taskContent}
                       textInput.style.fontFamily = 'inherit';
                       textInput.style.padding = '2px';
                       textInput.style.resize = 'vertical';
-                      // 移动端：根据内容长度动态设置 rows（超过 150 字符显示 3 行）
+                      // 移动端：根据内容长度动态设置 rows
+                      // 超过 100 字但小于 150 字显示 6 行，超过 150 字显示 5 行并支持点击弹出完整内容
                       // 桌面端：使用 minHeight 让内容自动扩展
                       if (isMobile) {
-                          textInput.rows = item.content.length > 150 ? 5 : 3;
+                          const contentLength = item.content.length;
+                          if (contentLength > 150) {
+                              textInput.rows = 5;
+                              textInput.style.cursor = 'pointer';
+                              textInput.title = '点击查看完整内容';
+                              // 点击弹出完整内容
+                              textInput.onclick = () => {
+                                  showContentPopup(item.content, item.id);
+                              };
+                          } else if (contentLength > 100) {
+                              textInput.rows = 6;
+                          } else {
+                              textInput.rows = 3;
+                          }
                       } else {
-                          textInput.style.minHeight = item.content.length > 150 ? '40px' : '20px';
+                          const contentLength = item.content.length;
+                          textInput.style.minHeight = contentLength > 150 ? '40px' : (contentLength > 100 ? '35px' : '20px');
                       }
                       textInput.style.maxHeight = '200px';
                       textInput.style.overflow = 'auto';
@@ -12670,6 +12685,55 @@ ${taskContent}
         function closeCompleteOrRemindModal() {
             const modal = document.getElementById('completeOrRemindModal');
             if (modal) modal.remove();
+        }
+        
+        // 显示内容弹窗（用于移动端超过 150 字的任务）
+        function showContentPopup(content, taskId) {
+            // 创建遮罩层
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay';
+            overlay.id = 'contentPopupModal';
+            overlay.innerHTML = `
+                <div class="modal" onclick="event.stopPropagation()" style="max-width: 90%; max-height: 85vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="margin: 0; font-size: 16px;">完整内容</h3>
+                        <button onclick="closeContentPopup()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-secondary);">&times;</button>
+                    </div>
+                    <textarea id="contentPopupTextarea" style="width: 100%; min-height: 300px; max-height: 65vh; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; line-height: 1.6; resize: vertical; white-space: pre-wrap; word-break: break-word;" >${escapeHtml(content)}</textarea>
+                    <div style="display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;">
+                        <button onclick="closeContentPopup()" style="padding: 8px 16px; border: 1px solid var(--border); background: var(--bg); border-radius: 6px; cursor: pointer; font-size: 14px;">取消</button>
+                        <button onclick="saveContentPopup('${taskId}')" style="padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px;">保存</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            setTimeout(() => overlay.classList.remove('hidden'), 10);
+        }
+        
+        // 保存弹窗内容
+        function saveContentPopup(taskId) {
+            const textarea = document.getElementById('contentPopupTextarea');
+            if (!textarea) return;
+            
+            const newContent = textarea.value;
+            const item = data.tasks.find(t => t.id === taskId);
+            
+            if (item && newContent !== item.content) {
+                item.content = newContent;
+                item.updatedAt = nowStr();
+                saveData();
+                render();
+                closeContentPopup();
+                showToast('保存成功', { duration: 2000 });
+            } else {
+                closeContentPopup();
+            }
+        }
+        
+        // 关闭内容弹窗
+        function closeContentPopup() {
+            const overlay = document.getElementById('contentPopupModal');
+            if (overlay) overlay.remove();
         }
         
         // 从对话框完成任务
