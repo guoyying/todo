@@ -886,32 +886,6 @@
       "updatedAt": "2026-06-19T16:21:37.034Z"
     },
     {
-      "id": "1782011191541",
-      "type": "task",
-      "content": "网信安工作",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "doneAt": "2026-06-18T03:49:18.827Z",
-      "organizedAt": "2026-06-21T03:06:31.541Z",
-      "createdAt": "2026-06-17T00:52:10.221Z",
-      "updatedAt": "2026-06-21T03:06:31.541Z",
-      "organization": {
-        "goal": "欣诺通信有限公司设备弱口令问题排查及反馈\n卸载旧蜜罐代理文件\n完成月度主机漏洞扫描工作，发现了2个资产扫描盲区，完成上报；中高危漏洞申请添加白名单；",
-        "improvement": "一旦基线建立，未来任何“配合评估”、“提供清单”的任务都将从“找数据”变为“查系统”，效率提升50%以上。\n有望将当前 被动、碎片化 的工作模式，转变为 主动、系统化、高可复用的高效模式",
-        "skills": "",
-        "success": "",
-        "problems": "导致每次外部检查或评估都需要临时突击整理，效率低下",
-        "summary": "一个月内，完成所有传输设备、网关网元、服务器的静态台账（型号、版本、位置、责任人）和动态拓扑（架构、管理走向、业务流向）的梳理与系统化录入。",
-        "methods": "",
-        "assets": "",
-        "organizedAt": "2026-06-21T03:06:31.541Z"
-      },
-      "projectId": "1780299661890",
-      "subtasks": []
-    },
-    {
       "id": "mqojph4wnfc8z",
       "type": "task",
       "content": "过番禺的拆运单",
@@ -929,31 +903,17 @@
     {
       "id": "mqojryj1wnxnl",
       "type": "task",
-      "content": "拍照总结表-照片发企微-另存为，保存到word-转为pdf；打开材料提交要求文件，找到证明材料的提交要求；",
+      "content": "提交高潜材料",
       "createdAt": "2026-06-22T01:39:16.237Z",
-      "updatedAt": "2026-06-22T03:33:26.847Z",
+      "updatedAt": "2026-06-22T06:58:42.025Z",
       "tags": [
         "储备能力"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1782097396118",
-          "content": "将ppt拷贝到u盘",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1782099198897",
-          "content": "将压缩包发送到知识云",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-22T06:58:42.025Z",
+      "subtasks": []
     },
     {
       "id": "mqojx946egyhq",
@@ -1005,6 +965,32 @@
       "done": false,
       "dueTime": "15min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1782111629933",
+      "type": "task",
+      "content": "网信安工作",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
+      "doneAt": "2026-06-18T03:49:18.827Z",
+      "organizedAt": "2026-06-22T07:00:29.933Z",
+      "createdAt": "2026-06-17T00:52:10.221Z",
+      "updatedAt": "2026-06-22T07:00:29.933Z",
+      "organization": {
+        "goal": "欣诺通信有限公司设备弱口令问题排查及反馈\n卸载旧蜜罐代理文件\n完成月度主机漏洞扫描工作，发现了2个资产扫描盲区，完成上报；中高危漏洞申请添加白名单；\n260622参加综维优磐石行动宣贯会议",
+        "improvement": "一旦基线建立，未来任何“配合评估”、“提供清单”的任务都将从“找数据”变为“查系统”，效率提升50%以上。\n有望将当前 被动、碎片化 的工作模式，转变为 主动、系统化、高可复用的高效模式",
+        "skills": "",
+        "success": "",
+        "problems": "导致每次外部检查或评估都需要临时突击整理，效率低下",
+        "summary": "一个月内，完成所有传输设备、网关网元、服务器的静态台账（型号、版本、位置、责任人）和动态拓扑（架构、管理走向、业务流向）的梳理与系统化录入。",
+        "methods": "",
+        "assets": "",
+        "organizedAt": "2026-06-22T07:00:29.933Z"
+      },
+      "projectId": "1780299661890",
       "subtasks": []
     }
   ],
@@ -2711,36 +2697,6 @@
       "createdAt": "2026-06-22T03:09:26.286Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mqonpyykuy83c",
-      "taskId": "mqojx946egyhq",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-22T14:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T03:29:41.948Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqonv63kww7vd",
-      "taskId": "mqojryj1wnxnl",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-22T14:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T03:33:44.480Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3594,6 +3550,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-22T06:24:09.404Z"
+    "lastSync": "2026-06-22T06:25:10.388Z"
   }
 }
