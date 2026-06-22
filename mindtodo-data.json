@@ -1010,6 +1010,18 @@
         ]
       },
       "subtasks": []
+    },
+    {
+      "id": "mqpvg7ztar0l4",
+      "type": "task",
+      "content": "综维改革是什么、意义；4+1改革含义",
+      "createdAt": "2026-06-22T23:53:50.201Z",
+      "updatedAt": "2026-06-22T23:53:50.201Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -2743,6 +2755,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-22T09:43:29.143Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqpvfuadk9n7n",
+      "taskId": "mqoty7s6xbg6f",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-23T14:53"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-22T23:53:32.437Z",
       "lastReminderTime": null,
       "active": true
     }
