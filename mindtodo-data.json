@@ -918,9 +918,9 @@
     {
       "id": "mqojx946egyhq",
       "type": "task",
-      "content": "问下RPA进度咋样了",
+      "content": "思考下怎么办，RPA的事情。需要了解情况了",
       "createdAt": "2026-06-22T01:43:23.238Z",
-      "updatedAt": "2026-06-22T01:43:23.238Z",
+      "updatedAt": "2026-06-22T09:14:22.472Z",
       "tags": [],
       "done": false,
       "dueTime": "6min",
@@ -2698,6 +2698,21 @@
       "createdAt": "2026-06-22T09:13:26.803Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqp01elj0lnzl",
+      "taskId": "mqojx946egyhq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-23T14:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-22T09:14:30.823Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3551,6 +3566,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-22T06:25:10.388Z"
+    "lastSync": "2026-06-22T09:14:05.342Z"
   }
 }
