@@ -930,7 +930,7 @@
       "type": "task",
       "content": "拍照总结表-照片发企微-另存为，保存到word-转为pdf；打开材料提交要求文件，找到证明材料的提交要求；",
       "createdAt": "2026-06-22T01:39:16.237Z",
-      "updatedAt": "2026-06-22T03:03:30.020Z",
+      "updatedAt": "2026-06-22T03:33:26.847Z",
       "tags": [
         "储备能力"
       ],
@@ -941,6 +941,13 @@
         {
           "id": "1782097396118",
           "content": "将ppt拷贝到u盘",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1782099198897",
+          "content": "将压缩包发送到知识云",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -2648,6 +2655,51 @@
       "createdAt": "2026-06-17T15:04:08.881Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mqomzwy6xei9f",
+      "taskId": "mqetas88nsm58",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-22T17:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-22T03:09:26.286Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqonpyykuy83c",
+      "taskId": "mqojx946egyhq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-22T14:30"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-22T03:29:41.948Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqonv63kww7vd",
+      "taskId": "mqojryj1wnxnl",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-22T14:30"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-22T03:33:44.480Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3532,6 +3584,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-22T01:43:27.865Z"
+    "lastSync": "2026-06-22T03:08:12.632Z"
   }
 }
