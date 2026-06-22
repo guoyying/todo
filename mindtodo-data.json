@@ -914,24 +914,17 @@
     {
       "id": "mqojph4wnfc8z",
       "type": "task",
-      "content": "过番禺的拆运单；过网管验收单；",
+      "content": "过番禺的拆运单",
       "createdAt": "2026-06-22T01:37:20.384Z",
-      "updatedAt": "2026-06-22T04:00:01.588Z",
+      "updatedAt": "2026-06-22T06:21:42.008Z",
       "tags": [
         "拆运一体"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1782100781980",
-          "content": "要修改清册的资产名称",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-22T06:21:42.008Z",
+      "subtasks": []
     },
     {
       "id": "mqojryj1wnxnl",
@@ -971,6 +964,46 @@
       "tags": [],
       "done": false,
       "dueTime": "6min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqotxmxls3vbm",
+      "type": "task",
+      "content": "想一下退网进度怎么报？",
+      "createdAt": "2026-06-22T06:23:37.305Z",
+      "updatedAt": "2026-06-22T06:23:37.305Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqotxwbsl1fj5",
+      "type": "task",
+      "content": "过拆运一体单子",
+      "createdAt": "2026-06-22T06:23:49.480Z",
+      "updatedAt": "2026-06-22T06:23:49.480Z",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "mqoty7s6xbg6f",
+      "type": "task",
+      "content": "RPA网管验收过单几个",
+      "createdAt": "2026-06-22T06:24:04.326Z",
+      "updatedAt": "2026-06-22T06:24:04.326Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "15min",
       "unknown": false,
       "subtasks": []
     }
