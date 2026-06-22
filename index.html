@@ -7684,8 +7684,8 @@ padding: 7px !important;
                             <div style="margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
                                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
                                     <div class="input-group">
-                                        <label>你想要什么风格？</label>
-                                        <input type="text" id="practiceQuestion" placeholder="例如：幽默/简短" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
+                                        <label>此处可以补充要求/背景信息</label>
+                                        <input type="text" id="practiceQuestion" placeholder="例如：素材的工作是去年和团队一起完成的" style="width:100%;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
                                     </div>
                                     <div class="input-group">
                                         <label>表达时长多少？</label>
@@ -26295,10 +26295,23 @@ function manualCloseOrganizerAiPanel() {
             };
             data.practiceScenarios.push(newScenario);
         }
-        
         saveData();
         renderScenarioSelect();
+        
+        // 保存后自动选中该场景
+        if (currentEditingScenarioId) {
+            // 编辑现有场景：保持选中
+            document.getElementById('scenarioSelect').value = currentEditingScenarioId;
+        } else {
+            // 新增场景：选中刚添加的场景
+            const lastScenario = data.practiceScenarios[data.practiceScenarios.length - 1];
+            if (lastScenario) {
+                document.getElementById('scenarioSelect').value = lastScenario.id;
+            }
+        }
+        
         closeAddScenarioModal();
+        loadScenarioDetails(); // 加载场景详情
         showToast('场景已保存');
     }
 
@@ -26366,7 +26379,7 @@ function manualCloseOrganizerAiPanel() {
         
         // 添加用户输入的问题
         if (question) {
-            prompt += `【风格】\n${question}\n\n`;
+            prompt += `【补充信息】\n${question}\n\n`;
         }
         
         // 添加时长
@@ -26398,7 +26411,7 @@ function manualCloseOrganizerAiPanel() {
             prompt += '\n';
         }
         
-        prompt += `【你的任务】\n请根据以上信息，为我提供表达内容。`;
+        prompt += `【你的任务】\n请根据以上信息，将【补充信息】作为背景，为我提供表达内容。直接说出来像在念报告，请帮我自然提起这个话题，这样我能顺利练习素材。`;
         
         promptArea.value = prompt;
     }
