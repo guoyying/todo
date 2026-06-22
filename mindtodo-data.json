@@ -944,16 +944,17 @@
     {
       "id": "mqotxwbsl1fj5",
       "type": "task",
-      "content": "过拆运一体单子",
+      "content": "过拆运一体单子9张",
       "createdAt": "2026-06-22T06:23:49.480Z",
-      "updatedAt": "2026-06-22T06:23:49.480Z",
+      "updatedAt": "2026-06-22T09:13:57.387Z",
       "tags": [
         "拆运一体"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-22T09:13:57.387Z"
     },
     {
       "id": "mqoty7s6xbg6f",
@@ -2684,17 +2685,17 @@
       "active": true
     },
     {
-      "id": "mqomzwy6xei9f",
+      "id": "mqp00177ye97n",
       "taskId": "mqetas88nsm58",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-06-22T17:00"
+        "triggerTime": "2026-06-25T10:10"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-06-22T03:09:26.286Z",
+      "createdAt": "2026-06-22T09:13:26.803Z",
       "lastReminderTime": null,
       "active": true
     }
