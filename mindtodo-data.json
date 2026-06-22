@@ -916,14 +916,22 @@
       "type": "task",
       "content": "过番禺的拆运单；过网管验收单；",
       "createdAt": "2026-06-22T01:37:20.384Z",
-      "updatedAt": "2026-06-22T01:37:20.384Z",
+      "updatedAt": "2026-06-22T04:00:01.588Z",
       "tags": [
         "拆运一体"
       ],
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1782100781980",
+          "content": "要修改清册的资产名称",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mqojryj1wnxnl",
