@@ -44,28 +44,31 @@
           max-width: 100%;
         }
         
-        /* 标题：字号由大，但间距可控，不突兀 */
+        /* 标题：橙红活力系（温暖活力感） */
         .task-display h1 {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           font-weight: 600;
           margin: 0.4em 0 0.25em 0;
           line-height: 1.3;
-          border-bottom: 1px solid #e9edf2;
+          color: #dc2626;
+          border-bottom: 1px solid #fecaca;
           padding-bottom: 0.15em;
         }
         
         .task-display h2 {
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           font-weight: 600;
           margin: 0.35em 0 0.2em 0;
           line-height: 1.3;
+          color: #f35656;
         }
         
         .task-display h3 {
-          font-size: 1.05rem;
+          font-size: 1.0rem;
           font-weight: 600;
           margin: 0 0 0 0 !important;
           line-height: 1.4;
+          color: #f97316;
         }
         
         .task-display h4 {
@@ -73,6 +76,7 @@
           font-weight: 600;
           margin: 0.25em 0 0.1em 0;
           line-height: 1.4;
+          color: #fb923c;
         }
         
         .task-display h5,
@@ -81,7 +85,7 @@
           font-weight: 600;
           margin: 0.2em 0 0.1em 0;
           line-height: 1.4;
-          color: #334155;
+          color: #fdba74;
         }
         
         /* 段落 & 普通文本 */
@@ -168,18 +172,18 @@
           color: #94a3b8;
         }
         
-        /* 行内代码 & 代码块 */
+        /* 行内代码 & 代码块 - 橙红活力系 */
         .task-display code {
           font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
           font-size: 0.85em;
-          background: #f1f5f9;
+          background: #fff7ed;
           padding: 0.1em 0.3em;
           border-radius: 3px;
-          color: #0b1b33;
+          color: #ea580c;
         }
         
         .task-display pre {
-          background: #f1f5f9;
+          background: #fff7ed;
           padding: 0.4em 0.6em;
           border-radius: 4px;
           overflow-x: auto;
@@ -195,20 +199,20 @@
           color: inherit;
         }
         
-        /* 引用块 */
+        /* 引用块 - 橙红活力系 */
         .task-display blockquote {
-          border-left: 3px solid #cbd5e1;
+          border-left: 3px solid #fb923c;
           margin: 0.3em 0;
           padding: 0.1em 0.8em;
-          color: #475569;
-          background: #f8fafc;
+          color: #c2410c;
+          background: #fff7ed;
           border-radius: 0 4px 4px 0;
         }
         
         /* 表格（不影响整体布局） */
         .task-display table {
           border-collapse: collapse;
-          width: 90%;  /* 根据内容自适应宽度 */
+          width: auto;  /* 根据内容自适应宽度 */
           max-width: 100%;
           margin: 0.3em 0;
           font-size: 0.85rem;
@@ -218,25 +222,26 @@
         .task-display th,
         .task-display td {
           border: 1px solid #e2e8f0;
-          padding: 0.8em 0.2em;  /* 增加上下间距从 0.2em 到 0.4em */
+          padding: 0.4em 0.5em;
           /* 移除 text-align，让 marked 生成的对齐样式生效 */
         }
         
         .task-display th {
-          background: #f1f5f9;
+          background: #fff7ed;
+          color: #c2410c;
           font-weight: 600;
         }
         
-        /* 链接（带下划线，不突兀） */
+        /* 链接 - 橙红活力系 */
         .task-display a {
-          color: #2563eb;
+          color: #c2410c;
           text-decoration: none;
-          border-bottom: 1px dotted #94a3b8;
+          border-bottom: 1px dotted #fdba74;
         }
         
         .task-display a:hover {
           text-decoration: underline;
-          border-bottom: 1px solid #2563eb;
+          border-bottom: 1px solid #9a3412;
         }
         
         /* 图片（自适应最大宽度） */
