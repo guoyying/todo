@@ -2677,6 +2677,101 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     min-height: 700px;        /* 最小高度，确保足够高 */
     height: auto;             /* 高度自适应 */
 }
+/* 项目详情模态框：内容区域独立滚动 */
+#projectDetailModal .modal {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: calc(100vh - 20px) !important;
+    min-width: 600px;
+}
+
+#projectDetailModal .modal-body {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    max-height: none !important;
+    padding: 0 60px 0 4px; /* 右侧留出空间给导航轴 */
+    position: relative;
+}
+
+/* 侧边导航轴在滚动时高亮当前区域 */
+#projectSideNav button:hover {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+    transform: scale(1.1);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    /* 移动端：侧边导航轴改为底部悬浮导航栏 */
+    #projectSideNav {
+        position: fixed !important;
+        right: auto !important;
+        left: 50% !important;
+        top: auto !important;
+        bottom: 80px !important; /* 在底部按钮上方 */
+        transform: translateX(-50%) !important;
+        flex-direction: row !important;
+        padding: 10px 20px !important;
+        border-radius: 30px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
+        background: var(--card) !important;
+        border: 2px solid var(--green-border) !important;
+    }
+    
+    #projectSideNav button {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 18px !important;
+        border-radius: 50% !important;
+    }
+    
+    /* 项目详情模态框移动端全屏 */
+    #projectDetailModal .modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+        padding: 16px !important;
+        min-width: auto !important;
+    }
+    
+    #projectDetailModal .modal-body {
+        padding: 0 8px !important;
+    }
+    
+    /* 移动端调整内容间距 */
+    #projectDetailModal .project-card,
+    #projectDetailModal #milestones,
+    #projectDetailModal #subDirections,
+    #projectDetailModal #experience {
+        padding: 12px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* 移动端按钮缩小 */
+    #projectDetailModal .btn-small {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+    
+    /* 移动端里程碑编辑模态框 */
+    #milestoneEditModal {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+    
+    /* 移动端标题字体调整 */
+    #projectDetailModal h4 {
+        font-size: 16px !important;
+    }
+    
+    /* 移动端隐藏右侧留白 */
+    #projectDetailModal .modal-body {
+        padding-right: 8px !important;
+    }
+}
         
         #aiContentSaveModal h3 {
             font-size: 18px;
@@ -3345,157 +3440,126 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
               overflow-y: auto;
           }
           
-          /* 项目管理样式 */
-          .project-card {
-              background: var(--card);
-              border: 1px solid var(--border);
-              border-radius: 8px;
-              padding: 16px;
-              transition: all 0.2s ease;
-          }
-          
-          /* 项目列表容器 - 使用网格布局 */
-          #projectsContainer {
-              display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-              gap: 12px;
-          }
-          
-          /* 移动端优化 */
-          @media (max-width: 768px) {
-              #projectsContainer {
-                  grid-template-columns: 1fr; /* 移动端单列显示 */
-              }
-          }
-          
-          .project-card:hover {
-              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-              transform: translateY(-2px);
-          }
-          
-          .project-header {
-              display: flex;
-              justify-content: space-between;
-              align-items: flex-start;
-              margin-bottom: 12px;
-          }
-          
-          .project-title {
-              font-size: 16px;
-              font-weight: 600;
-              color: var(--text);
-              margin-bottom: 4px;
-          }
-          
-          .project-description {
-              font-size: 13px;
-              color: var(--text-secondary);
-              margin-bottom: 8px;
-          }
-          
-          .project-progress {
-              margin: 12px 0;
-          }
-          
-          .project-progress-bar {
-              height: 8px;
-              background: var(--bg);
-              border-radius: 4px;
-              overflow: hidden;
-              margin-bottom: 6px;
-          }
-          
-          .project-progress-fill {
-              height: 100%;
-              background: linear-gradient(90deg, var(--primary), var(--green-primary));
-              border-radius: 4px;
-              transition: width 0.3s ease;
-          }
-          
-          .project-progress-text {
-              font-size: 12px;
-              color: var(--text-secondary);
-              display: flex;
-              justify-content: space-between;
-          }
-          
-          .project-directions {
-              margin: 12px 0;
-              padding: 10px;
-              background: var(--bg);
-              border-radius: 6px;
-          }
-          
-          .project-direction-item {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              padding: 6px 0;
-              font-size: 13px;
-          }
-          
-          .project-direction-checkbox {
-              width: 16px;
-              height: 16px;
-              cursor: pointer;
-          }
-          
-          .project-milestones {
-              margin: 12px 0;
-          }
-          
-          .project-milestone-item {
-              padding: 10px;
-              background: var(--bg);
-              border-radius: 6px;
-              margin-bottom: 8px;
-              border-left: 3px solid var(--primary);
-          }
-          
-          .project-milestone-date {
-              font-size: 11px;
-              color: var(--text-secondary);
-              margin-bottom: 4px;
-          }
-          
-          .project-milestone-title {
-              font-size: 14px;
-              font-weight: 500;
-              color: var(--text);
-              margin-bottom: 6px;
-          }
-          
-          .project-milestone-progress {
-              font-size: 12px;
-              color: var(--primary);
-              font-weight: 500;
-          }
-          
-          .project-actions {
-              display: flex;
-              gap: 8px;
-              margin-top: 12px;
-              padding-top: 12px;
-              border-top: 1px solid var(--border);
-          }
-          
-          .project-status-badge {
-              display: inline-block;
-              padding: 4px 8px;
-              border-radius: 4px;
-              font-size: 11px;
-              font-weight: 500;
-          }
-          
-          .project-status-active {
-              background: var(--task-light);
-              color: var(--task);
-          }
-          
-          .project-status-completed {
-              background: var(--primary-light);
-              color: var(--primary);
-          }
+/* 项目管理样式 - 列表形式 */
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 项目列表容器 - 垂直列表布局 */
+#projectsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-color: var(--green-border);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.project-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.project-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.project-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.project-progress-bar {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.project-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--green-primary));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.project-progress-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    min-width: 35px;
+    text-align: right;
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.project-info-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.project-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.project-status-badge {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.project-status-active {
+    background: var(--task-light);
+    color: var(--task);
+}
+
+.project-status-completed {
+    background: var(--primary-light);
+    color: var(--primary);
+}
           
           /* 项目关联弹窗样式 */
           .project-association-section {
@@ -6718,9 +6782,9 @@ padding: 7px !important;
                 <h3 id="projectDetailTitle">项目详情</h3>
                 <button class="btn btn-small btn-secondary" onclick="closeModal('projectDetailModal')">← 返回</button>
             </div>
-            <div class="modal-body">
-                <div id="projectDetailContent"></div>
-            </div>
+<div class="modal-body" style="position:relative;">
+    <div id="projectDetailContent"></div>
+</div>
         </div>
     </div>
 
@@ -13334,17 +13398,31 @@ ${taskContent}
           }
           
           // 通用关闭模态框函数
-          function closeModal(modalId) {
-              const modal = document.getElementById(modalId);
-              if (modal) {
-                  // 点击×按钮关闭：不设置标志位，下次打开时会清空数据
-                  // 确保标志位为 false（或不存在）
-                  if (modalId === 'taskOrganizerModal') {
-                      modal.dataset.closedByOverlay = 'false';
-                  }
-                  modal.classList.add('hidden');
-              }
-          }
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        // 点击×按钮关闭：不设置标志位，下次打开时会清空数据
+        // 确保标志位为 false（或不存在）
+        if (modalId === 'taskOrganizerModal') {
+            modal.dataset.closedByOverlay = 'false';
+        }
+        modal.classList.add('hidden');
+        
+        // 如果是里程碑编辑模态框，同时关闭 overlay
+        if (modalId === 'milestoneEditModal') {
+            const overlay = document.getElementById(modalId + 'Overlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+                // 延迟移除 DOM 元素，避免动画问题
+                setTimeout(() => {
+                    if (overlay.parentNode) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                }, 300);
+            }
+        }
+    }
+}
           
           // ============ 触发提醒相关函数 ============
           
@@ -21244,60 +21322,44 @@ ${ammoToAnalyze.map((ammo, index) =>
             const totalDirections = project.subDirections ? project.subDirections.length : 0;
             const milestonesCount = project.milestones ? project.milestones.length : 0;
             
-            card.innerHTML = `
-                <div class="project-header">
-                    <div>
-                        <div class="project-title">${escapeHtml(project.name)}</div>
-                        <div class="project-description">${escapeHtml(project.description || '暂无描述')}</div>
-                    </div>
-                    <span class="project-status-badge ${statusClass}">${statusText}</span>
-                </div>
-                
-                <div class="project-progress">
-                    <div class="project-progress-bar">
-                        <div class="project-progress-fill" style="width: ${progress}%"></div>
-                    </div>
-                    <div class="project-progress-text">
-                        <span>进度: ${progress}%</span>
-                        <span>${project.manualProgress > 0 ? '手动设置' : '自动计算'}</span>
-                    </div>
-                </div>
-                
-                ${project.mainDirection ? `
-                <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">
-                    🎯 大方向: ${escapeHtml(project.mainDirection)}
-                </div>
-                ` : ''}
-                
-                ${totalDirections > 0 ? `
-                <div class="project-directions">
-                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">📋 细分方向 (${completedDirections}/${totalDirections}):</div>
-                    ${project.subDirections.slice(0, 3).map(dir => `
-                        <div class="project-direction-item">
-                            <input type="checkbox" class="project-direction-checkbox"
-                                   data-project-id="${project.id}"
-                                   data-direction-id="${dir.id}"
-                                   ${dir.completed ? 'checked' : ''}
-                                   onchange="toggleSubDirection('${project.id}', '${dir.id}')">
-                            <span style="${dir.completed ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(dir.name)}</span>
-                        </div>
-                    `).join('')}
-                    ${totalDirections > 3 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${totalDirections - 3} 个...</div>` : ''}
-                </div>
-                ` : ''}
-                
-                ${milestonesCount > 0 ? `
-                <div style="font-size:12px;color:var(--text-secondary);margin:8px 0;">
-                    🏆 里程碑: ${milestonesCount} 个
-                </div>
-                ` : ''}
-                
-                <div class="project-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProjectDetail('${project.id}')">查看详情</button>
-                    <button class="btn btn-small btn-secondary" onclick="showEditProjectModal('${project.id}')">编辑</button>
-                    <button class="btn btn-small btn-danger" onclick="deleteProject('${project.id}')">删除</button>
-                </div>
-            `;
+card.innerHTML = `
+    <div class="project-header">
+        <div class="project-title">${escapeHtml(project.name)}</div>
+        <div class="project-description" title="${escapeHtml(project.description || '')}">${escapeHtml(project.description || '')}</div>
+        <span class="project-status-badge ${statusClass}">${statusText}</span>
+    </div>
+    
+    <div class="project-progress">
+        <div class="project-progress-bar">
+            <div class="project-progress-fill" style="width: ${progress}%"></div>
+        </div>
+        <div class="project-progress-text">${progress}%</div>
+    </div>
+    
+    <div class="project-info">
+        ${project.mainDirection ? `
+        <div class="project-info-item" title="🎯 大方向：${escapeHtml(project.mainDirection)}">
+            🎯 ${escapeHtml(project.mainDirection.length > 8 ? project.mainDirection.substring(0, 8) + '...' : project.mainDirection)}
+        </div>
+        ` : ''}
+        ${totalDirections > 0 ? `
+        <div class="project-info-item" title="📋 细分方向 (${completedDirections}/${totalDirections})">
+            📋 ${completedDirections}/${totalDirections}
+        </div>
+        ` : ''}
+        ${milestonesCount > 0 ? `
+        <div class="project-info-item" title="🏆 里程碑：${milestonesCount} 个">
+            🏆 ${milestonesCount}
+        </div>
+        ` : ''}
+    </div>
+    
+    <div class="project-actions">
+        <button class="btn btn-small btn-secondary" onclick="showProjectDetail('${project.id}')">详情</button>
+        <button class="btn btn-small btn-secondary" onclick="showEditProjectModal('${project.id}')">编辑</button>
+        <button class="btn btn-small btn-danger" onclick="deleteProject('${project.id}')">删除</button>
+    </div>
+`;
             
             return card;
         }
@@ -21472,9 +21534,48 @@ ${ammoToAnalyze.map((ammo, index) =>
         function deleteProject(projectId) {
             showDeleteConfirm(projectId, 'project', event.target);
         }
+// 滚动到指定区域并高亮导航按钮（定位到标题处）
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+    
+    // 滚动到目标位置（精确到标题顶部）
+    const modalBody = document.querySelector('#projectDetailModal .modal-body');
+    if (modalBody) {
+        // 获取元素距离模态框顶部的偏移量
+        const elementPosition = element.offsetTop;
+        modalBody.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+        });
         
-        // 显示项目详情
-        function showProjectDetail(projectId) {
+        // 高亮对应的导航按钮
+        document.querySelectorAll('#projectSideNav button').forEach(btn => {
+            btn.style.background = 'var(--bg)';
+            btn.style.borderColor = 'var(--border)';
+            btn.style.color = 'inherit';
+        });
+        
+        const navBtn = document.getElementById('nav-' + sectionId);
+        if (navBtn) {
+            navBtn.style.background = 'var(--primary)';
+            navBtn.style.borderColor = 'var(--primary)';
+            navBtn.style.color = '#fff';
+        }
+        
+        // 2 秒后恢复高亮
+        setTimeout(() => {
+            if (navBtn) {
+                navBtn.style.background = 'var(--bg)';
+                navBtn.style.borderColor = 'var(--border)';
+                navBtn.style.color = 'inherit';
+            }
+        }, 2000);
+    }
+}
+
+// 显示项目详情
+function showProjectDetail(projectId) {
             const project = data.projects.find(p => p.id === projectId);
             if (!project) {
                 alert('项目不存在');
@@ -21491,8 +21592,14 @@ ${ammoToAnalyze.map((ammo, index) =>
             
             const relatedTasks = data.tasks.filter(t => t.projectId === projectId);
             
-            let html = `
-                <div style="margin-bottom:16px;">
+let html = `
+<div style="position:relative;margin-bottom:16px;">
+<!-- 侧边导航轴 - 贴紧项目详情内容区域右侧 -->
+<div id="projectSideNav" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);border-radius:20px;padding:10px 6px;display:flex;flex-direction:column;gap:6px;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    <button onclick="scrollToSection('milestones')" id="nav-milestones" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-size:13px;transition:all 0.2s;" title="里程碑">🏆</button>
+    <button onclick="scrollToSection('subDirections')" id="nav-subDirections" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-size:13px;transition:all 0.2s;" title="细分方向">📋</button>
+    <button onclick="scrollToSection('experience')" id="nav-experience" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-size:13px;transition:all 0.2s;" title="经验总结">💡</button>
+</div>
                     <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
                         <div>
                             <h4 style="margin:0 0 8px 0;font-size:18px;">${escapeHtml(project.name)}</h4>
@@ -21533,12 +21640,11 @@ ${ammoToAnalyze.map((ammo, index) =>
                         ${project.targetDate ? `<span>🎯 目标: ${formatDate(project.targetDate)}</span>` : ''}
                         ${project.type ? `<span>⏱️ 类型: ${project.type === 'short' ? '短期' : project.type === 'medium' ? '中期' : '长期'}</span>` : ''}
                     </div>
-                </div>
-                
-                <!-- 细分方向 -->
-                <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
-                    <strong>📋 细分方向</strong>
-                    
+</div>
+
+<!-- 细分方向 -->
+<div id="subDirections" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
+    <strong>📋 细分方向</strong>
                     <!-- 添加细分方向的输入框 -->
                     <div style="display:flex;gap:8px;margin-top:12px;margin-bottom:12px;">
                         <input type="text"
@@ -21564,53 +21670,38 @@ ${ammoToAnalyze.map((ammo, index) =>
                     ` : '<div style="color:var(--text-secondary);font-size:13px;">暂无细分方向</div>'}
                 </div>
                 
-                <!-- 里程碑和关联任务两列显示 -->
-                <div style="display:grid;grid-template-columns: 1fr 1fr;gap:16px;margin-bottom:16px;">
-                    <!-- 里程碑 -->
-                    <div style="padding:16px;background:var(--bg);border-radius:8px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                            <strong>🏆 里程碑</strong>
-                            <span style="font-size:13px;color:var(--text-secondary);">${project.milestones ? project.milestones.length : 0} 个</span>
-                        </div>
-                        
-                        ${project.milestones && project.milestones.length > 0 ? `
-                            <div style="display:flex;flex-direction:column;gap:8px;">
-                                ${project.milestones.map(milestone => `
-                                    <div class="project-milestone-item">
-                                        <div class="project-milestone-date">${formatDate(milestone.organizedAt)}</div>
-                                        <div class="project-milestone-title">${escapeHtml(milestone.title)}</div>
-                                        <div class="project-milestone-progress">进度: ${milestone.progress}%</div>
-                                        ${milestone.organization && milestone.organization.summary ? `
-                                            <div style="margin-top:8px;font-size:13px;color:var(--text-secondary);">
-                                                ${escapeHtml(milestone.organization.summary.substring(0, 100))}${milestone.organization.summary.length > 100 ? '...' : ''}
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                `).join('')}
+<!-- 里程碑 -->
+<div id="milestones" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <strong>🏆 里程碑</strong>
+        <span style="font-size:13px;color:var(--text-secondary);">${project.milestones ? project.milestones.length : 0} 个</span>
+    </div>
+    
+${project.milestones && project.milestones.length > 0 ? `
+    <div style="display:flex;flex-direction:column;gap:8px;">
+        ${project.milestones.map(milestone => `
+            <div class="project-milestone-item" style="position:relative;">
+                <div style="display:flex;justify-content:space-between;align-items:start;">
+                    <div style="flex:1;">
+                        <div class="project-milestone-date">${formatDate(milestone.organizedAt)}</div>
+                        <div class="project-milestone-title">${escapeHtml(milestone.title)}</div>
+                        <div class="project-milestone-progress">进度：${milestone.progress}%</div>
+                        ${milestone.organization && milestone.organization.summary ? `
+                            <div style="margin-top:8px;font-size:13px;color:var(--text-secondary);">
+                                ${escapeHtml(milestone.organization.summary.substring(0, 100))}${milestone.organization.summary.length > 100 ? '...' : ''}
                             </div>
-                        ` : '<div style="color:var(--text-secondary);font-size:13px;">暂无里程碑</div>'}
+                        ` : ''}
                     </div>
-                    
-                    <!-- 关联任务 -->
-                    <div style="padding:16px;background:var(--bg);border-radius:8px;">
-                        <strong>📝 关联任务 (${relatedTasks.length})</strong>
-                        
-                        ${relatedTasks.length > 0 ? `
-                            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
-                                ${relatedTasks.slice(0, 5).map(task => `
-                                    <div style="padding:8px;background:var(--card);border-radius:4px;font-size:13px;">
-                                        <div style="display:flex;align-items:center;gap:8px;">
-                                            <span style="${task.done ? 'text-decoration:line-through;color:var(--text-secondary);' : ''}">${escapeHtml(task.content)}</span>
-                                            ${task.organization ? '<span style="color:var(--primary);font-size:11px;">[已整理]</span>' : ''}
-                                        </div>
-                                    </div>
-                                `).join('')}
-                                ${relatedTasks.length > 5 ? `<div style="font-size:12px;color:var(--text-secondary);">还有 ${relatedTasks.length - 5} 个任务...</div>` : ''}
-                            </div>
-                        ` : '<div style="color:var(--text-secondary);font-size:13px;margin-top:12px;">暂无关联任务</div>'}
+                    <div style="display:flex;gap:6px;flex-shrink:0;margin-left:12px;">
+                        <button class="btn btn-small btn-secondary" onclick="editMilestone('${project.id}', '${milestone.id}')" style="padding:4px 8px;font-size:12px;">编辑</button>
+                        <button class="btn btn-small btn-danger" onclick="deleteMilestone('${project.id}', '${milestone.id}')" style="padding:4px 8px;font-size:12px;">删除</button>
                     </div>
                 </div>
-                
+            </div>
+        `).join('')}
+    </div>
+` : '<div style="color:var(--text-secondary);font-size:13px;">暂无里程碑</div>'}
+</div>
                 <!-- 经验总结 -->
                 ${(() => {
                     // 收集所有有整理数据的关联任务
@@ -21628,11 +21719,11 @@ ${ammoToAnalyze.map((ammo, index) =>
                     const assets = organizedTasks.map(t => t.organization.assets).filter(a => a).join('\n');
                     
                     // 如果没有任何内容，不显示
-                    if (!goals && !completions && !successes && !skills && !problems && !summaries && !methods && !assets) return '';
+if (!goals && !improvements && !successes && !skills && !problems && !summaries && !methods && !assets) return '';
                     
-                    return `
-                    <div style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
-                        <strong>💡 经验总结</strong>
+return `
+<div id="experience" style="margin-bottom:16px;padding:16px;background:var(--bg);border-radius:8px;">
+    <strong>💡 经验总结</strong>
                         <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px;">
                             ${goals ? `
                             <div>
@@ -21807,9 +21898,130 @@ ${ammoToAnalyze.map((ammo, index) =>
             
             showProjectDetail(projectId);
             loadProjectsList();
-        }
+}
+
+// 编辑里程碑
+function editMilestone(projectId, milestoneId) {
+    const project = data.projects.find(p => p.id === projectId);
+    if (!project || !project.milestones) {
+        return;
+    }
+    
+    const milestone = project.milestones.find(m => m.id === milestoneId);
+    if (!milestone) {
+        return;
+    }
+    
+// 创建编辑弹窗（使用 modal-overlay 包裹，确保层级正确）
+const modalId = 'milestoneEditModal';
+let modal = document.getElementById(modalId);
+
+if (!modal) {
+    // 创建 overlay 包裹层
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.id = modalId + 'Overlay';
+    overlay.style.zIndex = '2500'; // 比项目详情模态框更高
+    
+    modal = document.createElement('div');
+    modal.id = modalId;
+    modal.className = 'modal';
+    modal.style.maxWidth = '500px';
+    modal.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h3 style="margin:0;">编辑里程碑</h3>
+            <button onclick="closeModal('${modalId}')" style="background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-secondary);">&times;</button>
+        </div>
         
-        // 更新项目手动进度
+        <div style="margin-bottom:16px;">
+            <label style="display:block;margin-bottom:6px;font-weight:500;">标题</label>
+            <input type="text" id="editMilestoneTitle" value="${escapeHtml(milestone.title)}"
+                   style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+        </div>
+        
+        <div style="margin-bottom:16px;">
+            <label style="display:block;margin-bottom:6px;font-weight:500;">进度</label>
+            <input type="range" id="editMilestoneProgress" min="0" max="100" value="${milestone.progress || 0}"
+                   style="width:100%;" oninput="document.getElementById('editMilestoneProgressValue').textContent = this.value + '%'>
+            <div style="text-align:right;font-size:13px;color:var(--text-secondary);margin-top:4px;">
+                <span id="editMilestoneProgressValue">${milestone.progress || 0}</span>%
+            </div>
+        </div>
+        
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:24px;">
+            <button class="btn btn-secondary" onclick="closeModal('${modalId}')">取消</button>
+            <button class="btn btn-primary" onclick="saveMilestoneEdit('${projectId}', '${milestoneId}')">保存</button>
+        </div>
+    `;
+    
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+}
+    
+    // 设置值
+    document.getElementById('editMilestoneTitle').value = milestone.title;
+    document.getElementById('editMilestoneProgress').value = milestone.progress || 0;
+    document.getElementById('editMilestoneProgressValue').textContent = milestone.progress || 0;
+    
+    modal.classList.remove('hidden');
+}
+
+// 保存里程碑编辑
+function saveMilestoneEdit(projectId, milestoneId) {
+    const project = data.projects.find(p => p.id === projectId);
+    if (!project || !project.milestones) {
+        return;
+    }
+    
+    const milestone = project.milestones.find(m => m.id === milestoneId);
+    if (!milestone) {
+        return;
+    }
+    
+    const title = document.getElementById('editMilestoneTitle').value.trim();
+    const progress = parseInt(document.getElementById('editMilestoneProgress').value);
+    
+    if (!title) {
+        alert('请输入里程碑标题');
+        return;
+    }
+    
+    milestone.title = title;
+    milestone.progress = progress;
+    milestone.updatedAt = nowStr();
+    
+    saveData();
+    closeModal('milestoneEditModal');
+    
+    // 刷新显示
+    showProjectDetail(projectId);
+    loadProjectsList();
+    
+    showToast('里程碑更新成功');
+}
+
+// 删除里程碑
+function deleteMilestone(projectId, milestoneId) {
+    if (!confirm('确定要删除这个里程碑吗？')) {
+        return;
+    }
+    
+    const project = data.projects.find(p => p.id === projectId);
+    if (!project || !project.milestones) {
+        return;
+    }
+    
+    project.milestones = project.milestones.filter(m => m.id !== milestoneId);
+    saveData();
+    
+    // 刷新显示
+    showProjectDetail(projectId);
+    loadProjectsList();
+    
+    showToast('里程碑已删除');
+}
+
+// 更新项目手动进度
         function updateProjectManualProgress(projectId, progress) {
             const project = data.projects.find(p => p.id === projectId);
             if (!project) {
