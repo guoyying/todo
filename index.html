@@ -30,6 +30,239 @@
             --green-text: #4a5d4a;
             --green-text-light: #6a7a6a;
         }
+        
+        /* 紧凑的 Markdown 样式 - 用于任务内容显示 */
+        .task-display {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          font-size: 14px;
+          line-height: 1.5;
+          color: #1e293b;
+          background: #ffffff;
+          padding: 8px 12px;
+          border-radius: 6px;
+          word-wrap: break-word;
+          max-width: 100%;
+        }
+        
+        /* 标题：字号由大，但间距可控，不突兀 */
+        .task-display h1 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin: 0.4em 0 0.25em 0;
+          line-height: 1.3;
+          border-bottom: 1px solid #e9edf2;
+          padding-bottom: 0.15em;
+        }
+        
+        .task-display h2 {
+          font-size: 1.15rem;
+          font-weight: 600;
+          margin: 0.35em 0 0.2em 0;
+          line-height: 1.3;
+        }
+        
+        .task-display h3 {
+          font-size: 1.05rem;
+          font-weight: 600;
+          margin: 0 0 0 0 !important;
+          line-height: 1.4;
+        }
+        
+        .task-display h4 {
+          font-size: 0.95rem;
+          font-weight: 600;
+          margin: 0.25em 0 0.1em 0;
+          line-height: 1.4;
+        }
+        
+        .task-display h5,
+        .task-display h6 {
+          font-size: 0.9rem;
+          font-weight: 600;
+          margin: 0.2em 0 0.1em 0;
+          line-height: 1.4;
+          color: #334155;
+        }
+        
+        /* 段落 & 普通文本 */
+        .task-display p {
+          margin: 0.2em 0;
+          line-height: 1.5;
+        }
+        
+        .task-display strong {
+          font-weight: 600;
+          color: #0f172a;
+        }
+        
+        .task-display em {
+          font-style: italic;
+        }
+        
+        /* 任务列表（- [ ] 和 - [x]）优化 */
+        .task-display ul,
+        .task-display ol {
+          margin: 0 0 0 1.2em !important;
+          padding-left: 0.2em;
+          list-style: disc !important;  /* 普通列表显示圆点 */
+        }
+        
+        .task-display ol {
+          list-style: decimal !important;  /* 有序列表显示数字 */
+        }
+        
+        
+        .task-display li {
+          margin: 0 0;
+          line-height: 1.5;
+        }
+        
+        /* 复选框优化 */
+        .task-display input[type="checkbox"] {
+          margin: 0 0.3em 0 0;
+          transform: scale(0.85);
+          vertical-align: middle;
+          cursor: default;
+          pointer-events: none;
+          accent-color: #2563eb;
+        }
+        
+        /* 任务列表样式 */
+        .task-display ul.task-list {
+          list-style: none;
+          padding-left: 0.2em;
+        }
+        
+        .task-display ul.task-list li {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.3em;
+          margin: 0.1em 0;
+        }
+        
+        .task-display ul.task-list li input[type="checkbox"] {
+          flex-shrink: 0;
+          margin-top: 0.2em;
+        }
+        
+        /* 分隔线 <hr> */
+        .task-display hr {
+          border: none;
+          border-top: 1px solid #d1d9e6;
+          margin: 0.5em 0;
+          height: 0;
+          background: none;
+        }
+        
+        /* 删除线：~~ ~~ */
+        .task-display del,
+        .task-display s {
+          text-decoration: line-through;
+          color: #94a3b8;
+          background-color: transparent;
+          padding: 0 0.05em;
+        }
+        
+        .task-display .task-done {
+          text-decoration: line-through;
+          color: #94a3b8;
+        }
+        
+        /* 行内代码 & 代码块 */
+        .task-display code {
+          font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+          font-size: 0.85em;
+          background: #f1f5f9;
+          padding: 0.1em 0.3em;
+          border-radius: 3px;
+          color: #0b1b33;
+        }
+        
+        .task-display pre {
+          background: #f1f5f9;
+          padding: 0.4em 0.6em;
+          border-radius: 4px;
+          overflow-x: auto;
+          margin: 0.3em 0;
+          font-size: 0.8rem;
+          line-height: 1.4;
+        }
+        
+        .task-display pre code {
+          background: transparent;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        
+        /* 引用块 */
+        .task-display blockquote {
+          border-left: 3px solid #cbd5e1;
+          margin: 0.3em 0;
+          padding: 0.1em 0.8em;
+          color: #475569;
+          background: #f8fafc;
+          border-radius: 0 4px 4px 0;
+        }
+        
+        /* 表格（不影响整体布局） */
+        .task-display table {
+          border-collapse: collapse;
+          width: 90%;  /* 根据内容自适应宽度 */
+          max-width: 100%;
+          margin: 0.3em 0;
+          font-size: 0.85rem;
+          table-layout: auto;  /* 自动调整列宽 */
+        }
+        
+        .task-display th,
+        .task-display td {
+          border: 1px solid #e2e8f0;
+          padding: 0.8em 0.2em;  /* 增加上下间距从 0.2em 到 0.4em */
+          /* 移除 text-align，让 marked 生成的对齐样式生效 */
+        }
+        
+        .task-display th {
+          background: #f1f5f9;
+          font-weight: 600;
+        }
+        
+        /* 链接（带下划线，不突兀） */
+        .task-display a {
+          color: #2563eb;
+          text-decoration: none;
+          border-bottom: 1px dotted #94a3b8;
+        }
+        
+        .task-display a:hover {
+          text-decoration: underline;
+          border-bottom: 1px solid #2563eb;
+        }
+        
+        /* 图片（自适应最大宽度） */
+        .task-display img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 4px;
+          margin: 0.2em 0;
+        }
+        
+        /* 嵌套列表：各级列表的边距略微缩小 */
+        .task-display ul ul,
+        .task-display ol ol,
+        .task-display ul ol,
+        .task-display ol ul {
+          margin: 0.05em 0 0.05em 1em;
+        }
+        
+        /* 首尾元素边距归零 */
+        .task-display > *:first-child {
+          margin-top: 0;
+        }
+        .task-display > *:last-child {
+          margin-bottom: 0;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -10281,238 +10514,166 @@ ${taskContent}
                 cb.onclick = () => toggleDone(item.id);
                 contentDiv.appendChild(cb);
             }
-               if (options.editable && item.type === 'task' && !item.done) {
-                   // 根据内容长度决定使用input还是textarea
-                   // 手机端降低阈值到22字符，让更多任务使用textarea支持多行
-                   const isMobile = window.innerWidth <= 768;
-                   const useTextarea = item.content.length > (isMobile ? 22 : 50);
-                   let textInput;
-                   
-                  if (useTextarea) {
-                      textInput = document.createElement('textarea');
-                      textInput.value = item.content;
-                      textInput.style.flex = '1';
-                      textInput.style.border = 'none';
-                      textInput.style.background = 'transparent';
-                      textInput.style.fontSize = '14px';
-                      textInput.style.fontFamily = 'inherit';
-                      textInput.style.padding = '2px';
-                      textInput.style.resize = 'vertical';
-                      // 移动端：根据内容长度动态设置 rows
-                      // 超过 100 字但小于 150 字显示 6 行，超过 150 字显示 5 行并支持点击弹出完整内容
-                      // 桌面端：使用 minHeight 让内容自动扩展
-                      if (isMobile) {
-                          const contentLength = item.content.length;
-                          if (contentLength > 150) {
-                              textInput.rows = 5;
-                              textInput.style.cursor = 'pointer';
-                              textInput.title = '点击查看完整内容';
-                              // 点击弹出完整内容
-                              textInput.onclick = () => {
-                                  showContentPopup(item.content, item.id);
-                              };
-                          } else if (contentLength > 100) {
-                              textInput.rows = 6;
-                          } else {
-                              textInput.rows = 3;
-                          }
-                      } else {
-                          const contentLength = item.content.length;
-                          textInput.style.minHeight = contentLength > 150 ? '40px' : (contentLength > 100 ? '35px' : '20px');
-                      }
-                      textInput.style.maxHeight = '200px';
-                      textInput.style.overflow = 'auto';
-                      textInput.style.whiteSpace = 'pre-wrap';
-                      textInput.style.wordBreak = 'break-word';
-                      textInput.style.overflowWrap = 'break-word';
-                      textInput.style.lineHeight = '1.6';
-                      textInput.style.maxWidth = '800px';
-                  } else {
-                      textInput = document.createElement('input');
-                      textInput.type = 'text';
-                      textInput.value = item.content;
-                      textInput.style.flex = '1';
-                      textInput.style.border = 'none';
-                      textInput.style.background = 'transparent';
-                      textInput.style.fontSize = '14px';
-                      textInput.style.fontFamily = 'inherit';
-                      textInput.style.padding = '2px';
-                      textInput.style.whiteSpace = 'normal';
-                      textInput.style.wordBreak = 'break-word';
-                      textInput.style.overflowWrap = 'break-word';
-                      textInput.style.lineHeight = '1.6';
-                      textInput.style.maxWidth = '800px';
-                  }
-                  
-                  textInput.onchange = (e) => {
-                      // 检查强提醒（允许编辑强提醒任务本身）
-                      if (hasStrongReminder(item.id)) {
-                          showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
-                          e.target.value = item.content; // 恢复原值
-                          return;
-                      }
-                      
-                      const newContent = e.target.value;
-                      // 检查内容是否真的发生了变化
-                      if (newContent !== item.content) {
-                          item.content = newContent;
-                          item.updatedAt = nowStr();
-                          saveData();
-                          render(); // 重新渲染以更新强提醒横幅
-                      }
-                  };
-                  textInput.onblur = (e) => {
-                      // 检查强提醒（允许编辑强提醒任务本身）
-                      if (hasStrongReminder(item.id)) {
-                          showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过12小时未更新的任务。`, { duration: 5000 });
-                          e.target.value = item.content; // 恢复原值
-                          return;
-                      }
-                      
-                      const newContent = e.target.value;
-                      // 检查内容是否真的发生了变化
-                      if (newContent !== item.content) {
-                          item.content = newContent;
-                          item.updatedAt = nowStr();
-                          saveData();
-                          render(); // 重新渲染以更新强提醒横幅
-                      }
-                  };
-                  
-                  // 创建容器包装文本框和时间输入框（所有设备统一布局）
-                  if (!item.unknown) {
-                      const inputContainer = document.createElement('div');
-                      inputContainer.style.display = 'flex';
-                      inputContainer.style.alignItems = 'flex-start';
-                      inputContainer.style.gap = '8px';
-                      inputContainer.style.flex = '1';
-                      
-                      // 文本框
-                      inputContainer.appendChild(textInput);
-                      
-                      // 时间输入框
-                      const timeInput = document.createElement('input');
-                      timeInput.type = 'text';
-                      timeInput.value = item.dueTime || '';
-                      timeInput.placeholder = '预计时间';
-                      timeInput.style.width = '60px';
-                      timeInput.style.flexShrink = '0';
-                      timeInput.style.border = '1px solid var(--border)';
-                      timeInput.style.borderRadius = '4px';
-                      timeInput.style.padding = '2px 6px';
-                      timeInput.style.fontSize = '12px';
-                      timeInput.style.marginTop = '2px'; // 与文本框对齐
-                      timeInput.onchange = (e) => {
-                          // 检查强提醒（允许编辑强提醒任务本身）
-                          if (hasStrongReminder(item.id)) {
-                              const strongTasks = getStrongReminderTasks();
-                              showToast('存在强提醒任务，无法编辑任务预计时间！请先处理超过12小时未更新的任务。', { duration: 5000 });
-                              e.target.value = item.dueTime || ''; // 恢复原值
-                              return;
-                          }
-                          
-                          const timeValue = e.target.value.trim();
-                          // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
-                          if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
-                              return;
-                          }
-                          // 检查时间是否真的发生了变化
-                          if (timeValue !== (item.dueTime || '')) {
-                              item.dueTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
-                          }
-                      };
-                      timeInput.onblur = (e) => {
-                          // 检查强提醒（允许编辑强提醒任务本身）
-                          if (hasStrongReminder(item.id)) {
-                              const strongTasks = getStrongReminderTasks();
-                              showToast('存在强提醒任务，无法编辑任务预计时间！请先处理超过12小时未更新的任务。', { duration: 5000 });
-                              e.target.value = item.dueTime || ''; // 恢复原值
-                              return;
-                          }
-                          
-                          const timeValue = e.target.value.trim();
-                          // 使用统一的时间验证函数（父任务/普通任务上限20分钟）
-                          if (!validateTimeInput(timeValue, 20, 'task', item.dueTime, e.target)) {
-                              return;
-                          }
-                          // 检查时间是否真的发生了变化
-                          if (timeValue !== (item.dueTime || '')) {
-                              item.dueTime = timeValue;
-                              item.updatedAt = nowStr();
-                              saveData();
-                              render();
-                          }
-                      };
-                      
-                      inputContainer.appendChild(timeInput);
-                      contentDiv.appendChild(inputContainer);
-                  } else {
-                      // 未知时间任务：直接添加文本框
-                      contentDiv.appendChild(textInput);
-                  }
+            
+            // 任务内容显示：内联编辑模式
+            // 默认显示 Markdown 渲染内容，点击原地变成可编辑文本框，点击外部或按 Enter 保存
+            const createInlineEditor = (container, content, itemId) => {
+                let isEditing = false;
                 
-                // 添加标签编辑功能
-                if (item.tags && item.tags.length > 0) {
-                    const tagsContainer = document.createElement('div');
-                    tagsContainer.style.display = 'flex';
-                    tagsContainer.style.flexWrap = 'wrap';
-                    tagsContainer.style.gap = '4px';
-                    tagsContainer.style.marginTop = '6px';
-                    
-                    item.tags.forEach(tag => {
-                        const tagSpan = document.createElement('span');
-                        tagSpan.className = 'item-tag';
-                        tagSpan.textContent = tag;
-                        tagSpan.style.cursor = 'pointer';
-                        tagSpan.style.position = 'relative';
-                        tagSpan.onclick = (e) => {
-                            e.stopPropagation();
-                            showTagEditor(item.id, tag, 'task');
-                        };
-                        tagsContainer.appendChild(tagSpan);
-                    });
-                    
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        showTagEditor(item.id, null, 'task');
-                    };
-                    tagsContainer.appendChild(addTagBtn);
-                    
-                    contentDiv.appendChild(tagsContainer);
+                // 创建显示容器（Markdown 渲染）
+                const displayDiv = document.createElement('div');
+                displayDiv.className = 'task-display';
+                
+                if (typeof marked !== 'undefined') {
+                    try {
+                        // 配置 marked 以支持换行（break: true 让单个换行符生效）
+                        const html = marked.parse(content, { breaks: true });
+                        displayDiv.innerHTML = html;
+                        
+                        // 给包含复选框的 ul 添加 task-list 类名
+                        const uls = displayDiv.querySelectorAll('ul');
+                        uls.forEach(ul => {
+                            const hasCheckbox = ul.querySelector('input[type="checkbox"]');
+                            if (hasCheckbox) {
+                                ul.classList.add('task-list');
+                            }
+                        });
+                    } catch (e) {
+                        displayDiv.textContent = content;
+                    }
                 } else {
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+ 添加标签';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.style.marginTop = '6px';
-                    addTagBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        showTagEditor(item.id, null, 'task');
-                    };
-                    contentDiv.appendChild(addTagBtn);
+                    displayDiv.textContent = content;
                 }
-            } else if (item.type === 'task' && item.unknown && item.subtasks && item.subtasks.length) {
-                // 显示父任务内容
-                const textSpan = document.createElement('span');
-                textSpan.textContent = item.content;
-                textSpan.style.cursor = 'pointer';
-                textSpan.onclick = () => openEdit(item.id);
-                contentDiv.appendChild(textSpan);
+                
+                displayDiv.style.whiteSpace = 'pre-wrap';
+                displayDiv.style.wordBreak = 'break-word';
+                displayDiv.style.lineHeight = '0.2';
+                displayDiv.style.cursor = 'pointer';
+                displayDiv.style.padding = '2px 4px';
+                displayDiv.style.borderRadius = '3px';
+                displayDiv.style.transition = 'all 0.2s';
+                
+                displayDiv.onclick = (e) => {
+                    if (isEditing) return;
+                    isEditing = true;
+                    
+                    // 检查强提醒
+                    if (hasStrongReminder(itemId)) {
+                        showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过 12 小时未更新的任务。`, { duration: 5000 });
+                        isEditing = false;
+                        return;
+                    }
+                    
+                    // 创建编辑框：统一使用 textarea 以支持换行
+                    let editor = document.createElement('textarea');
+                    editor.value = content;
+                    editor.style.minHeight = '100px';  // 增大最小高度
+                    editor.style.maxHeight = '300px';  // 增大最大高度
+                    editor.style.rows = '5';           // 增加行数
+                    
+                    editor.style.border = '1px solid var(--primary)';
+                    editor.style.background = '#fff';
+                    editor.style.padding = '4px 8px';
+                    editor.style.borderRadius = '4px';
+                    editor.style.fontSize = '14px';
+                    editor.style.fontFamily = 'inherit';
+                    editor.style.outline = 'none';
+                    editor.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                    editor.style.whiteSpace = 'normal';
+                    editor.style.wordBreak = 'break-word';
+                    editor.style.overflowWrap = 'break-word';
+                    editor.style.lineHeight = '1.6';
+                    
+                    // 替换显示容器
+                    container.removeChild(displayDiv);
+                    container.appendChild(editor);
+                    editor.focus();
+                    
+                    // 保存函数
+                    const save = () => {
+                        if (isEditing) {
+                            const newContent = editor.value.trim();
+                            if (newContent !== content) {
+                                const task = data.tasks.find(t => t.id === itemId);
+                                if (task) {
+                                    task.content = newContent;
+                                    task.updatedAt = nowStr();
+                                    saveData();
+                                }
+                            }
+                            isEditing = false;
+                            container.removeChild(editor);
+                            // 重新创建显示容器
+                            const newDisplay = document.createElement('div');
+                            newDisplay.className = 'task-display';
+                            if (typeof marked !== 'undefined') {
+                                try {
+                                    // 配置 marked 以支持换行（break: true 让单个换行符生效）
+                                    newDisplay.innerHTML = marked.parse(content, { breaks: true });
+                                } catch (e) {
+                                    newDisplay.textContent = content;
+                                }
+                            } else {
+                                newDisplay.textContent = content;
+                            }
+                            newDisplay.style.whiteSpace = 'pre-wrap';
+                            newDisplay.style.wordBreak = 'break-word';
+                            newDisplay.style.lineHeight = '1.0';
+                            newDisplay.style.cursor = 'pointer';
+                            newDisplay.style.padding = '2px 4px';
+                            newDisplay.style.borderRadius = '3px';
+                            newDisplay.style.transition = 'all 0.2s';
+                            newDisplay.onclick = (e) => {
+                                if (isEditing) return;
+                                e.stopPropagation();
+                                createInlineEditor(container, content, itemId);
+                            };
+                            container.appendChild(newDisplay);
+                            render(); // 重新渲染以更新所有内容
+                        }
+                    };
+                    
+                    // 事件监听：点击外部保存
+                    editor.onblur = () => {
+                        setTimeout(() => save(), 100);
+                    };
+                    
+                    editor.onkeydown = (e) => {
+                        // Shift + Enter 保存
+                        if (e.key === 'Enter' && e.shiftKey) {
+                            e.preventDefault();
+                            save();
+                        }
+                        // Enter 键（不带 Shift）允许换行，不做任何处理
+                        // Esc 取消编辑
+                        else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            isEditing = false;
+                            container.removeChild(editor);
+                            render();
+                        }
+                        // 其他键（包括 Enter）允许默认行为（换行）
+                    };
+                    
+                    // 点击外部关闭
+                    setTimeout(() => {
+                        const clickOutsideHandler = (e) => {
+                            if (!container.contains(e.target) && isEditing) {
+                                save();
+                                document.removeEventListener('click', clickOutsideHandler);
+                            }
+                        };
+                        document.addEventListener('click', clickOutsideHandler);
+                    }, 0);
+                };
+                
+                container.appendChild(displayDiv);
+            };
+            
+            if (item.type === 'task' && item.unknown && item.subtasks && item.subtasks.length) {
+                createInlineEditor(contentDiv, item.content, item.id);
             } else {
-                const textSpan = document.createElement('span');
-                textSpan.textContent = item.content;
-                textSpan.style.cursor = 'pointer';
-                textSpan.onclick = () => openEdit(item.id);
-                contentDiv.appendChild(textSpan);
+                createInlineEditor(contentDiv, item.content, item.id);
             }
             el.appendChild(contentDiv);
 
