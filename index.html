@@ -2733,10 +2733,10 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     
     /* 项目详情模态框移动端全屏 */
     #projectDetailModal .modal {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
+        width: 95% !important;
+        max-width: 95% !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
         border-radius: 0 !important;
         padding: 16px !important;
         min-width: auto !important;
@@ -2772,10 +2772,102 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         font-size: 16px !important;
     }
     
-    /* 移动端隐藏右侧留白 */
-    #projectDetailModal .modal-body {
-        padding-right: 8px !important;
-    }
+/* 移动端隐藏右侧留白 */
+#projectDetailModal .modal-body {
+    padding-right: 8px !important;
+}
+
+/* 移动端超紧凑项目列表样式 */
+#projectsContainer .project-card {
+    flex-wrap: wrap !important;
+    padding: 6px 8px !important;
+    gap: 4px !important;
+}
+
+#projectsContainer .project-header {
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    margin-bottom: 2px !important;
+    gap: 4px !important;
+    align-items: center !important;
+}
+
+#projectsContainer .project-title {
+    max-width: 30% !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+}
+
+#projectsContainer .project-description {
+    max-width: 35% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 !important;
+    font-size: 10px !important;
+}
+
+#projectsContainer .project-progress {
+    flex: 1 !important;
+    min-width: 80px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+#projectsContainer .project-progress-bar {
+    height: 3px !important;
+    flex: 1 !important;
+}
+
+#projectsContainer .project-progress-text {
+    font-size: 9px !important;
+    min-width: 28px !important;
+    text-align: right !important;
+}
+
+/* 信息项和按钮在同一行 */
+#projectsContainer .project-info {
+    width: 100% !important;
+    margin: 2px 0 !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+#projectsContainer .project-info-left {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    flex: 1 !important;
+}
+
+#projectsContainer .project-info-item {
+    flex: 0 0 auto !important;
+    font-size: 9px !important;
+    white-space: nowrap !important;
+}
+
+#projectsContainer .project-actions {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    align-items: center !important;
+}
+
+#projectsContainer .btn-small {
+    flex: 0 0 auto !important;
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+    border-radius: 3px !important;
+    min-width: 45px !important;
+}
 }
         
         #aiContentSaveModal h3 {
@@ -21328,23 +21420,23 @@ ${ammoToAnalyze.map((ammo, index) =>
             const milestonesCount = project.milestones ? project.milestones.length : 0;
             
 card.innerHTML = `
-    <div class="project-header">
-        <div class="project-title">${escapeHtml(project.name)}</div>
-        <div class="project-description" title="${escapeHtml(project.description || '')}">${escapeHtml(project.description || '')}</div>
-        <span class="project-status-badge ${statusClass}">${statusText}</span>
-    </div>
-    
+<div class="project-header">
+    <div class="project-title">${escapeHtml(project.name)}</div>
+    <div class="project-description" title="${escapeHtml(project.description || '')}">${escapeHtml(project.description || '')}</div>
+    <span class="project-status-badge ${statusClass}">${statusText}</span>
     <div class="project-progress">
         <div class="project-progress-bar">
             <div class="project-progress-fill" style="width: ${progress}%"></div>
         </div>
         <div class="project-progress-text">${progress}%</div>
     </div>
+</div>
     
-    <div class="project-info">
+<div class="project-info">
+    <div class="project-info-left">
         ${project.mainDirection ? `
         <div class="project-info-item" title="🎯 大方向：${escapeHtml(project.mainDirection)}">
-            🎯 ${escapeHtml(project.mainDirection.length > 8 ? project.mainDirection.substring(0, 8) + '...' : project.mainDirection)}
+            🎯 ${escapeHtml(project.mainDirection.length > 6 ? project.mainDirection.substring(0, 6) + '...' : project.mainDirection)}
         </div>
         ` : ''}
         ${totalDirections > 0 ? `
@@ -21358,12 +21450,12 @@ card.innerHTML = `
         </div>
         ` : ''}
     </div>
-    
     <div class="project-actions">
         <button class="btn btn-small btn-secondary" onclick="showProjectDetail('${project.id}')">详情</button>
         <button class="btn btn-small btn-secondary" onclick="showEditProjectModal('${project.id}')">编辑</button>
         <button class="btn btn-small btn-danger" onclick="deleteProject('${project.id}')">删除</button>
     </div>
+</div>
 `;
             
             return card;
