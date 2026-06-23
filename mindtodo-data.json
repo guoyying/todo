@@ -857,9 +857,9 @@
     {
       "id": "mqojx946egyhq",
       "type": "task",
-      "content": "ai想点子处写下自己的想法:RPA跟厂家沟通",
+      "content": "ai想点子处写下自己的想法:RPA跟厂家沟通。厂家手里有3个项目",
       "createdAt": "2026-06-22T01:43:23.238Z",
-      "updatedAt": "2026-06-23T09:30:45.788Z",
+      "updatedAt": "2026-06-23T23:46:02.015Z",
       "tags": [],
       "done": false,
       "dueTime": "6min",
@@ -965,14 +965,22 @@
       "type": "task",
       "content": "团支部ppt制作",
       "createdAt": "2026-06-23T09:31:20.495Z",
-      "updatedAt": "2026-06-23T09:31:20.495Z",
+      "updatedAt": "2026-06-23T23:46:15.664Z",
       "tags": [
         "团支部"
       ],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1782258361916",
+          "content": "copy上个季度的ppt到本季度文件夹",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "mqqhd5nk7n92l",
