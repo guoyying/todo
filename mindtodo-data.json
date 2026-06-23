@@ -687,25 +687,17 @@
     {
       "id": "mqdohjths9riw",
       "type": "task",
-      "content": "有无知识库问答助手可以返回对应视频链接？我希望提问比如：番茄鸡蛋面怎么做？能返回小红书或读音收藏的视频。",
+      "content": "结束，难度大且没啥意义。知识库问答助手返回小红书视频链接",
       "createdAt": "2026-06-14T11:05:40.757Z",
-      "updatedAt": "2026-06-17T00:02:00.226Z",
+      "updatedAt": "2026-06-23T07:53:19.668Z",
       "tags": [
-        "AI",
-        "B类-复杂-主动"
+        "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1781506092315",
-          "content": "打开内容管理找到第一步，deepseek搜索怎么获取小红书收藏-api？",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-23T07:53:19.668Z",
+      "subtasks": []
     },
     {
       "id": "mqetas88nsm58",
@@ -928,20 +920,6 @@
       "subtasks": []
     },
     {
-      "id": "mqotxmxls3vbm",
-      "type": "task",
-      "content": "想一下退网进度怎么报？",
-      "createdAt": "2026-06-22T06:23:37.305Z",
-      "updatedAt": "2026-06-22T06:23:37.305Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "dueTime": "10min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mqotxwbsl1fj5",
       "type": "task",
       "content": "过拆运一体单子9张",
@@ -992,18 +970,6 @@
         "organizedAt": "2026-06-22T07:00:29.933Z"
       },
       "projectId": "1780299661890",
-      "subtasks": []
-    },
-    {
-      "id": "mqq47jprbdep6",
-      "type": "task",
-      "content": "- [ ] 测试\n### ceshi\n111\n111",
-      "createdAt": "2026-06-23T03:59:02.031Z",
-      "updatedAt": "2026-06-23T04:34:49.995Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "1min",
-      "unknown": false,
       "subtasks": []
     }
   ],
@@ -2682,21 +2648,6 @@
       }
     },
     {
-      "id": "mqi7bs1d3kb2i",
-      "taskId": "mqdohjths9riw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-24T09:03"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-17T15:04:08.881Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mqp00177ye97n",
       "taskId": "mqetas88nsm58",
       "type": "time",
@@ -2708,51 +2659,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-22T09:13:26.803Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqp01elj0lnzl",
-      "taskId": "mqojx946egyhq",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-23T14:15"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T09:14:30.823Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqp12nw7v2v60",
-      "taskId": "mqotxmxls3vbm",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-23T14:33"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T09:43:29.143Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mqpvfuadk9n7n",
-      "taskId": "mqoty7s6xbg6f",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-23T14:53"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T23:53:32.437Z",
       "lastReminderTime": null,
       "active": true
     }
