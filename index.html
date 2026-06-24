@@ -10725,29 +10725,40 @@ ${taskContent}
                         return;
                     }
                     
-                    // 创建编辑框：统一使用 textarea 以支持换行
+                    // 创建编辑框：统一使用 textarea 以支持换行，样式与 task-display 一致
                     let editor = document.createElement('textarea');
                     editor.value = content;
-                    editor.style.minHeight = '100px';  // 增大最小高度
-                    editor.style.maxHeight = '300px';  // 增大最大高度
-                    editor.style.rows = '5';           // 增加行数
                     
-                    editor.style.border = '1px solid var(--primary)';
-                    editor.style.background = '#fff';
-                    editor.style.padding = '4px 8px';
-                    editor.style.borderRadius = '4px';
+                    // 样式与 .task-display 保持一致（包括高度）
+                    editor.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
                     editor.style.fontSize = '14px';
-                    editor.style.fontFamily = 'inherit';
+                    editor.style.lineHeight = '1.5';
+                    editor.style.color = '#1e293b';
+                    editor.style.background = '#ffffff';
+                    editor.style.padding = '8px 12px';
+                    editor.style.borderRadius = '6px';
+                    editor.style.wordWrap = 'break-word';
+                    editor.style.maxWidth = '100%';
+                    editor.style.border = '1px solid var(--primary)';
                     editor.style.outline = 'none';
-                    editor.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                    editor.style.whiteSpace = 'normal';
-                    editor.style.wordBreak = 'break-word';
-                    editor.style.overflowWrap = 'break-word';
-                    editor.style.lineHeight = '1.6';
+                    editor.style.boxSizing = 'border-box';
+                    editor.style.overflow = 'hidden';
+                    editor.style.resize = 'none';
                     
                     // 替换显示容器
                     container.removeChild(displayDiv);
                     container.appendChild(editor);
+                    
+                    // 自动调整高度以显示全部内容
+                    editor.style.height = 'auto';
+                    editor.style.height = (editor.scrollHeight) + 'px';
+                    
+                    // 内容变化时自动调整高度
+                    editor.addEventListener('input', function() {
+                        this.style.height = 'auto';
+                        this.style.height = (this.scrollHeight) + 'px';
+                    });
+                    
                     editor.focus();
                     
                     // 保存函数
