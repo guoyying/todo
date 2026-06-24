@@ -745,32 +745,6 @@
       "subtasks": []
     },
     {
-      "id": "1781685862716",
-      "type": "task",
-      "content": "【*】拆运一体",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "doneAt": "2026-06-15T08:27:53.083Z",
-      "organizedAt": "2026-06-17T08:44:22.716Z",
-      "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-06-17T08:44:22.716Z",
-      "organization": {
-        "goal": "邮件通知施工方，可实施8张拆运单\n已过单4张",
-        "improvement": "",
-        "skills": "",
-        "success": "",
-        "problems": "",
-        "summary": "",
-        "methods": "",
-        "assets": "拆运一体过单sop",
-        "organizedAt": "2026-06-17T08:44:22.716Z"
-      },
-      "projectId": "1781685860305",
-      "subtasks": []
-    },
-    {
       "id": "mqhzm78nlze1f",
       "type": "task",
       "content": "🎯 练习表达反馈：闲聊。我老公是个外行，希望可以用浅显易懂的语言",
@@ -1034,6 +1008,32 @@
       "subtasks": [],
       "placedIn": null,
       "doneAt": "2026-06-24T03:38:08.081Z"
+    },
+    {
+      "id": "1782294501911",
+      "type": "task",
+      "content": "【*】拆运一体",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-06-15T08:27:53.083Z",
+      "organizedAt": "2026-06-24T09:48:21.911Z",
+      "createdAt": "2026-06-15T07:39:19.833Z",
+      "updatedAt": "2026-06-24T09:48:21.911Z",
+      "organization": {
+        "goal": "【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单",
+        "improvement": "",
+        "skills": "",
+        "success": "",
+        "problems": "",
+        "summary": "",
+        "methods": "",
+        "assets": "拆运一体过单sop",
+        "organizedAt": "2026-06-24T09:48:21.911Z"
+      },
+      "projectId": "1781685860305",
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -3640,6 +3640,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-24T08:36:17.450Z"
+    "lastSync": "2026-06-24T09:35:57.585Z"
   }
 }
