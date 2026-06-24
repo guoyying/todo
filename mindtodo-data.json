@@ -449,7 +449,7 @@
       "createdAt": "2026-06-08T02:38:07.836Z",
       "updatedAt": "2026-06-08T03:55:29.366Z",
       "tags": [
-        "C类-复杂-被动响应"
+        "C类-复杂-被推着做的"
       ],
       "done": true,
       "dueTime": "15min",
@@ -706,7 +706,7 @@
       "createdAt": "2026-06-15T06:08:09.320Z",
       "updatedAt": "2026-06-15T06:08:09.320Z",
       "tags": [
-        "C类-复杂-被动响应",
+        "C类-复杂-被推着做的",
         "拆运一体"
       ],
       "done": false,
@@ -859,12 +859,13 @@
       "type": "task",
       "content": "ai想点子处写下自己的想法:RPA跟厂家沟通。厂家手里有3个项目",
       "createdAt": "2026-06-22T01:43:23.238Z",
-      "updatedAt": "2026-06-23T23:46:02.015Z",
+      "updatedAt": "2026-06-24T02:27:28.987Z",
       "tags": [],
       "done": false,
       "dueTime": "6min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mqrgcvo9eotbu"
     },
     {
       "id": "mqotxwbsl1fj5",
@@ -1050,12 +1051,13 @@
       "type": "task",
       "content": "荔湾故障单处理",
       "createdAt": "2026-06-24T01:48:45.895Z",
-      "updatedAt": "2026-06-24T01:48:45.895Z",
+      "updatedAt": "2026-06-24T02:27:22.611Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mqrgcvo9eotbu"
     }
   ],
   "normalFeelings": [
@@ -1773,8 +1775,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mqrdahan5mwuf",
-      "name": "B类-复杂-推进细分方向 09:00-10:30"
+      "id": "slot_mqrgcvo9eotbu",
+      "name": "C类-复杂-被推着做的 10:30-11:00"
     }
   ],
   "tags": [
@@ -2496,16 +2498,16 @@
       "activeValue": "#6b8e6b",
       "activeTextColor": "#FFFFFF"
     },
-    "C类-复杂-被动响应": {
-      "color": "#b3d4fc",
-      "textColor": "#333333",
-      "activeValue": "#1565c0",
-      "activeTextColor": "#FFFFFF"
-    },
     "B类-复杂-推进细分方向": {
       "color": "#ffebee",
       "textColor": "#333333",
       "activeValue": "#c62828",
+      "activeTextColor": "#FFFFFF"
+    },
+    "C类-复杂-被推着做的": {
+      "color": "#b3d4fc",
+      "textColor": "#333333",
+      "activeValue": "#1565c0",
       "activeTextColor": "#FFFFFF"
     }
   },
@@ -2734,7 +2736,16 @@
         "endTime": "10:30",
         "duration": 90,
         "summary": "",
-        "slotId": "slot_mqrdahan5mwuf"
+        "slotId": null
+      },
+      {
+        "id": "block_1782268012377",
+        "tag": "C类-复杂-被推着做的",
+        "startTime": "10:30",
+        "endTime": "11:00",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mqrgcvo9eotbu"
       }
     ]
   },
@@ -2779,6 +2790,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-06-22T09:13:26.803Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mqrgb4zfcsmqj",
+      "taskId": "mqrd9ot2h6ei5",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-06-25T09:01"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-06-24T02:25:31.131Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -3628,6 +3654,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-24T02:24:52.242Z"
+    "lastSync": "2026-06-24T02:25:02.923Z"
   }
 }
