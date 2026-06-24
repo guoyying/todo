@@ -2487,6 +2487,12 @@
       "textColor": "#333333",
       "activeValue": "#1565c0",
       "activeTextColor": "#FFFFFF"
+    },
+    "B类-复杂-主动": {
+      "color": "#ffebee",
+      "textColor": "#333333",
+      "activeValue": "#c62828",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "dailyTimeline": {
