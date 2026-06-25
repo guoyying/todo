@@ -2780,6 +2780,29 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
+    },
+    {
+      "id": "mqsyf55nm1rso",
+      "taskId": "mqetas88nsm58",
+      "type": "condition",
+      "triggerConfig": {
+        "condition": "manual"
+      },
+      "reminderConfig": {
+        "reminders": [
+          {
+            "frequency": "weekly",
+            "startTime": "09:00",
+            "endTime": "18:00",
+            "message": "拆运一体发邮件",
+            "confirmed": false,
+            "confirmationTime": null
+          }
+        ]
+      },
+      "createdAt": "2026-06-25T03:40:17.243Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
