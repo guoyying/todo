@@ -18444,12 +18444,13 @@ function closeModal(modalId) {
      }
      // 通用函数：为指定元素添加文本选择监听器（可重复调用）
      function setupAiResultSelectionListeners() {
-         const selectors = [
-             { id: 'aiPolishedContent', source: 'aiPolish' },
-             { id: 'aiIdeasResult', source: 'aiIdeas' },
-             { id: 'aiSearchResults', source: 'aiSearch' },
-             { id: 'organizerAiResult', source: 'organizerAi' }
-         ];
+          const selectors = [
+              { id: 'aiPolishedContent', source: 'aiPolish' },
+              { id: 'aiIdeasResult', source: 'aiIdeas' },
+              { id: 'aiSearchResults', source: 'aiSearch' },
+              { id: 'organizerAiResult', source: 'organizerAi' },
+              { id: 'aiFeedbackContent', source: 'aiFeedback' }
+          ];
          
          selectors.forEach(({ id, source }) => {
              let el = document.getElementById(id);
@@ -28053,6 +28054,9 @@ function manualCloseOrganizerAiPanel() {
             // 格式化 Markdown 响应
             const formattedResponse = formatAiResponse(response);
             feedbackContent.innerHTML = formattedResponse;
+            
+            // 为 AI 反馈区域设置文本选择监听器
+            setupAiResultSelectionListeners();
             
             showToast('AI 反馈已生成，添加为待办并完成后可统计练习次数');
         } catch (error) {
