@@ -2900,7 +2900,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
 }
         
         #aiContentSaveModal h3 {
-            font-size: 18px;
+            font-size: 15px;
             margin-bottom: 20px;
             color: var(--green-text);
             font-weight: 600;
@@ -2957,6 +2957,26 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         #aiContentSaveModal textarea#aiContentTitle {
             min-height: 44px;
             max-height: 100px;
+        }
+        
+        /* 固定底部按钮样式 */
+        #aiContentSaveModal .modal {
+            display: flex !important;
+            flex-direction: column !important;
+            max-height: 85vh !important;
+        }
+        
+        #aiContentSaveModal .modal > div:first-child:not(.modal-actions) {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        
+        #aiContentSaveModal .modal-actions {
+            flex-shrink: 0;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
         }
         
         /* contenteditable div 的 placeholder 样式 */
@@ -7823,6 +7843,15 @@ padding: 7px !important;
                                 <div style="margin-bottom:16px;">
                                     <input type="text" id="kbSearchInput" placeholder="搜索知识... (Ctrl+K 快速记录)" oninput="renderKnowledgeBase()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
+                                <div id="kbTagFilterContainer" style="margin-bottom:16px;">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                        <label style="font-size:13px;color:var(--text-secondary);">标签筛选</label>
+                                        <button id="kbClearTagFilterBtn" class="btn btn-small btn-secondary hidden" onclick="clearTagFilter()" style="padding:2px 8px;font-size:11px;">清除筛选</button>
+                                    </div>
+                                    <div id="kbTagFilterList" style="display:flex;gap:6px;flex-wrap:wrap;">
+                                        <!-- 动态生成标签筛选按钮 -->
+                                    </div>
+                                </div>
                                 <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
                                     <button class="btn btn-small btn-primary" onclick="showAddKBForm()">+ 新增知识</button>
                                     <button class="btn btn-small btn-secondary" onclick="showAISearchForm()">🤖 AI 关联搜索</button>
@@ -7836,8 +7865,11 @@ padding: 7px !important;
                                         <textarea id="newKBContent" rows="4" placeholder="输入知识内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;"></textarea>
                                     </div>
                                     <div style="margin-bottom:12px;">
-                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签 (用中文空格分隔)</label>
-                                        <input type="text" id="newKBTags" placeholder="例如: 技术　笔记　重要" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                        <label style="display:block;margin-bottom:6px;font-size:13px;color:var(--text-secondary);">标签</label>
+                                        <div id="newKBTagList" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;">
+                                            <!-- 动态生成已有标签 -->
+                                        </div>
+                                        <input type="text" id="newKBTags" placeholder="输入新标签或点击上方标签选择" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;" oninput="renderNewKBTagSuggestions()">
                                     </div>
                                     <div style="display:flex;gap:8px;">
                                         <button class="btn btn-primary" onclick="addNewKB()">保存</button>
@@ -7875,6 +7907,15 @@ padding: 7px !important;
                                                 <button class="btn btn-small btn-secondary" onclick="toggleSelectAllManualItems()" id="selectAllBtn" style="padding:4px 8px;font-size:11px;">全选</button>
                                                 <button class="btn btn-small btn-secondary" onclick="closeManualSelectSection()" style="padding:4px 8px;font-size:11px;">关闭</button>
                                                 <button class="btn btn-small btn-primary" onclick="confirmManualSelection()" id="confirmManualSelectBtn" style="padding:4px 8px;font-size:11px;">确定 (<span id="manualSelectCount">0</span>)</button>
+                                            </div>
+                                        </div>
+                                        <div id="manualSelectTagFilterContainer" style="margin-bottom:6px;">
+                                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                                                <label style="font-size:11px;color:var(--text-secondary);">标签筛选</label>
+                                                <button id="manualClearTagFilterBtn" class="btn btn-small btn-secondary hidden" onclick="clearManualTagFilter()" style="padding:2px 6px;font-size:10px;">清除</button>
+                                            </div>
+                                            <div id="manualSelectTagFilterList" style="display:flex;gap:4px;flex-wrap:wrap;">
+                                                <!-- 动态生成标签筛选按钮 -->
                                             </div>
                                         </div>
                                         <div id="manualSelectList" style="max-height:300px;overflow-y:auto;">
@@ -8048,10 +8089,13 @@ padding: 7px !important;
                             <label>内容</label>
                             <textarea id="editKBContent" rows="6" placeholder="请输入知识内容..."></textarea>
  </div>
-                        <div class="input-group">
-                            <label>标签 (用中文空格分隔)</label>
-                            <input type="text" id="editKBTags" placeholder="例如: 技术　笔记　重要">
-                        </div>
+ <div class="input-group">
+     <label>标签</label>
+     <div id="editKBTagList" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;">
+         <!-- 动态生成已有标签 -->
+     </div>
+     <input type="text" id="editKBTags" placeholder="输入新标签或点击上方标签选择" oninput="renderEditKBTagSuggestions()">
+ </div>
                         <div class="modal-actions">
                             <button class="btn btn-secondary" onclick="closeEditKBModal()">取消</button>
                             <button class="btn btn-primary" onclick="saveEditKB()">保存</button>
@@ -8344,42 +8388,44 @@ padding: 7px !important;
 
    <!-- AI内容保存模态框 -->
    <div id="aiContentSaveModal" class="modal-overlay hidden">
-       <div class="modal">
-           <h3>💾 保存 AI 内容</h3>
+       <div class="modal" style="display:flex;flex-direction:column;max-height:85vh;">
+           <h3 style="flex-shrink:0;">💾 保存 AI 内容</h3>
            
-           <div class="input-group">
-               <label for="aiContentTitle">标题</label>
-               <textarea id="aiContentTitle" rows="2" placeholder="输入内容标题..." style="resize:vertical;"></textarea>
-           </div>
-           
-           <div class="input-group">
-               <label for="aiContentType">内容类型</label>
-               <select id="aiContentType">
-                   <option value="search">AI 搜索结果</option>
-                   <option value="ideas">任务想法</option>
-                   <option value="feeling">感受</option>
-               </select>
-           </div>
-           
-           <div class="input-group">
-               <label for="aiContentTags">标签（逗号分隔）</label>
-               <input type="text" id="aiContentTags" placeholder="例如：编程,设计,优化...">
-           </div>
-           
-           <div class="input-group">
-               <label for="aiContentText">内容 (可编辑)</label>
-               <!-- 使用 contenteditable div 替代 textarea，保留原始换行和 Markdown -->
-               <div id="aiContentText"
-                    contenteditable="true"
-                    placeholder="AI 生成的内容将显示在这里，您可以直接编辑..."
-                    style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;font-family:monospace;white-space:pre-wrap;word-wrap:break-word;min-height:120px;outline:none;overflow-y:auto;">
+           <div style="flex:1;overflow-y:auto;padding:0 4px;">
+               <div class="input-group">
+                   <label for="aiContentTitle">标题</label>
+                   <textarea id="aiContentTitle" rows="2" placeholder="输入内容标题..." style="resize:vertical;"></textarea>
                </div>
-               <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">
-                   💡 提示：此处显示 AI 返回的原始内容（保留所有换行和 Markdown 符号），您可以直接编辑。保存时将读取此处内容。
+               
+               <div class="input-group">
+                   <label for="aiContentType">内容类型</label>
+                   <select id="aiContentType">
+                       <option value="search">AI 搜索结果</option>
+                       <option value="ideas">任务想法</option>
+                       <option value="feeling">感受</option>
+                   </select>
+               </div>
+               
+               <div class="input-group">
+                   <label for="aiContentTags">标签（逗号分隔）</label>
+                   <input type="text" id="aiContentTags" placeholder="例如：编程，设计，优化...">
+               </div>
+               
+               <div class="input-group">
+                   <label for="aiContentText">内容 (可编辑)</label>
+                   <!-- 使用 contenteditable div 替代 textarea，保留原始换行和 Markdown -->
+                   <div id="aiContentText"
+                        contenteditable="true"
+                        placeholder="AI 生成的内容将显示在这里，您可以直接编辑..."
+                        style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;font-family:monospace;white-space:pre-wrap;word-wrap:break-word;min-height:120px;outline:none;overflow-y:auto;">
+                   </div>
+                   <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">
+                       💡 提示：此处显示 AI 返回的原始内容（保留所有换行和 Markdown 符号），您可以直接编辑。保存时将读取此处内容。
+                   </div>
                </div>
            </div>
            
-           <div class="modal-actions">
+           <div class="modal-actions" style="flex-shrink:0;margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">
                <button class="btn btn-secondary" onclick="hideAiContentSaveModal()">取消</button>
                <button class="btn btn-primary" onclick="confirmSaveAiContent()">💾 保存</button>
            </div>
@@ -22705,6 +22751,9 @@ function deleteMilestone(projectId, milestoneId) {
              return;
          }
          
+         // 渲染标签筛选按钮
+         renderKBTagFilters();
+         
          // 只有第一次打开或搜索结果为空时才渲染，保留搜索结果
          const container = document.getElementById('knowledgeBaseList');
          if (container.children.length === 0) {
@@ -22780,6 +22829,7 @@ function deleteMilestone(projectId, milestoneId) {
      function renderKnowledgeBase() {
          const container = document.getElementById('knowledgeBaseList');
          const searchTerm = document.getElementById('kbSearchInput').value.toLowerCase();
+         const selectedTags = window.selectedKBTags || [];
          
          let items = data.knowledgeBase || [];
          
@@ -22789,6 +22839,14 @@ function deleteMilestone(projectId, milestoneId) {
                  item.content.toLowerCase().includes(searchTerm) ||
                  (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
              );
+         }
+         
+         // 标签筛选（或关系：包含任意一个选中标签即可）
+         if (selectedTags.length > 0) {
+             items = items.filter(item => {
+                 const itemTags = item.tags || [];
+                 return selectedTags.some(selectedTag => itemTags.includes(selectedTag));
+             });
          }
          
          // 按更新时间排序
@@ -22806,7 +22864,7 @@ function deleteMilestone(projectId, milestoneId) {
                      ${(item.tags || []).map(tag => `<span class="kb-item-tag">${escapeHtml(tag)}</span>`).join('')}
                  </div>
                  <div class="kb-item-meta">
-                     <span>${formatDate(item.updatedAt)}</span>
+                     <span>${formatDate(item.createdAt)}</span>
                      <div class="kb-item-actions">
                          <button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editKB('${item.id}')">编辑</button>
                          <button class="btn btn-small btn-danger" onclick="event.stopPropagation();deleteKB('${item.id}', this)">删除</button>
@@ -22814,6 +22872,63 @@ function deleteMilestone(projectId, milestoneId) {
                  </div>
              </div>
          `).join('');
+     }
+     
+     // 渲染标签筛选按钮
+     function renderKBTagFilters() {
+         const container = document.getElementById('kbTagFilterList');
+         const clearBtn = document.getElementById('kbClearTagFilterBtn');
+         const selectedTags = window.selectedKBTags || [];
+         
+         // 获取所有唯一的标签
+         const allTags = new Set();
+         (data.knowledgeBase || []).forEach(item => {
+             (item.tags || []).forEach(tag => allTags.add(tag));
+         });
+         
+         const tagsArray = Array.from(allTags).sort();
+         
+         if (tagsArray.length === 0) {
+             container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无标签</div>';
+             if (clearBtn) clearBtn.classList.add('hidden');
+             return;
+         }
+         
+         container.innerHTML = tagsArray.map(tag => {
+             const isSelected = selectedTags.includes(tag);
+             return `<button class="btn btn-small ${isSelected ? 'btn-primary' : 'btn-secondary'}" onclick="toggleKBTagFilter('${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
+         }).join('');
+         
+         // 更新清除按钮状态
+         if (clearBtn) {
+             clearBtn.classList.toggle('hidden', selectedTags.length === 0);
+         }
+     }
+     
+     // 切换标签筛选
+     function toggleKBTagFilter(tag) {
+         if (!window.selectedKBTags) {
+             window.selectedKBTags = [];
+         }
+         
+         const index = window.selectedKBTags.indexOf(tag);
+         if (index > -1) {
+             // 已选中，取消选中
+             window.selectedKBTags.splice(index, 1);
+         } else {
+             // 未选中，添加选中
+             window.selectedKBTags.push(tag);
+         }
+         
+         renderKBTagFilters();
+         renderKnowledgeBase();
+     }
+     
+     // 清除标签筛选
+     function clearTagFilter() {
+         window.selectedKBTags = [];
+         renderKBTagFilters();
+         renderKnowledgeBase();
      }
      
      // 显示知识详情
@@ -22858,6 +22973,9 @@ function deleteMilestone(projectId, milestoneId) {
          document.getElementById('kbDetailView').classList.add('hidden');
          document.getElementById('aiContentManagerView').classList.add('hidden');
          document.getElementById('backToKBListBtn').classList.add('hidden');
+         
+         // 重新渲染标签筛选按钮
+         renderKBTagFilters();
      }
      
      // 显示知识库表达框架选择器
@@ -22958,13 +23076,68 @@ function deleteMilestone(projectId, milestoneId) {
          document.getElementById('newKBContent').value = '';
          document.getElementById('newKBTags').value = '';
          document.getElementById('newKBContent').focus();
+         renderNewKBTagSuggestions();
+     }
+     
+     
+     // 渲染新增知识表单的标签建议
+     function renderNewKBTagSuggestions() {
+         const container = document.getElementById('newKBTagList');
+         const allTags = getAllUniqueTags();
+         
+         if (allTags.length === 0) {
+             container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无已有标签</div>';
+             return;
+         }
+         
+         container.innerHTML = allTags.map(tag => {
+             return `<button class="btn btn-small btn-secondary" onclick="selectKBTag('newKBTags', '${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
+         }).join('');
+     }
+     
+     // 渲染编辑知识表单的标签建议
+     function renderEditKBTagSuggestions() {
+         const container = document.getElementById('editKBTagList');
+         const allTags = getAllUniqueTags();
+         
+         if (allTags.length === 0) {
+             container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无已有标签</div>';
+             return;
+         }
+         
+         container.innerHTML = allTags.map(tag => {
+             return `<button class="btn btn-small btn-secondary" onclick="selectKBTag('editKBTags', '${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
+         }).join('');
+     }
+     
+     // 选择标签（添加到输入框）
+     function selectKBTag(inputId, tag) {
+         const input = document.getElementById(inputId);
+         const currentValue = input.value.trim();
+         
+         if (currentValue) {
+             // 如果已有内容，用空格分隔添加
+             input.value = currentValue + ' ' + tag;
+         } else {
+             input.value = tag;
+         }
+         
+         input.focus();
+     }
+     
+     // 获取所有唯一标签
+     function getAllUniqueTags() {
+         const allTags = new Set();
+         (data.knowledgeBase || []).forEach(item => {
+             (item.tags || []).forEach(tag => allTags.add(tag));
+         });
+         return Array.from(allTags).sort();
      }
      
      // 隐藏新增知识表单
      function hideAddKBForm() {
          document.getElementById('addKBForm').classList.add('hidden');
      }
-     
      // 添加新知识
      function addNewKB() {
          const content = document.getElementById('newKBContent').value.trim();
@@ -22975,7 +23148,8 @@ function deleteMilestone(projectId, milestoneId) {
              return;
          }
          
-         const tags = tagsStr ? tagsStr.split('\u3000').map(tag => tag.trim()).filter(tag => tag) : [];
+         // 支持多种分隔符：空格、全角空格、逗号、顿号
+         const tags = tagsStr ? tagsStr.split(/[\s\u3000,,\u3001]+/).map(tag => tag.trim()).filter(tag => tag) : [];
          
          const newItem = {
              id: generateId(),
@@ -22989,6 +23163,7 @@ function deleteMilestone(projectId, milestoneId) {
          saveData();
          
          hideAddKBForm();
+         renderKBTagFilters();
          renderKnowledgeBase();
      }
      
@@ -22998,10 +23173,11 @@ function deleteMilestone(projectId, milestoneId) {
          if (!item) return;
          
          document.getElementById('editKBContent').value = item.content;
-         document.getElementById('editKBTags').value = (item.tags || []).join('\u3000');
+         document.getElementById('editKBTags').value = (item.tags || []).join(' ');
          document.getElementById('editKBModal').dataset.editId = id;
          
          document.getElementById('editKBModal').classList.remove('hidden');
+         renderEditKBTagSuggestions();
      }
      
      // 保存编辑的知识
@@ -23015,7 +23191,8 @@ function deleteMilestone(projectId, milestoneId) {
              return;
          }
          
-         const tags = tagsStr ? tagsStr.split('\u3000').map(tag => tag.trim()).filter(tag => tag) : [];
+         // 支持多种分隔符：空格、全角空格、逗号、顿号
+         const tags = tagsStr ? tagsStr.split(/[\s\u3000,,\u3001]+/).map(tag => tag.trim()).filter(tag => tag) : [];
          
          const item = data.knowledgeBase.find(kb => kb.id === id);
          if (item) {
@@ -23025,6 +23202,7 @@ function deleteMilestone(projectId, milestoneId) {
              saveData();
              
              closeEditKBModal();
+             renderKBTagFilters();
              renderKnowledgeBase();
              showKBDetail(id); // 刷新详情视图
          }
@@ -23051,6 +23229,7 @@ function deleteMilestone(projectId, milestoneId) {
          saveData();
          
          backToKBList();
+         renderKBTagFilters();
          renderKnowledgeBase();
          
          // 显示撤销提示气泡
@@ -23490,34 +23669,12 @@ ${knowledgeList}
             isAmmo: item.isAmmo || false
         }));
         
+        // 重置手动选择的标签筛选
+        window.manualSelectedTags = [];
+        renderManualSelectTagFilters();
+        
         // 渲染知识库列表 - 双行紧凑版（无缩进，左对齐）
-        listContainer.innerHTML = data.knowledgeBase.map((item, index) => {
-            const isSelected = window.manualSelectedItems.some(selected => selected.id === item.id);
-            // 移除每行开头的空格和制表符
-            const cleanContent = item.content.split('\n').map(line => line.trimStart()).join('\n');
-            
-            return `
-            <div style="padding:5px;background:var(--card);border-radius:3px;margin-bottom:3px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;"
-                 onclick="toggleManualSelectItem(${index})"
-                 onmouseenter="this.style.borderColor='var(--primary)';this.style.background='var(--green-light)';"
-                 onmouseleave="if(!${isSelected}){this.style.borderColor='var(--border)';this.style.background='var(--card)';}"
-                 id="manual-item-${index}"
-                 style="${isSelected ? 'background:var(--green-light);border-color:var(--primary);' : ''}">
-                <div style="display:flex;align-items:flex-start;gap:5px;">
-                    <input type="checkbox"
-                           style="width:13px;height:13px;cursor:pointer;flex-shrink:0;margin-top:2px;"
-                           id="manual-checkbox-${index}"
-                           ${isSelected ? 'checked' : ''}
-                           onclick="event.stopPropagation(); toggleManualSelectItem(${index})">
-                    <div style="flex:1;min-width:0;">
-                        <div style="font-size:11px;line-height:1.45;color:var(--text);height:42px;overflow:hidden;word-wrap:break-word;text-align:left;">
-                            ${cleanContent}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
-        }).join('');
+        renderManualSelectList();
         
         // 更新计数
         updateManualSelectCount();
@@ -23531,52 +23688,13 @@ ${knowledgeList}
         }, 100);
     }
     
-    // 切换手动选择项状态
+    
+    // 切换手动选择项状态（保留旧函数用于兼容，但改为调用新函数）
     function toggleManualSelectItem(index) {
         const item = data.knowledgeBase[index];
         if (!item) return;
-        
-        const itemIndex = window.manualSelectedItems.findIndex(selected => selected.id === item.id);
-        
-        if (itemIndex > -1) {
-            // 已选中，取消选择
-            window.manualSelectedItems.splice(itemIndex, 1);
-        } else {
-            // 未选中，直接添加
-            // 添加到选择列表
-            window.manualSelectedItems.push({
-                id: item.id,
-                content: item.content,
-                tags: item.tags || [],
-                isAmmo: false,
-                selected: true
-            });
-        }
-        
-        // 更新 UI 状态
-        const itemDiv = document.getElementById(`manual-item-${index}`);
-        const checkbox = document.getElementById(`manual-checkbox-${index}`);
-        
-        if (itemDiv && checkbox) {
-            const isSelected = window.manualSelectedItems.some(selected => selected.id === item.id);
-            checkbox.checked = isSelected;
-            
-            if (isSelected) {
-                itemDiv.style.background = 'var(--green-light)';
-                itemDiv.style.borderColor = 'var(--green-border)';
-                itemDiv.style.opacity = '1';
-            } else {
-                itemDiv.style.background = 'var(--card)';
-                itemDiv.style.borderColor = 'var(--border)';
-                itemDiv.style.opacity = '1';
-            }
-        }
-        
-        // 更新计数
-        updateManualSelectCount();
-        updateSelectedCount();
+        toggleManualSelectItemById(item.id);
     }
-    
     // 更新手动选择计数
     function updateManualSelectCount() {
         const countElement = document.getElementById('manualSelectCount');
@@ -23585,56 +23703,49 @@ ${knowledgeList}
         }
     }
     
+    
     // 切换全选手动选择项（全选/全不选）
     function toggleSelectAllManualItems() {
         if (!data.knowledgeBase || data.knowledgeBase.length === 0) return;
         
         const selectAllBtn = document.getElementById('selectAllBtn');
-        const allItemsSelected = window.manualSelectedItems && window.manualSelectedItems.length === data.knowledgeBase.length;
+        const selectedTags = window.manualSelectedTags || [];
+        
+        // 获取当前显示的项目（考虑标签筛选）
+        let displayItems = data.knowledgeBase;
+        if (selectedTags.length > 0) {
+            displayItems = data.knowledgeBase.filter(item => {
+                const itemTags = item.tags || [];
+                return selectedTags.some(selectedTag => itemTags.includes(selectedTag));
+            });
+        }
+        
+        const allItemsSelected = displayItems.every(item =>
+            window.manualSelectedItems.some(selected => selected.id === item.id)
+        );
         
         if (allItemsSelected) {
-            // 当前已全部选中，改为全不选
-            window.manualSelectedItems = [];
-            
-            // 更新所有复选框状态
-            data.knowledgeBase.forEach((item, index) => {
-                const checkbox = document.getElementById(`manual-checkbox-${index}`);
-                const itemDiv = document.getElementById(`manual-item-${index}`);
-                
-                if (checkbox && itemDiv) {
-                    checkbox.checked = false;
-                    itemDiv.style.background = 'var(--card)';
-                    itemDiv.style.borderColor = 'var(--border)';
+            // 当前已全部选中，改为全不选（只取消当前显示的）
+            displayItems.forEach(item => {
+                const index = window.manualSelectedItems.findIndex(selected => selected.id === item.id);
+                if (index > -1) {
+                    window.manualSelectedItems.splice(index, 1);
                 }
             });
-            
             if (selectAllBtn) selectAllBtn.textContent = '全选';
         } else {
-            // 当前未全部选中，改为全选
-            window.manualSelectedItems = [];
-            data.knowledgeBase.forEach((item) => {
-                window.manualSelectedItems.push({
-                    id: item.id,
-                    content: item.content,
-                    tags: item.tags || [],
-                    isAmmo: false,
-                    selected: true
-                });
-            });
-            
-            // 更新所有复选框状态
-            data.knowledgeBase.forEach((item, index) => {
-                const checkbox = document.getElementById(`manual-checkbox-${index}`);
-                const itemDiv = document.getElementById(`manual-item-${index}`);
-                
-                if (checkbox && itemDiv) {
-                    checkbox.checked = true;
-                    itemDiv.style.background = 'var(--green-light)';
-                    itemDiv.style.borderColor = 'var(--green-border)';
+            // 当前未全部选中，改为全选（只选当前显示的）
+            displayItems.forEach((item) => {
+                if (!window.manualSelectedItems.some(selected => selected.id === item.id)) {
+                    window.manualSelectedItems.push({
+                        id: item.id,
+                        content: item.content,
+                        tags: item.tags || [],
+                        isAmmo: false
+                    });
                 }
             });
-            
-            if (selectAllBtn) selectAllBtn.textContent = '全不选';;
+            if (selectAllBtn) selectAllBtn.textContent = '全不选';
         }
         
         updateManualSelectCount();
@@ -23744,6 +23855,134 @@ ${knowledgeList}
     }
     
     
+    
+    // 渲染手动选择区域的标签筛选按钮
+    function renderManualSelectTagFilters() {
+        const container = document.getElementById('manualSelectTagFilterList');
+        const clearBtn = document.getElementById('manualClearTagFilterBtn');
+        const selectedTags = window.manualSelectedTags || [];
+        
+        // 获取所有唯一的标签
+        const allTags = new Set();
+        (data.knowledgeBase || []).forEach(item => {
+            (item.tags || []).forEach(tag => allTags.add(tag));
+        });
+        
+        const tagsArray = Array.from(allTags).sort();
+        
+        if (tagsArray.length === 0) {
+            container.innerHTML = '<div style="font-size:10px;color:var(--text-secondary);padding:4px 0;">暂无标签</div>';
+            if (clearBtn) clearBtn.classList.add('hidden');
+            return;
+        }
+        
+        container.innerHTML = tagsArray.map(tag => {
+            const isSelected = selectedTags.includes(tag);
+            return `<button class="btn btn-small ${isSelected ? 'btn-primary' : 'btn-secondary'}" onclick="toggleManualTagFilter('${escapeHtml(tag)}')" style="padding:2px 6px;font-size:10px;">${escapeHtml(tag)}</button>`;
+        }).join('');
+        
+        // 更新清除按钮状态
+        if (clearBtn) {
+            clearBtn.classList.toggle('hidden', selectedTags.length === 0);
+        }
+    }
+    
+    // 切换手动选择的标签筛选
+    function toggleManualTagFilter(tag) {
+        if (!window.manualSelectedTags) {
+            window.manualSelectedTags = [];
+        }
+        
+        const index = window.manualSelectedTags.indexOf(tag);
+        if (index > -1) {
+            window.manualSelectedTags.splice(index, 1);
+        } else {
+            window.manualSelectedTags.push(tag);
+        }
+        
+        renderManualSelectTagFilters();
+        renderManualSelectList();
+    }
+    
+    // 清除手动选择的标签筛选
+    function clearManualTagFilter() {
+        window.manualSelectedTags = [];
+        renderManualSelectTagFilters();
+        renderManualSelectList();
+    }
+    
+    // 渲染手动选择列表（带标签筛选）
+    function renderManualSelectList() {
+        const listContainer = document.getElementById('manualSelectList');
+        if (!listContainer) return;
+        
+        const selectedTags = window.manualSelectedTags || [];
+        let items = data.knowledgeBase || [];
+        
+        // 标签筛选（或关系：包含任意一个选中标签即可）
+        if (selectedTags.length > 0) {
+            items = items.filter(item => {
+                const itemTags = item.tags || [];
+                return selectedTags.some(selectedTag => itemTags.includes(selectedTag));
+            });
+        }
+        
+        if (items.length === 0) {
+            listContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-secondary);font-size:12px;">暂无匹配的知识条目</div>';
+            return;
+        }
+        
+        // 渲染列表
+        listContainer.innerHTML = items.map((item) => {
+            const isSelected = window.manualSelectedItems.some(selected => selected.id === item.id);
+            const cleanContent = item.content.split('\n').map(line => line.trimStart()).join('\n');
+            
+            return `
+            <div style="padding:5px;background:var(--card);border-radius:3px;margin-bottom:3px;border:1px solid var(--border);cursor:pointer;transition:all 0.15s;"
+                 onclick="toggleManualSelectItemById('${item.id}')"
+                 onmouseenter="this.style.borderColor='var(--primary)';this.style.background='var(--green-light)';"
+                 onmouseleave="if(!${isSelected}){this.style.borderColor='var(--border)';this.style.background='var(--card)';}"
+                 style="${isSelected ? 'background:var(--green-light);border-color:var(--primary);' : ''}">
+                <div style="display:flex;align-items:flex-start;gap:5px;">
+                    <input type="checkbox"
+                           style="width:13px;height:13px;cursor:pointer;flex-shrink:0;margin-top:2px;"
+                           ${isSelected ? 'checked' : ''}
+                           onclick="event.stopPropagation(); toggleManualSelectItemById('${item.id}')">
+                    <div style="flex:1;min-width:0;">
+                        <div style="font-size:11px;line-height:1.45;color:var(--text);height:42px;overflow:hidden;word-wrap:break-word;text-align:left;">
+                            ${cleanContent}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }).join('');
+    }
+    
+    // 根据 ID 切换手动选择项（替代基于索引的版本）
+    function toggleManualSelectItemById(id) {
+        const index = window.manualSelectedItems.findIndex(item => item.id === id);
+        if (index > -1) {
+            // 已选中，取消选中
+            window.manualSelectedItems.splice(index, 1);
+        } else {
+            // 未选中，添加选中
+            const item = data.knowledgeBase.find(kb => kb.id === id);
+            if (item) {
+                window.manualSelectedItems.push({
+                    id: item.id,
+                    content: item.content,
+                    tags: item.tags || [],
+                    isAmmo: false
+                });
+            }
+        }
+        
+        // 重新渲染列表以更新选中状态
+        renderManualSelectList();
+        updateManualSelectCount();
+    }
+    
     // 关闭手动选择区域
     function closeManualSelectSection() {
         const section = document.getElementById('manualSelectSection');
@@ -23751,7 +23990,6 @@ ${knowledgeList}
             section.classList.add('hidden');
         }
     }
-    
     // 获取选中的知识库条目
     function getSelectedKnowledgeItems() {
         // 从 window.currentMatchedItems 中获取选中的条目
