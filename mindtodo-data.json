@@ -1022,16 +1022,17 @@
     {
       "id": "mqsyyi3k2717i",
       "type": "task",
-      "content": "过三码单",
+      "content": "过三码单31张",
       "createdAt": "2026-06-25T03:55:20.480Z",
-      "updatedAt": "2026-06-25T03:55:20.480Z",
+      "updatedAt": "2026-06-25T07:18:14.494Z",
       "tags": [
         "退网"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "doneAt": "2026-06-25T07:18:14.494Z"
     },
     {
       "id": "1782368741936",
