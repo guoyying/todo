@@ -2780,21 +2780,6 @@
       "lastReminderTimes": {
         "0": "2026-06-02T02:08:59.978Z"
       }
-    },
-    {
-      "id": "mqp00177ye97n",
-      "taskId": "mqetas88nsm58",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-25T10:10"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-22T09:13:26.803Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3642,6 +3627,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-25T01:21:20.262Z"
+    "lastSync": "2026-06-25T01:47:52.419Z"
   }
 }
