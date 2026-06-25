@@ -927,7 +927,7 @@
       "type": "task",
       "content": "团支部ppt制作",
       "createdAt": "2026-06-23T09:31:20.495Z",
-      "updatedAt": "2026-06-23T23:46:15.664Z",
+      "updatedAt": "2026-06-25T00:54:27.080Z",
       "tags": [
         "团支部"
       ],
@@ -938,6 +938,13 @@
         {
           "id": "1782258361916",
           "content": "copy上个季度的ppt到本季度文件夹",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1782348823769",
+          "content": "将两份材料copy到ppt里，修改目录、分目录",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -962,7 +969,7 @@
     {
       "id": "mqqru3uvduhtj",
       "type": "task",
-      "content": "**场景**：朋友抱怨工作不顺，想放弃。 \n- 你可以说：“其实我觉得，真正的英雄主义不是从不摔倒，而是摔倒了还能爬起来继续走。你现在能看清职场的复杂，但还是决定认真做事，这就是一种清醒的选择。这种韧性特别难得。”\n\n**场景**：同事被客户刁难后，没有报复，反而耐心服务。\n- 你看到了人性的阴影，但还是选择了善意，这需要很大的内心力量。",
+      "content": "真正的英雄主义是看到了人性的阴影，但还是选择了善意。这就是一种清醒的选择。",
       "done": false,
       "createdAt": "2026-06-23T15:00:25.736Z",
       "tags": [
@@ -975,7 +982,7 @@
         ]
       },
       "subtasks": [],
-      "updatedAt": "2026-06-24T00:45:33.883Z"
+      "updatedAt": "2026-06-25T00:53:38.799Z"
     },
     {
       "id": "mqrd9ot2h6ei5",
@@ -1033,6 +1040,18 @@
         "organizedAt": "2026-06-24T09:48:21.911Z"
       },
       "projectId": "1781685860305",
+      "subtasks": []
+    },
+    {
+      "id": "mqsshjxc0gj96",
+      "type": "task",
+      "content": "将证明材料-高潜的，整理一下。别那么乱",
+      "createdAt": "2026-06-25T00:54:12.000Z",
+      "updatedAt": "2026-06-25T00:54:18.515Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
       "subtasks": []
     }
   ],
