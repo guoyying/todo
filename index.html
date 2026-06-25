@@ -1919,6 +1919,41 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             border: 1px solid var(--border);
             border-radius: 4px;
             font-size: 12px;
+            cursor: grab;
+            user-select: none;
+        }
+        
+        .point-item:active {
+            cursor: grabbing;
+        }
+        
+        .point-item.dragging {
+            opacity: 0.5;
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        
+        .point-item.drag-over {
+            border-color: var(--primary);
+            background: var(--green-light);
+            transform: scale(1.02);
+        }
+        
+        .point-handle {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            cursor: grab;
+            margin-right: 2px;
+            flex-shrink: 0;
+        }
+        
+        .point-handle:hover {
+            opacity: 1;
         }
         
         /* 要点日历按钮 */
@@ -7293,24 +7328,30 @@ padding: 7px !important;
                             <button class="btn btn-small btn-secondary" onclick="manualCloseOrganizerAiPanel()" style="padding:2px 8px;font-size:11px;">✕ 清空并关闭</button>
                         </div>
                         
-                        <!-- 提示词输入（默认展开） -->
-                        <div style="margin-bottom:12px;">
-                            <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">分析问题</label>
-                            <textarea id="organizerAiPrompt" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;" placeholder="输入自定义提示词，留空使用默认提示词"></textarea>
+                        <!-- 提示词和模型选择（默认折叠，点击按钮展开） -->
+                        <div id="organizerAiOptions" style="margin-bottom:12px;display:none;">
+                            <!-- 提示词输入 -->
+                            <div style="margin-bottom:12px;">
+                                <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">分析问题</label>
+                                <textarea id="organizerAiPrompt" rows="3" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;" placeholder="输入自定义提示词，留空使用默认提示词"></textarea>
+                            </div>
+                            
+                            <!-- 模型选择 -->
+                            <div style="margin-bottom:12px;">
+                                <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">AI 模型</label>
+                                <select id="organizerAiModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+                                    <!-- 选项由 JS 动态填充，自动选中默认模型 -->
+                                </select>
+                            </div>
                         </div>
                         
-                        <!-- 模型选择（自动选择默认模型） -->
-                        <div style="margin-bottom:12px;">
-                            <label style="display:block;margin-bottom:6px;font-size:12px;color:var(--text-secondary);">AI 模型</label>
-                            <select id="organizerAiModelSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
-                                <!-- 选项由 JS 动态填充，自动选中默认模型 -->
-                            </select>
-                        </div>
-                        
-                        <!-- 操作按钮 -->
-                        <div style="display:flex;gap:8px;margin-bottom:12px;">
-                            <button class="btn btn-primary" onclick="generateOrganizerAiSummary()" id="organizerAiGenerateBtn" style="flex:1;font-size:13px;">🚀 开始分析</button>
-                            <button class="btn btn-secondary" onclick="copyOrganizerAiResult()" id="organizerAiCopyBtn" disabled style="flex:1;font-size:13px;">📋 复制结果</button>
+                        <!-- 操作按钮（同一行：高级选项、开始分析、复制结果，自适应大小并居中） -->
+                        <div style="display:flex;gap:8px;margin-bottom:12px;justify-content:center;align-items:center;">
+                            <button id="organizerAiOptionsToggle" onclick="toggleOrganizerAiOptions()" style="padding:8px 16px;font-size:13px;background:var(--primary-light);color:var(--green-text);border:1px solid var(--green-border);border-radius:6px;cursor:pointer;transition:all 0.3s;white-space:nowrap;">
+                                ⚙️ 高级选项
+                            </button>
+                            <button class="btn btn-primary" onclick="generateOrganizerAiSummary()" id="organizerAiGenerateBtn" style="padding:8px 16px;font-size:13px;white-space:nowrap;">🚀 开始分析</button>
+                            <button class="btn btn-secondary" onclick="copyOrganizerAiResult()" id="organizerAiCopyBtn" disabled style="padding:8px 16px;font-size:13px;white-space:nowrap;">📋 复制结果</button>
                         </div>
                         
                         <!-- 结果展示 -->
@@ -21143,8 +21184,16 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 获取当前日期
            const today = new Date();
-           const currentYear = today.getFullYear();
-           const currentMonth = today.getMonth();
+           let currentYear = today.getFullYear();
+           let currentMonth = today.getMonth();
+           
+           // 如果该条目已有周信息，跳转到该周所在的月份
+           const existingPoint = pointData[field] && pointData[field][index];
+           if (existingPoint && existingPoint.week && existingPoint.week.start) {
+               const weekStart = new Date(existingPoint.week.start);
+               currentYear = weekStart.getFullYear();
+               currentMonth = weekStart.getMonth();
+           }
            
            popup.innerHTML = `
                <div class="week-picker-header">
@@ -21279,7 +21328,11 @@ ${ammoToAnalyze.map((ammo, index) =>
                if (point && point.week) {
                    const weekRange = point.week;
                    if (weekRange.start && weekRange.end) {
-                       isSelected = date >= weekRange.start && date <= weekRange.end;
+                       // 将日期转换为时间戳进行比较，确保字符串和 Date 对象都能正确比较
+                       const dateTimestamp = date.getTime();
+                       const startTimestamp = weekRange.start instanceof Date ? weekRange.start.getTime() : new Date(weekRange.start).getTime();
+                       const endTimestamp = weekRange.end instanceof Date ? weekRange.end.getTime() : new Date(weekRange.end).getTime();
+                       isSelected = dateTimestamp >= startTimestamp && dateTimestamp <= endTimestamp;
                    }
                }
                
@@ -21527,14 +21580,18 @@ ${ammoToAnalyze.map((ammo, index) =>
            pointData[field].forEach((point, index) => {
                const pointItem = document.createElement('div');
                pointItem.className = 'point-item';
+               pointItem.draggable = true;
+               pointItem.dataset.index = index;
+               pointItem.dataset.field = field;
                
                // 处理 point 数据（兼容旧格式字符串和新格式对象）
                const pointContent = typeof point === 'object' ? point.content : point;
                const pointWeek = (typeof point === 'object' && point.week) ? point.week : null;
                
-               // 构建 HTML - 紧凑布局：文本占满，按钮在右侧
+               // 构建 HTML - 紧凑布局：拖动图标 + 文本占满，按钮在右侧
                const hasWeek = pointWeek !== null;
                let html = `
+                   <div class="point-handle" title="拖动排序">⋮⋮</div>
                    <span class="point-text" title="点击编辑" style="flex:1; min-width:0;">• ${pointContent}</span>
                    <div style="display:flex;gap:2px;flex-shrink:0;">
                        ${hasWeek ? `
@@ -21556,8 +21613,86 @@ ${ammoToAnalyze.map((ammo, index) =>
                const textSpan = pointItem.querySelector('.point-text');
                textSpan.addEventListener('click', () => editPoint(field, index));
                
+               // 添加拖动事件
+               pointItem.addEventListener('dragstart', handleDragStart);
+               pointItem.addEventListener('dragend', handleDragEnd);
+               pointItem.addEventListener('dragover', handleDragOver);
+               pointItem.addEventListener('dragenter', handleDragEnter);
+               pointItem.addEventListener('dragleave', handleDragLeave);
+               pointItem.addEventListener('drop', handleDrop);
+               
                container.appendChild(pointItem);
            });
+       }
+       
+       // 拖动相关变量
+       let draggedItem = null;
+       let draggedIndex = null;
+       
+       // 开始拖动
+       function handleDragStart(e) {
+           draggedItem = this;
+           draggedIndex = parseInt(this.dataset.index);
+           this.classList.add('dragging');
+           e.dataTransfer.effectAllowed = 'move';
+           e.dataTransfer.setData('text/plain', draggedIndex);
+       }
+       
+       // 结束拖动
+       function handleDragEnd(e) {
+           this.classList.remove('dragging');
+           // 移除所有 drag-over 样式
+           document.querySelectorAll('.point-item.drag-over').forEach(item => {
+               item.classList.remove('drag-over');
+           });
+           draggedItem = null;
+           draggedIndex = null;
+       }
+       
+       // 拖动经过
+       function handleDragOver(e) {
+           e.preventDefault();
+           e.dataTransfer.dropEffect = 'move';
+       }
+       
+       // 拖动进入
+       function handleDragEnter(e) {
+           e.preventDefault();
+           if (this !== draggedItem) {
+               this.classList.add('drag-over');
+           }
+       }
+       
+       // 拖动离开
+       function handleDragLeave(e) {
+           this.classList.remove('drag-over');
+       }
+       
+       // 放置
+       function handleDrop(e) {
+           e.preventDefault();
+           e.stopPropagation();
+           
+           const dropIndex = parseInt(this.dataset.index);
+           const field = this.dataset.field;
+           
+           if (draggedIndex !== null && dropIndex !== draggedIndex && field) {
+               // 在 pointData 中重新排序：从原位置移除，插入到新位置
+               const fieldData = pointData[field];
+               const item = fieldData[draggedIndex];
+               
+               // 移除原位置元素
+               fieldData.splice(draggedIndex, 1);
+               
+               // 插入到新位置（如果 dropIndex > draggedIndex，需要减 1，因为已经移除一个元素）
+               const adjustedIndex = dropIndex > draggedIndex ? dropIndex - 1 : dropIndex;
+               fieldData.splice(adjustedIndex, 0, item);
+               
+               console.log(`排序更新：${field}, 从${draggedIndex}到${adjustedIndex}`);
+               
+               // 重新渲染
+               renderPoints(field);
+           }
        }
        
        // 获取要点文本（用换行符连接）
@@ -21575,31 +21710,59 @@ ${ammoToAnalyze.map((ammo, index) =>
            return pointsWithWeek.length > 0 ? JSON.stringify(pointsWithWeek) : '';
        }
        
-       // 从 JSON 数据加载要点（包含周信息）
+       // 从 JSON 数据加载要点（包含周信息），并按 JSON 中的顺序重新排列
        function loadPointsFromJSON(field, jsonStr) {
            if (!jsonStr) return;
            try {
                const points = JSON.parse(jsonStr);
                if (Array.isArray(points)) {
-                   // 合并到现有要点数据中（根据 content 匹配）
+                   // 创建一个新的数组，按 JSON 中的顺序排列
+                   const orderedData = [];
+                   
+                   // 首先，添加 JSON 中存在的要点（保持 JSON 中的顺序）
                    points.forEach(pointDataItem => {
+                       // 在现有数据中查找匹配的要点
                        const existingIndex = pointData[field].findIndex(p => {
                            const content = typeof p === 'object' ? p.content : p;
                            return content === pointDataItem.content;
                        });
                        
                        if (existingIndex >= 0) {
-                           // 更新现有要点的周信息
-                           if (typeof pointData[field][existingIndex] === 'object') {
-                               pointData[field][existingIndex].week = pointDataItem.week;
-                           } else {
-                               pointData[field][existingIndex] = {
-                                   content: pointData[field][existingIndex],
+                           // 使用现有数据但更新周信息
+                           const existingPoint = pointData[field][existingIndex];
+                           if (typeof existingPoint === 'object') {
+                               orderedData.push({
+                                   content: existingPoint.content,
                                    week: pointDataItem.week
-                               };
+                               });
+                           } else {
+                               orderedData.push({
+                                   content: existingPoint,
+                                   week: pointDataItem.week
+                               });
                            }
+                       } else {
+                           // JSON 中有但现有数据中没有，直接添加
+                           orderedData.push({
+                               content: pointDataItem.content,
+                               week: pointDataItem.week
+                           });
                        }
                    });
+                   
+                   // 然后，添加现有数据中存在但 JSON 中没有的要点（保持原有顺序）
+                   pointData[field].forEach((p, idx) => {
+                       const content = typeof p === 'object' ? p.content : p;
+                       const existsInJson = points.some(pointDataItem => {
+                           return content === pointDataItem.content;
+                       });
+                       if (!existsInJson) {
+                           orderedData.push(typeof p === 'object' ? p : { content: p, week: null });
+                       }
+                   });
+                   
+                   // 更新 pointData，保持新的顺序
+                   pointData[field] = orderedData;
                }
            } catch (e) {
                console.error('加载要点周信息失败:', e);
@@ -26654,6 +26817,28 @@ function manualCloseOrganizerAiPanel() {
         resultContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:20px;">点击上方“开始分析”按钮，AI 将针对选中的任务生成分析结果</div>';
     }
     if (copyBtn) copyBtn.disabled = true;
+}
+
+// 切换高级选项的展开/折叠
+function toggleOrganizerAiOptions() {
+    const optionsContainer = document.getElementById('organizerAiOptions');
+    const toggleBtn = document.getElementById('organizerAiOptionsToggle');
+    
+    if (optionsContainer && toggleBtn) {
+        const isHidden = optionsContainer.style.display === 'none';
+        
+        if (isHidden) {
+            // 展开
+            optionsContainer.style.display = 'block';
+            toggleBtn.innerHTML = '🔼 收起';
+            toggleBtn.style.background = 'var(--green-light)';
+        } else {
+            // 折叠
+            optionsContainer.style.display = 'none';
+            toggleBtn.innerHTML = '⚙️ 高级选项';
+            toggleBtn.style.background = 'var(--primary-light)';
+        }
+    }
 }
 
 // 设置模态框关闭事件监听
