@@ -860,7 +860,7 @@
       "type": "task",
       "content": "团支部ppt制作",
       "createdAt": "2026-06-23T09:31:20.495Z",
-      "updatedAt": "2026-06-25T03:51:39.427Z",
+      "updatedAt": "2026-06-25T07:19:36.716Z",
       "tags": [
         "团支部"
       ],
@@ -868,13 +868,6 @@
       "dueTime": "15min",
       "unknown": false,
       "subtasks": [
-        {
-          "id": "1782258361916",
-          "content": "copy上个季度的ppt到本季度文件夹",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
         {
           "id": "1782348823769",
           "content": "将两份材料copy到ppt里，修改目录、分目录",
@@ -885,6 +878,13 @@
         {
           "id": "1782349258633",
           "content": "将材料放到u盘里头",
+          "done": true,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1782371971931",
+          "content": "读一下ppt",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -3676,6 +3676,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-25T05:33:08.772Z"
+    "lastSync": "2026-06-25T07:18:18.914Z"
   }
 }
