@@ -1913,12 +1913,231 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         .point-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 8px;
+            gap: 4px;
+            padding: 4px 6px;
             background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        /* 要点日历按钮 */
+        .point-calendar-btn {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            color: var(--primary);
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            opacity: 0.6;
+            padding: 0;
+        }
+        
+        .point-calendar-btn:hover {
+            background: var(--primary-light);
+            opacity: 1;
+        }
+        
+        .point-calendar-btn.has-week {
+            background: var(--primary);
+            color: white;
+            opacity: 1;
+        }
+        
+        /* 要点删除按钮 */
+        .point-del {
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 10px;
+            color: #999;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            opacity: 0.5;
+            padding: 0;
+        }
+        
+        .point-del:hover {
+            background: #ffebee;
+            color: var(--danger);
+            opacity: 1;
+        }
+        
+        /* 浮动删除确认气泡 */
+        .floating-delete-confirm {
+            position: fixed;
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 6px;
-            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 8px 12px;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        
+        .floating-delete-confirm span {
+            color: var(--text);
+        }
+        
+        .point-calendar-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .point-calendar-btn.has-week {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* 周选择器弹窗 */
+        .week-picker-popup {
+            position: fixed;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            padding: 8px;
+            z-index: 10000;
+            min-width: 150px;
+            max-width: 200px;
+        }
+        
+        .week-picker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .week-picker-title {
+            font-weight: 600;
+            font-size: 11px;
+        }
+        
+        .week-picker-close {
+            width: 14px;
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .week-picker-close:hover {
+            background: var(--border);
+        }
+        
+        .week-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-bottom: 4px;
+        }
+        
+        .week-picker-day-header {
+            text-align: center;
+            font-size: 9px;
+            color: var(--text-secondary);
+            padding: 2px 1px;
+        }
+        
+        .week-picker-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        
+        .week-picker-day:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        
+        .week-picker-day.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .week-picker-day.today {
+            font-weight: 600;
+            border-color: #ff9800;
+        }
+        
+        .week-picker-day.other-month {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+        
+        .week-picker-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        
+        .week-picker-nav-btn {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 10px;
+            color: var(--text);
+        }
+        
+        .week-picker-nav-btn:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        
+        .week-picker-current-month {
+            font-weight: 600;
+            font-size: 10px;
+        }
+        
+        .week-picker-info {
+            font-size: 8px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px solid var(--border);
         }
         
         .point-item .point-text {
@@ -20843,6 +21062,9 @@ ${ammoToAnalyze.map((ammo, index) =>
             organizerMethods: [],
             organizerAssets: []
         };
+        
+        // 当前选中的周选择器信息
+        let currentWeekPicker = null;
        
        // 编辑要点（多行模式）
        function editPoint(field, index) {
@@ -20850,7 +21072,9 @@ ${ammoToAnalyze.map((ammo, index) =>
            const pointItem = container.children[index];
            if (!pointItem) return;
            
-           const currentText = pointData[field][index];
+           // 兼容旧格式字符串和新格式对象
+           const point = pointData[field][index];
+           const currentText = typeof point === 'object' ? point.content : point;
            
            // 创建多行文本框
            const textarea = document.createElement('textarea');
@@ -20876,7 +21100,21 @@ ${ammoToAnalyze.map((ammo, index) =>
            const saveEdit = () => {
                const newValue = textarea.value.trim();
                if (newValue) {
-                   pointData[field][index] = newValue;
+                   // 保持对象格式，保留周信息
+                   const existingPoint = pointData[field][index];
+                   if (typeof existingPoint === 'object') {
+                       // 更新内容，保留周信息
+                       pointData[field][index] = {
+                           content: newValue,
+                           week: existingPoint.week
+                       };
+                   } else {
+                       // 旧格式字符串，转换为新格式
+                       pointData[field][index] = {
+                           content: newValue,
+                           week: null
+                       };
+                   }
                } else {
                    // 如果为空，删除该要点
                    pointData[field].splice(index, 1);
@@ -20889,7 +21127,233 @@ ${ammoToAnalyze.map((ammo, index) =>
                saveEdit();
            });
        }
-        // 折叠字段功能
+       
+       // 显示周选择器
+       function showWeekPicker(field, index, event) {
+           // 移除旧的周选择器
+           const oldPopup = document.getElementById('weekPickerPopup');
+           if (oldPopup) {
+               oldPopup.remove();
+           }
+           
+           // 创建周选择器弹窗
+           const popup = document.createElement('div');
+           popup.id = 'weekPickerPopup';
+           popup.className = 'week-picker-popup';
+           
+           // 获取当前日期
+           const today = new Date();
+           const currentYear = today.getFullYear();
+           const currentMonth = today.getMonth();
+           
+           popup.innerHTML = `
+               <div class="week-picker-header">
+                   <div class="week-picker-title">选择周</div>
+                   <button class="week-picker-close" onclick="event.stopPropagation(); closeWeekPicker()">✕</button>
+               </div>
+               <div class="week-picker-nav">
+                   <button class="week-picker-nav-btn" onclick="event.stopPropagation(); prevMonth()">‹</button>
+                   <div class="week-picker-current-month" id="weekPickerMonth"></div>
+                   <button class="week-picker-nav-btn" onclick="event.stopPropagation(); nextMonth()">›</button>
+               </div>
+               <div class="week-picker-grid" id="weekPickerGrid"></div>
+               <div class="week-picker-info">点击日期选择该日期所在的周，周背景色将在日历中显示</div>
+           `;
+           
+           document.body.appendChild(popup);
+           
+           // 存储当前状态
+           currentWeekPicker = {
+               field: field,
+               index: index,
+               year: currentYear,
+               month: currentMonth
+           };
+           
+           // 渲染日历
+           renderWeekPickerCalendar();
+           
+           // 定位弹窗
+           setTimeout(() => {
+               const btn = event.target.closest('.point-calendar-btn');
+               if (btn) {
+                   const rect = btn.getBoundingClientRect();
+                   popup.style.position = 'fixed';
+                   popup.style.left = rect.left + 'px';
+                   popup.style.top = (rect.bottom + 8) + 'px';
+                   
+                   // 调整位置避免超出边界
+                   if (rect.left + popup.offsetWidth > window.innerWidth) {
+                       popup.style.left = (window.innerWidth - popup.offsetWidth - 10) + 'px';
+                   }
+                   if (rect.bottom + popup.offsetHeight > window.innerHeight) {
+                       popup.style.top = (rect.top - popup.offsetHeight - 8) + 'px';
+                   }
+               }
+           }, 0);
+           
+           // 点击外部关闭 - 使用 capture 阶段确保能捕获到点击
+           const closeHandler = (e) => {
+               if (!popup.contains(e.target)) {
+                   closeWeekPicker();
+               }
+           };
+           // 使用 capture 阶段，确保能捕获到所有点击
+           document.addEventListener('click', closeHandler, { capture: true, once: true });
+       }
+       
+       // 关闭周选择器
+       function closeWeekPicker() {
+           const popup = document.getElementById('weekPickerPopup');
+           if (popup) {
+               popup.remove();
+           }
+           currentWeekPicker = null;
+       }
+       
+       // 获取某周的开始和结束日期（周一为开始）
+       function getWeekRange(date) {
+           const d = new Date(date);
+           const day = d.getDay();
+           const diff = d.getDate() - day + (day === 0 ? -6 : 1);  // 调整为周一开始
+           
+           const startOfWeek = new Date(d.setDate(diff));
+           const endOfWeek = new Date(d.setDate(startOfWeek.getDate() + 6));
+           
+           return {
+               start: startOfWeek,
+               end: endOfWeek
+           };
+       }
+       
+       // 渲染周选择器日历
+       function renderWeekPickerCalendar() {
+           if (!currentWeekPicker) return;
+           
+           const grid = document.getElementById('weekPickerGrid');
+           const monthLabel = document.getElementById('weekPickerMonth');
+           
+           if (!grid || !monthLabel) return;
+           
+           const { year, month } = currentWeekPicker;
+           
+           // 设置月份标签
+           const monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+           monthLabel.textContent = year + '年 ' + monthNames[month];
+           
+           // 星期标题
+           const weekDays = ['一', '二', '三', '四', '五', '六', '日'];
+           let html = '';
+           weekDays.forEach(day => {
+               html += `<div class="week-picker-day-header">${day}</div>`;
+           });
+           
+           // 获取当月第一天
+           const firstDay = new Date(year, month, 1);
+           const lastDay = new Date(year, month + 1, 0);
+           
+           // 计算需要显示的天数（包括上一个月和下一个月的天数）
+           let startDay = firstDay.getDay();
+           if (startDay === 0) startDay = 7;  // 周日改为 7
+           startDay--;  // 调整为 0 索引
+           
+           const daysInMonth = lastDay.getDate();
+           const prevMonthDays = new Date(year, month, 0).getDate();
+           
+           // 上个月的剩余天数
+           for (let i = startDay - 1; i >= 0; i--) {
+               const dayNum = prevMonthDays - i;
+               const date = new Date(year, month - 1, dayNum);
+               html += `<div class="week-picker-day other-month">${dayNum}</div>`;
+           }
+           
+           // 当月天数
+           const today = new Date();
+           for (let i = 1; i <= daysInMonth; i++) {
+               const date = new Date(year, month, i);
+               const isToday = date.toDateString() === today.toDateString();
+               
+               // 检查是否是选中的周
+               let isSelected = false;
+               const point = pointData[currentWeekPicker.field][currentWeekPicker.index];
+               if (point && point.week) {
+                   const weekRange = point.week;
+                   if (weekRange.start && weekRange.end) {
+                       isSelected = date >= weekRange.start && date <= weekRange.end;
+                   }
+               }
+               
+               let classes = 'week-picker-day';
+               if (isToday) classes += ' today';
+               if (isSelected) classes += ' selected';
+               
+               html += `<div class="${classes}" onclick="event.stopPropagation(); selectWeek(${date.getTime()})">${i}</div>`;
+           }
+           
+           // 下个月的开始天数
+           const totalCells = startDay + daysInMonth;
+           const nextMonthDays = 42 - totalCells;  // 6 行 x 7 列 = 42 个单元格
+           for (let i = 1; i <= nextMonthDays; i++) {
+               html += `<div class="week-picker-day other-month">${i}</div>`;
+           }
+           
+           grid.innerHTML = html;
+       }
+       
+       // 选择周
+       function selectWeek(timestamp) {
+           const date = new Date(timestamp);
+           const weekRange = getWeekRange(date);
+           
+           // 更新要点数据
+           const point = pointData[currentWeekPicker.field][currentWeekPicker.index];
+           if (point) {
+               point.week = {
+                   start: weekRange.start,
+                   end: weekRange.end,
+                   label: formatDate(weekRange.start) + ' - ' + formatDate(weekRange.end)
+               };
+           }
+           
+           // 重新渲染要点列表（更新日历显示）
+           renderWeekPickerCalendar();
+           
+           // 显示提示
+           showToast('已设置为：' + point.week.label);
+           // 不关闭弹窗，允许继续选择其他日期
+       }
+       
+       // 格式化日期
+       function formatDate(date) {
+           const year = date.getFullYear();
+           const month = String(date.getMonth() + 1).padStart(2, '0');
+           const day = String(date.getDate()).padStart(2, '0');
+           return `${year}-${month}-${day}`;
+       }
+       
+       // 上个月
+       function prevMonth() {
+           if (!currentWeekPicker) return;
+           currentWeekPicker.month--;
+           if (currentWeekPicker.month < 0) {
+               currentWeekPicker.month = 11;
+               currentWeekPicker.year--;
+           }
+           renderWeekPickerCalendar();
+       }
+       
+       // 下个月
+       function nextMonth() {
+           if (!currentWeekPicker) return;
+           currentWeekPicker.month++;
+           if (currentWeekPicker.month > 11) {
+               currentWeekPicker.month = 0;
+               currentWeekPicker.year++;
+           }
+           renderWeekPickerCalendar();
+       }
+       
+       // 折叠字段功能
         function toggleField(header) {
             header.classList.toggle('collapsed-field');
         }
@@ -20964,15 +21428,95 @@ ${ammoToAnalyze.map((ammo, index) =>
                return;
            }
            
-           pointData[field].push(value);
+           // 添加包含内容和周信息的对象（周默认为 null）
+           pointData[field].push({
+               content: value,
+               week: null  // 周信息，格式：[startOfWeek, endOfWeek] 或 null
+           });
            input.value = '';
            renderPoints(field);
        }
        
-       // 删除要点
-       function deletePoint(field, index) {
-           pointData[field].splice(index, 1);
-           renderPoints(field);
+       // 删除要点（使用浮动确认气泡）
+       function deletePoint(field, index, btnElement) {
+           const point = pointData[field][index];
+           const pointContent = typeof point === 'object' ? point.content : point;
+           
+           // 如果没有按钮元素，使用传统 confirm
+           if (!btnElement || !btnElement.parentElement) {
+               if (!confirm('确定要删除这个要点吗？')) return;
+               pointData[field].splice(index, 1);
+               renderPoints(field);
+               return;
+           }
+           
+           // 检查是否已经有确认提示，避免重复添加
+           const existingConfirm = document.querySelector('.floating-delete-confirm');
+           if (existingConfirm) return;
+           
+           // 创建浮动确认气泡
+           const confirmDiv = document.createElement('div');
+           confirmDiv.className = 'floating-delete-confirm';
+           
+           const messageSpan = document.createElement('span');
+           messageSpan.textContent = '确定要删除这个要点吗？';
+           confirmDiv.appendChild(messageSpan);
+           
+           const confirmBtn = document.createElement('button');
+           confirmBtn.className = 'btn btn-small btn-danger';
+           confirmBtn.textContent = '确认';
+           confirmBtn.onclick = function(e) {
+               e.stopPropagation();
+               // 执行删除
+               pointData[field].splice(index, 1);
+               renderPoints(field);
+               confirmDiv.remove();
+               showToast('要点已删除');
+           };
+           confirmDiv.appendChild(confirmBtn);
+           
+           const cancelBtn = document.createElement('button');
+           cancelBtn.className = 'btn btn-small btn-secondary';
+           cancelBtn.textContent = '取消';
+           cancelBtn.onclick = function(e) {
+               e.stopPropagation();
+               confirmDiv.remove();
+           };
+           confirmDiv.appendChild(cancelBtn);
+           
+           document.body.appendChild(confirmDiv);
+           
+           // 定位气泡到按钮旁边
+           const rect = btnElement.getBoundingClientRect();
+           confirmDiv.style.position = 'fixed';
+           confirmDiv.style.left = rect.left + 'px';
+           confirmDiv.style.top = (rect.top - confirmDiv.offsetHeight - 8) + 'px';
+           
+           // 调整位置避免超出边界
+           if (rect.left + confirmDiv.offsetWidth > window.innerWidth) {
+               confirmDiv.style.left = (window.innerWidth - confirmDiv.offsetWidth - 10) + 'px';
+           }
+           if (rect.top - confirmDiv.offsetHeight - 8 < 0) {
+               confirmDiv.style.top = (rect.bottom + 8) + 'px';
+           }
+           
+           // 点击外部关闭
+           const closeHandler = (e) => {
+               if (!confirmDiv.contains(e.target)) {
+                   confirmDiv.remove();
+                   document.removeEventListener('click', closeHandler);
+               }
+           };
+           setTimeout(() => {
+               document.addEventListener('click', closeHandler);
+           }, 0);
+           
+           // 3 秒后自动消失
+           setTimeout(() => {
+               if (confirmDiv.parentElement) {
+                   confirmDiv.remove();
+               }
+           }, 3000);
        }
        
        // 渲染要点列表
@@ -20983,10 +21527,30 @@ ${ammoToAnalyze.map((ammo, index) =>
            pointData[field].forEach((point, index) => {
                const pointItem = document.createElement('div');
                pointItem.className = 'point-item';
-               pointItem.innerHTML = `
-                   <span class="point-text" title="点击编辑">• ${point}</span>
-                   <span class="point-del" onclick="deletePoint('${field}', ${index})">✕</span>
+               
+               // 处理 point 数据（兼容旧格式字符串和新格式对象）
+               const pointContent = typeof point === 'object' ? point.content : point;
+               const pointWeek = (typeof point === 'object' && point.week) ? point.week : null;
+               
+               // 构建 HTML - 紧凑布局：文本占满，按钮在右侧
+               const hasWeek = pointWeek !== null;
+               let html = `
+                   <span class="point-text" title="点击编辑" style="flex:1; min-width:0;">• ${pointContent}</span>
+                   <div style="display:flex;gap:2px;flex-shrink:0;">
+                       ${hasWeek ? `
+                           <button class="point-calendar-btn has-week"
+                                   onclick="showWeekPicker('${field}', ${index}, event)"
+                                   title="点击修改周">📅</button>
+                       ` : `
+                           <button class="point-calendar-btn"
+                                   onclick="showWeekPicker('${field}', ${index}, event)"
+                                   title="点击选择周">📅</button>
+                       `}
+                       <span class="point-del" onclick="deletePoint('${field}', ${index}, this)" title="删除">✕</span>
+                   </div>
                `;
+               
+               pointItem.innerHTML = html;
                
                // 添加点击编辑事件
                const textSpan = pointItem.querySelector('.point-text');
@@ -20998,7 +21562,48 @@ ${ammoToAnalyze.map((ammo, index) =>
        
        // 获取要点文本（用换行符连接）
        function getPointsText(field) {
-           return pointData[field].join('\n');
+           return pointData[field].map(p => typeof p === 'object' ? p.content : p).join('\n');
+       }
+       
+       // 获取要点完整数据（包含周信息，JSON 格式）
+       function getPointsDataJSON(field) {
+           // 只返回有周信息的要点
+           const pointsWithWeek = pointData[field].filter(p => {
+               const point = typeof p === 'object' ? p : { content: p, week: null };
+               return point.week !== null;
+           });
+           return pointsWithWeek.length > 0 ? JSON.stringify(pointsWithWeek) : '';
+       }
+       
+       // 从 JSON 数据加载要点（包含周信息）
+       function loadPointsFromJSON(field, jsonStr) {
+           if (!jsonStr) return;
+           try {
+               const points = JSON.parse(jsonStr);
+               if (Array.isArray(points)) {
+                   // 合并到现有要点数据中（根据 content 匹配）
+                   points.forEach(pointDataItem => {
+                       const existingIndex = pointData[field].findIndex(p => {
+                           const content = typeof p === 'object' ? p.content : p;
+                           return content === pointDataItem.content;
+                       });
+                       
+                       if (existingIndex >= 0) {
+                           // 更新现有要点的周信息
+                           if (typeof pointData[field][existingIndex] === 'object') {
+                               pointData[field][existingIndex].week = pointDataItem.week;
+                           } else {
+                               pointData[field][existingIndex] = {
+                                   content: pointData[field][existingIndex],
+                                   week: pointDataItem.week
+                               };
+                           }
+                       }
+                   });
+               }
+           } catch (e) {
+               console.error('加载要点周信息失败:', e);
+           }
        }
        
        // 清空所有要点
@@ -21013,7 +21618,9 @@ ${ammoToAnalyze.map((ammo, index) =>
        // 从文本加载要点（用于编辑时）
        function loadPointsFromText(field, text) {
            if (!text) return;
-           pointData[field] = text.split('\n').filter(p => p.trim());
+           pointData[field] = text.split('\n')
+               .filter(p => p.trim())
+               .map(p => ({ content: p, week: null }));  // 加载时周信息为空
            renderPoints(field);
        }
        
@@ -21192,13 +21799,21 @@ ${ammoToAnalyze.map((ammo, index) =>
                // 保存整理数据（其他字段选填）
                organization: {
                    goal: getPointsText('organizerGoal'),
+                   goalWeeks: getPointsDataJSON('organizerGoal'),  // 周信息
                    improvement: getPointsText('organizerImprovement'),
+                   improvementWeeks: getPointsDataJSON('organizerImprovement'),  // 周信息
                    skills: getPointsText('organizerSkills'),
+                   skillsWeeks: getPointsDataJSON('organizerSkills'),  // 周信息
                    success: getPointsText('organizerSuccess'),
+                   successWeeks: getPointsDataJSON('organizerSuccess'),  // 周信息
                    problems: getPointsText('organizerProblems'),
+                   problemsWeeks: getPointsDataJSON('organizerProblems'),  // 周信息
                    summary: getPointsText('organizerSummary'),
+                   summaryWeeks: getPointsDataJSON('organizerSummary'),  // 周信息
                    methods: getPointsText('organizerMethods'),
+                   methodsWeeks: getPointsDataJSON('organizerMethods'),  // 周信息
                    assets: getPointsText('organizerAssets'),
+                   assetsWeeks: getPointsDataJSON('organizerAssets'),  // 周信息
                    organizedAt: organizedTime
                }
            };
@@ -21348,13 +21963,21 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 加载要点数据
            loadPointsFromText('organizerGoal', task.organization.goal);
+           loadPointsFromJSON('organizerGoal', task.organization.goalWeeks);  // 加载周信息
            loadPointsFromText('organizerImprovement', task.organization.improvement);
+           loadPointsFromJSON('organizerImprovement', task.organization.improvementWeeks);  // 加载周信息
            loadPointsFromText('organizerSkills', task.organization.skills);
+           loadPointsFromJSON('organizerSkills', task.organization.skillsWeeks);  // 加载周信息
            loadPointsFromText('organizerSuccess', task.organization.success);
+           loadPointsFromJSON('organizerSuccess', task.organization.successWeeks);  // 加载周信息
            loadPointsFromText('organizerProblems', task.organization.problems);
+           loadPointsFromJSON('organizerProblems', task.organization.problemsWeeks);  // 加载周信息
            loadPointsFromText('organizerSummary', task.organization.summary);
+           loadPointsFromJSON('organizerSummary', task.organization.summaryWeeks);  // 加载周信息
            loadPointsFromText('organizerMethods', task.organization.methods);
+           loadPointsFromJSON('organizerMethods', task.organization.methodsWeeks);  // 加载周信息
            loadPointsFromText('organizerAssets', task.organization.assets);
+           loadPointsFromJSON('organizerAssets', task.organization.assetsWeeks);  // 加载周信息
            
            // 设置标签（使用renderTags函数）
            const taskTags = task.tags || [];
