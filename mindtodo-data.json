@@ -875,7 +875,7 @@
       "type": "task",
       "content": "### 🛠️ CRM核查\n#### 阶段二 （进行中）\n- [ ] 下一步核查非数字中继情况\n\n#### “时间轴”反向推导 🗓️\n- **动作**：不要从零规划。先问自己：“我最希望CRM在**哪一天**能跑通某个功能（比如录入第一个客户）？” 然后从那天**倒推**：\n\n| 时间节点 | 目标 |\n|:----:|:----:|\n| 7.15 | 完成核查 |\n\n#### 阶段一 （已完成）\n> ⌚ **用时**   1小时15分钟，2026.06.24\n📝 **成果**  完成数字中继业务核查，输出结论及todo\n\n> - [x] 核查数字中继业务多种状态，给出处理建议：\n-- 已退网->不用处理；\n-- 在用，已转虚拟网元或资源退网->不用处理；\n\n> - [ ] 在用，挂设备->核查设备现场情况（关电/在用/拆除），对于关电/拆除情况，下一步迁转到虚拟网元",
       "createdAt": "2026-06-24T01:00:24.662Z",
-      "updatedAt": "2026-06-25T01:28:22.431Z",
+      "updatedAt": "2026-06-26T01:46:40.021Z",
       "tags": [
         "退网",
         "CRM"
@@ -883,7 +883,15 @@
       "done": false,
       "dueTime": "5min",
       "unknown": false,
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "1782438387262",
+          "content": "vlookup下状态，看怎么搞",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ],
       "placedIn": null
     },
     {
@@ -929,38 +937,26 @@
       "subtasks": []
     },
     {
-      "id": "mqsshjxc0gj96",
-      "type": "task",
-      "content": "将证明材料-高潜的，整理一下。别那么乱",
-      "createdAt": "2026-06-25T00:54:12.000Z",
-      "updatedAt": "2026-06-25T12:58:17.334Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [
-        {
-          "id": "1782392254638",
-          "content": "1、什么时候做的高潜汇报2、讲了什么内容 3、考证材料是哪些",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
-    },
-    {
       "id": "mqssxg5ydwj7m",
       "type": "task",
       "content": "更新800M电路拆除",
       "createdAt": "2026-06-25T01:06:33.622Z",
-      "updatedAt": "2026-06-25T01:06:33.622Z",
+      "updatedAt": "2026-06-26T01:44:37.225Z",
       "tags": [
         "退网"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1782438242825",
+          "content": "打开最新的excel，复制接入号到共享表-copy未拆除的到本地test里-打开影刀-选择800M",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     },
     {
       "id": "1782351816789",
@@ -1035,6 +1031,20 @@
         "organizedAt": "2026-06-25T08:10:19.986Z"
       },
       "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "mqua2wv3dxkev",
+      "type": "task",
+      "content": "写团日活动公众号推文",
+      "createdAt": "2026-06-26T01:54:28.191Z",
+      "updatedAt": "2026-06-26T01:54:28.191Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": false,
+      "dueTime": "10min",
+      "unknown": false,
       "subtasks": []
     }
   ],
@@ -2807,21 +2817,6 @@
       "lastReminderTimes": {
         "0": "2026-06-25T03:41:00.004Z"
       }
-    },
-    {
-      "id": "mqtb5qniwqbnh",
-      "taskId": "mqrd9ot2h6ei5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-06-26T09:45"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-25T09:36:53.550Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3663,6 +3658,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-25T12:58:25.350Z"
+    "lastSync": "2026-06-26T01:43:27.378Z"
   }
 }
