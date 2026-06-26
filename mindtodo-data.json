@@ -1012,7 +1012,7 @@
       "type": "task",
       "content": "写团日活动公众号推文",
       "createdAt": "2026-06-26T01:54:28.191Z",
-      "updatedAt": "2026-06-26T02:49:54.863Z",
+      "updatedAt": "2026-06-26T08:18:49.737Z",
       "tags": [
         "团支部"
       ],
@@ -1023,6 +1023,20 @@
         {
           "id": "1782442180495",
           "content": "打开公众号推文指引",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1782459034159",
+          "content": "看下oa知识云能不能做个大家都上传的文件夹",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        },
+        {
+          "id": "1782461650929",
+          "content": "更新下午签到表",
           "done": false,
           "estimatedTime": "",
           "placedIn": null
@@ -1082,12 +1096,20 @@
       "type": "task",
       "content": "更新退网进度",
       "createdAt": "2026-06-26T05:27:47.813Z",
-      "updatedAt": "2026-06-26T05:27:47.813Z",
+      "updatedAt": "2026-06-26T07:36:53.706Z",
       "tags": [],
       "done": false,
       "dueTime": "11min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [
+        {
+          "id": "1782459409183",
+          "content": "爬虫",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
+      ]
     }
   ],
   "normalFeelings": [
@@ -2876,6 +2898,15 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mqunttkon6x650cfch7",
+      "content": "5320下的4台思科都是汇聚交换机。再往下才是接入交换机，是瑞斯康达品牌的。",
+      "tags": [
+        "网安"
+      ],
+      "createdAt": "2026-06-26T08:19:18.648Z",
+      "updatedAt": "2026-06-26T08:19:18.648Z"
+    },
     {
       "id": "mqrhzijy4y2wcvi0bsa",
       "content": "U设备可以用作光电转换器。荔湾故障单",
