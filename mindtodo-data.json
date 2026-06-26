@@ -1738,10 +1738,11 @@
       "id": "mquf38r01okpc",
       "content": "一个好的ai不仅能帮你实现你想做的，还能帮你想到没想到的。我做todo，只想做个可以自定义markdown样式的，它给我来了个json覆盖网页所有样式的idea。",
       "tags": [
-        "观点看法"
+        "观点看法",
+        "演讲素材"
       ],
       "createdAt": "2026-06-26T04:14:41.678Z",
-      "updatedAt": "2026-06-26T04:14:41.678Z"
+      "updatedAt": "2026-06-26T04:15:51.812Z"
     }
   ],
   "practiceBlocks": [
@@ -2553,6 +2554,10 @@
       "textColor": "#333333",
       "activeValue": "#c62828",
       "activeTextColor": "#FFFFFF"
+    },
+    "演讲素材": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "dailyTimeline": {
@@ -3697,6 +3702,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-26T02:22:37.295Z"
+    "lastSync": "2026-06-26T04:14:46.325Z"
   }
 }
