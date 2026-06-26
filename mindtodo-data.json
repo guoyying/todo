@@ -1005,36 +1005,15 @@
       "type": "task",
       "content": "写团日活动公众号推文",
       "createdAt": "2026-06-26T01:54:28.191Z",
-      "updatedAt": "2026-06-26T08:43:08.129Z",
+      "updatedAt": "2026-06-26T09:48:13.959Z",
       "tags": [
         "团支部"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "10min",
       "unknown": false,
-      "subtasks": [
-        {
-          "id": "1782442180495",
-          "content": "打开公众号推文指引",
-          "done": false,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1782459034159",
-          "content": "看下oa知识云能不能做个大家都上传的文件夹",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        },
-        {
-          "id": "1782461650929",
-          "content": "更新下午签到表",
-          "done": true,
-          "estimatedTime": "",
-          "placedIn": null
-        }
-      ]
+      "doneAt": "2026-06-26T09:48:13.959Z",
+      "subtasks": []
     },
     {
       "id": "1782439049767",
@@ -3738,6 +3717,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-06-26T08:19:25.634Z"
+    "lastSync": "2026-06-26T08:43:50.187Z"
   }
 }
