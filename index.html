@@ -80,17 +80,15 @@
 
         /* 段落 */
         .task-display p {
-            margin: 0 0 16px 0;
             line-height: 1.85;
             color: #666;
             font-size: 15px;
         }
 
-        /* 列表 */
-        .task-display ul,
+        /* 列表 - 普通无序列表和有序列表 */
+        .task-display ul:not(.task-list),
         .task-display ol {
             margin: 14px 0 16px 20px;
-            padding: 0;
             list-style: none;
         }
 
@@ -105,10 +103,10 @@
         .task-display ul:not(.task-list) > li::before {
             content: '●';
             color: #e67e22;
-            font-size: 18px;
+            font-size: 14px;
             position: absolute;
             left: -22px;
-            top: -25%;
+            top: 0%;
         }
 
         .task-display ol li {
@@ -121,7 +119,7 @@
             background: linear-gradient(135deg, #e67e22, #f39c12);
             width: 24px;
             height: 24px;
-            border-radius: 50%;
+            border-radius: 25%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -132,7 +130,7 @@
 
         /* 复选框优化 */
         .task-display input[type="checkbox"] {
-            margin: 0 0.3em 0 0;
+            margin: 0 0.3em 0 0.1em;
             transform: scale(0.9);
             vertical-align: middle;
             cursor: pointer;
@@ -213,8 +211,8 @@
 
         /* 引用块 */
         .task-display blockquote {
-            margin: 16px 0;
-            padding: 16px 20px;
+            padding: 3px;
+            margin: 2px;
             border-left: 4px solid #e67e22;
             background: linear-gradient(90deg, #fef5e7, transparent);
             color: #7f8c8d;
