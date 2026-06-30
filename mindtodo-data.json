@@ -2886,21 +2886,6 @@
       "createdAt": "2026-06-28T00:52:42.088Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mqx2rk7fd4dgd",
-      "taskId": "mqrd9ot2h6ei5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-01T08:19"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-06-28T00:52:59.787Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
