@@ -1011,14 +1011,15 @@
       "type": "task",
       "content": "改网关上联接入交换机策略的事情",
       "createdAt": "2026-07-01T00:46:10.877Z",
-      "updatedAt": "2026-07-01T00:46:10.877Z",
+      "updatedAt": "2026-07-01T07:53:18.010Z",
       "tags": [
         "网安"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mr1s3hasg4bp1"
     },
     {
       "id": "mr1fqm6vtiml0",
@@ -1865,7 +1866,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mr1s3hasg4bp1",
+      "name": "C类-复杂-被推着做的 16:00-16:30"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2888,6 +2894,15 @@
         "duration": 30,
         "summary": "",
         "slotId": null
+      },
+      {
+        "id": "block_1782892390996",
+        "tag": "C类-复杂-被推着做的",
+        "startTime": "16:00",
+        "endTime": "16:30",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mr1s3hasg4bp1"
       }
     ]
   },
@@ -3835,6 +3850,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T07:40:46.067Z"
+    "lastSync": "2026-07-01T07:45:52.406Z"
   }
 }
