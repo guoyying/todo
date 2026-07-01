@@ -1009,9 +1009,9 @@
     {
       "id": "mr1cucotiablj",
       "type": "task",
-      "content": "改网关上联接入交换机策略的事情",
+      "content": "# 改网关上联接入交换机策略的事情\n要找到网关上联的接入交换机IP，你需要在**汇聚交换机（奥普泰）**上通过命令行或管理界面进行查询。以下是几种常用方法，按操作复杂度排序：\n\n---\n\n### 方法一：通过MAC地址表反向查找（最推荐）\n\n1. **查看网关的MAC地址**  \n   在网关设备上（或通过ARP表）获取其上联端口的MAC地址。例如，在网关命令行输入：\n   ```bash\n   ipconfig /all   # Windows\n   ifconfig        # Linux/Unix\n   ```\n   记录下网关**上联接口**的MAC地址（通常是WAN口或管理口）。\n\n2. **登录汇聚交换机**  \n   通过SSH/Telnet/Console登录到奥普泰汇聚交换机。\n\n3. **查询MAC地址表**  \n   执行命令（具体命令因厂商而异，奥普泰通常为类Cisco命令）：\n   ```bash\n   show mac-address-table | include <网关MAC地址>\n   ```\n   或\n   ```bash\n   display mac-address | include <网关MAC地址>\n   ```\n   输出会显示该MAC地址对应的**接口号**（如 `GigabitEthernet 1/0/24`）。\n\n4. **查找对端设备IP**  \n   查看该接口的配置或邻居信息：\n   ```bash\n   show cdp neighbors <接口号>        # 如果启用CDP\n   show lldp neighbors <接口号>       # 如果启用LLDP\n   ```\n   如果启用了CDP/LLDP，会直接显示对端接入交换机的IP和管理地址。  \n   如果没有，则根据接口的VLAN信息，手动排查该VLAN内的设备IP。\n\n---\n\n### 方法二：通过ARP表查询（如果网关在同一个广播域）\n\n1. **在汇聚交换机上查看ARP表**  \n   ```bash\n   show arp | include <网关IP>\n   ```\n   输出会显示网关IP对应的MAC地址和接口。\n\n2. **反向查找**  \n   同方法一，通过MAC地址找到接口，再通过CDP/LLDP或接口配置推断接入交换机IP。\n\n---\n\n### 方法三：利用CDP/LLDP直接发现邻居（最快捷）\n\n如果汇聚交换机与接入交换机之间启用了CDP或LLDP：\n\n1. **在汇聚交换机上执行**  \n   ```bash\n   show cdp neighbors detail\n   ```\n   或\n   ```bash\n   show lldp neighbors detail\n   ```\n   输出会列出所有直连邻居的**设备名称、管理IP、接口信息**。\n\n2. **筛选**  \n   找到与网关相连的接口（通常为接入交换机的上联口），其“Management Address”即为接入交换机的IP。\n\n---\n\n### 方法四：通过生成树协议（STP）信息\n\n如果网络中有冗余链路，STP信息也能帮助定位：\n\n```bash\nshow spanning-tree blockedports\nshow spanning-tree detail\n```\n根据阻塞端口和根桥位置，结合已知拓扑推断。\n\n---\n\n### 实际场景建议\n\n- **如果汇聚交换机是奥普泰（Optic）**，其命令风格接近**华为/华三**，常用命令为 `display mac-address`、`display arp`、`display lldp neighbor`。\n- **如果网关是路由器/防火墙**，通常其上联端口会配置一个**子接口**或**VLAN**，该VLAN在汇聚交换机上对应一个**Trunk口**，该Trunk口的对端就是接入交换机。\n\n---\n\n### 最终确认\n\n找到疑似接入交换机的IP后，可通过以下方式验证：\n1. **Ping**该IP，确认可达。\n2. **SSH/Telnet**登录，检查其端口配置是否与网关相连。\n3. 查看该接入交换机的**MAC地址表**，确认能学到网关的MAC。\n\n---\n\n### 示例（假设汇聚交换机为华为/华三）\n\n```bash\nsys\ndisplay mac-address | include aaaa.bbbb.cccc   # 网关MAC\n# 输出：GigabitEthernet1/0/24\n\ndisplay lldp neighbor interface GigabitEthernet1/0/24\n# 输出：Chassis ID: 192.168.1.100   <-- 这就是接入交换机IP\n```\n\n这样你就能准确找到并操作接入交换机上的策略了。",
       "createdAt": "2026-07-01T00:46:10.877Z",
-      "updatedAt": "2026-07-01T07:53:18.010Z",
+      "updatedAt": "2026-07-01T08:10:42.692Z",
       "tags": [
         "网安"
       ],
@@ -1019,7 +1019,7 @@
       "dueTime": "20min",
       "unknown": false,
       "subtasks": [],
-      "placedIn": "slot_mr1s3hasg4bp1"
+      "placedIn": null
     },
     {
       "id": "mr1fqm6vtiml0",
@@ -3850,6 +3850,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T07:45:52.406Z"
+    "lastSync": "2026-07-01T07:53:26.821Z"
   }
 }
