@@ -3281,18 +3281,8 @@
           "completed": false
         },
         {
-          "id": "1780610049164",
-          "name": "关注中山四 等几个机楼的退网",
-          "completed": false
-        },
-        {
-          "id": "1782206910438",
-          "name": "天河、越秀0业务可退的本身就很少，从哪些地方能挖掘？",
-          "completed": false
-        },
-        {
-          "id": "1782206914930",
-          "name": "0业务每周可能都会有更新，没找到合适的方法追踪更新的。或者说不需要关注",
+          "id": "1782872884033",
+          "name": "制定第三季度退网目标，跟总监反馈天河退网情况",
           "completed": false
         }
       ],
@@ -3322,8 +3312,8 @@
       "mainDirection": "",
       "subDirections": [
         {
-          "id": "1780299674239",
-          "name": "跟进各种工单",
+          "id": "1782872959022",
+          "name": "跟进网关上联接入交换机的安全策略",
           "completed": false
         }
       ],
@@ -3363,7 +3353,13 @@
       "status": "active",
       "createdAt": "2026-06-03T23:32:18.525Z",
       "updatedAt": "2026-06-03T23:32:18.525Z",
-      "subDirections": [],
+      "subDirections": [
+        {
+          "id": "1782872998486",
+          "name": "优化第三季度团日学习的形式",
+          "completed": false
+        }
+      ],
       "milestones": [],
       "manualProgress": 24
     },
@@ -3577,24 +3573,6 @@
         "projectName": "退网",
         "direction": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
         "addedAt": 1782206979921
-      },
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "关注中山四 等几个机楼的退网",
-        "addedAt": 1782206979921
-      },
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "天河、越秀0业务可退的本身就很少，从哪些地方能挖掘？",
-        "addedAt": 1782206979921
-      },
-      {
-        "projectId": "1780299687739",
-        "projectName": "新建工程验收",
-        "direction": "要跟项目经理聊一聊，确定排期",
-        "addedAt": 1782206988458
       }
     ]
   },
@@ -3814,6 +3792,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T02:19:39.392Z"
+    "lastSync": "2026-07-01T02:26:42.214Z"
   }
 }
