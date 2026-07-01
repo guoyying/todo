@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>心事与任务</title>
-    <!-- Markdown解析库 -->
+    <!-- Markdown 解析库 -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+    <!-- Excel 解析库 SheetJS -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg: #f5f5f0;
@@ -6734,6 +6736,14 @@ padding: 7px !important;
                        <a href="#" onclick="showProjectManagement();toggleToolsDropdown();return false;">📋 项目管理</a>
                    </div>
                </div>
+               <!-- 学习按钮下拉菜单 -->
+               <div class="dropdown">
+                   <button class="btn btn-secondary btn-small" onclick="toggleLearningDropdown()">📚 学习</button>
+                   <div id="learningDropdown" class="dropdown-content">
+                       <a href="#" onclick="showLearningPanel('toInternalize');toggleLearningDropdown();return false;">📂 待内化</a>
+                       <a href="#" onclick="showLearningPanel('practice');toggleLearningDropdown();return false;">✍️ 答题</a>
+                   </div>
+               </div>
                <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
                <button class="btn btn-secondary btn-small" onclick="showAiContentManager(true)">💾 AI 内容</button>
                 <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
@@ -8355,7 +8365,7 @@ padding: 7px !important;
                         </div>
                         <div class="input-group">
                             <label>保存位置</label>
-                            <div style="display:flex;gap:12px;">
+                            <div style="display:flex;gap:12px;flex-wrap:wrap;">
                                 <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
                                     <input type="radio" name="saveLocation" value="ammo" checked>
                                     <span>🎯 弹药库</span>
@@ -8363,6 +8373,10 @@ padding: 7px !important;
                                 <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
                                     <input type="radio" name="saveLocation" value="knowledge">
                                     <span>📚 知识库</span>
+                                </label>
+                                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                    <input type="radio" name="saveLocation" value="toInternalize">
+                                    <span>📂 待内化</span>
                                 </label>
                             </div>
                         </div>
@@ -9927,6 +9941,9 @@ ${taskContent}
          practiceScenarios: [], // 场景管理 [{id, name, description, practiceCount, createdAt, updatedAt}]
          practiceMaterialStats: {}, // 素材练习次数统计 {materialId: {type: 'ammo'|'knowledge'|'task', count: 0}}
          customTaskStyles: '', // 自定义待办样式 CSS 代码
+         // 学习功能数据
+         toInternalize: [], // 待内化内容 [{id, content, tags, status, generatedQuestions, reviewCount, createdAt, updatedAt}]
+         practiceQuestions: [] // 题库 [{id, type, question, options, answer, analysis, subject, createdAt}]
      };
         let editingId = null;
         let recording = null;
@@ -10045,6 +10062,13 @@ ${taskContent}
                         }
                         if (parsed.practiceMaterialStats) {
                             data.practiceMaterialStats = parsed.practiceMaterialStats;
+                        }
+                        // 加载学习功能数据
+                        if (parsed.toInternalize) {
+                            data.toInternalize = parsed.toInternalize;
+                        }
+                        if (parsed.practiceQuestions) {
+                            data.practiceQuestions = parsed.practiceQuestions;
                         }
                         // 加载自定义样式
                         if (parsed.customTaskStyles !== undefined) {
@@ -16065,10 +16089,25 @@ function closeModal(modalId) {
             }
         }
         
+        function toggleLearningDropdown() {
+            // 先关闭工具下拉菜单
+            const toolsDropdown = document.getElementById('toolsDropdown');
+            if (toolsDropdown && toolsDropdown.classList.contains('show')) {
+                toolsDropdown.classList.remove('show');
+            }
+            
+            // 再切换学习下拉菜单
+            const dropdown = document.getElementById('learningDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
+        }
+        
         // 点击页面其他地方关闭下拉菜单
         document.addEventListener('click', function(event) {
             const settingsDropdown = document.getElementById('settingsDropdown');
             const toolsDropdown = document.getElementById('toolsDropdown');
+            const learningDropdown = document.getElementById('learningDropdown');
             
             // 检测是否点击了设置下拉菜单或其按钮
             let settingsDropdownContainer = null;
@@ -16086,6 +16125,14 @@ function closeModal(modalId) {
                 toolsDropdownContainer = toolsTarget.parentElement;
             }
             
+            // 检测是否点击了学习下拉菜单或其按钮
+            let learningDropdownContainer = null;
+            const learningTarget = event.target.closest('#learningDropdown') ||
+                                    event.target.closest('button[onclick="toggleLearningDropdown()"]');
+            if (learningTarget) {
+                learningDropdownContainer = learningTarget.parentElement;
+            }
+            
             // 关闭设置下拉菜单
             if (settingsDropdown && !settingsDropdownContainer && settingsDropdown.classList.contains('show')) {
                 settingsDropdown.classList.remove('show');
@@ -16094,6 +16141,11 @@ function closeModal(modalId) {
             // 关闭工具下拉菜单
             if (toolsDropdown && !toolsDropdownContainer && toolsDropdown.classList.contains('show')) {
                 toolsDropdown.classList.remove('show');
+            }
+            
+            // 关闭学习下拉菜单
+            if (learningDropdown && !learningDropdownContainer && learningDropdown.classList.contains('show')) {
+                learningDropdown.classList.remove('show');
             }
         });
 
@@ -16203,6 +16255,9 @@ function closeModal(modalId) {
                   // 练习表达模块数据
                   practiceScenarios: data.practiceScenarios,
                   practiceMaterialStats: data.practiceMaterialStats,
+                  // 学习功能数据
+                  toInternalize: data.toInternalize || [],
+                  practiceQuestions: data.practiceQuestions || [],
                   aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -17639,9 +17694,12 @@ function closeModal(modalId) {
                   if (remote.projects) data.projects = remote.projects;
                   if (remote.aiContents) data.aiContents = remote.aiContents;
                   if (remote.trackerConfig) data.trackerConfig = remote.trackerConfig;
-                  // 拉取练习表达模块数据
-                  if (remote.practiceScenarios) data.practiceScenarios = remote.practiceScenarios;
-                  if (remote.practiceMaterialStats) data.practiceMaterialStats = remote.practiceMaterialStats;
+                   // 拉取练习表达模块数据
+                   if (remote.practiceScenarios) data.practiceScenarios = remote.practiceScenarios;
+                   if (remote.practiceMaterialStats) data.practiceMaterialStats = remote.practiceMaterialStats;
+                   // 拉取学习功能数据
+                   if (remote.toInternalize) data.toInternalize = remote.toInternalize;
+                   if (remote.practiceQuestions) data.practiceQuestions = remote.practiceQuestions;
                   // 拉取自定义样式
                   if (remote.customTaskStyles !== undefined) {
                       data.customTaskStyles = remote.customTaskStyles;
@@ -22635,6 +22693,1042 @@ function scrollToSection(sectionId) {
     }
 }
 
+// 显示学习面板
+function showLearningPanel(panelType) {
+    // 关闭学习下拉菜单（如果在 github-bar 中）
+    const learningDropdown = document.getElementById('learningDropdown');
+    if (learningDropdown && learningDropdown.classList.contains('show')) {
+        learningDropdown.classList.remove('show');
+    }
+    
+    // 隐藏所有学习相关面板
+    hideAllLearningPanels();
+    
+    // 显示对应面板
+    if (panelType === 'toInternalize') {
+        document.getElementById('toInternalizePanel').style.display = 'block';
+        // 延迟渲染列表
+        setTimeout(renderToInternalizeList, 100);
+    } else if (panelType === 'practice') {
+        document.getElementById('practicePanel').style.display = 'block';
+        // 延迟渲染列表和科目列表
+        setTimeout(() => {
+            renderQuestionList();
+            renderSubjectList();
+        }, 100);
+    }
+}
+
+// 隐藏所有学习面板
+function hideAllLearningPanels() {
+    const toInternalizePanel = document.getElementById('toInternalizePanel');
+    const practicePanel = document.getElementById('practicePanel');
+    if (toInternalizePanel) toInternalizePanel.style.display = 'none';
+    if (practicePanel) practicePanel.style.display = 'none';
+}
+
+// ============ 待内化功能 ============
+// 显示新增待内化表单
+function showAddToInternalizeForm() {
+    document.getElementById('addToInternalizeForm').style.display = 'block';
+    document.getElementById('newInternalizeContent').value = '';
+    document.getElementById('newInternalizeTags').value = '';
+}
+
+// 隐藏新增待内化表单
+function hideAddToInternalizeForm() {
+    document.getElementById('addToInternalizeForm').style.display = 'none';
+}
+
+// 保存新的待内化内容
+function saveNewToInternalize() {
+    const content = document.getElementById('newInternalizeContent').value.trim();
+    const tagsInput = document.getElementById('newInternalizeTags').value.trim();
+    
+    if (!content) {
+        showToast('请填写内容');
+        return;
+    }
+    
+    if (!data.toInternalize) {
+        data.toInternalize = [];
+    }
+    
+    // 将标签字符串转换为数组
+    const tags = tagsInput ? tagsInput.split(/[,,]/).map(t => t.trim()).filter(t => t) : [];
+    
+    const newItem = {
+        id: generateId(),
+        content,
+        tags,
+        status: 'pending',
+        generatedQuestions: [],
+        reviewCount: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+    };
+    
+    data.toInternalize.push(newItem);
+    saveData();
+    hideAddToInternalizeForm();
+    renderToInternalizeList();
+    showToast('已保存到待内化');
+}
+
+// 渲染待内化列表
+function renderToInternalizeList() {
+    const container = document.getElementById('toInternalizeList');
+    if (!data.toInternalize || data.toInternalize.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:40px 0;">暂无待内化内容</p>';
+        return;
+    }
+    
+    let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
+    data.toInternalize.forEach(item => {
+        const statusText = item.status === 'pending' ? '待处理' : item.status === 'practicing' ? '练习中' : '已掌握';
+        const statusColor = item.status === 'pending' ? '#ff9800' : item.status === 'practicing' ? '#2196f3' : '#4caf50';
+        
+        // 渲染标签
+        const tagsHtml = item.tags && item.tags.length > 0
+            ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">${item.tags.map(tag => `<span style="font-size:11px;color:#636;background:#e8f5e9;padding:2px 8px;border-radius:10px;">${escapeHtml(tag)}</span>`).join('')}</div>`
+            : '';
+        
+        html += `
+            <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);">
+                <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                    <span style="font-size:12px;color:${statusColor};background:${statusColor}20;padding:2px 8px;border-radius:10px;">${statusText}</span>
+                </div>
+                ${tagsHtml}
+                <p style="margin:0 0 8px 0;font-size:13px;color:var(--text-secondary);line-height:1.6;">${escapeHtml(item.content.substring(0, 150))}${item.content.length > 150 ? '...' : ''}</p>
+                <div style="display:flex;justify-content:flex-end;gap:6px;margin-top:8px;">
+                    <button class="btn btn-secondary btn-small" onclick="editToInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">编辑</button>
+                    <button class="btn btn-primary btn-small" onclick="generateQuestionFromInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">生成题目</button>
+                    <button class="btn btn-danger btn-small" onclick="deleteToInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">删除</button>
+                </div>
+            </div>
+        `;
+    });
+    html += '</div>';
+    
+    container.innerHTML = html;
+}
+
+// 编辑待内化内容
+function editToInternalize(id) {
+    const item = data.toInternalize.find(i => i.id === id);
+    if (!item) return;
+    
+    // 存储当前编辑的 ID
+    window.editingToInternalizeId = id;
+    
+    // 填充表单
+    document.getElementById('editInternalizeContent').value = item.content;
+    document.getElementById('editInternalizeTags').value = item.tags ? item.tags.join(',') : '';
+    
+    // 显示模态框
+    document.getElementById('editToInternalizeModal').style.display = 'block';
+}
+
+// 隐藏编辑模态框
+function hideEditToInternalizeModal() {
+    document.getElementById('editToInternalizeModal').style.display = 'none';
+    window.editingToInternalizeId = null;
+}
+
+// 保存编辑后的待内化内容
+function saveEditToInternalize() {
+    const id = window.editingToInternalizeId;
+    if (!id) return;
+    
+    const item = data.toInternalize.find(i => i.id === id);
+    if (!item) {
+        hideEditToInternalizeModal();
+        return;
+    }
+    
+    const newContent = document.getElementById('editInternalizeContent').value.trim();
+    const tagsInput = document.getElementById('editInternalizeTags').value.trim();
+    
+    if (!newContent) {
+        showToast('内容不能为空');
+        return;
+    }
+    
+    // 更新数据
+    item.content = newContent;
+    item.tags = tagsInput ? tagsInput.split(/[,,]/).map(t => t.trim()).filter(t => t) : [];
+    item.updatedAt = new Date().toISOString();
+    
+    saveData();
+    hideEditToInternalizeModal();
+    renderToInternalizeList();
+    showToast('已更新');
+}
+
+// 删除待内化内容
+function deleteToInternalize(id) {
+    if (!confirm('确定要删除这条待内化内容吗？')) return;
+    
+    data.toInternalize = data.toInternalize.filter(i => i.id !== id);
+    saveData();
+    renderToInternalizeList();
+    showToast('已删除');
+}
+
+// 从待内化生成题目
+function generateQuestionFromInternalize(id) {
+    const item = data.toInternalize.find(i => i.id === id);
+    if (!item) return;
+    
+    // 这里可以调用 AI 生成题目，暂时手动添加
+    const questionText = prompt('输入基于此知识点生成的题目:');
+    if (!questionText) return;
+    
+    const answer = prompt('输入正确答案:');
+    if (!answer) return;
+    
+    const newQuestion = {
+        id: generateId(),
+        type: 'single',
+        question: questionText,
+        options: [],
+        answer,
+        analysis: `基于知识点：${item.title}`,
+        subject: '待分类',
+        difficulty: 'medium',
+        derivedFrom: id,
+        createdAt: new Date().toISOString()
+    };
+    
+    if (!data.practiceQuestions) {
+        data.practiceQuestions = [];
+    }
+    data.practiceQuestions.push(newQuestion);
+    
+    item.generatedQuestions.push(newQuestion.id);
+    item.status = 'practicing';
+    item.updatedAt = new Date().toISOString();
+    
+    saveData();
+    renderToInternalizeList();
+    renderQuestionList();
+    showToast('已生成题目');
+}
+
+// ============ 答题功能 ============
+// 从 Excel/CSV 导入题目
+function importQuestionsFromExcel(input) {
+    const file = input.files[0];
+    if (!file) return;
+    
+    try {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const dataBinary = e.target.result;
+                const workbook = XLSX.read(dataBinary, {type: 'array'});
+                
+                // 获取第一个工作表
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                
+                // 转换为 JSON 数组（第一行为表头）
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+                
+                if (!jsonData || jsonData.length === 0) {
+                    showToast('导入失败：文件内容为空');
+                    input.value = '';
+                    return;
+                }
+                
+                let importedCount = 0;
+                let updateCount = 0;
+                let errorCount = 0;
+                
+                // 跳过第一行（表头），从第二行开始
+                for (let i = 1; i < jsonData.length; i++) {
+                    const row = jsonData[i];
+                    
+                    if (!row || row.length === 0) continue;
+                    
+                    // 字段顺序：科目，题号，题型，题目内容，选项 A,选项 B,选项 C,选项 D,正确答案，解析/备注
+                    // 字段可以为空，不报错跳过
+                    const subject = row[0] ? String(row[0]).trim() : '未分类'; // 科目（作为科目代码）
+                    const rawQuestionNumber = row[1] ? String(row[1]).trim() : ''; // 原始题号
+                    const questionType = row[2] ? String(row[2]).trim() : '单选'; // 题型，默认为单选
+                    
+                    // 生成唯一 ID：科目代码_题号
+                    let questionNumber;
+                    if (rawQuestionNumber) {
+                        // 如果题号已填写，使用：科目代码_题号
+                        questionNumber = `${subject}_${rawQuestionNumber}`;
+                    } else {
+                        // 如果题号为空，自动生成序号：科目代码_001, 科目代码_002...
+                        // 统计该科目下已有多少题（包括本次导入中已处理的）
+                        const existingCount = data.practiceQuestions.filter(q => q.subject === subject).length;
+                        // 加上本次导入中该科目已处理的题目数
+                        const importedInThisBatch = data.practiceQuestions.filter(q =>
+                            q.subject === subject && q.id.startsWith(`${subject}_`)
+                        ).length;
+                        const seq = existingCount + importedInThisBatch + 1;
+                        questionNumber = `${subject}_${String(seq).padStart(3, '0')}`;
+                    }
+                    const questionText = row[3] ? String(row[3]).trim() : ''; // 题目内容
+                    const optionA = row[4] ? String(row[4]).trim() : ''; // 选项 A
+                    const optionB = row[5] ? String(row[5]).trim() : ''; // 选项 B
+                    const optionC = row[6] ? String(row[6]).trim() : ''; // 选项 C
+                    const optionD = row[7] ? String(row[7]).trim() : ''; // 选项 D
+                    const answer = row[8] ? String(row[8]).trim() : ''; // 正确答案
+                    const analysis = row[9] ? String(row[9]).trim() : ''; // 解析/备注
+                    
+                    // 题目内容为空则跳过
+                    if (!questionText) {
+                        continue;
+                    }
+                    
+                    // 转换为内部格式
+                    const typeMap = {
+                        '单选': 'single',
+                        '多选': 'multiple',
+                        '判断': 'judge',
+                        '单选题': 'single',
+                        '多选题': 'multiple',
+                        '判断题': 'judge'
+                    };
+                    const normalizedType = typeMap[questionType] || 'single';
+                    
+                    // 构建选项数组
+                    const options = [];
+                    if (optionA) options.push('A. ' + optionA);
+                    if (optionB) options.push('B. ' + optionB);
+                    if (optionC) options.push('C. ' + optionC);
+                    if (optionD) options.push('D. ' + optionD);
+                    
+                    // 检查是否已存在（根据题号）
+                    const existingIndex = data.practiceQuestions.findIndex(q => q.id === questionNumber);
+                    
+                    const newQuestion = {
+                        id: questionNumber, // 使用题号作为唯一 ID
+                        type: normalizedType,
+                        question: questionText,
+                        options: options,
+                        answer: answer,
+                        analysis: analysis,
+                        subject: subject, // 使用导入的科目
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    if (existingIndex >= 0) {
+                        // 更新已有题目
+                        data.practiceQuestions[existingIndex] = newQuestion;
+                        updateCount++;
+                    } else {
+                        // 添加新题目
+                        data.practiceQuestions.push(newQuestion);
+                        importedCount++;
+                    }
+                }
+                
+                saveData();
+                renderQuestionList();
+                showToast(`导入成功！新增：${importedCount}道，更新：${updateCount}道，失败：${errorCount}道`);
+                
+            } catch (err) {
+                console.error('导入失败:', err);
+                showToast('导入失败：文件格式不正确或解析错误');
+            }
+            
+            // 清空输入框，允许重复导入同一文件
+            input.value = '';
+        };
+        
+        // 读取文件为 ArrayBuffer（支持 Excel 格式）
+        reader.readAsArrayBuffer(file);
+        
+    } catch (err) {
+        console.error('导入失败:', err);
+        showToast('导入失败：不支持的文件格式');
+        input.value = '';
+    }
+}
+
+// 解析 CSV 行（处理引号内的逗号）
+function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    result.push(current.trim());
+    
+    return result;
+}
+
+// 显示新增题目表单
+function showAddQuestionForm() {
+    document.getElementById('addQuestionForm').style.display = 'block';
+    document.getElementById('newQuestionType').value = 'single';
+    document.getElementById('newQuestionText').value = '';
+    document.getElementById('newQuestionOptions').value = '';
+    document.getElementById('newQuestionAnswer').value = '';
+    document.getElementById('newQuestionAnalysis').value = '';
+    document.getElementById('newQuestionSubject').value = '';
+}
+
+// 隐藏新增题目表单
+function hideAddQuestionForm() {
+    document.getElementById('addQuestionForm').style.display = 'none';
+}
+
+// 保存新题目
+function saveNewQuestion() {
+    const type = document.getElementById('newQuestionType').value;
+    const questionText = document.getElementById('newQuestionText').value.trim();
+    const optionsText = document.getElementById('newQuestionOptions').value.trim();
+    const answer = document.getElementById('newQuestionAnswer').value.trim();
+    const analysis = document.getElementById('newQuestionAnalysis').value.trim();
+    const subject = document.getElementById('newQuestionSubject').value.trim() || '未分类';
+    
+    if (!questionText || !answer) {
+        showToast('请填写题目和正确答案');
+        return;
+    }
+    
+    // 解析选项
+    const options = optionsText.split('\n').filter(o => o.trim()).map(o => o.trim());
+    
+    const newQuestion = {
+        id: generateId(),
+        type,
+        question: questionText,
+        options,
+        answer,
+        analysis,
+        subject,
+        createdAt: new Date().toISOString()
+    };
+    
+    if (!data.practiceQuestions) {
+        data.practiceQuestions = [];
+    }
+    data.practiceQuestions.push(newQuestion);
+    saveData();
+    hideAddQuestionForm();
+    renderQuestionList();
+    showToast('已添加题目');
+}
+
+// 渲染题目列表
+function renderQuestionList() {
+    const container = document.getElementById('questionListContainer');
+    // 同时更新科目列表
+    renderSubjectList();
+    
+    if (!data.practiceQuestions || data.practiceQuestions.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:40px 0;">暂无题目，请先导入或新增题目</p>';
+        return;
+    }
+    
+    let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
+    data.practiceQuestions.forEach((q, index) => {
+        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : '判断';
+        
+        html += `
+            <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);">
+                <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                    <div style="flex:1;">
+                        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+                            <span style="font-size:12px;color:var(--text-secondary);">题号：${escapeHtml(q.id)}</span>
+                            <span style="font-size:12px;color:var(--primary);background:var(--primary-light);padding:2px 6px;border-radius:4px;">${typeText}</span>
+                            <span style="font-size:12px;color:var(--text-secondary);">${escapeHtml(q.subject)}</span>
+                        </div>
+                        <p style="margin:0 0 8px 0;font-size:14px;color:var(--text);line-height:1.5;">${escapeHtml(q.question)}</p>
+                        ${q.options.length > 0 ? `<div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">选项：${q.options.map(o => escapeHtml(o)).join('  ')}</div>` : ''}
+                        <div style="font-size:12px;color:var(--text-secondary);">答案：${escapeHtml(q.answer)}</div>
+                        ${q.analysis ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">解析：${escapeHtml(q.analysis)}</div>` : ''}
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:4px;margin-left:8px;">
+                        <button class="btn btn-secondary btn-small" onclick="deleteQuestion('${q.id}')" style="padding:4px 10px;font-size:12px;">删除</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    html += '</div>';
+    
+    container.innerHTML = html;
+}
+
+// 开始练习题目
+function startPracticeQuestion(id) {
+    const question = data.practiceQuestions.find(q => q.id === id);
+    if (!question) return;
+    
+    // 这里可以打开答题界面，暂时简单提示
+    alert(`开始练习题目:\n\n${question.question}\n\n答案：${question.answer}\n\n解析：${question.analysis || '无'}`);
+}
+
+// 删除题目
+function deleteQuestion(id) {
+    if (!confirm('确定要删除这道题目吗？')) return;
+    
+    data.practiceQuestions = data.practiceQuestions.filter(q => q.id !== id);
+    saveData();
+    renderQuestionList();
+    showToast('已删除');
+}
+
+// ============ 新答题功能 ============
+// 全局答题状态
+let currentPracticeState = {
+    subject: '',
+    questions: [],
+    currentIndex: 0,
+    correctCount: 0,
+    wrongCount: 0,
+    answered: false
+};
+
+// 渲染科目列表
+function renderSubjectList() {
+    const container = document.getElementById('subjectList');
+    if (!data.practiceQuestions || data.practiceQuestions.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-secondary);font-size:13px;">暂无题目，请先导入或新增题目</p>';
+        return;
+    }
+    
+    // 按科目分组
+    const subjects = {};
+    data.practiceQuestions.forEach(q => {
+        const subject = q.subject || '未分类';
+        if (!subjects[subject]) {
+            subjects[subject] = 0;
+        }
+        subjects[subject]++;
+    });
+    
+    let html = '';
+    Object.entries(subjects).forEach(([subject, count]) => {
+        html += `
+            <button class="btn btn-secondary" onclick="startPracticeBySubject('${subject}')" style="padding:8px 16px;font-size:13px;">
+                ${subject} <span style="background:var(--primary);color:#fff;padding:2px 6px;border-radius:10px;font-size:11px;">${count}题</span>
+            </button>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// 开始按科目答题
+function startPracticeBySubject(subject) {
+    // 筛选该科目的题目
+    const questions = data.practiceQuestions.filter(q => q.subject === subject);
+    if (!questions || questions.length === 0) {
+        showToast('该科目暂无题目');
+        return;
+    }
+    
+    // 随机打乱题目顺序
+    questions.sort(() => Math.random() - 0.5);
+    
+    // 初始化答题状态
+    currentPracticeState = {
+        subject: subject,
+        questions: questions,
+        currentIndex: 0,
+        correctCount: 0,
+        wrongCount: 0,
+        answered: false
+    };
+    
+    // 切换界面
+    document.getElementById('practiceModeSelect').style.display = 'none';
+    document.getElementById('practiceInterface').style.display = 'block';
+    
+    // 显示第一题
+    showCurrentQuestion();
+}
+
+// 显示当前题目
+function showCurrentQuestion() {
+    const state = currentPracticeState;
+    if (state.currentIndex >= state.questions.length) {
+        // 答题结束
+        showPracticeResult();
+        return;
+    }
+    
+    const question = state.questions[state.currentIndex];
+    const typeText = question.type === 'single' ? '单选题' : question.type === 'multiple' ? '多选题' : '判断题';
+    
+    // 显示题目
+    document.getElementById('practiceSubjectTitle').textContent = `${state.subject} - ${typeText}`;
+    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
+    
+    const questionHtml = `
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${typeText}</div>
+        <div style="font-size:16px;color:var(--text);line-height:1.6;">${escapeHtml(question.question)}</div>
+    `;
+    document.getElementById('practiceQuestionDisplay').innerHTML = questionHtml;
+    
+    // 显示选项
+    const optionsContainer = document.getElementById('practiceOptionsContainer');
+    if (question.options && question.options.length > 0) {
+        let optionsHtml = '<div style="display:flex;flex-direction:column;gap:8px;">';
+        question.options.forEach((option, index) => {
+            const optionLabel = ['A', 'B', 'C', 'D'][index] || String.fromCharCode(65 + index);
+            const optionText = option.replace(/^[A-D]\./, '').trim();
+            optionsHtml += `
+                <label style="display:block;padding:10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.2s;"
+                       onclick="selectOption('${optionLabel}')" id="option_${optionLabel}">
+                    <input type="radio" name="answerOption" value="${optionLabel}" style="margin-right:8px;" ${state.answered ? 'disabled' : ''}>
+                    <span style="font-weight:bold;">${optionLabel}.</span> ${escapeHtml(optionText)}
+                </label>
+            `;
+        });
+        optionsHtml += '</div>';
+        optionsContainer.innerHTML = optionsHtml;
+    } else {
+        optionsContainer.innerHTML = '';
+    }
+    
+    // 重置按钮状态
+    document.getElementById('answerBtn').style.display = 'block';
+    document.getElementById('answerBtn').disabled = !state.answered && (!question.options || question.options.length === 0);
+    document.getElementById('dontKnowBtn').style.display = 'block';
+    document.getElementById('dontKnowBtn').disabled = state.answered;
+    document.getElementById('nextQuestionBtn').style.display = 'none';
+    document.getElementById('answerDisplay').style.display = 'none';
+    
+    state.answered = false;
+}
+
+// 选择答案
+let selectedOption = '';
+function selectOption(option) {
+    if (currentPracticeState.answered) return;
+    
+    selectedOption = option;
+    
+    // 高亮选中的选项
+    document.querySelectorAll('[id^="option_"]').forEach(el => {
+        el.style.borderColor = 'var(--border)';
+        el.style.background = 'var(--card)';
+    });
+    const selectedEl = document.getElementById(`option_${option}`);
+    if (selectedEl) {
+        selectedEl.style.borderColor = 'var(--primary)';
+        selectedEl.style.background = 'var(--primary-light)';
+    }
+    
+    // 启用查看答案按钮
+    document.getElementById('answerBtn').disabled = false;
+}
+
+// 查看答案
+function showAnswer() {
+    const state = currentPracticeState;
+    const question = state.questions[state.currentIndex];
+    
+    if (!selectedOption && question.options && question.options.length > 0) {
+        showToast('请先选择一个答案');
+        return;
+    }
+    
+    state.answered = true;
+    
+    // 判断是否正确
+    const isCorrect = selectedOption === question.answer;
+    if (isCorrect) {
+        state.correctCount++;
+    } else {
+        state.wrongCount++;
+    }
+    
+    // 显示答案和解析
+    const answerDisplay = document.getElementById('answerDisplay');
+    const resultColor = isCorrect ? '#4caf50' : '#f44336';
+    const resultText = isCorrect ? '✓ 正确' : '✗ 错误';
+    
+    let html = `
+        <div style="font-size:18px;color:${resultColor};font-weight:bold;margin-bottom:10px;">${resultText}</div>
+        <div style="font-size:14px;color:var(--text);margin-bottom:8px;"><strong>正确答案：</strong>${escapeHtml(question.answer)}</div>
+    `;
+    
+    if (selectedOption) {
+        html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(selectedOption)}</div>`;
+    }
+    
+    if (question.analysis) {
+        html += `<div style="font-size:14px;color:var(--text-secondary);"><strong>解析：</strong>${escapeHtml(question.analysis)}</div>`;
+    }
+    
+    answerDisplay.innerHTML = html;
+    answerDisplay.style.display = 'block';
+    
+    // 禁用所有选项
+    document.querySelectorAll('[id^="option_"]').forEach(el => {
+        el.style.cursor = 'not-allowed';
+    });
+    document.querySelectorAll('input[name="answerOption"]').forEach(el => {
+        el.disabled = true;
+    });
+    
+    // 隐藏查看答案和不知道按钮，显示下一题按钮
+    document.getElementById('answerBtn').style.display = 'none';
+    document.getElementById('dontKnowBtn').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.display = 'block';
+    
+    // 更新进度
+    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
+}
+
+// 不知道
+function dontKnowQuestion() {
+    const state = currentPracticeState;
+    const question = state.questions[state.currentIndex];
+    
+    state.answered = true;
+    state.wrongCount++;
+    
+    // 显示正确答案和解析
+    const answerDisplay = document.getElementById('answerDisplay');
+    const html = `
+        <div style="font-size:18px;color:#ff9800;font-weight:bold;margin-bottom:10px;">⚠ 不知道</div>
+        <div style="font-size:14px;color:var(--text);margin-bottom:8px;"><strong>正确答案：</strong>${escapeHtml(question.answer)}</div>
+        ${question.analysis ? `<div style="font-size:14px;color:var(--text-secondary);"><strong>解析：</strong>${escapeHtml(question.analysis)}</div>` : ''}
+    `;
+    
+    answerDisplay.innerHTML = html;
+    answerDisplay.style.display = 'block';
+    
+    // 禁用选项
+    document.querySelectorAll('input[name="answerOption"]').forEach(el => {
+        el.disabled = true;
+    });
+    
+    // 隐藏按钮
+    document.getElementById('answerBtn').style.display = 'none';
+    document.getElementById('dontKnowBtn').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.display = 'block';
+    
+    // 更新进度
+    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
+}
+
+// 下一题
+function nextQuestion() {
+    currentPracticeState.currentIndex++;
+    selectedOption = '';
+    showCurrentQuestion();
+}
+
+// 显示答题结果
+function showPracticeResult() {
+    const state = currentPracticeState;
+    const total = state.questions.length;
+    const correct = state.correctCount;
+    const wrong = state.wrongCount;
+    const rate = total > 0 ? ((correct / total) * 100).toFixed(1) : 0;
+    
+    const answerDisplay = document.getElementById('answerDisplay');
+    answerDisplay.innerHTML = `
+        <div style="text-align:center;padding:20px;">
+            <div style="font-size:24px;font-weight:bold;margin-bottom:15px;">🎉 答题完成！</div>
+            <div style="font-size:16px;color:var(--text-secondary);margin-bottom:10px;">${state.subject}</div>
+            <div style="display:flex;justify-content:center;gap:30px;margin:20px 0;">
+                <div style="text-align:center;">
+                    <div style="font-size:32px;font-weight:bold;color:#4caf50;">${correct}</div>
+                    <div style="font-size:13px;color:var(--text-secondary);">正确</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:32px;font-weight:bold;color:#f44336;">${wrong}</div>
+                    <div style="font-size:13px;color:var(--text-secondary);">错误</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:32px;font-weight:bold;color:var(--primary);">${rate}%</div>
+                    <div style="font-size:13px;color:var(--text-secondary);">正确率</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="exitPracticeMode()" style="padding:10px 30px;font-size:14px;margin-top:15px;">返回</button>
+        </div>
+    `;
+    answerDisplay.style.display = 'block';
+    
+    document.getElementById('practiceQuestionDisplay').innerHTML = '';
+    document.getElementById('practiceOptionsContainer').innerHTML = '';
+    document.getElementById('answerBtn').style.display = 'none';
+    document.getElementById('dontKnowBtn').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.display = 'none';
+    document.getElementById('practiceProgress').textContent = '';
+}
+
+// ============ 问 AI 功能 ============
+// 显示问 AI 模态框
+function showAskAiModal() {
+    document.getElementById('askAiModal').style.display = 'block';
+    document.getElementById('askAiQuestion').value = '';
+    document.getElementById('askAiFeedback').style.display = 'none';
+    document.getElementById('askAiFeedback').innerHTML = '';
+    document.getElementById('askAiActions').style.display = 'flex';
+    document.getElementById('askAiSaveActions').style.display = 'none';
+    currentAskAiResult = '';
+}
+
+// 隐藏问 AI 模态框
+function hideAskAiModal() {
+    document.getElementById('askAiModal').style.display = 'none';
+    currentAskAiResult = '';
+}
+
+// 全局变量存储 AI 回答
+let currentAskAiResult = '';
+
+// 提交问 AI 请求
+async function submitAskAi() {
+    const question = document.getElementById('askAiQuestion').value.trim();
+    
+    if (!question) {
+        showToast('请输入问题');
+        return;
+    }
+    
+    if (!data.aiConfig || !data.aiConfig.enabled || !data.aiConfig.model) {
+        showToast('请先启用 AI 功能并配置 API 密钥');
+        hideAskAiModal();
+        showAiConfigModal();
+        return;
+    }
+    
+    const feedbackArea = document.getElementById('askAiFeedback');
+    feedbackArea.style.display = 'block';
+    feedbackArea.innerHTML = '<div style="color:var(--text-secondary);padding:20px;text-align:center;">🤖 AI 正在思考...</div>';
+    document.getElementById('askAiActions').style.display = 'none';
+    
+    try {
+        // 获取当前题目信息
+        const state = currentPracticeState;
+        const currentQuestion = state.questions[state.currentIndex];
+        
+        // 构建提示词
+        const prompt = `题目：${currentQuestion.question}\n${currentQuestion.options ? currentQuestion.options.join('\n') : ''}\n答案：${currentQuestion.answer}\n${currentQuestion.analysis ? '解析：' + currentQuestion.analysis : ''}\n\n用户问题：${question}\n\n请详细解答用户的问题，帮助理解这道题目。`;
+        
+        const response = await callAiApi('', data.aiConfig.model, prompt);
+        const formattedResponse = formatAiResponse(response);
+        
+        feedbackArea.innerHTML = formattedResponse;
+        currentAskAiResult = formattedResponse;
+        
+        // 设置文本选择监听（包括 askAiFeedback）
+        setupAiResultSelectionListeners();
+        
+        document.getElementById('askAiSaveActions').style.display = 'block';
+        showToast('AI 回答已生成');
+    } catch (error) {
+        console.error('AI 回答失败:', error);
+        feedbackArea.innerHTML = `<div style="color:var(--danger);padding:20px;text-align:center;">❌ AI 回答失败：${error.message}</div>`;
+        document.getElementById('askAiActions').style.display = 'flex';
+        showToast('AI 回答失败，请检查 API 配置');
+    }
+}
+
+// 设置 AI 回答文本选择监听 - 复用现有的 setupAiResultSelectionListeners 机制
+// 将 askAiFeedback 添加到 selectors 列表中
+const originalSetupAiResultSelectionListeners = setupAiResultSelectionListeners;
+setupAiResultSelectionListeners = function() {
+    // 调用原始函数
+    originalSetupAiResultSelectionListeners();
+    
+    // 为 askAiFeedback 添加监听器
+    const feedbackArea = document.getElementById('askAiFeedback');
+    if (!feedbackArea) return;
+    
+    // 移除旧的监听器（通过克隆节点）
+    const newEl = feedbackArea.cloneNode(true);
+    feedbackArea.parentNode.replaceChild(newEl, feedbackArea);
+    const el = newEl;
+    
+    // 监听鼠标抬起事件
+    el.addEventListener('mouseup', function(e) {
+        setTimeout(() => {
+            const selection = window.getSelection();
+            const selectedText = selection.toString().trim();
+            if (selectedText && el.contains(selection.anchorNode)) {
+                currentAiContext.selectedText = selectedText;
+                currentAiContext.sourceElement = 'askAiFeedback';
+                showTextSelectionBubble(selection);
+            } else {
+                hideTextSelectionBubble();
+            }
+        }, 10);
+    });
+    
+    // 监听触摸结束事件（移动端）
+    el.addEventListener('touchend', function() {
+        setTimeout(() => {
+            const selection = window.getSelection();
+            const selectedText = selection.toString().trim();
+            
+            if (selectedText && el.contains(selection.anchorNode)) {
+                currentAiContext.selectedText = selectedText;
+                currentAiContext.sourceElement = 'askAiFeedback';
+                showTextSelectionBubble(selection);
+            } else {
+                hideTextSelectionBubble();
+            }
+        }, 10);
+    });
+};
+
+// 保存选中的文本到快速记录（从 textSelectionBubble 调用）
+function saveSelectedAsQuickRecord(selectedText) {
+    // 如果没有传入参数，从 currentAiContext 获取
+    if (!selectedText && currentAiContext && currentAiContext.selectedText) {
+        selectedText = currentAiContext.selectedText;
+    }
+    
+    if (!selectedText) {
+        showToast('请先选择文本');
+        return;
+    }
+    
+    const question = document.getElementById('askAiQuestion') ? document.getElementById('askAiQuestion').value.trim() : '';
+    const state = currentPracticeState;
+    const subjectTag = (state && state.subject) ? state.subject : '学习';
+    
+    const content = `【问题】${question}\n【AI 回答】${selectedText}`;
+    
+    // 保存到待内化
+    if (!data.toInternalize) {
+        data.toInternalize = [];
+    }
+    
+    const newItem = {
+        id: generateId(),
+        content: content.substring(0, 500),
+        tags: [subjectTag, 'AI 问答'],
+        status: 'pending',
+        generatedQuestions: [],
+        reviewCount: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+    };
+    
+    data.toInternalize.push(newItem);
+    saveData();
+    hideTextSelectionBubble();
+    showToast('已保存到待内化');
+}
+
+// 保存整个 AI 回答到快速记录
+function saveAskAiResult() {
+    if (!currentAskAiResult) {
+        showToast('没有可保存的内容');
+        return;
+    }
+    
+    const question = document.getElementById('askAiQuestion').value.trim();
+    
+    // 提取纯文本
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = currentAskAiResult;
+    const plainText = tempDiv.textContent || tempDiv.innerText || '';
+    
+    const content = `【问题】${question}\n\n【AI 回答】\n${plainText}`;
+    
+    // 保存到待内化
+    if (!data.toInternalize) {
+        data.toInternalize = [];
+    }
+    
+    const newItem = {
+        id: generateId(),
+        content: content.substring(0, 1000),
+        tags: [state.subject, 'AI 问答'],
+        status: 'pending',
+        generatedQuestions: [],
+        reviewCount: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+    };
+    
+    data.toInternalize.push(newItem);
+    saveData();
+    showToast('已保存到待内化');
+}
+
+// 退出答题模式
+function exitPracticeMode() {
+    document.getElementById('practiceInterface').style.display = 'none';
+    document.getElementById('practiceModeSelect').style.display = 'block';
+    document.getElementById('answerDisplay').style.display = 'none';
+    document.getElementById('answerDisplay').innerHTML = '';
+    selectedOption = '';
+    renderSubjectList();
+    renderQuestionList();
+}
+
+// 搜索题目
+function filterQuestions() {
+    const searchText = document.getElementById('questionSearchBox').value.toLowerCase();
+    const questions = data.practiceQuestions || [];
+    const filtered = questions.filter(q =>
+        q.question.toLowerCase().includes(searchText) ||
+        q.subject.toLowerCase().includes(searchText) ||
+        q.id.toLowerCase().includes(searchText)
+    );
+    
+    const container = document.getElementById('questionListContainer');
+    if (filtered.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:40px 0;">没有找到匹配的题目</p>';
+        return;
+    }
+    
+    // 复用 renderQuestionList 的逻辑，但只显示部分题目
+    let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
+    filtered.slice(0, 20).forEach((q, index) => {
+        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : '判断';
+        html += `
+            <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);">
+                <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                    <div style="flex:1;">
+                        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+                            <span style="font-size:12px;color:var(--text-secondary);">题号：${escapeHtml(q.id)}</span>
+                            <span style="font-size:12px;color:var(--primary);background:var(--primary-light);padding:2px 6px;border-radius:4px;">${typeText}</span>
+                            <span style="font-size:12px;color:var(--text-secondary);">${escapeHtml(q.subject)}</span>
+                        </div>
+                        <p style="margin:0 0 8px 0;font-size:14px;color:var(--text);line-height:1.5;">${escapeHtml(q.question)}</p>
+                        ${q.options.length > 0 ? `<div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">选项：${q.options.map(o => escapeHtml(o)).join('  ')}</div>` : ''}
+                        <div style="font-size:12px;color:var(--text-secondary);">答案：${escapeHtml(q.answer)}</div>
+                        ${q.analysis ? `<div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">解析：${escapeHtml(q.analysis)}</div>` : ''}
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:4px;margin-left:8px;">
+                        <button class="btn btn-secondary btn-small" onclick="deleteQuestion('${q.id}')" style="padding:4px 10px;font-size:12px;">删除</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    html += '</div>';
+    
+    if (filtered.length > 20) {
+        html += `<p style="text-align:center;color:var(--text-secondary);padding:10px;">共 ${filtered.length} 道题，显示前 20 条</p>`;
+    }
+    
+    container.innerHTML = html;
+}
+
 // 显示项目详情
 function showProjectDetail(projectId) {
             const project = data.projects.find(p => p.id === projectId);
@@ -26201,6 +27295,25 @@ renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
               // 保存到弹药库
               addAmmoToLibrary(content, null, '');
               showToast('已保存到弹药库');
+          } else if (saveLocation === 'toInternalize') {
+              // 保存到待内化
+              if (!data.toInternalize) {
+                  data.toInternalize = [];
+              }
+              const newItem = {
+                  id: generateId(),
+                  content,
+                  tags: [],
+                  status: 'pending',
+                  generatedQuestions: [],
+                  reviewCount: 0,
+                  createdAt: new Date().toISOString(),
+                  updatedAt: new Date().toISOString()
+              };
+              
+              data.toInternalize.push(newItem);
+              saveData();
+              showToast('已保存到待内化');
           } else {
               // 保存到知识库
               const newItem = {
@@ -28267,6 +29380,210 @@ function manualCloseOrganizerAiPanel() {
         return div.innerHTML.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
     }
     </script>
+
+<!-- ============ 学习功能面板 ============ -->
+<!-- 待内化面板 -->
+<div id="toInternalizePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
+    <div class="modal" style="background:var(--card);max-width:800px;">
+        <div class="modal-header">
+            <h3 class="modal-title">📂 待内化</h3>
+            <button class="modal-close" onclick="hideAllLearningPanels()">关闭</button>
+        </div>
+        <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+            <!-- 新增按钮 -->
+            <div style="padding:10px;border-bottom:1px solid var(--border);margin-bottom:10px;">
+                <button class="btn btn-primary" onclick="showAddToInternalizeForm()" style="width:100%;">
+                    ➕ 新增待内化内容
+                </button>
+            </div>
+            
+            <!-- 新增表单（默认隐藏） -->
+            <div id="addToInternalizeForm" style="display:none;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:10px;">
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">内容</label>
+                    <textarea id="newInternalizeContent" rows="4" placeholder="输入待内化的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;"></textarea>
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">标签（用逗号分隔）</label>
+                    <input type="text" id="newInternalizeTags" placeholder="如：专业知识，通信技术" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+                </div>
+                <div style="display:flex;gap:8px;justify-content:flex-end;">
+                    <button class="btn btn-secondary" onclick="hideAddToInternalizeForm()" style="padding:6px 12px;font-size:13px;">取消</button>
+                    <button class="btn btn-primary" onclick="saveNewToInternalize()" style="padding:6px 12px;font-size:13px;">保存</button>
+                </div>
+            </div>
+            
+            <!-- 编辑待内化模态框（默认隐藏） -->
+            <div id="editToInternalizeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2001;">
+                <div class="modal" style="background:var(--card);max-width:600px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                    <div class="modal-header">
+                        <h3 class="modal-title">✏️ 编辑待内化内容</h3>
+                        <button class="modal-close" onclick="hideEditToInternalizeModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="margin-bottom:12px;">
+                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">内容</label>
+                            <textarea id="editInternalizeContent" rows="5" placeholder="输入待内化的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"></textarea>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">标签（用逗号分隔）</label>
+                            <input type="text" id="editInternalizeTags" placeholder="如：专业知识，通信技术" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+                        </div>
+                        <div style="display:flex;gap:8px;justify-content:flex-end;">
+                            <button class="btn btn-secondary" onclick="hideEditToInternalizeModal()" style="padding:6px 12px;font-size:13px;">取消</button>
+                            <button class="btn btn-primary" onclick="saveEditToInternalize()" style="padding:6px 12px;font-size:13px;">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 待内化列表 -->
+            <div id="toInternalizeList" style="padding:10px;">
+                <p style="text-align:center;color:var(--text-secondary);padding:40px 0;">暂无待内化内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 答题板块 -->
+<div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
+    <div class="modal" style="background:var(--card);max-width:800px;">
+        <div class="modal-header">
+            <h3 class="modal-title">✍️ 答题</h3>
+            <button class="modal-close" onclick="hideAllLearningPanels()">关闭</button>
+        </div>
+        <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+            <!-- 答题模式选择 -->
+            <div id="practiceModeSelect" style="padding:10px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                    <h4 style="margin:0;">✍️ 答题</h4>
+                    <div style="display:flex;gap:8px;">
+                        <button class="btn btn-secondary btn-small" onclick="document.getElementById('importFileInput').click()" style="padding:4px 12px;font-size:13px;">📥 导入</button>
+                        <button class="btn btn-primary btn-small" onclick="showAddQuestionForm()" style="padding:4px 12px;font-size:13px;">➕ 新增</button>
+                    </div>
+                </div>
+                
+                <!-- 科目列表 -->
+                <div style="margin-bottom:15px;">
+                    <h5 style="margin:0 0 10px 0;font-size:14px;color:var(--text-secondary);">选择科目答题：</h5>
+                    <div id="subjectList" style="display:flex;flex-wrap:wrap;gap:8px;">
+                        <p style="color:var(--text-secondary);font-size:13px;">暂无题目，请先导入或新增题目</p>
+                    </div>
+                </div>
+                
+                <!-- 题目列表（仅查看） -->
+                <div>
+                    <h5 style="margin:0 0 10px 0;font-size:14px;color:var(--text-secondary);">题目列表（点击查看）：</h5>
+                    <input type="text" id="questionSearchBox" placeholder="搜索题目..." style="width:100%;padding:8px;margin-bottom:10px;border:1px solid var(--border);border-radius:4px;font-size:13px;" oninput="filterQuestions()">
+                    <div id="questionListContainer" style="max-height:300px;overflow-y:auto;">
+                        <p style="text-align:center;color:var(--text-secondary);padding:40px 0;">暂无题目，请先导入或新增题目</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 答题界面（默认隐藏） -->
+            <div id="practiceInterface" style="display:none;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                    <h5 id="practiceSubjectTitle" style="margin:0;">答题中</h5>
+                    <div style="display:flex;gap:8px;">
+                        <button class="btn btn-primary btn-small" onclick="showAskAiModal()" style="padding:4px 12px;font-size:13px;">🤖 问 AI</button>
+                        <button class="btn btn-secondary btn-small" onclick="exitPracticeMode()" style="padding:4px 12px;font-size:13px;">退出答题</button>
+                    </div>
+                </div>
+                
+                <div id="practiceQuestionDisplay" style="background:var(--bg);border-radius:8px;padding:15px;margin-bottom:15px;">
+                    <!-- 题目内容 -->
+                </div>
+                
+                <div id="practiceOptionsContainer" style="margin-bottom:15px;">
+                    <!-- 选项 -->
+                </div>
+                
+                <div style="display:flex;gap:10px;justify-content:center;margin-bottom:15px;">
+                    <button id="answerBtn" class="btn btn-primary" onclick="showAnswer()" style="padding:10px 30px;font-size:14px;">查看答案</button>
+                    <button id="dontKnowBtn" class="btn btn-secondary" onclick="dontKnowQuestion()" style="padding:10px 30px;font-size:14px;">不知道</button>
+                </div>
+                
+                <div id="answerDisplay" style="display:none;background:var(--bg);border-radius:8px;padding:15px;margin-bottom:15px;">
+                    <!-- 答案和解析 -->
+                </div>
+                
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span id="practiceProgress" style="font-size:13px;color:var(--text-secondary);">进度：0/0</span>
+                    <button id="nextQuestionBtn" class="btn btn-primary btn-small" onclick="nextQuestion()" style="display:none;padding:6px 16px;font-size:13px;">下一题</button>
+                </div>
+            </div>
+            
+            <!-- 问 AI 模态框 -->
+            <div id="askAiModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2002;">
+                <div class="modal" style="background:var(--card);max-width:700px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                    <div class="modal-header">
+                        <h3 class="modal-title">🤖 问 AI</h3>
+                        <button class="modal-close" onclick="hideAskAiModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="margin-bottom:12px;">
+                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">你的问题</label>
+                            <textarea id="askAiQuestion" rows="4" placeholder="输入你对这道题目的疑问，例如：为什么选这个答案？这个知识点还有什么其他应用？" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"></textarea>
+                        </div>
+                        <div id="askAiFeedback" style="display:none;background:var(--bg);border-radius:8px;padding:15px;margin-bottom:12px;min-height:100px;">
+                            <!-- AI 回答内容 -->
+                        </div>
+                        <div style="display:flex;gap:8px;justify-content:space-between;">
+                            <div id="askAiActions" style="display:flex;gap:8px;">
+                                <button class="btn btn-secondary" onclick="hideAskAiModal()" style="padding:6px 12px;font-size:13px;">取消</button>
+                                <button class="btn btn-primary" onclick="submitAskAi()" style="padding:6px 12px;font-size:13px;">提问</button>
+                            </div>
+                            <div id="askAiSaveActions" style="display:none;">
+                                <button class="btn btn-secondary" onclick="hideAskAiModal()" style="padding:6px 12px;font-size:13px;">关闭</button>
+                                <button class="btn btn-primary" onclick="saveAskAiResult()" style="padding:6px 12px;font-size:13px;">💾 保存到快速记录</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 隐藏的文件输入框 -->
+            <input type="file" id="importFileInput" accept=".csv,.xlsx,.xls" style="display:none;" onchange="importQuestionsFromExcel(this)">
+            
+            <!-- 新增题目表单（默认隐藏） -->
+            <div id="addQuestionForm" style="display:none;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:10px;">
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">题目类型</label>
+                    <select id="newQuestionType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+                        <option value="single">单选题</option>
+                        <option value="multiple">多选题</option>
+                        <option value="judge">判断题</option>
+                    </select>
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">题目</label>
+                    <textarea id="newQuestionText" rows="3" placeholder="输入题目..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;"></textarea>
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">选项（每行一个）</label>
+                    <textarea id="newQuestionOptions" rows="4" placeholder="A. 选项1&#10;B. 选项2&#10;C. 选项3&#10;D. 选项4" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;"></textarea>
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">正确答案</label>
+                    <input type="text" id="newQuestionAnswer" placeholder="如：A 或 A,B（多选）" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">解析</label>
+                    <textarea id="newQuestionAnalysis" rows="2" placeholder="输入解析..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;"></textarea>
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="font-size:13px;color:var(--text-secondary);">科目</label>
+                    <input type="text" id="newQuestionSubject" placeholder="如：网络基础" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
+                </div>
+                <div style="display:flex;gap:8px;justify-content:flex-end;">
+                    <button class="btn btn-secondary" onclick="hideAddQuestionForm()" style="padding:6px 12px;font-size:13px;">取消</button>
+                    <button class="btn btn-primary" onclick="saveNewQuestion()" style="padding:6px 12px;font-size:13px;">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- 移动端浮动操作按钮 -->
 <button class="mobile-fab" id="mobileFab" onclick="handleMobileFabClick()" title="快速添加弹药">+</button>
