@@ -1087,19 +1087,6 @@
       "subtasks": []
     },
     {
-      "id": "mr1de08avjpph",
-      "type": "task",
-      "content": "梳理下这周要做的事情",
-      "createdAt": "2026-07-01T01:01:27.850Z",
-      "updatedAt": "2026-07-01T02:26:24.281Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mr1gf35kv8afb"
-    },
-    {
       "id": "mr1fqm6vtiml0",
       "type": "task",
       "content": "我想做个随时记录问题，可以ai获取解答的东西。我还能自己导入题库（支持word、excel格式）然后刷题，遇到不懂的能在旁边问ai得到答案。也可以做笔记。邮校培训让我对专业知识有兴趣了，想找个方法学习知识",
@@ -3805,6 +3792,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T02:30:26.039Z"
+    "lastSync": "2026-07-01T02:31:55.763Z"
   }
 }
