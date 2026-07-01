@@ -1054,7 +1054,7 @@
       "type": "task",
       "content": "我觉得团员大会形式还能再有意义些，讲内容、下午参观。有什么好的方法，不会很麻烦的又能让大家学到东西。",
       "createdAt": "2026-06-26T03:23:08.691Z",
-      "updatedAt": "2026-07-01T01:37:55.586Z",
+      "updatedAt": "2026-07-01T02:26:30.883Z",
       "tags": [
         "团支部"
       ],
@@ -1067,9 +1067,10 @@
           "content": "敲定3个好的方案，先写个初稿吧",
           "done": false,
           "estimatedTime": "",
-          "placedIn": null
+          "placedIn": "slot_mr1gf35kv8afb"
         }
-      ]
+      ],
+      "placedIn": "slot_mr1gf35kv8afb"
     },
     {
       "id": "mr1cucotiablj",
@@ -1090,12 +1091,13 @@
       "type": "task",
       "content": "梳理下这周要做的事情",
       "createdAt": "2026-07-01T01:01:27.850Z",
-      "updatedAt": "2026-07-01T01:01:27.850Z",
+      "updatedAt": "2026-07-01T02:26:24.281Z",
       "tags": [],
       "done": false,
       "dueTime": "15min",
       "unknown": false,
-      "subtasks": []
+      "subtasks": [],
+      "placedIn": "slot_mr1gf35kv8afb"
     },
     {
       "id": "mr1fqm6vtiml0",
@@ -1886,7 +1888,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mr1gf35kv8afb",
+      "name": "B类-复杂-推进细分方向 10:26-10:56"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -2881,6 +2888,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-07-01": [
+      {
+        "id": "block_1782872777143",
+        "tag": "B类-复杂-推进细分方向",
+        "startTime": "10:26",
+        "endTime": "10:56",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mr1gf35kv8afb"
+      }
     ]
   },
   "taskTriggers": [
@@ -3796,6 +3814,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T02:10:14.347Z"
+    "lastSync": "2026-07-01T02:19:39.392Z"
   }
 }
