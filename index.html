@@ -2688,15 +2688,15 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         /* 回到顶部按钮样式 */
         .back-to-top-btn {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            bottom: 40px !important;
+            right: 20px !important;
+            width: 20px !important;
+            height: 20px !important;
             border-radius: 50%;
             background: var(--primary);
             color: white;
             border: none;
-            font-size: 18px;
+            font-size: 14px;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             z-index: 1000;
@@ -6728,24 +6728,30 @@ padding: 7px !important;
                    </div>
                </div>
                <div class="dropdown">
-                   <button class="btn btn-secondary btn-small" onclick="toggleToolsDropdown()">🧰 工具</button>
+                   <button class="btn btn-secondary btn-small" onclick="toggleToolsDropdown()">📚 图书馆</button>
                    <div id="toolsDropdown" class="dropdown-content">
-                       <a href="#" onclick="showPracticeExpressionPanel();toggleToolsDropdown();return false;">🎯 练习表达</a>
                        <a href="#" onclick="showAmmoLibraryPanel();toggleToolsDropdown();return false;">💎 弹药库</a>
-                       <a href="#" onclick="showTaskOrganizer();toggleToolsDropdown();return false;">📝 整理</a>
-                       <a href="#" onclick="showProjectManagement();toggleToolsDropdown();return false;">📋 项目管理</a>
+                       <a href="#" onclick="showKnowledgeBasePanel();toggleToolsDropdown();return false;">📚 知识库</a>
+                       <a href="#" onclick="showLearningPanel('toInternalize');toggleToolsDropdown();return false;">📂 待内化</a>
                    </div>
                </div>
-               <!-- 学习按钮下拉菜单 -->
+               <!-- 自习室按钮下拉菜单 -->
                <div class="dropdown">
-                   <button class="btn btn-secondary btn-small" onclick="toggleLearningDropdown()">📖 学习</button>
+                   <button class="btn btn-secondary btn-small" onclick="toggleLearningDropdown()">📖 自习室</button>
                    <div id="learningDropdown" class="dropdown-content">
-                       <a href="#" onclick="showLearningPanel('toInternalize');toggleLearningDropdown();return false;">📂 待内化</a>
+                       <a href="#" onclick="showPracticeExpressionPanel();toggleLearningDropdown();return false;">🎯 练习表达</a>
                        <a href="#" onclick="showLearningPanel('practice');toggleLearningDropdown();return false;">✍️ 答题</a>
                    </div>
                </div>
-               <button class="btn btn-secondary btn-small" onclick="showKnowledgeBasePanel()">📚 知识库</button>
-               <button class="btn btn-secondary btn-small" onclick="showAiContentManager(true)">💾 AI 内容</button>
+               <!-- 控制台按钮下拉菜单 -->
+               <div class="dropdown">
+                   <button class="btn btn-secondary btn-small" onclick="toggleConsoleDropdown()">💻 控制台</button>
+                   <div id="consoleDropdown" class="dropdown-content">
+                       <a href="#" onclick="showAiContentManager(true);toggleConsoleDropdown();return false;">💾 AI 内容</a>
+                       <a href="#" onclick="showTaskOrganizer();toggleConsoleDropdown();return false;">📝 整理</a>
+                       <a href="#" onclick="showProjectManagement();toggleConsoleDropdown();return false;">📋 项目管理</a>
+                   </div>
+               </div>
                 <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
@@ -6880,6 +6886,10 @@ padding: 7px !important;
             <div class="tag-filter" id="todayTagFilter"></div>
         </div>
         <div id="todayList"></div>
+        <!-- 回到顶部按钮 - 想做的事 -->
+        <button id="taskBackToTop" class="back-to-top-btn" onclick="scrollTaskToTop()" style="display:flex;">
+            ⬆️
+        </button>
 
         <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
             📅 往期待办 <span class="count" id="oldTodoCount"></span>
@@ -13229,6 +13239,7 @@ ${taskContent}
             
             // 添加滚动监听，控制回到顶部按钮的显示
             setupOldFeelingScrollListener();
+            setupTaskScrollListener();
             
             // 只在第一次设置时绑定按钮事件
             if (!window.backToTopButtonSetup) {
@@ -13289,6 +13300,47 @@ ${taskContent}
         // 往期感受列表回到顶部
         function scrollOldFeelingToTop() {
             console.log('点击了回到顶部按钮');
+            
+            // 直接滚动到页面顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            console.log('已滚动到页面顶部');
+        }
+        
+        // 设置想做的事列表的滚动监听
+        function setupTaskScrollListener() {
+            const taskArea = document.getElementById('taskArea');
+            const backToTopBtn = document.getElementById('taskBackToTop');
+            
+            if (!taskArea || !backToTopBtn) return;
+            
+            // 移除旧的监听器（避免重复添加）
+            taskArea.removeEventListener('scroll', handleTaskScroll);
+            
+            // 添加新的监听器
+            taskArea.addEventListener('scroll', handleTaskScroll);
+        }
+        
+        // 处理想做的事列表滚动事件
+        function handleTaskScroll() {
+            const taskArea = document.getElementById('taskArea');
+            const backToTopBtn = document.getElementById('taskBackToTop');
+            
+            if (!taskArea || !backToTopBtn) return;
+            
+            // 当滚动超过 100px 时显示按钮
+            if (taskArea.scrollTop > 100) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        }
+        
+        // 想做的事列表回到顶部
+        function scrollTaskToTop() {
+            console.log('点击了想做的事回到顶部按钮');
             
             // 直接滚动到页面顶部
             window.scrollTo({
@@ -16103,11 +16155,36 @@ function closeModal(modalId) {
             }
         }
         
+        function toggleConsoleDropdown() {
+            // 先关闭其他下拉菜单
+            const settingsDropdown = document.getElementById('settingsDropdown');
+            if (settingsDropdown && settingsDropdown.classList.contains('show')) {
+                settingsDropdown.classList.remove('show');
+            }
+            
+            const toolsDropdown = document.getElementById('toolsDropdown');
+            if (toolsDropdown && toolsDropdown.classList.contains('show')) {
+                toolsDropdown.classList.remove('show');
+            }
+            
+            const learningDropdown = document.getElementById('learningDropdown');
+            if (learningDropdown && learningDropdown.classList.contains('show')) {
+                learningDropdown.classList.remove('show');
+            }
+            
+            // 再切换控制台下拉菜单
+            const dropdown = document.getElementById('consoleDropdown');
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
+        }
+        
         // 点击页面其他地方关闭下拉菜单
         document.addEventListener('click', function(event) {
             const settingsDropdown = document.getElementById('settingsDropdown');
             const toolsDropdown = document.getElementById('toolsDropdown');
             const learningDropdown = document.getElementById('learningDropdown');
+            const consoleDropdown = document.getElementById('consoleDropdown');
             
             // 检测是否点击了设置下拉菜单或其按钮
             let settingsDropdownContainer = null;
@@ -16133,6 +16210,14 @@ function closeModal(modalId) {
                 learningDropdownContainer = learningTarget.parentElement;
             }
             
+            // 检测是否点击了控制台下拉菜单或其按钮
+            let consoleDropdownContainer = null;
+            const consoleTarget = event.target.closest('#consoleDropdown') ||
+                                    event.target.closest('button[onclick="toggleConsoleDropdown()"]');
+            if (consoleTarget) {
+                consoleDropdownContainer = consoleTarget.parentElement;
+            }
+            
             // 关闭设置下拉菜单
             if (settingsDropdown && !settingsDropdownContainer && settingsDropdown.classList.contains('show')) {
                 settingsDropdown.classList.remove('show');
@@ -16146,6 +16231,11 @@ function closeModal(modalId) {
             // 关闭学习下拉菜单
             if (learningDropdown && !learningDropdownContainer && learningDropdown.classList.contains('show')) {
                 learningDropdown.classList.remove('show');
+            }
+            
+            // 关闭控制台下拉菜单
+            if (consoleDropdown && !consoleDropdownContainer && consoleDropdown.classList.contains('show')) {
+                consoleDropdown.classList.remove('show');
             }
         });
 
