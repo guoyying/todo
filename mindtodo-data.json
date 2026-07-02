@@ -823,9 +823,9 @@
     {
       "id": "mqrd9ot2h6ei5",
       "type": "task",
-      "content": "### 🛠️ CRM核查\n### 阶段二 （进行中）\n- [ ] 下一步核查非数字中继情况\n### “时间轴”反向推导 🗓️\n- **动作**：不要从零规划。先问自己：“我最希望CRM在**哪一天**能跑通某个功能（比如录入第一个客户）？” 然后从那天**倒推**：\n\n| 时间节点 | 目标 |\n|:----:|:----:|\n| 7.15 | 完成核查 |\n\n### 阶段一 （已完成）\n> ⌚ **用时**   1小时15分钟，2026.06.24\n📝 **成果**  完成数字中继业务核查，输出结论及todo\n\n> - [x] 核查数字中继业务多种状态，给出处理建议：\n> 1. 已退网->不用处理；\n> 2. 在用，已转虚拟网元或资源退网->不用处理；\n\n> - [ ] 在用，挂设备->核查设备现场情况（关电/在用/拆除），对于关电/拆除情况，下一步迁转到虚拟网元",
+      "content": "### 🛠️ CRM核查\n### 阶段二 （进行中）\n- [ ] 下一步核查非数字中继情况，今日核查20个。\n### “时间轴”反向推导 🗓️\n- **动作**：不要从零规划。先问自己：“我最希望CRM在**哪一天**能跑通某个功能（比如录入第一个客户）？” 然后从那天**倒推**：\n\n| 时间节点 | 目标 |\n|:----:|:----:|\n| 7.15 | 完成核查 |\n\n### 阶段一 （已完成）\n> ⌚ **用时**   1小时15分钟，2026.06.24\n📝 **成果**  完成数字中继业务核查，输出结论及todo\n\n> - [x] 核查数字中继业务多种状态，给出处理建议：\n> 1. 已退网->不用处理；\n> 2. 在用，已转虚拟网元或资源退网->不用处理；\n\n> - [ ] 在用，挂设备->核查设备现场情况（关电/在用/拆除），对于关电/拆除情况，下一步迁转到虚拟网元",
       "createdAt": "2026-06-24T01:00:24.662Z",
-      "updatedAt": "2026-07-01T07:42:43.785Z",
+      "updatedAt": "2026-07-02T06:55:37.917Z",
       "tags": [
         "退网",
         "CRM"
@@ -977,29 +977,23 @@
       "type": "task",
       "content": "# 改网关上联接入交换机策略的事情\n根据你的描述，你已知**网关网元（核心网关）的IP地址**，但需要找到**网关上联的接入交换机（即与网关直连的下一跳交换机）的IP**。由于你提到汇聚交换机是**奥普泰**品牌，通常这类设备（如奥普泰的PTN/IPRAN设备）的管理方式与普通交换机略有不同，但核心逻辑一致。\n\n以下是几种在**汇聚交换机（奥普泰）**上查询上联接入交换机IP的方法。假设你已通过SSH/Telnet或串口登录到汇聚交换机。\n\n### 方法一：通过网关IP反查ARP表（最直接）\n汇聚交换机上通常有与网关直连的接口，网关的MAC地址会在该接口上被学习到。通过ARP表可以找到网关对应的接口，再通过该接口的邻居发现（如CDP/LLDP）或直连路由找到对端交换机。\n\n**步骤：**\n1. **查询网关的MAC地址**  \n   在汇聚交换机上执行命令（奥普泰设备通常使用类似华为/中兴的命令风格）：\n   ```\n   display arp | include <网关IP>\n   ```\n   或者\n   ```\n   show arp | include <网关IP>\n   ```\n   记录下网关的MAC地址。\n\n2. **查找MAC地址对应的接口**  \n   ```\n   display mac-address | include <网关MAC>\n   ```\n   或\n   ```\n   show mac-address-table | include <网关MAC>\n   ```\n   找到该MAC是从哪个接口学习到的（例如 `GigabitEthernet0/0/1`）。\n\n3. **查看该接口的邻居信息（LLDP/CDP）**  \n   如果汇聚交换机和接入交换机都启用了LLDP或CDP：\n   ```\n   display lldp neighbor interface <接口名>\n   ```\n   或\n   ```\n   show lldp neighbors interface <接口名>\n   ```\n   输出中会显示对端设备的**管理IP**（即接入交换机的IP）。如果没有LLDP，可以尝试：\n   ```\n   display cdp neighbors\n   ```\n\n4. **查看直连路由**  \n   如果网关IP是直连路由（即网关的接口在汇聚交换机上），可以直接查看：\n   ```\n   display ip routing-table <网关IP>\n   ```\n   看下一跳是否为 `Direct`，并确认出接口。\n\n### 方法二：通过STP或生成树信息（如果网络有环路保护）\n有些情况下，汇聚交换机上会显示根桥或邻居桥的IP。但一般不会直接显示IP，而是显示桥ID（MAC）。需要结合ARP或LLDP。\n\n### 方法三：通过SNMP查询（如果设备支持）\n如果你有SNMP读权限，可以远程查询汇聚交换机的 `ipNetToMediaTable`（对应ARP表）和 `dot1dBasePortTable`（对应桥接端口）。但需要额外工具。\n\n### 方法四：直接查看接口配置（如果接口有静态IP或描述）\n```\ndisplay current-configuration interface <接口名>\n```\n或\n```\nshow running-config interface <接口名>\n```\n看接口上是否有 `description` 或 `ip address` 信息，有时网管会写“to-接入交换机-IP”。\n\n### 特殊说明：奥普泰设备\n- 奥普泰的汇聚交换机（如OptiX OSN系列或PTN系列）通常使用**华为兼容的命令**（如 `system-view` 进入配置模式，`display` 查看）。\n- 如果设备是**纯二层汇聚**（无三层功能），则无法直接看到IP，需要通过**管理VLAN**或**带外管理接口**查询。此时需要知道汇聚交换机的管理IP，然后通过LLDP/CDP查看邻居。\n\n### 如果以上方法都不行（例如设备不支持LLDP）\n你可以尝试**在汇聚交换机上ping网关IP**，然后查看：\n```\ndisplay arp all | include <网关IP>\n```\n确认网关MAC后，再通过MAC反查接口（方法一第二步）。如果接口是Trunk口，可能对端就是接入交换机。\n\n### 总结操作流程（最简版）\n1. 登录汇聚交换机（奥普泰）。\n2. 输入 `display arp | include <网关IP>` → 获得网关MAC。\n3. 输入 `display mac-address | include <网关MAC>` → 获得接口名（如G0/0/1）。\n4. 输入 `display lldp neighbor interface G0/0/1` → 获得对端接入交换机的IP。\n\n如果设备不支持LLDP，则只能通过**查看接口的物理连接**（如光纤标签）或**联系现场工程师**手动确认。",
       "createdAt": "2026-07-01T00:46:10.877Z",
-      "updatedAt": "2026-07-01T09:14:17.233Z",
+      "updatedAt": "2026-07-02T06:56:14.747Z",
       "tags": [
         "网安"
       ],
       "done": false,
       "dueTime": "20min",
       "unknown": false,
-      "subtasks": [],
-      "placedIn": null
-    },
-    {
-      "id": "mr1fqm6vtiml0",
-      "type": "task",
-      "content": "我想做个随时记录问题，可以ai获取解答的东西。我还能自己导入题库（支持word、excel格式）然后刷题，遇到不懂的能在旁边问ai得到答案。也可以做笔记。邮校培训让我对专业知识有兴趣了，想找个方法学习知识",
-      "createdAt": "2026-07-01T02:07:15.415Z",
-      "updatedAt": "2026-07-01T02:07:15.415Z",
-      "tags": [
-        "AI"
+      "subtasks": [
+        {
+          "id": "1782975366281",
+          "content": "登录4a交换机尝试看看",
+          "done": false,
+          "estimatedTime": "",
+          "placedIn": null
+        }
       ],
-      "done": false,
-      "dueTime": "15min",
-      "unknown": false,
-      "subtasks": []
+      "placedIn": null
     },
     {
       "id": "mr1fuchnwcna3",
@@ -2950,7 +2944,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-06-25T03:41:03.413Z"
+            "confirmationTime": "2026-07-02T06:48:46.190Z"
           }
         ]
       },
@@ -2958,7 +2952,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-06-25T03:41:00.004Z"
+        "0": "2026-07-02T06:48:41.283Z"
       }
     },
     {
@@ -2973,6 +2967,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-01T03:01:21.419Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mr35im5iquzze",
+      "taskId": "mr1fuchnwcna3",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-02T16:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-02T06:56:38.310Z",
       "lastReminderTime": null,
       "active": true
     }
