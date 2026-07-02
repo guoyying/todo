@@ -3026,6 +3026,22 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
 
 /* 移动端优化 */
 @media (max-width: 768px) {
+    /* 移动端下拉菜单紧贴工具栏，宽度自适应内容，居中显示 */
+    .dropdown-content {
+        position: fixed !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 90px !important;  /* 紧贴固定在顶部的工具栏 */
+        bottom: auto !important;
+        width: auto !important;
+        min-width: 200px !important;
+        max-width: calc(100% - 20px) !important;  /* 最大不超过屏幕宽度减去边距 */
+        max-height: calc(100vh - 90px) !important;  /* 留出工具栏和底部空间 */
+        overflow-y: auto !important;
+        margin-top: 0 !important;
+        border-radius: 8px !important;
+    }
+    
     /* 移动端：侧边导航轴改为底部悬浮导航栏 */
     #projectSideNav {
         position: fixed !important;
