@@ -6738,7 +6738,7 @@ padding: 7px !important;
                </div>
                <!-- 学习按钮下拉菜单 -->
                <div class="dropdown">
-                   <button class="btn btn-secondary btn-small" onclick="toggleLearningDropdown()">📚 学习</button>
+                   <button class="btn btn-secondary btn-small" onclick="toggleLearningDropdown()">📖 学习</button>
                    <div id="learningDropdown" class="dropdown-content">
                        <a href="#" onclick="showLearningPanel('toInternalize');toggleLearningDropdown();return false;">📂 待内化</a>
                        <a href="#" onclick="showLearningPanel('practice');toggleLearningDropdown();return false;">✍️ 答题</a>
@@ -17585,8 +17585,8 @@ function closeModal(modalId) {
         document.addEventListener('DOMContentLoaded', function() {
             initDateTimePicker();
             
-            // 加载保存的AI提示词
-            loadAIPrompt();
+            // 加载保存的 AI 提示词（已注释，因为 loadAIPrompt 是局部函数）
+            // loadAIPrompt();
             
             // 启动触发提醒定时器
             console.log('启动触发提醒定时器');
@@ -22916,7 +22916,7 @@ function generateQuestionFromInternalize(id) {
 }
 
 // ============ 答题功能 ============
-// 从 Excel/CSV 导入题目
+// 从 Excel 导入题目
 function importQuestionsFromExcel(input) {
     const file = input.files[0];
     if (!file) return;
@@ -23052,28 +23052,6 @@ function importQuestionsFromExcel(input) {
     }
 }
 
-// 解析 CSV 行（处理引号内的逗号）
-function parseCSVLine(line) {
-    const result = [];
-    let current = '';
-    let inQuotes = false;
-    
-    for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        
-        if (char === '"') {
-            inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-            result.push(current.trim());
-            current = '';
-        } else {
-            current += char;
-        }
-    }
-    result.push(current.trim());
-    
-    return result;
-}
 
 // 显示新增题目表单
 function showAddQuestionForm() {
@@ -23232,25 +23210,35 @@ function renderSubjectList() {
 
 // 开始按科目答题
 function startPracticeBySubject(subject) {
-    // 筛选该科目的题目
-    const questions = data.practiceQuestions.filter(q => q.subject === subject);
-    if (!questions || questions.length === 0) {
+    // 筛选该科目的题目（保持原始顺序）
+    const originalQuestions = data.practiceQuestions.filter(q => q.subject === subject);
+    if (!originalQuestions || originalQuestions.length === 0) {
         showToast('该科目暂无题目');
         return;
     }
     
-    // 随机打乱题目顺序
-    questions.sort(() => Math.random() - 0.5);
+    // 创建随机打乱的题目副本用于答题
+    const shuffledQuestions = [...originalQuestions].sort(() => Math.random() - 0.5);
     
     // 初始化答题状态
     currentPracticeState = {
         subject: subject,
-        questions: questions,
-        currentIndex: 0,
+        originalQuestions: originalQuestions, // 原始顺序题目（用于序号面板）
+        questions: shuffledQuestions, // 随机顺序题目（用于答题）
+        currentIndex: 0, // 随机顺序中的索引
+        currentOriginalIndex: 0, // 原始顺序中的索引（用于序号面板高亮）
         correctCount: 0,
         wrongCount: 0,
-        answered: false
+        answered: false,
+        questionStatus: [] // 每道题的状态（按原始顺序）
     };
+    
+    // 从持久化数据加载题目状态（按原始顺序）
+    for (let i = 0; i < originalQuestions.length; i++) {
+        const question = originalQuestions[i];
+        // 从题目的 status 字段加载，如果没有则为 null
+        currentPracticeState.questionStatus.push(question.status || null);
+    }
     
     // 切换界面
     document.getElementById('practiceModeSelect').style.display = 'none';
@@ -23258,6 +23246,89 @@ function startPracticeBySubject(subject) {
     
     // 显示第一题
     showCurrentQuestion();
+}
+
+// 渲染题目序号导航面板
+function renderQuestionNavigation() {
+    const state = currentPracticeState;
+    const container = document.getElementById('questionNavigation');
+    if (!container) return;
+    
+    let html = '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">';
+    
+    // 使用原始题目数量（保持序号一致）
+    const totalQuestions = state.originalQuestions ? state.originalQuestions.length : state.questions.length;
+    
+    for (let i = 0; i < totalQuestions; i++) {
+        const status = state.questionStatus[i];
+        const isCurrent = i === (state.currentOriginalIndex !== undefined ? state.currentOriginalIndex : state.currentIndex);
+        
+        let bgColor = '#e0e0e0'; // 默认灰色
+        let borderColor = '#bdbdbd';
+        let textColor = '#616161';
+        
+        if (status === 'correct') {
+            bgColor = '#4caf50'; // 绿色 - 答对
+            borderColor = '#388e3c';
+            textColor = '#fff';
+        } else if (status === 'wrong') {
+            bgColor = '#f44336'; // 红色 - 答错
+            borderColor = '#d32f2f';
+            textColor = '#fff';
+        } else if (status === 'unknown') {
+            bgColor = '#ff9800'; // 橙色 - 不知道
+            borderColor = '#f57c00';
+            textColor = '#fff';
+        }
+        
+        if (isCurrent) {
+            // 当前题目加粗边框
+            borderColor = '#212121';
+        }
+        
+        html += `
+            <button onclick="jumpToQuestion(${i})" style="
+                width:26px;
+                height:26px;
+                border-radius:4px;
+                border:1.5px solid ${borderColor};
+                background:${bgColor};
+                color:${textColor};
+                font-size:11px;
+                font-weight:${isCurrent ? 'bold' : 'normal'};
+                cursor:pointer;
+                transition:all 0.2s;
+            " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                ${i + 1}
+            </button>
+        `;
+    }
+    
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// 跳转到指定题目（按原始序号）
+function jumpToQuestion(originalIndex) {
+    const state = currentPracticeState;
+    
+    if (originalIndex < 0 || originalIndex >= (state.originalQuestions ? state.originalQuestions.length : state.questions.length)) return;
+    
+    // 如果当前题目已回答，先保存状态
+    if (state.answered) {
+        selectedOption = '';
+    }
+    
+    // 在随机打乱的题目列表中查找原始序号对应的题目
+    const targetQuestion = state.originalQuestions[originalIndex];
+    const newIndex = state.questions.findIndex(q => q.id === targetQuestion.id);
+    
+    if (newIndex !== -1) {
+        state.currentIndex = newIndex;
+        state.currentOriginalIndex = originalIndex;
+        state.answered = false;
+        showCurrentQuestion();
+    }
 }
 
 // 显示当前题目
@@ -23270,11 +23341,17 @@ function showCurrentQuestion() {
     }
     
     const question = state.questions[state.currentIndex];
+    // 找到当前题目在原始顺序中的索引
+    state.currentOriginalIndex = state.originalQuestions.findIndex(q => q.id === question.id);
+    
     const typeText = question.type === 'single' ? '单选题' : question.type === 'multiple' ? '多选题' : '判断题';
     
     // 显示题目
     document.getElementById('practiceSubjectTitle').textContent = `${state.subject} - ${typeText}`;
     document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
+    
+    // 渲染题目序号小面板
+    renderQuestionNavigation();
     
     const questionHtml = `
         <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${typeText}</div>
@@ -23303,15 +23380,16 @@ function showCurrentQuestion() {
         optionsContainer.innerHTML = '';
     }
     
+    // 重置答题状态（必须在设置按钮状态之前）
+    state.answered = false;
+    
     // 重置按钮状态
     document.getElementById('answerBtn').style.display = 'block';
-    document.getElementById('answerBtn').disabled = !state.answered && (!question.options || question.options.length === 0);
+    document.getElementById('answerBtn').disabled = (!question.options || question.options.length === 0);
     document.getElementById('dontKnowBtn').style.display = 'block';
-    document.getElementById('dontKnowBtn').disabled = state.answered;
+    document.getElementById('dontKnowBtn').disabled = false;
     document.getElementById('nextQuestionBtn').style.display = 'none';
     document.getElementById('answerDisplay').style.display = 'none';
-    
-    state.answered = false;
 }
 
 // 选择答案
@@ -23350,6 +23428,18 @@ function showAnswer() {
     
     // 判断是否正确
     const isCorrect = selectedOption === question.answer;
+    const status = isCorrect ? 'correct' : 'wrong';
+    
+    // 更新状态数组（使用原始顺序索引）
+    state.questionStatus[state.currentOriginalIndex] = status;
+    
+    // 更新题目的 status 字段（持久化）
+    const originalQuestion = state.originalQuestions[state.currentOriginalIndex];
+    if (originalQuestion) {
+        originalQuestion.status = status;
+    }
+    
+    // 更新计数
     if (isCorrect) {
         state.correctCount++;
     } else {
@@ -23402,6 +23492,15 @@ function dontKnowQuestion() {
     state.answered = true;
     state.wrongCount++;
     
+    // 更新状态数组（使用原始顺序索引）
+    state.questionStatus[state.currentOriginalIndex] = 'unknown';
+    
+    // 更新题目的 status 字段（持久化）
+    const originalQuestion = state.originalQuestions[state.currentOriginalIndex];
+    if (originalQuestion) {
+        originalQuestion.status = 'unknown';
+    }
+    
     // 显示正确答案和解析
     const answerDisplay = document.getElementById('answerDisplay');
     const html = `
@@ -23429,8 +23528,10 @@ function dontKnowQuestion() {
 
 // 下一题
 function nextQuestion() {
-    currentPracticeState.currentIndex++;
+    const state = currentPracticeState;
+    state.currentIndex++;
     selectedOption = '';
+    // 显示下一题时，showCurrentQuestion 会自动更新 currentOriginalIndex
     showCurrentQuestion();
 }
 
@@ -29384,10 +29485,10 @@ function manualCloseOrganizerAiPanel() {
 <!-- ============ 学习功能面板 ============ -->
 <!-- 待内化面板 -->
 <div id="toInternalizePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
-    <div class="modal" style="background:var(--card);max-width:800px;">
+    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
         <div class="modal-header">
             <h3 class="modal-title">📂 待内化</h3>
-            <button class="modal-close" onclick="hideAllLearningPanels()">关闭</button>
+            <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
         </div>
         <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
             <!-- 新增按钮 -->
@@ -29418,7 +29519,7 @@ function manualCloseOrganizerAiPanel() {
                 <div class="modal" style="background:var(--card);max-width:600px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
                     <div class="modal-header">
                         <h3 class="modal-title">✏️ 编辑待内化内容</h3>
-                        <button class="modal-close" onclick="hideEditToInternalizeModal()">×</button>
+                        <button class="btn btn-small btn-secondary" onclick="hideEditToInternalizeModal()">×</button>
                     </div>
                     <div class="modal-body">
                         <div style="margin-bottom:12px;">
@@ -29447,21 +29548,19 @@ function manualCloseOrganizerAiPanel() {
 
 <!-- 答题板块 -->
 <div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
-    <div class="modal" style="background:var(--card);max-width:800px;">
+    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
         <div class="modal-header">
             <h3 class="modal-title">✍️ 答题</h3>
-            <button class="modal-close" onclick="hideAllLearningPanels()">关闭</button>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <button class="btn btn-small btn-primary" onclick="document.getElementById('importFileInput').click()">📥 导入</button>
+                <button class="btn btn-small btn-primary" onclick="showAddQuestionForm()">➕ 新增</button>
+                <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
+            </div>
         </div>
         <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
             <!-- 答题模式选择 -->
             <div id="practiceModeSelect" style="padding:10px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                    <h4 style="margin:0;">✍️ 答题</h4>
-                    <div style="display:flex;gap:8px;">
-                        <button class="btn btn-secondary btn-small" onclick="document.getElementById('importFileInput').click()" style="padding:4px 12px;font-size:13px;">📥 导入</button>
-                        <button class="btn btn-primary btn-small" onclick="showAddQuestionForm()" style="padding:4px 12px;font-size:13px;">➕ 新增</button>
-                    </div>
-                </div>
+                <div style="margin-bottom:15px;">
                 
                 <!-- 科目列表 -->
                 <div style="margin-bottom:15px;">
@@ -29480,9 +29579,10 @@ function manualCloseOrganizerAiPanel() {
                     </div>
                 </div>
             </div>
+            </div>
             
             <!-- 答题界面（默认隐藏） -->
-            <div id="practiceInterface" style="display:none;">
+            <div id="practiceInterface" style="display:none;padding:10px;">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
                     <h5 id="practiceSubjectTitle" style="margin:0;">答题中</h5>
                     <div style="display:flex;gap:8px;">
@@ -29490,6 +29590,9 @@ function manualCloseOrganizerAiPanel() {
                         <button class="btn btn-secondary btn-small" onclick="exitPracticeMode()" style="padding:4px 12px;font-size:13px;">退出答题</button>
                     </div>
                 </div>
+                
+                <!-- 题目序号导航面板 -->
+                <div id="questionNavigation" style="margin-bottom:15px;"></div>
                 
                 <div id="practiceQuestionDisplay" style="background:var(--bg);border-radius:8px;padding:15px;margin-bottom:15px;">
                     <!-- 题目内容 -->
@@ -29519,7 +29622,7 @@ function manualCloseOrganizerAiPanel() {
                 <div class="modal" style="background:var(--card);max-width:700px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
                     <div class="modal-header">
                         <h3 class="modal-title">🤖 问 AI</h3>
-                        <button class="modal-close" onclick="hideAskAiModal()">×</button>
+                        <button class="btn btn-small btn-secondary" onclick="hideAskAiModal()">×</button>
                     </div>
                     <div class="modal-body">
                         <div style="margin-bottom:12px;">
@@ -29544,7 +29647,7 @@ function manualCloseOrganizerAiPanel() {
             </div>
             
             <!-- 隐藏的文件输入框 -->
-            <input type="file" id="importFileInput" accept=".csv,.xlsx,.xls" style="display:none;" onchange="importQuestionsFromExcel(this)">
+            <input type="file" id="importFileInput" accept=".xlsx,.xls" style="display:none;" onchange="importQuestionsFromExcel(this)">
             
             <!-- 新增题目表单（默认隐藏） -->
             <div id="addQuestionForm" style="display:none;padding:10px;background:var(--bg);border-radius:8px;margin-bottom:10px;">
