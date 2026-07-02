@@ -2975,21 +2975,6 @@
       "createdAt": "2026-07-01T03:01:21.419Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mr1rtnp6surft",
-      "taskId": "mqrd9ot2h6ei5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-02T10:11"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-01T07:45:32.730Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -3682,7 +3667,18 @@
       "count": 1
     }
   },
-  "toInternalize": [],
+  "toInternalize": [
+    {
+      "id": "mr2ybs3bzkmk7gumoch",
+      "content": "ROADM 是 Reconfigurable Optical Add-Drop Multiplexer 的缩写，中文全称是 “可重构光分插复用器”。\n简单理解，它是一种在光层（不经过光电转换）就能动态、灵活地完成波长（即不同颜色的光信号）的上路（Add）、下路（Drop） 和穿通（Express） 的设备。\n光合波+光分波单元构成的ROADM，这种架构常用于环网",
+      "tags": [],
+      "status": "pending",
+      "generatedQuestions": [],
+      "reviewCount": 0,
+      "createdAt": "2026-07-02T03:35:22.103Z",
+      "updatedAt": "2026-07-02T03:35:22.104Z"
+    }
+  ],
   "practiceQuestions": [
     {
       "id": "CSL3_1",
@@ -3742,7 +3738,8 @@
       "answer": "D",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_5",
