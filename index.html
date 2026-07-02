@@ -1815,6 +1815,15 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
               }
           }
         
+        /* 顶部工具栏冻结容器 */
+        .top-toolbar {
+            z-index: 1000;
+            background: linear-gradient(135deg, #f8faf8 0%, #eef2ee 100%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 10px 0;
+            transition: all 0.6s ease;
+        }
+        
         .header {
             display: flex;
             justify-content: space-between;
@@ -6708,15 +6717,18 @@ padding: 7px !important;
         </div>
     </div>
     
-    <div class="header" style="margin-bottom:10px;">
+    <div class="header" style="margin-bottom:0;">
          <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
              <h1 id="pageTitle" onclick="showPageSettings()" style="cursor:pointer;margin:0;">🌿 心事与任务</h1>
              <div id="githubOperationLog" style="padding:6px 12px;background:var(--bg-secondary);border-radius:4px;font-size:12px;color:var(--text-secondary);min-height:24px;display:none;">
                  <span id="githubOperationStatus">暂无操作记录</span>
              </div>
          </div>
-           <div class="github-bar">
-               <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
+    </div>
+    <!-- 顶部工具栏容器 - 冻结定位 -->
+    <div id="topToolbar" class="top-toolbar">
+        <div class="github-bar">
+                   <span id="githubStatus" style="font-size:12px;color:var(--text-secondary);"></span>
                <div class="dropdown">
                    <button class="btn btn-secondary btn-small" onclick="toggleSettingsDropdown()">⚙️ 设置</button>
                    <div id="settingsDropdown" class="dropdown-content">
@@ -6756,8 +6768,8 @@ padding: 7px !important;
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
                 <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
-           </div>
-     </div>
+            </div>
+        </div>
     <div class="strong-reminder-banner" id="strongReminderBanner" style="display:none;background:#ffebee;border:1px solid #ffcdd2;padding:12px;margin-bottom:16px;border-radius:8px;">
         <div style="display:flex;align-items:center;gap:8px;">
             <span style="font-size:18px;">⚠️</span>
@@ -29914,7 +29926,69 @@ function manualCloseOrganizerAiPanel() {
     // 页面加载时初始化样式编辑器
     document.addEventListener('DOMContentLoaded', function() {
         initStyleEditor();
+        initFixedToolbar();
     });
+    
+    // 工具栏冻结功能
+    function initFixedToolbar() {
+        const toolbar = document.getElementById('topToolbar');
+        const header = document.querySelector('.header');
+        
+        if (!toolbar || !header) {
+            console.error('Toolbar or header not found');
+            return;
+        }
+        
+        console.log('Toolbar initialized', toolbar, header);
+        
+        let isFixed = false;
+        
+        function updateToolbar() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const headerOffset = header.offsetTop;
+            const headerHeight = header.offsetHeight;
+            const triggerPoint = headerOffset + headerHeight;
+            
+            console.log('Scroll:', scrollY, 'Trigger:', triggerPoint, 'IsFixed:', isFixed);
+            
+            if (scrollY > triggerPoint) {
+                // 已滚动超过标题区域，固定工具栏
+                if (!isFixed) {
+                    isFixed = true;
+                    toolbar.style.position = 'fixed';
+                    toolbar.style.top = '0';
+                    toolbar.style.left = '0';
+                    toolbar.style.right = '0';
+                    toolbar.style.width = '100%';
+                    toolbar.style.margin = '0';
+                    toolbar.style.padding = '10px 20px';
+                    toolbar.style.boxSizing = 'border-box';
+                    console.log('Toolbar fixed');
+                }
+            } else {
+                // 还在标题区域内，恢复自然流
+                if (isFixed) {
+                    isFixed = false;
+                    toolbar.style.position = '';
+                    toolbar.style.top = '';
+                    toolbar.style.left = '';
+                    toolbar.style.right = '';
+                    toolbar.style.width = '';
+                    toolbar.style.margin = '';
+                    toolbar.style.padding = '';
+                    toolbar.style.boxSizing = '';
+                    console.log('Toolbar reset');
+                }
+            }
+        }
+        
+        // 初始调用
+        setTimeout(updateToolbar, 100);
+        
+        // 滚动和窗口大小变化时更新
+        window.addEventListener('scroll', updateToolbar, { passive: true });
+        window.addEventListener('resize', updateToolbar);
+    }
 </script>
 
 <!-- 文本选择气泡菜单（body 最外层，确保在所有模态框之上） -->
