@@ -1108,6 +1108,21 @@
       },
       "projectId": "1780299661890",
       "subtasks": []
+    },
+    {
+      "id": "mr35l3uh2hstz",
+      "type": "task",
+      "content": "写下上午网安的行动和成效；梳理三季度退网目标，想想怎么跟总监说天河情况",
+      "createdAt": "2026-07-02T06:58:34.553Z",
+      "updatedAt": "2026-07-02T06:58:37.979Z",
+      "tags": [
+        "退网"
+      ],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": [],
+      "placedIn": "slot_mr1s3hasg4bp1"
     }
   ],
   "normalFeelings": [
@@ -2898,6 +2913,17 @@
         "summary": "",
         "slotId": "slot_mr1s3hasg4bp1"
       }
+    ],
+    "2026-07-02": [
+      {
+        "id": "block_1782975410200",
+        "tag": "B类-复杂-推进细分方向",
+        "startTime": "15:00",
+        "endTime": "15:30",
+        "duration": 30,
+        "summary": "",
+        "slotId": null
+      }
     ]
   },
   "taskTriggers": [
@@ -4664,6 +4690,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-01T09:14:28.259Z"
+    "lastSync": "2026-07-02T06:56:43.377Z"
   }
 }
