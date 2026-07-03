@@ -1093,6 +1093,20 @@
       "dueTime": "5min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mr4882sz3ujky",
+      "type": "task",
+      "content": "验收工程单子",
+      "createdAt": "2026-07-03T01:00:11.699Z",
+      "updatedAt": "2026-07-03T01:00:11.699Z",
+      "tags": [
+        "验收"
+      ],
+      "done": false,
+      "dueTime": "20min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -4661,6 +4675,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-02T10:15:32.760Z"
+    "lastSync": "2026-07-03T01:00:00.058Z"
   }
 }
