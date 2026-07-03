@@ -1081,6 +1081,18 @@
       },
       "projectId": "1781685860305",
       "subtasks": []
+    },
+    {
+      "id": "mr487qq5r8ncn",
+      "type": "task",
+      "content": "修改ease的秒数，todo网页工具栏",
+      "createdAt": "2026-07-03T00:59:56.045Z",
+      "updatedAt": "2026-07-03T00:59:56.045Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "5min",
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
@@ -1833,12 +1845,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mr1s3hasg4bp1",
-      "name": "C类-复杂-被推着做的 16:00-16:30"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2586,6 +2593,12 @@
     "演讲素材": {
       "color": "#f5f5f0",
       "textColor": "#333333"
+    },
+    "A类-琐碎的事": {
+      "color": "#ffe0b2",
+      "textColor": "#333333",
+      "activeValue": "#e65100",
+      "activeTextColor": "#FFFFFF"
     }
   },
   "dailyTimeline": {
@@ -2869,7 +2882,7 @@
         "endTime": "16:30",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mr1s3hasg4bp1"
+        "slotId": null
       }
     ],
     "2026-07-02": [
