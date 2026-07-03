@@ -3770,6 +3770,14 @@
       "status": "pending",
       "createdAt": "2026-07-03T09:23:55.425Z",
       "updatedAt": "2026-07-03T09:23:55.425Z"
+    },
+    {
+      "id": "mr50pm0ucxt8evy10ik",
+      "content": "- 路由协议就是路由器之间互相“聊天”的规则，用来交换路况信息，然后各自计算出最佳路径。\n比如：\n距离矢量（像看路牌，只知道“下一站多远”）\n链路状态（像看高清地图，知道整个网络全貌）——这就是OSPF用的✅\n路径矢量（像看高速公路的“路段编号”）\n- 动态路由协议可以实时了解网络拓扑的变化（比如某条线路断了、新增了路径），然后自动计算出最佳路径来转发数据包",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-03T14:17:39.008Z",
+      "updatedAt": "2026-07-03T14:18:25.272Z"
     }
   ],
   "practiceQuestions": [
@@ -4594,7 +4602,7 @@
       "analysis": "文档指出网关互通是通过“网元DCC通信”，非IP或DCN。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_2",
@@ -4909,7 +4917,8 @@
       "answer": "ABD",
       "analysis": "A、B、D正确，C错误。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_23",
@@ -5000,7 +5009,8 @@
       "answer": "ABC",
       "analysis": "OSPF/BGP/RIP均为动态路由，静态非协议。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_29",
