@@ -1864,6 +1864,8 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         .btn-primary:hover { opacity: 0.9; }
         .btn-secondary { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
         .btn-secondary:hover { background: var(--bg); }
+        .btn-success { background: #8d7b8a; color: white; }
+        .btn-success:hover { background: #745e6d; }
         .btn-danger { background: var(--danger); color: white; }
         .btn-warning { background: #f5a623; color: white; }
         .btn-warning:hover { background: #d99012; }
@@ -3031,6 +3033,38 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     border-color: var(--primary) !important;
     color: #fff !important;
     transform: scale(1.1);
+}
+
+/* 导出知识面板样式 */
+#exportKnowledgePanel .modal {
+    max-width: 900px;
+    max-height: 90vh;
+}
+
+#exportKnowledgePanel .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+#exportKnowledgePanel .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text);
+}
+
+#exportKnowledgePanel .modal-body {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: calc(90vh - 80px);
+}
+
+/* 导出列表项悬停效果 */
+#exportListContainer div[data-id]:hover {
+    border-color: var(--primary);
+    transition: border-color 0.2s ease;
 }
 
 /* 移动端优化 */
@@ -6762,6 +6796,7 @@ padding: 7px !important;
                        <a href="#" onclick="showGithubConfig();toggleSettingsDropdown();return false;">🔧 GitHub 设置</a>
                        <a href="#" onclick="pullFromGithub(true);toggleSettingsDropdown();return false;">⬇️ 拉取数据</a>
                        <a href="#" onclick="downloadLatestHtml();toggleSettingsDropdown();return false;">⬇️ 下载 HTML</a>
+                       <a href="#" onclick="showExportKnowledgePanel();toggleSettingsDropdown();return false;">📤 导出知识</a>
                    </div>
                </div>
                <div class="dropdown">
@@ -8387,6 +8422,56 @@ padding: 7px !important;
                     </div>
                 </div>
 
+                <!-- 导出知识面板 -->
+                <div class="modal-overlay hidden" id="exportKnowledgePanel" onclick="closeExportKnowledgePanel()">
+                    <div class="modal" onclick="event.stopPropagation()" style="max-width:900px;">
+                        <div class="modal-header">
+                            <h3 class="modal-title">📤 导出知识</h3>
+                            <button class="btn btn-small btn-secondary" onclick="closeExportKnowledgePanel()">关闭</button>
+                        </div>
+                        <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+                            <!-- 选项卡 -->
+                            <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:12px;">
+                                <button class="btn btn-primary" id="exportKBTab" onclick="switchExportTab('knowledge')" style="padding:6px 16px;">📚 知识库</button>
+                                <button class="btn btn-secondary" id="exportInternalizeTab" onclick="switchExportTab('internalize')" style="padding:6px 16px;">📂 待内化</button>
+                            </div>
+                            
+                            <!-- 工具栏 -->
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:8px;">
+                                <div style="display:flex;gap:8px;flex:1;">
+                                    <input type="text" id="exportSearchInput" placeholder="搜索..." oninput="renderExportList()" style="flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                </div>
+                                <div style="display:flex;gap:8px;">
+                                    <button class="btn btn-secondary btn-small" id="exportSelectAllBtn" onclick="toggleExportSelectAll()">全选</button>
+                                    <button class="btn btn-success btn-small" onclick="exportSelectedKnowledge()">📤 导出选中</button>
+                                </div>
+                            </div>
+                            
+                            <!-- 标签筛选 -->
+                            <div id="exportTagFilterContainer" style="margin-bottom:16px;">
+                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                    <span style="font-size:13px;color:var(--text-secondary);">标签筛选:</span>
+                                    <div id="exportTagFilterList" style="display:flex;gap:6px;flex-wrap:wrap;">
+                                        <!-- 动态生成标签按钮 -->
+                                    </div>
+                                    <button class="btn btn-text btn-small hidden" id="exportClearTagFilterBtn" onclick="clearExportTagFilter()">清除筛选</button>
+                                </div>
+                            </div>
+                            
+                            <!-- 统计信息 -->
+                            <div style="margin-bottom:12px;padding:8px 12px;background:var(--bg);border-radius:6px;font-size:13px;color:var(--text-secondary);">
+                                已选中：<span id="exportSelectedCount" style="color:var(--primary);font-weight:600;">0</span> 项 |
+                                已导出：<span id="exportExportedCount" style="color:#4caf50;font-weight:600;">0</span> 项
+                            </div>
+                            
+                            <!-- 列表容器 -->
+                            <div id="exportListContainer" style="display:flex;flex-direction:column;gap:10px;">
+                                <!-- 动态生成列表项 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 <!-- 移动端功能选择菜单 - 小巧版 -->
 <div class="modal hidden" id="mobileMenuModal" onclick="closeMobileMenu()" style="z-index: 10000; margin-bottom: 80px; box-shadow: none !important;padding: 5px;">
         <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
@@ -8687,7 +8772,7 @@ padding: 7px !important;
                <h3>💡 AI帮想点子</h3>
                <button class="btn btn-small btn-secondary" onclick="closeAiIdeasModal()">关闭</button>
            </div>
-           <div class="modal-body" style="display:flex;flex-direction:column;gap:16px;max-height:80vh;">
+           <div class="modal-body" style="display:flex;flex-direction:column;gap:16px;max-height:75vh;">
                <!-- 任务信息和控制面板按行放置 -->
                <div style="display:flex;gap:16px;">
                    <!-- 左侧：模型选择 + 任务信息 -->
@@ -9990,7 +10075,8 @@ ${taskContent}
          customTaskStyles: '', // 自定义待办样式 CSS 代码
          // 学习功能数据
          toInternalize: [], // 待内化内容 [{id, content, tags, status, createdAt, updatedAt}]
-         practiceQuestions: [] // 题库 [{id, type, question, options, answer, analysis, subject, createdAt}]
+         practiceQuestions: [], // 题库 [{id, type, question, options, answer, analysis, subject, createdAt}]
+         exportedKnowledgeIds: [] // 已导出的知识/待内化 ID 列表
      };
         let editingId = null;
         let recording = null;
@@ -10120,6 +10206,10 @@ ${taskContent}
                         // 加载自定义样式
                         if (parsed.customTaskStyles !== undefined) {
                             data.customTaskStyles = parsed.customTaskStyles;
+                        }
+                        // 加载已导出知识 ID 列表
+                        if (parsed.exportedKnowledgeIds) {
+                            data.exportedKnowledgeIds = parsed.exportedKnowledgeIds;
                         }
                  } catch(e) { console.error('Load data error:', e); }
              }
@@ -16385,6 +16475,8 @@ function closeModal(modalId) {
                   // 学习功能数据
                   toInternalize: data.toInternalize || [],
                   practiceQuestions: data.practiceQuestions || [],
+                  // 已导出知识 ID 列表
+                  exportedKnowledgeIds: data.exportedKnowledgeIds || [],
                   aiConfig: {
                      enabled: data.aiConfig.enabled,
                      model: data.aiConfig.model,
@@ -17827,7 +17919,9 @@ function closeModal(modalId) {
                    // 拉取学习功能数据
                    if (remote.toInternalize) data.toInternalize = remote.toInternalize;
                    if (remote.practiceQuestions) data.practiceQuestions = remote.practiceQuestions;
-                  // 拉取自定义样式
+                   // 拉取已导出知识 ID 列表
+                   if (remote.exportedKnowledgeIds) data.exportedKnowledgeIds = remote.exportedKnowledgeIds;
+                   // 拉取自定义样式
                   if (remote.customTaskStyles !== undefined) {
                       data.customTaskStyles = remote.customTaskStyles;
                       // 应用样式到页面
@@ -23182,6 +23276,116 @@ function showAddQuestionForm() {
     document.getElementById('newQuestionAnswer').value = '';
     document.getElementById('newQuestionAnalysis').value = '';
     document.getElementById('newQuestionSubject').value = '';
+}
+
+// 导出题库到 Excel（按科目分类，每个科目一个工作表）
+function exportQuestionsToExcel() {
+    if (!data.practiceQuestions || data.practiceQuestions.length === 0) {
+        showToast('暂无题目可导出');
+        return;
+    }
+    
+    try {
+        // 按科目分组
+        const questionsBySubject = {};
+        data.practiceQuestions.forEach(q => {
+            const subject = q.subject || '未分类';
+            if (!questionsBySubject[subject]) {
+                questionsBySubject[subject] = [];
+            }
+            questionsBySubject[subject].push(q);
+        });
+        
+        // 创建新的 Excel 工作簿
+        const workbook = XLSX.utils.book_new();
+        
+        // 表头定义
+        const headers = ['科目', '题号', '题型', '题目内容', '选项 A', '选项 B', '选项 C', '选项 D', '正确答案', '解析/备注'];
+        
+        // 为每个科目创建一个工作表
+        Object.entries(questionsBySubject).forEach(([subject, questions], index) => {
+            // 准备数据（按题号排序）
+            const sortedQuestions = [...questions].sort((a, b) => {
+                const numA = parseInt(a.id.split('_')[1]) || 0;
+                const numB = parseInt(b.id.split('_')[1]) || 0;
+                return numA - numB;
+            });
+            
+            const rowData = [headers]; // 第一行是表头
+            
+            sortedQuestions.forEach(q => {
+                // 提取题号（去掉科目前缀）
+                const questionNumber = q.id.includes('_') ? q.id.split('_')[1] : q.id;
+                
+                // 题型转换
+                const typeMap = {
+                    'single': '单选题',
+                    'multiple': '多选题',
+                    'indefinite': '不定项选择题',
+                    'judge': '判断题'
+                };
+                const typeText = typeMap[q.type] || '单选题';
+                
+                // 提取选项
+                const options = q.options || [];
+                const optionA = options[0] || '';
+                const optionB = options[1] || '';
+                const optionC = options[2] || '';
+                const optionD = options[3] || '';
+                
+                rowData.push([
+                    subject,
+                    questionNumber,
+                    typeText,
+                    q.question,
+                    optionA,
+                    optionB,
+                    optionC,
+                    optionD,
+                    q.answer || '',
+                    q.analysis || ''
+                ]);
+            });
+            
+            // 创建工作表
+            const worksheet = XLSX.utils.aoa_to_sheet(rowData);
+            
+            // 设置列宽
+            worksheet['!cols'] = [
+                { wch: 15 },  // 科目
+                { wch: 15 },  // 题号
+                { wch: 12 },  // 题型
+                { wch: 60 },  // 题目内容
+                { wch: 25 },  // 选项 A
+                { wch: 25 },  // 选项 B
+                { wch: 25 },  // 选项 C
+                { wch: 25 },  // 选项 D
+                { wch: 15 },  // 正确答案
+                { wch: 40 }   // 解析/备注
+            ];
+            
+            // 添加到工作簿（科目名称作为工作表名，限制 31 字符）
+            const sheetName = subject.substring(0, 31);
+            XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+        });
+        
+        // 生成文件名：题库导出_YYYYMMDD_HHMMSS.xlsx
+        const now = new Date();
+        const timestamp = now.getFullYear() +
+                         String(now.getMonth() + 1).padStart(2, '0') +
+                         String(now.getDate()).padStart(2, '0') + '_' +
+                         String(now.getHours()).padStart(2, '0') +
+                         String(now.getMinutes()).padStart(2, '0') +
+                         String(now.getSeconds()).padStart(2, '0');
+        const fileName = `题库导出_${timestamp}.xlsx`;
+        
+        // 导出文件
+        XLSX.writeFile(workbook, fileName);
+        showToast(`成功导出 ${data.practiceQuestions.length} 道题目`);
+    } catch (error) {
+        console.error('导出失败:', error);
+        showToast('导出失败：' + error.message);
+    }
 }
 
 // 隐藏新增题目表单
@@ -29739,6 +29943,7 @@ function manualCloseOrganizerAiPanel() {
             <h3 class="modal-title">✍️ 答题</h3>
             <div style="display:flex;gap:8px;align-items:center;">
                 <button class="btn btn-small btn-primary" onclick="document.getElementById('importFileInput').click()">📥 导入</button>
+                <button class="btn btn-small btn-success" onclick="exportQuestionsToExcel()">📤 导出</button>
                 <button class="btn btn-small btn-primary" onclick="showAddQuestionForm()">➕ 新增</button>
                 <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels();resetPracticeState()">关闭</button>
             </div>
@@ -30074,6 +30279,331 @@ function manualCloseOrganizerAiPanel() {
         window.addEventListener('scroll', updateToolbar, { passive: true });
         window.addEventListener('resize', updateToolbar);
     }
+    
+    // ============ 导出知识功能 ============
+    
+    // 显示导出知识面板
+    function showExportKnowledgePanel() {
+        // 确保 data.exportedKnowledgeIds 存在
+        if (!data.exportedKnowledgeIds) {
+            data.exportedKnowledgeIds = [];
+        }
+        
+        // 显示面板
+        const panel = document.getElementById('exportKnowledgePanel');
+        if (panel) {
+            panel.classList.remove('hidden');
+        }
+        
+        // 默认切换到知识库标签
+        switchExportTab('knowledge');
+    }
+    
+    // 关闭导出知识面板
+    function closeExportKnowledgePanel() {
+        const panel = document.getElementById('exportKnowledgePanel');
+        if (panel) {
+            panel.classList.add('hidden');
+        }
+        // 重置状态
+        window.currentExportTab = 'knowledge';
+        window.selectedExportItems = [];
+        window.selectedExportTags = [];
+    }
+    
+    // 切换导出选项卡
+    function switchExportTab(tab) {
+        window.currentExportTab = tab;
+        
+        // 更新按钮样式
+        const kbTab = document.getElementById('exportKBTab');
+        const internalizeTab = document.getElementById('exportInternalizeTab');
+        
+        if (kbTab && internalizeTab) {
+            if (tab === 'knowledge') {
+                kbTab.classList.remove('btn-secondary');
+                kbTab.classList.add('btn-primary');
+                internalizeTab.classList.remove('btn-primary');
+                internalizeTab.classList.add('btn-secondary');
+            } else {
+                internalizeTab.classList.remove('btn-secondary');
+                internalizeTab.classList.add('btn-primary');
+                kbTab.classList.remove('btn-primary');
+                kbTab.classList.add('btn-secondary');
+            }
+        }
+        
+        // 清空选择
+        window.selectedExportItems = [];
+        
+        // 渲染列表
+        renderExportList();
+    }
+    
+    // 渲染导出列表
+    function renderExportList() {
+        const container = document.getElementById('exportListContainer');
+        const searchTerm = document.getElementById('exportSearchInput')?.value.toLowerCase() || '';
+        
+        let items = [];
+        
+        if (window.currentExportTab === 'knowledge') {
+            items = data.knowledgeBase || [];
+        } else {
+            items = data.toInternalize || [];
+        }
+        
+        // 搜索过滤
+        if (searchTerm) {
+            items = items.filter(item =>
+                item.content.toLowerCase().includes(searchTerm) ||
+                (item.tags && item.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
+            );
+        }
+        
+        // 标签筛选
+        if (window.selectedExportTags && window.selectedExportTags.length > 0) {
+            items = items.filter(item => {
+                const itemTags = item.tags || [];
+                return window.selectedExportTags.some(selectedTag => itemTags.includes(selectedTag));
+            });
+        }
+        
+        // 按更新时间排序
+        items.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+        
+        if (items.length === 0) {
+            container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);">暂无数据</div>';
+            updateExportSelectedCount();
+            updateExportTagFilters(items);
+            return;
+        }
+        
+        // 渲染列表项
+        container.innerHTML = items.map((item, index) => {
+            const isSelected = window.selectedExportItems?.includes(item.id);
+            const isExported = data.exportedKnowledgeIds?.includes(item.id);
+            
+            // 渲染标签
+            const tagsHtml = (item.tags || []).map(tag =>
+                `<span style="font-size:11px;color:#636;background:#e8f5e9;padding:2px 8px;border-radius:10px;">${escapeHtml(tag)}</span>`
+            ).join('');
+            
+            return `
+                <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);display:flex;align-items:flex-start;gap:12px;${isSelected ? 'border-color:var(--primary);background:var(--primary-light);' : ''}" data-id="${item.id}">
+                    <input type="checkbox"
+                           style="margin-top:4px;cursor:pointer;"
+                           ${isSelected ? 'checked' : ''}
+                           onchange="toggleExportItemSelection('${item.id}')">
+                    <div style="flex:1;">
+                        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;">${tagsHtml}</div>
+                            ${isExported ? '<span style="font-size:11px;color:#4caf50;background:#e8f5e9;padding:2px 8px;border-radius:10px;">已导出</span>' : ''}
+                        </div>
+                        <p style="margin:0 0 8px 0;font-size:13px;color:var(--text);line-height:1.6;">${escapeHtml(item.content.substring(0, 200))}${item.content.length > 200 ? '...' : ''}</p>
+                        <div style="font-size:11px;color:var(--text-secondary);">
+                            创建：${formatDate(item.createdAt)} | 更新：${formatDate(item.updatedAt)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        // 更新统计
+        updateExportSelectedCount();
+        updateExportTagFilters(items);
+    }
+    
+    // 切换列表项选择状态
+    function toggleExportItemSelection(id) {
+        if (!window.selectedExportItems) {
+            window.selectedExportItems = [];
+        }
+        
+        const index = window.selectedExportItems.indexOf(id);
+        if (index > -1) {
+            // 取消选中
+            window.selectedExportItems.splice(index, 1);
+        } else {
+            // 选中
+            window.selectedExportItems.push(id);
+        }
+        
+        // 更新 UI
+        renderExportList();
+    }
+    
+    // 全选/取消全选
+    function toggleExportSelectAll() {
+        const container = document.getElementById('exportListContainer');
+        const items = container.querySelectorAll('[data-id]');
+        
+        if (!window.selectedExportItems) {
+            window.selectedExportItems = [];
+        }
+        
+        const allSelected = items.length > 0 && Array.from(items).every(item =>
+            window.selectedExportItems.includes(item.getAttribute('data-id'))
+        );
+        
+        if (allSelected) {
+            // 取消全选
+            window.selectedExportItems = [];
+        } else {
+            // 全选
+            window.selectedExportItems = Array.from(items).map(item => item.getAttribute('data-id'));
+        }
+        
+        renderExportList();
+    }
+    
+    // 更新已选中计数
+    function updateExportSelectedCount() {
+        const countEl = document.getElementById('exportSelectedCount');
+        const exportedCountEl = document.getElementById('exportExportedCount');
+        
+        if (countEl) {
+            countEl.textContent = window.selectedExportItems?.length || 0;
+        }
+        
+        if (exportedCountEl) {
+            // 统计已导出的数量
+            let exportedCount = 0;
+            const items = document.querySelectorAll('#exportListContainer [data-id]');
+            items.forEach(item => {
+                const id = item.getAttribute('data-id');
+                if (data.exportedKnowledgeIds?.includes(id)) {
+                    exportedCount++;
+                }
+            });
+            exportedCountEl.textContent = exportedCount;
+        }
+    }
+    
+    // 更新标签筛选器
+    function updateExportTagFilters(items) {
+        const container = document.getElementById('exportTagFilterList');
+        const clearBtn = document.getElementById('exportClearTagFilterBtn');
+        
+        // 获取所有唯一标签
+        const allTags = new Set();
+        items.forEach(item => {
+            (item.tags || []).forEach(tag => allTags.add(tag));
+        });
+        
+        const tagsArray = Array.from(allTags).sort();
+        
+        if (tagsArray.length === 0) {
+            container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无标签</div>';
+            if (clearBtn) clearBtn.classList.add('hidden');
+            return;
+        }
+        
+        container.innerHTML = tagsArray.map(tag => {
+            const isSelected = window.selectedExportTags?.includes(tag);
+            return `<button class="btn btn-small ${isSelected ? 'btn-primary' : 'btn-secondary'}" onclick="toggleExportTagFilter('${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
+        }).join('');
+        
+        // 更新清除按钮状态
+        if (clearBtn) {
+            clearBtn.classList.toggle('hidden', !window.selectedExportTags || window.selectedExportTags.length === 0);
+        }
+    }
+    
+    // 切换标签筛选
+    function toggleExportTagFilter(tag) {
+        if (!window.selectedExportTags) {
+            window.selectedExportTags = [];
+        }
+        
+        const index = window.selectedExportTags.indexOf(tag);
+        if (index > -1) {
+            window.selectedExportTags.splice(index, 1);
+        } else {
+            window.selectedExportTags.push(tag);
+        }
+        
+        renderExportList();
+    }
+    
+    // 清除标签筛选
+    function clearExportTagFilter() {
+        window.selectedExportTags = [];
+        renderExportList();
+    }
+    
+    // 导出选中的知识为 Excel
+    function exportSelectedKnowledge() {
+        if (!window.selectedExportItems || window.selectedExportItems.length === 0) {
+            showToast('请至少选择一项内容导出');
+            return;
+        }
+        
+        // 获取选中的项目
+        let items = [];
+        if (window.currentExportTab === 'knowledge') {
+            items = (data.knowledgeBase || []).filter(item => window.selectedExportItems.includes(item.id));
+        } else {
+            items = (data.toInternalize || []).filter(item => window.selectedExportItems.includes(item.id));
+        }
+        
+        if (items.length === 0) {
+            showToast('未找到可导出的内容');
+            return;
+        }
+        
+        // 准备 Excel 数据
+        const excelData = items.map(item => ({
+            '序号': items.indexOf(item) + 1,
+            '内容': item.content,
+            '标签': (item.tags || []).join(', '),
+            '创建时间': formatDate(item.createdAt),
+            '更新时间': formatDate(item.updatedAt),
+            '状态': window.currentExportTab === 'knowledge' ? '知识库' : '待内化'
+        }));
+        
+        // 创建 Worksheet
+        const ws = XLSX.utils.json_to_sheet(excelData);
+        
+        // 设置列宽
+        ws['!cols'] = [
+            { wch: 5 },  // 序号
+            { wch: 80 }, // 内容
+            { wch: 30 }, // 标签
+            { wch: 20 }, // 创建时间
+            { wch: 20 }, // 更新时间
+            { wch: 10 }  // 状态
+        ];
+        
+        // 创建 Workbook
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, '知识导出');
+        
+        // 生成文件名
+        const fileName = `${window.currentExportTab === 'knowledge' ? '知识库' : '待内化'}导出_${new Date().toISOString().slice(0,10)}.xlsx`;
+        
+        // 下载文件
+        XLSX.writeFile(wb, fileName);
+        
+        // 标记为已导出并保存到 data
+        if (!data.exportedKnowledgeIds) {
+            data.exportedKnowledgeIds = [];
+        }
+        window.selectedExportItems.forEach(id => {
+            if (!data.exportedKnowledgeIds.includes(id)) {
+                data.exportedKnowledgeIds.push(id);
+            }
+        });
+        
+        // 保存到 localStorage
+        saveData();
+        
+        // 更新 UI
+        renderExportList();
+        
+        showToast(`已导出 ${items.length} 项内容`);
+    }
+    
 </script>
 
 <!-- 文本选择气泡菜单（body 最外层，确保在所有模态框之上） -->
