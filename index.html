@@ -1824,7 +1824,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             margin: 0 20px;
             width: calc(100% - 40px);
             border-radius: 12px;
-            transition: all 0.2s ease;
+            transition: all 0.6s ease;
         }
         
         .header {
@@ -9983,7 +9983,7 @@ ${taskContent}
          practiceMaterialStats: {}, // 素材练习次数统计 {materialId: {type: 'ammo'|'knowledge'|'task', count: 0}}
          customTaskStyles: '', // 自定义待办样式 CSS 代码
          // 学习功能数据
-         toInternalize: [], // 待内化内容 [{id, content, tags, status, generatedQuestions, reviewCount, createdAt, updatedAt}]
+         toInternalize: [], // 待内化内容 [{id, content, tags, status, createdAt, updatedAt}]
          practiceQuestions: [] // 题库 [{id, type, question, options, answer, analysis, subject, createdAt}]
      };
         let editingId = null;
@@ -22835,17 +22835,47 @@ function showLearningPanel(panelType) {
         // 延迟渲染列表和科目列表
         setTimeout(() => {
             renderQuestionList();
-            renderSubjectList();
+            // 恢复到关闭前的界面状态
+            if (lastPracticeView === 'interface' && currentPracticeState && currentPracticeState.questions && currentPracticeState.currentIndex < currentPracticeState.questions.length) {
+                // 恢复到答题界面
+                document.getElementById('practiceModeSelect').style.display = 'none';
+                document.getElementById('practiceInterface').style.display = 'block';
+                showCurrentQuestion();
+            } else {
+                // 显示科目选择界面
+                document.getElementById('practiceModeSelect').style.display = 'block';
+                document.getElementById('practiceInterface').style.display = 'none';
+                renderSubjectList();
+            }
         }, 100);
     }
 }
 
-// 隐藏所有学习面板
+// 隐藏所有学习面板（不重置答题状态，只隐藏面板）
 function hideAllLearningPanels() {
     const toInternalizePanel = document.getElementById('toInternalizePanel');
     const practicePanel = document.getElementById('practicePanel');
     if (toInternalizePanel) toInternalizePanel.style.display = 'none';
-    if (practicePanel) practicePanel.style.display = 'none';
+    if (practicePanel) {
+        // 记录关闭前的界面状态
+        const practiceInterface = document.getElementById('practiceInterface');
+        if (practiceInterface && practiceInterface.style.display !== 'none') {
+            lastPracticeView = 'interface';
+        } else {
+            lastPracticeView = 'modeSelect';
+        }
+        practicePanel.style.display = 'none';
+    }
+}
+
+// 重置答题状态（点击关闭按钮时调用）
+function resetPracticeState() {
+    document.getElementById('practiceModeSelect').style.display = 'block';
+    document.getElementById('practiceInterface').style.display = 'none';
+    currentPracticeState = null;
+    selectedOption = '';
+    lastPracticeView = 'modeSelect';
+    renderSubjectList();
 }
 
 // ============ 待内化功能 ============
@@ -22883,8 +22913,6 @@ function saveNewToInternalize() {
         content,
         tags,
         status: 'pending',
-        generatedQuestions: [],
-        reviewCount: 0,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
     };
@@ -23069,9 +23097,11 @@ function importQuestionsFromExcel(input) {
                     const typeMap = {
                         '单选': 'single',
                         '多选': 'multiple',
+                        '不定项': 'indefinite',
                         '判断': 'judge',
                         '单选题': 'single',
                         '多选题': 'multiple',
+                        '不定项选择题': 'indefinite',
                         '判断题': 'judge'
                     };
                     const normalizedType = typeMap[questionType] || 'single';
@@ -23199,7 +23229,7 @@ function renderQuestionList() {
     
     let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
     data.practiceQuestions.forEach((q, index) => {
-        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : '判断';
+        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : q.type === 'indefinite' ? '不定项' : '判断';
         
         html += `
             <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);">
@@ -23247,6 +23277,9 @@ function deleteQuestion(id) {
 }
 
 // ============ 新答题功能 ============
+// 记录答题面板关闭前的界面状态（'modeSelect'=科目选择界面，'interface'=答题界面）
+let lastPracticeView = 'modeSelect';
+
 // 全局答题状态
 let currentPracticeState = {
     subject: '',
@@ -23295,6 +23328,9 @@ function startPracticeBySubject(subject) {
         showToast('该科目暂无题目');
         return;
     }
+    
+    // 记录当前界面状态为答题界面
+    lastPracticeView = 'interface';
     
     // 创建随机打乱的题目副本用于答题
     const shuffledQuestions = [...originalQuestions].sort(() => Math.random() - 0.5);
@@ -23423,7 +23459,7 @@ function showCurrentQuestion() {
     // 找到当前题目在原始顺序中的索引
     state.currentOriginalIndex = state.originalQuestions.findIndex(q => q.id === question.id);
     
-    const typeText = question.type === 'single' ? '单选题' : question.type === 'multiple' ? '多选题' : '判断题';
+    const typeText = question.type === 'single' ? '单选题' : question.type === 'multiple' ? '多选题' : question.type === 'indefinite' ? '不定项选择题' : '判断题';
     
     // 显示题目
     document.getElementById('practiceSubjectTitle').textContent = `${state.subject} - ${typeText}`;
@@ -23441,14 +23477,17 @@ function showCurrentQuestion() {
     // 显示选项
     const optionsContainer = document.getElementById('practiceOptionsContainer');
     if (question.options && question.options.length > 0) {
+        const isMultiple = question.type === 'multiple' || question.type === 'indefinite';
         let optionsHtml = '<div style="display:flex;flex-direction:column;gap:8px;">';
         question.options.forEach((option, index) => {
             const optionLabel = ['A', 'B', 'C', 'D'][index] || String.fromCharCode(65 + index);
             const optionText = option.replace(/^[A-D]\./, '').trim();
+            const inputType = isMultiple ? 'checkbox' : 'radio';
+            const isChecked = isMultiple && selectedOption.includes(optionLabel) ? 'checked' : (!isMultiple && selectedOption === optionLabel ? 'checked' : '');
             optionsHtml += `
                 <label style="display:block;padding:10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.2s;"
                        onclick="selectOption('${optionLabel}')" id="option_${optionLabel}">
-                    <input type="radio" name="answerOption" value="${optionLabel}" style="margin-right:8px;" ${state.answered ? 'disabled' : ''}>
+                    <input type="${inputType}" name="answerOption" value="${optionLabel}" style="margin-right:8px;" ${state.answered ? 'disabled' : ''} ${isChecked}>
                     <span style="font-weight:bold;">${optionLabel}.</span> ${escapeHtml(optionText)}
                 </label>
             `;
@@ -23476,17 +23515,44 @@ let selectedOption = '';
 function selectOption(option) {
     if (currentPracticeState.answered) return;
     
-    selectedOption = option;
+    const question = currentPracticeState.questions[currentPracticeState.currentIndex];
+    const isMultiple = question.type === 'multiple' || question.type === 'indefinite';
+    
+    if (isMultiple) {
+        // 多选题：支持多选
+        if (selectedOption.includes(option)) {
+            // 取消选择
+            selectedOption = selectedOption.filter(o => o !== option);
+        } else {
+            // 添加选择
+            selectedOption = selectedOption + option;
+        }
+    } else {
+        // 单选题：单选
+        selectedOption = option;
+    }
     
     // 高亮选中的选项
     document.querySelectorAll('[id^="option_"]').forEach(el => {
         el.style.borderColor = 'var(--border)';
         el.style.background = 'var(--card)';
     });
-    const selectedEl = document.getElementById(`option_${option}`);
-    if (selectedEl) {
-        selectedEl.style.borderColor = 'var(--primary)';
-        selectedEl.style.background = 'var(--primary-light)';
+    
+    // 高亮所有选中的选项（支持多选）
+    if (isMultiple) {
+        selectedOption.split('').forEach(opt => {
+            const selectedEl = document.getElementById(`option_${opt}`);
+            if (selectedEl) {
+                selectedEl.style.borderColor = 'var(--primary)';
+                selectedEl.style.background = 'var(--primary-light)';
+            }
+        });
+    } else {
+        const selectedEl = document.getElementById(`option_${option}`);
+        if (selectedEl) {
+            selectedEl.style.borderColor = 'var(--primary)';
+            selectedEl.style.background = 'var(--primary-light)';
+        }
     }
     
     // 启用查看答案按钮
@@ -23506,7 +23572,30 @@ function showAnswer() {
     state.answered = true;
     
     // 判断是否正确
-    const isCorrect = selectedOption === question.answer;
+    const isMultiple = question.type === 'multiple';
+    const isIndefinite = question.type === 'indefinite';
+    const userAnswer = (isMultiple || isIndefinite) ? selectedOption.split('').sort().join('') : selectedOption;
+    const correctAnswer = question.answer.split('').sort().join('');
+    
+    let isCorrect = false;
+    if (isIndefinite) {
+        // 不定项选择题：只要选了且没有选错就算正确（部分正确）
+        const userSet = new Set(selectedOption.split(''));
+        const correctSet = new Set(question.answer.split(''));
+        // 用户选择的所有选项都必须在正确答案中（不能多选错误选项）
+        let hasWrong = false;
+        for (let opt of userSet) {
+            if (!correctSet.has(opt)) {
+                hasWrong = true;
+                break;
+            }
+        }
+        // 至少选了一个，且没有选错
+        isCorrect = selectedOption.length > 0 && !hasWrong;
+    } else {
+        // 单选题和多选题需要完全匹配
+        isCorrect = userAnswer === correctAnswer;
+    }
     const status = isCorrect ? 'correct' : 'wrong';
     
     // 更新状态数组（使用原始顺序索引）
@@ -23536,7 +23625,8 @@ function showAnswer() {
     `;
     
     if (selectedOption) {
-        html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(selectedOption)}</div>`;
+        const displayedAnswer = isMultiple ? selectedOption.split('').sort().join('') : selectedOption;
+        html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(displayedAnswer)}</div>`;
     }
     
     if (question.analysis) {
@@ -23784,8 +23874,6 @@ function saveSelectedAsQuickRecord(selectedText) {
     }
     
     const question = document.getElementById('askAiQuestion') ? document.getElementById('askAiQuestion').value.trim() : '';
-    const state = currentPracticeState;
-    const subjectTag = (state && state.subject) ? state.subject : '学习';
     
     const content = `【问题】${question}\n【AI 回答】${selectedText}`;
     
@@ -23797,10 +23885,8 @@ function saveSelectedAsQuickRecord(selectedText) {
     const newItem = {
         id: generateId(),
         content: content.substring(0, 500),
-        tags: [subjectTag, 'AI 问答'],
+        tags: [],
         status: 'pending',
-        generatedQuestions: [],
-        reviewCount: 0,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
     };
@@ -23835,10 +23921,8 @@ function saveAskAiResult() {
     const newItem = {
         id: generateId(),
         content: content.substring(0, 1000),
-        tags: [state.subject, 'AI 问答'],
+        tags: [],
         status: 'pending',
-        generatedQuestions: [],
-        reviewCount: 0,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
     };
@@ -23878,7 +23962,7 @@ function filterQuestions() {
     // 复用 renderQuestionList 的逻辑，但只显示部分题目
     let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
     filtered.slice(0, 20).forEach((q, index) => {
-        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : '判断';
+        const typeText = q.type === 'single' ? '单选' : q.type === 'multiple' ? '多选' : q.type === 'indefinite' ? '不定项' : '判断';
         html += `
             <div style="border:1px solid var(--border);border-radius:8px;padding:12px;background:var(--card);">
                 <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;">
@@ -27485,8 +27569,6 @@ renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
                   content,
                   tags: [],
                   status: 'pending',
-                  generatedQuestions: [],
-                  reviewCount: 0,
                   createdAt: new Date().toISOString(),
                   updatedAt: new Date().toISOString()
               };
@@ -29563,8 +29645,8 @@ function manualCloseOrganizerAiPanel() {
 
 <!-- ============ 学习功能面板 ============ -->
 <!-- 待内化面板 -->
-<div id="toInternalizePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
-    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+<div id="toInternalizePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;" onclick="if(event.target===this) hideLearningPanelsKeepState();">
+    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
         <div class="modal-header">
             <h3 class="modal-title">📂 待内化</h3>
             <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
@@ -29626,14 +29708,14 @@ function manualCloseOrganizerAiPanel() {
 </div>
 
 <!-- 答题板块 -->
-<div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;">
-    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+<div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;" onclick="if(event.target===this) hideAllLearningPanels();">
+    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
         <div class="modal-header">
             <h3 class="modal-title">✍️ 答题</h3>
             <div style="display:flex;gap:8px;align-items:center;">
                 <button class="btn btn-small btn-primary" onclick="document.getElementById('importFileInput').click()">📥 导入</button>
                 <button class="btn btn-small btn-primary" onclick="showAddQuestionForm()">➕ 新增</button>
-                <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
+                <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels();resetPracticeState()">关闭</button>
             </div>
         </div>
         <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
@@ -29735,6 +29817,7 @@ function manualCloseOrganizerAiPanel() {
                     <select id="newQuestionType" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
                         <option value="single">单选题</option>
                         <option value="multiple">多选题</option>
+                        <option value="indefinite">不定项选择题</option>
                         <option value="judge">判断题</option>
                     </select>
                 </div>
