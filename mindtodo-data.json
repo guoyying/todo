@@ -1081,21 +1081,6 @@
       },
       "projectId": "1779778092169",
       "subtasks": []
-    },
-    {
-      "id": "mr4leafrt6bh9",
-      "type": "task",
-      "content": "花45分钟过验收单",
-      "createdAt": "2026-07-03T07:08:56.535Z",
-      "updatedAt": "2026-07-03T07:41:07.360Z",
-      "tags": [
-        "验收"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "placedIn": "slot_mr4mjgga85yjp"
     }
   ],
   "normalFeelings": [
@@ -5400,6 +5385,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-03T07:35:45.090Z"
+    "lastSync": "2026-07-03T07:41:29.158Z"
   }
 }
