@@ -921,7 +921,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             }
             
             .github-bar {
-                width: 100%;
+                width: 100% !important;
                 flex-wrap: wrap;
             }
             
@@ -1818,10 +1818,13 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         /* 顶部工具栏冻结容器 */
         .top-toolbar {
             z-index: 1000;
-            background: linear-gradient(135deg, #f8faf8 0%, #eef2ee 100%);
+            background: linear-gradient(135deg,#f3e9f1 0%, #f8f4f7 100%);
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            padding: 10px 0;
-            transition: all 0.6s ease;
+            padding: 10px 20px;
+            margin: 0 20px;
+            width: calc(100% - 40px);
+            border-radius: 12px;
+            transition: all 0.2s ease;
         }
         
         .header {
@@ -22920,7 +22923,6 @@ function renderToInternalizeList() {
                 <p style="margin:0 0 8px 0;font-size:13px;color:var(--text-secondary);line-height:1.6;">${escapeHtml(item.content.substring(0, 150))}${item.content.length > 150 ? '...' : ''}</p>
                 <div style="display:flex;justify-content:flex-end;gap:6px;margin-top:8px;">
                     <button class="btn btn-secondary btn-small" onclick="editToInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">编辑</button>
-                    <button class="btn btn-primary btn-small" onclick="generateQuestionFromInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">生成题目</button>
                     <button class="btn btn-danger btn-small" onclick="deleteToInternalize('${item.id}')" style="padding:2px 8px;font-size:12px;">删除</button>
                 </div>
             </div>
@@ -22992,47 +22994,6 @@ function deleteToInternalize(id) {
     renderToInternalizeList();
     showToast('已删除');
 }
-
-// 从待内化生成题目
-function generateQuestionFromInternalize(id) {
-    const item = data.toInternalize.find(i => i.id === id);
-    if (!item) return;
-    
-    // 这里可以调用 AI 生成题目，暂时手动添加
-    const questionText = prompt('输入基于此知识点生成的题目:');
-    if (!questionText) return;
-    
-    const answer = prompt('输入正确答案:');
-    if (!answer) return;
-    
-    const newQuestion = {
-        id: generateId(),
-        type: 'single',
-        question: questionText,
-        options: [],
-        answer,
-        analysis: `基于知识点：${item.title}`,
-        subject: '待分类',
-        difficulty: 'medium',
-        derivedFrom: id,
-        createdAt: new Date().toISOString()
-    };
-    
-    if (!data.practiceQuestions) {
-        data.practiceQuestions = [];
-    }
-    data.practiceQuestions.push(newQuestion);
-    
-    item.generatedQuestions.push(newQuestion.id);
-    item.status = 'practicing';
-    item.updatedAt = new Date().toISOString();
-    
-    saveData();
-    renderToInternalizeList();
-    renderQuestionList();
-    showToast('已生成题目');
-}
-
 // ============ 答题功能 ============
 // 从 Excel 导入题目
 function importQuestionsFromExcel(input) {
@@ -29634,12 +29595,12 @@ function manualCloseOrganizerAiPanel() {
             
             <!-- 编辑待内化模态框（默认隐藏） -->
             <div id="editToInternalizeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2001;">
-                <div class="modal" style="background:var(--card);max-width:600px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
                     <div class="modal-header">
                         <h3 class="modal-title">✏️ 编辑待内化内容</h3>
                         <button class="btn btn-small btn-secondary" onclick="hideEditToInternalizeModal()">×</button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
                         <div style="margin-bottom:12px;">
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">内容</label>
                             <textarea id="editInternalizeContent" rows="5" placeholder="输入待内化的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"></textarea>
