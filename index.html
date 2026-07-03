@@ -23085,8 +23085,19 @@ function editToInternalize(id) {
     window.editingToInternalizeId = id;
     
     // 填充表单
-    document.getElementById('editInternalizeContent').value = item.content;
+    const contentTextarea = document.getElementById('editInternalizeContent');
+    contentTextarea.value = item.content;
     document.getElementById('editInternalizeTags').value = item.tags ? item.tags.join(',') : '';
+    
+    // 渲染 Markdown 预览
+    const previewDiv = document.getElementById('editInternalizePreview');
+    previewDiv.innerHTML = marked.parse(item.content);
+    
+    // 添加实时预览监听
+    contentTextarea.oninput = function() {
+        const text = this.value;
+        previewDiv.innerHTML = text ? marked.parse(text) : '<p style="color:var(--text-secondary);font-size:12px;">预览区域</p>';
+    };
     
     // 显示模态框
     document.getElementById('editToInternalizeModal').style.display = 'block';
@@ -24021,13 +24032,13 @@ async function submitAskAi() {
         const currentQuestion = state.questions[state.currentIndex];
         
         // 构建提示词
-        const prompt = `题目：${currentQuestion.question}\n${currentQuestion.options ? currentQuestion.options.join('\n') : ''}\n答案：${currentQuestion.answer}\n${currentQuestion.analysis ? '解析：' + currentQuestion.analysis : ''}\n\n用户问题：${question}\n\n请详细解答用户的问题，帮助理解这道题目。`;
+        const prompt = `题目：${currentQuestion.question}\n${currentQuestion.options ? currentQuestion.options.join('\n') : ''}\n答案：${currentQuestion.answer}\n${currentQuestion.analysis ? '解析：' + currentQuestion.analysis : ''}\n\n用户问题：${question}\n\n请用简洁易懂的语言解答用户问题，帮助理解这道题目。用emoji表情丰富回答。`;
         
         const response = await callAiApi('', data.aiConfig.model, prompt);
-        const formattedResponse = formatAiResponse(response);
         
-        feedbackArea.innerHTML = formattedResponse;
-        currentAskAiResult = formattedResponse;
+        // 直接保存 AI 原始返回内容（可能是 Markdown 格式）
+        feedbackArea.innerHTML = marked.parse(response);
+        currentAskAiResult = response;
         
         // 设置文本选择监听（包括 askAiFeedback）
         setupAiResultSelectionListeners();
@@ -24135,12 +24146,11 @@ function saveAskAiResult() {
     
     const question = document.getElementById('askAiQuestion').value.trim();
     
-    // 提取纯文本
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = currentAskAiResult;
-    const plainText = tempDiv.textContent || tempDiv.innerText || '';
+    // 获取原始 HTML 内容（保留 Markdown 格式）
+    const aiAnswer = currentAskAiResult;
     
-    const content = `【问题】${question}\n\n【AI 回答】\n${plainText}`;
+    // 构建 Markdown 格式内容
+    const content = `# ${question}\n\n## AI 解答\n\n${aiAnswer}`;
     
     // 保存到待内化
     if (!data.toInternalize) {
@@ -29917,7 +29927,11 @@ function manualCloseOrganizerAiPanel() {
                     </div>
                     <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
                         <div style="margin-bottom:12px;">
-                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">内容</label>
+                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">预览</label>
+                            <div id="editInternalizePreview" class="task-display" style="padding:12px;background:var(--bg-secondary);border-radius:4px;min-height:100px;max-height:200px;overflow-y:auto;border:1px solid var(--border);"></div>
+                        </div>
+                        <div style="margin-bottom:12px;">
+                            <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">编辑（支持 Markdown）</label>
                             <textarea id="editInternalizeContent" rows="5" placeholder="输入待内化的内容..." style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"></textarea>
                         </div>
                         <div style="margin-bottom:12px;">
