@@ -22972,6 +22972,12 @@ function hideAllLearningPanels() {
         }
         practicePanel.style.display = 'none';
     }
+    
+    // 关闭自习室下拉菜单
+    const learningDropdown = document.getElementById('learningDropdown');
+    if (learningDropdown && learningDropdown.classList.contains('show')) {
+        learningDropdown.classList.remove('show');
+    }
 }
 
 // 隐藏学习面板（保留答题状态）
@@ -30052,7 +30058,7 @@ function manualCloseOrganizerAiPanel() {
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">你的问题</label>
                             <textarea id="askAiQuestion" rows="4" placeholder="输入你对这道题目的疑问，例如：为什么选这个答案？这个知识点还有什么其他应用？" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"></textarea>
                         </div>
-                        <div id="askAiFeedback" style="display:none;background:var(--bg);border-radius:8px;padding:15px;margin-bottom:12px;min-height:100px;">
+                        <div id="askAiFeedback" class="task-display" style="display:none;background:var(--bg);border-radius:8px;padding:15px;margin-bottom:12px;min-height:100px;border:1px solid var(--border);">
                             <!-- AI 回答内容 -->
                         </div>
                         <div style="display:flex;gap:8px;justify-content:space-between;">
