@@ -1833,12 +1833,7 @@
       "archivedAt": null
     }
   ],
-  "slots": [
-    {
-      "id": "slot_mr4awlztov3eg",
-      "name": "B类-复杂-推进细分方向 10:15-10:45"
-    }
-  ],
+  "slots": [],
   "tags": [
     "家",
     "自己",
@@ -2906,7 +2901,7 @@
         "endTime": "10:45",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mr4awlztov3eg"
+        "slotId": null
       }
     ]
   },
