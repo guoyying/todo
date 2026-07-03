@@ -4948,7 +4948,8 @@
       "answer": "ABC",
       "analysis": "D错误，用户电脑接接入层。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_25",
@@ -4963,7 +4964,8 @@
       "answer": "AB",
       "analysis": "文档说明只扫网关网元（NCE/OTN），不扫普通设备。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_26",
