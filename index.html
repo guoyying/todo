@@ -767,7 +767,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
                            min-height: 0 !important;
                        }
                        
-                       /* AI 内容详情模态框移动端优化 - 高度自适应 */
+                       /* 锦囊详情模态框移动端优化 - 高度自适应 */
                        .modal-overlay[style*="z-index: 2000"] .modal {
                            max-height: 85vh !important;
                            max-width: calc(100vw - 28px) !important;
@@ -2997,7 +2997,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     max-height: none !important;
 }
         
-/* AI 内容保存模态框 - 保留绿灰色主题，但使用统一尺寸 */
+/* 锦囊保存模态框 - 保留绿灰色主题，但使用统一尺寸 */
 #aiContentSaveModal .modal {
     background: linear-gradient(135deg, var(--green-light) 0%, var(--card) 100%);
     border: 1px solid var(--green-border);
@@ -3533,7 +3533,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             color: var(--green-secondary);
         }
         
-        /* AI 内容详情页标题展开样式 */
+        /* 锦囊详情页标题展开样式 */
         .detail-title-text.expanded {
             -webkit-line-clamp: unset !important;
             line-clamp: unset !important;
@@ -8396,18 +8396,18 @@ padding: 7px !important;
                                 </div>
                             </div>
                             
-                            <!-- AI 内容管理视图 -->
+                            <!-- 锦囊管理视图 -->
                             <div id="aiContentManagerView" class="hidden" style="display:flex;flex-direction:column;flex:1;min-height:0;">
                                 <div style="margin-bottom:16px;">
                                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
                                         <button id="aiContentBackBtn" class="btn btn-text" onclick="backToKBListFromAiContent()" style="display:none;font-size:12px;">← 返回</button>
                                         <h4 style="margin:0;color:var(--text);font-size:15px;">🎁 已保存的锦囊</h4>
                                     </div>
-                                    <input type="text" id="aiContentSearchInput" placeholder="搜索 AI 内容..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                                    <input type="text" id="aiContentSearchInput" placeholder="搜索 锦囊..." oninput="renderAiContentList()" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                 </div>
                                 
                                 <div id="aiContentList" style="flex:1;overflow-y:auto;padding:0px;min-height:0;">
-                                    <!-- 动态生成 AI 内容列表 -->
+                                    <!-- 动态生成 锦囊列表 -->
                                 </div>
                             </div>
                             
@@ -9262,7 +9262,7 @@ ${taskContent}
 
     // ============ AI内容保存功能 ============
     
-    // 显示 AI 内容保存模态框
+    // 显示 锦囊保存模态框
     function showAiContentSaveModal(contentType, content, customTitle = null) {
         const modal = document.getElementById('aiContentSaveModal');
         const titleInput = document.getElementById('aiContentTitle');
@@ -9294,7 +9294,7 @@ ${taskContent}
         titleInput.focus();
     }
     
-    // 隐藏 AI 内容保存模态框
+    // 隐藏 锦囊保存模态框
     function hideAiContentSaveModal() {
         document.getElementById('aiContentSaveModal').classList.add('hidden');
         resetAiContentSaveModal();
@@ -9318,7 +9318,7 @@ ${taskContent}
     }
     
     
-    // 保存 AI 内容（支持 AI 想法和 AI 润色）
+    // 保存 锦囊（支持 AI 想法和 AI 润色）
     function saveAiContent() {
         // 判断是 AI 润色还是 AI 想法
         if (currentAiContext && currentAiContext.polishedContent) {
@@ -9349,7 +9349,7 @@ ${taskContent}
             
             showAiContentSaveModal('ideas', content, title);
         } else {
-            showToast('请先生成 AI 内容');
+            showToast('请先生成 锦囊');
         }
     }
     // 从HTML中提取纯文本
@@ -9434,10 +9434,10 @@ ${taskContent}
     
     // ============ AI内容管理功能 ============
     
-    // 全局变量：记录是否是从首页直接点击进入 AI 内容管理
+    // 全局变量：记录是否是从首页直接点击进入 锦囊管理
     let isDirectAiContentAccess = false;
     
-    // 显示 AI 内容管理器
+    // 显示 锦囊管理器
     function showAiContentManager(fromDirectClick = false) {
         // 记录进入方式
         isDirectAiContentAccess = fromDirectClick;
@@ -9460,7 +9460,7 @@ ${taskContent}
         document.getElementById('kbDetailView').classList.add('hidden');
         document.getElementById('aiSearchForm').classList.add('hidden');
         
-        // 显示 AI 内容管理视图
+        // 显示 锦囊管理视图
         document.getElementById('aiContentManagerView').classList.remove('hidden');
         
         // 根据进入方式显示不同的按钮
@@ -9474,13 +9474,13 @@ ${taskContent}
             backBtn.style.display = 'block';
         }
         
-        // 渲染 AI 内容列表
+        // 渲染 锦囊列表
         renderAiContentList();
     }
     
-    // 从 AI 内容管理返回知识库列表
+    // 从 锦囊管理返回知识库列表
     function backToKBListFromAiContent() {
-        // 隐藏 AI 内容管理视图
+        // 隐藏 锦囊管理视图
         document.getElementById('aiContentManagerView').classList.add('hidden');
         document.getElementById('aiSearchForm').classList.add('hidden');
         
@@ -22936,15 +22936,21 @@ function showLearningPanel(panelType) {
         setTimeout(() => {
             renderQuestionList();
             // 恢复到关闭前的界面状态
+            const header = document.getElementById('practiceHeader');
+            const modalBody = document.querySelector('#practicePanel .modal-body');
             if (lastPracticeView === 'interface' && currentPracticeState && currentPracticeState.questions && currentPracticeState.currentIndex < currentPracticeState.questions.length) {
-                // 恢复到答题界面
+                // 恢复到答题界面 - 完全隐藏头部，扩展答题区域
                 document.getElementById('practiceModeSelect').style.display = 'none';
                 document.getElementById('practiceInterface').style.display = 'block';
+                if (header) header.style.display = 'none';
+                if (modalBody) modalBody.style.maxHeight = '85vh';  // 扩展答题区域
                 showCurrentQuestion();
             } else {
-                // 显示科目选择界面
+                // 显示科目选择界面 - 显示头部，恢复答题区域高度
                 document.getElementById('practiceModeSelect').style.display = 'block';
                 document.getElementById('practiceInterface').style.display = 'none';
+                if (header) header.style.display = 'flex';
+                if (modalBody) modalBody.style.maxHeight = '70vh';  // 恢复原高度
                 renderSubjectList();
             }
         }, 100);
@@ -22975,8 +22981,12 @@ function hideLearningPanelsKeepState() {
 
 // 重置答题状态（点击关闭按钮时调用）
 function resetPracticeState() {
+    const header = document.getElementById('practiceHeader');
+    const modalBody = document.querySelector('#practicePanel .modal-body');
     document.getElementById('practiceModeSelect').style.display = 'block';
     document.getElementById('practiceInterface').style.display = 'none';
+    if (header) header.style.display = 'flex';  // 显示头部
+    if (modalBody) modalBody.style.maxHeight = '70vh';  // 恢复原高度
     currentPracticeState = null;
     selectedOption = '';
     lastPracticeView = 'modeSelect';
@@ -23570,9 +23580,13 @@ function startPracticeBySubject(subject) {
         currentPracticeState.questionStatus.push(question.status || null);
     }
     
-    // 切换界面
+    // 切换界面 - 完全隐藏头部，扩展答题区域
+    const header = document.getElementById('practiceHeader');
+    const modalBody = document.querySelector('#practicePanel .modal-body');
     document.getElementById('practiceModeSelect').style.display = 'none';
     document.getElementById('practiceInterface').style.display = 'block';
+    if (header) header.style.display = 'none';  // 完全隐藏头部
+    if (modalBody) modalBody.style.maxHeight = '85vh';  // 扩展答题区域
     
     // 显示第一题
     showCurrentQuestion();
@@ -24149,8 +24163,12 @@ function saveAskAiResult() {
 
 // 退出答题模式
 function exitPracticeMode() {
+    const header = document.getElementById('practiceHeader');
+    const modalBody = document.querySelector('#practicePanel .modal-body');
     document.getElementById('practiceInterface').style.display = 'none';
     document.getElementById('practiceModeSelect').style.display = 'block';
+    if (header) header.style.display = 'flex';  // 显示头部
+    if (modalBody) modalBody.style.maxHeight = '70vh';  // 恢复原高度
     document.getElementById('answerDisplay').style.display = 'none';
     document.getElementById('answerDisplay').innerHTML = '';
     selectedOption = '';
@@ -25163,7 +25181,7 @@ function deleteMilestone(projectId, milestoneId) {
          });
      }
      
-     // AI 内容复制（保留完整 Markdown 格式）
+     // 锦囊复制（保留完整 Markdown 格式）
      function copyAIContentAsPlainText(content) {
          if (!content) {
              showToast('没有可复制的内容');
@@ -25218,7 +25236,7 @@ function deleteMilestone(projectId, milestoneId) {
          // 不重置面板状态，保留搜索结果
      }
      
-     // 从首页直接点击 AI 内容时，点击遮罩直接关闭并重置
+     // 从首页直接点击 锦囊时，点击遮罩直接关闭并重置
      function closeKnowledgeBasePanelFromDirectAiContent() {
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
          // 重置状态
@@ -25249,7 +25267,7 @@ function deleteMilestone(projectId, milestoneId) {
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
          // 重置进入方式标记
          isDirectAiContentAccess = false;
-         // 重置 AI 内容管理视图的按钮状态
+         // 重置 锦囊管理视图的按钮状态
          const backBtn = document.getElementById('aiContentBackBtn');
          if (backBtn) backBtn.style.display = 'none';
          // 重置面板状态和搜索结果
@@ -29939,9 +29957,9 @@ function manualCloseOrganizerAiPanel() {
 <!-- 答题板块 -->
 <div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;" onclick="if(event.target===this) hideAllLearningPanels();">
     <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
-        <div class="modal-header">
+        <div class="modal-header" id="practiceHeader" style="display:flex;justify-content:space-between;align-items:center;width:100%; margin-bottom:5px; padding:10px;">
             <h3 class="modal-title">✍️ 答题</h3>
-            <div style="display:flex;gap:8px;align-items:center;">
+            <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
                 <button class="btn btn-small btn-primary" onclick="document.getElementById('importFileInput').click()">📥 导入</button>
                 <button class="btn btn-small btn-success" onclick="exportQuestionsToExcel()">📤 导出</button>
                 <button class="btn btn-small btn-primary" onclick="showAddQuestionForm()">➕ 新增</button>
