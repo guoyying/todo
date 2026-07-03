@@ -2978,6 +2978,16 @@
   ],
   "knowledgeBase": [
     {
+      "id": "mr4ei93hs2o7uklqzk",
+      "content": "23端口关闭指令：\nconfig t /进入配置模式\nservice telnet disable\nexit /退出配置模式\nwrite/保存",
+      "tags": [
+        "网安",
+        "奥普泰交换机指令"
+      ],
+      "createdAt": "2026-07-03T03:56:04.109Z",
+      "updatedAt": "2026-07-03T03:56:12.267Z"
+    },
+    {
       "id": "mr4e3tmk2jx6efc72du",
       "content": "交换机有两种登录设备的方式，一个是ssh，一个是telnet。\n23端口作用是：上联交换机telnet 地址，就进入设备了。\n4a用的ssh登录。",
       "tags": [
@@ -4663,6 +4673,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-03T03:17:31.202Z"
+    "lastSync": "2026-07-03T03:45:05.146Z"
   }
 }
