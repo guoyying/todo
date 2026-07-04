@@ -3731,13 +3731,13 @@
   "toInternalize": [
     {
       "id": "mr2ybs3bzkmk7gumoch",
-      "content": "ROADM 是 Reconfigurable Optical Add-Drop Multiplexer 的缩写，中文全称是 “可重构光分插复用器”。\n简单理解，它是一种在光层（不经过光电转换）就能动态、灵活地完成波长（即不同颜色的光信号）的上路（Add）、下路（Drop） 和穿通（Express） 的设备。\n光合波+光分波单元构成的ROADM，这种架构常用于环网",
+      "content": "**ROADM**是 Reconfigurable Optical Add-Drop Multiplexer 的缩写，中文全称是 “可重构光分插复用器”。\n简单理解，它是一种在光层（**不经过光电转换**）就能动态、灵活地完成波长（即不同颜色的光信号）的上路（Add）、下路（Drop） 和穿通（Express） 的设备。\n光合波+光分波单元构成的ROADM，这种架构常用于环网",
       "tags": [],
       "status": "pending",
       "generatedQuestions": [],
       "reviewCount": 0,
       "createdAt": "2026-07-02T03:35:22.103Z",
-      "updatedAt": "2026-07-02T03:35:22.104Z"
+      "updatedAt": "2026-07-04T15:50:51.950Z"
     },
     {
       "id": "mr4ihch2lj553j4kfc",
@@ -5498,6 +5498,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-04T15:18:11.685Z"
+    "lastSync": "2026-07-04T15:49:53.147Z"
   }
 }
