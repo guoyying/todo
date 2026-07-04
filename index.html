@@ -23767,31 +23767,34 @@ function selectOption(option) {
     const isMultiple = question.type === 'multiple' || question.type === 'indefinite';
     
     if (isMultiple) {
-        // 多选题：支持多选
-        const optionIndex = selectedOption.indexOf(option);
-        if (optionIndex > -1) {
-            // 取消选择
-            selectedOption = selectedOption.filter(o => o !== option);
-            // 取消勾选 input
-            const input = document.querySelector(`input[value="${option}"]`);
-            if (input) input.checked = false;
+        // 多选题/不定项选择题：支持多选
+        // 先获取 input 元素，读取其当前状态
+        const input = document.querySelector(`input[value="${option}"]`);
+        if (!input) return;
+        
+        // 根据 input 的当前 checked 状态来更新 selectedOption
+        if (input.checked) {
+            // input 已被勾选（用户刚刚点击勾选），添加到数组
+            if (!selectedOption.includes(option)) {
+                selectedOption = [...selectedOption, option];
+            }
         } else {
-            // 添加选择
-            selectedOption = [...selectedOption, option];
-            // 勾选 input
-            const input = document.querySelector(`input[value="${option}"]`);
-            if (input) input.checked = true;
+            // input 未被勾选（用户刚刚点击取消），从数组中删除
+            selectedOption = selectedOption.filter(o => o !== option);
         }
     } else {
         // 单选题：单选
         // 取消所有 input 的勾选
-        document.querySelectorAll('input[name="practiceOption"]').forEach(input => {
+        document.querySelectorAll('input[name="answerOption"]').forEach(input => {
             input.checked = false;
         });
-        selectedOption = [option];
+        selectedOption = [];
         // 勾选当前 input
         const input = document.querySelector(`input[value="${option}"]`);
-        if (input) input.checked = true;
+        if (input) {
+            input.checked = true;
+            selectedOption = [option];
+        }
     }
     
     // 高亮选中的选项
@@ -23880,7 +23883,7 @@ function showAnswer() {
     `;
     
     if (selectedOption.length > 0) {
-        const displayedAnswer = isMultiple ? [...selectedOption].sort().join('') : selectedOption[0];
+        const displayedAnswer = (isMultiple || isIndefinite) ? [...selectedOption].sort().join('') : selectedOption[0];
         html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(displayedAnswer)}</div>`;
     }
     
