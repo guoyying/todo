@@ -30256,9 +30256,7 @@ function manualCloseOrganizerAiPanel() {
             const headerOffset = header.offsetTop;
             const headerHeight = header.offsetHeight;
             const triggerPoint = headerOffset + headerHeight;
-            
-            console.log('Scroll:', scrollY, 'Trigger:', triggerPoint, 'IsFixed:', isFixed);
-            
+                    
             if (scrollY > triggerPoint) {
                 // 已滚动超过标题区域，固定工具栏
                 if (!isFixed) {
