@@ -53,10 +53,10 @@
         .task-display h1 {
             font-size: 16px;
             font-weight: 700;
-            color: #d35400;
+            color: #2980b9;
             margin: 0 0 16px 0;
             line-height: 1.3;
-            background: linear-gradient(135deg, #cd7120, #eaa83e);
+            background: linear-gradient(135deg, #2980b9, #3498db);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -66,7 +66,7 @@
         .task-display h2 {
             font-size: 15px;
             font-weight: 600;
-            color: #d35400;
+            color: #3498db;
             margin: 0px 0 14px 0;
             line-height: 1.4;
         }
@@ -75,7 +75,7 @@
         .task-display h3 {
             font-size: 14px;
             font-weight: 600;
-            color: #e67e22;
+            color: #5dade2;
             margin: 0px 0 8px 0;
             line-height: 1.4;
         }
@@ -104,7 +104,7 @@
                 /* 普通无序列表显示项目点 */
         .task-display ul:not(.task-list) > li::before {
             content: '●';
-            color: #e67e22;
+            color: #3498db;
             font-size: 14px;
             position: absolute;
             left: -22px;
@@ -119,7 +119,7 @@
         .task-display ol li::before {
             content: counter(item);
             color: white;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             width: 12px;
             height: 12px;
             border-radius: 25%;
@@ -157,13 +157,13 @@
             vertical-align: middle;
             cursor: pointer;
             pointer-events: auto;
-            accent-color: #e67e22;
+            accent-color: #3498db;
         }
 
         /* 分隔线 */
         .task-display hr {
             border: none;
-            border-top: 1px solid #f5e6d3;
+            border-top: 1px solid #d6eaf8;
             margin:8px 0;
             height: 0;
             background: none;
@@ -185,114 +185,19 @@
 
         /* 行内代码 & 代码块 */
         .task-display code {
-            background: linear-gradient(135deg, #fef5e7, #ffeaa7);
-            color: #d35400;
+            background: linear-gradient(135deg, #ebf5fb, #d6eaf8);
+            color: #2980b9;
             padding: 4px 10px;
             border-radius: 6px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 14px;
-            border: 1px solid #f5cba7;
+            border: 1px solid #b3e5fc;
         }
 
         .task-display pre {
             background: linear-gradient(135deg, #2c1810, #3e2723);
             color: #ffcc80;
             padding: 20px;
-        }
-        
-        /* 简洁卡片风格 - 用于待内化内容预览 */
-        .internalize-preview {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
-            box-shadow: var(--shadow);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            word-wrap: break-word;
-        }
-        
-        .internalize-preview h1,
-        .internalize-preview h2,
-        .internalize-preview h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--green-text);
-            margin: 0 0 10px 0;
-            line-height: 1.3;
-            border-bottom: 1px solid var(--green-border);
-            padding-bottom: 6px;
-        }
-        
-        .internalize-preview p {
-            line-height: 1.6;
-            color: var(--text);
-            font-size: 14px;
-            margin: 0 0 10px 0;
-        }
-        
-        .internalize-preview ul,
-        .internalize-preview ol {
-            margin: 8px 0 8px 20px;
-            padding: 0;
-        }
-        
-        .internalize-preview li {
-            margin: 4px 0;
-            line-height: 1.5;
-            color: var(--text);
-            font-size: 14px;
-        }
-        
-        .internalize-preview strong {
-            color: var(--green-text);
-            font-weight: 600;
-        }
-        
-        .internalize-preview code {
-            background: var(--green-light);
-            color: var(--green-text);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            border: 1px solid var(--green-border);
-        }
-        
-        .internalize-preview pre {
-            background: var(--green-light);
-            color: var(--green-text);
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid var(--green-border);
-            overflow-x: auto;
-            font-size: 13px;
-        }
-        
-        .internalize-preview blockquote {
-            border-left: 3px solid var(--green-primary);
-            padding-left: 12px;
-            margin: 8px 0;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-        
-        .internalize-preview a {
-            color: var(--green-primary);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        
-        .internalize-preview a:hover {
-            border-bottom-color: var(--green-primary);
-        }
-            border-radius: 10px;
-            overflow-x: auto;
-            margin: 16px 0;
-            border: 1px solid #5d4037;
         }
 
         .task-display pre code {
@@ -308,8 +213,8 @@
         .task-display blockquote {
             padding: 0 0 0 15px;
             margin: 2px;
-            border-left: 4px solid #e67e22;
-            background: linear-gradient(90deg, #fef5e7, transparent);
+            border-left: 4px solid #3498db;
+            background: linear-gradient(90deg, #ebf5fb, transparent);
             color: #576060;
             font-style: normal;
             border-radius: 0 10px 10px 0;
@@ -324,11 +229,11 @@
             font-size: 14px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(230, 126, 34, 0.08);
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
         }
 
         .task-display th {
-            background: linear-gradient(135deg, #e67e22, #f39c12);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
             padding: 14px 16px;
             text-align: center;
@@ -337,7 +242,7 @@
 
         .task-display td {
             padding: 10px 10px;
-            border-bottom: 1px solid #f5e6d3;
+            border-bottom: 1px solid #d6eaf8;
             color: #555;
             text-align: center;
             max-width: 200px;
@@ -362,7 +267,7 @@
 
         /* 强调 */
         .task-display strong {
-            color: #d35400;
+            color: #f488a3;
             font-weight: 700;
         }
 
@@ -23189,7 +23094,7 @@ function editToInternalize(id) {
     
     // 渲染 Markdown 预览
     const previewDiv = document.getElementById('editInternalizePreview');
-    previewDiv.innerHTML = marked.parse(item.content);
+    previewDiv.innerHTML = marked.parse(item.content, {breaks:true});
     
     // 添加实时预览监听
     contentTextarea.oninput = function() {
@@ -29964,7 +29869,7 @@ function manualCloseOrganizerAiPanel() {
             <h3 class="modal-title">📂 待内化</h3>
             <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
         </div>
-        <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+        <div class="modal-body" style="max-height:80vh;overflow-y:auto;">
             <!-- 新增按钮 -->
             <div style="padding:10px;">
                 <button class="btn btn-primary" onclick="showAddToInternalizeForm()" style="width:100%;">
@@ -29990,15 +29895,15 @@ function manualCloseOrganizerAiPanel() {
             
             <!-- 编辑待内化模态框（默认隐藏） -->
             <div id="editToInternalizeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2001;">
-                <div class="modal" style="background:var(--card);max-width:99vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:15px;">
-                    <div class="modal-header" style="margin:10px;padding:0px;">
+                <div class="modal" style="background:var(--card);max-width:99vh;height:100%;position:relative;top:auto;left:auto;transform:none;padding:14px;display:flex;flex-direction:column;">
+                    <div class="modal-header" style="margin:10px;padding:0px;flex-shrink:0;">
                         <h3 class="modal-title">✏️ 编辑待内化内容</h3>
                         <button class="btn btn-small btn-secondary" onclick="hideEditToInternalizeModal()">关闭</button>
                     </div>
-                    <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
+                    <div class="modal-body" style="max-height:80vh;overflow-y:auto;">
                         <div style="margin-bottom:12px;">
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">预览</label>
-                            <div id="editInternalizePreview" class="internalize-preview" style="padding:12px;background:#f8fef5;border-radius:8px;min-height:100px;max-height:200px;overflow-y:auto;border:1px solid var(--feeling);"></div>
+                            <div id="editInternalizePreview" class="task-display" style="padding:12px;background:var(--card);border-radius:8px;min-height:150px;max-height:300px;overflow-y:auto;border:1px solid var(--border);box-shadow:var(--shadow);"></div>
                         </div>
                         <div style="margin-bottom:12px;">
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">编辑（支持 Markdown）</label>
@@ -30008,7 +29913,7 @@ function manualCloseOrganizerAiPanel() {
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">标签（用逗号分隔）</label>
                             <input type="text" id="editInternalizeTags" placeholder="如：专业知识，通信技术" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:4px;">
                         </div>
-                        <div style="display:flex;gap:8px;justify-content:flex-end;">
+                        <div style="display:flex;gap:8px;justify-content:flex-end;flex-shrink:0;">
                             <button class="btn btn-secondary" onclick="hideEditToInternalizeModal()" style="padding:6px 12px;font-size:13px;">取消</button>
                             <button class="btn btn-primary" onclick="saveEditToInternalize()" style="padding:6px 12px;font-size:13px;">保存</button>
                         </div>
