@@ -23104,7 +23104,7 @@ function editToInternalize(id) {
     // 添加实时预览监听
     contentTextarea.oninput = function() {
         const text = this.value;
-        previewDiv.innerHTML = text ? marked.parse(text) : '<p style="color:var(--text-secondary);font-size:12px;">预览区域</p>';
+        previewDiv.innerHTML = text ? marked.parse(text, {breaks:true}) : '<p style="color:var(--text-secondary);font-size:12px;">预览区域</p>';
     };
     
     // 显示模态框
