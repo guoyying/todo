@@ -2933,7 +2933,7 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
 .modal {
     background: var(--card);
     border-radius: 12px;
-    padding: 24px 28px;
+    padding: 24px 14px;
     width: 100%;
     max-width: 700px;  /* 增加宽度，更适合桌面端显示 */
     max-height: calc(100vh - 40px);  /* 留出更多顶部和底部空间 */
@@ -8230,7 +8230,7 @@ padding: 7px !important;
                        </div>
                                     </div>
                                      
-                                     <div id="ammoLibraryList" style="padding-bottom:0;margin-bottom:0;">
+                                     <div id="ammoLibraryList" style="padding-bottom:0;margin-bottom:0;max-height:70vh;">
                                          <!-- 动态生成弹药列表 -->
                                      </div>
                                     </div>
@@ -8256,7 +8256,7 @@ padding: 7px !important;
 
                 <!-- 知识库侧拉面板 -->
                 <div class="modal-overlay hidden" id="knowledgeBasePanel" onclick="closeKnowledgeBasePanel()">
-                    <div class="modal" onclick="event.stopPropagation()">
+                    <div class="modal" style="height:90vh;" onclick="event.stopPropagation()">
                         <div class="modal-header">
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <button id="backToKBListBtn" class="btn btn-small btn-secondary hidden" onclick="backToKBList()">← 返回</button>
@@ -8267,7 +8267,7 @@ padding: 7px !important;
                                 <button class="btn btn-small btn-secondary" onclick="manualCloseKnowledgeBasePanel()">关闭</button>
                             </div>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="max-height:75vh;">
                             <!-- 知识库列表视图 -->
                             <div id="kbListView">
                                 <div style="margin-bottom:16px;">
@@ -23600,6 +23600,9 @@ function startPracticeBySubject(subject) {
     if (header) header.style.display = 'none';  // 完全隐藏头部
     if (modalBody) modalBody.style.maxHeight = '85vh';  // 扩展答题区域
     
+    // 重置选择状态
+    selectedOption = [];
+    
     // 显示第一题
     showCurrentQuestion();
 }
@@ -23672,7 +23675,7 @@ function jumpToQuestion(originalIndex) {
     
     // 如果当前题目已回答，先保存状态
     if (state.answered) {
-        selectedOption = '';
+        selectedOption = [];  // 重置为数组，保持类型一致
     }
     
     // 在随机打乱的题目列表中查找原始序号对应的题目
@@ -23740,7 +23743,6 @@ function showCurrentQuestion() {
     
     // 重置答题状态（必须在设置按钮状态之前）
     state.answered = false;
-    selectedOption = [];  // 重置选中选项
     
     // 重置按钮状态
     document.getElementById('answerBtn').style.display = 'block';
@@ -23765,13 +23767,26 @@ function selectOption(option) {
         if (optionIndex > -1) {
             // 取消选择
             selectedOption = selectedOption.filter(o => o !== option);
+            // 取消勾选 input
+            const input = document.querySelector(`input[value="${option}"]`);
+            if (input) input.checked = false;
         } else {
             // 添加选择
             selectedOption = [...selectedOption, option];
+            // 勾选 input
+            const input = document.querySelector(`input[value="${option}"]`);
+            if (input) input.checked = true;
         }
     } else {
         // 单选题：单选
+        // 取消所有 input 的勾选
+        document.querySelectorAll('input[name="practiceOption"]').forEach(input => {
+            input.checked = false;
+        });
         selectedOption = [option];
+        // 勾选当前 input
+        const input = document.querySelector(`input[value="${option}"]`);
+        if (input) input.checked = true;
     }
     
     // 高亮选中的选项
@@ -23883,9 +23898,6 @@ function showAnswer() {
     document.getElementById('answerBtn').style.display = 'none';
     document.getElementById('dontKnowBtn').style.display = 'none';
     document.getElementById('nextQuestionBtn').style.display = 'block';
-    
-    // 更新进度
-    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
 }
 
 // 不知道
@@ -23931,7 +23943,7 @@ function dontKnowQuestion() {
 function nextQuestion() {
     const state = currentPracticeState;
     state.currentIndex++;
-    selectedOption = '';
+    selectedOption = [];  // 重置为数组，保持类型一致
     // 显示下一题时，showCurrentQuestion 会自动更新 currentOriginalIndex
     showCurrentQuestion();
 }
