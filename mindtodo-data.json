@@ -4761,7 +4761,8 @@
       "answer": "C",
       "analysis": "文档明确“接入交换机，是瑞斯康达品牌的”。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_10",
@@ -5012,7 +5013,7 @@
       "analysis": "文档说明只扫网关网元（NCE/OTN），不扫普通设备。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_26",
@@ -5199,7 +5200,8 @@
       "answer": "B",
       "analysis": "Telnet明文传输，不加密。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_38",
@@ -5489,6 +5491,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-03T23:39:27.977Z"
+    "lastSync": "2026-07-04T15:18:11.685Z"
   }
 }
