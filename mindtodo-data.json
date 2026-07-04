@@ -4681,7 +4681,8 @@
       "answer": "B",
       "analysis": "SSH加密传输，Telnet/SNMPv1/HTTP均不安全。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_5",
@@ -4728,7 +4729,8 @@
       "answer": "B",
       "analysis": "文档明确“都是汇聚交换机”。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_8",
@@ -4774,7 +4776,8 @@
       "answer": "C",
       "analysis": "文档“华为nce...只扫描网关网元”。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_11",
@@ -4790,7 +4793,7 @@
       "analysis": "文档“烽火otn都只扫描网关网元”。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_12",
@@ -4884,7 +4887,8 @@
       "answer": "B",
       "analysis": "ACL用于根据规则允许或拒绝数据包。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_18",
@@ -4914,7 +4918,8 @@
       "answer": "A",
       "analysis": "SNMP使用UDP 161（管理端）和162（Trap）。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_20",
@@ -4926,7 +4931,8 @@
       "answer": "24位掩码，网络号为前24位，即。",
       "analysis": "",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_21",
@@ -4941,7 +4947,8 @@
       "answer": "AB",
       "analysis": "文档提到ssh和telnet；Console为本地，SNMP为监控非登录。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_22",
@@ -5068,7 +5075,8 @@
       "answer": "ABCD",
       "analysis": "ACL可基于IP、端口、MAC等灵活过滤。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_30",
@@ -5083,7 +5091,8 @@
       "answer": "ABD",
       "analysis": "DCC是标准通道，非私有，属于带内管理。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_31",
@@ -5130,7 +5139,8 @@
       "answer": "ABC",
       "analysis": "write保存配置，重启保留。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_34",
@@ -5244,7 +5254,8 @@
       "answer": "B",
       "analysis": "仍可使用SSH（22端口）或Console。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.910Z"
+      "createdAt": "2026-07-03T07:34:50.910Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_42",
@@ -5257,7 +5268,8 @@
       "answer": "B",
       "analysis": "链路聚合既增加带宽也提高冗余可靠性。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.910Z"
+      "createdAt": "2026-07-03T07:34:50.910Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_43",
@@ -5271,7 +5283,7 @@
       "analysis": "默认网关需在同一广播域内，即同一子网。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.910Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_44",
@@ -5284,7 +5296,8 @@
       "answer": "B",
       "analysis": "OSPF使用带宽/开销（cost），RIP使用跳数。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.910Z"
+      "createdAt": "2026-07-03T07:34:50.910Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_45",
@@ -5297,7 +5310,8 @@
       "answer": "A",
       "analysis": "ACL支持入站和出站方向应用。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.910Z"
+      "createdAt": "2026-07-03T07:34:50.910Z",
+      "status": "correct"
     }
   ],
   "exportedKnowledgeIds": [
