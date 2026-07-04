@@ -4346,7 +4346,7 @@
     },
     {
       "id": "CSL3_36",
-      "type": "single",
+      "type": "indefinite",
       "question": "在日常维护场景中，环回是常见操作之一，以下关于环回操作的描述，正确的是哪一项？",
       "options": [
         "A. 软件环回能检测出光口的好坏",
@@ -4357,11 +4357,11 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_37",
-      "type": "single",
+      "type": "indefinite",
       "question": "关于 PSK、FSK、ASK 三种数字调制技术的对比，下列说法正确的有（ ）？",
       "options": [
         "A. PSK 抗噪声性能较好，频谱效率较高",
@@ -4372,11 +4372,11 @@
       "answer": "ABC",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_38",
-      "type": "single",
+      "type": "indefinite",
       "question": "以下哪些属于非线性效应？",
       "options": [
         "A. 自相位调制",
@@ -4387,11 +4387,11 @@
       "answer": "ACD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_39",
-      "type": "single",
+      "type": "indefinite",
       "question": "利用以下哪些特性的激光器与接收光信号进行相干，从接收信号中恢复幅度、相位及偏振状态信号的技术被称为相干接收技术？",
       "options": [
         "A. 相同频率",
@@ -4402,11 +4402,11 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_40",
-      "type": "single",
+      "type": "indefinite",
       "question": "通常情况下，以下哪些操作一定会导致业务中断？",
       "options": [
         "A. 软件环回",
@@ -4417,12 +4417,11 @@
       "answer": "ABC",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "wrong"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_41",
-      "type": "single",
+      "type": "indefinite",
       "question": "主光路监测以OMS段为单位，其主要对以下哪些项目进行监测？",
       "options": [
         "A. 发端光放功率异常",
@@ -4433,11 +4432,11 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_42",
-      "type": "single",
+      "type": "indefinite",
       "question": "以下关于Directioned场景的描述，正确的有哪些？",
       "options": [
         "A. 当业务需要调整，或工作路径故障使用保护路径时，可以手动配置光交叉来实现业务的灵活调度",
@@ -4448,11 +4447,11 @@
       "answer": "BCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_43",
-      "type": "single",
+      "type": "indefinite",
       "question": "在开局或扩容场景中，告警反转可以反转告警状态，减少大量不必要的告警上报，以下关于告警反转的描述，正确的是哪一项？",
       "options": [
         "A. 告警反转的设置是基于单板的",
@@ -4463,11 +4462,11 @@
       "answer": "C",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_44",
-      "type": "single",
+      "type": "indefinite",
       "question": "备份网元数据库的方式有哪些？",
       "options": [
         "A. 备份网元数据到网管客户端",
@@ -4478,11 +4477,11 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_45",
-      "type": "single",
+      "type": "indefinite",
       "question": "以下哪些不是使用QinQ技术带来的优点？",
       "options": [
         "A. 提供一种较为简单的二层VPN解决方案",
@@ -4493,7 +4492,7 @@
       "answer": "C",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_46",
