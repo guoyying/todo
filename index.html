@@ -23678,11 +23678,6 @@ function jumpToQuestion(originalIndex) {
     
     if (originalIndex < 0 || originalIndex >= (state.originalQuestions ? state.originalQuestions.length : state.questions.length)) return;
     
-    // 如果当前题目已回答，先保存状态
-    if (state.answered) {
-        selectedOption = [];  // 重置为数组，保持类型一致
-    }
-    
     // 在随机打乱的题目列表中查找原始序号对应的题目
     const targetQuestion = state.originalQuestions[originalIndex];
     const newIndex = state.questions.findIndex(q => q.id === targetQuestion.id);
@@ -23698,6 +23693,10 @@ function jumpToQuestion(originalIndex) {
 // 显示当前题目
 function showCurrentQuestion() {
     const state = currentPracticeState;
+    
+    // 重置 selectedOption，确保每次显示新题目时清空选择
+    selectedOption = [];
+    
     if (state.currentIndex >= state.questions.length) {
         // 答题结束
         showPracticeResult();
@@ -23724,6 +23723,10 @@ function showCurrentQuestion() {
     
     // 显示选项
     const optionsContainer = document.getElementById('practiceOptionsContainer');
+    
+    // 先重置答题状态（必须在生成选项 HTML 之前，否则 input 会带有 disabled 属性）
+    state.answered = false;
+    
     if (question.options && question.options.length > 0) {
         const isMultiple = question.type === 'multiple' || question.type === 'indefinite';
         let optionsHtml = '<div style="display:flex;flex-direction:column;gap:8px;">';
@@ -23731,7 +23734,7 @@ function showCurrentQuestion() {
             const optionLabel = ['A', 'B', 'C', 'D'][index] || String.fromCharCode(65 + index);
             const optionText = option.replace(/^[A-D]\./, '').trim();
             const inputType = isMultiple ? 'checkbox' : 'radio';
-            const isChecked = isMultiple && selectedOption.includes(optionLabel) ? 'checked' : (!isMultiple && selectedOption === optionLabel ? 'checked' : '');
+            const isChecked = isMultiple && selectedOption.includes(optionLabel) ? 'checked' : (!isMultiple && selectedOption.includes(optionLabel) ? 'checked' : '');
             optionsHtml += `
                 <label style="display:block;padding:10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.2s;"
                        onclick="selectOption('${optionLabel}')" id="option_${optionLabel}">
@@ -23745,9 +23748,6 @@ function showCurrentQuestion() {
     } else {
         optionsContainer.innerHTML = '';
     }
-    
-    // 重置答题状态（必须在设置按钮状态之前）
-    state.answered = false;
     
     // 重置按钮状态
     document.getElementById('answerBtn').style.display = 'block';
