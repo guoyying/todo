@@ -198,6 +198,97 @@
             background: linear-gradient(135deg, #2c1810, #3e2723);
             color: #ffcc80;
             padding: 20px;
+        }
+        
+        /* 简洁卡片风格 - 用于待内化内容预览 */
+        .internalize-preview {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            word-wrap: break-word;
+        }
+        
+        .internalize-preview h1,
+        .internalize-preview h2,
+        .internalize-preview h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--green-text);
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+            border-bottom: 1px solid var(--green-border);
+            padding-bottom: 6px;
+        }
+        
+        .internalize-preview p {
+            line-height: 1.6;
+            color: var(--text);
+            font-size: 14px;
+            margin: 0 0 10px 0;
+        }
+        
+        .internalize-preview ul,
+        .internalize-preview ol {
+            margin: 8px 0 8px 20px;
+            padding: 0;
+        }
+        
+        .internalize-preview li {
+            margin: 4px 0;
+            line-height: 1.5;
+            color: var(--text);
+            font-size: 14px;
+        }
+        
+        .internalize-preview strong {
+            color: var(--green-text);
+            font-weight: 600;
+        }
+        
+        .internalize-preview code {
+            background: var(--green-light);
+            color: var(--green-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            border: 1px solid var(--green-border);
+        }
+        
+        .internalize-preview pre {
+            background: var(--green-light);
+            color: var(--green-text);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--green-border);
+            overflow-x: auto;
+            font-size: 13px;
+        }
+        
+        .internalize-preview blockquote {
+            border-left: 3px solid var(--green-primary);
+            padding-left: 12px;
+            margin: 8px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .internalize-preview a {
+            color: var(--green-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .internalize-preview a:hover {
+            border-bottom-color: var(--green-primary);
+        }
             border-radius: 10px;
             overflow-x: auto;
             margin: 16px 0;
@@ -508,17 +599,18 @@
               position: absolute;
               right: 0;
               background-color: var(--card);
-              min-width: 160px;
+              min-width: 140px;
               box-shadow: 0 8px 16px rgba(0,0,0,0.2);
               z-index: 1000;
               border-radius: 6px;
               border: 1px solid var(--border);
               margin-top: 4px;
+              text-align: center;
           }
           
           .dropdown-content a {
               color: var(--text);
-              padding: 10px 14px;
+              padding: 10px 8px;
               text-decoration: none;
               display: block;
               font-size: 13px;
@@ -8210,9 +8302,9 @@ padding: 7px !important;
                                            </div>
                                        </div>
                                        <!-- 内容滚动区域 -->
-                                       <div id="modalContentArea" style="flex:1;overflow:auto;padding:8px 16px;display:flex;gap:8px;flex-direction:row;">
+                                       <div id="modalContentArea" style="flex:1;overflow:auto;padding:8px 3px;display:flex;gap:8px;flex-direction:row;">
                                        <!-- 左侧：弹药列表 -->
-                                       <div class="ammo-list-panel" style="flex:1.2;min-width:0;overflow-y:auto;padding-right:8px;padding-bottom:0;">
+                                       <div class="ammo-list-panel" style="flex:1.2;min-width:0;overflow-y:auto;padding-bottom:0;">
                                           <div style="margin-bottom:10px;">
                                               <input type="text" id="ammoSearchInput" placeholder="搜索弹药..." oninput="renderAmmoLibrary()" style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
                                           </div>
@@ -23584,8 +23676,6 @@ function startPracticeBySubject(subject) {
         questions: shuffledQuestions, // 随机顺序题目（用于答题）
         currentIndex: 0, // 随机顺序中的索引
         currentOriginalIndex: 0, // 原始顺序中的索引（用于序号面板高亮）
-        correctCount: 0,
-        wrongCount: 0,
         answered: false,
         questionStatus: [] // 每道题的状态（按原始顺序）
     };
@@ -23709,7 +23799,6 @@ function showCurrentQuestion() {
     
     // 显示题目
     document.getElementById('practiceSubjectTitle').textContent = `${state.subject} - ${typeText}`;
-    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
     
     // 渲染题目序号小面板
     renderQuestionNavigation();
@@ -23746,6 +23835,7 @@ function showCurrentQuestion() {
     
     // 重置答题状态（必须在设置按钮状态之前）
     state.answered = false;
+    selectedOption = [];  // 重置选中选项
     
     // 重置按钮状态
     document.getElementById('answerBtn').style.display = 'block';
@@ -23757,7 +23847,7 @@ function showCurrentQuestion() {
 }
 
 // 选择答案
-let selectedOption = '';
+let selectedOption = [];
 function selectOption(option) {
     if (currentPracticeState.answered) return;
     
@@ -23766,16 +23856,17 @@ function selectOption(option) {
     
     if (isMultiple) {
         // 多选题：支持多选
-        if (selectedOption.includes(option)) {
+        const optionIndex = selectedOption.indexOf(option);
+        if (optionIndex > -1) {
             // 取消选择
             selectedOption = selectedOption.filter(o => o !== option);
         } else {
             // 添加选择
-            selectedOption = selectedOption + option;
+            selectedOption = [...selectedOption, option];
         }
     } else {
         // 单选题：单选
-        selectedOption = option;
+        selectedOption = [option];
     }
     
     // 高亮选中的选项
@@ -23786,7 +23877,7 @@ function selectOption(option) {
     
     // 高亮所有选中的选项（支持多选）
     if (isMultiple) {
-        selectedOption.split('').forEach(opt => {
+        selectedOption.forEach(opt => {
             const selectedEl = document.getElementById(`option_${opt}`);
             if (selectedEl) {
                 selectedEl.style.borderColor = 'var(--primary)';
@@ -23810,7 +23901,7 @@ function showAnswer() {
     const state = currentPracticeState;
     const question = state.questions[state.currentIndex];
     
-    if (!selectedOption && question.options && question.options.length > 0) {
+    if (selectedOption.length === 0 && question.options && question.options.length > 0) {
         showToast('请先选择一个答案');
         return;
     }
@@ -23820,13 +23911,13 @@ function showAnswer() {
     // 判断是否正确
     const isMultiple = question.type === 'multiple';
     const isIndefinite = question.type === 'indefinite';
-    const userAnswer = (isMultiple || isIndefinite) ? selectedOption.split('').sort().join('') : selectedOption;
+    const userAnswer = (isMultiple || isIndefinite) ? [...selectedOption].sort().join('') : selectedOption[0];
     const correctAnswer = question.answer.split('').sort().join('');
     
     let isCorrect = false;
     if (isIndefinite) {
         // 不定项选择题：只要选了且没有选错就算正确（部分正确）
-        const userSet = new Set(selectedOption.split(''));
+        const userSet = new Set(selectedOption);
         const correctSet = new Set(question.answer.split(''));
         // 用户选择的所有选项都必须在正确答案中（不能多选错误选项）
         let hasWrong = false;
@@ -23853,13 +23944,6 @@ function showAnswer() {
         originalQuestion.status = status;
     }
     
-    // 更新计数
-    if (isCorrect) {
-        state.correctCount++;
-    } else {
-        state.wrongCount++;
-    }
-    
     // 显示答案和解析
     const answerDisplay = document.getElementById('answerDisplay');
     const resultColor = isCorrect ? '#4caf50' : '#f44336';
@@ -23870,8 +23954,8 @@ function showAnswer() {
         <div style="font-size:14px;color:var(--text);margin-bottom:8px;"><strong>正确答案：</strong>${escapeHtml(question.answer)}</div>
     `;
     
-    if (selectedOption) {
-        const displayedAnswer = isMultiple ? selectedOption.split('').sort().join('') : selectedOption;
+    if (selectedOption.length > 0) {
+        const displayedAnswer = isMultiple ? [...selectedOption].sort().join('') : selectedOption[0];
         html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(displayedAnswer)}</div>`;
     }
     
@@ -23919,7 +24003,7 @@ function dontKnowQuestion() {
     // 显示正确答案和解析
     const answerDisplay = document.getElementById('answerDisplay');
     const html = `
-        <div style="font-size:18px;color:#ff9800;font-weight:bold;margin-bottom:10px;">⚠ 不知道</div>
+        <div style="font-size:14px;color:#ff9800;font-weight:bold;margin-bottom:10px;">⚠ 不知道</div>
         <div style="font-size:14px;color:var(--text);margin-bottom:8px;"><strong>正确答案：</strong>${escapeHtml(question.answer)}</div>
         ${question.analysis ? `<div style="font-size:14px;color:var(--text-secondary);"><strong>解析：</strong>${escapeHtml(question.analysis)}</div>` : ''}
     `;
@@ -23936,9 +24020,6 @@ function dontKnowQuestion() {
     document.getElementById('answerBtn').style.display = 'none';
     document.getElementById('dontKnowBtn').style.display = 'none';
     document.getElementById('nextQuestionBtn').style.display = 'block';
-    
-    // 更新进度
-    document.getElementById('practiceProgress').textContent = `进度：${state.currentIndex + 1}/${state.questions.length} | 正确：${state.correctCount} | 错误：${state.wrongCount}`;
 }
 
 // 下一题
@@ -23954,29 +24035,13 @@ function nextQuestion() {
 function showPracticeResult() {
     const state = currentPracticeState;
     const total = state.questions.length;
-    const correct = state.correctCount;
-    const wrong = state.wrongCount;
-    const rate = total > 0 ? ((correct / total) * 100).toFixed(1) : 0;
     
     const answerDisplay = document.getElementById('answerDisplay');
     answerDisplay.innerHTML = `
         <div style="text-align:center;padding:20px;">
             <div style="font-size:24px;font-weight:bold;margin-bottom:15px;">🎉 答题完成！</div>
             <div style="font-size:16px;color:var(--text-secondary);margin-bottom:10px;">${state.subject}</div>
-            <div style="display:flex;justify-content:center;gap:30px;margin:20px 0;">
-                <div style="text-align:center;">
-                    <div style="font-size:32px;font-weight:bold;color:#4caf50;">${correct}</div>
-                    <div style="font-size:13px;color:var(--text-secondary);">正确</div>
-                </div>
-                <div style="text-align:center;">
-                    <div style="font-size:32px;font-weight:bold;color:#f44336;">${wrong}</div>
-                    <div style="font-size:13px;color:var(--text-secondary);">错误</div>
-                </div>
-                <div style="text-align:center;">
-                    <div style="font-size:32px;font-weight:bold;color:var(--primary);">${rate}%</div>
-                    <div style="font-size:13px;color:var(--text-secondary);">正确率</div>
-                </div>
-            </div>
+            <div style="font-size:16px;color:var(--text-secondary);margin:20px 0;">共完成 ${total} 道题</div>
             <button class="btn btn-primary" onclick="exitPracticeMode()" style="padding:10px 30px;font-size:14px;margin-top:15px;">返回</button>
         </div>
     `;
@@ -23987,7 +24052,6 @@ function showPracticeResult() {
     document.getElementById('answerBtn').style.display = 'none';
     document.getElementById('dontKnowBtn').style.display = 'none';
     document.getElementById('nextQuestionBtn').style.display = 'none';
-    document.getElementById('practiceProgress').textContent = '';
 }
 
 // ============ 问 AI 功能 ============
@@ -29895,14 +29959,14 @@ function manualCloseOrganizerAiPanel() {
 <!-- ============ 学习功能面板 ============ -->
 <!-- 待内化面板 -->
 <div id="toInternalizePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;" onclick="if(event.target===this) hideLearningPanelsKeepState();">
-    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
-        <div class="modal-header">
+    <div class="modal" style="background:var(--card);max-width:99vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:8px;" onclick="event.stopPropagation()">
+        <div class="modal-header" style="margin:10px;padding:0px;">
             <h3 class="modal-title">📂 待内化</h3>
             <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels()">关闭</button>
         </div>
         <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
             <!-- 新增按钮 -->
-            <div style="padding:10px;border-bottom:1px solid var(--border);margin-bottom:10px;">
+            <div style="padding:10px;">
                 <button class="btn btn-primary" onclick="showAddToInternalizeForm()" style="width:100%;">
                     ➕ 新增待内化内容
                 </button>
@@ -29926,15 +29990,15 @@ function manualCloseOrganizerAiPanel() {
             
             <!-- 编辑待内化模态框（默认隐藏） -->
             <div id="editToInternalizeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2001;">
-                <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-                    <div class="modal-header">
+                <div class="modal" style="background:var(--card);max-width:99vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:15px;">
+                    <div class="modal-header" style="margin:10px;padding:0px;">
                         <h3 class="modal-title">✏️ 编辑待内化内容</h3>
-                        <button class="btn btn-small btn-secondary" onclick="hideEditToInternalizeModal()">×</button>
+                        <button class="btn btn-small btn-secondary" onclick="hideEditToInternalizeModal()">关闭</button>
                     </div>
                     <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
                         <div style="margin-bottom:12px;">
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">预览</label>
-                            <div id="editInternalizePreview" class="task-display" style="padding:12px;background:var(--bg-secondary);border-radius:4px;min-height:100px;max-height:200px;overflow-y:auto;border:1px solid var(--border);"></div>
+                            <div id="editInternalizePreview" class="internalize-preview" style="padding:12px;background:#f8fef5;border-radius:8px;min-height:100px;max-height:200px;overflow-y:auto;border:1px solid var(--feeling);"></div>
                         </div>
                         <div style="margin-bottom:12px;">
                             <label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:4px;">编辑（支持 Markdown）</label>
@@ -29954,7 +30018,7 @@ function manualCloseOrganizerAiPanel() {
             
             <!-- 查看待内化模态框（默认隐藏） -->
             <div id="viewToInternalizeModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2002;" onclick="if(event.target===this) hideViewToInternalizeModal();">
-                <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
+                <div class="modal" style="background:var(--card);max-width:99vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:8px;" onclick="event.stopPropagation()">
                     <div class="modal-header">
                         <h3 class="modal-title">📄 查看待内化内容</h3>
                         <button class="btn btn-small btn-secondary" onclick="hideViewToInternalizeModal()">×</button>
@@ -29976,7 +30040,7 @@ function manualCloseOrganizerAiPanel() {
 
 <!-- 答题板块 -->
 <div id="practicePanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;" onclick="if(event.target===this) hideAllLearningPanels();">
-    <div class="modal" style="background:var(--card);max-width:800px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" onclick="event.stopPropagation()">
+    <div class="modal" style="background:var(--card);max-width:99vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:8px;" onclick="event.stopPropagation()">
         <div class="modal-header" id="practiceHeader" style="display:flex;justify-content:space-between;align-items:center;width:100%; margin-bottom:5px; padding:10px;">
             <h3 class="modal-title">✍️ 答题</h3>
             <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
@@ -30040,8 +30104,7 @@ function manualCloseOrganizerAiPanel() {
                     <!-- 答案和解析 -->
                 </div>
                 
-                <div style="display:flex;justify-content:space-between;align-items:center;">
-                    <span id="practiceProgress" style="font-size:13px;color:var(--text-secondary);">进度：0/0</span>
+                <div style="display:flex;justify-content:flex-end;align-items:center;">
                     <button id="nextQuestionBtn" class="btn btn-primary btn-small" onclick="nextQuestion()" style="display:none;padding:6px 16px;font-size:13px;">下一题</button>
                 </div>
             </div>
