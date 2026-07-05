@@ -27275,11 +27275,37 @@ ${knowledgeSummary}
           requestAnimationFrame(() => {
               if (fabBtn) {
                   const btnRect = fabBtn.getBoundingClientRect();
+                  const viewportWidth = window.innerWidth;
+                  const viewportHeight = window.innerHeight;
                   
-                  // 固定显示在 FAB 按钮左上角，间距 10px
-                  // 使用按钮位置直接计算，不需要菜单尺寸
-                  const left = btnRect.left-130;  // 按钮左侧 - 10px 间距
-                  const top = btnRect.top-150;    // 按钮顶部 - 10px 间距
+                  // 菜单预估尺寸
+                  const menuWidth = 160;
+                  const menuHeight = 150;
+                  const gap = 1;
+                  
+                  // 智能定位：优先显示在 FAB 按钮左上方，如果超出视口则调整
+                  let left = btnRect.left - menuWidth - gap;
+                  let top = btnRect.top - menuHeight - gap;
+                  
+                  // 如果左侧超出视口，则显示在右侧
+                  if (left < 10) {
+                      left = btnRect.right + gap;
+                  }
+                  
+                  // 如果上方超出视口，则显示在下方
+                  if (top < 10) {
+                      top = btnRect.bottom + gap;
+                  }
+                  
+                  // 确保不超出右侧边界
+                  if (left + menuWidth > viewportWidth - 10) {
+                      left = viewportWidth - menuWidth - 10;
+                  }
+                  
+                  // 确保不超出底部边界
+                  if (top + menuHeight > viewportHeight - 10) {
+                      top = viewportHeight - menuHeight - 10;
+                  }
                   
                   // 设置模态框位置和自适应尺寸
                   modal.style.position = 'fixed';
