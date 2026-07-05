@@ -1833,14 +1833,16 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
-  "tags": [
-    "家",
-    "自己",
-    "自己做小工具的意义",
-    "做todo的背景"
+  "slots": [
+    {
+      "id": "slot_today",
+      "name": "今日"
+    },
+    {
+      "id": "slot_afternoon",
+      "name": "今日下午"
+    }
   ],
-  "commonTags": [],
   "title": "🌿 todo",
   "ammoLibrary": [
     {
@@ -1852,7 +1854,17 @@
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-29T13:10:16.368Z",
       "useCount": 0,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mok2ouyqxmxoz",
@@ -1863,7 +1875,17 @@
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-29T13:10:28.802Z",
       "useCount": 0,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mok6fh3td5frj",
@@ -1914,7 +1936,8 @@
             "createdAt": "2026-05-07T11:29:43.254Z"
           }
         ]
-      }
+      },
+      "digestionProgress": 0
     },
     {
       "id": "monscj08ayhjm",
@@ -1925,7 +1948,17 @@
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-02T03:32:01.976Z",
       "useCount": 0,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "monso0kuhdqgy",
@@ -1947,8 +1980,10 @@
             "scenario": "化解沟通中的情绪对抗",
             "reference": "过去我们常被情绪化的沟通模式绑架，不得不学习对方的逻辑、忍受冗余的争执。现在我会先冷静下来，用框架探究彼此的真实需求，再开启有效对话，而不是被情绪带着走。"
           }
-        ]
-      }
+        ],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "monsx6uss4mm3",
@@ -1983,7 +2018,8 @@
             "scenario": "与伴侣的沟通复盘",
             "reference": "每次和伴侣因为小事争执后，我们都会在冷静下来后复盘。我发现，重复不是机械的循环，而是不断发现优化空间的过程。比如我们争吵的导火索、情绪爆发的节点、表达方式的不同——这些细节只有在反复回顾中才会被看见。于是我们约定，每次争执后都记录下三个可改进的点，慢慢就很少再为同样的问题吵架了。"
           }
-        ]
+        ],
+        "scenarioPractices": []
       },
       "digestionProgress": 1
     },
@@ -1996,7 +2032,17 @@
       "sourceBlockName": "AI润色",
       "createdAt": "2026-05-02T03:49:06.426Z",
       "useCount": 0,
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "moz2quze7h3b6",
@@ -2071,7 +2117,17 @@
       "content": "明明感觉到了不公，却因为拿不出“证据”而觉得自己好像无理取闹。但请相信，感受本身就是最真实的证据。\n在爱里，感受比事实更重要",
       "type": null,
       "createdAt": "2026-05-12T23:57:29.958Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mp3j8ark3neuz",
@@ -2099,7 +2155,8 @@
             "reference": "面对堆积的任务，我告诉自己：不需要等领导不催了、同事不问了才敢按自己的节奏来，你的时间表本就应该由你主演。于是我先列出优先级，把关键事项排进日程，主动同步给团队，这样即使工作量大，也能忙而不乱，逐步获得认可。"
           }
         ]
-      }
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mp3jjz1jk0z3k",
@@ -2208,14 +2265,34 @@
       "content": "理解对方需求 ≠ 必须满足对方需求。你可以说：“我理解你的孤单，但满足对方，需要建立在自愿的基础上",
       "type": null,
       "createdAt": "2026-05-17T09:21:42.761Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mpc79pkmpvw6a",
       "content": "创意过剩与执行瓶颈的冲突",
       "type": null,
       "createdAt": "2026-05-19T05:36:12.982Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mpgckp85st4vu",
@@ -2250,8 +2327,10 @@
             "scenario": "沟通冲突后的冷静与反思",
             "reference": "今天，我为自己争取了暂停对话的勇气，先问自己‘我需要什么’，而不是纠结对方为什么那样说。等情绪平复后再去沟通，效果会更好。"
           }
-        ]
-      }
+        ],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mpj4nknc88jbc",
@@ -2273,8 +2352,10 @@
             "scenario": "工作：争取合理资源分配",
             "reference": "以前看到同事工作量比我少，心里会不平衡。后来我跟领导沟通时用了这个思路：真正的公平不是‘绝对平均’，而是‘各取所需’。我主动提出自己擅长处理复杂项目，希望多承担这类任务，同时把一些琐碎但耗时的流程交给更适合的同事，这样团队整体效率更高，我也能专注成长。"
           }
-        ]
-      }
+        ],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mpm2cjkjqg8ym",
@@ -2292,22 +2373,44 @@
             "scenario": "工作：碎片任务与项目里程碑挂钩",
             "reference": "现在手头这些零散的回复邮件、整理数据、核对文档，看起来琐碎，但我想把它们关联到‘项目按时交付’这个大目标上。这样我能清楚每个小动作都在推动项目前进，忙起来也不会觉得乱。"
           }
-        ]
-      }
+        ],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mq0a7rn1qyw3g",
       "content": "写新闻稿则赋予你一个具体、可交付的成果（如作业、文章），这激活了“完成感”和“责任感”的奖励机制。",
       "type": null,
       "createdAt": "2026-06-05T02:05:09.422Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqapwolsuigki",
       "content": "你并不是不知道AI更快，而是不想在“摸索方法”这个环节被替代。你想通过阅读文档、理解逻辑、亲手搭建调用链路，来获得那种“我完全清楚每一步在做什么”的掌控感。这恰恰是很多优秀工程师和深度用户的学习本能——先求甚解，再求效率。",
       "type": null,
       "createdAt": "2026-06-12T09:22:07.888Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqbrxewxrs21m",
@@ -2325,1167 +2428,103 @@
             "scenario": "工作中与同事的协作沟通",
             "reference": "我对一位进度滞后的同事说：“我提醒你注意这个截止日期，不是为了指责你，而是希望通过这种‘管束’传递我对项目和你工作的关心。这样你会感到被团队在乎，也能更自然地接受建议。比如你可以跟别人说‘因为组长要求我调整节奏，我才加速’，这既给了你行动的理由，也维护了你的主动性。”"
           }
-        ]
-      }
+        ],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqg7h86zh8ghx",
       "content": "每个人确认自我价值的方式不同，源于内在需求（如被认可、被赋权）的差异。\n【识别】你的方式属于 “成就型认可”（通过完成具体事情获得赞赏），而非 “主导型控制”（通过掌控他人获得满足）。\n【建议】清晰表达你的需求，对老公说：“我做好这件事后，如果你能直接夸我一句‘你真棒’，我会特别开心”\n避免让他用“给你加任务/授权”的方式表达认可（那可能反而让你压力大）。",
       "type": null,
       "createdAt": "2026-06-16T05:32:50.747Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqgnzgps740me",
       "content": "认知负荷过重 🧠：将演讲视为“临时任务”，而非日常工作的自然延伸，导致临场时需大量回溯、整合碎片信息，产生“没话讲”的焦虑。",
       "type": null,
       "createdAt": "2026-06-16T13:14:55.456Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqj5j4luq54jg",
       "content": "当你把任务写下来时，实际上提前完成了最耗能的部分——决策。大脑需要消耗大量能量来思考“做什么、怎么做、第一步是什么”。一旦拆解并记录，这些信息就被“外包”给了纸张或电子设备。等到你真正行动时，大脑只需执行，无需重新决策，启动成本大幅下降，痛苦感自然减轻。",
       "type": null,
       "createdAt": "2026-06-18T07:01:38.706Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqnz3oc7vs8l6",
       "content": "罗曼·罗兰那句著名的“世界上只有一种真正的英雄主义，那就是在认清生活真相之后依然热爱生活。”你丈夫的善良，不是天真或逃避，而是一种清醒的选择——他看见了世界的复杂与阴影，却依然选择用善意去回应。",
       "type": null,
       "createdAt": "2026-06-21T16:00:30.967Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     },
     {
       "id": "mqri72tqxb25u",
       "content": "你的项目（RPA网管验收）在厂家眼里是“成本已覆盖的附属品”，而另外两个项目是“必须交付的利润点或考核点”。",
       "type": null,
       "createdAt": "2026-06-24T03:18:20.942Z",
-      "tags": []
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
-  "communicationChecklists": [
-    {
-      "id": "1778563761980",
-      "type": "communication_checklist",
-      "title": "关系问题沟通清单",
-      "createdAt": "2026-05-12T06:06:38.818Z",
-      "steps": [
-        {
-          "step": 1,
-          "completed": false,
-          "answer": "就是想不开想不通。有点郁闷"
-        },
-        {
-          "step": 2,
-          "completed": false,
-          "answer": "他说：朋友都很会做人的，知道我对儿子好，儿子开心我就开心，所以请他吃饭比请我吃饭效果更好。\n这是他跟前妻的儿子，他这样说我会觉得儿子对他来说很重要。另外暗示我做的不够好，我也应该对儿子好让他高兴。"
-        },
-        {
-          "step": 3,
-          "completed": false,
-          "answer": "我的猜测：你是在表达对我目前做法的满意，还是希望我更多关注儿子\n实际动机："
-        },
-        {
-          "step": 4,
-          "completed": false,
-          "answer": ""
-        },
-        {
-          "step": 5,
-          "completed": false,
-          "answer": ""
-        }
-      ],
-      "allCompleted": false
-    }
-  ],
-  "recentFocuses": [
-    {
-      "id": "1778554561938",
-      "content": "我想练习表达",
-      "createdAt": "2026-05-12T02:56:01.938Z"
-    },
-    {
-      "id": "1778555761679",
-      "content": "我总想快点调整好代码，以至于花超级多时间，不想做任何其他事",
-      "createdAt": "2026-05-12T03:16:01.679Z"
-    },
-    {
-      "id": "1778567317425",
-      "content": "我想知道怎么问老公，我想了解的事",
-      "createdAt": "2026-05-12T06:28:37.425Z"
-    },
-    {
-      "id": "1778569335428",
-      "content": "我想知道讲课有什么结构性框架",
-      "createdAt": "2026-05-12T07:02:15.428Z"
-    },
-    {
-      "id": "1778645770383",
-      "content": "那要如何平衡考虑对方和做自己",
-      "createdAt": "2026-05-13T04:16:10.383Z"
-    },
-    {
-      "id": "1778722988038",
-      "content": "工作上遇到问题，我知道问前同事能立马得出答案，但会有路径依赖。问现在的同事就不会有路径依赖，但她可能也不太清楚。如何做选择",
-      "createdAt": "2026-05-14T01:43:08.038Z"
-    },
-    {
-      "id": "1778801871218",
-      "content": "副总群里说明天要讨论做视频的分工，我一点都不想去，浪费时间跟团队工作无关，还会让总监觉得忙活些文娱的事情。之前我们中心举办了一个AI比赛，这个视频就是想要展示这个比赛，从想法诞生到实施到最后评选的整个过程时间就100s。主要是团支部的委员参加这次分工的讨论，这些委员都来自不同的团队。我一点都不想做，也不想冒头。",
-      "createdAt": "2026-05-14T23:37:51.218Z"
-    },
-    {
-      "id": "1778820533442",
-      "content": "我现在就是很讨厌中心有关的活动工作找我，比如举办什么活动要我参加，让我安安静静干团队的工作不好吗。能不能让我隐形啊。",
-      "createdAt": "2026-05-15T04:48:53.442Z"
-    },
-    {
-      "id": "1778821551124",
-      "content": "我不知道该怎么定规则。如果我说今天下午我需要核对退网清单，能否下周安排时间参会。对方说那你先参会，下周再核对不行吗？我如何应对。",
-      "createdAt": "2026-05-15T05:05:51.124Z"
-    }
-  ],
-  "tagConfig": {
-    "退网": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "RPA": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "CRM": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "老公": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "团支部": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "检查工作": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "AI": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "验收": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "储备能力": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "A类-快速核查：每天多次": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "网安": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "杂事": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "表达": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "工作": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "生活": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "光路资源核查": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "等待反馈": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "党": {
-      "color": "#f5f5f0",
-      "textColor": "#333333"
-    },
-    "数字化": {
-      "color": "#f5f5f0",
-      "textColor": "#333333",
-      "activeValue": "#6b8e6b",
-      "activeTextColor": "#FFFFFF"
-    },
-    "B类-复杂-推进细分方向": {
-      "color": "#ffebee",
-      "textColor": "#333333",
-      "activeValue": "#c62828",
-      "activeTextColor": "#FFFFFF"
-    },
-    "C类-复杂-被推着做的": {
-      "color": "#b3d4fc",
-      "textColor": "#333333",
-      "activeValue": "#1565c0",
-      "activeTextColor": "#FFFFFF"
-    },
-    "B类-复杂-主动": {
-      "color": "#ffebee",
-      "textColor": "#333333",
-      "activeValue": "#c62828",
-      "activeTextColor": "#FFFFFF"
-    },
-    "演讲素材": {
-      "color": "#f5f5f0",
-      "textColor": "#333333"
-    },
-    "A类-琐碎的事": {
-      "color": "#ffe0b2",
-      "textColor": "#333333",
-      "activeValue": "#e65100",
-      "activeTextColor": "#FFFFFF"
-    }
-  },
-  "dailyTimeline": {
-    "2026-06-04": [
-      {
-        "id": "block_1780557046597",
-        "tag": "B类-定期复杂",
-        "startTime": "15:15",
-        "endTime": "16:45",
-        "duration": 90,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780557100786",
-        "tag": "C类-不定期：3-4点",
-        "startTime": "16:45",
-        "endTime": "17:15",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-05": [
-      {
-        "id": "block_1780626470554",
-        "tag": "C类-不定期：3-4点",
-        "startTime": "11:00",
-        "endTime": "11:45",
-        "duration": 45,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780649904497",
-        "tag": "C类-不定期：3-4点",
-        "startTime": "17:00",
-        "endTime": "17:30",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780652409008",
-        "tag": "B类-定期复杂",
-        "startTime": "17:40",
-        "endTime": "18:00",
-        "duration": 20,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-08": [
-      {
-        "id": "block_1780890591737",
-        "tag": "B类-定期复杂",
-        "startTime": "10:45",
-        "endTime": "12:15",
-        "duration": 90,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780906559488",
-        "tag": "C类-不定期：3-4点",
-        "startTime": "16:15",
-        "endTime": "16:45",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-09": [
-      {
-        "id": "block_1780966285551",
-        "tag": "B类-定期复杂",
-        "startTime": "08:51",
-        "endTime": "09:21",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780973193157",
-        "tag": "C类-不定期：3-4点",
-        "startTime": "10:46",
-        "endTime": "11:16",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780986461465",
-        "tag": "C类-不定期",
-        "startTime": "14:30",
-        "endTime": "15:15",
-        "duration": 45,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780990278167",
-        "tag": "RPA",
-        "startTime": "16:00",
-        "endTime": "16:20",
-        "duration": 20,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1780990306963",
-        "tag": "B类-定期复杂",
-        "startTime": "15:30",
-        "endTime": "16:00",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-10": [
-      {
-        "id": "block_1781053514763",
-        "tag": "C类-复杂-被动响应",
-        "startTime": "09:05",
-        "endTime": "09:35",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1781053567058",
-        "tag": "B类-复杂-主动",
-        "startTime": "11:15",
-        "endTime": "11:45",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1781078303110",
-        "tag": "B类-复杂-主动",
-        "startTime": "16:00",
-        "endTime": "16:30",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-11": [
-      {
-        "id": "block_1781159586187",
-        "tag": "C类-复杂-被动响应",
-        "startTime": "14:30",
-        "endTime": "15:00",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1781161033378",
-        "tag": "B类-复杂-主动",
-        "startTime": "15:00",
-        "endTime": "16:00",
-        "duration": 60,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1781167188851",
-        "tag": "C类-复杂-被动响应",
-        "startTime": "16:40",
-        "endTime": "17:10",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-12": [
-      {
-        "id": "block_1781230265063",
-        "tag": "B类-复杂-主动",
-        "startTime": "10:30",
-        "endTime": "11:00",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-15": [
-      {
-        "id": "block_1781506060059",
-        "tag": "C类-复杂-被动响应",
-        "startTime": "14:50",
-        "endTime": "15:20",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1781509165638",
-        "tag": "B类-复杂-主动",
-        "startTime": "15:40",
-        "endTime": "16:10",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-18": [
-      {
-        "id": "block_1781766586279",
-        "tag": "C类-复杂-被动响应",
-        "startTime": "15:10",
-        "endTime": "15:40",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-06-24": [
-      {
-        "id": "block_1782262861583",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "09:00",
-        "endTime": "10:30",
-        "duration": 90,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1782268012377",
-        "tag": "C类-复杂-被推着做的",
-        "startTime": "10:30",
-        "endTime": "11:00",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1782283846398",
-        "tag": "C类-复杂-被推着做的",
-        "startTime": "14:50",
-        "endTime": "15:20",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-07-01": [
-      {
-        "id": "block_1782872777143",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "10:26",
-        "endTime": "10:56",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1782875687540",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "11:15",
-        "endTime": "11:45",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1782887150557",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "14:25",
-        "endTime": "14:55",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1782892390996",
-        "tag": "C类-复杂-被推着做的",
-        "startTime": "16:00",
-        "endTime": "16:30",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-07-02": [
-      {
-        "id": "block_1782975410200",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "15:00",
-        "endTime": "15:30",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      }
-    ],
-    "2026-07-03": [
-      {
-        "id": "block_1783040418627",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "09:00",
-        "endTime": "09:30",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1783044915545",
-        "tag": "B类-复杂-推进细分方向",
-        "startTime": "10:15",
-        "endTime": "10:45",
-        "duration": 30,
-        "summary": "",
-        "slotId": null
-      },
-      {
-        "id": "block_1783064457225",
-        "tag": "C类-复杂-被推着做的",
-        "startTime": "15:40",
-        "endTime": "16:25",
-        "duration": 45,
-        "summary": "",
-        "slotId": null
-      }
-    ]
-  },
-  "taskTriggers": [
-    {
-      "id": "mpw00kbt2rgm7",
-      "taskId": "mpunazqezfisi",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "custom",
-            "startTime": "09:00",
-            "endTime": "18:00",
-            "message": "退网进度.月度统计",
-            "confirmed": true,
-            "confirmationTime": "2026-06-30T02:31:29.700Z",
-            "customInterval": "28",
-            "customIntervalUnit": "day"
-          }
-        ]
-      },
-      "createdAt": "2026-06-02T02:08:32.489Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-06-30T02:31:27.052Z"
-      }
-    },
-    {
-      "id": "mqsyf55nm1rso",
-      "taskId": "mqetas88nsm58",
-      "type": "condition",
-      "triggerConfig": {
-        "condition": "manual"
-      },
-      "reminderConfig": {
-        "reminders": [
-          {
-            "frequency": "weekly",
-            "startTime": "09:00",
-            "endTime": "18:00",
-            "message": "拆运一体发邮件",
-            "confirmed": true,
-            "confirmationTime": "2026-07-02T06:48:46.190Z"
-          }
-        ]
-      },
-      "createdAt": "2026-06-25T03:40:17.243Z",
-      "lastReminderTime": null,
-      "active": true,
-      "lastReminderTimes": {
-        "0": "2026-07-02T06:48:41.283Z"
-      }
-    },
-    {
-      "id": "mr4d3lonqrthb",
-      "taskId": "mqrd9ot2h6ei5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-06T09:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-03T03:16:40.967Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mr4pho51w4jh3",
-      "taskId": "mqud8y6rk4z3p",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-06T10:13"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-03T09:03:32.725Z",
-      "lastReminderTime": null,
-      "active": true
-    }
-  ],
-  "knowledgeBase": [
-    {
-      "id": "mr4lr1r4luktxa2uxc",
-      "content": "华为传输网元：网关和网关互通是通过  网元DCC通信的   不是通过IP，也不是经过DCN网。普通网元的IP是不生效的，监控普通网元都是通过网关网元转发的。",
-      "tags": [
-        "网安"
-      ],
-      "createdAt": "2026-07-03T07:18:51.808Z",
-      "updatedAt": "2026-07-03T07:18:51.808Z"
-    },
-    {
-      "id": "mr4ei93hs2o7uklqzk",
-      "content": "23端口关闭指令：\nconfig t /进入配置模式\nservice telnet disable\nexit /退出配置模式\nwrite/保存",
-      "tags": [
-        "网安",
-        "奥普泰交换机指令"
-      ],
-      "createdAt": "2026-07-03T03:56:04.109Z",
-      "updatedAt": "2026-07-03T03:56:12.267Z"
-    },
-    {
-      "id": "mr4e3tmk2jx6efc72du",
-      "content": "交换机有两种登录设备的方式，一个是ssh，一个是telnet。\n23端口作用是：上联交换机telnet 地址，就进入设备了。\n4a用的ssh登录。",
-      "tags": [
-        "网安"
-      ],
-      "createdAt": "2026-07-03T03:44:50.876Z",
-      "updatedAt": "2026-07-03T03:44:50.876Z"
-    },
-    {
-      "id": "mr0odawokflv49jvjgg",
-      "content": "把一条原本跑在**SDH**（同步数字体系，一种基于时分复用的传统传输技术）上的以太网业务，迁移到**OTN**（光传送网，一种更高效、大容量的现代传输技术）上，然后让老旧的SDH设备退网。\n\n核心思路是：**在用户侧不变的前提下，将传输通道从SDH替换为OTN**。下面分步骤解释连接关系和迁移过程。\n\n---\n\n### 1. 用户侧交换机/路由器与SDH的连接关系（现状）\n\n在目前的SDH组网中，用户设备（CE，Customer Edge，如交换机或路由器）与SDH设备（通常是MSTP，多业务传送平台，即支持以太网业务的SDH设备）的连接方式通常是这样的：\n\n\n```text\n[用户CE（交换机/路由器）]\n    |\n    |--- 以太网电口（RJ45）或光口（SFP，小型可插拔收发器）\n    |    （通常是FE/GE，即快速以太网/千兆以太网接口）\n    |\n    v\n[SDH/MSTP设备（局端）]\n    |--- 以太网业务板卡（如EFS，以太网功能板）\n    |    该板卡负责：将以太网帧封装进SDH的VC（虚容器，如VC-12/VC-3/VC-4）中\n    |\n    v\n[SDH传输网络]\n    |--- 通过光纤（STM-N，同步传输模块）连接\n    |\n    v\n[对端SDH/MSTP设备]\n    |--- 解封装，恢复以太网帧\n    |\n    v\n[对端CE（交换机/路由器）]\n```\n\n\n\n\n**关键点：**\n- **用户CE** 只认**以太网接口**（电口或光口），它不知道底层是SDH还是OTN。\n- **SDH设备** 扮演了 **“以太网转SDH协议转换器”** 的角色。它把用户的以太网帧打包成SDH的VC通道（例如，一条100M以太网业务通常映射到VC-3或几个VC-12）。\n- **连接介质**：通常是**五类/超五类网线**（100米以内）或**短距离光模块**（多模光纤，几百米）。\n\n\n\n\n---\n\n\n\n\n### 2. 迁移到OTN的步骤（SDH退网）\n\n\n\n\n迁移的目标是：**替换掉SDH设备，但保持用户CE的接口和配置不变**。\n\n\n\n\n#### 方案一：直接替换（最常用，适用于SDH和OTN设备在同一机房）\n\n\n\n\n如果用户的CE和SDH设备都在同一个机房（比如用户机房或运营商机房），且OTN设备已部署到位：\n\n\n\n\n**步骤：**\n1.  **准备OTN设备**：在OTN设备上安装一块**以太网业务板卡**（如10GE/GE板卡），并配置好对应的ODUk（光通道数据单元）通道（例如ODU0，对应1.25G带宽，或ODUflex，灵活速率）。\n2.  **物理连接**：\n    -   **拔掉** 用户CE连接到SDH设备的以太网线。\n    -   **插入** 同一根网线（或新光模块）到**OTN设备的以太网端口**。\n3.  **配置OTN**：在OTN网管上，将该以太网端口映射到预先规划好的ODUk通道，并打通端到端的光层路径。\n4.  **业务验证**：确认用户CE与对端CE的通信正常（ping、业务流量）。\n5.  **退网SDH**：确认无误后，关机、拆除SDH设备。\n\n\n\n\n**连接关系变化：**\n\n\n\n\n```text\n迁移前：\n[用户CE] <--以太网线--> [SDH/MSTP] <--光纤--> [对端SDH]\n\n\n\n\n迁移后：\n[用户CE] <--以太网线--> [OTN设备] <--光纤（OTN）--> [对端OTN]\n```\n\n\n\n\n**优点**：用户CE完全无感，物理连接几乎不变，只需更换对端设备。\n\n\n\n\n#### 方案二：通过协议转换器（适用于用户CE与SDH设备距离较远，或OTN设备不在同一位置）\n\n\n\n\n如果用户CE与SDH设备之间有较长距离（比如通过光纤连接），或者OTN设备部署在另一个节点，你可能需要**独立协议转换器**。\n\n\n\n\n**步骤：**\n1.  **拆除SDH**：在用户CE侧，拔掉连接到SDH的线。\n2.  **增加OTN协议转换器**：在用户CE和OTN设备之间，插入一个**以太网转OTN的协议转换器**（通常是小盒子，如OTN CPE，用户驻地设备）。\n    -   用户CE的以太网口 -> 连接转换器的以太网口。\n    -   转换器的OTN口（通常是SFP+光模块） -> 连接OTN网络的ODF（光纤配线架）。\n3.  **配置**：在转换器和OTN网络侧配置ODUk通道。\n4.  **验证**。\n5.  **退网**。\n\n\n\n\n**连接关系变化：**\n\n\n\n\n```text\n迁移前：\n[用户CE] <--光纤--> [SDH/MSTP]\n\n\n\n\n迁移后：\n[用户CE] <--以太网线--> [OTN协议转换器] <--光纤（OTN）--> [OTN网络]\n```\n\n\n\n\n---\n\n\n\n\n### 3. 需要特别注意的几个问题\n\n\n\n\n1.  **带宽匹配**：\n    -   SDH的以太网业务通常是**N×2M**（如10M、100M、155M）。而OTN的最小颗粒是**ODU0（1.25G）**。如果用户业务只有10M，直接映射到ODU0会造成带宽浪费。解决方案：使用**OTN的VC（虚级联）或GFP（通用成帧规程）封装**，或者使用**ODUflex**（灵活速率，可精细到1.25G的n倍）。**务必确认OTN设备支持对低速率以太网业务的高效封装**。\n\n\n\n\n2.  **时钟同步**：\n    -   SDH网络天生具有高精度时钟同步（同步以太网）。如果用户业务依赖SDH提供的时钟（例如，用于基站回传的TDM业务），迁移到OTN后，需要确保OTN设备也支持**同步以太网（SyncE）**和**1588v2（精确时间协议）**，否则可能造成业务中断或质量下降。\n\n\n\n\n3.  **保护机制**：\n    -   SDH有成熟的**MSP（复用段保护）/SNCP（子网连接保护）**。OTN也有对应的**ODUk SNCP**或**光层保护**。迁移时，需确保OTN网络配置了同等或更优的保护等级（如1+1保护）。\n\n\n\n\n4.  **用户CE接口类型**：\n    -   如果用户CE是**光口**（如1000BASE-LX，单模光纤），且SDH设备也是光口，那么直接换到OTN设备的光口通常没问题（只要波长、距离匹配）。\n    -   如果用户CE是**电口**（如RJ45），SDH设备也是电口，那么OTN设备也必须有电口（或通过光模块+光电转换器）。\n\n\n\n\n### 总结\n\n\n\n\n| 项目 | SDH环境 | OTN迁移后 |\n| :--- | :--- | :--- |\n| **用户侧接口** | 以太网（FE/GE） | 以太网（FE/GE） |\n| **连接对象** | SDH/MSTP设备的以太网板卡 | OTN设备的以太网板卡或OTN协议转换器 |\n| **传输技术** | 时分复用（TDM，时分复用） | 波分复用（WDM，波分复用）+ 光通道 |\n| **带宽效率** | 较低（固定颗粒） | 较高（灵活颗粒，如ODUflex） |\n| **退网条件** | 迁移完成后，断开连接，关机拆除 | 无 |\n\n\n\n\n**最终操作建议：**\n1.  **确认用户CE的接口类型和速率**（例如：千兆电口，100M全双工）。\n2.  **确认OTN设备是否有对应接口**（例如：是否有千兆电口板卡，或是否支持通过光模块+光电转换器）。\n3.  **规划ODUk通道**（例如：对于100M业务，可以映射到ODU0，但需设备支持低速率封装；或使用ODUflex）。\n4.  **在业务低峰期**，**先断开SDH，连接OTN，测试**。如果业务正常，再拆除SDH。\n\n\n\n\n如果用户CE与SDH设备之间是**通过光纤直连**（比如距离几公里），那么迁移时可能还需要考虑**光功率预算**和**光纤类型**（单模/多模）。但最稳妥的方式是**将用户CE的以太网线直接插到OTN设备的对应端口上**。",
-      "tags": [
-        "传输专业"
-      ],
-      "createdAt": "2026-06-30T13:21:04.632Z",
-      "updatedAt": "2026-07-01T02:19:32.320Z"
-    },
-    {
-      "id": "mqylzzdzdy19md79ny",
-      "content": "---\n\n📚 **知识库条目：传输专业 - 以太网业务与EOS业务处理要点**\n\n---\n\n### 1️⃣ 以太网业务承载原则\n\n- **小带宽业务（如 < 1Gbps）**  \n  ✅ 使用 **VC（虚容器）** 承载  \n  📌 适用于低速率、高可靠性的客户接入场景\n\n- **大带宽业务（如 ≥ 1Gbps）**  \n  ✅ 使用 **ODUk（光数据单元k）** 承载  \n  📌 适用于高速率、大容量的骨干或汇聚层业务\n\n> 🧠 提示：VC与ODUk的选择需结合业务SLA、时延要求及网络资源池规划。\n\n---\n\n### 2️⃣ 华为业务配置流程（网管侧）\n\n📍 **路径：** 网管首页 → 光业务发放 → Client业务\n\n**关键步骤：**\n1. 🖥️ **端口配置**：选择对应物理端口（如GE/10GE/100GE）\n2. ⏱️ **时隙分配**：根据带宽需求分配VC/ODUk时隙\n3. 🛡️ **保护设置**：配置1+1/1:1保护、SNC保护等\n4. ✅ **业务开通后报竣**：完成配置后需在系统内提交竣工确认\n\n> ⚠️ 注意：报竣前请确认业务状态为“正常”，且无告警。\n\n---\n\n### 3️⃣ EOS业务双断电路恢复流程\n\n当EOS业务出现**双断**（即主用、备用电路均中断）时，推荐以下两种恢复方式：\n\n#### 🔁 方式一：去激活 → 激活业务恢复\n- ① 在网管中找到对应业务，执行 **去激活**\n- ② 等待状态变为“去激活成功”\n- ③ 再次执行 **激活**，业务自动恢复\n\n#### 🗑️ 方式二：删除并重新下发A级电路\n- ① 进入 **光业务发放界面**\n- ② 删除当前故障的A级电路\n- ③ 重新下发A级电路（注意：B级电路通常无需操作，系统自动同步）\n\n> 💡 建议：优先尝试方式一，若失败再使用方式二。方式二需注意A级电路与B级电路的时隙一致性。",
-      "tags": [
-        "传输专业"
-      ],
-      "createdAt": "2026-06-29T02:39:11.591Z",
-      "updatedAt": "2026-06-29T03:00:07.709Z"
-    },
-    {
-      "id": "mqunttkon6x650cfch7",
-      "content": "5320下的4台思科都是汇聚交换机。再往下才是接入交换机，是瑞斯康达品牌的。",
-      "tags": [
-        "网安"
-      ],
-      "createdAt": "2026-06-26T08:19:18.648Z",
-      "updatedAt": "2026-06-26T08:19:18.648Z"
-    },
-    {
-      "id": "mqrhzijy4y2wcvi0bsa",
-      "content": "U设备可以用作光电转换器。荔湾故障单",
-      "tags": [
-        "故障单",
-        "工作"
-      ],
-      "createdAt": "2026-06-24T03:12:28.078Z",
-      "updatedAt": "2026-06-25T00:40:29.436Z"
-    },
-    {
-      "id": "mqn5a6c3lxok7wplypm",
-      "content": "机房巡检一指禅培训，提升综维人员技能\n制定“机房巡检一指禅”，规范机房的环境卫生、温湿度、设备、消安防设施巡检规范。  \n深入县分综维一线开展“一指禅”现场培训，完成了黄埔西部支局20，增城新塘和荔城支局30人现场培训认证，有效提升承包人的实操能力和风险防范水平。\n\n“萤火行动”督导一线规排查隐患\n积极参与综改一线现场检查调研，对机房和光交箱承包人的维护情况开展现场检查督导，已完成11个机房、3个光交箱的现场检查，累计覆盖巡检点位14处，现场整改问题隐患5处。",
-      "tags": [],
-      "createdAt": "2026-06-21T02:05:45.747Z",
-      "updatedAt": "2026-06-21T02:05:45.747Z"
-    },
-    {
-      "id": "mqlmw225hp6meiyczyt",
-      "content": "圆满完成十五运开幕式通信保障工作，实现“零故障，零中断”\n保障工位：奥体中心1008客户机房、奥体新接入网机房，重点保障客户业务（涵盖公安、武警、应急通信等政务及安保关键链路）\n前期准备：参与“全流程、全要素”实战演练，模拟设备故障场景并验证预案可行性；提前储备核心设备关键备件，确保故障发生时“即坏即换”。\n开幕式保障：严格执行机房现场巡检要求，汇报设备运行状态。",
-      "tags": [],
-      "createdAt": "2026-06-20T00:43:07.757Z",
-      "updatedAt": "2026-06-20T00:43:07.757Z"
-    },
-    {
-      "id": "mqja7nsqtv9ab6sg94l",
-      "content": "网络简化：\n      发挥提质增效主力军作用，积极推进网络简化和老旧设备退网工作，节省设备能耗费用，盘活机房空间，减少故障提升网络质量。\n举措：\n管控流程：明确退网目标，制定业务迁转方案，对“0业务”设备实施退网下电。\n数字化赋能：自研数字化工具，提升设备业务核查、退网流程环节、下电稽核的效率。实现退网全流程可追踪、可管控。\n成效：\n压降能耗成本：2025年累计退网SDH设备1000台，完成率100%，年节约电费约40万元；2026年至今已退网347台，累计节省电费约15万元。\n盘活机房空间：2025年完成鹭江、芳村、仙村、电信广场、马场17楼等机楼盘活，腾空约3000平方米，2026年推进了西华、七星岗、新太平、石滩等机楼的盘活工作，预计腾空约2000平方米。",
-      "tags": [],
-      "createdAt": "2026-06-18T09:12:41.786Z",
-      "updatedAt": "2026-06-18T09:12:41.786Z"
-    },
-    {
-      "id": "mqgm0wd03x0laz5s6rz",
-      "content": "时间盒更关心的是：这段时间结束时，你能交出一个怎样的结果？\n比如15分钟写出一个初稿，10分钟整理出会议纪要，5分钟列出明天最重要的三件事。它不只是让你坐在那里专注，而是让你带着一个小成果进入这段时间。",
-      "tags": [],
-      "createdAt": "2026-06-16T12:20:03.156Z",
-      "updatedAt": "2026-06-16T12:44:56.979Z"
-    },
-    {
-      "id": "mqg53j1xob8iopi52n",
-      "content": "社会比较与内化标准：从小被灌输“优秀才被爱”的观念，逐渐内化为严苛的自我审判官。完美主义陷阱：将“表现不佳”等同于“整个人不好”，忽略成长过程中的正常波动。\n这就导致了时不时会自我否定，并且将这种否定投射到对方身上",
-      "tags": [],
-      "createdAt": "2026-06-16T04:26:12.405Z",
-      "updatedAt": "2026-06-16T04:27:15.023Z"
-    },
-    {
-      "id": "mqg4krzvnfccb82ld1",
-      "content": "投射定义：一个人将自己无法接纳的念头、情绪或特质（如“怕乱花钱”），无意识地归因到他人身上，从而缓解自身焦虑。\n你的案例：对方说“怕你乱花”，实际上是他自己内心有“乱花钱”的冲动或担忧，但他无法承认或管理这种焦虑，于是把它“甩锅”给你，仿佛是你需要被控制。\n关键矛盾：你问“一个人怎么会自己担心自己乱花”——这正是投射的荒诞性：他真正担心的不是你的行为，而是他自己失控的可能性。",
-      "tags": [],
-      "createdAt": "2026-06-16T04:11:37.531Z",
-      "updatedAt": "2026-06-16T04:11:37.531Z"
-    },
-    {
-      "id": "mqf6a9d6azaj2fcwe2",
-      "content": "你因在羽毛球中表现不佳，产生了“自我否定 → 投射到对方的态度上 → 引发敌意”的连锁情绪反应。你讨厌的不是对方，而是那个“觉得自己不够好”的自己。",
-      "tags": [],
-      "createdAt": "2026-06-15T12:11:39.882Z",
-      "updatedAt": "2026-06-15T12:11:39.882Z"
-    },
-    {
-      "id": "mqdp79iap7qk49ak0op",
-      "content": "喂多巴胺快乐：过度摄入多巴胺会摧毁孩子的自驱力和学习力，真正的学霸是能量高，自驱力和学习力强的孩子。所以我养娃，是在学习主线外，给孩子找很多支点。生活支点：培养孩子自理能力。家庭劳动日：每周六上午，是我们家雷打不动的家庭劳动日。我负责厨房，队友卫生间，儿子负责客厅。从擦桌子到整理书架。一开始儿子拖地像画画，现在都能独自换被套。",
-      "tags": [],
-      "createdAt": "2026-06-14T11:25:40.451Z",
-      "updatedAt": "2026-06-15T02:29:26.430Z"
-    },
-    {
-      "id": "mq8sg7f3rrfx9dl0a3p",
-      "content": "判断力不足，往往不是逻辑问题，而是信息问题。面对任务，你不知道对方真实份量、和你未来的利害关系、任务的真实背景。没有这些信息，任何判断都是空中楼阁",
-      "tags": [],
-      "createdAt": "2026-06-11T00:57:45.615Z",
-      "updatedAt": "2026-06-11T00:57:45.615Z"
-    },
-    {
-      "id": "mq6eimkbjasknc2gdto",
-      "content": "有时候允许别人用他们的方式完成（哪怕慢一点），反而能让你腾出精力去做更值得的事。比如，思考下一个更有价值的工具，或者休息一下",
-      "tags": [],
-      "createdAt": "2026-06-09T08:52:11.580Z",
-      "updatedAt": "2026-06-10T23:44:23.990Z"
-    },
-    {
-      "id": "mq7a6fcayx2jn61wi8d",
-      "content": "沟通本来就是一件很复杂的事情，你以为是两个人，实际上是六个人：我、我以为的我、你以为的我、你、你以为的你、我以为的你",
-      "tags": [],
-      "createdAt": "2026-06-09T23:38:30.058Z",
-      "updatedAt": "2026-06-09T23:38:30.058Z"
-    },
-    {
-      "id": "mq6sfq7q70mrx6e0afl",
-      "content": "学习好的根本在于习惯。从打草清晰、整理错题到工具使用，每一步的好习惯长期积累，就能事半功倍。早期养成习惯，后续再难的学习阶段也会轻松许多",
-      "tags": [],
-      "createdAt": "2026-06-09T15:21:50.966Z",
-      "updatedAt": "2026-06-09T15:21:50.966Z"
-    },
-    {
-      "id": "mq6r70n6oj02nbgwtal",
-      "content": "给自己定一个30分钟的闹钟。闹钟响前，绝不插手；闹钟响后，评估是否真的需要干预。这能训练“放手”的能力。",
-      "tags": [],
-      "createdAt": "2026-06-09T14:47:04.962Z",
-      "updatedAt": "2026-06-09T14:47:04.962Z"
-    },
-    {
-      "id": "mq6r6j3i0yvhxr4ob4qb",
-      "content": "处理对结果有期待而产生的负面情绪，启动困难焦虑拖延才是最消耗人的。单纯做事花不了多长时间",
-      "tags": [],
-      "createdAt": "2026-06-09T14:46:42.222Z",
-      "updatedAt": "2026-06-09T14:46:42.222Z"
-    },
-    {
-      "id": "mq0sixb61xq8ujsl2qn",
-      "content": "有什么方法可以测试猜想？\n用可控的测试替代信息缺失。当知识库无法直接回答“为什么”时，就构建一个可观测的行为触发场景，让不同动机产生可区分的反应。",
-      "tags": [],
-      "createdAt": "2026-06-05T10:37:43.075Z",
-      "updatedAt": "2026-06-05T10:38:10.182Z"
-    },
-    {
-      "id": "mq0abgihs1sx1x171rb",
-      "content": "单纯听讲时，缺乏明确的任务或产出目标，大脑容易进入“被动接收”模式，注意力涣散。\n写新闻稿则赋予你一个具体、可交付的成果（如作业、文章），这激活了“完成感”和“责任感”的奖励机制。\n\n技术分享（如烽火空芯光纤）可能信息密集、术语复杂，单纯听容易感到“信息过载”或“无从下手”。\n写新闻稿逼迫你主动梳理逻辑、提炼核心，将零散知识转化为结构化内容（如背景→技术亮点→应用前景），这符合大脑对“秩序感”的天然偏好。\n\n长期调整：培养“无产出”时的专注力。关联已有知识：听讲时快速联想：“这个技术和我知道的XX技术（如传统光纤）对比，优势在哪？”——用旧知锚定新知。",
-      "tags": [
-        "学习方法"
-      ],
-      "createdAt": "2026-06-05T02:08:01.625Z",
-      "updatedAt": "2026-06-05T02:09:26.186Z"
-    },
-    {
-      "id": "mpysvj6azftv9u0pwq7",
-      "content": "1、局端的要光纤收发器那种类型才可以割接\n2、华姐说华为805在网管不像810可以独立显示成一个网元。805是接在局端的EG10或者EM10上，如果局端接的是2板1口，805就显示11-。3板1口就21-",
-      "tags": [],
-      "createdAt": "2026-06-04T01:11:58.930Z",
-      "updatedAt": "2026-06-04T01:11:58.930Z"
-    },
-    {
-      "id": "mpug6mbap21navnihn",
-      "content": "老公说得对：既不让光芒刺伤他人，也不让能力被低估。",
-      "tags": [],
-      "createdAt": "2026-06-01T00:05:36.502Z",
-      "updatedAt": "2026-06-03T10:07:20.593Z"
-    },
-    {
-      "id": "mpw3di4844hd0kr3qgh",
-      "content": "每天早晨先识别出“今日最重要的三件事”，并努力在当天实现闭环。同时，我需要建立一套响应机制——当同事的回复或需求出现时，优先判断是否与这三件事相关，再决定是否立即处理",
-      "tags": [],
-      "createdAt": "2026-06-02T03:42:35.000Z",
-      "updatedAt": "2026-06-02T03:45:09.364Z"
-    },
-    {
-      "id": "mpte1y44sikbm041e1b",
-      "content": "随手翻到书的第69页，读几段。能读下去，就买；读不下去，就放回书架。不用看简介，不用看推荐语，不用纠结豆瓣评分。就这一页，结论就出来了。\n开头往往经过精心打磨，不能代表全书。第69页，不前不后，是一本书最真实的“日常状态”。你和这本书合不合，翻开这一页就知道了。",
-      "tags": [
-        "如何阅读"
-      ],
-      "createdAt": "2026-05-31T06:18:13.108Z",
-      "updatedAt": "2026-06-01T00:12:08.754Z"
-    },
-    {
-      "id": "mptegqwxn6ncracnm1",
-      "content": "罗素说：“聪明人失于轻信，蠢人却失于执拗。”",
-      "tags": [],
-      "createdAt": "2026-05-31T06:29:43.617Z",
-      "updatedAt": "2026-05-31T06:29:43.617Z"
-    },
-    {
-      "id": "mprk5xh55omp8kh43sd",
-      "content": "往返机票便宜点，适合行程确定的。",
-      "tags": [
-        "生活"
-      ],
-      "createdAt": "2026-05-29T23:33:44.250Z",
-      "updatedAt": "2026-05-29T23:33:44.250Z"
-    },
-    {
-      "id": "mpp1878my7rew654n1",
-      "content": "你担心的不是任务本身，而是任务背后可能带来的持续追问、解释、调整，以及那种“永远做不完”的失控感。自己为任务画个句号，或者逗号也可以，留给明天的自己。",
-      "tags": [],
-      "createdAt": "2026-05-28T05:08:05.158Z",
-      "updatedAt": "2026-05-28T05:08:05.158Z"
-    },
-    {
-      "id": "mpo85ctc6n79ilcirrg",
-      "content": "所有你主动去做的事情，都会滋养你。所有你被动去做的事情，都会消耗你。未被觉察的内在冲突，终将成为外在命运。",
-      "tags": [],
-      "createdAt": "2026-05-27T15:34:03.552Z",
-      "updatedAt": "2026-05-27T15:34:03.552Z"
-    },
-    {
-      "id": "mpo82qxjwkg1fmoaerp",
-      "content": "一直周旋，不情绪化地迂回，不是说要做小伏低，委屈求全，而是在拉扯中维护自己的权益，达到自己的目的。",
-      "tags": [],
-      "createdAt": "2026-05-27T15:32:01.879Z",
-      "updatedAt": "2026-05-27T15:32:01.879Z"
-    },
-    {
-      "id": "mpo0vw1qto73yvvfhz9",
-      "content": "个人用户（手机、宽带）的公众业务竞争激烈、利润薄。真正赚钱的、高价值的业务是政企客户（政府、企业、金融、医疗等机构）。\n· 你的理解没错：总监说的“不是对公众，而是对什么业务”，大概率就是政企客户。他们的需求更复杂、单价高、粘性强。\n2. 承载网与高价值业务\n· 承载网：电信网络里专门用来传输高价值业务（如企业专线、数据中心互联）的网络层，区别于普通上网流量。\n· 2M业务月入1000元：这是一个典型的企业专线业务（比如银行网点到总部的数据专线）。2M带宽虽然小，但保证稳定、低延迟、高可靠性，所以单价高。相比公众用户100M宽带几十元，政企业务利润极高。\n3. 业务形态：点到点 vs 点到多点\n· 点到点（P2P）：两个固定地点之间的专线连接，比如银行总部到分行。\n· 点到多点（P2MP）：一个中心点连接多个分支，比如政府数据中心到各个政务大厅。一些复杂的组网还会用到多点互联（MPLS VPN）。\n4. 云中台的角色与你的价值\n· 云中台：负责制定技术方案、选型设备（比如用哪家厂商的路由器、如何配置云资源）。但他们不一定精通所有底层网络细节。\n· 你的机会：如果云中台遇到不懂的（比如特定网络协议、承载网优化、安全策略），就需要专业技术支撑。总监的意思是：你要成为那个“被求助的人”，即能解决别人解决不了的网络技术难题。这样的人才是稀缺、有价值的。\n5. 算力集群 = 一张“新网”\n· 背景：中国在单点算力（比如单个GPU性能）上暂时落后国外，所以采用算力集群（多台服务器、GPU协同工作）来弥补性能差距。\n· 核心观点：算力集群本质是通过网络把分散的计算资源连接成一个整体，所以它是一张“算力网”。这意味着：· 你不仅要懂传统承载网（专线、路由），还要懂算力调度、数据中心网络、分布式存储。\n  · 未来网络和计算会深度融合，对网络的理解越深（低延迟、高吞吐、智能路由），就越能支撑算力集群的效率。\n\n\n\n\n总结：总监希望你成为什么样的人？\n\n\n\n\n1. 懂业务：知道政企客户的高价值场景（专线、云连接、算力集群）。\n2. 懂技术：精通承载网（MPLS、SRv6、SD-WAN等），能解决云中台解决不了的网络难题。\n3. 懂趋势：理解“算力即网络”的未来，能从网络视角优化算力集群效率。\n\n\n\n\n下一步行动建议：\n\n\n\n\n· 啃硬技术：重点学承载网技术（如MPLS、SRv6、FlexE）、数据中心网络（VXLAN、EVPN）、算力网络（算力感知、调度）。\n· 对标政企场景：去了解一个真实案例，比如银行专线、政务云互联，试着画出网络拓扑和业务流。\n· 主动支撑：下次云中台遇到网络问题，主动请缨去解决，积累实战经验。\n你总监的这番话其实是在给你画一个“专家成长路线图”——从懂网络，到懂承载网，再到懂算力网，最终成为不可替代的技术专家。加油！",
-      "tags": [
-        "技术"
-      ],
-      "createdAt": "2026-05-27T12:10:44.606Z",
-      "updatedAt": "2026-05-27T15:25:05.775Z"
-    },
-    {
-      "id": "mpktum2c4br7tizru94",
-      "content": "关系结构（如工作性质、生活阶段）天然导致资源分配不均，这不代表对方不爱你。",
-      "tags": [],
-      "createdAt": "2026-05-25T06:30:29.172Z",
-      "updatedAt": "2026-05-25T06:30:29.172Z"
-    },
-    {
-      "id": "mpkt5iu2dwpxvpeo7hc",
-      "content": "你的“一心一意”是主动选择，而他的“分精力”是客观现实。不平衡的根源不是他爱不爱你，而是你内心“公平感”的标尺在报警——你希望自己的付出得到对等的关注和回报，但关系结构本身决定了资源无法完全对称。",
-      "tags": [],
-      "createdAt": "2026-05-25T06:10:58.586Z",
-      "updatedAt": "2026-05-25T06:10:58.586Z"
-    },
-    {
-      "id": "mpk9401r6067cnbozdr",
-      "content": "有主体性的人，不是“不计较”，而是主动选择计较什么、如何计较。  “我的‘计较’是筛选关系的标尺——它帮我识别谁愿意尊重我的边界。” “被说计较时，我可以好奇对方的逻辑，而不是立刻自我怀疑。”",
-      "tags": [],
-      "createdAt": "2026-05-24T20:49:55.265Z",
-      "updatedAt": "2026-05-24T20:49:55.265Z"
-    },
-    {
-      "id": "mpj530q0sy2w4daelm",
-      "content": "在没有行动之前，你永远想不清楚。因为大部分关键信息，不藏在你的脑子里，藏在你还没去做的那件事里。与其在原地猜，不如先干一步，用结果换信息。",
-      "tags": [],
-      "createdAt": "2026-05-24T02:09:24.840Z",
-      "updatedAt": "2026-05-24T02:09:24.840Z"
-    },
-    {
-      "id": "mpgqko8hkldywluk9q",
-      "content": "很多工作之所以觉得累，是因为你在重复“确认别人本该确认的事”。你举的例子非常典型——从“给他们看”到“让他们看流程”，本质是从执行者变成了规则制定者。\n方法：建立“流程锚点”。每接到一个琐碎任务，先问自己：“这个判断，能不能让流程/规则/清单替我做完？” 如果答案是能，就立刻去建那个流程，而不是埋头干活。",
-      "tags": [],
-      "createdAt": "2026-05-22T09:47:41.873Z",
-      "updatedAt": "2026-05-23T02:19:06.193Z"
-    },
-    {
-      "id": "mpfdhd6mqt5qgruibj",
-      "content": "你有没有这种感觉：问题就像韭菜，割一茬长一茬。天天忙着救火，越忙越乱，永远解决不完。著名学者、商业思想家吴伯凡老师有一个判断：你所要解决的问题，常常是你自己不自觉地制造出来的。\n你怎么看一件事，你的态度和行为会反过来塑造那件事，最后让结果符合你的预判——这就叫“自我实现的预言”。\n停止无效解决：导致问题的思维，解决不了问题。思维没变，最好的结果不过是问题暂时被压住。斩草没除根——根不在事情那儿，而在你的思维方式里。你以为问题解决了，其实它只是换了个地方再冒出来。",
-      "tags": [
-        "方法1：给每件事一个闭环仪式；2、每天只保留3件事"
-      ],
-      "createdAt": "2026-05-21T10:53:26.398Z",
-      "updatedAt": "2026-05-22T08:38:13.273Z"
-    },
-    {
-      "id": "mpeulf2bu2rp7g3y9oj",
-      "content": "增城反馈：已拆除的光交箱拆除、机房…还有巡检工单派下来。\n巡检工单偶尔有扫码问题：不是抽查，可能是全量，超级多根本扫不完。",
-      "tags": [],
-      "createdAt": "2026-05-21T02:04:42.756Z",
-      "updatedAt": "2026-05-21T09:47:06.874Z"
-    },
-    {
-      "id": "mpeqq6txgab0adm593",
-      "content": "同和是163网的核心路由器节点，这个设备是算力同和机楼的人维护，涉及的波分系统也是长途波分。如果涉及了本地的光路，会派给白云同和支局的综维人员。",
-      "tags": [],
-      "createdAt": "2026-05-21T00:16:26.901Z",
-      "updatedAt": "2026-05-21T00:16:26.901Z"
-    },
-    {
-      "id": "mpde4qrtl36edk9ulc",
-      "content": "SDH和WDM路径有什么区别：SDH基于时分复用（TDM）实现单一光纤上多路信号的同步传输，而WDM基于波分复用技术，在同一光纤上同时传输多个不同波长的光信号。",
-      "tags": [],
-      "createdAt": "2026-05-20T01:36:04.745Z",
-      "updatedAt": "2026-05-20T01:36:04.745Z"
-    },
-    {
-      "id": "mpcc9wbungatpq0j8m",
-      "content": "资源系统导出退网已拆除清单（正常是找不到的）->检查县分台账，退网已拆除的，移交后系统才会更新。",
-      "tags": [],
-      "createdAt": "2026-05-19T07:56:19.818Z",
-      "updatedAt": "2026-05-19T07:57:39.503Z"
-    },
-    {
-      "id": "mpbwhg6dthmd12xm6v",
-      "content": "华为nce和烽火otn都只扫描网关网元，省公司安全室扫描的，不用我们扫",
-      "tags": [
-        "网安"
-      ],
-      "createdAt": "2026-05-19T00:34:18.277Z",
-      "updatedAt": "2026-05-19T00:47:18.674Z"
-    }
-  ],
-  "projects": [
-    {
-      "id": "1779778092169",
-      "name": "退网",
-      "description": "",
-      "type": "medium",
-      "mainDirection": "",
-      "subDirections": [
-        {
-          "id": "1780299628162",
-          "name": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
-          "completed": false
-        },
-        {
-          "id": "1782872884033",
-          "name": "制定第三季度退网目标，跟总监反馈天河退网情况",
-          "completed": false
-        }
-      ],
-      "milestones": [],
-      "manualProgress": 0,
-      "autoProgress": 0,
-      "status": "active",
-      "createdAt": "2026-05-26T06:48:12.169Z",
-      "updatedAt": "2026-06-01T06:35:06.402Z",
-      "targetDate": ""
-    },
-    {
-      "id": "1780271273894",
-      "name": "数字化",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-05-31T23:47:53.894Z",
-      "updatedAt": "2026-05-31T23:47:53.894Z",
-      "subDirections": [],
-      "milestones": []
-    },
-    {
-      "id": "1780299661890",
-      "name": "网信安",
-      "description": "",
-      "type": "medium",
-      "mainDirection": "",
-      "subDirections": [
-        {
-          "id": "1782872959022",
-          "name": "跟进网关上联接入交换机的安全策略",
-          "completed": false
-        }
-      ],
-      "milestones": [],
-      "manualProgress": 0,
-      "autoProgress": 0,
-      "status": "active",
-      "createdAt": "2026-06-01T07:41:01.890Z",
-      "updatedAt": "2026-06-01T07:41:01.890Z",
-      "targetDate": ""
-    },
-    {
-      "id": "1780299687739",
-      "name": "新建工程验收",
-      "description": "",
-      "type": "medium",
-      "mainDirection": "",
-      "subDirections": [
-        {
-          "id": "1782873084155",
-          "name": "更新RPA最新进度，核查不能抓取局端数据的原因",
-          "completed": false
-        }
-      ],
-      "milestones": [],
-      "manualProgress": 0,
-      "autoProgress": 0,
-      "status": "active",
-      "createdAt": "2026-06-01T07:41:27.739Z",
-      "updatedAt": "2026-06-01T07:41:27.739Z",
-      "targetDate": ""
-    },
-    {
-      "id": "1780529538525",
-      "name": "团支部",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-06-03T23:32:18.525Z",
-      "updatedAt": "2026-06-03T23:32:18.525Z",
-      "subDirections": [
-        {
-          "id": "1782872998486",
-          "name": "优化第三季度团日学习的形式",
-          "completed": false
-        }
-      ],
-      "milestones": [],
-      "manualProgress": 24
-    },
-    {
-      "id": "1780970860323",
-      "name": "检查工作",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-06-09T02:07:40.323Z",
-      "updatedAt": "2026-06-09T02:07:40.323Z",
-      "subDirections": [],
-      "milestones": []
-    },
-    {
-      "id": "1780978895521",
-      "name": "AI",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-06-09T04:21:35.521Z",
-      "updatedAt": "2026-06-09T04:21:35.521Z",
-      "subDirections": [
-        {
-          "id": "1781507210536",
-          "name": "小红书收藏视频链接放入知识库，问答助手返回回答结果",
-          "completed": false
-        },
-        {
-          "id": "1781507226839",
-          "name": "影刀+python组合，自动化拆运单判断",
-          "completed": false
-        }
-      ],
-      "milestones": []
-    },
-    {
-      "id": "1780980764710",
-      "name": "一些杂事",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-06-09T04:52:44.710Z",
-      "updatedAt": "2026-06-09T04:52:44.710Z",
-      "subDirections": [],
-      "milestones": []
-    },
-    {
-      "id": "1781685860305",
-      "name": "拆运一体",
-      "description": "",
-      "status": "active",
-      "createdAt": "2026-06-17T08:44:20.305Z",
-      "updatedAt": "2026-06-17T08:44:20.305Z",
-      "subDirections": [],
-      "milestones": []
-    }
-  ],
+  "recentFocuses": [],
+  "tagConfig": {},
+  "dailyTimeline": {},
+  "taskTriggers": [],
+  "knowledgeBase": [],
+  "projects": [],
   "aiContents": [
     {
       "id": "1779881182228we90fbmec",
@@ -3649,36 +2688,8 @@
     }
   ],
   "trackerConfig": {
-    "projectId": "1780299661890",
-    "directions": [
-      "跟进网关上联接入交换机的安全策略"
-    ],
-    "selectedItems": [
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
-        "addedAt": 1782206979921
-      },
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "制定第三季度退网目标，跟总监反馈天河退网情况",
-        "addedAt": 1782873033489
-      },
-      {
-        "projectId": "1780299661890",
-        "projectName": "网信安",
-        "direction": "跟进网关上联接入交换机的安全策略",
-        "addedAt": 1782873038791
-      },
-      {
-        "projectId": "1780299687739",
-        "projectName": "新建工程验收",
-        "direction": "更新RPA最新进度，核查不能抓取局端数据的原因",
-        "addedAt": 1782873093609
-      }
-    ]
+    "projectId": "",
+    "directions": []
   },
   "practiceScenarios": [
     {
@@ -5394,159 +4405,132 @@
       {
         "id": "gpt-3.5-turbo",
         "name": "GPT-3.5 Turbo",
-        "provider": "openai",
-        "enabled": true
+        "provider": "openai"
       },
       {
         "id": "gpt-4",
         "name": "GPT-4",
-        "provider": "openai",
-        "enabled": true
+        "provider": "openai"
       },
       {
         "id": "gpt-4-turbo",
         "name": "GPT-4 Turbo",
-        "provider": "openai",
-        "enabled": true
+        "provider": "openai"
       },
       {
         "id": "gpt-4o",
         "name": "GPT-4o",
-        "provider": "openai",
-        "enabled": true
+        "provider": "openai"
       },
       {
         "id": "gpt-4o-mini",
         "name": "GPT-4o Mini",
-        "provider": "openai",
-        "enabled": true
+        "provider": "openai"
       },
       {
         "id": "claude-3-sonnet",
         "name": "Claude 3 Sonnet",
-        "provider": "anthropic",
-        "enabled": true
+        "provider": "anthropic"
       },
       {
         "id": "claude-3-opus",
         "name": "Claude 3 Opus",
-        "provider": "anthropic",
-        "enabled": true
+        "provider": "anthropic"
       },
       {
         "id": "claude-3.5-sonnet",
         "name": "Claude 3.5 Sonnet",
-        "provider": "anthropic",
-        "enabled": true
+        "provider": "anthropic"
       },
       {
         "id": "deepseek-chat",
         "name": "DeepSeek Chat",
-        "provider": "deepseek",
-        "enabled": true
+        "provider": "deepseek"
       },
       {
         "id": "deepseek-coder",
         "name": "DeepSeek Coder",
-        "provider": "deepseek",
-        "enabled": true
+        "provider": "deepseek"
       },
       {
         "id": "qwen-turbo",
         "name": "Qwen Turbo (千问极速版)",
-        "provider": "qwen",
-        "enabled": true
+        "provider": "qwen"
       },
       {
         "id": "qwen-plus",
         "name": "Qwen Plus (千问增强版)",
-        "provider": "qwen",
-        "enabled": true
+        "provider": "qwen"
       },
       {
         "id": "qwen-max",
         "name": "Qwen Max (千问旗舰版)",
-        "provider": "qwen",
-        "enabled": true
+        "provider": "qwen"
       },
       {
         "id": "qwen-long",
         "name": "Qwen Long (千问长文本)",
-        "provider": "qwen",
-        "enabled": true
+        "provider": "qwen"
       },
       {
         "id": "glm-4",
         "name": "GLM-4",
-        "provider": "zhipu",
-        "enabled": true
+        "provider": "zhipu"
       },
       {
         "id": "glm-4-flash",
         "name": "GLM-4 Flash",
-        "provider": "zhipu",
-        "enabled": true
+        "provider": "zhipu"
       },
       {
         "id": "glm-3-turbo",
         "name": "GLM-3 Turbo",
-        "provider": "zhipu",
-        "enabled": true
+        "provider": "zhipu"
       },
       {
         "id": "ernie-bot-4",
         "name": "ERNIE Bot 4.0 (文心一言4.0)",
-        "provider": "baidu",
-        "enabled": true
+        "provider": "baidu"
       },
       {
         "id": "ernie-bot-turbo",
         "name": "ERNIE Bot Turbo (文心一言Turbo)",
-        "provider": "baidu",
-        "enabled": true
+        "provider": "baidu"
       },
       {
         "id": "ernie-bot",
         "name": "ERNIE Bot (文心一言)",
-        "provider": "baidu",
-        "enabled": true
+        "provider": "baidu"
       },
       {
         "id": "hunyuan-lite",
         "name": "Hunyuan Lite (混元轻量版)",
-        "provider": "tencent",
-        "enabled": true
+        "provider": "tencent"
       },
       {
         "id": "hunyuan-standard",
         "name": "Hunyuan Standard (混元标准版)",
-        "provider": "tencent",
-        "enabled": true
+        "provider": "tencent"
       },
       {
         "id": "hunyuan-pro",
         "name": "Hunyuan Pro (混元专业版)",
-        "provider": "tencent",
-        "enabled": true
+        "provider": "tencent"
       },
       {
         "id": "kimi-k2.6",
         "name": "Kimi K2.6",
-        "provider": "moonshot",
-        "enabled": true,
-        "isDefault": true
+        "provider": "moonshot"
       },
       {
         "id": "moonshot-v1-32k",
         "name": "Kimi 32K",
-        "provider": "moonshot",
-        "enabled": true
+        "provider": "moonshot"
       },
       {
         "id": "moonshot-v1-128k",
         "name": "Kimi 128K",
-        "provider": "moonshot",
-        "enabled": true
+        "provider": "moonshot"
       }
     ]
   },
