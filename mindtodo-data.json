@@ -3920,7 +3920,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_8",
@@ -3935,7 +3935,8 @@
       "answer": "C",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_9",
@@ -3995,7 +3996,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_13",
@@ -4025,7 +4027,8 @@
       "answer": "C",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_15",
@@ -4071,7 +4074,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_18",
@@ -4191,7 +4195,8 @@
       "answer": "CD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_26",
@@ -4342,7 +4347,8 @@
       "answer": "BC",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_36",
