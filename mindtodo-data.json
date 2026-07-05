@@ -3850,6 +3850,22 @@
       "status": "pending",
       "createdAt": "2026-07-05T06:04:31.738Z",
       "updatedAt": "2026-07-05T06:04:31.739Z"
+    },
+    {
+      "id": "mr7xrqtsd57f6t3t6mu",
+      "content": "# 为什么选这个答案\n\n## AI 解答\n\n答案是 **B. 错误** ❌\n\n**为什么错？** 简单来说，**高阶调制能提高速率，但会缩短传输距离**，而不是更远。😅\n\n**打个比方** 🚗：  \n- **低阶调制（如QPSK）** = 普通公路，车速慢（速率低），但路况要求低，能开很远（传输距离远）。  \n- **高阶调制（如64QAM、256QAM）** = 赛车跑道，车速快（速率高），但路面必须非常平整（信噪比要求高），稍微有点颠簸（干扰或衰减）就跑不动了，所以只能跑短距离。  \n\n**核心原因** 🔍：  \n高阶调制把更多比特“挤”在一个符号里，信号状态更密集（比如256QAM有256种相位+幅度组合）。一旦传输距离变远，信号会衰减、噪声变大，这些细微的“状态”就容易被混淆，导致误码率飙升。所以为了保证通信质量，高阶调制**只能用在距离近、信号好的场景**（比如5G基站覆盖的小范围），而远距离通信（如卫星、深海）反而用低阶调制。\n\n**一句话总结** 📝：  \n高阶调制= **速率高** ⚡ + **距离短** 📏；低阶调制= **速率低** 🐢 + **距离长** 🛤️。题目说“更远的传输距离”，正好说反了，所以选错误。",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-05T15:18:38.224Z",
+      "updatedAt": "2026-07-05T15:18:38.224Z"
+    },
+    {
+      "id": "mr7yavkiji14kqpda6s",
+      "content": "# 除了otuk层还有什么层\n\n## AI 解答\n\n🔍 **题目解析**：题目本身说“OTUk_LOF是OTUk层告警”，这其实是**正确**的（OTUk层确实有LOF告警），但答案给的是“错误”，可能是因为题目描述中的细节（如5ms时间参数）与实际标准不完全一致。不过，你问的是另一个问题：\n\n---\n\n❓ **用户问题：除了OTUk层，还有什么层？**\n\n在光传送网（OTN）中，除了 **OTUk（光信道传送单元k级）**，主要还有以下层级（从低到高）👇\n\n1. **OPUk（光信道净荷单元k级）** 🧳  \n   - 负责承载客户信号（如以太网、SDH等），类似“集装箱”。\n\n2. **ODUk（光信道数据单元k级）** 📦  \n   - 在OPUk外面加一层开销（用于管理、监控），类似“带标签的集装箱”。\n\n3. **OTUk（光信道传送单元k级）** 🚚  \n   - 在ODUk外面再加前向纠错（FEC）和帧对齐开销，用于线路传输，**LOF告警就发生在这层**。\n\n4. **OCh（光信道层）** 💡  \n   - 物理光信号层，对应波长、光功率等。\n\n5. **OMS（光复用段层）** 🌐  \n   - 多个波长复用在一起传输。\n\n6. **OTS（光传输段层）** 🔌  \n   - 光缆、放大器等物理介质。\n\n---\n\n🧠 **简单记忆**：  \n- **OPUk**：装货  \n- **ODUk**：贴标签  \n- **OTUk**：加保护（FEC）后上路  \n- **OCh/OMS/OTS**：光路上跑\n\n所以，OTUk只是中间一层，上下还有好多层哦～😊",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-05T15:33:30.835Z",
+      "updatedAt": "2026-07-05T15:33:30.835Z"
     }
   ],
   "practiceQuestions": [
@@ -3945,7 +3961,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_7",
@@ -4023,7 +4040,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_12",
@@ -4039,7 +4057,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_13",
@@ -4101,7 +4119,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_17",
@@ -4132,7 +4150,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_19",
@@ -4162,7 +4181,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_21",
@@ -4208,7 +4228,8 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_24",
@@ -4317,7 +4338,8 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_31",
@@ -4378,7 +4400,8 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_35",
@@ -4425,7 +4448,8 @@
       "answer": "ABC",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-04T23:53:34.898Z"
+      "createdAt": "2026-07-04T23:53:34.898Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_38",
@@ -4559,7 +4583,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_47",
@@ -4586,7 +4611,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_49",
@@ -4669,7 +4695,8 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_55",
@@ -4682,7 +4709,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_1",
