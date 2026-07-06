@@ -92,8 +92,7 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_7",
@@ -171,8 +170,7 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_12",
@@ -188,7 +186,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "CSL3_13",
@@ -250,7 +248,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "CSL3_17",
@@ -281,8 +279,7 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "wrong"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_19",
@@ -312,8 +309,7 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "wrong"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_21",
@@ -359,8 +355,7 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "wrong"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_24",
@@ -469,8 +464,7 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "correct"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_31",
@@ -531,8 +525,7 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "createdAt": "2026-07-01T09:45:55.801Z"
     },
     {
       "id": "CSL3_35",
@@ -579,8 +572,7 @@
       "answer": "ABC",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-04T23:53:34.898Z",
-      "status": "unknown"
+      "createdAt": "2026-07-04T23:53:34.898Z"
     },
     {
       "id": "CSL3_38",
@@ -714,8 +706,7 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "correct"
+      "createdAt": "2026-07-01T09:45:55.802Z"
     },
     {
       "id": "CSL3_47",
@@ -742,8 +733,7 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "correct"
+      "createdAt": "2026-07-01T09:45:55.802Z"
     },
     {
       "id": "CSL3_49",
@@ -826,8 +816,7 @@
       "answer": "B",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "unknown"
+      "createdAt": "2026-07-01T09:45:55.802Z"
     },
     {
       "id": "CSL3_55",
@@ -840,8 +829,7 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "unknown"
+      "createdAt": "2026-07-01T09:45:55.802Z"
     },
     {
       "id": "wlaq_1",
@@ -1537,7 +1525,737 @@
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.910Z",
       "status": "correct"
+    },
+    {
+      "id": "wlgcs_1",
+      "type": "single",
+      "question": "OSI参考模型中，哪一层负责端到端的可靠数据传输？",
+      "options": [
+        "A. 物理层",
+        "B. 数据链路层",
+        "C. 网络层",
+        "D. 传输层"
+      ],
+      "answer": "D",
+      "analysis": "传输层提供端到端的可靠或不可靠数据传输服务，如TCP/UDP。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_2",
+      "type": "single",
+      "question": "IP地址192.168.1.0/24的子网掩码是什么？",
+      "options": [
+        "A. 255.0.0.0",
+        "B. 255.255.0.0",
+        "C. 255.255.255.0",
+        "D. 255.255.255.255"
+      ],
+      "answer": "C",
+      "analysis": "/24表示前24位为网络位，对应掩码255.255.255.0。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_3",
+      "type": "single",
+      "question": "在交换机上划分VLAN的主要目的是什么？",
+      "options": [
+        "A. 提高端口密度",
+        "B. 隔离广播域",
+        "C. 增加带宽",
+        "D. 延长传输距离"
+      ],
+      "answer": "B",
+      "analysis": "VLAN可以隔离广播域，提高网络安全性并减少广播流量。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_4",
+      "type": "single",
+      "question": "以下哪种路由协议属于距离矢量协议？",
+      "options": [
+        "A. OSPF",
+        "B. RIP",
+        "C. BGP",
+        "D. IS-IS"
+      ],
+      "answer": "B",
+      "analysis": "RIP基于跳数作为度量，是典型的距离矢量路由协议。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_5",
+      "type": "single",
+      "question": "TCP三次握手中，第二次握手发送的报文标志位是？",
+      "options": [
+        "A. SYN",
+        "B. ACK",
+        "C. SYN+ACK",
+        "D. FIN"
+      ],
+      "answer": "C",
+      "analysis": "第二次握手由服务器发送，携带SYN和ACK标志位。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_6",
+      "type": "single",
+      "question": "以太网MAC地址的长度是多少位？",
+      "options": [
+        "A. 32位",
+        "B. 48位",
+        "C. 64位",
+        "D. 128位"
+      ],
+      "answer": "B",
+      "analysis": "MAC地址长度为48位，通常表示为12个十六进制数。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_7",
+      "type": "single",
+      "question": "下列哪种设备工作在OSI模型的网络层？",
+      "options": [
+        "A. 集线器",
+        "B. 交换机",
+        "C. 路由器",
+        "D. 网桥"
+      ],
+      "answer": "C",
+      "analysis": "路由器根据IP地址进行路由转发，工作在网络层。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_8",
+      "type": "single",
+      "question": "IPv6地址长度比IPv4增加了多少位？",
+      "options": [
+        "A. 32位",
+        "B. 64位",
+        "C. 96位",
+        "D. 128位"
+      ],
+      "answer": "C",
+      "analysis": "IPv4为32位，IPv6为128位，增加了96位。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_9",
+      "type": "single",
+      "question": "在DNS解析中，A记录的作用是？",
+      "options": [
+        "A. 将域名解析为IPv6地址",
+        "B. 将域名解析为IPv4地址",
+        "C. 将域名别名指向另一个域名",
+        "D. 定义邮件交换服务器"
+      ],
+      "answer": "B",
+      "analysis": "A记录（Address Record）将域名映射到IPv4地址。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_10",
+      "type": "single",
+      "question": "以太网CSMA/CD协议中，冲突检测机制主要用于哪种传输模式？",
+      "options": [
+        "A. 全双工",
+        "B. 半双工",
+        "C. 单工",
+        "D. 多工"
+      ],
+      "answer": "B",
+      "analysis": "CSMA/CD用于半双工共享介质环境，检测冲突后重传。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_11",
+      "type": "single",
+      "question": "以下哪个是私有IP地址段？",
+      "options": [
+        "A. 10.0.0.0/8",
+        "B. 172.32.0.0/16",
+        "C. 192.169.0.0/16",
+        "D. 224.0.0.0/8"
+      ],
+      "answer": "A",
+      "analysis": "私有地址包括10.0.0.0/8、172.16.0.0/12、192.168.0.0/16。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_12",
+      "type": "single",
+      "question": "SNMP协议使用的默认传输层协议和端口是？",
+      "options": [
+        "A. TCP 161",
+        "B. TCP 162",
+        "C. UDP 161",
+        "D. UDP 162"
+      ],
+      "answer": "C",
+      "analysis": "SNMP使用UDP 161用于代理接收请求，162用于Trap。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_13",
+      "type": "single",
+      "question": "在无线局域网中，AP（接入点）的主要功能是？",
+      "options": [
+        "A. 分配IP地址",
+        "B. 连接有线网络和无线网络",
+        "C. 加密数据",
+        "D. 路由选择"
+      ],
+      "answer": "B",
+      "analysis": "AP作为无线终端与有线网络的桥接设备。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_14",
+      "type": "single",
+      "question": "下列哪种攻击属于主动攻击？",
+      "options": [
+        "A. 窃听",
+        "B. 流量分析",
+        "C. 重放攻击",
+        "D. 端口扫描"
+      ],
+      "answer": "C",
+      "analysis": "重放攻击主动向网络发送恶意数据包，属于主动攻击。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_15",
+      "type": "single",
+      "question": "生成树协议（STP）的作用是？",
+      "options": [
+        "A. 防止IP地址冲突",
+        "B. 防止二层环路",
+        "C. 提高路由效率",
+        "D. 实现负载均衡"
+      ],
+      "answer": "B",
+      "analysis": "STP通过阻塞冗余端口消除二层网络中的环路。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_16",
+      "type": "single",
+      "question": "HTTP默认使用的TCP端口号是？",
+      "options": [
+        "A. 21",
+        "B. 25",
+        "C. 80",
+        "D. 443"
+      ],
+      "answer": "C",
+      "analysis": "HTTP默认端口80，HTTPS为443。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_17",
+      "type": "single",
+      "question": "以下哪种编码方式用于100Base-TX以太网？",
+      "options": [
+        "A. NRZ",
+        "B. 曼彻斯特",
+        "C. 4B/5B",
+        "D. 8B/10B"
+      ],
+      "answer": "C",
+      "analysis": "100Base-TX采用4B/5B编码，配合MLT-3线路编码。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_18",
+      "type": "single",
+      "question": "NAT技术中，静态转换的特点是？",
+      "options": [
+        "A. 动态分配公网地址",
+        "B. 一对一的固定映射",
+        "C. 多个私有IP共享一个公网IP",
+        "D. 自动分配端口"
+      ],
+      "answer": "B",
+      "analysis": "静态NAT将私有IP固定映射到公有IP。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_19",
+      "type": "single",
+      "question": "在Linux中，用于查看路由表的命令是？",
+      "options": [
+        "A. ipconfig",
+        "B. route print",
+        "C. route -n",
+        "D. show ip route"
+      ],
+      "answer": "C",
+      "analysis": "Linux下使用 route -n 或 ip route 查看路由表。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_20",
+      "type": "single",
+      "question": "光纤通信中，单模光纤与多模光纤的主要区别是？",
+      "options": [
+        "A. 传输距离不同",
+        "B. 芯径尺寸不同",
+        "C. 色散大小不同",
+        "D. 以上都是"
+      ],
+      "answer": "D",
+      "analysis": "单模芯径小（约9μm），传输距离远，色散小；多模芯径大（50/62.5μm）。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_21",
+      "type": "single",
+      "question": "ICMP协议中，用于测试连通性的消息类型是？",
+      "options": [
+        "A. Echo Request/Reply",
+        "B. Redirect",
+        "C. Time Exceeded",
+        "D. Parameter Problem"
+      ],
+      "answer": "A",
+      "analysis": "Ping命令使用ICMP Echo Request和Echo Reply。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_22",
+      "type": "single",
+      "question": "子网192.168.1.32/28的广播地址是？",
+      "options": [
+        "A. 192.168.1.32",
+        "B. 192.168.1.47",
+        "C. 192.168.1.255",
+        "D. 192.168.1.63"
+      ],
+      "answer": "B",
+      "analysis": "/28块大小为16，广播地址为网络号+15，即32+15=47。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_23",
+      "type": "single",
+      "question": "以下哪个是可靠的面向连接的传输协议？",
+      "options": [
+        "A. UDP",
+        "B. IP",
+        "C. ICMP",
+        "D. TCP"
+      ],
+      "answer": "D",
+      "analysis": "TCP提供面向连接、可靠的数据流传输。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_24",
+      "type": "single",
+      "question": "访问控制列表（ACL）的类型中，标准ACL基于什么进行过滤？",
+      "options": [
+        "A. 源IP地址",
+        "B. 目标IP地址",
+        "C. 源端口号",
+        "D. 协议类型"
+      ],
+      "answer": "A",
+      "analysis": "标准ACL仅检查源IP地址，扩展ACL可检查更多字段。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_25",
+      "type": "single",
+      "question": "在OSPF中，DR（指定路由器）的作用是？",
+      "options": [
+        "A. 备份链路",
+        "B. 减少邻接关系数量",
+        "C. 路由汇总",
+        "D. 生成默认路由"
+      ],
+      "answer": "B",
+      "analysis": "DR在广播网络中减少LSA泛洪和邻接数，BDR为备份。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_26",
+      "type": "multiple",
+      "question": "以下属于网络层协议的有哪些？",
+      "options": [
+        "A. IP",
+        "B. ICMP",
+        "C. ARP",
+        "D. TCP"
+      ],
+      "answer": "AB",
+      "analysis": "IP和ICMP工作在网络层。ARP属于网络层但更偏向链路层，TCP为传输层。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_27",
+      "type": "multiple",
+      "question": "哪些设备可以用于扩展局域网？",
+      "options": [
+        "A. 集线器",
+        "B. 交换机",
+        "C. 路由器",
+        "D. 网桥"
+      ],
+      "answer": "ABD",
+      "analysis": "集线器、交换机和网桥均用于扩展LAN，路由器用于连接不同网络。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_28",
+      "type": "multiple",
+      "question": "关于VLAN间通信，可行的方式有？",
+      "options": [
+        "A. 单臂路由",
+        "B. 三层交换机",
+        "C. SVI接口",
+        "D. 物理路由器的多个物理接口"
+      ],
+      "answer": "ABCD",
+      "analysis": "单臂路由、三层SVI、路由器多接口均可实现VLAN间路由。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_29",
+      "type": "multiple",
+      "question": "下列哪些是无线网络安全协议？",
+      "options": [
+        "A. WEP",
+        "B. WPA",
+        "C. WPA2",
+        "D. WPS"
+      ],
+      "answer": "ABC",
+      "analysis": "WEP/WPA/WPA2是无线加密协议，WPS为简化配置，非加密协议。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_30",
+      "type": "multiple",
+      "question": "在TCP/IP协议栈中，属于应用层协议的有？",
+      "options": [
+        "A. FTP",
+        "B. SMTP",
+        "C. TELNET",
+        "D. DHCP"
+      ],
+      "answer": "ABCD",
+      "analysis": "FTP、SMTP、Telnet、DHCP均为应用层协议。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_31",
+      "type": "judge",
+      "question": "IP地址127.0.0.1用于本地环回测试，不能分配给主机使用。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "127.0.0.1是环回地址，用于本地测试，不可用于网络接口。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_32",
+      "type": "judge",
+      "question": "交换机转发数据时，如果MAC地址表中没有目标MAC，则丢弃该帧。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "错误",
+      "analysis": "交换机若找不到目标MAC，会向除接收端口外的所有端口泛洪（广播）。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_33",
+      "type": "judge",
+      "question": "VLAN ID的取值范围是1-4096。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "错误",
+      "analysis": "VLAN ID有效范围为1-4094，4095保留。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_34",
+      "type": "judge",
+      "question": "路由器在转发数据包时，会修改数据包的MAC地址但不会修改IP地址（NAT场景除外）。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "路由转发时源和目标MAC每次跳变，IP不变（除非NAT）。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_35",
+      "type": "judge",
+      "question": "无线网络中的SSID广播关闭后，无线终端无法连接该网络。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "错误",
+      "analysis": "关闭SSID广播后，终端可手动输入SSID连接，并非无法连接。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_36",
+      "type": "judge",
+      "question": "端口号范围0-1023为知名端口，由IANA分配。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "0-1023为知名端口，1024-49151为注册端口，49152-65535动态。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_37",
+      "type": "judge",
+      "question": "交换机所有端口默认属于VLAN 1，且VLAN 1不能被删除。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "VLAN 1为默认VLAN，通常不可删除。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_38",
+      "type": "judge",
+      "question": "BGP是内部网关协议（IGP）。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "错误",
+      "analysis": "BGP是外部网关协议（EGP），用于AS之间。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_39",
+      "type": "judge",
+      "question": "ACL规则必须按顺序匹配，一旦匹配后续规则不再执行。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "ACL按顺序执行，匹配即停止。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_40",
+      "type": "judge",
+      "question": "RSVP协议用于资源预留，可用于QoS保证。",
+      "options": [
+        "A. 正确",
+        "B. 错误"
+      ],
+      "answer": "正确",
+      "analysis": "RSVP（Resource Reservation Protocol）用于网络资源预留。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_41",
+      "type": "indefinite",
+      "question": "以下关于子网划分的说法，正确的有？",
+      "options": [
+        "A. 子网划分增加了可用IP总数",
+        "B. 子网划分减少了广播域大小",
+        "C. 子网划分需要借用主机位",
+        "D. 子网划分可提高网络性能"
+      ],
+      "answer": "BCD",
+      "analysis": "子网划分不增加可用IP总数（反而损失一些），但减少广播域、借主机位、提升性能。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_42",
+      "type": "indefinite",
+      "question": "以太网交换机的转发方式包括？",
+      "options": [
+        "A. 存储转发",
+        "B. 直通转发",
+        "C. 碎片隔离",
+        "D. 帧间隙转发"
+      ],
+      "answer": "ABC",
+      "analysis": "常见方式包括存储转发、直通转发、碎片隔离（无帧间隙转发方式）。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_43",
+      "type": "indefinite",
+      "question": "可能造成网络环路问题的协议或技术有？",
+      "options": [
+        "A. STP",
+        "B. 冗余链路",
+        "C. 广播风暴",
+        "D. 路由环路"
+      ],
+      "answer": "BCD",
+      "analysis": "STP用于避免环路，其他三项可导致环路问题。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_44",
+      "type": "indefinite",
+      "question": "在网络安全中，下列属于认证技术的有？",
+      "options": [
+        "A. 口令认证",
+        "B. 数字证书",
+        "C. 生物特征",
+        "D. RADIUS协议"
+      ],
+      "answer": "ABCD",
+      "analysis": "以上均属于身份认证技术或协议。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_45",
+      "type": "indefinite",
+      "question": "可用于网络性能测试的命令或工具包括？",
+      "options": [
+        "A. ping",
+        "B. tracert",
+        "C. iperf",
+        "D. netstat"
+      ],
+      "answer": "ABC",
+      "analysis": "ping测时延、tracert查路径、iperf测带宽。netstat查看连接状态。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_46",
+      "type": "indefinite",
+      "question": "以下哪些情况会导致IP地址冲突？",
+      "options": [
+        "A. 手动配置相同IP",
+        "B. 重复启用DHCP地址池",
+        "C. DHCP地址池重叠",
+        "D. 同一网段不同子网掩码"
+      ],
+      "answer": "ABC",
+      "analysis": "手动重IP、DHCP池重叠或重复启用可能冲突。不同掩码仍属不同网段不直接冲突。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_47",
+      "type": "indefinite",
+      "question": "OSPF协议中，LSA的类型包括？",
+      "options": [
+        "A. Router LSA",
+        "B. Network LSA",
+        "C. Summary LSA",
+        "D. External LSA"
+      ],
+      "answer": "ABCD",
+      "analysis": "OSPF常见LSA类型：Type1 Router",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_48",
+      "type": "indefinite",
+      "question": "部署IPv6过渡技术时，常用的方案有？",
+      "options": [
+        "A. 双栈",
+        "B. 隧道",
+        "C. 协议转换",
+        "D. NAT64"
+      ],
+      "answer": "ABCD",
+      "analysis": "双栈、隧道（6to4/ISATAP）、NAT64均为IPv6过渡技术。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_49",
+      "type": "indefinite",
+      "question": "在WAN连接中，常用的封装协议有？",
+      "options": [
+        "A. HDLC",
+        "B. PPP",
+        "C. Frame Relay",
+        "D. ATM"
+      ],
+      "answer": "ABCD",
+      "analysis": "HDLC、PPP、帧中继、ATM均为广域网封装协议。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
+    },
+    {
+      "id": "wlgcs_50",
+      "type": "indefinite",
+      "question": "关于VLAN Trunk端口，正确的是？",
+      "options": [
+        "A. 可以传输多个VLAN的流量",
+        "B. 默认允许所有VLAN通过",
+        "C. 需要封装802.1Q或ISL",
+        "D. Trunk端口不能属于某个特定VLAN"
+      ],
+      "answer": "ABC",
+      "analysis": "Trunk可传多VLAN，默认允许所有，需要封装（通常802.1Q），但Trunk端口有本征VLAN（native）。",
+      "subject": "wlgcs",
+      "createdAt": "2026-07-06T09:56:36.538Z"
     }
   ],
-  "lastUpdated": "2026-07-06T08:49:13.808Z"
+  "lastUpdated": "2026-07-06T09:56:47.849Z"
 }
