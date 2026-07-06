@@ -3064,8 +3064,61 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     transition: border-color 0.2s ease;
 }
 
+/* 桌面端：隐藏移动端标签筛选下拉 */
+.tag-filter-mobile {
+    display: none !important;
+}
+
 /* 移动端优化 */
 @media (max-width: 768px) {
+    /* 隐藏桌面端标签筛选，显示移动端下拉 */
+    .tag-filter-desktop {
+        display: none !important;
+    }
+    
+    .tag-filter-mobile {
+        display: flex !important;
+    }
+    
+    /* 移动端标签筛选下拉菜单样式 */
+    #exportTagFilterDropdown {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100px;
+        width: calc(100% - 20px);
+        max-width: 300px;
+        max-height: 200px;
+        overflow-y: auto;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        padding: 8px;
+        flex-direction: column;
+        gap: 6px;
+        /* 注意：不设置 display，由内联样式控制显示/隐藏 */
+    }
+    
+    #exportTagFilterDropdown label {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 6px 8px !important;
+        border-radius: 4px !important;
+        cursor: pointer !important;
+        font-size: 13px !important;
+    }
+    
+    #exportTagFilterDropdown label:hover {
+        background: var(--bg) !important;
+    }
+    
+    #exportTagFilterDropdown input[type="checkbox"] {
+        margin: 0 !important;
+    }
+    
     /* 移动端下拉菜单紧贴工具栏，宽度自适应内容，居中显示 */
     .dropdown-content {
         position: fixed !important;
@@ -8427,38 +8480,53 @@ padding: 7px !important;
                             <button class="btn btn-small btn-secondary" onclick="closeExportKnowledgePanel()">关闭</button>
                         </div>
                         <div class="modal-body" style="max-height:70vh;overflow-y:auto;">
-                            <!-- 选项卡 -->
-                            <div style="display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:12px;">
-                                <button class="btn btn-primary" id="exportKBTab" onclick="switchExportTab('knowledge')" style="padding:6px 16px;">📚 知识库</button>
-                                <button class="btn btn-secondary" id="exportInternalizeTab" onclick="switchExportTab('internalize')" style="padding:6px 16px;">📂 待内化</button>
-                            </div>
-                            
-                            <!-- 工具栏 -->
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:8px;">
-                                <div style="display:flex;gap:8px;flex:1;">
-                                    <input type="text" id="exportSearchInput" placeholder="搜索..." oninput="renderExportList()" style="flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+                            <!-- 选项卡与工具栏合并行 -->
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;">
+                                <!-- 左侧：选项卡 -->
+                                <div style="display:flex;gap:6px;">
+                                    <button class="btn btn-primary btn-small" id="exportKBTab" onclick="switchExportTab('knowledge')" style="padding:5px 12px;font-size:13px;">📚 知识库</button>
+                                    <button class="btn btn-secondary btn-small" id="exportInternalizeTab" onclick="switchExportTab('internalize')" style="padding:5px 12px;font-size:13px;">📂 待内化</button>
                                 </div>
-                                <div style="display:flex;gap:8px;">
-                                    <button class="btn btn-secondary btn-small" id="exportSelectAllBtn" onclick="toggleExportSelectAll()">全选</button>
-                                    <button class="btn btn-success btn-small" onclick="exportSelectedKnowledge()">📤 导出选中</button>
+                                <!-- 右侧：工具栏 -->
+                                <div style="display:flex;gap:6px;align-items:center;">
+                                    <input type="text" id="exportSearchInput" placeholder="搜索..." oninput="renderExportList()" style="padding:5px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;width:160px;">
+                                    <button class="btn btn-secondary btn-small" id="exportSelectAllBtn" onclick="toggleExportSelectAll()" style="padding:5px 12px;font-size:13px;">全选</button>
+                                    <button class="btn btn-success btn-small" onclick="exportSelectedKnowledge()" style="padding:5px 12px;font-size:13px;">📤 导出</button>
                                 </div>
                             </div>
                             
-                            <!-- 标签筛选 -->
-                            <div id="exportTagFilterContainer" style="margin-bottom:16px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <span style="font-size:13px;color:var(--text-secondary);">标签筛选:</span>
-                                    <div id="exportTagFilterList" style="display:flex;gap:6px;flex-wrap:wrap;">
-                                        <!-- 动态生成标签按钮 -->
+                            <!-- 标签筛选与统计信息 -->
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px;">
+                                <!-- 左侧：标签筛选 -->
+                                <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;">
+                                    <!-- 桌面端：标签按钮列表 -->
+                                    <div class="tag-filter-desktop" style="display:flex;align-items:center;gap:6px;">
+                                        <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap;">标签:</span>
+                                        <div id="exportTagFilterList" style="display:flex;gap:5px;flex-wrap:wrap;flex:1;min-width:100px;">
+                                            <!-- 动态生成标签按钮 -->
+                                        </div>
+                                        <button class="btn btn-text btn-small hidden" id="exportClearTagFilterBtn" onclick="clearExportTagFilter()" style="padding:3px 8px;font-size:12px;">清除</button>
                                     </div>
-                                    <button class="btn btn-text btn-small hidden" id="exportClearTagFilterBtn" onclick="clearExportTagFilter()">清除筛选</button>
+                                    <!-- 移动端：下拉菜单 -->
+                                    <div class="tag-filter-mobile" style="display:flex;align-items:center;gap:6px;flex:1;">
+                                        <span style="font-size:12px;color:var(--text-secondary);white-space:nowrap;">标签:</span>
+                                        <div class="dropdown" style="flex:1;">
+                                            <button class="btn btn-secondary btn-small" style="flex:1;justify-content:space-between;max-width:150px;" onclick="toggleExportTagFilterDropdown()">
+                                                <span id="exportTagFilterDropdownText" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">选择标签</span>
+                                                <span>▼</span>
+                                            </button>
+                                            <div id="exportTagFilterDropdown" class="dropdown-content" style="position:absolute;z-index:1000;max-height:200px;overflow-y:auto;display:none;">
+                                                <!-- 动态生成标签选项 -->
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-text btn-small" id="exportClearTagFilterBtnMobile" onclick="clearExportTagFilter()" style="display:none;padding:3px 8px;font-size:12px;">清除</button>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <!-- 统计信息 -->
-                            <div style="margin-bottom:12px;padding:8px 12px;background:var(--bg);border-radius:6px;font-size:13px;color:var(--text-secondary);">
-                                已选中：<span id="exportSelectedCount" style="color:var(--primary);font-weight:600;">0</span> 项 |
-                                已导出：<span id="exportExportedCount" style="color:#4caf50;font-weight:600;">0</span> 项
+                                <!-- 右侧：统计信息 -->
+                                <div style="padding:6px 12px;background:var(--bg);border-radius:6px;font-size:13px;color:var(--text-secondary);white-space:nowrap;">
+                                    已选中：<span id="exportSelectedCount" style="color:var(--primary);font-weight:600;">0</span> 项 |
+                                    已导出：<span id="exportExportedCount" style="color:#4caf50;font-weight:600;">0</span> 项
+                                </div>
                             </div>
                             
                             <!-- 列表容器 -->
@@ -30347,6 +30415,12 @@ function manualCloseOrganizerAiPanel() {
             panel.classList.remove('hidden');
         }
         
+        // 确保下拉菜单初始是隐藏的
+        const dropdown = document.getElementById('exportTagFilterDropdown');
+        if (dropdown) {
+            dropdown.style.display = 'none';
+        }
+        
         // 默认切换到知识库标签
         switchExportTab('knowledge');
     }
@@ -30361,6 +30435,11 @@ function manualCloseOrganizerAiPanel() {
         window.currentExportTab = 'knowledge';
         window.selectedExportItems = [];
         window.selectedExportTags = [];
+        // 关闭移动端下拉菜单
+        const dropdown = document.getElementById('exportTagFilterDropdown');
+        if (dropdown) {
+            dropdown.style.display = 'none';
+        }
     }
     
     // 切换导出选项卡
@@ -30536,6 +30615,9 @@ function manualCloseOrganizerAiPanel() {
     function updateExportTagFilters(items) {
         const container = document.getElementById('exportTagFilterList');
         const clearBtn = document.getElementById('exportClearTagFilterBtn');
+        const mobileDropdown = document.getElementById('exportTagFilterDropdown');
+        const mobileClearBtn = document.getElementById('exportClearTagFilterBtnMobile');
+        const dropdownText = document.getElementById('exportTagFilterDropdownText');
         
         // 获取所有唯一标签
         const allTags = new Set();
@@ -30546,19 +30628,50 @@ function manualCloseOrganizerAiPanel() {
         const tagsArray = Array.from(allTags).sort();
         
         if (tagsArray.length === 0) {
-            container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无标签</div>';
+            if (container) {
+                container.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px 0;">暂无标签</div>';
+            }
             if (clearBtn) clearBtn.classList.add('hidden');
+            if (mobileDropdown) {
+                mobileDropdown.innerHTML = '<div style="font-size:12px;color:var(--text-secondary);padding:8px;text-align:center;">暂无标签</div>';
+            }
+            if (mobileClearBtn) mobileClearBtn.style.display = 'none';
+            if (dropdownText) dropdownText.textContent = '选择标签';
             return;
         }
         
-        container.innerHTML = tagsArray.map(tag => {
-            const isSelected = window.selectedExportTags?.includes(tag);
-            return `<button class="btn btn-small ${isSelected ? 'btn-primary' : 'btn-secondary'}" onclick="toggleExportTagFilter('${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
-        }).join('');
+        // 更新桌面端标签按钮
+        if (container) {
+            container.innerHTML = tagsArray.map(tag => {
+                const isSelected = window.selectedExportTags?.includes(tag);
+                return `<button class="btn btn-small ${isSelected ? 'btn-primary' : 'btn-secondary'}" onclick="toggleExportTagFilter('${escapeHtml(tag)}')" style="padding:4px 10px;font-size:12px;">${escapeHtml(tag)}</button>`;
+            }).join('');
+        }
+        
+        // 更新移动端下拉菜单
+        if (mobileDropdown) {
+            mobileDropdown.innerHTML = tagsArray.map(tag => {
+                const isSelected = window.selectedExportTags?.includes(tag);
+                return `<label style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px;">
+                    <input type="checkbox" value="${escapeHtml(tag)}" ${isSelected ? 'checked' : ''} onchange="toggleExportTagFilterFromMobile('${escapeHtml(tag)}')">
+                    ${escapeHtml(tag)}
+                </label>`;
+            }).join('');
+        }
         
         // 更新清除按钮状态
         if (clearBtn) {
             clearBtn.classList.toggle('hidden', !window.selectedExportTags || window.selectedExportTags.length === 0);
+        }
+        if (mobileClearBtn) {
+            mobileClearBtn.style.display = (!window.selectedExportTags || window.selectedExportTags.length === 0) ? 'none' : 'block';
+        }
+        
+        // 更新移动端下拉菜单显示文本
+        if (dropdownText) {
+            dropdownText.textContent = window.selectedExportTags && window.selectedExportTags.length > 0
+                ? `${window.selectedExportTags.length}个标签已选`
+                : '选择标签';
         }
     }
     
@@ -30578,9 +30691,61 @@ function manualCloseOrganizerAiPanel() {
         renderExportList();
     }
     
+    // 切换移动端下拉菜单
+    function toggleExportTagFilterDropdown() {
+        const dropdown = document.getElementById('exportTagFilterDropdown');
+        if (dropdown) {
+            // 切换显示状态
+            dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+        }
+    }
+    
+    // 从移动端切换标签筛选
+    function toggleExportTagFilterFromMobile(tag) {
+        if (!window.selectedExportTags) {
+            window.selectedExportTags = [];
+        }
+        
+        const index = window.selectedExportTags.indexOf(tag);
+        if (index > -1) {
+            window.selectedExportTags.splice(index, 1);
+        } else {
+            window.selectedExportTags.push(tag);
+        }
+        
+        // 更新显示文本
+        const dropdownText = document.getElementById('exportTagFilterDropdownText');
+        if (dropdownText) {
+            dropdownText.textContent = window.selectedExportTags.length > 0
+                ? `${window.selectedExportTags.length}个标签已选`
+                : '选择标签';
+        }
+        
+        // 更新清除按钮状态
+        const mobileClearBtn = document.getElementById('exportClearTagFilterBtnMobile');
+        if (mobileClearBtn) {
+            mobileClearBtn.style.display = window.selectedExportTags.length === 0 ? 'none' : 'block';
+        }
+        
+        renderExportList();
+    }
+    
     // 清除标签筛选
     function clearExportTagFilter() {
         window.selectedExportTags = [];
+        
+        // 更新移动端显示文本
+        const dropdownText = document.getElementById('exportTagFilterDropdownText');
+        if (dropdownText) {
+            dropdownText.textContent = '选择标签';
+        }
+        
+        // 更新移动端清除按钮状态
+        const mobileClearBtn = document.getElementById('exportClearTagFilterBtnMobile');
+        if (mobileClearBtn) {
+            mobileClearBtn.style.display = 'none';
+        }
+        
         renderExportList();
     }
     
@@ -30656,6 +30821,22 @@ function manualCloseOrganizerAiPanel() {
         showToast(`已导出 ${items.length} 项内容`);
     }
     
+    // 全局点击事件：点击外部关闭导出标签筛选下拉菜单
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('exportTagFilterDropdown');
+        const panel = document.getElementById('exportKnowledgePanel');
+        
+        // 只在面板打开时处理
+        if (dropdown && panel && !panel.classList.contains('hidden')) {
+            // 如果下拉菜单是展开状态
+            if (dropdown.style.display === 'flex') {
+                // 检查点击位置是否在下拉菜单外部
+                if (!dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            }
+        }
+    });
 </script>
 
 <!-- 文本选择气泡菜单（body 最外层，确保在所有模态框之上） -->
