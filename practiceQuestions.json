@@ -1539,7 +1539,8 @@
       "answer": "D",
       "analysis": "传输层提供端到端的可靠或不可靠数据传输服务，如TCP/UDP。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_2",
@@ -1644,7 +1645,8 @@
       "answer": "C",
       "analysis": "IPv4为32位，IPv6为128位，增加了96位。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_9",
@@ -1689,7 +1691,8 @@
       "answer": "A",
       "analysis": "私有地址包括10.0.0.0/8、172.16.0.0/12、192.168.0.0/16。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_12",
@@ -1764,7 +1767,8 @@
       "answer": "C",
       "analysis": "HTTP默认端口80，HTTPS为443。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_17",
@@ -1854,7 +1858,8 @@
       "answer": "B",
       "analysis": "/28块大小为16，广播地址为网络号+15，即32+15=47。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_23",
@@ -1914,7 +1919,8 @@
       "answer": "AB",
       "analysis": "IP和ICMP工作在网络层。ARP属于网络层但更偏向链路层，TCP为传输层。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_27",
@@ -1944,7 +1950,8 @@
       "answer": "ABCD",
       "analysis": "单臂路由、三层SVI、路由器多接口均可实现VLAN间路由。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_29",
@@ -1959,7 +1966,8 @@
       "answer": "ABC",
       "analysis": "WEP/WPA/WPA2是无线加密协议，WPS为简化配置，非加密协议。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_30",
@@ -1974,7 +1982,8 @@
       "answer": "ABCD",
       "analysis": "FTP、SMTP、Telnet、DHCP均为应用层协议。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_31",
@@ -2000,7 +2009,8 @@
       "answer": "错误",
       "analysis": "交换机若找不到目标MAC，会向除接收端口外的所有端口泛洪（广播）。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_33",
@@ -2026,7 +2036,8 @@
       "answer": "正确",
       "analysis": "路由转发时源和目标MAC每次跳变，IP不变（除非NAT）。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_35",
@@ -2039,7 +2050,8 @@
       "answer": "错误",
       "analysis": "关闭SSID广播后，终端可手动输入SSID连接，并非无法连接。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_36",
@@ -2091,7 +2103,8 @@
       "answer": "正确",
       "analysis": "ACL按顺序执行，匹配即停止。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_40",
@@ -2149,7 +2162,8 @@
       "answer": "BCD",
       "analysis": "STP用于避免环路，其他三项可导致环路问题。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_44",
@@ -2194,7 +2208,8 @@
       "answer": "ABC",
       "analysis": "手动重IP、DHCP池重叠或重复启用可能冲突。不同掩码仍属不同网段不直接冲突。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_47",
@@ -2257,5 +2272,5 @@
       "createdAt": "2026-07-06T09:56:36.538Z"
     }
   ],
-  "lastUpdated": "2026-07-06T09:59:09.371Z"
+  "lastUpdated": "2026-07-06T12:47:48.265Z"
 }
