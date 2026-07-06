@@ -1069,48 +1069,6 @@
       "subtasks": []
     },
     {
-      "id": "mr8nusg8mrokd",
-      "type": "task",
-      "content": "用ds出一个软考中级网络工程师题目50题，包含单选/多选/判断和不定项。",
-      "createdAt": "2026-07-06T03:28:50.312Z",
-      "updatedAt": "2026-07-06T03:28:50.312Z",
-      "tags": [
-        "A类-琐碎的事"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mr8nvmp6111cd",
-      "type": "task",
-      "content": "oa培训安全生产",
-      "createdAt": "2026-07-06T03:29:29.514Z",
-      "updatedAt": "2026-07-06T03:29:29.514Z",
-      "tags": [
-        "A类-琐碎的事"
-      ],
-      "done": false,
-      "dueTime": "5min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mr8o2r2jugyqk",
-      "type": "task",
-      "content": "2张网安单处理下、还要准备下周三下午的演讲，得先准备个稿子；",
-      "createdAt": "2026-07-06T03:35:01.771Z",
-      "updatedAt": "2026-07-06T03:56:55.610Z",
-      "tags": [
-        "网安"
-      ],
-      "done": false,
-      "dueTime": "1min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
       "id": "mr8v5y49eylhb",
       "type": "task",
       "content": "网管验收没时间了，明天吧",
