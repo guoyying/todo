@@ -6844,7 +6844,7 @@ padding: 7px !important;
                        <a href="#" onclick="showPageSettings();toggleSettingsDropdown();return false;">📄 页面设置</a>
                        <a href="#" onclick="toggleStyleEditor();toggleSettingsDropdown();return false;">🎨 样式编辑器</a>
                        <a href="#" onclick="showGithubConfig();toggleSettingsDropdown();return false;">🔧 GitHub 设置</a>
-                       <a href="#" onclick="pullFromGithub(true);toggleSettingsDropdown();return false;">⬇️ 拉取数据</a>
+                       <a href="#" onclick="showPullChoiceModal();toggleSettingsDropdown();return false;">⬇️ 拉取数据</a>
                        <a href="#" onclick="downloadLatestHtml();toggleSettingsDropdown();return false;">⬇️ 下载 HTML</a>
                        <a href="#" onclick="showExportKnowledgePanel();toggleSettingsDropdown();return false;">📤 导出知识</a>
                    </div>
@@ -6874,7 +6874,7 @@ padding: 7px !important;
                        <a href="#" onclick="showProjectManagement();toggleConsoleDropdown();return false;">📋 项目管理</a>
                    </div>
                </div>
-                <button class="btn btn-primary btn-small" onclick="pushToGithub()">推送数据</button>
+                <button class="btn btn-primary btn-small" onclick="showPushChoiceModal()">⬆️ 推送数据</button>
                 <button class="btn btn-primary btn-small" onclick="document.getElementById('htmlFileInput').click()">推送 HTML</button>
                 <input type="file" id="htmlFileInput" accept=".html" style="display:none" onchange="pushHtmlToGithub(this)">
                 <input type="text" id="htmlCommitMessage" placeholder="更新内容（可选）" style="display:none;width:200px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-left:8px;">
@@ -7990,16 +7990,66 @@ padding: 7px !important;
                 <input type="text" id="ghRepo" placeholder="todo-data">
             </div>
             <div class="input-group">
-                <label>Issue编号</label>
+                <label>Issue 编号</label>
                 <input type="text" id="ghIssue" placeholder="1">
             </div>
             <div class="input-group">
                 <label>Personal Access Token</label>
                 <input type="text" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
             </div>
+            
+            <!-- 数据同步按钮 -->
+            <div style="margin:16px 0;padding:12px;background:#f5f5f0;border-radius:8px;">
+                <div style="font-weight:600;margin-bottom:8px;color:#333;">📦 数据同步</div>
+                <div style="font-size:12px;color:#666;margin-bottom:8px;">主数据：任务、感受、弹药库等 | 题库：练习题目数据</div>
+                <div style="display:flex;gap:8px;">
+                    <button class="btn btn-primary" onclick="showPushChoiceModal()" style="flex:1;">⬆️ 推送数据</button>
+                    <button class="btn btn-secondary" onclick="showPullChoiceModal()" style="flex:1;">⬇️ 拉取数据</button>
+                </div>
+            </div>
             <div class="modal-actions">
                 <button class="btn btn-secondary" onclick="closeGithubModal()">取消</button>
-                <button class="btn btn-primary" onclick="saveGithubConfig()">保存</button>
+                <button class="btn btn-primary" onclick="saveGithubConfig()">保存配置</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- 推送选择弹窗 -->
+        <div class="modal-overlay hidden" id="pushChoiceModal" onclick="if(event.target === this) closeModal('pushChoiceModal');">
+            <div class="modal" style="max-width:400px;">
+            <h3>选择推送的数据类型</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;margin:20px 0;">
+                <button class="btn btn-primary" onclick="pushToGithub();closeModal('pushChoiceModal');" style="padding:16px;font-size:15px;">
+                    📦 推送主数据
+                    <div style="font-size:12px;margin-top:4px;color:#666;font-weight:normal;">包含任务、感受、弹药库、知识库等核心数据</div>
+                </button>
+                <button class="btn btn-secondary" onclick="pushQuestionsToGithub();closeModal('pushChoiceModal');" style="padding:16px;font-size:15px;border-color:#9c27b0;color:#7b1fa2;">
+                    📚 推送题库数据
+                    <div style="font-size:12px;margin-top:4px;color:#666;font-weight:normal;">仅推送练习题目数据（practiceQuestions.json）</div>
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal('pushChoiceModal')">取消</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- 拉取选择弹窗 -->
+        <div class="modal-overlay hidden" id="pullChoiceModal" onclick="if(event.target === this) closeModal('pullChoiceModal');">
+            <div class="modal" style="max-width:400px;">
+            <h3>选择拉取的数据类型</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;margin:20px 0;">
+                <button class="btn btn-primary" onclick="pullFromGithub(true);closeModal('pullChoiceModal');" style="padding:16px;font-size:15px;">
+                    📦 拉取主数据
+                    <div style="font-size:12px;margin-top:4px;color:#666;font-weight:normal;">从 GitHub 拉取任务、感受、弹药库等核心数据</div>
+                </button>
+                <button class="btn btn-secondary" onclick="pullQuestionsFromGithub(true);closeModal('pullChoiceModal');" style="padding:16px;font-size:15px;border-color:#9c27b0;color:#7b1fa2;">
+                    📚 拉取题库数据
+                    <div style="font-size:12px;margin-top:4px;color:#666;font-weight:normal;">从 GitHub 拉取练习题目数据</div>
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal('pullChoiceModal')">取消</button>
             </div>
         </div>
     </div>
@@ -14189,7 +14239,15 @@ ${taskContent}
               }
           }
           
-          // 通用关闭模态框函数
+          // 通用显示模态框函数
+function showModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden');
+    }
+}
+
+// 通用关闭模态框函数
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
@@ -16460,6 +16518,24 @@ function closeModal(modalId) {
             updateGithubStatus();
         }
 
+        // 显示推送选择弹窗
+        function showPushChoiceModal() {
+            if (!data.github) {
+                showBanner('请先配置 GitHub 信息', '#ff9800', 3000);
+                return;
+            }
+            showModal('pushChoiceModal');
+        }
+
+        // 显示拉取选择弹窗
+        function showPullChoiceModal() {
+            if (!data.github) {
+                showBanner('请先配置 GitHub 信息', '#ff9800', 3000);
+                return;
+            }
+            showModal('pullChoiceModal');
+        }
+
         function updateGithubStatus() {
             const el = document.getElementById('githubStatus');
             if (!data.github) {
@@ -16511,11 +16587,11 @@ function closeModal(modalId) {
             if (!data.github) { showGithubConfig(); return; }
             
             // 显示加载气泡
-            const loadingBanner = showBanner('⏳ 正在推送数据...', '#2196f3', 0);
+            const loadingBanner = showBanner('⏳ 正在推送主数据...', '#2196f3', 0);
             
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
-             // 创建要推送的数据副本，移除敏感信息
+             // 创建要推送的数据副本，移除敏感信息（不包含 practiceQuestions）
              const dataToPush = {
                  tasks: data.tasks,
                  normalFeelings: data.normalFeelings,
@@ -16537,10 +16613,8 @@ function closeModal(modalId) {
                   // 练习表达模块数据
                   practiceScenarios: data.practiceScenarios,
                   practiceMaterialStats: data.practiceMaterialStats,
-                  // 学习功能数据
+                  // 学习功能数据（不包含 practiceQuestions）
                   toInternalize: data.toInternalize || [],
-                  practiceQuestions: data.practiceQuestions || [],
-                  // 已导出知识 ID 列表
                   exportedKnowledgeIds: data.exportedKnowledgeIds || [],
                   aiConfig: {
                      enabled: data.aiConfig.enabled,
@@ -17917,7 +17991,7 @@ function closeModal(modalId) {
              if (!data.github) { if (manual) showGithubConfig(); return; }
              
              // 显示加载气泡
-             const loadingBanner = showBanner('⏳ 正在拉取数据...', '#2196f3', 0);
+             const loadingBanner = showBanner('⏳ 正在拉取主数据...', '#2196f3', 0);
              
              const {username, repo, token} = data.github;
              const path = 'mindtodo-data.json';
@@ -17930,22 +18004,22 @@ function closeModal(modalId) {
                   if (res.status === 401) {
                       hideBanner(loadingBanner);
                       const msg = 'Token 已过期，请重新配置';
-                      updateGithubOperationLog('❌ 拉取数据失败：Token 已过期', 'error');
+                      updateGithubOperationLog('❌ 拉取主数据失败：Token 已过期', 'error');
                       if (manual) { alert(msg); showGithubConfig(); }
                       else { showBanner(msg, 'error', 3000); data.github = null; saveData(); }
                       return;
                   }
                   if (res.status === 404) {
                       hideBanner(loadingBanner);
-                      updateGithubOperationLog('ℹ️ 远程暂无数据文件', 'info');
-                      if (manual) alert('远程暂无数据文件');
-                      else showBanner('远程暂无数据文件', 'info', 2000);
+                      updateGithubOperationLog('ℹ️ 远程主数据文件不存在', 'info');
+                      if (manual) alert('远程主数据文件不存在');
+                      else showBanner('远程主数据文件不存在', 'info', 2000);
                       data.firstLoaded = true; saveData(); return;
                   }
                   if (res.status === 409) {
                       hideBanner(loadingBanner);
                       const msg = '拉取失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
-                      updateGithubOperationLog('❌ 拉取数据失败 (409)：仓库未初始化', 'error');
+                      updateGithubOperationLog('❌ 拉取主数据失败 (409)：仓库未初始化', 'error');
                       if (manual) alert(msg);
                       else showBanner(msg, 'error', 3000);
                       return;
@@ -17953,7 +18027,7 @@ function closeModal(modalId) {
                   if (!res.ok) {
                       hideBanner(loadingBanner);
                       const msg = '拉取失败：HTTP ' + res.status;
-                      updateGithubOperationLog('❌ 拉取数据失败：HTTP ' + res.status, 'error');
+                      updateGithubOperationLog('❌ 拉取主数据失败：HTTP ' + res.status, 'error');
                       if (manual) alert(msg);
                       else showBanner(msg, 'error', 3000);
                       data.firstLoaded = true; saveData(); return;
@@ -17981,10 +18055,8 @@ function closeModal(modalId) {
                    // 拉取练习表达模块数据
                    if (remote.practiceScenarios) data.practiceScenarios = remote.practiceScenarios;
                    if (remote.practiceMaterialStats) data.practiceMaterialStats = remote.practiceMaterialStats;
-                   // 拉取学习功能数据
+                   // 拉取学习功能数据（不包含 practiceQuestions）
                    if (remote.toInternalize) data.toInternalize = remote.toInternalize;
-                   if (remote.practiceQuestions) data.practiceQuestions = remote.practiceQuestions;
-                   // 拉取已导出知识 ID 列表
                    if (remote.exportedKnowledgeIds) data.exportedKnowledgeIds = remote.exportedKnowledgeIds;
                    // 拉取自定义样式
                   if (remote.customTaskStyles !== undefined) {
@@ -18025,33 +18097,216 @@ function closeModal(modalId) {
                 
                  hideBanner(loadingBanner);
                  // 更新操作日志
-                  updateGithubOperationLog('✅ 拉取数据成功', 'success');
+                  updateGithubOperationLog('✅ 拉取主数据成功', 'success');
                   if (manual) {
-                      showBanner('拉取成功', 'success', 2000);
+                      showBanner('主数据拉取成功', 'success', 2000);
                  } else {
-                     showBanner('自动拉取成功', 'success', 2000);
+                     showBanner('自动拉取主数据成功', 'success', 2000);
                  }
                  
-                  // 重新初始化项目目标追踪面板，确保使用最新的 trackerConfig
-                  if (typeof initProjectGoalTracker === 'function') {
-                      initProjectGoalTracker();
-                  }
-                  
-                  // 触发拉取完成事件
-                  window.dispatchEvent(new Event('githubPullComplete'));
-              } catch(e) {
-                  hideBanner(loadingBanner);
-                  const msg = '拉取失败：' + (e.message || '网络错误');
-                  // 更新操作日志
-                  updateGithubOperationLog('❌ 拉取数据失败：' + (e.message || '网络错误'), 'error');
-                  if (manual) {
-                      alert(msg);
-                  } else {
-                      showBanner(msg, 'error', 3000);
-                  }
-                  data.firstLoaded = true;
-                  saveData();
+                 // 重新初始化项目目标追踪面板，确保使用最新的 trackerConfig
+                 if (typeof initProjectGoalTracker === 'function') {
+                     initProjectGoalTracker();
+                 }
+                 
+                 // 触发拉取完成事件
+                 window.dispatchEvent(new Event('githubPullComplete'));
+             } catch(e) {
+                 hideBanner(loadingBanner);
+                 const msg = '拉取失败：' + (e.message || '网络错误');
+                 // 更新操作日志
+                 updateGithubOperationLog('❌ 拉取主数据失败：' + (e.message || '网络错误'), 'error');
+                 if (manual) {
+                     alert(msg);
+                 } else {
+                     showBanner(msg, 'error', 3000);
+                 }
+                 data.firstLoaded = true;
+                 saveData();
              }
+        }
+
+        // ============ 题库数据同步函数 ============
+        // 推送题库数据到 GitHub
+        async function pushQuestionsToGithub() {
+            if (!data.github) {
+                showBanner('请先配置 GitHub 信息', '#ff9800', 3000);
+                return;
+            }
+            
+            // 显示加载气泡
+            const loadingBanner = showBanner('⏳ 正在推送题库数据...', '#9c27b0', 0);
+            
+            const {username, repo, token} = data.github;
+            const path = 'practiceQuestions.json';
+            
+            // 创建要推送的题库数据
+            const questionsData = {
+                practiceQuestions: data.practiceQuestions || [],
+                lastUpdated: new Date().toISOString()
+            };
+            
+            const content = utf8ToBase64(JSON.stringify(questionsData, null, 2));
+            const api = `https://api.github.com/repos/${username}/${repo}/contents/${path}`;
+            let sha = null;
+            
+            try {
+                const getRes = await fetch(api, {headers: {Authorization: `token ${token}`}});
+                
+                if (getRes.status === 401) {
+                    hideBanner(loadingBanner);
+                    showBanner('❌ Token 已过期，请重新配置', '#f44336', 3000);
+                    showGithubConfig();
+                    return;
+                }
+                
+                if (getRes.ok) {
+                    const info = await getRes.json();
+                    sha = info.sha;
+                }
+            } catch(e) {}
+            
+            const message = 'update practice questions data';
+            const body = {message, content};
+            if (sha) body.sha = sha;
+            
+            try {
+                const res = await fetch(api, {
+                    method: 'PUT',
+                    headers: {'Authorization': `token ${token}`, 'Content-Type': 'application/json'},
+                    body: JSON.stringify(body)
+                });
+                
+                if (res.status === 401 || res.status === 403) {
+                    hideBanner(loadingBanner);
+                    showBanner('❌ Token 无效或已过期，请重新配置', '#f44336', 3000);
+                    showGithubConfig();
+                    return;
+                }
+                
+                if (res.status === 409) {
+                    hideBanner(loadingBanner);
+                    const reason = sha
+                        ? '文件可能已被其他设备修改，sha 不匹配。'
+                        : '仓库可能尚未初始化（没有 README 或任何提交）。请先在 GitHub 仓库中手动创建一个文件。';
+                    updateGithubOperationLog('❌ 推送题库数据失败 (409): ' + reason, 'error');
+                    showBanner('❌ 推送题库失败 (409): ' + reason, '#f44336', 5000);
+                    return;
+                }
+                
+                if (res.status === 422) {
+                    hideBanner(loadingBanner);
+                    const err = await res.json().catch(() => ({}));
+                    updateGithubOperationLog('❌ 推送题库数据失败 (422): ' + (err.message || '请求格式错误'), 'error');
+                    showBanner('❌ 推送题库失败 (422): ' + (err.message || '请求格式错误'), '#f44336', 3000);
+                    return;
+                }
+                
+                if (res.ok) {
+                    hideBanner(loadingBanner);
+                    data.github.lastSync = nowStr();
+                    saveData();
+                    updateGithubOperationLog('✅ 推送题库数据成功（' + (data.practiceQuestions || []).length + '道题目）', 'success');
+                    showBanner('✅ 题库推送成功！', '#4caf50', 2000);
+                } else {
+                    hideBanner(loadingBanner);
+                    updateGithubOperationLog('❌ 推送题库数据失败：HTTP ' + res.status, 'error');
+                    showBanner('❌ 推送题库失败：HTTP ' + res.status, '#f44336', 3000);
+                }
+            } catch(e) {
+                hideBanner(loadingBanner);
+                updateGithubOperationLog('❌ 推送题库网络错误', 'error');
+                showBanner('❌ 推送题库失败：网络错误', '#f44336', 3000);
+            }
+        }
+
+        // 从 GitHub 拉取题库数据
+        async function pullQuestionsFromGithub(manual=false) {
+            if (!data.github) {
+                if (manual) showGithubConfig();
+                else showBanner('请先配置 GitHub 信息', '#ff9800', 3000);
+                return;
+            }
+            
+            // 显示加载气泡
+            const loadingBanner = showBanner('⏳ 正在拉取题库数据...', '#9c27b0', 0);
+            
+            const {username, repo, token} = data.github;
+            const path = 'practiceQuestions.json';
+            
+            try {
+                const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${path}`, {
+                    headers: {Authorization: `token ${token}`}
+                });
+                
+                if (res.status === 401) {
+                    hideBanner(loadingBanner);
+                    const msg = 'Token 已过期，请重新配置';
+                    updateGithubOperationLog('❌ 拉取题库数据失败：Token 已过期', 'error');
+                    if (manual) { alert(msg); showGithubConfig(); }
+                    else { showBanner(msg, 'error', 3000); }
+                    return;
+                }
+                
+                if (res.status === 404) {
+                    hideBanner(loadingBanner);
+                    updateGithubOperationLog('ℹ️ 远程题库文件不存在', 'info');
+                    if (manual) alert('远程题库文件不存在，请先推送题库数据');
+                    else showBanner('远程题库文件不存在', 'info', 2000);
+                    return;
+                }
+                
+                if (res.status === 409) {
+                    hideBanner(loadingBanner);
+                    const msg = '拉取题库失败 (409)：仓库可能尚未初始化，请在 GitHub 上先创建 README。';
+                    updateGithubOperationLog('❌ 拉取题库数据失败 (409)：仓库未初始化', 'error');
+                    if (manual) alert(msg);
+                    else showBanner(msg, 'error', 3000);
+                    return;
+                }
+                
+                if (!res.ok) {
+                    hideBanner(loadingBanner);
+                    const msg = '拉取题库失败：HTTP ' + res.status;
+                    updateGithubOperationLog('❌ 拉取题库数据失败：HTTP ' + res.status, 'error');
+                    if (manual) alert(msg);
+                    else showBanner(msg, 'error', 3000);
+                    return;
+                }
+                
+                const info = await res.json();
+                const json = base64ToUtf8(info.content);
+                const remote = JSON.parse(json);
+                
+                if (remote.practiceQuestions) {
+                    data.practiceQuestions = remote.practiceQuestions;
+                    saveData();
+                    renderQuestionList();
+                    
+                    hideBanner(loadingBanner);
+                    updateGithubOperationLog('✅ 拉取题库数据成功（' + remote.practiceQuestions.length + '道题目）', 'success');
+                    
+                    if (manual) {
+                        showBanner('题库拉取成功（' + remote.practiceQuestions.length + '道题目）', 'success', 2000);
+                    } else {
+                        showBanner('自动拉取题库成功', 'success', 2000);
+                    }
+                } else {
+                    hideBanner(loadingBanner);
+                    updateGithubOperationLog('ℹ️ 远程题库数据为空', 'info');
+                    if (manual) alert('远程题库数据为空');
+                    else showBanner('远程题库数据为空', 'info', 2000);
+                }
+            } catch(e) {
+                hideBanner(loadingBanner);
+                const msg = '拉取题库失败：' + (e.message || '网络错误');
+                updateGithubOperationLog('❌ 拉取题库数据失败：' + (e.message || '网络错误'), 'error');
+                if (manual) {
+                    alert(msg);
+                } else {
+                    showBanner(msg, 'error', 3000);
+                }
+            }
         }
 
         // ============ Helper Functions ============
