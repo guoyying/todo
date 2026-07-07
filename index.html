@@ -11451,7 +11451,8 @@ ${taskContent}
                         this.style.height = (this.scrollHeight) + 'px';
                     });
                     
-                    editor.focus();
+                    // 阻止页面滚动到编辑框
+                    editor.focus({ preventScroll: true });
                     
                     // 保存函数
                     const save = () => {
