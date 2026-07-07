@@ -2649,6 +2649,121 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             align-items: center;
             gap: 6px;
             flex-shrink: 0;
+            align-items: center;
+        }
+        
+        /* 添加标签按钮 - 默认显示 */
+        .add-tag-btn {
+            width: 18px !important;
+            height: 18px !important;
+            min-width: 18px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: #e8f5e9 !important;
+            border: 1px solid #4caf50 !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            color: #4caf50 !important;
+            transition: all 0.2s ease !important;
+            flex-shrink: 0 !important;
+            padding: 0 !important;
+            margin-left: 4px !important;
+            line-height: 1 !important;
+        }
+        
+        .add-tag-btn:hover {
+            background: #4caf50 !important;
+            color: white !important;
+        }
+        
+        .add-tag-btn:hover {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+        
+        /* 标签下拉菜单 */
+        .tag-selector-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 4px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 8px;
+            z-index: 1000;
+            min-width: 180px;
+            max-width: 250px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .tag-selector-dropdown .tag-selector-input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        
+        .tag-selector-dropdown .tag-selector-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .tag-selector-dropdown .tag-selector-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .tag-selector-dropdown .tag-selector-option {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            background: var(--task-light);
+            color: #5a7090;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tag-selector-dropdown .tag-selector-option:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* 已选中的标签样式 */
+        .tag-selector-dropdown .tag-selector-option.selected-tag {
+            background: #c8e6c9 !important;
+            color: #2e7d32 !important;
+            font-weight: bold;
+        }
+        
+        .tag-selector-dropdown .tag-selector-option.selected-tag:hover {
+            background: #2e7d32 !important;
+            color: white !important;
+        }
+        
+        .tag-selector-dropdown .tag-selector-add {
+            margin-top: 8px;
+            padding: 6px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .tag-selector-dropdown .tag-selector-add:hover {
+            opacity: 0.9;
         }
         
         .pending-task-time {
@@ -11542,8 +11657,8 @@ ${taskContent}
             }
             el.appendChild(contentDiv);
 
-            // 非编辑状态的任务显示标签（编辑状态的标签已在 contentDiv 中显示）
-            if (!(options.editable && item.type === 'task' && !item.done)) {
+            // 任务显示标签
+            if (item.type === 'task') {
                 if (item.tags && item.tags.length) {
                     const tagsDiv = document.createElement('div');
                     tagsDiv.className = 'item-tags';
@@ -11554,7 +11669,7 @@ ${taskContent}
                         s.style.cursor = 'pointer';
                         s.onclick = (e) => {
                             e.stopPropagation();
-                            showTagEditor(item.id, t, 'task');
+                            showTaskTagSelector(e, item.id);
                         };
                         tagsDiv.appendChild(s);
                     });
@@ -11567,7 +11682,7 @@ ${taskContent}
                     addTagBtn.style.color = 'var(--primary)';
                     addTagBtn.onclick = (e) => {
                         e.stopPropagation();
-                        showTagEditor(item.id, null, 'task');
+                        showTaskTagSelector(e, item.id);
                     };
                     tagsDiv.appendChild(addTagBtn);
                     
@@ -11583,7 +11698,7 @@ ${taskContent}
                     addTagBtn.style.color = 'var(--primary)';
                     addTagBtn.onclick = (e) => {
                         e.stopPropagation();
-                        showTagEditor(item.id, null, 'task');
+                        showTaskTagSelector(e, item.id);
                     };
                     tagsDiv.appendChild(addTagBtn);
                     el.appendChild(tagsDiv);
@@ -11876,6 +11991,8 @@ ${taskContent}
             const actions = document.createElement('div');
             actions.className = 'item-actions';
              let actionButtons = '';
+             // 添加标签按钮（放在最前面）
+             actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskTagSelector(event, '${item.id}')">🏷️ 添加标签</button>`;
              if (item.type === 'task' && !item.placedIn && !item.done) {
                  actionButtons += `<button class="btn btn-secondary btn-small" onclick="showTaskPlaceMenu(event, '${item.id}')">放入时间段</button>`;
              }
@@ -15650,7 +15767,170 @@ function closeModal(modalId) {
                 }
             }
         }
-
+          // 显示任务标签选择器
+          function showTaskTagSelector(e, taskId) {
+              e.stopPropagation();
+              
+              // 关闭其他已打开的选择器
+              document.querySelectorAll('.tag-selector-dropdown').forEach(el => el.remove());
+              
+              const task = data.tasks.find(t => t.id === taskId);
+              if (!task) return;
+              
+              const currentTags = task.tags || [];
+              // 从所有任务中收集所有标签
+              const allTags = [...new Set(
+                  data.tasks
+                      .filter(t => t.tags && t.tags.length > 0)
+                      .flatMap(t => t.tags)
+              )];
+              
+              // 创建下拉菜单
+              const dropdown = document.createElement('div');
+              dropdown.className = 'tag-selector-dropdown';
+              dropdown.style.position = 'absolute';
+              dropdown.style.zIndex = '1000';
+              
+              // 构建标签选项 HTML：显示所有标签（包括已选中的）
+              let optionsHtml = '';
+              
+              // 先显示已选中的标签
+              if (currentTags.length > 0) {
+                  optionsHtml += '<div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">已选标签：</div>';
+                  currentTags.forEach(tag => {
+                      const safeTag = escapeHtml(tag);
+                      optionsHtml += `<span class="tag-selector-option selected-tag" data-tag="${safeTag}">${safeTag} ✓</span>`;
+                  });
+                  optionsHtml += '<div style="width:100%;height:1px;background:var(--border);margin:6px 0;"></div>';
+              }
+              
+              // 再显示未选中的标签池中的标签
+              const unusedTags = allTags.filter(tag => !currentTags.includes(tag));
+              if (unusedTags.length > 0) {
+                  optionsHtml += '<div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">可选标签：</div>';
+                  unusedTags.forEach(tag => {
+                      const safeTag = escapeHtml(tag);
+                      optionsHtml += `<span class="tag-selector-option" data-tag="${safeTag}">${safeTag}</span>`;
+                  });
+              }
+              
+              dropdown.innerHTML = `
+                  <input type="text" class="tag-selector-input" placeholder="输入新标签..." />
+                  <div class="tag-selector-options">${optionsHtml}</div>
+                  <button class="tag-selector-add">添加新标签</button>
+              `;
+              
+              // 定位到按钮下方
+              const rect = e.target.getBoundingClientRect();
+              dropdown.style.top = (rect.bottom + window.scrollY + 4) + 'px';
+              dropdown.style.left = (rect.left + window.scrollX) + 'px';
+              
+              document.body.appendChild(dropdown);
+              
+              const input = dropdown.querySelector('.tag-selector-input');
+              const optionsContainer = dropdown.querySelector('.tag-selector-options');
+              const addBtn = dropdown.querySelector('.tag-selector-add');
+              
+              // 点击标签（已选则移除，未选则添加）
+              optionsContainer.querySelectorAll('.tag-selector-option').forEach(option => {
+                  option.addEventListener('click', function() {
+                      const tag = this.dataset.tag;
+                      const task = data.tasks.find(t => t.id === taskId);
+                      if (task && task.tags && task.tags.includes(tag)) {
+                          // 已选中，移除标签
+                          task.tags = task.tags.filter(t => t !== tag);
+                      } else {
+                          // 未选中，添加标签
+                          if (!task.tags) task.tags = [];
+                          task.tags.push(tag);
+                      }
+                      
+                      // 保存并重新渲染
+                      saveData();
+                      render();
+                      dropdown.remove();
+                  });
+              });
+              
+              // 添加新标签：将输入框内容作为新标签添加到任务
+              addBtn.addEventListener('click', function() {
+                  const newTag = input.value.trim();
+                  if (newTag) {
+                      // 先添加到任务
+                      const task = data.tasks.find(t => t.id === taskId);
+                      if (task && !task.tags?.includes(newTag)) {
+                          if (!task.tags) task.tags = [];
+                          task.tags.push(newTag);
+                          
+                          // 同时添加到公共标签池（taskTags）
+                          if (!data.commonTaskTags) data.commonTaskTags = [];
+                          if (!data.commonTaskTags.includes(newTag)) {
+                              data.commonTaskTags.push(newTag);
+                          }
+                          
+                          saveData();
+                          render();
+                      }
+                      input.value = '';
+                      dropdown.remove();
+                  }
+              });
+              
+              // 回车键添加：将输入框内容作为新标签添加到任务
+              input.addEventListener('keypress', function(e) {
+                  if (e.key === 'Enter') {
+                      const newTag = this.value.trim();
+                      if (newTag) {
+                          // 先添加到任务
+                          const task = data.tasks.find(t => t.id === taskId);
+                          if (task && !task.tags?.includes(newTag)) {
+                              if (!task.tags) task.tags = [];
+                              task.tags.push(newTag);
+                              
+                              // 同时添加到公共标签池（taskTags）
+                              if (!data.commonTaskTags) data.commonTaskTags = [];
+                              if (!data.commonTaskTags.includes(newTag)) {
+                                  data.commonTaskTags.push(newTag);
+                              }
+                              
+                              showToast(`已添加标签：${newTag}`);
+                              saveData();
+                              render();
+                          }
+                          this.value = '';
+                          dropdown.remove();
+                      }
+                  }
+              });
+              
+              // 点击外部关闭
+              setTimeout(() => {
+                  document.addEventListener('click', function closeHandler(ev) {
+                      if (!dropdown.contains(ev.target)) {
+                          dropdown.remove();
+                          document.removeEventListener('click', closeHandler);
+                      }
+                  });
+              }, 0);
+          }
+          
+          // 添加标签到任务
+          function addTagToTask(taskId, tag) {
+              const task = data.tasks.find(t => t.id === taskId);
+              if (task && !task.tags?.includes(tag)) {
+                  if (!task.tags) task.tags = [];
+                  task.tags.push(tag);
+                  
+                  // 新标签会自动在下一次打开选择器时被收集到 allTags 中
+                  
+                  // 保存到本地存储
+                  saveData();
+                  
+                  // 重新渲染
+                  render();
+              }
+          }
+          
          function showTaskPlaceMenu(e, itemId) {
              // 检查强提醒（允许操作强提醒任务本身）
              if (!checkStrongReminderForTask(itemId)) {
@@ -21526,6 +21806,7 @@ ${ammoToAnalyze.map((ammo, index) =>
                    <div class="pending-task-meta">
                        <span class="pending-task-time">${doneTime}</span>
                        <div class="pending-task-tags">${tagsDots}</div>
+                       <button class="add-tag-btn" data-task-id="${task.id}" title="添加标签">+</button>
                    </div>
                `;
                
@@ -21597,7 +21878,108 @@ ${ammoToAnalyze.map((ammo, index) =>
                    }
                });
            });
+           
+           // 添加"添加标签"按钮点击事件
+           document.querySelectorAll('.add-tag-btn').forEach(btn => {
+               btn.addEventListener('click', function(e) {
+                   e.stopPropagation();
+                   const taskId = this.dataset.taskId;
+                   showTagSelector(this, taskId);
+               });
+           });
        }
+           
+           // 显示标签选择器
+           function showTagSelector(btn, taskId) {
+               // 关闭其他已打开的选择器
+               document.querySelectorAll('.tag-selector-dropdown').forEach(el => el.remove());
+               
+               const task = data.tasks?.find(t => t.id === taskId && t.done);
+               const currentTags = task?.tags || [];
+               
+               // 获取所有可用标签（从标签池中）
+               const allTags = data.tagsPool || [];
+               
+               const dropdown = document.createElement('div');
+               dropdown.className = 'tag-selector-dropdown';
+               
+               // 构建标签选项 HTML
+               let optionsHtml = '';
+               allTags
+                   .filter(tag => !currentTags.includes(tag))
+                   .forEach(tag => {
+                       const safeTag = escapeHtml(tag);
+                       optionsHtml += `<span class="tag-selector-option" data-tag="${safeTag}">${safeTag}</span>`;
+                   });
+               
+               dropdown.innerHTML = `
+                   <input type="text" class="tag-selector-input" placeholder="输入新标签或选择现有标签" />
+                   <div class="tag-selector-options">${optionsHtml}</div>
+                   <button class="tag-selector-add">添加新标签</button>
+               `;
+               
+               // 插入到按钮后面
+               btn.parentNode.style.position = 'relative';
+               btn.parentNode.appendChild(dropdown);
+               
+               const input = dropdown.querySelector('.tag-selector-input');
+               const optionsContainer = dropdown.querySelector('.tag-selector-options');
+               const addBtn = dropdown.querySelector('.tag-selector-add');
+               
+               // 点击现有标签
+               optionsContainer.querySelectorAll('.tag-selector-option').forEach(option => {
+                   option.addEventListener('click', function() {
+                       const tag = this.dataset.tag;
+                       addTagToTask(taskId, tag);
+                       dropdown.remove();
+                   });
+               });
+               
+               // 添加新标签
+               addBtn.addEventListener('click', function() {
+                   const newTag = input.value.trim();
+                   if (newTag) {
+                       addTagToTask(taskId, newTag);
+                       dropdown.remove();
+                   }
+               });
+               
+               // 回车键添加
+               input.addEventListener('keypress', function(e) {
+                   if (e.key === 'Enter') {
+                       const newTag = this.value.trim();
+                       if (newTag) {
+                           addTagToTask(taskId, newTag);
+                           dropdown.remove();
+                       }
+                   }
+               });
+               
+               // 点击外部关闭
+               setTimeout(() => {
+                   document.addEventListener('click', function closeHandler(e) {
+                       if (!dropdown.contains(e.target)) {
+                           dropdown.remove();
+                           document.removeEventListener('click', closeHandler);
+                       }
+                   });
+               }, 0);
+           }
+           
+           // 添加标签到任务
+           function addTagToTask(taskId, tag) {
+               const task = data.tasks?.find(t => t.id === taskId && t.done);
+               if (task && !task.tags?.includes(tag)) {
+                   if (!task.tags) task.tags = [];
+                   task.tags.push(tag);
+                   
+                   // 保存到本地存储
+                   saveData();
+                   
+                   // 重新渲染列表以显示新标签
+                   loadPendingTasksList();
+               }
+           }
        
        // 更新选中任务数量
        function updateSelectedTasksCount() {
@@ -30607,8 +30989,6 @@ function manualCloseOrganizerAiPanel() {
             return;
         }
         
-        console.log('Toolbar initialized', toolbar, header);
-        
         let isFixed = false;
         
         function updateToolbar() {
@@ -30629,7 +31009,6 @@ function manualCloseOrganizerAiPanel() {
                     toolbar.style.margin = '0';
                     toolbar.style.padding = '10px 20px';
                     toolbar.style.boxSizing = 'border-box';
-                    console.log('Toolbar fixed');
                 }
             } else {
                 // 还在标题区域内，恢复自然流
@@ -30643,7 +31022,6 @@ function manualCloseOrganizerAiPanel() {
                     toolbar.style.margin = '';
                     toolbar.style.padding = '';
                     toolbar.style.boxSizing = '';
-                    console.log('Toolbar reset');
                 }
             }
         }
