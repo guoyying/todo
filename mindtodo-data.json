@@ -947,40 +947,6 @@
       "subtasks": []
     },
     {
-      "id": "1782982966308",
-      "type": "task",
-      "content": "【*】拆运一体",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "doneAt": "2026-06-15T08:27:53.083Z",
-      "organizedAt": "2026-07-02T09:02:46.308Z",
-      "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-07-02T09:02:46.308Z",
-      "organization": {
-        "goal": "【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\n过单、邮件通知施工方实施17张拆运单",
-        "goalWeeks": "[{\"content\":\"【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"2026/6/22 - 4天前\"}},{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
-        "improvement": "",
-        "improvementWeeks": "",
-        "skills": "",
-        "skillsWeeks": "",
-        "success": "",
-        "successWeeks": "",
-        "problems": "",
-        "problemsWeeks": "",
-        "summary": "",
-        "summaryWeeks": "",
-        "methods": "",
-        "methodsWeeks": "",
-        "assets": "拆运一体过单sop",
-        "assetsWeeks": "",
-        "organizedAt": "2026-07-02T09:02:46.308Z"
-      },
-      "projectId": "1781685860305",
-      "subtasks": []
-    },
-    {
       "id": "1783049300897",
       "type": "task",
       "content": "CRM系统在用，设备现场已拆除核查",
@@ -1114,6 +1080,40 @@
       "done": false,
       "dueTime": "1min",
       "unknown": false,
+      "subtasks": []
+    },
+    {
+      "id": "1783388161803",
+      "type": "task",
+      "content": "【*】拆运一体",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-06-15T08:27:53.083Z",
+      "organizedAt": "2026-07-07T01:36:01.803Z",
+      "createdAt": "2026-06-15T07:39:19.833Z",
+      "updatedAt": "2026-07-07T01:36:01.803Z",
+      "organization": {
+        "goal": "【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\n过单、邮件通知施工方实施17张拆运单\n周二：过单9张",
+        "goalWeeks": "[{\"content\":\"【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"2026/6/22 - 4天前\"}},{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"周二：过单9张\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"1天前 - 刚刚\"}}]",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "",
+        "successWeeks": "",
+        "problems": "",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "",
+        "methodsWeeks": "",
+        "assets": "拆运一体过单sop",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-07T01:36:01.803Z"
+      },
+      "projectId": "1781685860305",
       "subtasks": []
     }
   ],
@@ -3053,21 +3053,6 @@
       "lastReminderTimes": {
         "0": "2026-07-02T06:48:41.283Z"
       }
-    },
-    {
-      "id": "mr8nn579mcfb8",
-      "taskId": "mqud8y6rk4z3p",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-07T09:23"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-06T03:22:53.589Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4104,6 +4089,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-06T09:56:50.558Z"
+    "lastSync": "2026-07-07T01:01:03.054Z"
   }
 }
