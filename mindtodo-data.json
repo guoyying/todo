@@ -1127,6 +1127,20 @@
       "dueTime": "1min",
       "unknown": false,
       "subtasks": []
+    },
+    {
+      "id": "mrc69gh9uif3f",
+      "type": "task",
+      "content": "这是测试任务清单的",
+      "createdAt": "2026-07-08T14:27:26.253Z",
+      "updatedAt": "2026-07-08T14:27:26.253Z",
+      "tags": [],
+      "done": false,
+      "inList": true,
+      "listAddedAt": "2026-07-08T14:27:26.253Z",
+      "dueTime": null,
+      "unknown": false,
+      "subtasks": []
     }
   ],
   "normalFeelings": [
