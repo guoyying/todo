@@ -3152,6 +3152,15 @@
   ],
   "knowledgeBase": [
     {
+      "id": "mrbfrsovhzcpukxlfn8",
+      "content": ">display mac-address 00E0-70EB-5779\n\n如果vlan是1，说明能检测到这个mac地址了，修改vlan就能通\n- 电脑禁用了某以太网，会导致端口检测不到。",
+      "tags": [
+        "网安"
+      ],
+      "createdAt": "2026-07-08T02:05:52.255Z",
+      "updatedAt": "2026-07-08T06:57:18.603Z"
+    },
+    {
       "id": "mrbgvsw7tzu5hmg7tzi",
       "content": "网关网元清单，2500的不搞等退网，3500的搞网管域改造。",
       "tags": [
@@ -3159,15 +3168,6 @@
       ],
       "createdAt": "2026-07-08T02:36:58.759Z",
       "updatedAt": "2026-07-08T02:36:58.759Z"
-    },
-    {
-      "id": "mrbfrsovhzcpukxlfn8",
-      "content": ">display mac-address 00E0-70EB-5779\n\n如果vlan是1，说明能检测到这个mac地址了",
-      "tags": [
-        "网安"
-      ],
-      "createdAt": "2026-07-08T02:05:52.255Z",
-      "updatedAt": "2026-07-08T02:06:05.694Z"
     },
     {
       "id": "mr97juozredrj459a2m",
@@ -4202,6 +4202,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-08T06:42:17.607Z"
+    "lastSync": "2026-07-08T06:47:55.832Z"
   }
 }
