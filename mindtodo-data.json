@@ -1097,9 +1097,9 @@
     {
       "id": "mrbcxutne3e7w",
       "type": "task",
-      "content": "1. 验收5张单\n2. 把mss拆运一体单过了\n3. 在sop记录：moderm不参加结算，像板卡一样\n4. 在群里发机器人让大家使用",
+      "content": "1. 验收10张单\n2. ~~把mss拆运一体单过了~~\n3. ~~在sop记录：moderm不参加结算，像板卡一样~~\n4. ~~在群里发机器人让大家使用~~",
       "createdAt": "2026-07-08T00:46:36.107Z",
-      "updatedAt": "2026-07-08T00:52:08.414Z",
+      "updatedAt": "2026-07-08T01:51:57.666Z",
       "tags": [
         "验收",
         "确定性",
@@ -1113,9 +1113,9 @@
     {
       "id": "mrbd4n6zrs7u9",
       "type": "task",
-      "content": "1. 思考下网安互检和自检怎么做，怎么让成员动起来\n2. 思考下传输策略怎么做？",
+      "content": "1. 思考下网安互检和自检怎么做，怎么让成员动起来\n2. 思考下传输策略怎么做？\n3. 判断下越秀的拆运单是否正确\n4. 1、问答助手解决了什么问题、痛点 2、放入哪些语料，语料做过怎样的清洗或者处理\n5. 写一下'20002025110700000769 看的sop（网管和资源系统）",
       "createdAt": "2026-07-08T00:51:52.811Z",
-      "updatedAt": "2026-07-08T00:52:49.957Z",
+      "updatedAt": "2026-07-08T01:53:40.029Z",
       "tags": [
         "思考性",
         "网安"
@@ -1894,7 +1894,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mrbfchz39fimu",
+      "name": "思考性 10:00-11:00"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -3048,6 +3053,17 @@
         "summary": "",
         "slotId": null
       }
+    ],
+    "2026-07-08": [
+      {
+        "id": "block_1783475638527",
+        "tag": "思考性",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "duration": 60,
+        "summary": "",
+        "slotId": "slot_mrbfchz39fimu"
+      }
     ]
   },
   "taskTriggers": [
@@ -3137,6 +3153,15 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mrbfrsovhzcpukxlfn8",
+      "content": ">display mac-address 00E0-70EB-5779\n\n如果vlan是1，说明能检测到这个mac地址了",
+      "tags": [
+        "网安"
+      ],
+      "createdAt": "2026-07-08T02:05:52.255Z",
+      "updatedAt": "2026-07-08T02:06:05.694Z"
+    },
     {
       "id": "mr97juozredrj459a2m",
       "content": "💡 主动选择 = 收回控制权（“这是我选的，我来负责结果”）\n🌱 未知不是障碍，而是所有路径的常态\n“每条路都有迷雾，但只有自己选的路上有指南针”",
@@ -4170,6 +4195,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-08T00:48:00.433Z"
+    "lastSync": "2026-07-08T00:53:04.616Z"
   }
 }
