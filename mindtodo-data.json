@@ -1186,6 +1186,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrdfcdsbdc4jm",
+      "type": "task",
+      "content": "想一想那台没在清单里面的设备怎么办？另外今年退网的目标是否包含客户转设备？再次跟总监确认，另外再想一下，如果得到的是正面回答该怎么跟现说？",
+      "createdAt": "2026-07-09T11:29:25.451Z",
+      "updatedAt": "2026-07-09T11:29:25.451Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -4401,6 +4415,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T10:35:27.916Z"
+    "lastSync": "2026-07-09T11:23:57.271Z"
   }
 }
