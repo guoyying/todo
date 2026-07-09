@@ -12130,7 +12130,12 @@ const item = {
             document.querySelector('input[name="dueType"][value="known"]').checked = true;
             toggleDueType();
             renderTags('taskTags');
-            saveData(); render();
+            saveData();
+            render();
+            // 刷新清单任务列表
+            renderListTodos();
+            // 更新任务创建区域的清单选择器
+            renderTaskListSelector();
         }
 
         // 显示验证提示气泡
@@ -14388,6 +14393,20 @@ let list = data.tasks.filter(i => {
                     };
                     tagsDiv.appendChild(addTagBtn);
                 }
+                
+                // 添加删除按钮
+                const deleteBtn = document.createElement('span');
+                deleteBtn.className = 'item-tag';
+                deleteBtn.textContent = '🗑️ 删除';
+                deleteBtn.style.cursor = 'pointer';
+                deleteBtn.style.color = '#ff4444';
+                deleteBtn.style.marginLeft = '8px';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    showDeleteConfirm(item.id, 'task', deleteBtn);
+                };
+                tagsDiv.appendChild(deleteBtn);
+                
                 row.appendChild(contentWrapper);
                 row.appendChild(tagsDiv);
 compactList.appendChild(row);
@@ -18172,9 +18191,11 @@ function closeModal(modalId) {
             const {username, repo, token} = data.github;
             const path = 'mindtodo-data.json';
              // 创建要推送的数据副本，移除敏感信息（不包含 practiceQuestions）
-             const dataToPush = {
-                 tasks: data.tasks,
-                 normalFeelings: data.normalFeelings,
+              const dataToPush = {
+                  tasks: data.tasks,
+                  taskLists: data.taskLists,
+                  currentListId: data.currentListId,
+                  normalFeelings: data.normalFeelings,
                  practiceBlocks: data.practiceBlocks,
                  slots: data.slots,
                  tags: data.tags,
@@ -19616,6 +19637,8 @@ function closeModal(modalId) {
                 const json = base64ToUtf8(info.content);
                 const remote = JSON.parse(json);
                   if (remote.tasks) data.tasks = remote.tasks;
+                  if (remote.taskLists) data.taskLists = remote.taskLists;
+                  if (remote.currentListId) data.currentListId = remote.currentListId;
                   if (remote.normalFeelings) data.normalFeelings = remote.normalFeelings;
                   if (remote.practiceBlocks) data.practiceBlocks = remote.practiceBlocks;
                   if (remote.slots) data.slots = remote.slots;
