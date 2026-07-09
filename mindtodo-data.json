@@ -1183,7 +1183,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2539,6 +2539,13 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mrddd1nmp2068",
+      "content": "对外界社交的深度与共鸣感有较高需求。你并非“不会社交”，而是对肤浅互动感到消耗",
+      "type": null,
+      "createdAt": "2026-07-09T10:33:57.154Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
