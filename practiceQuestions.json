@@ -893,7 +893,7 @@
       "analysis": "SSH加密传输，Telnet/SNMPv1/HTTP均不安全。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_5",
@@ -2301,7 +2301,8 @@
       "answer": "B",
       "analysis": "蜜罐需诱捕攻击，策略为源any可访问本机61022端口以捕获威胁。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_48",
@@ -2332,7 +2333,8 @@
       "answer": "B",
       "analysis": "交换机基于数据帧学习MAC，若该IP未实际通信，则MAC表无记录。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_50",
@@ -2676,7 +2678,8 @@
       "answer": "A",
       "analysis": "网卡禁用会导致物理链路无信号，交换机端口物理状态Down。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_73",
@@ -2689,7 +2692,8 @@
       "answer": "B",
       "analysis": "三层交换机可为多个VLAN接口配置不同IP，用于管理和跨VLAN通信。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_74",
@@ -2864,5 +2868,5 @@
       "createdAt": "2026-07-09T14:25:05.998Z"
     }
   ],
-  "lastUpdated": "2026-07-09T16:42:22.102Z"
+  "lastUpdated": "2026-07-09T23:12:17.510Z"
 }
