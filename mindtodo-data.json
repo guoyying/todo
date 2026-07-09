@@ -1279,9 +1279,9 @@
       "type": "task",
       "content": "SOC平台-资产管理看到该资产“蜜罐标识”为“是”（每4H更新）。安装失败的请发报错截图、/opt/Hp/vtcpproxy.log、/opt/Hp/tcp_proxy_conf.yml到群里",
       "createdAt": "2026-07-09T08:38:43.309Z",
-      "updatedAt": "2026-07-09T08:38:43.309Z",
+      "updatedAt": "2026-07-09T09:48:14.547Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1319,11 +1319,11 @@
     {
       "id": "mrdbe0e63ej0k",
       "type": "task",
-      "content": "看下网安单的设备ip是多少",
+      "content": "看下故障单石井的设备ip是多少",
       "createdAt": "2026-07-09T09:38:42.942Z",
-      "updatedAt": "2026-07-09T09:38:42.943Z",
+      "updatedAt": "2026-07-09T10:00:50.753Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -4527,6 +4527,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T09:41:57.346Z"
+    "lastSync": "2026-07-09T09:46:36.243Z"
   }
 }
