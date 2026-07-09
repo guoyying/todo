@@ -1149,16 +1149,44 @@
       "type": "task",
       "content": "粘贴到vscode看下啥原因：我发现页面任务输入框-添加任务到清单，不会立马显示。我得在下拉菜单切换其他，再切回这个菜单才能看到任务。为什么呢？",
       "createdAt": "2026-07-09T06:27:18.817Z",
-      "updatedAt": "2026-07-09T06:27:18.817Z",
+      "updatedAt": "2026-07-09T07:06:59.789Z",
       "tags": [
         "AI"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd4mfyw7ibba",
+      "type": "task",
+      "content": "copy那张单先退掉",
+      "createdAt": "2026-07-09T06:29:19.064Z",
+      "updatedAt": "2026-07-09T06:40:17.175Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd5hluod1ahx",
+      "type": "task",
+      "content": "广园这张单写下sop",
+      "createdAt": "2026-07-09T06:53:33.024Z",
+      "updatedAt": "2026-07-09T06:53:33.024Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "normalFeelings": [
@@ -1929,7 +1957,12 @@
       "archivedAt": null
     }
   ],
-  "slots": [],
+  "slots": [
+    {
+      "id": "slot_mrd4ki28pwxxq",
+      "name": "确定性 14:27-14:57"
+    }
+  ],
   "tags": [
     "家",
     "自己",
@@ -3113,6 +3146,15 @@
         "duration": 30,
         "summary": "",
         "slotId": null
+      },
+      {
+        "id": "block_1783578468463",
+        "tag": "确定性",
+        "startTime": "14:27",
+        "endTime": "14:57",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mrd4ki28pwxxq"
       }
     ]
   },
@@ -3160,7 +3202,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-07-02T06:48:46.190Z"
+            "confirmationTime": "2026-07-09T06:53:05.112Z"
           }
         ]
       },
@@ -3168,7 +3210,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-07-02T06:48:41.283Z"
+        "0": "2026-07-09T06:49:26.039Z"
       }
     },
     {
@@ -4254,6 +4296,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T06:26:35.363Z"
+    "lastSync": "2026-07-09T06:27:46.950Z"
   }
 }
