@@ -290,30 +290,6 @@
       "doneAt": "2026-06-01T01:44:04.443Z"
     },
     {
-      "id": "1780271275544",
-      "type": "task",
-      "content": "ai数字化",
-      "tags": [
-        "数字化"
-      ],
-      "done": true,
-      "doneAt": "2026-05-26T09:17:36.913Z",
-      "organizedAt": "2026-05-31T23:47:55.544Z",
-      "createdAt": "2026-05-26T01:44:46.898Z",
-      "updatedAt": "2026-05-31T23:47:55.544Z",
-      "organization": {
-        "goal": "",
-        "completion": "",
-        "skills": "",
-        "success": "",
-        "problems": "做接口人就是要通知成员：润色标题、更新项目进度等",
-        "summary": "",
-        "organizedAt": "2026-05-31T23:47:55.544Z"
-      },
-      "projectId": "1780271273894",
-      "subtasks": []
-    },
-    {
       "id": "mpunazqezfisi",
       "type": "task",
       "content": "1、网络简化共享文档，需要更新县分进度；2、BU的节电费统计；3、s转o月报",
@@ -779,33 +755,6 @@
       "doneAt": "2026-06-22T09:13:57.387Z"
     },
     {
-      "id": "1782206757899",
-      "type": "task",
-      "content": "【*】RPA+网管验收",
-      "tags": [
-        "RPA",
-        "验收"
-      ],
-      "done": true,
-      "doneAt": "2026-06-16T06:25:18.748Z",
-      "organizedAt": "2026-06-23T09:25:57.899Z",
-      "createdAt": "2026-06-15T01:19:36.003Z",
-      "updatedAt": "2026-06-23T09:25:57.899Z",
-      "organization": {
-        "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n【行动】建立问题共享表，方便同步问题状态和解决进度；新建工程验收，配合RPA测试\n【成效】清晰展现问题解决流程，避免聊天工具消息轰炸，关键信息难从聊天记录找",
-        "improvement": "",
-        "skills": "",
-        "success": "用共享表形式反馈测试结果，代替聊天框\n华姐休假，替她验收几个单子，心里踏实点。她人不错，之前帮助我，又耐心解答问题。",
-        "problems": "计划开展批量处理测试：选了2个单号依旧有许多问题，且优化速度慢。\n厂家忙于其他项目的开发，我们的项目紧迫感低。如何推动一个“非紧急但重要”的项目（RPA）。我想展现自己的推动能力",
-        "summary": "",
-        "methods": "直接问：下周二之前可以修复好吗？下午可以看看吗，想趁热测试",
-        "assets": "",
-        "organizedAt": "2026-06-23T09:25:57.899Z"
-      },
-      "projectId": "1780299687739",
-      "subtasks": []
-    },
-    {
       "id": "mqqg2wbz3tlgg",
       "type": "task",
       "content": "团支部ppt制作",
@@ -1049,274 +998,6 @@
       "subtasks": []
     },
     {
-      "id": "1783388161803",
-      "type": "task",
-      "content": "【*】拆运一体",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "doneAt": "2026-06-15T08:27:53.083Z",
-      "organizedAt": "2026-07-07T01:36:01.803Z",
-      "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-07-07T01:36:01.803Z",
-      "organization": {
-        "goal": "【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\n过单、邮件通知施工方实施17张拆运单\n周二：过单9张",
-        "goalWeeks": "[{\"content\":\"【6.22-6.26】已过单10张。邮件通知施工方，可实施12张拆运单\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"2026/6/22 - 4天前\"}},{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"周二：过单9张\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"1天前 - 刚刚\"}}]",
-        "improvement": "",
-        "improvementWeeks": "",
-        "skills": "",
-        "skillsWeeks": "",
-        "success": "",
-        "successWeeks": "",
-        "problems": "",
-        "problemsWeeks": "",
-        "summary": "",
-        "summaryWeeks": "",
-        "methods": "",
-        "methodsWeeks": "",
-        "assets": "拆运一体过单sop",
-        "assetsWeeks": "",
-        "organizedAt": "2026-07-07T01:36:01.803Z"
-      },
-      "projectId": "1781685860305",
-      "subtasks": []
-    },
-    {
-      "id": "mrbcxutne3e7w",
-      "type": "task",
-      "content": "2. ~~看下退网单有无，有的话审核~~\n3. ~~检查拆运单审核，发邮件~~\n6. ~~先查一下原来的策略有没有几个堡垒机ip，看下写了什么~~\n4. ~~oa找下云主机的网页看流程节点问问看~~\n2. ~~让泳哥再运行exe~~\n3. ~~oa过绩效考核~~\n4. ~~删掉知识库网管域~~\n3. ~~网安回收掉厂家ip，再重新分配~~\n2. ~~按照验收资料的-sop看20002025110700000769这张单的网管~~\n3. ~~看下ai竞赛评审的形式是不是登录自己的云电脑~~\n2. ~~上传网安ppt转pdf-更新ppt内容截图和知识库内容~~\n2. ~~越秀：把mss拆运一体单过了~~\n4. ~~在群里发机器人让大家使用~~",
-      "createdAt": "2026-07-08T00:46:36.107Z",
-      "updatedAt": "2026-07-09T08:58:59.099Z",
-      "tags": [
-        "验收",
-        "确定性",
-        "拆运一体",
-        "网安"
-      ],
-      "done": false,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mrbd4n6zrs7u9",
-      "type": "task",
-      "content": "1. ~~思考下网安互检和自检怎么做，怎么让成员动起来~~\n2. ~~思考下传输策略怎么做？~~\n3. ~~判断下越秀的拆运单是否正确~~\n4. ~~1、问答助手解决了什么问题、痛点 2、放入哪些语料，语料做过怎样的清洗或者处理~~\n5. ~~20002025110700000769，同路由怎么问华姐问题？~~\n7. ~~看了noc的堡垒机回复，我不知道该问什么问题。梳理下~~\n9. ~~看下报销流程，梳理出一个sop报销~~\n10. ~~思考下主机漏洞如何处理？~~\n11. ~~看下蜜罐怎么安装和放通~~",
-      "createdAt": "2026-07-08T00:51:52.811Z",
-      "updatedAt": "2026-07-09T06:26:06.375Z",
-      "tags": [
-        "思考性",
-        "网安"
-      ],
-      "done": false,
-      "dueTime": "1min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mrbgd8ptsvk6q",
-      "type": "task",
-      "content": "1. ~~问下晓华姐25年网管域改造清单，有26年最新的吗？为什么选这些做改造？~~\n3. ~~问杨工交换机放通4a的ip是不是132.96.187.154~~",
-      "createdAt": "2026-07-08T02:22:32.801Z",
-      "updatedAt": "2026-07-09T02:32:56.771Z",
-      "tags": [
-        "协作性"
-      ],
-      "done": false,
-      "dueTime": "1min",
-      "unknown": false,
-      "subtasks": []
-    },
-    {
-      "id": "mrd4hni2xi6rc",
-      "type": "task",
-      "content": "验收10张单",
-      "createdAt": "2026-07-09T06:25:35.546Z",
-      "updatedAt": "2026-07-09T08:13:25.985Z",
-      "tags": [
-        "验收"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd5hluod1ahx",
-      "type": "task",
-      "content": "广园这张单写下sop",
-      "createdAt": "2026-07-09T06:53:33.024Z",
-      "updatedAt": "2026-07-09T07:46:08.762Z",
-      "tags": [
-        "验收"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd61ctfyjrrg",
-      "type": "task",
-      "content": "看下交叉检查的要求，写下问题和一些思考做法.",
-      "createdAt": "2026-07-09T07:08:54.436Z",
-      "updatedAt": "2026-07-09T07:57:15.513Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd7d4r2nzwqd",
-      "type": "task",
-      "content": "写一下我希望呈现的任务清单效果：就是刷新网页后，能显示排序第一的清单任务（默认展开）。目前的问题是：我得点击其他清单，再切换回来，才能显示任务。",
-      "createdAt": "2026-07-09T07:46:03.470Z",
-      "updatedAt": "2026-07-09T07:58:39.616Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd7h7gf47xnk",
-      "type": "task",
-      "content": "给4C-E1-73-42-27-D1问下黄啥情况，内网可以外网不行",
-      "createdAt": "2026-07-09T07:49:13.599Z",
-      "updatedAt": "2026-07-09T08:48:14.087Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd7l01hts393",
-      "type": "task",
-      "content": "写一下授权4a云主机的方式",
-      "createdAt": "2026-07-09T07:52:10.613Z",
-      "updatedAt": "2026-07-09T08:00:15.607Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd7wco531tsx",
-      "type": "task",
-      "content": "宝英姐的报销材料准备",
-      "createdAt": "2026-07-09T08:01:00.197Z",
-      "updatedAt": "2026-07-09T08:36:08.324Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd7x6hyl4qka",
-      "type": "task",
-      "content": "填写反馈表，回单蜜罐的。",
-      "createdAt": "2026-07-09T08:01:38.854Z",
-      "updatedAt": "2026-07-09T08:38:46.819Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd8rymai9sc3",
-      "type": "task",
-      "content": "分析下上网的情况",
-      "createdAt": "2026-07-09T08:25:34.978Z",
-      "updatedAt": "2026-07-09T08:48:20.281Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd9600qpgikm",
-      "type": "task",
-      "content": "送外培训登记表有些不会填的，写一下怎么找，拆解一下",
-      "createdAt": "2026-07-09T08:36:29.978Z",
-      "updatedAt": "2026-07-09T10:16:15.142Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd98uwd0hw5s",
-      "type": "task",
-      "content": "SOC平台-资产管理看到该资产“蜜罐标识”为“是”（每4H更新）。安装失败的请发报错截图、/opt/Hp/vtcpproxy.log、/opt/Hp/tcp_proxy_conf.yml到群里",
-      "createdAt": "2026-07-09T08:38:43.309Z",
-      "updatedAt": "2026-07-09T09:48:14.547Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrdb1crs1v83a",
-      "type": "task",
-      "content": "另存mac地址图-》网安平台上传附件",
-      "createdAt": "2026-07-09T09:28:52.456Z",
-      "updatedAt": "2026-07-09T09:43:25.487Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrdbe0e63ej0k",
-      "type": "task",
-      "content": "看下故障单石井的设备ip是多少",
-      "createdAt": "2026-07-09T09:38:42.942Z",
-      "updatedAt": "2026-07-09T10:00:50.753Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrdcqw841rtxp",
       "type": "task",
       "content": "问下宝英姐考试费和培训费一起填写吗？",
@@ -1353,6 +1034,126 @@
       "tags": [],
       "done": false,
       "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "1783592475138",
+      "type": "task",
+      "content": "【*】RPA+网管验收",
+      "tags": [
+        "RPA",
+        "验收"
+      ],
+      "done": true,
+      "doneAt": "2026-06-16T06:25:18.748Z",
+      "organizedAt": "2026-07-09T10:21:15.138Z",
+      "createdAt": "2026-06-15T01:19:36.003Z",
+      "updatedAt": "2026-07-09T10:21:15.138Z",
+      "listId": "list_1783565139132",
+      "organization": {
+        "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n【行动】建立问题共享表，方便同步问题状态和解决进度；新建工程验收，配合RPA测试\n【成效】清晰展现问题解决流程，避免聊天工具消息轰炸，关键信息难从聊天记录找",
+        "goalWeeks": "",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "用共享表形式反馈测试结果，代替聊天框\n华姐休假，替她验收几个单子，心里踏实点。她人不错，之前帮助我，又耐心解答问题。",
+        "successWeeks": "",
+        "problems": "计划开展批量处理测试：选了2个单号依旧有许多问题，且优化速度慢。\n厂家忙于其他项目的开发，我们的项目紧迫感低。如何推动一个“非紧急但重要”的项目（RPA）。我想展现自己的推动能力",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "直接问：下周二之前可以修复好吗？下午可以看看吗，想趁热测试\n发现同类型放一起做，降低切换消耗（一并看资源、一并看网管）",
+        "methodsWeeks": "",
+        "assets": "",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-09T10:21:15.138Z"
+      },
+      "projectId": "1780299687739",
+      "subtasks": []
+    },
+    {
+      "id": "1783592532516",
+      "type": "task",
+      "content": "ai数字化",
+      "tags": [
+        "数字化"
+      ],
+      "done": true,
+      "doneAt": "2026-05-26T09:17:36.913Z",
+      "organizedAt": "2026-07-09T10:22:12.516Z",
+      "createdAt": "2026-05-26T01:44:46.898Z",
+      "updatedAt": "2026-07-09T10:22:12.516Z",
+      "listId": "list_1783565139132",
+      "organization": {
+        "goal": "参加二阶段all in ai评审",
+        "goalWeeks": "[{\"content\":\"参加二阶段all in ai评审\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "",
+        "successWeeks": "",
+        "problems": "做接口人就是要通知成员：润色标题、更新项目进度等",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "",
+        "methodsWeeks": "",
+        "assets": "",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-09T10:22:12.516Z"
+      },
+      "projectId": "1780271273894",
+      "subtasks": []
+    },
+    {
+      "id": "1783592566827",
+      "type": "task",
+      "content": "【*】拆运一体",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-06-15T08:27:53.083Z",
+      "organizedAt": "2026-07-09T10:22:46.827Z",
+      "createdAt": "2026-06-15T07:39:19.833Z",
+      "updatedAt": "2026-07-09T10:22:46.827Z",
+      "listId": "list_1783565139132",
+      "organization": {
+        "goal": "过单、邮件通知施工方实施17张拆运单",
+        "goalWeeks": "[{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "",
+        "successWeeks": "",
+        "problems": "",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "",
+        "methodsWeeks": "",
+        "assets": "拆运一体过单sop",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-09T10:22:46.827Z"
+      },
+      "projectId": "1781685860305",
+      "subtasks": []
+    },
+    {
+      "id": "mrdczc521stbj",
+      "type": "task",
+      "content": "写一下网信安工作周报",
+      "createdAt": "2026-07-09T10:23:17.558Z",
+      "updatedAt": "2026-07-09T10:23:17.558Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
@@ -4555,6 +4356,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T10:00:59.543Z"
+    "lastSync": "2026-07-09T10:17:48.208Z"
   }
 }
