@@ -1866,8 +1866,25 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         .btn-danger { background: var(--danger); color: white; }
         .btn-warning { background: #f5a623; color: white; }
         .btn-warning:hover { background: #d99012; }
-        .btn-small { padding: 4px 10px; font-size: 12px; }
-        .delete-confirm {
+.btn-small { padding: 4px 10px; font-size: 12px; }
+/* 管理按钮样式 */
+.btn-manage {
+    padding: 4px 12px;
+    font-size: 12px;
+    background: var(--green-light);
+    color: var(--green-text);
+    border: 1px solid var(--green-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 10px;
+}
+.btn-manage:hover {
+    background: var(--green-border);
+    color: var(--green-text);
+}
+
+.delete-confirm {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -2366,6 +2383,408 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         .item.task-item { border-left: 4px solid var(--task); }
         .item.done { opacity: 0.7; }
         .item.done .item-content { text-decoration: line-through; color: var(--text-secondary); }
+        
+        /* 紧凑列表样式 - 保留卡片背景 */
+        .compact-todo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        
+        .compact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1px;
+            padding: 1px 4px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: all 0.2s; 
+        }
+        
+        .compact-item:last-child {
+            border-bottom: none;
+        }
+        
+        .compact-item:hover {
+            background: var(--green-light);
+            border-radius: 4px;
+        }
+        
+.compact-item.done {
+    opacity: 0.6;
+}
+
+/* ============ 清单选择器样式 ============ */
+.list-selector-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.list-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 4px 24px 4px 10px;
+    font-size: 13px;
+    border: 1px solid var(--green-border);
+    border-radius: 6px;
+    background: var(--green-light);
+    color: var(--green-text);
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+    font-weight: 500;
+}
+
+.list-selector:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.list-selector:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.selector-arrow {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--green-text);
+    pointer-events: none;
+}
+
+/* ============ 精致管理弹窗样式 ============ */
+/* 管理弹窗容器 */
+#listManageModal .modal {
+    max-width: 600px;
+}
+
+#listManageModal .modal-header {
+    background: linear-gradient(135deg, var(--green-light) 0%, var(--card) 100%);
+    border-bottom: 1px solid var(--green-border);
+    padding: 16px 20px;
+}
+
+#listManageModal .modal-header h3 {
+    font-size: 18px;
+    color: var(--green-text);
+    margin: 0;
+}
+
+/* 清单统计卡片 */
+.list-stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--green-light) 0%, #fff 100%);
+    border-radius: 10px;
+    border: 1px solid var(--green-border);
+}
+
+.list-stats-header .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-text);
+}
+
+.list-stats-header .btn-primary {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* 清单卡片 */
+.list-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.list-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--green-border);
+    transition: all 0.2s;
+}
+
+.list-card:hover {
+    border-color: var(--green-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.list-card:hover::before {
+    background: var(--primary);
+}
+
+.list-card.current {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--card) 100%);
+}
+
+.list-card.current::before {
+    background: var(--primary);
+}
+
+.list-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.list-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.list-card-title .current-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.list-card-default {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: var(--border);
+    color: var(--text-secondary);
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.list-card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.list-card-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.list-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.list-stat-item .icon {
+    font-size: 14px;
+}
+
+.list-stat-item .value {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.list-card-progress {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.list-card-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #8fd68f);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.list-card-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.list-card-actions .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.list-card-actions .btn-icon {
+    padding: 6px 10px;
+    font-size: 11px;
+    min-width: 28px;
+}
+
+.list-card-actions .btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* 当前清单提示 */
+.current-list-indicator {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(107, 142, 107, 0.1);
+}
+
+.current-list-indicator .icon {
+    font-size: 20px;
+}
+
+.current-list-indicator .text {
+    flex: 1;
+}
+
+.current-list-indicator .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+.current-list-indicator .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-text);
+}
+
+/* 添加新任务按钮样式 */
+.compact-item.add-task-btn {
+    background: var(--green-light);
+    border: 2px dashed var(--green-border);
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.compact-item.add-task-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    padding-left: 4px;
+}
+/* 新任务输入行样式 */
+.compact-item.new-task-row {
+    background: var(--primary-light);
+    border: 2px solid var(--primary);
+    align-items: center;
+    padding: 6px 8px;
+    margin-top: 8px;
+}
+
+.new-task-icon {
+    font-size: 18px;
+    color: var(--primary);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.new-task-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 4px;
+    outline: none;
+    color: var(--text);
+}
+
+.new-task-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.new-task-cancel {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.new-task-cancel:hover {
+    color: var(--danger);
+}
+        
+        .compact-item.done .task-display {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+        
+        .compact-checkbox {
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 4px;
+            font-size: 12px;
+            color: var(--primary);
+            transition: all 0.2s;
+        }
+        
+        .compact-checkbox:hover {
+            background: var(--primary-light);
+        }
+        
+        .compact-checkbox.checked {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .compact-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .compact-content .task-display {
+            line-height: 1.6;
+            font-size: 14px;
+            color: var(--text);
+            cursor: pointer;
+        }
+        
+        .compact-item .item-tags {
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
         
         /* 感受条目高亮闪烁动画 */
         @keyframes feelingHighlight {
@@ -3120,6 +3539,100 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
 #taskOrganizerModal .modal {
     max-width: 900px;         /* 更宽，适合展示任务列表和表单 */
     max-height: calc(100vh - 10px); /* 更高，充分利用屏幕空间 */
+
+/* ============ 任务清单管理样式 ============ */
+/* 清单项卡片 */
+.list-item-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.list-item-card:hover {
+    border-color: var(--green-border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.list-item-card.current {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.list-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.list-item-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.list-item-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-item-meta {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.list-item-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.list-item-actions .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* 当前清单提示框 */
+.current-list-indicator {
+    padding: 10px 15px;
+    background: var(--green-light);
+    border-radius: 8px;
+    border: 1px solid var(--green-border);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.current-list-indicator .list-name {
+    font-weight: 600;
+    color: var(--green-text);
+}
+
+/* 空状态提示 */
+.empty-list-tip {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.empty-list-tip .icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
     min-height: 700px;        /* 最小高度，确保足够高 */
     height: auto;             /* 高度自适应 */
 }
@@ -7073,6 +7586,9 @@ padding: 7px !important;
                     <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);margin-left:16px;">
                         <input type="radio" name="dueType" value="unknown" onchange="toggleDueType()"> 未知（需要拆解）
                     </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);margin-left:16px;">
+                        <input type="radio" name="dueType" value="list" onchange="toggleDueType()"> 清单
+                    </label>
                 </div>
                 <input type="text" id="taskDueTime" placeholder="预计时间（如：15分钟，上限20分钟）" onkeypress="if(event.key==='Enter')saveTask()">
                 <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">⏰ 任务时间上限20分钟，避免制定太大目标导致焦虑</div>
@@ -7094,11 +7610,17 @@ padding: 7px !important;
                     </div>
                 </div>
             </div>
-            <div class="input-group">
-                <label>标签</label>
-                <div class="tags-select" id="taskTags"></div>
-            </div>
-            <div class="submit-btn-wrapper">
+<div class="input-group">
+    <label>标签</label>
+    <div class="tags-select" id="taskTags"></div>
+</div>
+<div class="input-group">
+    <label>所属清单</label>
+    <select id="taskListSelect" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-size:14px;background:var(--card);color:var(--text);">
+        <!-- 清单选项将通过 JavaScript 动态生成 -->
+    </select>
+</div>
+<div class="submit-btn-wrapper">
                 <button class="btn btn-primary" onclick="saveTask()">添加任务</button>
                 <div class="validation-toast" id="validationToast">
                     <span>⚠️</span>
@@ -7116,6 +7638,27 @@ padding: 7px !important;
             <input type="text" id="newSlotName" placeholder="添加时间段，如今日下午、本周内...">
             <button class="btn btn-secondary" onclick="addSlot()">添加</button>
         </div>
+        
+        <!-- 任务清单面板 -->
+        <div class="section-title">
+            📝
+            <div class="list-selector-wrapper" onmousedown="event.stopPropagation();">
+<select id="quickListSelector" onchange="quickSwitchListFromSelect(this)" class="list-selector">
+                <!-- 清单选项将通过 JavaScript 动态生成 -->
+            </select>
+            <span class="selector-arrow">▼</span>
+        </div>
+        <span class="count" id="listTodoCount"></span>
+        <span id="listTodoArrow" style="font-size:12px;margin-left:8px;cursor:pointer;" onclick="toggleOldSection('listTodo')">▼</span>
+        <button class="btn-manage" onclick="showListManageModal(event)">⚙️ 管理</button>
+    </div>
+        <div id="listTodoWrapper" class="collapsed">
+            <div class="filter-bar" id="listTodoFilterBar">
+                <input type="text" id="listTodoSearch" placeholder="搜索清单..." oninput="renderListTodos()">
+                <div class="tag-filter" id="listTodoTagFilter"></div>
+            </div>
+            <div id="listTodoList"></div>
+        </div>
 
         <div class="section-title">📋 待办 <span class="count" id="todayCount"></span></div>
         <div class="filter-bar" id="todayFilterBar">
@@ -7123,6 +7666,7 @@ padding: 7px !important;
             <div class="tag-filter" id="todayTagFilter"></div>
         </div>
         <div id="todayList"></div>
+        
         <!-- 回到顶部按钮 - 想做的事 -->
         <button id="taskBackToTop" class="back-to-top-btn" onclick="scrollTaskToTop()" style="display:flex;">
             ⬆️
@@ -7438,8 +7982,91 @@ padding: 7px !important;
         </div>
     </div>
 
-    <!-- 项目管理面板 -->
-    <div class="modal-overlay hidden" id="projectManagementPanel" onclick="closeModal('projectManagementPanel')">
+<!-- 任务清单管理弹窗 -->
+<div class="modal-overlay hidden" id="listManageModal" onclick="closeModal('listManageModal')">
+    <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h3>📋 任务清单管理</h3>
+            <span class="close" onclick="closeModal('listManageModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <!-- 统计头部 -->
+            <div class="list-stats-header">
+                <div class="title">📁 我的清单</div>
+                <button class="btn btn-primary" onclick="showCreateListModal()">+ 新建清单</button>
+            </div>
+            
+            <!-- 清单列表 -->
+            <div id="listsContainer" style="max-height:450px;overflow-y:auto;padding-right:8px;">
+                <!-- 清单项将通过 JavaScript 动态渲染 -->
+            </div>
+            
+            <!-- 当前清单提示 -->
+            <div id="currentListInfo" class="current-list-indicator" style="display:none;">
+                <div class="icon">✨</div>
+                <div class="text">
+                    <div class="label">当前正在使用</div>
+                    <div class="name" id="currentListName"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 创建任务清单弹窗 -->
+<div class="modal-overlay hidden" id="createListModal" onclick="closeModal('createListModal')">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width:400px;">
+        <div class="modal-header">
+            <h3>➕ 新建任务清单</h3>
+            <span class="close" onclick="closeModal('createListModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div style="padding:20px;">
+                <div style="margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:500;">清单名称</label>
+                    <input type="text" id="newListName" placeholder="请输入清单名称"
+                           style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;"
+                           onkeypress="if(event.key==='Enter')createNewList()">
+                </div>
+                <div style="margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:500;">清单描述（可选）</label>
+                    <textarea id="newListDesc" placeholder="请输入清单描述" rows="3"
+                              style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font-size:14px;resize:vertical;"
+                              onkeypress="if(event.key==='Enter')createNewList()"></textarea>
+                </div>
+                <div style="display:flex;justify-content:flex-end;gap:10px;">
+                    <button class="btn btn-secondary" onclick="closeModal('createListModal')">取消</button>
+                    <button class="btn btn-primary" onclick="createNewList()">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 删除确认弹窗 -->
+<div class="modal-overlay hidden" id="deleteListConfirmModal" onclick="closeModal('deleteListConfirmModal')">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width:400px;">
+        <div class="modal-header">
+            <h3>⚠️ 确认删除</h3>
+            <span class="close" onclick="closeModal('deleteListConfirmModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div style="padding:20px;">
+                <p style="margin-bottom:16px;color:#666;">确定要删除清单 <strong id="deleteListName"></strong> 吗？</p>
+                <div id="deleteWarning" style="margin-bottom:16px;padding:12px;background:#fff3f3;border-radius:6px;border:1px solid #ffcdd2;">
+                    <p style="margin:0;color:#c62828;font-size:13px;">⚠️ 删除后，该清单下的所有任务将移至"默认清单"。</p>
+                </div>
+                <div style="display:flex;justify-content:flex-end;gap:10px;">
+                    <button class="btn btn-secondary" onclick="closeModal('deleteListConfirmModal')">取消</button>
+                    <button class="btn btn-danger" onclick="confirmDeleteList()">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 项目管理面板 -->
+<div class="modal-overlay hidden" id="projectManagementPanel" onclick="closeModal('projectManagementPanel')">
         <div class="modal" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <h3>📊 项目管理</h3>
@@ -10227,9 +10854,11 @@ ${taskContent}
         summary: { label: '📝 下一步计划', key: 'summary' }
     };
     
-    let data = {
-         tasks: [], // 待办任务
-         normalFeelings: [], // 普通感受
+let data = {
+     tasks: [], // 待办任务 [{id, content, done, isList, tags, createdAt, updatedAt, listId}] listId 为清单 ID，为空则在默认清单
+     taskLists: [], // 任务清单配置 [{id, name, description, createdAt, isDefault}] listId 为清单 ID
+     currentListId: 'default', // 当前选中的清单 ID
+     normalFeelings: [], // 普通感受
          practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
          slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
          commonTaskTags: ['生活','工作'],
@@ -10437,12 +11066,38 @@ ${taskContent}
                         if (parsed.customTaskStyles !== undefined) {
                             data.customTaskStyles = parsed.customTaskStyles;
                         }
-                        // 加载已导出知识 ID 列表
-                        if (parsed.exportedKnowledgeIds) {
-                            data.exportedKnowledgeIds = parsed.exportedKnowledgeIds;
-                        }
-                 } catch(e) { console.error('Load data error:', e); }
-             }
+// 加载已导出知识 ID 列表
+if (parsed.exportedKnowledgeIds) {
+    data.exportedKnowledgeIds = parsed.exportedKnowledgeIds;
+}
+// 加载任务清单配置
+if (parsed.taskLists) {
+    data.taskLists = parsed.taskLists;
+} else {
+    // 初始化默认清单
+    data.taskLists = [{
+        id: 'default',
+        name: '默认清单',
+        description: '默认任务清单',
+        createdAt: nowStr(),
+        isDefault: true
+    }];
+    data.currentListId = 'default';
+}
+// 迁移旧任务数据：为没有 listId 的任务添加默认清单 ID
+if (data.tasks && data.tasks.length > 0) {
+    data.tasks.forEach(task => {
+        if (!task.listId) {
+            task.listId = 'default';
+        }
+    });
+}
+// 确保 currentListId 存在
+if (!data.currentListId && data.taskLists && data.taskLists.length > 0) {
+    data.currentListId = data.taskLists[0].id;
+}
+} catch(e) { console.error('Load data error:', e); }
+}
          }
  
             // 更新所有模型选择器
@@ -10800,14 +11455,86 @@ ${taskContent}
         }
 
         function toggleDueType() {
-            const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
-            document.getElementById('taskDueTime').classList.toggle('hidden', unknown);
+            const dueType = document.querySelector('input[name="dueType"]:checked').value;
+            const unknown = dueType === 'unknown';
+            const isList = dueType === 'list';
+            document.getElementById('taskDueTime').classList.toggle('hidden', unknown || isList);
             document.getElementById('unknownNotice').classList.toggle('hidden', !unknown);
             document.getElementById('unknownSubtasks').classList.toggle('hidden', !unknown);
         }
 
-        // ============ Tags ============
-        function renderTags(containerId, selected=[]) {
+// ============ 清单选择器 ============
+function renderTaskListSelector() {
+    const select = document.getElementById('taskListSelect');
+    if (!select) return;
+    
+    select.innerHTML = '';
+    
+    if (!data.taskLists || data.taskLists.length === 0) {
+        // 如果没有清单，创建默认清单
+        data.taskLists = [{
+            id: 'default',
+            name: '默认清单',
+            description: '默认任务清单',
+            createdAt: nowStr(),
+            isDefault: true
+        }];
+        data.currentListId = 'default';
+    }
+    
+    data.taskLists.forEach(list => {
+        const option = document.createElement('option');
+        option.value = list.id;
+        option.textContent = list.name;
+        if (list.id === data.currentListId) {
+            option.selected = true;
+        }
+        select.appendChild(option);
+    });
+}
+// ============ 快速切换清单 ============
+window.quickSwitchList = function(listId) {
+    if (!listId) return;
+    data.currentListId = listId;
+    saveData();
+    updateCurrentListInfo();
+    renderListTodos();
+    renderQuickListSelector();
+};
+
+// 从下拉框切换清单（带检查）
+window.quickSwitchListFromSelect = function(select) {
+    const selectedValue = select.value;
+    // 只有选择了不同的清单才切换
+    if (selectedValue !== data.currentListId) {
+        quickSwitchList(selectedValue);
+    }
+};
+
+// 渲染快速清单选择器
+function renderQuickListSelector() {
+    const select = document.getElementById('quickListSelector');
+    if (!select) return;
+    
+    select.innerHTML = '';
+    
+    if (!data.taskLists || data.taskLists.length === 0) {
+        return;
+    }
+    
+    data.taskLists.forEach(list => {
+        const option = document.createElement('option');
+        option.value = list.id;
+        option.textContent = list.name;
+        if (list.id === data.currentListId) {
+            option.selected = true;
+        }
+        select.appendChild(option);
+    });
+}
+
+// ============ Tags ============
+function renderTags(containerId, selected=[]) {
             const el = document.getElementById(containerId);
             el.innerHTML = '';
             
@@ -10974,6 +11701,14 @@ ${taskContent}
                  renderTagFilter('oldTodoTagFilter', oldTodoTasks, currentTags);
              }
              
+             // 任务清单筛选器
+             const listTodoTasks = data.tasks.filter(t => !t.done && t.isList === true);
+             const listTodoFilter = document.getElementById('listTodoTagFilter');
+             if (listTodoFilter) {
+                 const currentTags = JSON.parse(listTodoFilter.dataset.selectedTags || '[]');
+                 renderTagFilter('listTodoTagFilter', listTodoTasks, currentTags);
+             }
+             
               // 已完成任务筛选器（包括已整理的任务）
               const completedTasks = data.tasks.filter(t => t.done);
               const completedFilter = document.getElementById('completedTagFilter');
@@ -11092,6 +11827,8 @@ ${taskContent}
                     renderFeelings();
                 } else if (containerId === 'oldTodoTagFilter') {
                     renderOldTodos();
+                } else if (containerId === 'listTodoTagFilter') {
+                    renderListTodos();
                 } else if (containerId === 'oldFeelingTagFilter') {
                     renderOldFeelings();
                 } else if (containerId === 'completedTagFilter') {
@@ -11133,6 +11870,8 @@ ${taskContent}
                         renderFeelings();
                     } else if (containerId === 'oldTodoTagFilter') {
                         renderOldTodos();
+                    } else if (containerId === 'listTodoTagFilter') {
+                        renderListTodos();
                     } else if (containerId === 'oldFeelingTagFilter') {
                         renderOldFeelings();
                     } else if (containerId === 'completedTagFilter') {
@@ -11292,11 +12031,13 @@ ${taskContent}
             
             const content = document.getElementById('taskContent').value.trim();
             if (!content) return;
-            const unknown = document.querySelector('input[name="dueType"]:checked').value === 'unknown';
+            const dueType = document.querySelector('input[name="dueType"]:checked').value;
+            const unknown = dueType === 'unknown';
+            const isList = dueType === 'list';
             let dueTime = null;
             
             // 验证逻辑
-            if (!unknown) {
+            if (!unknown && !isList) {
                 // 已知时间：必须填写预计时间
                 let v = document.getElementById('taskDueTime').value.trim();
                 if (!v) {
@@ -11317,7 +12058,7 @@ ${taskContent}
                 }
                 
                 dueTime = v;
-            } else {
+            } else if (unknown) {
                 // 未知时间：必须填写至少一个子任务，且该子任务必须有预计时间
                 const subtaskInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-input'));
                 const timeInputs = Array.from(document.querySelectorAll('#unknownSubtasks .subtask-time'));
@@ -11371,12 +12112,16 @@ ${taskContent}
                     return {id: genId(), content, estimatedTime: time, done: false, placedIn: null};
                 }).filter(st => st.content);
             }
-            const item = {
-                id: genId(), type: 'task', content,
-                createdAt: nowStr(), updatedAt: nowStr(),
-                tags: getSelectedTags('taskTags'), done: false,
-                dueTime, unknown: !!unknown, subtasks
-            };
+// 获取选择的清单 ID
+const selectedListId = document.getElementById('taskListSelect')?.value || data.currentListId || 'default';
+
+const item = {
+    id: genId(), type: 'task', content,
+    createdAt: nowStr(), updatedAt: nowStr(),
+    tags: getSelectedTags('taskTags'), done: false,
+    dueTime, unknown: !!unknown, isList: !!isList, subtasks,
+    listId: selectedListId // 使用选择的清单 ID
+};
             data.tasks.push(item);
             document.getElementById('taskContent').value = '';
             document.getElementById('taskDueTime').value = '';
@@ -11415,6 +12160,7 @@ ${taskContent}
                 if (sidebar) sidebar.style.display = 'none';
                 renderSlots();
                 renderToday();
+                renderListTodos();
                 renderOldTodos();
                 renderCompleted();
                 renderTriggerManage();
@@ -13257,10 +14003,15 @@ ${taskContent}
             const selectedTags = JSON.parse(selectedTagsStr);
              const filterMode = document.getElementById('todayTagFilter')?.dataset.filterMode || 'include';
              
-             // 只显示当天创建且未完成且未放入时间段的待办
+             // 只显示当天创建且未完成且未放入时间段的待办（排除清单任务）
              let list = data.tasks.filter(i => {
                  // 过滤掉有触发提醒的任务
                  if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
+                     return false;
+                 }
+                 
+                 // 过滤掉清单任务（isList=true）
+                 if (i.isList === true) {
                      return false;
                  }
                  
@@ -13392,6 +14143,11 @@ ${taskContent}
                     return false;
                 }
                 
+                // 过滤掉清单任务（isList=true）
+                if (i.isList === true) {
+                    return false;
+                }
+                
                 if (!i.done && !isToday(i.createdAt)) {
                     // 如果任务本身被放入时间段，不显示
                     if (i.placedIn) {
@@ -13442,7 +14198,527 @@ ${taskContent}
             list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
         }
 
-        function renderOldFeelings() {
+        // ============ 任务清单渲染 ============
+        function renderListTodos() {
+            const container = document.getElementById('listTodoList');
+            container.innerHTML = '';
+            
+            // 获取筛选条件
+            const searchTerm = document.getElementById('listTodoSearch')?.value.toLowerCase() || '';
+            const selectedTagsStr = document.getElementById('listTodoTagFilter')?.dataset.selectedTags || '[]';
+            const selectedTags = JSON.parse(selectedTagsStr);
+            const filterMode = document.getElementById('listTodoTagFilter')?.dataset.filterMode || 'include';
+            
+// 显示当前清单模式的任务（isList=true），包括已完成和未完成
+let list = data.tasks.filter(i => {
+    // 过滤掉有触发提醒的任务
+    if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
+        return false;
+    }
+    
+    // 只显示当前清单的任务（isList=true 且 listId 匹配当前清单）
+    return i.isList === true && i.listId === data.currentListId;
+});
+            // 应用搜索过滤
+            if (searchTerm) {
+                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
+            }
+            
+            // 应用标签过滤
+            if (selectedTags && selectedTags.length > 0) {
+                if (filterMode === 'include') {
+                    // 包含模式：显示包含任一选中标签的内容
+                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
+                } else {
+                    // 排除模式：排除包含任一选中标签的内容
+                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
+                }
+            }
+            
+            document.getElementById('listTodoCount').textContent = list.length ? `(${list.length})` : '';
+            if (list.length === 0) {
+                container.innerHTML = '<div class="empty-tip">暂无任务清单</div>';
+                return;
+            }
+            
+            // 渲染标签筛选器
+            renderTagFilter('listTodoTagFilter', list, selectedTags);
+            
+            // 紧凑列表容器
+            const compactList = document.createElement('div');
+            compactList.className = 'compact-todo-list';
+            
+            // 渲染清单任务（带复选框，支持 Markdown，复用待办显示逻辑）
+            list.forEach(item => {
+                const row = document.createElement('div');
+                row.className = `compact-item${item.done ? ' done' : ''}`;
+                row.dataset.id = item.id;
+                
+                // 复选框
+                const cb = document.createElement('span');
+                cb.className = 'compact-checkbox' + (item.done ? ' checked' : '');
+                cb.innerHTML = item.done ? '✓' : '';
+                cb.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleListTaskDone(item.id);
+                };
+                row.appendChild(cb);
+                
+                // 内容区域（复用待办的内联编辑逻辑）
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'compact-content';
+                
+                // 创建显示容器（Markdown 渲染，复用 task-display 样式）
+                const displayDiv = document.createElement('div');
+                displayDiv.className = 'task-display';
+                
+                if (typeof marked !== 'undefined') {
+                    try {
+                        const html = marked.parse(item.content, { breaks: true });
+                        displayDiv.innerHTML = html;
+                        
+                        // 给包含复选框的 ul 添加 task-list 类名
+                        const uls = displayDiv.querySelectorAll('ul');
+                        uls.forEach(ul => {
+                            const hasCheckbox = ul.querySelector('input[type="checkbox"]');
+                            if (hasCheckbox) {
+                                ul.classList.add('task-list');
+                            }
+                        });
+                    } catch (e) {
+                        displayDiv.textContent = item.content;
+                    }
+                } else {
+                    displayDiv.textContent = item.content;
+                }
+                
+                displayDiv.style.cursor = 'pointer';
+                displayDiv.onclick = function(e) {
+                    e.stopPropagation();
+                    // 创建内联编辑器
+                    const textarea = document.createElement('textarea');
+                    textarea.value = item.content;
+                    textarea.style.width = '100%';
+                    textarea.style.minHeight = '60px';
+                    textarea.style.padding = '8px';
+                    textarea.style.border = '1px solid var(--border)';
+                    textarea.style.borderRadius = '4px';
+                    textarea.style.fontSize = '14px';
+                    textarea.style.fontFamily = 'inherit';
+                    textarea.style.resize = 'vertical';
+                    textarea.style.boxSizing = 'border-box';
+                    
+                    // 保存函数
+                    const save = () => {
+                        const newContent = textarea.value.trim();
+                        if (newContent !== item.content) {
+                            item.content = newContent;
+                            item.updatedAt = nowStr();
+                            saveData();
+                            renderListTodos();
+                            updateAllTagFilters();
+                        } else {
+                            renderListTodos();
+                        }
+                    };
+                    
+                    // 取消编辑
+                    const cancel = () => {
+                        renderListTodos();
+                    };
+                    
+                    contentWrapper.innerHTML = '';
+                    contentWrapper.appendChild(textarea);
+                    textarea.focus();
+                    
+                    // 事件绑定
+                    textarea.onblur = () => setTimeout(save, 100);
+                    textarea.onkeydown = (e) => {
+                        if (e.key === 'Enter' && e.shiftKey) {
+                            e.preventDefault();
+                            save();
+                        } else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            cancel();
+                        }
+                    };
+                };
+                
+                contentWrapper.appendChild(displayDiv);
+                
+                // 添加标签显示和编辑功能
+                const tagsDiv = document.createElement('div');
+                tagsDiv.className = 'item-tags';
+                tagsDiv.style.marginTop = '6px';
+                
+                if (item.tags && item.tags.length) {
+                    item.tags.forEach(t => {
+                        const s = document.createElement('span');
+                        s.className = 'item-tag';
+                        s.textContent = t;
+                        s.style.cursor = 'pointer';
+                        s.onclick = (e) => {
+                            e.stopPropagation();
+                            showTaskTagSelector(e, item.id);
+                        };
+                        tagsDiv.appendChild(s);
+                    });
+                    
+                    // 添加标签按钮
+                    const addTagBtn = document.createElement('span');
+                    addTagBtn.className = 'item-tag';
+                    addTagBtn.textContent = '+';
+                    addTagBtn.style.cursor = 'pointer';
+                    addTagBtn.style.color = 'var(--primary)';
+                    addTagBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        showTaskTagSelector(e, item.id);
+                    };
+                    tagsDiv.appendChild(addTagBtn);
+                } else {
+                    // 如果没有标签，显示添加标签按钮
+                    const addTagBtn = document.createElement('span');
+                    addTagBtn.className = 'item-tag';
+                    addTagBtn.textContent = '+ 添加标签';
+                    addTagBtn.style.cursor = 'pointer';
+                    addTagBtn.style.color = 'var(--primary)';
+                    addTagBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        showTaskTagSelector(e, item.id);
+                    };
+                    tagsDiv.appendChild(addTagBtn);
+                }
+                row.appendChild(contentWrapper);
+                row.appendChild(tagsDiv);
+compactList.appendChild(row);
+});
+
+// 在列表末尾添加"添加新任务"按钮
+const addTaskBtn = document.createElement('div');
+addTaskBtn.className = 'compact-item add-task-btn';
+addTaskBtn.innerHTML = `
+    <span style="font-size:16px;margin-right:6px;">+</span>
+    <span style="color:var(--primary);">添加新任务到当前清单</span>
+`;
+addTaskBtn.onclick = function() {
+    // 隐藏按钮，显示输入框
+    addTaskBtn.style.display = 'none';
+    
+    // 创建新任务输入行
+    const newRow = document.createElement('div');
+    newRow.className = 'compact-item new-task-row';
+    newRow.innerHTML = `
+        <span class="new-task-icon">+</span>
+        <input type="text" class="new-task-input" placeholder="输入新任务内容，按 Enter 添加..." />
+        <button class="new-task-cancel" title="取消">✕</button>
+    `;
+    
+    const input = newRow.querySelector('.new-task-input');
+    const cancelBtn = newRow.querySelector('.new-task-cancel');
+    
+    // 取消按钮点击事件
+    cancelBtn.onclick = () => {
+        newRow.remove();
+        addTaskBtn.style.display = 'flex';
+    };
+    
+    // 输入框事件
+    input.onkeydown = (e) => {
+        if (e.key === 'Enter') {
+            const content = input.value.trim();
+            if (content) {
+                // 创建新任务
+                const newTask = {
+                    id: genId(),
+                    type: 'task',
+                    content: content,
+                    createdAt: nowStr(),
+                    updatedAt: nowStr(),
+                    tags: [],
+                    done: false,
+                    dueTime: '',
+                    unknown: false,
+                    isList: true,
+                    subtasks: [],
+                    listId: data.currentListId || 'default'
+                };
+                
+                data.tasks.push(newTask);
+                saveData();
+                renderListTodos();
+                updateAllTagFilters();
+            } else {
+                // 空内容则取消
+                newRow.remove();
+                addTaskBtn.style.display = 'flex';
+            }
+        } else if (e.key === 'Escape') {
+            newRow.remove();
+            addTaskBtn.style.display = 'flex';
+        }
+    };
+    
+    compactList.appendChild(newRow);
+    
+    // 自动聚焦并选择输入框
+    setTimeout(() => {
+        input.focus();
+    }, 10);
+};
+compactList.appendChild(addTaskBtn);
+
+container.appendChild(compactList);
+}
+
+        // 切换清单任务完成状态
+        function toggleListTaskDone(taskId) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (task) {
+                task.done = !task.done;
+                task.updatedAt = nowStr();
+                saveData();
+                renderListTodos();
+                updateAllTagFilters();
+renderCompleted();
+}
+}
+
+// ============ 任务清单管理功能 ============
+
+// 显示清单管理弹窗
+window.showListManageModal = function(event) {
+    if (event) event.stopPropagation();
+    renderListsContainer();
+    updateCurrentListInfo();
+    const modal = document.getElementById('listManageModal');
+    if (modal) modal.classList.remove('hidden');
+};
+
+// 渲染清单列表
+function renderListsContainer() {
+    const container = document.getElementById('listsContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    if (!data.taskLists || data.taskLists.length === 0) {
+        container.innerHTML = '<div class="empty-list-tip"><div class="icon">📋</div><p>暂无任务清单，请创建新清单</p></div>';
+        return;
+    }
+    
+data.taskLists.forEach((list, index) => {
+    const card = document.createElement('div');
+    card.className = `list-card${list.id === data.currentListId ? ' current' : ''}`;
+    card.dataset.index = index;
+    
+    const hasPrev = index > 0;
+    const hasNext = index < data.taskLists.length - 1;
+    
+    card.innerHTML = `
+        <div class="list-card-header">
+            <h4 class="list-card-title">
+                ${escapeHtml(list.name)}
+                ${list.id === data.currentListId ? '<span class="current-badge">当前</span>' : ''}
+                ${list.isDefault ? '<span class="list-card-default">默认</span>' : ''}
+            </h4>
+            <div class="list-card-actions">
+                ${!list.isDefault ? `
+                    <button class="btn btn-icon" onclick="moveListUp('${list.id}')" ${!hasPrev ? 'disabled' : ''} title="上移">
+                        ▲
+                    </button>
+                    <button class="btn btn-icon" onclick="moveListDown('${list.id}')" ${!hasNext ? 'disabled' : ''} title="下移">
+                        ▼
+                    </button>
+                ` : ''}
+                ${list.id !== 'default' ? `<button class="btn btn-secondary" onclick="switchList('${list.id}')">${list.id === data.currentListId ? '使用中' : '切换到此清单'}</button>` : ''}
+                ${!list.isDefault ? `<button class="btn btn-danger" onclick="confirmDeleteListClick('${list.id}')">删除清单</button>` : ''}
+            </div>
+        </div>
+    `;
+    
+    container.appendChild(card);
+});
+}
+
+// 上移清单
+window.moveListUp = function(listId) {
+    const index = data.taskLists.findIndex(l => l.id === listId);
+    if (index <= 0) return;
+    
+    // 交换位置
+    const temp = data.taskLists[index];
+    data.taskLists[index] = data.taskLists[index - 1];
+    data.taskLists[index - 1] = temp;
+    
+    saveData();
+    renderListsContainer();
+    renderQuickListSelector();
+    renderTaskListSelector();
+};
+
+// 下移清单
+window.moveListDown = function(listId) {
+    const index = data.taskLists.findIndex(l => l.id === listId);
+    if (index < 0 || index >= data.taskLists.length - 1) return;
+    
+    // 交换位置
+    const temp = data.taskLists[index];
+    data.taskLists[index] = data.taskLists[index + 1];
+    data.taskLists[index + 1] = temp;
+    
+    saveData();
+    renderListsContainer();
+    renderQuickListSelector();
+    renderTaskListSelector();
+};
+
+// 更新当前清单信息（包括弹窗内和页面标题）
+function updateCurrentListInfo() {
+    // 更新页面标题中的清单名称
+    const listTitle = document.getElementById('currentListTitle');
+    if (listTitle) {
+        const currentList = data.taskLists.find(l => l.id === data.currentListId);
+        if (currentList) {
+            listTitle.textContent = currentList.name;
+        }
+    }
+    
+    // 更新弹窗内的当前清单信息
+    const infoDiv = document.getElementById('currentListInfo');
+    const nameSpan = document.getElementById('currentListName');
+    
+    if (!infoDiv || !nameSpan) return;
+    
+    const currentList = data.taskLists.find(l => l.id === data.currentListId);
+    if (currentList) {
+        nameSpan.textContent = currentList.name;
+        infoDiv.style.display = 'block';
+    } else {
+        infoDiv.style.display = 'none';
+    }
+}
+
+// 显示创建清单弹窗
+window.showCreateListModal = function() {
+    document.getElementById('newListName').value = '';
+    document.getElementById('newListDesc').value = '';
+    const modal = document.getElementById('createListModal');
+    if (modal) modal.classList.remove('hidden');
+    setTimeout(() => {
+        const input = document.getElementById('newListName');
+        if (input) input.focus();
+    }, 100);
+};
+
+// 创建新清单
+window.createNewList = function() {
+    const nameInput = document.getElementById('newListName');
+    const descInput = document.getElementById('newListDesc');
+    
+    const name = nameInput.value.trim();
+    const desc = descInput.value.trim();
+    
+    if (!name) {
+        alert('请输入清单名称');
+        nameInput.focus();
+        return;
+    }
+    
+    // 检查名称是否重复
+    if (data.taskLists.some(l => l.name === name)) {
+        alert('清单名称已存在，请使用其他名称');
+        nameInput.focus();
+        return;
+    }
+    
+    const newList = {
+        id: 'list_' + Date.now(),
+        name: name,
+        description: desc,
+        createdAt: nowStr(),
+        isDefault: false
+    };
+    
+data.taskLists.push(newList);
+data.currentListId = newList.id;
+saveData();
+
+// 关闭弹窗并刷新界面
+closeModal('createListModal');
+renderListsContainer();
+updateCurrentListInfo();
+renderListTodos();
+// 更新任务创建区域的清单选择器
+renderTaskListSelector();
+};
+
+// 切换清单
+window.switchList = function(listId) {
+    data.currentListId = listId;
+    saveData();
+    renderListsContainer();
+    updateCurrentListInfo();
+    renderListTodos();
+    // 更新任务创建区域的清单选择器
+    renderTaskListSelector();
+};
+
+// 确认删除清单（点击删除按钮）
+window.confirmDeleteListClick = function(listId) {
+    const list = data.taskLists.find(l => l.id === listId);
+    if (!list) return;
+    
+    document.getElementById('deleteListName').textContent = list.name;
+    const modal = document.getElementById('deleteListConfirmModal');
+    if (modal) modal.classList.remove('hidden');
+    
+    // 保存待删除的清单 ID
+    modal.dataset.deleteListId = listId;
+};
+
+// 确认删除清单
+window.confirmDeleteList = function() {
+    const modal = document.getElementById('deleteListConfirmModal');
+    const listId = modal.dataset.deleteListId;
+    
+    if (!listId) return;
+    
+    // 找到要删除的清单
+    const listIndex = data.taskLists.findIndex(l => l.id === listId);
+    if (listIndex === -1) return;
+    
+    // 将该清单下的所有任务移至默认清单
+    const defaultListId = 'default';
+    data.tasks.forEach(task => {
+        if (task.listId === listId) {
+            task.listId = defaultListId;
+        }
+    });
+    
+    // 如果当前选中的是被删除的清单，切换到默认清单
+    if (data.currentListId === listId) {
+        data.currentListId = defaultListId;
+    }
+    
+    // 删除清单
+    data.taskLists.splice(listIndex, 1);
+    
+    saveData();
+    
+    closeModal('deleteListConfirmModal');
+    renderListsContainer();
+    updateCurrentListInfo();
+    renderListTodos();
+};
+
+// 辅助函数：转义 HTML
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function renderOldFeelings() {
             const container = document.getElementById('oldFeelingList');
             container.innerHTML = '';
             
@@ -15788,8 +17064,10 @@ function closeModal(modalId) {
               // 创建下拉菜单
               const dropdown = document.createElement('div');
               dropdown.className = 'tag-selector-dropdown';
-              dropdown.style.position = 'absolute';
-              dropdown.style.zIndex = '1000';
+              // 移动端使用 fixed 定位，桌面端使用 absolute
+              const isMobile = window.innerWidth <= 768;
+              dropdown.style.position = isMobile ? 'fixed' : 'absolute';
+              dropdown.style.zIndex = '10000';
               
               // 构建标签选项 HTML：显示所有标签（包括已选中的）
               let optionsHtml = '';
@@ -15822,8 +17100,20 @@ function closeModal(modalId) {
               
               // 定位到按钮下方
               const rect = e.target.getBoundingClientRect();
-              dropdown.style.top = (rect.bottom + window.scrollY + 4) + 'px';
-              dropdown.style.left = (rect.left + window.scrollX) + 'px';
+              if (isMobile) {
+                  // 移动端使用 fixed 定位，直接使用 getBoundingClientRect 的值
+                  dropdown.style.top = (rect.bottom + 4) + 'px';
+                  dropdown.style.left = rect.left + 'px';
+                  // 确保菜单不超出屏幕右侧
+                  const menuWidth = 200;
+                  if (rect.left + menuWidth > window.innerWidth) {
+                      dropdown.style.left = (window.innerWidth - menuWidth - 10) + 'px';
+                  }
+              } else {
+                  // 桌面端使用 absolute 定位，需要加上滚动偏移
+                  dropdown.style.top = (rect.bottom + window.scrollY + 4) + 'px';
+                  dropdown.style.left = (rect.left + window.scrollX) + 'px';
+              }
               
               document.body.appendChild(dropdown);
               
@@ -16628,8 +17918,17 @@ function closeModal(modalId) {
         
         // 折叠/展开往期板块
         function toggleOldSection(section) {
-            const wrapper = document.getElementById(section === 'oldTodo' ? 'oldTodoWrapper' : 'oldFeelingWrapper');
-            const arrow = document.getElementById(section === 'oldTodo' ? 'oldTodoArrow' : 'oldFeelingArrow');
+            let wrapper, arrow;
+            if (section === 'oldTodo') {
+                wrapper = document.getElementById('oldTodoWrapper');
+                arrow = document.getElementById('oldTodoArrow');
+            } else if (section === 'listTodo') {
+                wrapper = document.getElementById('listTodoWrapper');
+                arrow = document.getElementById('listTodoArrow');
+            } else {
+                wrapper = document.getElementById('oldFeelingWrapper');
+                arrow = document.getElementById('oldFeelingArrow');
+            }
             
             if (!wrapper) return;
             
@@ -18633,9 +19932,15 @@ function closeModal(modalId) {
         const initialTab = data.activeTab || 'feeling';
         switchMainTab(initialTab);
         // 设置默认感受类型为普通感受
-        selectFeelingType('normal');
-         applyTitle();
-         updateGithubStatus();
+selectFeelingType('normal');
+// 初始化清单选择器
+renderTaskListSelector();
+// 初始化快速清单选择器
+renderQuickListSelector();
+applyTitle();
+// 初始化时更新清单标题
+updateCurrentListInfo();
+updateGithubStatus();
          // 刷新页面时自动拉取一次
          pullFromGithub();
          
@@ -23024,17 +24329,18 @@ ${ammoToAnalyze.map((ammo, index) =>
            
            // 创建新的已完成任务记录
            const newTask = {
-               id: Date.now().toString(),
-               type: 'task',
-               content: taskContent,
-               tags: selectedTags,
-               done: true,
-               doneAt: finalDoneAt,  // 使用原始任务的完成时间（用于筛选）
-               organizedAt: organizedTime,  // 整理时间（用于显示）
-               createdAt: firstTask.createdAt || nowStr(),
-               updatedAt: organizedTime,  // 更新时间使用整理时间
-               // 保存整理数据（其他字段选填）
-               organization: {
+ id: Date.now().toString(),
+ type: 'task',
+ content: taskContent,
+ tags: selectedTags,
+ done: true,
+ doneAt: finalDoneAt,  // 使用原始任务的完成时间（用于筛选）
+ organizedAt: organizedTime,  // 整理时间（用于显示）
+ createdAt: firstTask.createdAt || nowStr(),
+ updatedAt: organizedTime,  // 更新时间使用整理时间
+ listId: firstTask.listId || data.currentListId || 'default',  // 继承第一个任务的清单 ID
+ // 保存整理数据（其他字段选填）
+ organization: {
                    goal: getPointsText('organizerGoal'),
                    goalWeeks: getPointsDataJSON('organizerGoal'),  // 周信息
                    improvement: getPointsText('organizerImprovement'),
@@ -30565,19 +31871,20 @@ function manualCloseOrganizerAiPanel() {
         const question = document.getElementById('practiceQuestion').value.trim();
         const scenarioId = document.getElementById('scenarioSelect').value;
         
-        const newTask = {
-            id: genId(),
-            type: 'task',
-            content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText}`,
-            done: false,
-            createdAt: new Date().toISOString(),
-            tags: ['练习表达'],
-            // 保存练习表达的相关信息，用于完成后统计
-            practiceExpression: {
-                scenarioId: scenarioId || null,
-                materialIds: selectedMaterials.map(m => m.id)
-            }
-        };
+const newTask = {
+    id: genId(),
+    type: 'task',
+    content: `🎯 练习表达反馈：${question || '无情境'}\n\n${plainText}`,
+    done: false,
+    createdAt: new Date().toISOString(),
+    tags: ['练习表达'],
+    listId: data.currentListId || 'default',  // 添加到当前清单
+    // 保存练习表达的相关信息，用于完成后统计
+    practiceExpression: {
+        scenarioId: scenarioId || null,
+        materialIds: selectedMaterials.map(m => m.id)
+    }
+};
         
         data.tasks.push(newTask);
         saveData();
