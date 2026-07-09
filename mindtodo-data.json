@@ -1200,6 +1200,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrdmcv9kg2pn3",
+      "type": "task",
+      "content": "写一下3500设备退网的思路，该问同事的问同事",
+      "createdAt": "2026-07-09T14:45:45.417Z",
+      "updatedAt": "2026-07-09T14:45:45.417Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
