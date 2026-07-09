@@ -1205,20 +1205,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mrd7hoi55lzld",
-      "type": "task",
-      "content": "梳理谁还没能上网，谁还没回复",
-      "createdAt": "2026-07-09T07:49:35.693Z",
-      "updatedAt": "2026-07-09T08:48:13.028Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrd7l01hts393",
       "type": "task",
       "content": "写一下授权4a云主机的方式",
@@ -1231,34 +1217,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd7t94ipbkmi",
-      "type": "task",
-      "content": "我希望呈现的任务清单效果：就是刷新网页后，能显示排序第一的清单任务（默认展开）。目前的问题是：我得点击其他清单，再切换回来，才能显示任务。",
-      "createdAt": "2026-07-09T07:58:35.634Z",
-      "updatedAt": "2026-07-09T08:26:34.855Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd7vo4lc67er",
-      "type": "task",
-      "content": "按照sop给自己授权云主机",
-      "createdAt": "2026-07-09T08:00:28.389Z",
-      "updatedAt": "2026-07-09T08:36:36.777Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrd7wco531tsx",
@@ -1357,6 +1315,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrdbe0e63ej0k",
+      "type": "task",
+      "content": "看下网安单的设备ip是多少",
+      "createdAt": "2026-07-09T09:38:42.942Z",
+      "updatedAt": "2026-07-09T09:38:42.943Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1382,7 +1354,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2721,6 +2693,23 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mrdb8oniyqbsj",
+      "content": "云主机在哪里访问？哪里能获得登录权限？指令是什么？上不了网怎么排查？\n我在做的，本质上是将‘黑盒’变成‘白盒’。在此之前，这些东西散落在不同人的脑子里、没有文档记录、遇到问题只能临时问。",
+      "type": "general",
+      "createdAt": "2026-07-09T09:34:34.446Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -3460,6 +3449,15 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mrdbhvlg2zliob1l7c",
+      "content": "交换机如果查不到这个ip，有可能没有用这个ip来通信。只是挂在设备上而已",
+      "tags": [
+        "网安"
+      ],
+      "createdAt": "2026-07-09T09:41:43.348Z",
+      "updatedAt": "2026-07-09T09:41:43.348Z"
+    },
     {
       "id": "mrdazqq6iuoetc92j8",
       "content": "蜜罐安装，有蜜罐和微蜜罐。\n微蜜罐：用于centos系统，在EDR上装微蜜罐。SSH端口是61022，22也是SSH的\n策略：源any能访问本机IP的61022端口",
@@ -4529,6 +4527,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T09:28:25.377Z"
+    "lastSync": "2026-07-09T09:29:29.239Z"
   }
 }
