@@ -1172,6 +1172,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrdf57zmj76r2",
+      "type": "task",
+      "content": "写下交团费sop",
+      "createdAt": "2026-07-09T11:23:51.347Z",
+      "updatedAt": "2026-07-09T11:23:51.347Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
