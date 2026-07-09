@@ -2605,6 +2605,23 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mrdgt584g80d1",
+      "content": "当你不再强迫自己开心，那个“不开心”的劲儿反而会因为失去对抗的燃料而慢慢消散。就像握紧的沙子，手松开，沙子反而留住了。\n\n\n\n\n所以，这句话真正的精髓是：“我选择用新的行为，去覆盖旧的感受，而不是用新的感受，去覆盖旧的感受。”",
+      "type": "general",
+      "createdAt": "2026-07-09T12:10:27.124Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -4432,6 +4449,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T11:29:45.632Z"
+    "lastSync": "2026-07-09T11:44:39.968Z"
   }
 }
