@@ -1193,9 +1193,9 @@
       "type": "task",
       "content": "检索下json文件有无‘验收10张单’的记录",
       "createdAt": "2026-07-09T07:08:21.234Z",
-      "updatedAt": "2026-07-09T07:08:21.234Z",
+      "updatedAt": "2026-07-09T07:11:54.190Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1215,6 +1215,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrd6a93t8gbbp",
+      "type": "task",
+      "content": "写一下json内有的listID和新增的taskslists有啥区别",
+      "createdAt": "2026-07-09T07:15:49.529Z",
+      "updatedAt": "2026-07-09T07:15:49.529Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "normalFeelings": [
@@ -4324,6 +4338,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T07:07:16.157Z"
+    "lastSync": "2026-07-09T07:09:15.266Z"
   }
 }
