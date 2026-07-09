@@ -4143,13 +4143,13 @@
   "toInternalize": [
     {
       "id": "mrddr3sxediya5jrlxi",
-      "content": "为什么一个交换机会有多个ip？",
+      "content": "为什么一个交换机会有多个ip？\n指向数据库的端口有漏洞怎么办？",
       "tags": [
         "网络安全"
       ],
       "status": "pending",
       "createdAt": "2026-07-09T10:44:53.122Z",
-      "updatedAt": "2026-07-09T10:44:53.122Z"
+      "updatedAt": "2026-07-09T12:32:58.178Z"
     },
     {
       "id": "mr7dz5oahqxirex0ce5",
@@ -4449,6 +4449,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T11:44:39.968Z"
+    "lastSync": "2026-07-09T12:10:38.705Z"
   }
 }
