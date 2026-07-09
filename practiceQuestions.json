@@ -973,7 +973,7 @@
       "analysis": "文档明确“接入交换机，是瑞斯康达品牌的”。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "wlaq_10",
@@ -1020,7 +1020,8 @@
       "answer": "B",
       "analysis": "文档使用write保存。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_13",
@@ -1115,7 +1116,8 @@
       "answer": "A",
       "analysis": "链路聚合将多条物理链路捆绑为一条逻辑链路，提升带宽和可靠性。",
       "subject": "wlaq",
-      "createdAt": "2026-07-03T07:34:50.909Z"
+      "createdAt": "2026-07-03T07:34:50.909Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_19",
@@ -1131,7 +1133,7 @@
       "analysis": "SNMP使用UDP 161（管理端）和162（Trap）。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlaq_20",
@@ -1240,7 +1242,7 @@
       "analysis": "三层交换机或路由器可实现VLAN间路由。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_27",
@@ -1272,7 +1274,7 @@
       "analysis": "OSPF/BGP/RIP均为动态路由，静态非协议。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "wlaq_29",
@@ -1288,7 +1290,7 @@
       "analysis": "ACL可基于IP、端口、MAC等灵活过滤。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "correct"
+      "status": "wrong"
     },
     {
       "id": "wlaq_30",
@@ -2314,7 +2316,8 @@
       "answer": "D",
       "analysis": "每个C段部署蜜罐指在同一C段网络范围内有蜜罐覆盖，例如172.54.197.x网段。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_49",
@@ -2359,7 +2362,8 @@
       "answer": "A",
       "analysis": "网卡禁用会导致端口无电信号，交换机物理端口状态变为Down。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_52",
@@ -2419,7 +2423,8 @@
       "answer": "B",
       "analysis": "修改默认端口可规避针对22端口的批量扫描，减少攻击暴露面。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_56",
@@ -2464,7 +2469,8 @@
       "answer": "A",
       "analysis": "同一C段指前24位相同，即172.54.197.x，172.54.197.1与其同段。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_59",
@@ -2479,7 +2485,8 @@
       "answer": "A",
       "analysis": "SVI是交换机上为每个VLAN创建的三层逻辑接口，可配置独立IP。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_60",
@@ -2509,7 +2516,8 @@
       "answer": "C",
       "analysis": "微蜜罐部署在主机侧，用于检测内网横向渗透和主机级攻击。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_62",
@@ -2856,5 +2864,5 @@
       "createdAt": "2026-07-09T14:25:05.998Z"
     }
   ],
-  "lastUpdated": "2026-07-09T14:25:12.366Z"
+  "lastUpdated": "2026-07-09T16:42:22.102Z"
 }
