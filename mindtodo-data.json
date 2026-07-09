@@ -1265,9 +1265,9 @@
       "type": "task",
       "content": "送外培训登记表有些不会填的，写一下怎么找，拆解一下",
       "createdAt": "2026-07-09T08:36:29.978Z",
-      "updatedAt": "2026-07-09T08:36:29.978Z",
+      "updatedAt": "2026-07-09T10:16:15.142Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1303,20 +1303,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mrdb1vldjvfp7",
-      "type": "task",
-      "content": "识别下ip卡在哪里了",
-      "createdAt": "2026-07-09T09:29:16.849Z",
-      "updatedAt": "2026-07-09T09:29:16.849Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrdbe0e63ej0k",
       "type": "task",
       "content": "看下故障单石井的设备ip是多少",
@@ -1329,6 +1315,48 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrdcqw841rtxp",
+      "type": "task",
+      "content": "问下宝英姐考试费和培训费一起填写吗？",
+      "createdAt": "2026-07-09T10:16:43.684Z",
+      "updatedAt": "2026-07-09T10:16:43.684Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrdcrseg0b3lg",
+      "type": "task",
+      "content": "写一下天河补环的计划思路",
+      "createdAt": "2026-07-09T10:17:25.384Z",
+      "updatedAt": "2026-07-09T10:17:25.385Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrdcs2rt2whzr",
+      "type": "task",
+      "content": "写一下低效这个问题的情况现状",
+      "createdAt": "2026-07-09T10:17:38.825Z",
+      "updatedAt": "2026-07-09T10:17:38.825Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1354,7 +1382,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4527,6 +4555,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T09:46:36.243Z"
+    "lastSync": "2026-07-09T10:00:59.543Z"
   }
 }
