@@ -1187,6 +1187,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrd60n76ne1q7",
+      "type": "task",
+      "content": "检索下json文件有无‘验收10张单’的记录",
+      "createdAt": "2026-07-09T07:08:21.234Z",
+      "updatedAt": "2026-07-09T07:08:21.234Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd61ctfyjrrg",
+      "type": "task",
+      "content": "看下交叉检查的要求，写下问题和一些思考做法",
+      "createdAt": "2026-07-09T07:08:54.436Z",
+      "updatedAt": "2026-07-09T07:08:54.436Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "normalFeelings": [
@@ -4296,6 +4324,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T06:27:46.950Z"
+    "lastSync": "2026-07-09T07:07:16.157Z"
   }
 }
