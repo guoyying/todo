@@ -1133,42 +1133,12 @@
       "type": "task",
       "content": "验收10张单",
       "createdAt": "2026-07-09T06:25:35.546Z",
-      "updatedAt": "2026-07-09T06:25:35.546Z",
+      "updatedAt": "2026-07-09T08:13:25.985Z",
       "tags": [
         "验收"
       ],
-      "done": false,
+      "done": true,
       "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd4jv6p9qwqb",
-      "type": "task",
-      "content": "粘贴到vscode看下啥原因：我发现页面任务输入框-添加任务到清单，不会立马显示。我得在下拉菜单切换其他，再切回这个菜单才能看到任务。为什么呢？",
-      "createdAt": "2026-07-09T06:27:18.817Z",
-      "updatedAt": "2026-07-09T07:06:59.789Z",
-      "tags": [
-        "AI"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrd4mfyw7ibba",
-      "type": "task",
-      "content": "copy那张单先退掉",
-      "createdAt": "2026-07-09T06:29:19.064Z",
-      "updatedAt": "2026-07-09T06:40:17.175Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
@@ -1191,20 +1161,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mrd60n76ne1q7",
-      "type": "task",
-      "content": "检索下json文件有无‘验收10张单’的记录",
-      "createdAt": "2026-07-09T07:08:21.234Z",
-      "updatedAt": "2026-07-09T07:11:54.190Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrd61ctfyjrrg",
       "type": "task",
       "content": "看下交叉检查的要求，写下问题和一些思考做法.",
@@ -1219,20 +1175,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrd6a93t8gbbp",
-      "type": "task",
-      "content": "写一下json内有的listID和新增的taskslists有啥区别",
-      "createdAt": "2026-07-09T07:15:49.529Z",
-      "updatedAt": "2026-07-09T07:45:34.443Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrd7d4r2nzwqd",
@@ -1310,6 +1252,34 @@
       "content": "按照sop给自己授权云主机",
       "createdAt": "2026-07-09T08:00:28.389Z",
       "updatedAt": "2026-07-09T08:00:28.389Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd7wco531tsx",
+      "type": "task",
+      "content": "宝英姐的报销材料准备",
+      "createdAt": "2026-07-09T08:01:00.197Z",
+      "updatedAt": "2026-07-09T08:01:00.197Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd7x6hyl4qka",
+      "type": "task",
+      "content": "填写反馈表，回单蜜罐的。",
+      "createdAt": "2026-07-09T08:01:38.854Z",
+      "updatedAt": "2026-07-09T08:01:38.854Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -2113,8 +2083,8 @@
   ],
   "slots": [
     {
-      "id": "slot_mrd4ki28pwxxq",
-      "name": "确定性 14:27-14:57"
+      "id": "slot_mrd7wgwnz35yr",
+      "name": "确定性 16:00-16:30"
     }
   ],
   "tags": [
@@ -3308,7 +3278,16 @@
         "endTime": "14:57",
         "duration": 30,
         "summary": "",
-        "slotId": "slot_mrd4ki28pwxxq"
+        "slotId": null
+      },
+      {
+        "id": "block_1783584065687",
+        "tag": "确定性",
+        "startTime": "16:00",
+        "endTime": "16:30",
+        "duration": 30,
+        "summary": "",
+        "slotId": "slot_mrd7wgwnz35yr"
       }
     ]
   },
@@ -4450,6 +4429,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T07:09:15.266Z"
+    "lastSync": "2026-07-09T08:00:35.001Z"
   }
 }
