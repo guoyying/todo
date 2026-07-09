@@ -1231,6 +1231,30 @@
       "listId": "list_1783565139132"
     }
   ],
+  "taskLists": [
+    {
+      "id": "list_1783565139132",
+      "name": "确定性",
+      "description": "",
+      "createdAt": "2026-07-09T02:45:39.132Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1783562300215",
+      "name": "思考性",
+      "description": "",
+      "createdAt": "2026-07-09T01:58:20.215Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1783565463457",
+      "name": "协作型",
+      "description": "",
+      "createdAt": "2026-07-09T02:51:03.457Z",
+      "isDefault": false
+    }
+  ],
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
