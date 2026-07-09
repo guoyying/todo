@@ -1143,6 +1143,22 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrd4jv6p9qwqb",
+      "type": "task",
+      "content": "粘贴到vscode看下啥原因：我发现页面任务输入框-添加任务到清单，不会立马显示。我得在下拉菜单切换其他，再切回这个菜单才能看到任务。为什么呢？",
+      "createdAt": "2026-07-09T06:27:18.817Z",
+      "updatedAt": "2026-07-09T06:27:18.817Z",
+      "tags": [
+        "AI"
+      ],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "normalFeelings": [
@@ -4238,6 +4254,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-09T02:40:24.217Z"
+    "lastSync": "2026-07-09T06:26:35.363Z"
   }
 }
