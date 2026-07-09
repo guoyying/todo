@@ -19963,6 +19963,13 @@ renderQuickListSelector();
 applyTitle();
 // 初始化时更新清单标题
 updateCurrentListInfo();
+// 初始化时渲染清单任务列表
+renderListTodos();
+// 展开清单任务区域（移除 collapsed 类）
+const listTodoWrapper = document.getElementById('listTodoWrapper');
+if (listTodoWrapper) {
+    listTodoWrapper.classList.remove('collapsed');
+}
 updateGithubStatus();
          // 刷新页面时自动拉取一次
          pullFromGithub();
