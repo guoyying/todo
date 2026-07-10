@@ -1275,9 +1275,9 @@
     {
       "id": "mreqy46su1r3v",
       "type": "task",
-      "content": "ping不通33.128，待会儿看群里有无指引",
+      "content": "trace下不通的33.128和另一台",
       "createdAt": "2026-07-10T09:42:01.396Z",
-      "updatedAt": "2026-07-10T09:42:01.396Z",
+      "updatedAt": "2026-07-10T13:12:22.651Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1313,6 +1313,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mreydsef127bf",
+      "type": "task",
+      "content": "trace下",
+      "createdAt": "2026-07-10T13:10:09.927Z",
+      "updatedAt": "2026-07-10T13:10:09.927Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1338,7 +1352,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
