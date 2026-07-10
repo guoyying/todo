@@ -4624,9 +4624,8 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             align-items: center;
             justify-content: center;
         }
-        .collapsed {
-            display: none !important;
-        }
+        /* .collapsed 类现在只用于标记状态，不再直接隐藏元素 */
+        /* 实际隐藏由 toggleSection 函数控制 */
          .old-section-collapsed {
              display: none !important;
          }
@@ -7536,13 +7535,6 @@ padding: 7px !important;
 
         <!-- 感受输入区域 -->
         <div class="feeling-input-area" id="feelingArea">
-            <!-- 感受类型选择：普通感受 vs 板块练习 -->
-            <div style="margin-bottom:12px; max-width: 200px;">
-                <div class="type-select" style="margin-bottom:0;">
-                    <div class="type-btn active" data-feeling-type="normal" onclick="selectFeelingType('normal')">普通感受</div>
-                    <div class="type-btn" data-feeling-type="practice" onclick="selectFeelingType('practice')">板块练习</div>
-                </div>
-            </div>
             
              <div class="input-group">
                  <label>此刻的感受</label>
@@ -7550,16 +7542,6 @@ padding: 7px !important;
                  <div id="ammoSuggestions" style="margin-top:8px;"></div>
              </div>
             
-            <!-- 板块练习特有：板块名称 -->
-            <div class="input-group hidden" id="blockNameArea">
-                <label>板块小名称</label>
-                <div style="display:flex;gap:8px;">
-                    <select id="blockNameSelect" onchange="handleBlockNameSelect(this)" style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);font-size:14px;">
-                        <option value="">-- 选择已有板块 --</option>
-                    </select>
-                    <input type="text" id="blockName" placeholder="或输入新名称" style="flex:1;" oninput="clearBlockNameSelect()">
-                </div>
-            </div>
             
             <div class="input-group">
                <label>标签</label>
@@ -7578,19 +7560,19 @@ padding: 7px !important;
                 <textarea id="taskContent" rows="2" placeholder="写下你想做的事..." onkeypress="if(event.key==='Enter' && !event.shiftKey) { event.preventDefault(); saveTask(); }"></textarea>
             </div>
             <div class="input-group">
-                <label>预计完成时间</label>
+                <label>属性</label>
                 <div class="due-select">
-                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);">
-                        <input type="radio" name="dueType" value="known" checked onchange="toggleDueType()"> 已知
-                    </label>
                     <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);margin-left:16px;">
+                        <input type="radio" name="dueType" value="list" checked onchange="toggleDueType()"> 清单
+                    </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);">
+                        <input type="radio" name="dueType" value="known" onchange="toggleDueType()"> 已知
+                    </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);">
                         <input type="radio" name="dueType" value="unknown" onchange="toggleDueType()"> 未知（需要拆解）
                     </label>
-                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;color:var(--text);margin-left:16px;">
-                        <input type="radio" name="dueType" value="list" onchange="toggleDueType()"> 清单
-                    </label>
                 </div>
-                <input type="text" id="taskDueTime" placeholder="预计时间（如：15分钟，上限20分钟）" onkeypress="if(event.key==='Enter')saveTask()">
+                <input type="text" id="taskDueTime" class="hidden" placeholder="预计时间（如：15 分钟，上限 20 分钟）" onkeypress="if(event.key==='Enter')saveTask()">
                 <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">⏰ 任务时间上限20分钟，避免制定太大目标导致焦虑</div>
                 <div class="unknown-notice hidden" id="unknownNotice">
                     因为时间未知，请把任务拆解为更小的步骤（最多3个子任务，每个不超过10分钟）：
@@ -7660,37 +7642,31 @@ padding: 7px !important;
             <div id="listTodoList"></div>
         </div>
 
-        <div class="section-title">📋 待办 <span class="count" id="todayCount"></span></div>
-        <div class="filter-bar" id="todayFilterBar">
-            <input type="text" id="todaySearch" placeholder="搜索待办..." oninput="renderToday()">
-            <div class="tag-filter" id="todayTagFilter"></div>
+        <div class="section-title" style="cursor:pointer;" onclick="toggleSection('todayList')">
+            📋 待办 <span class="count" id="todayCount"></span>
+            <span id="todayArrow" style="font-size:12px;margin-left:8px;">▶</span>
         </div>
-        <div id="todayList"></div>
+        <div id="todayList" class="collapsed">
+            <div class="filter-bar" id="todayFilterBar">
+                <input type="text" id="todaySearch" placeholder="搜索待办..." oninput="renderToday()">
+                <div class="tag-filter" id="todayTagFilter"></div>
+            </div>
+            <div id="todayListContent"></div>
+        </div>
         
         <!-- 回到顶部按钮 - 想做的事 -->
         <button id="taskBackToTop" class="back-to-top-btn" onclick="scrollTaskToTop()" style="display:flex;">
             ⬆️
         </button>
 
-        <div class="section-title" style="cursor:pointer;" onclick="toggleOldSection('oldTodo')">
-            📅 往期待办 <span class="count" id="oldTodoCount"></span>
-            <span id="oldTodoArrow" style="font-size:12px;margin-left:8px;">▼</span>
-        </div>
-        <div id="oldTodoWrapper" class="collapsed">
-            <div class="filter-bar" id="oldTodoFilterBar">
-                <input type="text" id="oldTodoSearch" placeholder="搜索往期待办..." oninput="renderOldTodos()">
-                <div class="tag-filter" id="oldTodoTagFilter"></div>
-            </div>
-            <div id="oldTodoList"></div>
-        </div>
         
         <!-- 已完成模块 -->
         <div>
             <div class="section-title" style="cursor:pointer;" onclick="toggleSection('completedList')">
                 ✅ 已完成 <span class="count" id="completedCount"></span>
-                <span id="completedArrow" style="font-size:12px;margin-left:8px;">▼</span>
+                <span id="completedArrow" style="font-size:12px;margin-left:8px;">▶</span>
             </div>
-            <!-- 筛选栏默认隐藏，点击标题后显示 -->
+            <!-- 筛选栏移到容器外部 -->
             <div class="filter-bar" id="completedFilterBar" style="margin-top:8px;display:none;">
                 <input type="text" id="completedSearch" placeholder="搜索已完成..." oninput="renderCompleted()">
                 <select id="completedTimeFilter" onchange="toggleCustomDateRange()" style="margin-left:8px;padding:4px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;">
@@ -7707,19 +7683,22 @@ padding: 7px !important;
                 </div>
                  <div class="tag-filter" id="completedTagFilter"></div>
                  <button class="btn btn-small btn-primary" onclick="showTaskOrganizer()" style="margin-left:8px;">📋 整理</button>
-             </div>
-            <!-- 任务列表可折叠 -->
-            <div id="completedList" class="collapsed"></div>
+            </div>
+            <!-- 内容区域，可折叠 -->
+            <div id="completedList" class="collapsed">
+                <!-- 任务列表容器 -->
+                <div id="completedTaskList" style="margin-top:8px;display:none;"></div>
+            </div>
         </div>
         
         <!-- 触发提醒管理模块 -->
         <div>
             <div class="section-title" style="cursor:pointer;" onclick="toggleSection('triggerManageList')">
                 ⏰ 触发提醒管理 <span class="count" id="triggerManageCount"></span>
-                <span id="triggerManageArrow" style="font-size:12px;margin-left:8px;">▼</span>
+                <span id="triggerManageArrow" style="font-size:12px;margin-left:8px;">▶</span>
             </div>
             <div id="triggerManageList" class="collapsed">
-                <div id="triggerManageContent"></div>
+                <div id="triggerManageContent" style="display:none;"></div>
             </div>
         </div>
     </div>
@@ -7747,16 +7726,11 @@ padding: 7px !important;
             </div>
         </div>
 
-        <!-- 板块练习区域 -->
-        <div class="section-title" id="practiceBlocksTitle">📚 板块练习</div>
-        <div id="practiceBlocksList"></div>
-
         <div style="display:flex;align-items:center;">
             <div class="section-title" style="cursor:pointer;flex:1;" onclick="toggleOldSection('oldFeeling')">
                 💭 往期感受 <span class="count" id="oldFeelingCount"></span>
                 <span id="oldFeelingArrow" style="font-size:12px;margin-left:8px;">▶</span>
             </div>
-            <button class="btn btn-small btn-secondary" onclick="console.log('点击了批量迁移'); showMigrationModal()">批量迁移</button>
             <button class="btn btn-small btn-primary" onclick="showOldFeelingSummaryModal()">往期汇总</button>
         </div>
         <div id="oldFeelingWrapper" class="collapsed">
@@ -8827,64 +8801,6 @@ padding: 7px !important;
          </div>
      </div>
 
-    <!-- 批量迁移模态框 -->
-    <div class="modal-overlay hidden" id="migrationModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3>批量迁移往期感受</h3>
-                <span class="close" onclick="closeMigrationModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p style="margin-bottom:15px;">
-                    选择要迁移的记录，可以迁移到"普通感受"或"板块练习"。
-                </p>
-                
-                <div style="margin-bottom:15px;">
-                    <label style="display:block;margin-bottom:8px;">
-                        <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
-                        <strong>全选/取消全选</strong>
-                    </label>
-                    <div id="migrationList" style="max-height:300px;overflow-y:auto;border:1px solid #ddd;border-radius:4px;padding:10px;">
-                        <!-- 动态生成列表 -->
-                    </div>
-                </div>
-
-                <div style="margin-bottom:15px;">
-                    <label style="display:block;margin-bottom:8px;"><strong>迁移目标：</strong></label>
-                    <div style="display:flex;gap:15px;align-items:center;">
-                        <label>
-                            <input type="radio" name="migrationTarget" value="normal" checked onchange="toggleMigrationTarget()">
-                            普通感受（保持现状）
-                        </label>
-                        <label>
-                            <input type="radio" name="migrationTarget" value="block" onchange="toggleMigrationTarget()">
-                            板块练习
-                        </label>
-                    </div>
-                </div>
-
-                <div id="blockSelectDiv" style="display:none;margin-bottom:15px;">
-                    <label style="display:block;margin-bottom:8px;"><strong>选择板块：</strong></label>
-                    <select id="blockSelect" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;margin-bottom:10px;">
-                        <option value="new">-- 新建板块 --</option>
-                        <!-- 动态生成板块列表 -->
-                    </select>
-                    <div id="newBlockInput" style="display:none;">
-                        <input type="text" id="newBlockName" placeholder="输入新板块名称" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;">
-                    </div>
-                </div>
-
-                <div style="background:#f0f7ff;padding:10px;border-radius:4px;margin-bottom:15px;">
-                    <strong>已选择：</strong> <span id="migrationSelectedCount">0</span> 条记录
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeMigrationModal()">取消</button>
-                <button class="btn btn-primary" onclick="executeMigration()">开始迁移</button>
-             </div>
-         </div>
-     </div>
- 
      <!-- 往期汇总模态框 -->
      <div class="modal-overlay hidden" id="oldFeelingSummaryModal" onclick="closeModal('oldFeelingSummaryModal')">
          <div class="modal" onclick="event.stopPropagation()">
@@ -10635,6 +10551,8 @@ ${taskContent}
         const hourSelect = document.getElementById('hourSelect');
         const minuteSelect = document.getElementById('minuteSelect');
         
+        if (!hourSelect || !minuteSelect) return;
+        
         // 填充小时 (0-23)
         for (let i = 0; i < 24; i++) {
             const option = document.createElement('option');
@@ -10666,6 +10584,7 @@ ${taskContent}
     // 渲染日历
     function renderCalendar() {
         const grid = document.getElementById('calendarGrid');
+        if (!grid) return;
         grid.innerHTML = '';
         
         const year = currentPickerDate.getFullYear();
@@ -10756,6 +10675,7 @@ ${taskContent}
     // 更新选择器标题
     function updatePickerTitle() {
         const title = document.getElementById('pickerTitle');
+        if (!title) return;
         const year = currentPickerDate.getFullYear();
         const month = currentPickerDate.getMonth() + 1;
         title.textContent = `${year}年${month}月`;
@@ -10859,7 +10779,6 @@ let data = {
      taskLists: [], // 任务清单配置 [{id, name, description, createdAt, isDefault}] listId 为清单 ID
      currentListId: 'default', // 当前选中的清单 ID
      normalFeelings: [], // 普通感受
-         practiceBlocks: [], // 板块练习 [{id, name, records: [{id, content, time, estimatedTime}]}]
          slots: [{id:'slot_today',name:'今日'},{id:'slot_afternoon',name:'今日下午'}],
          commonTaskTags: ['生活','工作'],
          commonFeelingTags: ['开心','难过','焦虑','平静','兴奋'],
@@ -10869,7 +10788,6 @@ let data = {
          firstLoaded: false,
          title: '🌿 心事与任务',
           activeTab: 'feeling', // 'feeling' 或 'task'
-          expandedBlocks: {}, // 存储板块的展开/折叠状态 {blockId: true/false}
           trackerConfig: { // 项目目标追踪面板配置
               projectId: '', // 上次选择的项目
               directions: [] // 上次选择的方向列表
@@ -10951,14 +10869,11 @@ let data = {
                     // 迁移旧数据：所有旧数据保留在 normalFeelings 中，不自动迁移到板块练习
                     if (parsed.items) {
                         data.tasks = parsed.items.filter(i => i.type === 'task');
-                        // 所有感受（无论是否有 blockName）都保留在 normalFeelings 中
+                        // 所有感受都保留在 normalFeelings 中
                         data.normalFeelings = parsed.items.filter(i => i.type === 'feeling');
-                        // 板块练习保持为空，等待用户手动创建
-                        data.practiceBlocks = [];
                     } else {
                         data.tasks = parsed.tasks || [];
                         data.normalFeelings = parsed.normalFeelings || [];
-                        data.practiceBlocks = parsed.practiceBlocks || [];
                         data.aiContents = parsed.aiContents || [];
                     }
                     // 合并其他属性
@@ -11440,19 +11355,6 @@ if (!data.currentListId && data.taskLists && data.taskLists.length > 0) {
             render();
         }
 
-        let currentFeelingType = 'normal'; // 'normal' 或 'practice'
-        function selectFeelingType(type) {
-            currentFeelingType = type;
-            document.querySelectorAll('.feeling-input-area .type-select .type-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector(`.feeling-input-area .type-select .type-btn[data-feeling-type="${type}"]`).classList.add('active');
-            document.getElementById('blockNameArea').classList.toggle('hidden', type !== 'practice');
-            // 选择"板块练习"时隐藏标签区域
-            document.querySelector('.feeling-input-area .input-group:has(#feelingTags)').classList.toggle('hidden', type === 'practice');
-            // 切换到板块练习时更新下拉选项
-            if (type === 'practice') {
-                updateBlockNameSelect();
-            }
-        }
 
         function toggleDueType() {
             const dueType = document.querySelector('input[name="dueType"]:checked').value;
@@ -11690,17 +11592,7 @@ function renderTags(containerId, selected=[]) {
              const todayFilter = document.getElementById('todayTagFilter');
              if (todayFilter) {
                  const currentTags = JSON.parse(todayFilter.dataset.selectedTags || '[]');
-                 renderTagFilter('todayTagFilter', todayTasks, currentTags);
-             }
-             
-             // 往期待办筛选器
-             const oldTodoTasks = data.tasks.filter(t => !t.done && !t.organization);
-             const oldTodoFilter = document.getElementById('oldTodoTagFilter');
-             if (oldTodoFilter) {
-                 const currentTags = JSON.parse(oldTodoFilter.dataset.selectedTags || '[]');
-                 renderTagFilter('oldTodoTagFilter', oldTodoTasks, currentTags);
-             }
-             
+                 renderTagFilter('todayTagFilter', todayTasks, currentTags);}
              // 任务清单筛选器
              const listTodoTasks = data.tasks.filter(t => !t.done && t.isList === true);
              const listTodoFilter = document.getElementById('listTodoTagFilter');
@@ -11909,65 +11801,13 @@ function renderTags(containerId, selected=[]) {
                     createdAt: nowStr(),
                     updatedAt: nowStr()
                 });
-            } else {
-                // 板块练习
-                let blockName = document.getElementById('blockName').value.trim();
-                // 如果下拉框有选择，优先使用下拉框的值
-                const selectValue = document.getElementById('blockNameSelect').value;
-                if (selectValue) {
-                    blockName = selectValue;
-                }
-                if (!blockName) {
-                    blockName = '未命名板块';
-                }
-                // 查找或创建板块
-                let block = data.practiceBlocks.find(b => b.name === blockName);
-                if (!block) {
-                    block = { id: genId(), name: blockName, records: [] };
-                    data.practiceBlocks.push(block);
-                }
-                // 添加记录
-                block.records.push({
-                    id: genId(),
-                    content,
-                    tags,
-                    time: nowStr()
-                });
             }
             
             document.getElementById('feelingContent').value = '';
-            document.getElementById('blockName').value = '';
-            document.getElementById('blockNameSelect').value = '';
             renderTags('feelingTags');
-            updateBlockNameSelect();
             saveData(); render();
         }
         
-        // 处理板块名称下拉选择
-        function handleBlockNameSelect(select) {
-            if (select.value) {
-                document.getElementById('blockName').value = select.value;
-            }
-        }
-        
-        // 清空下拉选择（当手动输入时）
-        function clearBlockNameSelect() {
-            document.getElementById('blockNameSelect').value = '';
-        }
-        
-        // 更新板块名称下拉选项
-        function updateBlockNameSelect() {
-            const select = document.getElementById('blockNameSelect');
-            if (!select) return;
-            const currentValue = select.value;
-            select.innerHTML = '<option value="">-- 选择已有板块 --</option>';
-            data.practiceBlocks.forEach(block => {
-                const count = block.records.length;
-                select.innerHTML += `<option value="${block.name}">${block.name} (${count}条记录)</option>`;
-            });
-            select.value = currentValue;
-        }
-
         // 解析时间字符串为分钟数
         function parseTimeToMinutes(timeStr) {
             if (!timeStr) return 0;
@@ -12158,7 +11998,6 @@ const item = {
                 if (sidebar) sidebar.style.display = 'block';
                 renderMoodCalendar();
                 renderFeelings();
-                renderPracticeBlocks();
                 renderOldFeelings();
             } else {
                 // 任务模式：显示任务相关模块，隐藏日历
@@ -12166,7 +12005,6 @@ const item = {
                 renderSlots();
                 renderToday();
                 renderListTodos();
-                renderOldTodos();
                 renderCompleted();
                 renderTriggerManage();
             }
@@ -13448,241 +13286,7 @@ const item = {
             });
         }
 
-        function renderPracticeBlocks() {
-            const container = document.getElementById('practiceBlocksList');
-            container.innerHTML = '';
-            
-            // 分离未归档和已归档的板块
-            const activeBlocks = data.practiceBlocks.filter(b => !b.archived);
-            const archivedBlocks = data.practiceBlocks.filter(b => b.archived);
-            
-            if (activeBlocks.length === 0 && archivedBlocks.length === 0) {
-                container.innerHTML = '<div class="empty-tip">暂无板块练习记录</div>';
-                return;
-            }
-            
-            // 渲染未归档的板块
-            if (activeBlocks.length > 0) {
-                activeBlocks.forEach(block => {
-                    renderBlockCard(block, container, false);
-                });
-            }
-            
-            // 渲染已归档的板块
-            if (archivedBlocks.length > 0) {
-                const archivedSection = document.createElement('div');
-                archivedSection.style.marginTop = '24px';
-                archivedSection.style.paddingTop = '16px';
-                archivedSection.style.borderTop = '1px solid var(--border)';
-                archivedSection.innerHTML = '<h4 style="font-size:14px;margin-bottom:12px;color:var(--text-secondary);">已归档</h4>';
-                
-                archivedBlocks.forEach(block => {
-                    renderBlockCard(block, archivedSection, true);
-                });
-                
-                container.appendChild(archivedSection);
-            }
-        }
-
-        function renderBlockCard(block, container, isArchived) {
-            const blockEl = document.createElement('div');
-            blockEl.className = 'card';
-            if (isArchived) {
-                blockEl.style.opacity = '0.7';
-                blockEl.style.background = 'var(--bg-secondary)';
-            }
-            
-              // 计算统计信息
-              const totalRecords = block.records.length;
-              const firstTime = block.records.length > 0 ? block.records[0].time : block.createdAt;
-              
-              // 使用存储的展开/折叠状态，如果没有则默认折叠（有记录时）
-              const isExpanded = data.expandedBlocks[block.id] !== undefined ? data.expandedBlocks[block.id] : (totalRecords === 0);
-              const isCollapsed = !isExpanded;
-            
-            blockEl.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                    <div style="flex:1;cursor:pointer;" onclick="toggleBlockRecords('${block.id}')">
-                        <h3 style="font-size:16px;margin-bottom:4px;display:flex;align-items:center;gap:8px;">
-                            ${block.name} ${isArchived ? '<span style="font-size:12px;color:var(--text-secondary);">(已归档)</span>' : ''}
-                            <span style="font-size:12px;color:var(--text-secondary);">${isCollapsed ? '▶' : '▼'}</span>
-                        </h3>
-                        <div style="font-size:12px;color:var(--text-secondary);">
-                            共练习 ${totalRecords} 次 | 初次：${fmtTime(firstTime)}
-                            ${totalRecords > 0 ? `<span style="margin-left:12px;">最近：${fmtTime(block.records[block.records.length-1].time)}</span>` : ''}
-                        </div>
-                    </div>
-                    <div style="display:flex;gap:8px;">
-                        ${!isArchived ? `<button class="btn btn-small btn-primary" onclick="event.stopPropagation();toggleQuickAdd('${block.id}')">新增练习</button>` : ''}
-                        ${!isArchived ? `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();editBlockName('${block.id}')">修改名称</button>` : ''}
-                        ${!isArchived ? `<button class="btn btn-small btn-warning" onclick="event.stopPropagation();archiveBlock('${block.id}')">归档</button>` : `<button class="btn btn-small btn-secondary" onclick="event.stopPropagation();unarchiveBlock('${block.id}')">恢复</button>`}
-                        <button class="btn btn-small btn-danger" onclick="event.stopPropagation();showDeleteConfirm('${block.id}', 'block', this)">删除</button>
-                    </div>
-                </div>
-                ${!isArchived ? `<div id="quick-add-${block.id}" class="quick-add-area" style="display:none;margin-top:8px;padding:12px;background:var(--bg-secondary);border-radius:6px;">
-                    <div style="display:flex;gap:8px;">
-                        <input type="text" class="input" placeholder="输入练习内容..." id="quick-input-${block.id}" onkeypress="if(event.key==='Enter')quickAddPractice('${block.id}')" oninput="handleQuickPracticeInput(this, '${block.id}')" style="flex:1;">
-                        <button class="btn btn-small btn-primary" onclick="quickAddPractice('${block.id}')">确定</button>
-                        <button class="btn btn-small btn-secondary" onclick="toggleQuickAdd('${block.id}')">取消</button>
-                    </div>
-                    <div id="quick-input-suggestions-${block.id}" style="margin-top:8px;"></div>
-                </div>` : ''}
-                <div class="practice-records" id="records-${block.id}" style="display:${isCollapsed ? 'none' : 'block'};margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-                    ${totalRecords === 0 ? '<div class="empty-tip">暂无练习记录</div>' : ''}
-                </div>
-                ${!isArchived ? `` : ''}
-            `;
-            
-            container.appendChild(blockEl);
-            
-            // 渲染记录列表：按时间正序排列（最早的在最上面，第 1 次在最上面）
-            const recordsContainer = blockEl.querySelector(`#records-${block.id}`);
-            if (totalRecords > 0) {
-                // 按时间倒序排序（最新的在前）
-                const sortedRecords = block.records.slice().sort((a, b) => {
-                    return new Date(b.time) - new Date(a.time);
-                });
-                
-                sortedRecords.forEach((record, index) => {
-                    const recordEl = document.createElement('div');
-                    recordEl.className = 'item feeling-item';
-                    recordEl.style.marginBottom = '8px';
-                    recordEl.style.padding = '12px';
-                    recordEl.style.background = 'var(--bg-secondary)';
-                    recordEl.style.borderRadius = '6px';
-                    
-                    // 动态计算次数：总记录数 - 当前索引 = 次数
-                    // 例如：总 5 条，index=0 → 第 5 次，index=4 → 第 1 次
-                    const recordNumber = totalRecords - index;
-                    
-                     recordEl.innerHTML = `
-                         <div class="item-header">
-                             <span class="item-type feeling">第${recordNumber}次</span>
-                             <span class="item-time">${fmtTime(record.time)}</span>
-                             <div style="display:flex;gap:6px;">
-                                 <button class="btn btn-small btn-primary" onclick="openAiPolishModal('${block.id}', '${record.id}')" title="AI润色">✨ 润色</button>
-                                 <button class="btn btn-small btn-danger" onclick="showDeleteConfirm('${block.id}', 'practice-record', this, '${record.id}')">删除</button>
-                             </div>
-                         </div>
-                          <div class="item-content" style="margin-top:8px; padding: 4px; border-radius: 4px; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" onclick="window.openPracticeRecordEdit('${block.id}', '${record.id}')" title="点击编辑">
-                              ${escapeHtml(record.content.replace(/第\d+次练习：/, ''))}
-                          </div>
-                         ${record.tags && record.tags.length ? `<div class="item-tags" style="margin-top:6px;">${record.tags.map(t => `<span class="item-tag">${t}</span>`).join('')}</div>` : ''}
-                     `;
-                    recordsContainer.appendChild(recordEl);
-                 });
-             }
-         }
         
-        // 切换快速添加区域的显示/隐藏
-        function toggleQuickAdd(blockId) {
-            const area = document.getElementById(`quick-add-${blockId}`);
-            if (area) {
-                const isVisible = area.style.display !== 'none';
-                area.style.display = isVisible ? 'none' : 'block';
-                if (!isVisible) {
-                    setTimeout(() => {
-                        document.getElementById(`quick-input-${blockId}`)?.focus();
-                    }, 100);
-                }
-            }
-        }
-        
-          // 快速添加练习记录
-          function quickAddPractice(blockId) {
-              const input = document.getElementById(`quick-input-${blockId}`);
-              const content = input.value.trim();
-              if (!content) return;
-              
-              const block = data.practiceBlocks.find(b => b.id === blockId);
-              if (block) {
-                  // 自动计算是第几次练习
-                  const recordNumber = block.records.length + 1;
-                  block.records.push({
-                      id: genId(),
-                      content: `第${recordNumber}次练习：${content}`,
-                      time: nowStr()
-                  });
-                  input.value = '';
-                  
-                  // 保持板块展开状态
-                  data.expandedBlocks[blockId] = true;
-                   
-                  toggleQuickAdd(blockId); // 关闭快速添加区域
-                  saveData();
-                  render();
-              }
-          }
-        
-          // 切换板块记录的展开/折叠
-          function toggleBlockRecords(blockId) {
-              const recordsContainer = document.getElementById(`records-${blockId}`);
-              if (!recordsContainer) return;
-              
-              const isHidden = recordsContainer.style.display === 'none';
-              recordsContainer.style.display = isHidden ? 'block' : 'none';
-              
-              // 更新存储的展开/折叠状态
-              data.expandedBlocks[blockId] = isHidden;
-              saveData();
-              
-              // 更新箭头图标
-              const cardEl = recordsContainer.parentElement;
-              const arrowSpan = cardEl.querySelector('h3 span:last-child');
-              if (arrowSpan) {
-                  arrowSpan.textContent = isHidden ? '▼' : '▶';
-              }
-              
-              // 显示/隐藏新增输入框
-              const inputDiv = cardEl.querySelector('div:last-child');
-              if (inputDiv && !cardEl.querySelector('.btn-warning').textContent.includes('恢复')) {
-                  inputDiv.style.display = isHidden ? 'none' : 'block';
-              }
-          }
-
-           function addPracticeRecord(blockId) {
-               const input = document.getElementById(`new-record-${blockId}`);
-               const content = input.value.trim();
-               if (!content) return;
-               
-               const block = data.practiceBlocks.find(b => b.id === blockId);
-               if (block) {
-                   // 自动计算是第几次练习
-                   const recordNumber = block.records.length + 1;
-                   block.records.push({
-                       id: genId(),
-                       content: `第${recordNumber}次练习：${content}`,
-                       time: nowStr()
-                   });
-                   input.value = '';
-                   
-                   // 保持板块展开状态
-                   data.expandedBlocks[blockId] = true;
-                   
-                   saveData();
-                   render();
-               }
-           }
-        
-        // 编辑练习记录
-        function editPracticeRecord(blockId, recordId, btnElement) {
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (!block) return;
-            
-            const record = block.records.find(r => r.id === recordId);
-            if (!record) return;
-            
-            // 从内容中提取次数
-            const match = record.content.match(/第 (\d+) 次练习/);
-            const recordNumber = match ? parseInt(match[1]) : 'N';
-            
-            const newContent = prompt('编辑练习内容:', record.content.replace(`第${recordNumber}次练习：`, ''));
-            if (newContent !== null && newContent.trim()) {
-                record.content = `第${recordNumber}次练习：${newContent.trim()}`;
-                saveData();
-                render();
-             }
-         }
  
          // HTML 转义函数
          function escapeHtml(text) {
@@ -13718,74 +13322,6 @@ const item = {
                  }
              };
              
-             // 打开练习记录编辑模态框
-             window.openPracticeRecordEdit = function(blockId, recordId) {
-                 const block = data.practiceBlocks.find(b => b.id === blockId);
-                 if (!block) return;
-                 
-                 const record = block.records.find(r => r.id === recordId);
-                 if (!record) return;
-                 
-                 // 计算练习次数
-                 const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
-                 const currentIndex = allRecords.findIndex(r => r.id === recordId);
-                 const recordNumber = allRecords.length - currentIndex;
-                 
-                 // 设置模态框内容
-                 const modal = document.getElementById('editModal');
-                 const textarea = document.getElementById('editContent');
-                 
-                 // 显示练习信息
-                 textarea.value = record.content.replace(/第\d+次练习：/, '');
-                 textarea.rows = 6;
-                 
-                 // 保存当前编辑的记录信息
-                 textarea.dataset.blockId = blockId;
-                 textarea.dataset.recordId = recordId;
-                 textarea.dataset.recordNumber = recordNumber;
-                 
-                 // 显示模态框
-                 modal.classList.remove('hidden');
-                 textarea.focus();
-             };
-             
-             // 更新练习记录内容
-             window.updatePracticeRecordContent = function(blockId, recordId, newContent) {
-                      const block = data.practiceBlocks.find(b => b.id === blockId);
-                      if (!block) return;
-                      const record = block.records.find(r => r.id === recordId);
-                      if (!record) return;
-                      
-                      // 获取记录编号
-                      const allRecords = [...block.records].sort((a, b) => new Date(b.time) - new Date(a.time));
-                      const currentIndex = allRecords.findIndex(r => r.id === recordId);
-                      const recordNumber = allRecords.length - currentIndex;
-                      
-                      // 更新内容，保留"第X次练习："前缀
-                      if (newContent && newContent.trim()) {
-                          record.content = `第${recordNumber}次练习：${newContent.trim()}`;
-                         record.updatedAt = nowStr();
-                         saveData();
-                         showToast('修改成功');
-                     }
-                 };
-                 
-                 // 点击内容直接编辑练习记录（已弃用，现在使用输入框直接编辑）
-                 window.editPracticeRecordInline = function(blockId, recordId, contentDiv, event) {
-                     // 这个函数已经不再使用，保留是为了兼容性
-                     console.log('editPracticeRecordInline 已弃用，请使用输入框直接编辑');
-                 };
-                
-                function editBlockName(blockId) {
-                    const block = data.practiceBlocks.find(b => b.id === blockId);
-                    if (!block) return;
-                    const newName = prompt('请输入新的板块名称:', block.name);
-                    if (newName && newName.trim()) {
-                        block.name = newName.trim();
-                        saveData();
-                        render();
-                    }
-                }
           // 统一的删除确认函数
           function showDeleteConfirm(id, type, btnElement, extraParam = null) {
               // 检查强提醒（任务、子任务、时间段删除，允许操作强提醒任务本身）
@@ -13874,15 +13410,6 @@ const item = {
                 case 'feeling':
                     data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
                     msg = '感受已删除';
-                    break;
-                 case 'block':
-                     console.log('处理 block 删除:', { id });
-                     console.log('删除前的板块:', data.practiceBlocks);
-                     data.practiceBlocks = data.practiceBlocks.filter(b => b.id !== id);
-                     console.log('删除后的板块:', data.practiceBlocks);
-                     msg = '板块练习已删除';
-                     console.log('删除成功，消息:', msg);
-                    break;
                   case 'slot':
                       // 删除时间段时，将关联的时间块的 slotId 设为 null（静默）
                       data.slots = data.slots.filter(s => s.id !== id);
@@ -13916,37 +13443,6 @@ const item = {
                          msg = '子任务已删除';
                      }
                      break;
-                  case 'practice-record':
-                      console.log('处理 practice-record 删除:', { id, extraParam });
-                      const block = data.practiceBlocks.find(b => b.id === id);
-                      console.log('找到的板块:', block);
-                      if (block && extraParam !== null) {
-                          // extraParam 现在是记录 ID，而不是记录编号
-                          const recordId = extraParam;
-                          console.log('要删除的记录 ID:', recordId);
-                          console.log('板块中的记录:', block.records);
-                          const recordIndex = block.records.findIndex(r => r.id === recordId);
-                          console.log('找到的记录索引:', recordIndex);
-                          if (recordIndex !== -1) {
-                              block.records.splice(recordIndex, 1);
-                              // 重新编号所有记录
-                              block.records.forEach((rec, idx) => {
-                                  const newNum = block.records.length - idx;
-                                  rec.content = rec.content.replace(/第\d+次练习：/, `第${newNum}次练习：`);
-                              });
-                              
-                              // 保持板块展开状态
-                              data.expandedBlocks[id] = true;
-                              
-                              msg = '练习记录已删除';
-                              console.log('删除成功，消息:', msg);
-                          } else {
-                              console.log('未找到记录');
-                          }
-                      } else {
-                          console.log('板块不存在或 extraParam 为空');
-                      }
-                    break;
                 case 'ammo':
                     data.ammoLibrary = data.ammoLibrary.filter(a => a.id !== id);
                     msg = '弹药已删除';
@@ -13978,29 +13474,11 @@ const item = {
             }
         }
 
-        function archiveBlock(blockId) {
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (!block) return;
-            block.archived = true;
-            block.archivedAt = new Date().toISOString();
-            saveData();
-            render();
-            showBanner('板块练习已归档', 'success', 2000);
-        }
-
-        function unarchiveBlock(blockId) {
-            const block = data.practiceBlocks.find(b => b.id === blockId);
-            if (!block) return;
-            block.archived = false;
-            block.archivedAt = null;
-            saveData();
-            render();
-            showBanner('板块练习已恢复', 'success', 2000);
-        }
-
         function renderToday() {
+            const contentContainer = document.getElementById('todayListContent');
             const container = document.getElementById('todayList');
-            container.innerHTML = '';
+            if (!contentContainer || !container) return;
+            contentContainer.innerHTML = '';
             
             // 获取筛选条件
             const searchTerm = document.getElementById('todaySearch')?.value.toLowerCase() || '';
@@ -14009,6 +13487,7 @@ const item = {
              const filterMode = document.getElementById('todayTagFilter')?.dataset.filterMode || 'include';
              
              // 只显示当天创建且未完成且未放入时间段的待办（排除清单任务）
+             // 显示所有未完成且未放入时间段的任务（无论创建时间）
              let list = data.tasks.filter(i => {
                  // 过滤掉有触发提醒的任务
                  if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
@@ -14020,23 +13499,20 @@ const item = {
                      return false;
                  }
                  
-                 if (!i.done && isToday(i.createdAt)) {
-                     // 普通任务，只显示未放入时间段的
-                     if (i.placedIn) {
-                         return false;
+                 // 只显示未完成且未放入时间段的任务
+                 if (!i.done && !i.placedIn) {
+                     // 如果任务包含子任务，检查是否有子任务被放入时间段
+                     if (i.subtasks && i.subtasks.length > 0) {
+                         // 检查是否有未放入时间段的子任务（包括已完成的）
+                         const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn);
+                         
+                         // 如果所有子任务都在时间段中，不显示任务
+                         if (!hasUnplacedSubtasks) {
+                             return false;
+                         }
+                         // 如果有未放入的子任务，显示任务
+                         return true;
                      }
-                      // 如果任务包含子任务，检查是否有子任务被放入时间段
-                      if (i.subtasks && i.subtasks.length > 0) {
-                          // 检查是否有未放入时间段的子任务（包括已完成的）
-                          const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn);
-                          
-                          // 如果所有子任务都在时间段中，不显示任务
-                          if (!hasUnplacedSubtasks) {
-                              return false;
-                          }
-                          // 如果有未放入的子任务，显示任务
-                          return true;
-                      }
                      return true;
                  }
                  return false;
@@ -14060,24 +13536,17 @@ const item = {
             
             document.getElementById('todayCount').textContent = list.length ? `(${list.length})` : '';
             if (list.length === 0) {
-                container.innerHTML = '<div class="empty-tip">暂无待办任务</div>';
+                contentContainer.innerHTML = '<div class="empty-tip">暂无待办任务</div>';
                 return;
             }
+            
             
             // 渲染标签筛选器
             renderTagFilter('todayTagFilter', list, selectedTags);
             
-            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
-            
-            // 检查折叠状态
-            const listEl = document.getElementById('oldTodoList');
-            const filterBarEl = document.getElementById('oldTodoFilterBar');
-            if (listEl.classList.contains('old-section-collapsed')) {
-                listEl.classList.add('old-section-collapsed');
-                filterBarEl.classList.add('old-section-collapsed');
-            }
+            contentContainer.innerHTML = '';
+            list.forEach(item => contentContainer.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
         }
-
         // ============ 本周完成模块 ============
         
         function getThisWeekRange() {
@@ -14131,78 +13600,6 @@ const item = {
                 new Date(task.updatedAt) <= end
             );
         }
-        
-        function renderOldTodos() {
-            const container = document.getElementById('oldTodoList');
-            container.innerHTML = '';
-            
-            // 获取筛选条件
-            const searchTerm = document.getElementById('oldTodoSearch')?.value.toLowerCase() || '';
-            const selectedTagsStr = document.getElementById('oldTodoTagFilter')?.dataset.selectedTags || '[]';
-            const selectedTags = JSON.parse(selectedTagsStr);
-            const filterMode = document.getElementById('oldTodoTagFilter')?.dataset.filterMode || 'include';
-            
-            let list = data.tasks.filter(i => {
-                // 过滤掉有触发提醒的任务
-                if (data.taskTriggers && data.taskTriggers.some(t => t.taskId === i.id && t.active)) {
-                    return false;
-                }
-                
-                // 过滤掉清单任务（isList=true）
-                if (i.isList === true) {
-                    return false;
-                }
-                
-                if (!i.done && !isToday(i.createdAt)) {
-                    // 如果任务本身被放入时间段，不显示
-                    if (i.placedIn) {
-                        return false;
-                    }
-                     // 如果任务包含子任务，检查是否有子任务被放入时间段
-                     if (i.subtasks && i.subtasks.length > 0) {
-                         // 检查是否有未放入时间段的子任务（包括已完成的）
-                         const hasUnplacedSubtasks = i.subtasks.some(st => !st.placedIn);
-                         
-                         // 如果所有子任务都在时间段中，不显示任务
-                         if (!hasUnplacedSubtasks) {
-                             return false;
-                         }
-                         // 如果有未放入的子任务，显示任务
-                         return true;
-                     }
-                    return true;
-                }
-                return false;
-            });
-            
-            // 应用搜索过滤
-            if (searchTerm) {
-                list = list.filter(i => i.content.toLowerCase().includes(searchTerm));
-            }
-            
-            // 应用标签过滤
-            if (selectedTags && selectedTags.length > 0) {
-                if (filterMode === 'include') {
-                    // 包含模式：显示包含任一选中标签的内容
-                    list = list.filter(i => i.tags && i.tags.some(tag => selectedTags.includes(tag)));
-                } else {
-                    // 排除模式：排除包含任一选中标签的内容
-                    list = list.filter(i => !i.tags || !i.tags.some(tag => selectedTags.includes(tag)));
-                }
-            }
-            
-            document.getElementById('oldTodoCount').textContent = list.length ? `(${list.length})` : '';
-            if (list.length === 0) {
-                container.innerHTML = '<div class="empty-tip">暂无往期待办</div>';
-                return;
-            }
-            
-            // 渲染标签筛选器
-            renderTagFilter('oldTodoTagFilter', list, selectedTags);
-            
-            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox: item.type==='task', editable: true})));
-        }
-
         // ============ 任务清单渲染 ============
         function renderListTodos() {
             const container = document.getElementById('listTodoList');
@@ -14487,6 +13884,9 @@ addTaskBtn.onclick = function() {
 compactList.appendChild(addTaskBtn);
 
 container.appendChild(compactList);
+
+// 更新强提醒横幅
+updateStrongReminderBanner();
 }
 
         // 切换清单任务完成状态
@@ -14498,9 +13898,11 @@ container.appendChild(compactList);
                 saveData();
                 renderListTodos();
                 updateAllTagFilters();
-renderCompleted();
-}
-}
+                renderCompleted();
+                // 更新强提醒横幅
+                updateStrongReminderBanner();
+            }
+        }
 
 // ============ 任务清单管理功能 ============
 
@@ -15006,8 +14408,11 @@ function renderOldFeelings() {
         }
 
          function renderCompleted() {
+             const taskList = document.getElementById('completedTaskList');
+             if (!taskList) return;
+             
              const container = document.getElementById('completedList');
-             container.innerHTML = '';
+             if (!container) return;
              
              // 获取筛选条件
              const searchTerm = document.getElementById('completedSearch')?.value.toLowerCase() || '';
@@ -15067,21 +14472,24 @@ function renderOldFeelings() {
             
             document.getElementById('completedCount').textContent = list.length ? `(${list.length})` : '';
             if (list.length === 0) {
-                container.innerHTML = '<div class="empty-tip">暂无已完成任务</div>';
+                taskList.innerHTML = '<div class="empty-tip">暂无已完成任务</div>';
                 return;
             }
             
-            // 渲染标签筛选器（在filter-bar中）
+            // 渲染标签筛选器（在 filter-bar 中）
             renderTagFilter('completedTagFilter', list, selectedTags);
             
-            // 添加AI汇总按钮
+            // 清空任务列表
+            taskList.innerHTML = '';
+            
+            // 添加 AI 汇总按钮
             const aiSummaryBtn = document.createElement('div');
             aiSummaryBtn.style.cssText = 'text-align:right;margin-bottom:12px;';
-            aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'completed\')">📊 AI汇总</button>';
-            container.appendChild(aiSummaryBtn);
+            aiSummaryBtn.innerHTML = '<button class="btn btn-small btn-primary" onclick="showAISummary(\'completed\')">📊 AI 汇总</button>';
+            taskList.appendChild(aiSummaryBtn);
             
             // 渲染任务列表（不显示添加子任务按钮，但显示标签）
-            list.forEach(item => container.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
+            list.forEach(item => taskList.appendChild(renderItem(item, {showCheckbox:true, showAddSubtask:false})));
         }
 
         function renderHistory() {
@@ -16649,13 +16057,15 @@ function closeModal(modalId) {
               const container = document.getElementById('triggerManageContent');
               const countSpan = document.getElementById('triggerManageCount');
               
+              if (!container) return;
+              
               if (!data.taskTriggers || data.taskTriggers.length === 0) {
                   container.innerHTML = '<div class="empty-tip">暂无触发提醒</div>';
-                  countSpan.textContent = '';
+                  if (countSpan) countSpan.textContent = '';
                   return;
               }
               
-              countSpan.textContent = `(${data.taskTriggers.length})`;
+              if (countSpan) countSpan.textContent = `(${data.taskTriggers.length})`;
               container.innerHTML = '';
               
               data.taskTriggers.forEach(trigger => {
@@ -16741,14 +16151,6 @@ function closeModal(modalId) {
                   const record = block.records.find(r => r.id === recordId);
                   if (!record) return;
                   
-                  // 更新练习记录内容
-                  if (newContent) {
-                      record.content = `第${recordNumber}次练习：${newContent}`;
-                      record.updatedAt = nowStr();
-                      saveData();
-                      renderPracticeBlocks();
-                      showToast('修改成功');
-                  }
               } else {
                   // 原有的任务编辑逻辑
                   const item = data.tasks.find(i => i.id === editingId);
@@ -17898,39 +17300,67 @@ function closeModal(modalId) {
             arrow.textContent = content.classList.contains('hidden') ? '▶' : '▼';
         }
 
-        // 折叠/展开今日完成
+        // 折叠/展开模块（待办、已完成等）
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             let arrowId = '';
+            let contentId = '';
+            let filterBarId = '';
+            
             if (sectionId === 'doneList') {
                 arrowId = 'doneArrow';
+                contentId = 'doneListContent';
+                filterBarId = 'doneListFilterBar';
             } else if (sectionId === 'completedList') {
                 arrowId = 'completedArrow';
+                contentId = 'completedTaskList';
+                filterBarId = 'completedFilterBar';
+            } else if (sectionId === 'todayList') {
+                arrowId = 'todayArrow';
+                contentId = 'todayListContent';
+                filterBarId = 'todayFilterBar';
+            } else if (sectionId === 'triggerManageList') {
+                arrowId = 'triggerManageArrow';
+                contentId = 'triggerManageContent';
+                filterBarId = 'triggerManageFilterBar';
             }
-            const arrow = arrowId ? document.getElementById(arrowId) : null;
             
-            if (!section) return;
+            const arrow = arrowId ? document.getElementById(arrowId) : null;
+            const content = contentId ? document.getElementById(contentId) : null;
+            const filterBar = filterBarId ? document.getElementById(filterBarId) : null;
+            
+            if (!section) {
+                console.log('section 不存在:', sectionId);
+                return;
+            }
             
             const isCollapsed = section.classList.contains('collapsed');
+            
             if (isCollapsed) {
+                // 展开：移除 collapsed 类，显示内容
                 section.classList.remove('collapsed');
                 if (arrow) arrow.textContent = '▼';
-                // 如果是已完成模块，同时显示筛选栏
-                if (sectionId === 'completedList') {
-                    const filterBar = document.getElementById('completedFilterBar');
-                    if (filterBar) {
-                        filterBar.style.display = 'flex';
-                    }
+                
+                // 显示内容区域和筛选栏
+                if (content) {
+                    content.style.display = '';
+                }
+                // 显示筛选栏
+                if (filterBar) {
+                    filterBar.style.display = 'flex';
                 }
             } else {
+                // 折叠：添加 collapsed 类，隐藏内容
                 section.classList.add('collapsed');
                 if (arrow) arrow.textContent = '▶';
-                // 如果是已完成模块，同时隐藏筛选栏
-                if (sectionId === 'completedList') {
-                    const filterBar = document.getElementById('completedFilterBar');
-                    if (filterBar) {
-                        filterBar.style.display = 'none';
-                    }
+                
+                // 隐藏内容区域和筛选栏
+                if (content) {
+                    content.style.display = 'none';
+                }
+                // 隐藏筛选栏
+                if (filterBar) {
+                    filterBar.style.display = 'none';
                 }
             }
         }
@@ -18196,7 +17626,6 @@ function closeModal(modalId) {
                   taskLists: data.taskLists,
                   currentListId: data.currentListId,
                   normalFeelings: data.normalFeelings,
-                 practiceBlocks: data.practiceBlocks,
                  slots: data.slots,
                  tags: data.tags,
                  commonTags: data.commonTags,
@@ -18565,175 +17994,6 @@ function closeModal(modalId) {
                   banner.remove();
               }
           }
-
-        // ============ 批量迁移功能 ============
-        let migrationSelected = [];
-
-        function showMigrationModal() {
-            migrationSelected = [];
-            const modal = document.getElementById('migrationModal');
-            const list = document.getElementById('migrationList');
-            const blockSelect = document.getElementById('blockSelect');
-            
-            console.log('data.normalFeelings:', data.normalFeelings);
-            console.log('data.normalFeelings length:', data.normalFeelings.length);
-            
-            // 获取往期感受（非当天的感受）
-            const oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
-            
-            console.log('oldFeelings:', oldFeelings);
-            console.log('oldFeelings length:', oldFeelings.length);
-            
-            if (oldFeelings.length === 0) {
-                alert('没有可迁移的往期感受记录。当前共有感受：' + data.normalFeelings.length + ' 条。\n\n请检查控制台 (F12) 查看详细数据。');
-                return;
-            }
-            
-            // 生成板块列表
-            blockSelect.innerHTML = '<option value="new">-- 新建板块 --</option>';
-            data.practiceBlocks.forEach(block => {
-                const option = document.createElement('option');
-                option.value = block.id;
-                option.textContent = block.name;
-                blockSelect.appendChild(option);
-            });
-            
-            // 生成迁移列表
-            list.innerHTML = '';
-            oldFeelings.forEach((feeling, index) => {
-                const div = document.createElement('div');
-                div.style.cssText = 'display:flex;align-items:center;padding:8px;border-bottom:1px solid #eee;';
-                div.innerHTML = `
-                    <input type="checkbox" id="mig_${index}" value="${index}" onchange="updateMigrationCount()" style="margin-right:10px;">
-                    <span style="flex:1;">${feeling.content.substring(0, 50)}${feeling.content.length > 50 ? '...' : ''}</span>
-                    <span style="color:#999;font-size:12px;">${fmtTime(feeling.createdAt)}</span>
-                `;
-                list.appendChild(div);
-            });
-            
-            document.getElementById('selectAll').checked = false;
-            document.getElementById('migrationSelectedCount').textContent = '0';
-            document.getElementById('blockSelect').value = 'new';
-            document.getElementById('newBlockInput').style.display = 'block'; // 默认显示新建输入框
-            
-            // 添加监听器：当选择板块时，控制新建输入框的显示/隐藏
-            blockSelect.onchange = function() {
-                const newBlockInput = document.getElementById('newBlockInput');
-                if (this.value === 'new') {
-                    newBlockInput.style.display = 'block';
-                    document.getElementById('newBlockName').focus();
-                } else {
-                    newBlockInput.style.display = 'none';
-                }
-            };
-            
-            modal.classList.remove('hidden');
-        }
-
-        function closeMigrationModal() {
-            closeModal('migrationModal');
-        }
-
-        function toggleSelectAll() {
-            const selectAll = document.getElementById('selectAll').checked;
-            const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]');
-            checkboxes.forEach(cb => cb.checked = selectAll);
-            updateMigrationCount();
-        }
-
-        function updateMigrationCount() {
-            const checkboxes = document.querySelectorAll('#migrationList input[type="checkbox"]:checked');
-            const count = checkboxes.length;
-            
-            // 更新迁移列表专用的计数显示
-            const countElement = document.getElementById('migrationSelectedCount');
-            if (countElement) {
-                countElement.textContent = count;
-            }
-            
-            migrationSelected = Array.from(checkboxes).map(cb => parseInt(cb.value));
-        }
-
-        function toggleMigrationTarget() {
-            const target = document.querySelector('input[name="migrationTarget"]:checked').value;
-            const blockSelectDiv = document.getElementById('blockSelectDiv');
-            
-            if (target === 'block') {
-                blockSelectDiv.style.display = 'block';
-            } else {
-                blockSelectDiv.style.display = 'none';
-            }
-        }
-
-        function executeMigration() {
-            if (migrationSelected.length === 0) {
-                alert('请选择要迁移的记录。');
-                return;
-            }
-            
-            const target = document.querySelector('input[name="migrationTarget"]:checked').value;
-            
-            if (target === 'normal') {
-                // 迁移到普通感受（保持现状，无需操作）
-                alert(`已成功迁移 ${migrationSelected.length} 条记录到普通感受。`);
-                closeMigrationModal();
-                render();
-                return;
-            }
-            
-            // 迁移到板块练习
-            let blockId = document.getElementById('blockSelect').value;
-            let blockName = '';
-            
-            if (blockId === 'new') {
-                blockName = document.getElementById('newBlockName').value.trim();
-                if (!blockName) {
-                    alert('请输入新板块名称。');
-                    return;
-                }
-                // 创建新板块
-                const newBlock = {
-                    id: genId(),
-                    name: blockName,
-                    records: []
-                };
-                data.practiceBlocks.push(newBlock);
-                blockId = newBlock.id;
-            } else {
-                const block = data.practiceBlocks.find(b => b.id === blockId);
-                if (block) blockName = block.name;
-            }
-            
-            // 迁移选中的记录
-            const oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
-            const migratedIds = [];
-            
-            migrationSelected.forEach(index => {
-                const feeling = oldFeelings[index];
-                if (feeling) {
-                    // 找到对应的板块
-                    const block = data.practiceBlocks.find(b => b.id === blockId);
-                    if (block) {
-                        block.records.push({
-                            id: genId(),
-                            content: feeling.content,
-                            time: feeling.createdAt,
-                            estimatedTime: feeling.estimatedTime || ''
-                        });
-                        migratedIds.push(feeling.id);
-                    }
-                }
-            });
-            
-            // 从 normalFeelings 中移除已迁移的记录
-            data.normalFeelings = data.normalFeelings.filter(f => !migratedIds.includes(f.id));
-            
-            alert(`成功迁移 ${migratedIds.length} 条记录到板块"${blockName}"。`);
-            closeMigrationModal();
-            render();
-            saveData();
-        }
- 
         // ============ 往期汇总功能 ============
         
         // 显示关系问题沟通清单
@@ -19954,9 +19214,7 @@ function closeModal(modalId) {
         // 设置默认选项卡
         const initialTab = data.activeTab || 'feeling';
         switchMainTab(initialTab);
-        // 设置默认感受类型为普通感受
-selectFeelingType('normal');
-// 初始化清单选择器
+        // 初始化清单选择器
 renderTaskListSelector();
 // 初始化快速清单选择器
 renderQuickListSelector();
@@ -26740,25 +25998,42 @@ function deleteMilestone(projectId, milestoneId) {
         }
         
         // 监听整理模态框中的里程碑复选框变化
-        document.getElementById('organizerCreateMilestone').addEventListener('change', function() {
-            const options = document.getElementById('organizerMilestoneOptions');
-            options.style.display = this.checked ? 'block' : 'none';
-        });
+        const organizerCreateMilestone = document.getElementById('organizerCreateMilestone');
+        if (organizerCreateMilestone) {
+            organizerCreateMilestone.addEventListener('change', function() {
+                const options = document.getElementById('organizerMilestoneOptions');
+                if (options) {
+                    options.style.display = this.checked ? 'block' : 'none';
+                }
+            });
+        }
         
         // 监听整理模态框中的进度滑块变化
-        document.getElementById('organizerMilestoneProgress').addEventListener('input', function() {
-            document.getElementById('organizerMilestoneProgressValue').textContent = this.value + '%';
-        });
+        const organizerMilestoneProgress = document.getElementById('organizerMilestoneProgress');
+        if (organizerMilestoneProgress) {
+            organizerMilestoneProgress.addEventListener('input', function() {
+                const progressValue = document.getElementById('organizerMilestoneProgressValue');
+                if (progressValue) {
+                    progressValue.textContent = this.value + '%';
+                }
+            });
+        }
         
         // 监听整理模态框中的项目选择变化
-        document.getElementById('organizerProjectSelect').addEventListener('change', function() {
-            // 当选择项目时，自动填充里程碑标题
-            const taskContent = document.getElementById('organizerTaskContent').value.trim();
-            if (taskContent && this.value) {
-                const milestoneTitle = taskContent.substring(0, 50) + (taskContent.length > 50 ? '...' : '');
-                document.getElementById('organizerMilestoneTitle').value = milestoneTitle;
-            }
-        });
+        const organizerProjectSelect = document.getElementById('organizerProjectSelect');
+        if (organizerProjectSelect) {
+            organizerProjectSelect.addEventListener('change', function() {
+                // 当选择项目时，自动填充里程碑标题
+                const taskContent = document.getElementById('organizerTaskContent')?.value.trim();
+                if (taskContent && this.value) {
+                    const milestoneTitle = taskContent.substring(0, 50) + (taskContent.length > 50 ? '...' : '');
+                    const milestoneTitleInput = document.getElementById('organizerMilestoneTitle');
+                    if (milestoneTitleInput) {
+                        milestoneTitleInput.value = milestoneTitle;
+                    }
+                }
+            });
+        }
         
         // ==================== 工具函数 ====================
         
@@ -29982,17 +29257,14 @@ renderTrackerTasks('mobileTrackerTaskList', 'removeMobileTrackerItem');
      function initMobileFab() {
          const fab = document.getElementById('mobileFab');
          if (fab) {
-             console.log('移动端浮动按钮已初始化');
              // 检测是否为移动设备 - 仅在真正的移动设备上显示
              const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
                             window.innerWidth <= 768;
              
              if (isMobile) {
                  fab.style.display = 'flex';
-                 console.log('检测到移动设备，显示浮动按钮');
              } else {
                  fab.style.display = 'none';
-                 console.log('桌面设备，浮动按钮隐藏');
              }
          } else {
              console.error('找不到浮动按钮元素');
