@@ -11792,16 +11792,14 @@ function renderTags(containerId, selected=[]) {
             if (!content) return;
             const tags = getSelectedTags('feelingTags');
             
-            if (currentFeelingType === 'normal') {
-                // 普通感受
-                data.normalFeelings.push({
-                    id: genId(),
-                    content,
-                    tags,
-                    createdAt: nowStr(),
-                    updatedAt: nowStr()
-                });
-            }
+            // 普通感受
+            data.normalFeelings.push({
+                id: genId(),
+                content,
+                tags,
+                createdAt: nowStr(),
+                updatedAt: nowStr()
+            });
             
             document.getElementById('feelingContent').value = '';
             renderTags('feelingTags');
@@ -21784,9 +21782,7 @@ updateGithubStatus();
      function handleFeelingInput(textarea) {
          const content = textarea.value.trim();
          const container = document.getElementById('ammoSuggestions');
-         
-         console.log('感受输入:', content);
-         
+                 
          // 清除之前的定时器
          if (ammoSuggestionTimer) {
              clearTimeout(ammoSuggestionTimer);
@@ -21800,9 +21796,7 @@ updateGithubStatus();
              container.innerHTML = '';
              return;
          }
-         
-         console.log('准备显示推荐按钮，内容长度:', content.length);
-         
+                  
          // 延迟显示推荐按钮，避免频繁更新
          ammoSuggestionTimer = setTimeout(() => {
              console.log('定时器触发，显示AI推荐按钮');
