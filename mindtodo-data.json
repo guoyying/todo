@@ -1354,9 +1354,9 @@
       "type": "task",
       "content": "思考下交叉检查怎么开展，看下网安单铺排下",
       "createdAt": "2026-07-10T01:59:35.128Z",
-      "updatedAt": "2026-07-10T01:59:35.128Z",
+      "updatedAt": "2026-07-10T02:52:02.540Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1380,11 +1380,11 @@
     {
       "id": "mreb311jofoor",
       "type": "task",
-      "content": "写下低效我得获得什么信息",
+      "content": "写下低效我得获得什么信息。完了这些信息我都不知道怎么分析。怎么办啊。最终是要形成提醒周报给到县分，应对如果美哥问起来，怎么回事。所以我要知道还有哪些没退的，目前进度是落后还是超强。我都不知道有无必要。我不确定能不能按我说的来做。哎呀。",
       "createdAt": "2026-07-10T02:17:56.743Z",
-      "updatedAt": "2026-07-10T02:17:56.743Z",
+      "updatedAt": "2026-07-10T03:22:00.170Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1453,6 +1453,62 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrebqc78qehgu",
+      "type": "task",
+      "content": "我得想想怎么跟厂家说要自查",
+      "createdAt": "2026-07-10T02:36:04.292Z",
+      "updatedAt": "2026-07-10T02:36:04.292Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mredd6vbcd5w3",
+      "type": "task",
+      "content": "打电话问下天河同事，低效的啥情况",
+      "createdAt": "2026-07-10T03:21:50.087Z",
+      "updatedAt": "2026-07-10T03:21:50.087Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mreddrofv85vb",
+      "type": "task",
+      "content": "问泳哥低效接下来如何推进",
+      "createdAt": "2026-07-10T03:22:17.055Z",
+      "updatedAt": "2026-07-10T03:22:17.055Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mredh6xpw9jr5",
+      "type": "task",
+      "content": "打开oa-上传萤火行动的文件",
+      "createdAt": "2026-07-10T03:24:56.797Z",
+      "updatedAt": "2026-07-10T03:24:56.797Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1478,7 +1534,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3598,17 +3654,17 @@
       "active": true
     },
     {
-      "id": "mrcvowky8yhrp",
+      "id": "mrecatid1odc6",
       "taskId": "mqrd9ot2h6ei5",
       "type": "time",
       "triggerConfig": {
-        "triggerTime": "2026-07-10T10:39"
+        "triggerTime": "2026-07-13T10:51"
       },
       "reminderConfig": {
         "frequency": "once",
         "message": "你有1个任务待处理"
       },
-      "createdAt": "2026-07-09T02:19:17.362Z",
+      "createdAt": "2026-07-10T02:51:59.845Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -4702,6 +4758,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-10T01:40:08.379Z"
+    "lastSync": "2026-07-10T02:34:41.358Z"
   }
 }
