@@ -2679,6 +2679,57 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "mrf5hlq37qacp",
+      "content": "尴尬，是因为你们刚刚触碰到了彼此真实的内核，而真实本身是有重量的。 这种“不想说话”的时刻，其实是你们都在消化对方的立场，就像大地在雨后需要时间吸收水分一样。它不是“不好”，而是“必需”的——它让深刻的对话有了余韵",
+      "type": "general",
+      "createdAt": "2026-07-10T16:29:05.211Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrf5mgx9aga0d",
+      "content": "尴尬往往来源于“无法被理解的委屈”，而一旦你清晰、有力且不带攻击性地表达了自己，尴尬就会转化为“相互理解的沉默”——那种沉默不再是冰冷，而是温暖的沉思。",
+      "type": "general",
+      "createdAt": "2026-07-10T16:32:52.270Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrf5nih0qj1yc",
+      "content": "你确实告诉了我事实。但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪你‘没说’，我只是在告诉你，我现在‘感受到’了什么。",
+      "type": "general",
+      "createdAt": "2026-07-10T16:33:40.932Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -4513,6 +4564,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-10T09:37:48.555Z"
+    "lastSync": "2026-07-10T16:22:21.593Z"
   }
 }
