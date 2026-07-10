@@ -13410,6 +13410,7 @@ const item = {
                 case 'feeling':
                     data.normalFeelings = data.normalFeelings.filter(i => i.id !== id);
                     msg = '感受已删除';
+                    break;
                   case 'slot':
                       // 删除时间段时，将关联的时间块的 slotId 设为 null（静默）
                       data.slots = data.slots.filter(s => s.id !== id);
