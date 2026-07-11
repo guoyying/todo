@@ -4436,6 +4436,14 @@
       "status": "pending",
       "createdAt": "2026-07-03T09:05:39.368Z",
       "updatedAt": "2026-07-03T09:05:39.368Z"
+    },
+    {
+      "id": "mrgdn0hzobk10wzxv6f",
+      "content": "# 如何修改监听端口\n\n## AI 解答\n\n针对“如何修改数据库监听端口”这个问题，简单来说就是**让数据库换个“门牌号”**，避免攻击者轻易找到默认入口。🔐\n\n不同数据库的操作略有不同，但核心思路都是修改配置文件中的端口号。以下是常见数据库的修改方法（以Linux环境为例）：\n\n1️⃣ **MySQL/MariaDB**  \n- 编辑配置文件 `/etc/my.cnf` 或 `/etc/mysql/mysql.conf.d/mysqld.cnf`  \n- 找到 `[mysqld]` 部分，修改或添加一行：`port = 3307`（把3306改成你想要的端口）  \n- 保存后重启服务：`systemctl restart mysql`\n\n2️⃣ **PostgreSQL**  \n- 编辑配置文件 `postgresql.conf`  \n- 找到 `port = 5432`，改为你想要的端口（如5433）  \n- 保存后重启服务：`systemctl restart postgresql`\n\n3️⃣ **Oracle**  \n- 修改 `listener.ora` 文件中的 `PORT` 值  \n- 重启监听器：`lsnrctl stop` 再 `lsnrctl start`\n\n4️⃣ **SQL Server**  \n- 使用 SQL Server 配置管理器，在“SQL Server 网络配置”中修改 TCP/IP 协议的端口  \n- 重启 SQL Server 服务\n\n⚠️ **重要提醒**：  \n- 修改后，应用程序连接数据库时也要用新端口。  \n- 修改端口只是**增加一层隐蔽性**，不能替代防火墙、ACL等安全措施（即题目中的A选项只是缓解手段之一）。  \n\n💡 用emoji总结：  \n🔧 改端口 = 换门牌号  \n🛡️ 防火墙 + 限制访问源 = 加围墙和门禁  \n🔄 升级版本 = 修好门锁漏洞  \n\n这样你就能理解题目中“修改监听端口”为什么是有效的缓解措施了吧？😊",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-11T13:05:00.743Z",
+      "updatedAt": "2026-07-11T13:05:00.744Z"
     }
   ],
   "exportedKnowledgeIds": [
