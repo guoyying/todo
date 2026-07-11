@@ -4444,6 +4444,22 @@
       "status": "pending",
       "createdAt": "2026-07-11T13:05:00.743Z",
       "updatedAt": "2026-07-11T13:05:00.744Z"
+    },
+    {
+      "id": "mrgezurh46kwv3qrbch",
+      "content": "# 交换机vlam如何配置\n\n## AI 解答\n\n这个问题和之前的“网卡检测不到”是两回事哦，你问的是**交换机VLAN配置**。😊\n\n简单来说，VLAN（虚拟局域网）就是把一个物理交换机“切”成几个逻辑上隔离的小网络。配置步骤一般如下：\n\n1. **创建VLAN** 🛠️  \n   进入交换机命令行（或Web界面），输入类似：  \n   `vlan 10` （创建一个编号为10的VLAN）  \n   然后给它起个名字（可选）：  \n   `name Sales`\n\n2. **把端口划入VLAN** 🔌  \n   比如要把交换机端口1~5划给VLAN 10：  \n   `interface range gigabitEthernet 0/1-5`  \n   `switchport access vlan 10`  \n   这样这些端口就属于VLAN 10了，彼此能通信，但与其它VLAN隔离。\n\n3. **配置Trunk（跨交换机通信）** 🌉  \n   如果多台交换机要传多个VLAN的数据，需要把连接它们的端口设为Trunk：  \n   `interface gigabitEthernet 0/24`  \n   `switchport mode trunk`  \n   默认允许所有VLAN通过。\n\n4. **别忘给VLAN配IP（三层交换机）** 🌐  \n   如果VLAN之间需要互相访问，还要配网关：  \n   `interface vlan 10`  \n   `ip address 192.168.10.1 255.255.255.0`\n\n**回到你之前的题目**：题目中网卡启用但交换机检测不到，D选项“以上都可能”是对的。但**VLAN配置错误**（比如端口没划对VLAN）**也会导致交换机“看不到”设备**，因为设备可能被隔离在另一个VLAN里了。所以这道题其实也隐含了VLAN配置的影响哦。😉\n\n如果还有具体型号或场景，可以再问我～",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-11T13:42:59.453Z",
+      "updatedAt": "2026-07-11T13:42:59.453Z"
+    },
+    {
+      "id": "mrgfbuemged53qzap88",
+      "content": "# c选项啥意思\n\n## AI 解答\n\n当然可以！我们来用简单的话解释一下 **C选项** 的“端口PVID决定缺省VLAN”是什么意思 🧐\n\n---\n\n**C选项解析** 📖\n\n- **PVID** 是“端口默认VLAN ID”的缩写（Port VLAN ID）。\n- 当一台电脑（或设备）连接到交换机的某个端口时，如果它发送的数据包 **没有打上任何VLAN标签**（比如普通电脑默认发出的数据），交换机会自动给这个数据包 **打上该端口PVID对应的VLAN标签**。\n- 也就是说，**PVID决定了这个端口收到的“无标签数据”默认属于哪个VLAN**。\n\n**举个🌰**：  \n- 你给端口1设置 **PVID = 10**，那么连接在这个端口上的电脑发出的所有数据，都会被交换机自动归入 **VLAN 10** 里处理。\n\n---\n\n**简单总结** 👇  \n**PVID就是端口的“默认VLAN身份证”**，它告诉交换机：“这个端口进来的没标签数据，统统算作VLAN X的成员！”\n\n这样是不是好理解多啦？😊 如果还有疑问，随时问哦！",
+      "tags": [],
+      "status": "pending",
+      "createdAt": "2026-07-11T13:52:18.862Z",
+      "updatedAt": "2026-07-11T13:52:18.862Z"
     }
   ],
   "exportedKnowledgeIds": [
@@ -4621,6 +4637,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-11T06:34:23.243Z"
+    "lastSync": "2026-07-11T13:52:48.079Z"
   }
 }
