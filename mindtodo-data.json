@@ -1219,9 +1219,9 @@
     {
       "id": "mreqii8e8coa6",
       "type": "task",
-      "content": "想下这周周报怎么反馈，退网不知道怎么说。",
+      "content": "想下这周周报怎么反馈，退网不知道怎么说。因为这周没有什么进度。时间全用来搞网络信息安全方面的工作去了。“本周恢复退网工作推进”",
       "createdAt": "2026-07-10T09:29:53.102Z",
-      "updatedAt": "2026-07-10T13:04:24.883Z",
+      "updatedAt": "2026-07-11T14:01:25.948Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1291,9 +1291,9 @@
       "type": "task",
       "content": "4a加入兼容模式->223授权另一个帐号",
       "createdAt": "2026-07-10T09:42:35.083Z",
-      "updatedAt": "2026-07-10T09:42:35.083Z",
+      "updatedAt": "2026-07-11T13:57:12.073Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1303,9 +1303,9 @@
     {
       "id": "mrey63xof7z8e",
       "type": "task",
-      "content": "最近县分问我客户端设备算不算退网目标，我想到您一个月前提过去年部分客户端设备都算退网，部分还能算今年指标。为了统一口径，想请您明确下：具体在什么范围下，客户端可以纳入？",
+      "content": "“最近县分问我客户端设备算不算退网目标，我想到您一个月前提过去年部分客户端设备都算退网，部分还能算今年指标。为了统一口径，想请您明确下：具体在什么范围下，客户端可以纳入？",
       "createdAt": "2026-07-10T13:04:11.628Z",
-      "updatedAt": "2026-07-10T13:04:11.628Z",
+      "updatedAt": "2026-07-11T14:22:14.410Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1401,7 +1401,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4637,6 +4637,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-11T13:52:48.079Z"
+    "lastSync": "2026-07-11T13:53:13.700Z"
   }
 }
