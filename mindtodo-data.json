@@ -1235,9 +1235,9 @@
       "type": "task",
       "content": "看截图，记录下9月前要完成的事情。",
       "createdAt": "2026-07-10T09:39:15.740Z",
-      "updatedAt": "2026-07-10T09:39:15.740Z",
+      "updatedAt": "2026-07-11T06:22:30.522Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1249,9 +1249,9 @@
       "type": "task",
       "content": "未闭环更新：561-粤海凯旋大厦：等待天河核查是否没在用（网管没在用了，已删除纤缆）",
       "createdAt": "2026-07-10T09:41:30.188Z",
-      "updatedAt": "2026-07-10T09:41:40.739Z",
+      "updatedAt": "2026-07-11T06:28:09.375Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1261,11 +1261,11 @@
     {
       "id": "mreqxuh8qxi5r",
       "type": "task",
-      "content": "1111-黄陂揽元窝我要看下资源系统归属，如果是黄埔就给他们上单退网。我这边记录未闭环；",
+      "content": "1111-黄陂揽元窝让黄埔上单退网",
       "createdAt": "2026-07-10T09:41:48.812Z",
-      "updatedAt": "2026-07-10T09:41:48.812Z",
+      "updatedAt": "2026-07-11T06:34:01.082Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1313,6 +1313,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrfza23m6ujkp",
+      "type": "task",
+      "content": "以最新的低效清单为依据，梳理出9月前要退的东西",
+      "createdAt": "2026-07-11T06:23:01.666Z",
+      "updatedAt": "2026-07-11T06:23:01.666Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrfzocn34cq3m",
+      "type": "task",
+      "content": "1111-黄陂揽元窝让黄埔上单退网",
+      "createdAt": "2026-07-11T06:34:08.511Z",
+      "updatedAt": "2026-07-11T06:34:08.511Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1335,6 +1363,13 @@
       "name": "协作型",
       "description": "",
       "createdAt": "2026-07-09T02:51:03.457Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1783750791936",
+      "name": "叙事构建型",
+      "description": "碎片拼接、找因果关系、自带剧本",
+      "createdAt": "2026-07-11T06:19:51.937Z",
       "isDefault": false
     }
   ],
