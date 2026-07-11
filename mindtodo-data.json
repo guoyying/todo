@@ -1277,9 +1277,9 @@
       "type": "task",
       "content": "trace下不通的33.128和另一台",
       "createdAt": "2026-07-10T09:42:01.396Z",
-      "updatedAt": "2026-07-10T13:12:22.651Z",
+      "updatedAt": "2026-07-11T06:49:53.775Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1341,6 +1341,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrg09krej0t6t",
+      "type": "task",
+      "content": "",
+      "createdAt": "2026-07-11T06:50:38.810Z",
+      "updatedAt": "2026-07-11T06:50:47.053Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrg0alibp7983",
+      "type": "task",
+      "content": "33.128和223将截图发群里问下支撑",
+      "createdAt": "2026-07-11T06:51:26.435Z",
+      "updatedAt": "2026-07-11T06:51:26.435Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -4585,6 +4613,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-10T16:22:21.593Z"
+    "lastSync": "2026-07-11T06:34:23.243Z"
   }
 }
