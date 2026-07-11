@@ -1313,20 +1313,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
-    },
-    {
-      "id": "mreydsef127bf",
-      "type": "task",
-      "content": "trace下",
-      "createdAt": "2026-07-10T13:10:09.927Z",
-      "updatedAt": "2026-07-10T13:10:09.927Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
