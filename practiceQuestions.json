@@ -941,7 +941,7 @@
       "analysis": "文档明确“都是汇聚交换机”。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "correct"
+      "status": "wrong"
     },
     {
       "id": "wlaq_8",
@@ -1053,7 +1053,7 @@
       "analysis": "生成树协议（STP/RSTP）用于防止二层环路。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlaq_15",
@@ -1162,7 +1162,7 @@
       "analysis": "文档提到ssh和telnet；Console为本地，SNMP为监控非登录。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlaq_22",
@@ -1322,7 +1322,7 @@
       "analysis": "23是Telnet，关闭不影响SSH（22端口）。",
       "subject": "wlaq",
       "createdAt": "2026-07-03T07:34:50.909Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_32",
@@ -2318,7 +2318,7 @@
       "analysis": "每个C段部署蜜罐指在同一C段网络范围内有蜜罐覆盖，例如172.54.197.x网段。",
       "subject": "wlaq",
       "createdAt": "2026-07-09T14:25:05.998Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlaq_49",
@@ -2349,7 +2349,8 @@
       "answer": "B",
       "analysis": "VLAN 1为默认VLAN，需将接入端口划入目标VLAN才能跨VLAN通信。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_51",
@@ -2395,7 +2396,8 @@
       "answer": "B",
       "analysis": "限制源IP可快速遏制漏洞利用，为后续补丁或修复争取时间。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_54",
@@ -2410,7 +2412,8 @@
       "answer": "C",
       "analysis": "蜜罐核心功能是记录攻击手法和源信息，产生告警供安全分析。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_55",
@@ -2519,7 +2522,7 @@
       "analysis": "微蜜罐部署在主机侧，用于检测内网横向渗透和主机级攻击。",
       "subject": "wlaq",
       "createdAt": "2026-07-09T14:25:05.998Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlaq_62",
@@ -2549,7 +2552,8 @@
       "answer": "D",
       "analysis": "物理链路、端口状态和IP配置均可能影响交换机对设备的识别。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_64",
@@ -2564,7 +2568,8 @@
       "answer": "ABC",
       "analysis": "微蜜罐支持Linux，可改SSH端口，需防火墙策略允许，但蜜罐一般不主动阻断（记录告警为主）。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_65",
@@ -2594,7 +2599,8 @@
       "answer": "ABCD",
       "analysis": "以上均为合理的漏洞应急响应措施，多层次降低风险。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_67",
@@ -2609,7 +2615,8 @@
       "answer": "ABCD",
       "analysis": "多IP用于多VLAN管理、远程登录、DHCP中继及VRRP虚拟网关。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_68",
@@ -2624,7 +2631,8 @@
       "answer": "ABC",
       "analysis": "蜜罐误报低，可捕获未知威胁，消耗攻击者时间，但对生产环境有一定资源占用。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_69",
@@ -2639,7 +2647,8 @@
       "answer": "ACD",
       "analysis": "交换机基于源MAC学习，端口PVID决定缺省VLAN，跨VLAN需路由；同一MAC一般只在一个VLAN活动。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "wrong"
     },
     {
       "id": "wlaq_70",
@@ -2652,7 +2661,8 @@
       "answer": "B",
       "analysis": "改端口后仍需防火墙策略精确放行61022端口，确保蜜罐可达。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_71",
@@ -2665,7 +2675,8 @@
       "answer": "B",
       "analysis": "查到MAC仅表示二层通信正常，三层IP、网关、路由等影响上网。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_72",
@@ -2706,7 +2717,8 @@
       "answer": "B",
       "analysis": "关闭防火墙会扩大风险，正确做法是限制访问并及时打补丁。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_75",
@@ -2719,7 +2731,8 @@
       "answer": "A",
       "analysis": "云主机可部署蜜罐，C段部署策略用于监测同网段横向移动。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_76",
@@ -2732,7 +2745,8 @@
       "answer": "B",
       "analysis": "MAC表记录是二层信息，不依赖IP地址获取（ARP通信前就有MAC）。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_77",
@@ -2745,7 +2759,8 @@
       "answer": "A",
       "analysis": "交换机VLAN配置动态生效，无需重启。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_78",
@@ -2760,7 +2775,8 @@
       "answer": "AC",
       "analysis": "蜜罐需要any访问以捕获攻击，策略必须存在且放行。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_79",
@@ -2775,7 +2791,8 @@
       "answer": "ABD",
       "analysis": "169.254.x.x为APIPA自动地址，不影响交换机二层检测；其他均为物理或驱动问题。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_80",
@@ -2805,7 +2822,8 @@
       "answer": "ABCD",
       "analysis": "修改端口、限制源、升级版本、数据库防火墙均为有效缓解手段。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_82",
@@ -2835,7 +2853,8 @@
       "answer": "ABC",
       "analysis": "蜜罐可能被识别，无法分析加密内容，部署不当易被利用；但可记录行为。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_84",
@@ -2850,7 +2869,8 @@
       "answer": "ABCD",
       "analysis": "以上均可能导致交换机管理IP不可达。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "unknown"
     },
     {
       "id": "wlaq_85",
@@ -2865,8 +2885,9 @@
       "answer": "ABC",
       "analysis": "同C段部署用于检测横向移动，蜜罐IP需同网段诱骗，但不同C段也可能需要部署。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     }
   ],
-  "lastUpdated": "2026-07-09T23:12:17.510Z"
+  "lastUpdated": "2026-07-11T13:52:41.298Z"
 }
