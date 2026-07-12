@@ -1149,25 +1149,11 @@
     {
       "id": "mrenarvkfe0il",
       "type": "task",
-      "content": "我可以再尝试下这两台设备，一个是华为m，一个是瑞斯康达。",
+      "content": "我再尝试下瑞斯康达的Genvue帐号，如果可以访问就备注在excel表上。",
       "createdAt": "2026-07-10T07:59:53.504Z",
-      "updatedAt": "2026-07-10T08:56:20.844Z",
+      "updatedAt": "2026-07-12T02:01:32.309Z",
       "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrenbh6w8udgl",
-      "type": "task",
-      "content": "把企微群的截图发给他们，自查",
-      "createdAt": "2026-07-10T08:00:26.312Z",
-      "updatedAt": "2026-07-10T09:24:30.793Z",
-      "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1187,20 +1173,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrep94vun5ucd",
-      "type": "task",
-      "content": "我得画个跳转图才行",
-      "createdAt": "2026-07-10T08:54:36.282Z",
-      "updatedAt": "2026-07-10T08:56:22.105Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mreqac7g7pqt6",
@@ -1229,76 +1201,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrequkd8kb7aq",
-      "type": "task",
-      "content": "看截图，记录下9月前要完成的事情。",
-      "createdAt": "2026-07-10T09:39:15.740Z",
-      "updatedAt": "2026-07-11T06:22:30.522Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mreqxg3w6kjz3",
-      "type": "task",
-      "content": "未闭环更新：561-粤海凯旋大厦：等待天河核查是否没在用（网管没在用了，已删除纤缆）",
-      "createdAt": "2026-07-10T09:41:30.188Z",
-      "updatedAt": "2026-07-11T06:28:09.375Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mreqxuh8qxi5r",
-      "type": "task",
-      "content": "1111-黄陂揽元窝让黄埔上单退网",
-      "createdAt": "2026-07-10T09:41:48.812Z",
-      "updatedAt": "2026-07-11T06:34:01.082Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mreqy46su1r3v",
-      "type": "task",
-      "content": "trace下不通的33.128和另一台",
-      "createdAt": "2026-07-10T09:42:01.396Z",
-      "updatedAt": "2026-07-11T06:49:53.775Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mreqyu6j8exvv",
-      "type": "task",
-      "content": "4a加入兼容模式->223授权另一个帐号",
-      "createdAt": "2026-07-10T09:42:35.083Z",
-      "updatedAt": "2026-07-11T13:57:12.073Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrey63xof7z8e",
@@ -1341,20 +1243,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrg0alibp7983",
-      "type": "task",
-      "content": "",
-      "createdAt": "2026-07-11T06:51:26.435Z",
-      "updatedAt": "2026-07-12T01:27:58.117Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrh46k9iauiz0",
@@ -1401,7 +1289,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4645,6 +4533,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-11T14:22:20.760Z"
+    "lastSync": "2026-07-12T02:00:18.436Z"
   }
 }
