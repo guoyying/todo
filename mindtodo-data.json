@@ -1119,20 +1119,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mreh9wmrgyb4u",
-      "type": "task",
-      "content": "看下低效9月前怎么开展工作。就看下9月前要完成什么东西啊。",
-      "createdAt": "2026-07-10T05:11:15.315Z",
-      "updatedAt": "2026-07-10T09:39:18.186Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mremvv0ja4173",
       "type": "task",
       "content": "看下零业务，有哪些是客户端的。退网/省公司月报",
@@ -1159,34 +1145,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mreoezbj1fr1i",
-      "type": "task",
-      "content": "我要更新下561和111的退网情况，和未闭环情况。",
-      "createdAt": "2026-07-10T08:31:09.391Z",
-      "updatedAt": "2026-07-10T09:41:18.323Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mreqac7g7pqt6",
-      "type": "task",
-      "content": "我不知道怎么说这个退网的事情，哎。就有好多问题不清晰的。我不知道怎么开口问。。",
-      "createdAt": "2026-07-10T09:23:32.044Z",
-      "updatedAt": "2026-07-10T13:04:16.866Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     },
     {
       "id": "mreqii8e8coa6",
@@ -1257,6 +1215,22 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrh5iswsy4w0e",
+      "type": "task",
+      "content": "我得想下老公的车钥匙挂坠怎么做好。",
+      "createdAt": "2026-07-12T02:05:33.532Z",
+      "updatedAt": "2026-07-12T02:05:33.532Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -4533,6 +4507,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-12T02:00:18.436Z"
+    "lastSync": "2026-07-12T02:01:39.667Z"
   }
 }
