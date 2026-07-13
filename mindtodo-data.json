@@ -1261,20 +1261,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mrikncsd9pmgt",
-      "type": "task",
-      "content": "更新1111-黄陂揽元窝(800M)-GZHC332-HA29L的归属，共享文档",
-      "createdAt": "2026-07-13T01:56:46.333Z",
-      "updatedAt": "2026-07-13T01:56:46.333Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrikvjztntsbb",
       "type": "task",
       "content": "思考下蜜罐的问题怎么处理，说第一跳都没有",
@@ -1287,6 +1273,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mril941fllmaw",
+      "type": "task",
+      "content": "网管看下增城的3499设备",
+      "createdAt": "2026-07-13T02:13:41.427Z",
+      "updatedAt": "2026-07-13T02:13:41.428Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mril9nbowmmbo",
+      "type": "task",
+      "content": "过天河ZC0920260708090590单",
+      "createdAt": "2026-07-13T02:14:06.420Z",
+      "updatedAt": "2026-07-13T02:14:06.420Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1319,7 +1333,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2016,6 +2030,17 @@
       ],
       "createdAt": "2026-07-10T16:18:52.851Z",
       "updatedAt": "2026-07-10T16:18:52.851Z"
+    },
+    {
+      "id": "mrilydux03psi",
+      "content": "朋友来了想玩掼蛋，我是理解的你想抓住机会过把瘾。但我好像默认不在里面似的，你完全有能力拉我一把-让我体验学下，却优先满足自己的好奇心和参与感。",
+      "tags": [
+        "观察记录",
+        "待表达",
+        "回头看"
+      ],
+      "createdAt": "2026-07-13T02:33:20.553Z",
+      "updatedAt": "2026-07-13T02:45:33.966Z"
     }
   ],
   "slots": [],
@@ -2996,6 +3021,10 @@
       "textColor": "#333333",
       "activeValue": "#e65100",
       "activeTextColor": "#FFFFFF"
+    },
+    "回头看": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "dailyTimeline": {
