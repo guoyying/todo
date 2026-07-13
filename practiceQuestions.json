@@ -2880,7 +2880,8 @@
       "answer": "A",
       "analysis": "在烽火设备中“单站交叉”是指业务仅在单个网元内部完成电层交叉调度，不跨站",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_2",
@@ -2970,7 +2971,8 @@
       "answer": "C",
       "analysis": "OTN帧结构中第3825-4080列为FEC前向纠错区域",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_8",
@@ -2985,7 +2987,8 @@
       "answer": "A",
       "analysis": "ROADM在光层无需光电转换即可完成波长上下路和穿通",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_9",
@@ -3000,7 +3003,8 @@
       "answer": "A",
       "analysis": "光合波+光分波单元构成的ROADM站点最多支持2个方向，常用于环网",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_10",
@@ -3015,7 +3019,8 @@
       "answer": "D",
       "analysis": "BEFFEC_EXC是纠错后误码过量，说明FEC无法完全修复，业务已受损",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_11",
@@ -3075,7 +3080,8 @@
       "answer": "B",
       "analysis": "OTN帧第1-16列为开销，第17-3824列为净荷区域",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_15",
@@ -3105,7 +3111,8 @@
       "answer": "A",
       "analysis": "SM监控两个设备之间直接相连的那一段光纤",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_17",
@@ -3150,7 +3157,8 @@
       "answer": "A",
       "analysis": "单站交叉仅在单个网元内部完成，跨站交叉涉及多个网元间的业务调度",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_20",
@@ -3165,7 +3173,8 @@
       "answer": "C",
       "analysis": "TCM支持TCM1~TCM6共6级串联连接监控",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_21",
@@ -3180,7 +3189,8 @@
       "answer": "ABCD",
       "analysis": "四种场景都是PWE3的典型应用",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_22",
@@ -3225,7 +3235,8 @@
       "answer": "AB",
       "analysis": "ROADM支持Colorless和Directionless特性，可动态调度波长",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_25",
@@ -3240,7 +3251,8 @@
       "answer": "ABC",
       "analysis": "ODTUG2是逻辑容器，最多复用4个ODU1，不是物理模块",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_26",
@@ -3255,7 +3267,8 @@
       "answer": "ABC",
       "analysis": "前三者均与误码检测有关，AIS是告警指示信号，不是误码告警",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_27",
@@ -3285,7 +3298,8 @@
       "answer": "ABC",
       "analysis": "TCM用于子段监控和故障分段定位，跨域监控，也辅助端到端评估",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_29",
@@ -3330,7 +3344,8 @@
       "answer": "ABC",
       "analysis": "单站交叉在单个网元内，不涉及外部光纤；多站交叉涉及多网元协作，时延通常更大",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_32",
@@ -3345,7 +3360,8 @@
       "answer": "B",
       "analysis": "业务分界符为User时，PE不识别处理U-TAG",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_33",
@@ -3373,9 +3389,10 @@
         "D. 单板温度过高"
       ],
       "answer": "ABCD",
-      "analysis": "四种情况都可能导致光路质量变差，引发误码过量",
+      "analysis": "四种情况都可能导致光路质量变差，引发误码过量。\nOTUk 前向纠错不可纠正误码（OTUk EXcessive bit errors）",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_35",
@@ -3420,7 +3437,8 @@
       "answer": "ABD",
       "analysis": "ROADM支持动态调度和ASON，FOADM不支持；两者都无需光电转换",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_38",
@@ -3435,7 +3453,8 @@
       "answer": "ABCD",
       "analysis": "四个描述均正确，ODTUG2是逻辑中间级，最多4个ODU1时分复用，帧周期为1/4",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_39",
@@ -3478,7 +3497,8 @@
       "answer": "B",
       "analysis": "单站交叉指单个网元内部完成业务调度，不涉及多网元协作",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_42",
@@ -3530,7 +3550,8 @@
       "answer": "B",
       "analysis": "ODTUG2是逻辑概念，不是物理模块",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_46",
@@ -3556,7 +3577,8 @@
       "answer": "A",
       "analysis": "Colorless即无色，任意波长可通过任意端口上下",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_48",
@@ -3582,7 +3604,8 @@
       "answer": "A",
       "analysis": "这种架构常用于环网，最多支持2个方向",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_50",
@@ -3595,8 +3618,9 @@
       "answer": "B",
       "analysis": "CE不感知仿真业务，只看到一条直连线路",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     }
   ],
-  "lastUpdated": "2026-07-13T15:02:16.384Z"
+  "lastUpdated": "2026-07-13T16:08:45.779Z"
 }
