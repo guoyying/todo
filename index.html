@@ -2416,6 +2416,27 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
     opacity: 0.6;
 }
 
+/* 紧凑列表项菜单样式 */
+.compact-item-menu {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 160px;
+    z-index: 10000;
+}
+
+.compact-menu-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.compact-menu-item:hover {
+    background: var(--hover);
+}
+
 /* ============ 清单选择器样式 ============ */
 .list-selector-wrapper {
     position: relative;
@@ -8810,36 +8831,33 @@ padding: 7px !important;
               <div class="modal-body" style="display:flex;gap:16px;max-height:80vh;">
                   <!-- 左列：控制面板 -->
                   <div style="flex:0 0 320px;display:flex;flex-direction:column;min-width:0;padding-right:16px;border-right:1px solid var(--border);">
-                      <!-- 汇总方式选择 -->
+                      <!-- 汇总筛选条件 -->
                       <div style="margin-bottom:20px;">
-                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>汇总方式：</strong></label>
-                          <div style="display:flex;gap:15px;">
-                              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
-                                  <input type="radio" name="summaryType" value="tag" checked onchange="toggleSummaryType()">
-                                  按标签汇总
-                              </label>
-                              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
-                                  <input type="radio" name="summaryType" value="time" onchange="toggleSummaryType()">
-                                  按时间范围汇总
-                              </label>
-                          </div>
-                      </div>
-   
-                      <!-- 按标签汇总选项 -->
-                      <div id="tagSummaryOptions" style="margin-bottom:20px;">
-                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>选择标签：</strong></label>
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>🏷️ 选择标签（可选）：</strong></label>
                           <div id="tagSelectContainer" style="display:flex;flex-wrap:wrap;gap:8px;">
                               <!-- 动态生成标签选择 -->
                           </div>
+                          <div style="margin-top:8px;font-size:12px;color:var(--text-secondary);">
+                              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+                                  <input type="checkbox" id="selectAllTags" onchange="toggleSelectAllTags()">
+                                  全选标签
+                              </label>
+                          </div>
                       </div>
    
-                      <!-- 按时间范围汇总选项 -->
-                      <div id="timeSummaryOptions" style="display:none;margin-bottom:20px;">
-                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>时间范围：</strong></label>
+                      <!-- 时间范围筛选 -->
+                      <div style="margin-bottom:20px;">
+                          <label style="display:block;margin-bottom:10px;font-weight:600;"><strong>📅 时间范围（可选）：</strong></label>
                           <div style="display:flex;gap:10px;align-items:center;">
                               <input type="date" id="startDate" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;">
                               <span>至</span>
                               <input type="date" id="endDate" style="flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;">
+                          </div>
+                          <div style="margin-top:8px;font-size:12px;color:var(--text-secondary);">
+                              <label style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+                                  <input type="checkbox" id="clearDateRange" onchange="toggleClearDateRange()">
+                                  不限时间
+                              </label>
                           </div>
                       </div>
    
@@ -13764,29 +13782,31 @@ let list = data.tasks.filter(i => {
                         tagsDiv.appendChild(s);
                     });
                     
-                    // 添加标签按钮
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.onclick = (e) => {
+                    // 添加菜单按钮
+                    const menuBtn = document.createElement('span');
+                    menuBtn.className = 'item-tag';
+                    menuBtn.textContent = '::';
+                    menuBtn.style.cursor = 'pointer';
+                    menuBtn.style.color = 'var(--primary)';
+                    menuBtn.style.fontWeight = 'bold';
+                    menuBtn.onclick = (e) => {
                         e.stopPropagation();
-                        showTaskTagSelector(e, item.id);
+                        showCompactItemMenu(e, item.id);
                     };
-                    tagsDiv.appendChild(addTagBtn);
+                    tagsDiv.appendChild(menuBtn);
                 } else {
-                    // 如果没有标签，显示添加标签按钮
-                    const addTagBtn = document.createElement('span');
-                    addTagBtn.className = 'item-tag';
-                    addTagBtn.textContent = '+ 添加标签';
-                    addTagBtn.style.cursor = 'pointer';
-                    addTagBtn.style.color = 'var(--primary)';
-                    addTagBtn.onclick = (e) => {
+                    // 如果没有标签，显示::菜单按钮
+                    const menuBtn = document.createElement('span');
+                    menuBtn.className = 'item-tag';
+                    menuBtn.textContent = '::';
+                    menuBtn.style.cursor = 'pointer';
+                    menuBtn.style.color = 'var(--primary)';
+                    menuBtn.style.fontWeight = 'bold';
+                    menuBtn.onclick = (e) => {
                         e.stopPropagation();
-                        showTaskTagSelector(e, item.id);
+                        showCompactItemMenu(e, item.id);
                     };
-                    tagsDiv.appendChild(addTagBtn);
+                    tagsDiv.appendChild(menuBtn);
                 }
                 
                 // 添加删除按钮
@@ -13795,7 +13815,7 @@ let list = data.tasks.filter(i => {
                 deleteBtn.textContent = '🗑️ 删除';
                 deleteBtn.style.cursor = 'pointer';
                 deleteBtn.style.color = '#ff4444';
-                deleteBtn.style.marginLeft = '8px';
+                deleteBtn.style.marginLeft = '4px';
                 deleteBtn.onclick = (e) => {
                     e.stopPropagation();
                     showDeleteConfirm(item.id, 'task', deleteBtn);
@@ -16462,8 +16482,129 @@ function closeModal(modalId) {
                 }
             }
         }
-          // 显示任务标签选择器
-          function showTaskTagSelector(e, taskId) {
+        
+        // 显示紧凑列表项的菜单（::按钮）
+        function showCompactItemMenu(e, taskId) {
+            e.stopPropagation();
+            
+            // 使用状态标记检查该按钮是否已打开菜单
+            if (e.target.dataset.menuOpen === 'true') {
+                // 关闭菜单
+                e.target.dataset.menuOpen = 'false';
+                const menu = document.querySelector('.compact-item-menu[data-task-id="' + taskId + '"]');
+                if (menu) {
+                    menu.remove();
+                }
+                return;
+            }
+            
+            // 关闭其他已打开的菜单
+            document.querySelectorAll('.compact-item-menu').forEach(el => {
+                const btn = document.querySelector('.item-tag[data-menu-open="true"]');
+                if (btn) btn.dataset.menuOpen = 'false';
+                el.remove();
+            });
+            
+            // 创建菜单
+            const menu = document.createElement('div');
+            menu.className = 'compact-item-menu';
+            menu.style.position = 'fixed';
+            menu.style.zIndex = '10000';
+            menu.style.background = 'var(--bg)';
+            menu.style.border = '1px solid var(--border)';
+            menu.style.borderRadius = '8px';
+            menu.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            menu.style.minWidth = '120px';
+            
+            // 菜单选项
+            const options = [
+                { label: '🏷️ 添加标签', action: 'tag' },
+                { label: '💡 AI 帮想点子', action: 'aiIdeas' },
+                { label: '⏰ 触发提醒', action: 'trigger' }
+            ];
+            
+            options.forEach(opt => {
+                const item = document.createElement('div');
+                item.className = 'compact-menu-item';
+                item.textContent = opt.label;
+                item.style.padding = '10px 12px';
+                item.style.cursor = 'pointer';
+                item.style.fontSize = '14px';
+                item.style.transition = 'background 0.2s';
+                item.onmouseenter = function() { this.style.background = 'var(--hover)'; };
+                item.onmouseleave = function() { this.style.background = 'transparent'; };
+                item.onclick = () => {
+                    // 重置按钮状态
+                    const btn = document.querySelector('.item-tag[data-menu-open="true"]');
+                    if (btn) btn.dataset.menuOpen = 'false';
+                    menu.remove();
+                    handleCompactMenuAction(opt.action, taskId);
+                };
+                menu.appendChild(item);
+            });
+            
+            
+            // 设置按钮状态标记
+            e.target.dataset.menuOpen = 'true';
+            
+            // 为菜单添加任务 ID 属性，方便关闭时查找
+            menu.setAttribute('data-task-id', taskId);
+            
+            // 定位到按钮下方
+            const rect = e.target.getBoundingClientRect();
+            menu.style.top = (rect.bottom + 4) + 'px';
+            menu.style.left = rect.left + 'px';
+            
+            // 确保菜单不超出屏幕右侧
+            const menuWidth = 180;
+            if (rect.left + menuWidth > window.innerWidth) {
+                menu.style.left = (window.innerWidth - menuWidth - 10) + 'px';
+            }
+            
+            
+            document.body.appendChild(menu);
+            
+            // 点击其他地方关闭菜单
+            setTimeout(() => {
+                document.addEventListener('click', closeMenu);
+            }, 0);
+            
+            function closeMenu(e2) {
+                if (!menu.contains(e2.target)) {
+                    // 重置按钮状态（通过 taskId 查找按钮）
+                    const btn = document.querySelector('.item-tag[data-menu-open="true"]');
+                    if (btn) btn.dataset.menuOpen = 'false';
+                    menu.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            }
+        }
+        // 处理紧凑列表菜单操作
+        function handleCompactMenuAction(action, taskId) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            switch (action) {
+                case 'tag':
+                    showTaskTagSelector({ target: document.querySelector(`[data-id="${taskId}"] .item-tag:last-child`), stopPropagation: () => {} }, taskId);
+                    break;
+                case 'aiIdeas':
+                    openAiIdeasModal(taskId);
+                    break;
+                case 'trigger':
+                    // 检查是否已有触发提醒
+                    const hasTrigger = data.taskTriggers && data.taskTriggers.some(t => t.taskId === taskId);
+                    if (hasTrigger) {
+                        showTriggerManage(taskId);
+                    } else {
+                        showTriggerSetup(taskId);
+                    }
+                    break;
+            }
+        }
+        
+        // 显示任务标签选择器
+        function showTaskTagSelector(e, taskId) {
               e.stopPropagation();
               
               // 关闭其他已打开的选择器
@@ -18236,21 +18377,31 @@ function closeModal(modalId) {
             modal.classList.remove('hidden');
         }
         
-        // 切换汇总类型
-        function toggleSummaryType() {
-            const type = document.querySelector('input[name="summaryType"]:checked').value;
-            const tagOptions = document.getElementById('tagSummaryOptions');
-            const timeOptions = document.getElementById('timeSummaryOptions');
-            
-            if (type === 'tag') {
-                tagOptions.style.display = 'block';
-                timeOptions.style.display = 'none';
-            } else {
-                tagOptions.style.display = 'none';
-                timeOptions.style.display = 'block';
-            }
+        // 全选/取消全选标签
+        function toggleSelectAllTags() {
+            const selectAll = document.getElementById('selectAllTags');
+            const checkboxes = document.querySelectorAll('.tag-checkbox');
+            checkboxes.forEach(cb => {
+                cb.checked = selectAll.checked;
+            });
         }
         
+        // 切换不限时间选项
+        function toggleClearDateRange() {
+            const clearDate = document.getElementById('clearDateRange');
+            const startDate = document.getElementById('startDate');
+            const endDate = document.getElementById('endDate');
+            
+            if (clearDate.checked) {
+                startDate.value = '';
+                endDate.value = '';
+                startDate.disabled = true;
+                endDate.disabled = true;
+            } else {
+                startDate.disabled = false;
+                endDate.disabled = false;
+            }
+        }
         // 获取默认提示词
         function getDefaultOldFeelingSummaryPrompt() {
             return `请根据以下往期感受记录，生成一份汇总报告。使用emoji增加可读性（如💭、🏷️、💡等）。汇总要求：依据感受内容给出本质分析、后续优化建议。`;
@@ -18277,36 +18428,30 @@ function closeModal(modalId) {
             const promptInput = document.getElementById('oldFeelingSummaryPromptInput');
             const modelSelect = document.getElementById('oldFeelingSummaryModelSelect');
             
-            // 获取汇总类型
-            const summaryType = document.querySelector('input[name="summaryType"]:checked').value;
-            
             // 获取往期感受
             let oldFeelings = data.normalFeelings.filter(f => !isToday(f.createdAt));
             
-            // 根据汇总类型筛选感受
-            if (summaryType === 'tag') {
-                // 按标签汇总
-                const selectedTags = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(cb => cb.value);
-                if (selectedTags.length === 0) {
-                    alert('请至少选择一个标签。');
-                    return;
-                }
+            // 标签筛选
+            const selectAllTags = document.getElementById('selectAllTags');
+            const selectedTags = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(cb => cb.value);
+            const hasTagSelection = selectedTags.length > 0 || (selectAllTags && selectAllTags.checked);
+            
+            if (selectedTags.length > 0) {
                 oldFeelings = oldFeelings.filter(f =>
                     f.tags && f.tags.some(tag => selectedTags.includes(tag))
                 );
-            } else {
-                // 按时间范围汇总
-                const startDate = document.getElementById('startDate').value;
-                const endDate = document.getElementById('endDate').value;
-                
-                if (!startDate || !endDate) {
-                    alert('请选择时间范围。');
-                    return;
-                }
-                
-                const start = new Date(startDate);
-                const end = new Date(endDate);
-                end.setHours(23, 59, 59, 999); // 设置为当天的最后一刻
+            }
+            
+            // 时间范围筛选
+            const clearDateRange = document.getElementById('clearDateRange');
+            const startDateInput = document.getElementById('startDate').value;
+            const endDateInput = document.getElementById('endDate').value;
+            const hasDateSelection = startDateInput && endDateInput && (!clearDateRange || !clearDateRange.checked);
+            
+            if (hasDateSelection) {
+                const start = new Date(startDateInput);
+                const end = new Date(endDateInput);
+                end.setHours(23, 59, 59, 999);
                 
                 oldFeelings = oldFeelings.filter(f => {
                     const feelingDate = new Date(f.createdAt);
@@ -18319,6 +18464,18 @@ function closeModal(modalId) {
                 return;
             }
             
+            // 显示筛选条件摘要
+            let filterSummary = '筛选条件：';
+            if (selectedTags.length > 0) {
+                filterSummary += `标签 [${selectedTags.join(', ')}]`;
+            }
+            if (hasDateSelection) {
+                if (selectedTags.length > 0) filterSummary += ' + ';
+                filterSummary += `时间 [${startDateInput} ~ ${endDateInput}]`;
+            }
+            if (!hasTagSelection && !hasDateSelection) {
+                filterSummary = '筛选条件：所有标签 + 所有时间';
+            }
             // 显示加载状态
             content.innerHTML = '<div style="text-align:center;padding:40px;"><div class="loading"></div><p style="margin-top:10px;color:var(--text-secondary);">正在生成汇总...</p></div>';
             
@@ -18330,7 +18487,7 @@ function closeModal(modalId) {
                 const customPrompt = promptInput.value.trim();
                 
                 // 构建完整提示词（感受数据 + 自定义提示词）
-                const feelingData = buildOldFeelingData(oldFeelings, summaryType);
+                const feelingData = buildOldFeelingData(oldFeelings, filterSummary);
                 const fullPrompt = `${feelingData}\n\n${customPrompt}`;
                 
                 // 获取选择的模型
@@ -18358,21 +18515,17 @@ function closeModal(modalId) {
         }
         
         // 构建往期感受数据
-        function buildOldFeelingData(feelings, summaryType) {
-            const typeText = summaryType === 'tag' ? '按标签' : '按时间范围';
-            const dateText = summaryType === 'tag' ? '所有时间' :
-                           `${document.getElementById('startDate').value} ~ ${document.getElementById('endDate').value}`;
-            
+        function buildOldFeelingData(feelings, filterSummary) {
             // 构建感受列表文本
             const feelingsText = feelings.map((feeling, index) => {
                 const tags = feeling.tags ? feeling.tags.join(', ') : '无标签';
                 const time = fmtTime(feeling.createdAt);
                 const content = feeling.content.substring(0, 100) + (feeling.content.length > 100 ? '...' : '');
-                return `${index + 1}. ${content}\n   标签: [${tags}]\n   时间: ${time}`;
+                return `${index + 1}. ${content}\n   标签：[${tags}]\n   时间：${time}`;
             }).join('\n\n');
             
             // 构建感受数据文本
-            const feelingData = `汇总方式：${typeText}\n时间范围：${dateText}\n感受总数：${feelings.length}条\n\n感受列表：\n${feelingsText}`;
+            const feelingData = `${filterSummary}\n感受总数：${feelings.length}条\n\n感受列表：\n${feelingsText}`;
             
             return feelingData;
         }
@@ -24760,9 +24913,19 @@ function showAnswer() {
         html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;"><strong>你的答案：</strong>${escapeHtml(displayedAnswer)}</div>`;
     }
     
-    if (question.analysis) {
-        html += `<div style="font-size:14px;color:var(--text-secondary);"><strong>解析：</strong>${escapeHtml(question.analysis)}</div>`;
-    }
+    // 解析字段 - 可编辑
+    const currentQuestionId = question.id;
+    html += `
+        <div style="font-size:14px;color:var(--text-secondary);margin-top:8px;">
+            <strong>解析：</strong>
+            <textarea id="analysisEditor_${currentQuestionId}"
+                      style="width:100%;margin-top:6px;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"
+                      rows="3"
+                      placeholder="输入解析内容...">${escapeHtml(question.analysis || '')}</textarea>
+            <button class="btn btn-small btn-primary" onclick="saveAnalysis('${currentQuestionId}')"
+                    style="margin-top:8px;padding:4px 12px;font-size:12px;">💾 保存解析</button>
+        </div>
+    `;
     
     answerDisplay.innerHTML = html;
     answerDisplay.style.display = 'block';
@@ -24800,10 +24963,19 @@ function dontKnowQuestion() {
     
     // 显示正确答案和解析
     const answerDisplay = document.getElementById('answerDisplay');
+    const currentQuestionId = question.id;
     const html = `
         <div style="font-size:14px;color:#ff9800;font-weight:bold;margin-bottom:10px;">⚠ 不知道</div>
         <div style="font-size:14px;color:var(--text);margin-bottom:8px;"><strong>正确答案：</strong>${escapeHtml(question.answer)}</div>
-        ${question.analysis ? `<div style="font-size:14px;color:var(--text-secondary);"><strong>解析：</strong>${escapeHtml(question.analysis)}</div>` : ''}
+        <div style="font-size:14px;color:var(--text-secondary);margin-top:8px;">
+            <strong>解析：</strong>
+            <textarea id="analysisEditor_${currentQuestionId}"
+                      style="width:100%;margin-top:6px;padding:8px;border:1px solid var(--border);border-radius:4px;resize:vertical;font-family:inherit;"
+                      rows="3"
+                      placeholder="输入解析内容...">${escapeHtml(question.analysis || '')}</textarea>
+            <button class="btn btn-small btn-primary" onclick="saveAnalysis('${currentQuestionId}')"
+                    style="margin-top:8px;padding:4px 12px;font-size:12px;">💾 保存解析</button>
+        </div>
     `;
     
     answerDisplay.innerHTML = html;
@@ -24819,6 +24991,27 @@ function dontKnowQuestion() {
     document.getElementById('dontKnowBtn').style.display = 'none';
     document.getElementById('nextQuestionBtn').style.display = 'block';
 }
+
+// 保存解析
+window.saveAnalysis = function(questionId) {
+    const textarea = document.getElementById(`analysisEditor_${questionId}`);
+    if (!textarea) {
+        showToast('未找到解析编辑框');
+        return;
+    }
+    
+    const newAnalysis = textarea.value.trim();
+    
+    // 查找题目并更新 analysis 字段
+    const questionIndex = data.practiceQuestions.findIndex(q => q.id === questionId);
+    if (questionIndex >= 0) {
+        data.practiceQuestions[questionIndex].analysis = newAnalysis;
+        saveData();
+        showToast('解析已保存');
+    } else {
+        showToast('未找到题目');
+    }
+};
 
 // 下一题
 function nextQuestion() {
