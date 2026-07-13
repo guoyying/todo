@@ -1375,23 +1375,9 @@
       "type": "task",
       "content": "跟华姐说这两周网安的事情特别多，没跟你一块验收。我这周多验些吧，你还有上周的清单吗？",
       "createdAt": "2026-07-13T04:23:26.144Z",
-      "updatedAt": "2026-07-13T04:23:36.180Z",
+      "updatedAt": "2026-07-13T09:17:03.431Z",
       "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrir6jsle09xe",
-      "type": "task",
-      "content": "石井庆丰C网基站-GZHC333-HA17L也是端口无占用，却有F0901060025在管线管理是占用状态。我的意思是，会不会没在用了，只是没上拆单而已？",
-      "createdAt": "2026-07-13T04:59:39.573Z",
-      "updatedAt": "2026-07-13T04:59:39.573Z",
-      "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1431,9 +1417,9 @@
       "type": "task",
       "content": "跟南沙说下，load清单是用‘用户机房’去筛除的，这台",
       "createdAt": "2026-07-13T05:09:41.691Z",
-      "updatedAt": "2026-07-13T05:11:04.784Z",
+      "updatedAt": "2026-07-13T09:26:50.101Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1529,9 +1515,9 @@
       "type": "task",
       "content": "我得问下老同事，那台跳接的服务器是在哪里的",
       "createdAt": "2026-07-13T07:15:07.343Z",
-      "updatedAt": "2026-07-13T07:15:07.343Z",
+      "updatedAt": "2026-07-13T09:28:37.991Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1613,14 +1599,28 @@
       "type": "task",
       "content": "记录m网管的进入方式：用xx帐号-远程连接-输入网管帐号密码即可",
       "createdAt": "2026-07-13T08:31:23.535Z",
-      "updatedAt": "2026-07-13T08:31:23.535Z",
+      "updatedAt": "2026-07-13T09:31:12.380Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrj0iftmgoj7t",
+      "type": "task",
+      "content": "F1004210009资源系统搜一下，是怎么看出到基站的？这个也搜一下看看：石井庆丰C网基站-GZHC333-HA17L也是端口无占用，却有F0901060025",
+      "createdAt": "2026-07-13T09:20:50.842Z",
+      "updatedAt": "2026-07-13T09:23:28.804Z",
       "tags": [],
       "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1653,7 +1653,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4800,6 +4800,16 @@
       "status": "pending",
       "createdAt": "2026-07-03T09:05:39.368Z",
       "updatedAt": "2026-07-03T09:05:39.368Z"
+    },
+    {
+      "id": "mrj0knt8611m9hymxna",
+      "content": "烽火设备有个‘单站交叉’的说法，是什么意思？",
+      "tags": [
+        "传输"
+      ],
+      "status": "pending",
+      "createdAt": "2026-07-13T09:22:34.508Z",
+      "updatedAt": "2026-07-13T09:22:34.508Z"
     }
   ],
   "exportedKnowledgeIds": [
