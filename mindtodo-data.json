@@ -1627,53 +1627,7 @@
       "type": "task",
       "content": "将pdh的sheet另存到本地excel，然后右侧新增6列，然后爬虫",
       "createdAt": "2026-07-13T10:01:48.132Z",
-      "updatedAt": "2026-07-13T10:02:03.341Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrj7akutmryk7",
-      "type": "task",
-      "content": "把门口的脏东西扫一下",
-      "createdAt": "2026-07-13T12:30:41.429Z",
-      "updatedAt": "2026-07-13T12:30:41.429Z",
-      "tags": [
-        "生活"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrj7b4061ew8m",
-      "type": "task",
-      "content": "写一下面条的SOP：\n1. 拿出两个鸡蛋\n2. 拿出一半面条\n3. 拿出5根辣椒\n4. 切点蒜末和小米辣\n5. 调碗酱汁\n\n> 面条煮开\n加入凉水中\n1. 炒鸡蛋，称出来\n2. 青椒蒜末小米辣炒\n3. 加入肉和面和鸡蛋\n4. 加入料汁",
-      "createdAt": "2026-07-13T12:31:06.246Z",
-      "updatedAt": "2026-07-13T12:34:33.741Z",
-      "tags": [
-        "生活"
-      ],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrj7fvp6fjrgh",
-      "type": "task",
-      "content": "拆快递",
-      "createdAt": "2026-07-13T12:34:48.762Z",
-      "updatedAt": "2026-07-13T12:34:48.762Z",
+      "updatedAt": "2026-07-13T15:15:17.559Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1713,7 +1667,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4634,6 +4588,18 @@
       "format": "markdown",
       "createdAt": "2026-07-13T10:04:10.355Z",
       "updatedAt": "2026-07-13T10:04:10.355Z"
+    },
+    {
+      "id": "1783955755166feougylt1",
+      "title": "鸡蛋辣椒面条",
+      "type": "ideas",
+      "tags": [
+        "做菜"
+      ],
+      "content": "写一下面条的SOP：\n1. 拿出两个鸡蛋\n2. 拿出一半面条\n3. 拿出5根辣椒\n4. 切点蒜末和小米辣\n5. 调碗酱汁\n\n> 面条煮开\n加入凉水中\n1. 炒鸡蛋，称出来\n2. 青椒蒜末小米辣炒\n3. 加入肉和面和鸡蛋\n4. 加入料汁",
+      "format": "markdown",
+      "createdAt": "2026-07-13T15:15:55.167Z",
+      "updatedAt": "2026-07-13T15:15:55.167Z"
     }
   ],
   "trackerConfig": {
@@ -5077,6 +5043,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-13T15:02:21.151Z"
+    "lastSync": "2026-07-13T15:02:56.891Z"
   }
 }
