@@ -1221,7 +1221,7 @@
       "type": "task",
       "content": "我得想下老公的车钥匙挂坠怎么做好。买个粗线和小猪，然后做个金刚结吧。再评估下行不行。",
       "createdAt": "2026-07-12T02:05:33.532Z",
-      "updatedAt": "2026-07-13T01:51:51.756Z",
+      "updatedAt": "2026-07-13T03:18:28.059Z",
       "tags": [
         "生活"
       ],
@@ -1279,9 +1279,9 @@
       "type": "task",
       "content": "网管看下增城的3499设备",
       "createdAt": "2026-07-13T02:13:41.427Z",
-      "updatedAt": "2026-07-13T02:13:41.428Z",
+      "updatedAt": "2026-07-13T03:16:49.863Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1293,7 +1293,35 @@
       "type": "task",
       "content": "过天河ZC0920260708090590单",
       "createdAt": "2026-07-13T02:14:06.420Z",
-      "updatedAt": "2026-07-13T02:14:06.420Z",
+      "updatedAt": "2026-07-13T03:13:20.777Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrimgezyyl07a",
+      "type": "task",
+      "content": "问下曾工，上网的事情。我先写一下问什么",
+      "createdAt": "2026-07-13T02:47:21.838Z",
+      "updatedAt": "2026-07-13T02:47:21.838Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrinigfn9nbbm",
+      "type": "task",
+      "content": "过3499的退网单",
+      "createdAt": "2026-07-13T03:16:56.627Z",
+      "updatedAt": "2026-07-13T03:16:56.627Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1301,6 +1329,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrinivbo07nu4",
+      "type": "task",
+      "content": "开始规划下这周退网怎么推进了，搞点0业务的去退吧。",
+      "createdAt": "2026-07-13T03:17:15.924Z",
+      "updatedAt": "2026-07-13T03:17:15.924Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1333,7 +1375,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2041,6 +2083,17 @@
       ],
       "createdAt": "2026-07-13T02:33:20.553Z",
       "updatedAt": "2026-07-13T02:45:33.966Z"
+    },
+    {
+      "id": "mrinn0yvbssoj",
+      "content": "我觉得周六去澳门玩挺好的，有了互动经历就有了情感基础。在没有什么情感积累的前提下，你说‘这个家随便回来，东西随便拿’只会起到反作用，让我反感和没有话语权。",
+      "tags": [
+        "观点看法",
+        "观察记录",
+        "待表达"
+      ],
+      "createdAt": "2026-07-13T03:20:29.863Z",
+      "updatedAt": "2026-07-13T03:20:29.863Z"
     }
   ],
   "slots": [],
@@ -3484,36 +3537,6 @@
       "lastReminderTimes": {
         "0": "2026-07-09T06:49:26.039Z"
       }
-    },
-    {
-      "id": "mra21d1zymn8z",
-      "taskId": "mqud8y6rk4z3p",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-13T11:10"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-07T02:53:37.751Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mrecatid1odc6",
-      "taskId": "mqrd9ot2h6ei5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-13T10:51"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-10T02:51:59.845Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4676,6 +4699,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-12T09:28:36.921Z"
+    "lastSync": "2026-07-13T02:45:48.278Z"
   }
 }
