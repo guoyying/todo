@@ -61,7 +61,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "CSL3_5",
@@ -92,7 +92,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_7",
@@ -155,7 +156,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_11",
@@ -324,7 +326,8 @@
       "answer": "CD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_22",
@@ -433,7 +436,8 @@
       "answer": "CD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_29",
@@ -587,7 +591,8 @@
       "answer": "ACD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-04T23:53:34.898Z"
+      "createdAt": "2026-07-04T23:53:34.898Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_39",
@@ -706,7 +711,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.802Z"
+      "createdAt": "2026-07-01T09:45:55.802Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_47",
@@ -1572,7 +1578,8 @@
       "answer": "B",
       "analysis": "VLAN可以隔离广播域，提高网络安全性并减少广播流量。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_4",
@@ -1602,7 +1609,8 @@
       "answer": "C",
       "analysis": "第二次握手由服务器发送，携带SYN和ACK标志位。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_6",
@@ -1617,7 +1625,8 @@
       "answer": "B",
       "analysis": "MAC地址长度为48位，通常表示为12个十六进制数。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_7",
@@ -1678,7 +1687,8 @@
       "answer": "B",
       "analysis": "CSMA/CD用于半双工共享介质环境，检测冲突后重传。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_11",
@@ -1800,7 +1810,8 @@
       "answer": "B",
       "analysis": "静态NAT将私有IP固定映射到公有IP。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_19",
@@ -1830,7 +1841,8 @@
       "answer": "D",
       "analysis": "单模芯径小（约9μm），传输距离远，色散小；多模芯径大（50/62.5μm）。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_21",
@@ -1876,7 +1888,8 @@
       "answer": "D",
       "analysis": "TCP提供面向连接、可靠的数据流传输。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_24",
@@ -2066,7 +2079,8 @@
       "answer": "正确",
       "analysis": "0-1023为知名端口，1024-49151为注册端口，49152-65535动态。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_37",
@@ -2134,7 +2148,8 @@
       "answer": "BCD",
       "analysis": "子网划分不增加可用IP总数（反而损失一些），但减少广播域、借主机位、提升性能。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_42",
@@ -2226,7 +2241,8 @@
       "answer": "ABCD",
       "analysis": "OSPF常见LSA类型：Type1 Router",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_48",
@@ -2286,7 +2302,8 @@
       "answer": "C",
       "analysis": "微蜜罐为降低被扫描风险，通常将SSH端口从标准22改为61022等高位端口。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_47",
@@ -2381,7 +2398,8 @@
       "answer": "B",
       "analysis": "交换机三层接口可配置多个SVI（VLAN虚接口）IP，用于跨VLAN管理。",
       "subject": "wlaq",
-      "createdAt": "2026-07-09T14:25:05.998Z"
+      "createdAt": "2026-07-09T14:25:05.998Z",
+      "status": "correct"
     },
     {
       "id": "wlaq_53",
@@ -2632,7 +2650,7 @@
       "analysis": "蜜罐误报低，可捕获未知威胁，消耗攻击者时间，但对生产环境有一定资源占用。",
       "subject": "wlaq",
       "createdAt": "2026-07-09T14:25:05.998Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "wlaq_69",
@@ -2743,7 +2761,7 @@
         "B. 错误"
       ],
       "answer": "B",
-      "analysis": "MAC表记录是二层信息，不依赖IP地址获取（ARP通信前就有MAC）。",
+      "analysis": "MAC表记录是二层信息，不依赖IP地址获取（ARP通信前就有MAC）。\nARP：address resolution Protocal，将mac解析为ip地址",
       "subject": "wlaq",
       "createdAt": "2026-07-09T14:25:05.998Z",
       "status": "correct"
@@ -2889,5 +2907,5 @@
       "status": "correct"
     }
   ],
-  "lastUpdated": "2026-07-11T13:52:41.298Z"
+  "lastUpdated": "2026-07-13T05:24:48.048Z"
 }
