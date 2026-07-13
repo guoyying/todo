@@ -1411,6 +1411,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mririhnogd7ew",
+      "type": "task",
+      "content": "有些华为nce没有的设备（还比较多咧）得出一个退网业务核查的sop，在没有网管看的前提下怎么判断。",
+      "createdAt": "2026-07-13T05:08:56.676Z",
+      "updatedAt": "2026-07-13T05:08:56.676Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1443,7 +1457,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4767,6 +4781,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-13T04:01:27.506Z"
+    "lastSync": "2026-07-13T05:04:55.183Z"
   }
 }
