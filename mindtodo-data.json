@@ -1369,6 +1369,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mripvyrkkll7a",
+      "type": "task",
+      "content": "跟华姐说这两周网安的事情特别多，没跟你一块验收。我这周多验些吧，你还有上周的清单吗？",
+      "createdAt": "2026-07-13T04:23:26.144Z",
+      "updatedAt": "2026-07-13T04:23:36.180Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1401,7 +1415,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4725,6 +4739,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-13T03:34:39.909Z"
+    "lastSync": "2026-07-13T04:01:27.506Z"
   }
 }
