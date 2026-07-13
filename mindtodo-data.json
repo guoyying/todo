@@ -1242,9 +1242,9 @@
       "type": "task",
       "content": "过3499的退网单",
       "createdAt": "2026-07-13T03:16:56.627Z",
-      "updatedAt": "2026-07-13T03:16:56.627Z",
+      "updatedAt": "2026-07-13T05:04:24.979Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1319,9 +1319,9 @@
       "type": "task",
       "content": "trace 132.96.50.62得到的结果是 traciroute to 132.96.50.62 over a maximum of 30 hopes  1 destination hos unreachable",
       "createdAt": "2026-07-13T03:37:37.321Z",
-      "updatedAt": "2026-07-13T03:37:37.321Z",
+      "updatedAt": "2026-07-13T05:04:30.558Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1383,6 +1383,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrir6jsle09xe",
+      "type": "task",
+      "content": "石井庆丰C网基站-GZHC333-HA17L也是端口无占用，却有F0901060025在管线管理是占用状态。我的意思是，会不会没在用了，只是没上拆单而已？",
+      "createdAt": "2026-07-13T04:59:39.573Z",
+      "updatedAt": "2026-07-13T04:59:39.573Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrird6ucbppr2",
+      "type": "task",
+      "content": "ping一下网关132.97.210.1",
+      "createdAt": "2026-07-13T05:04:49.381Z",
+      "updatedAt": "2026-07-13T05:04:49.381Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1415,7 +1443,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
