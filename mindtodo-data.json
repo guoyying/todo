@@ -1168,20 +1168,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mrikganr5jgjv",
-      "type": "task",
-      "content": "不知道该怎么跟县分说这些类别的退网清单。或许我就做几个sheet让他们退网咯，这周。写下对应sop吧",
-      "createdAt": "2026-07-13T01:51:16.983Z",
-      "updatedAt": "2026-07-13T01:51:16.983Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrikin9oqjfrn",
       "type": "task",
       "content": "写下问晓华的哪台网关上联什么接入交换机",
@@ -1313,6 +1299,20 @@
       },
       "projectId": "1779778092169",
       "subtasks": []
+    },
+    {
+      "id": "mrio3du2ikg5n",
+      "type": "task",
+      "content": "看下26年退网清单里客户端的是怎么来的，我看下属性",
+      "createdAt": "2026-07-13T03:33:13.034Z",
+      "updatedAt": "2026-07-13T03:33:13.034Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -4669,6 +4669,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-13T03:20:59.214Z"
+    "lastSync": "2026-07-13T03:29:20.917Z"
   }
 }
