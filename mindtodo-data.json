@@ -1121,9 +1121,9 @@
     {
       "id": "mrkdzc4mtcc93",
       "type": "task",
-      "content": "1. SDH的175个清单-sheet1；\n2. PDH-0业务的发起退网-sheet2（已经爬虫的改改名字)\n\n为了更清晰给出不同类型低效设备的处理建议，低效传输设备的业务状态及处理方式已在清单中列出。原始清单来自xxx。",
+      "content": "1. SDH的175个清单-sheet1；\n2. PDH-0业务的发起退网-sheet2（已经爬虫的改改名字)\n\n各位同事，为了更清晰给出不同场景低效传输设备的处理建议，业务状态及处理建议已在清单中列出。原始清单来自xxx。",
       "createdAt": "2026-07-14T08:25:40.390Z",
-      "updatedAt": "2026-07-14T12:30:25.245Z",
+      "updatedAt": "2026-07-14T23:44:49.865Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1149,9 +1149,9 @@
     {
       "id": "mrkgqe5hhszgb",
       "type": "task",
-      "content": "人和机楼GZWC021、海珠西禄C网基站-GZWC044-WA03看下烽火c2网管",
+      "content": "人和机楼GZWC021、海珠西禄C网基站-GZWC044-WA03看下烽火c2网管，没有业务或亮灯就直接退网了",
       "createdAt": "2026-07-14T09:42:41.957Z",
-      "updatedAt": "2026-07-14T09:45:23.842Z",
+      "updatedAt": "2026-07-14T23:45:35.722Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1163,9 +1163,9 @@
     {
       "id": "mrkh1afwvhchs",
       "type": "task",
-      "content": "验收：看网管端子和光编号",
+      "content": "验收：看网管端子和光编号。",
       "createdAt": "2026-07-14T09:51:10.364Z",
-      "updatedAt": "2026-07-14T09:51:10.364Z",
+      "updatedAt": "2026-07-14T23:45:17.978Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1173,6 +1173,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrlauslror9nx",
+      "type": "task",
+      "content": "写一下今天为止的周进度",
+      "createdAt": "2026-07-14T23:45:55.791Z",
+      "updatedAt": "2026-07-14T23:45:55.791Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrlave3yh6qmu",
+      "type": "task",
+      "content": "写一下低效清单怎么整理，给天河的sdh又怎么整理",
+      "createdAt": "2026-07-14T23:46:23.662Z",
+      "updatedAt": "2026-07-14T23:46:23.662Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -4617,6 +4645,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-14T16:14:19.028Z"
+    "lastSync": "2026-07-14T16:14:30.862Z"
   }
 }
