@@ -2911,7 +2911,8 @@
       "answer": "B",
       "analysis": "VC12交叉需拆包再装包，更灵活但时延更大；VC4交叉整箱搬运，时延小但灵活性差",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_4",
@@ -2972,7 +2973,7 @@
       "analysis": "OTN帧结构中第3825-4080列为FEC前向纠错区域",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.802Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_8",
@@ -3004,7 +3005,7 @@
       "analysis": "光合波+光分波单元构成的ROADM站点最多支持2个方向，常用于环网",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.802Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "chuanshu_10",
@@ -3127,7 +3128,8 @@
       "answer": "C",
       "analysis": "ODU2速率约10G，ODU1速率约2.5G，ODU2是ODU1的4倍",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_18",
@@ -3220,7 +3222,8 @@
       "answer": "ABC",
       "analysis": "第1-16列开销，17-3824列净荷，3825-4080列FEC；帧大小相同，速率不同",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_24",
@@ -3314,7 +3317,8 @@
       "answer": "ABC",
       "analysis": "Directioned场景下波长固定方向，调整需改光纤，不支持任意调整",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_30",
@@ -3361,7 +3365,7 @@
       "analysis": "业务分界符为User时，PE不识别处理U-TAG",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "chuanshu_33",
@@ -3376,7 +3380,8 @@
       "answer": "ABCD",
       "analysis": "四个说法均正确，FEC区域用于纠错，纠错前过量报EXC，纠错后仍过量报BEFFEC_EXC",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_34",
@@ -3407,7 +3412,8 @@
       "answer": "ABD",
       "analysis": "一条Tunnel可承载多条PW；一条PW只能绑定一条Tunnel，但可配置保护隧道；各PW隔离",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_36",
@@ -3422,7 +3428,8 @@
       "answer": "ABC",
       "analysis": "BIP8是1字节误码检测字段，存在于SM/PM/TCM，但各层监控范围不同",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_37",
@@ -3469,7 +3476,8 @@
       "answer": "ABC",
       "analysis": "单站交叉减少跨站连接和调度复杂度，提升站点内汇聚效率，不直接用于跨省调度",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_40",
@@ -3484,7 +3492,8 @@
       "answer": "AB",
       "analysis": "BEFFEC_EXC表示FEC无法修复全部误码，业务数据已出错，严重时中断，但不代表FEC失效或光纤中断",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_41",
@@ -3551,7 +3560,7 @@
       "analysis": "ODTUG2是逻辑概念，不是物理模块",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_46",
@@ -3564,7 +3573,8 @@
       "answer": "B",
       "analysis": "FEC位于第3825-4080列，17-3824列为净荷区域",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_47",
@@ -3622,5 +3632,5 @@
       "status": "unknown"
     }
   ],
-  "lastUpdated": "2026-07-13T16:08:45.779Z"
+  "lastUpdated": "2026-07-14T16:14:12.839Z"
 }
