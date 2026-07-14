@@ -1273,9 +1273,9 @@
     {
       "id": "mrkdzc4mtcc93",
       "type": "task",
-      "content": "低效清单，目前已经明确了。接下来是写一写话术了\n1. SDH的175个清单-sheet1；\n2. PDH-0业务的发起退网-sheet2（已经爬虫的改改名字)",
+      "content": "低效清单，目前已经明确了。接下来是写一写话术了【低效设备的处理方案已经在清单呈现。这个原始清单来源于xxx，是为了让大家更清晰知道自己该做啥，设备目前的状态】\n1. SDH的175个清单-sheet1；\n2. PDH-0业务的发起退网-sheet2（已经爬虫的改改名字)\n低效设备处理方案已在清单中列出。原始清单来自xxx，为便于明确职责和设备状态，具体如下：\n1. SDH：175项清单（sheet1）；\n2. PDH-0业务：发起退网（sheet2，已爬取数据请修改命名）。",
       "createdAt": "2026-07-14T08:25:40.390Z",
-      "updatedAt": "2026-07-14T09:03:55.856Z",
+      "updatedAt": "2026-07-14T11:23:44.683Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1376,16 +1376,9 @@
       "description": "",
       "createdAt": "2026-07-09T02:51:03.457Z",
       "isDefault": false
-    },
-    {
-      "id": "list_1783750791936",
-      "name": "叙事构建型",
-      "description": "碎片拼接、找因果关系、自带剧本",
-      "createdAt": "2026-07-11T06:19:51.937Z",
-      "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
