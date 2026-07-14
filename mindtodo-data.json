@@ -1040,48 +1040,6 @@
       "subtasks": []
     },
     {
-      "id": "mredild2lfvbz",
-      "type": "task",
-      "content": "打开一台设备服务器，烽火的，按照指引去做蜜罐。卡住了就记录下来",
-      "createdAt": "2026-07-10T03:26:02.150Z",
-      "updatedAt": "2026-07-10T08:53:31.599Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mremvv0ja4173",
-      "type": "task",
-      "content": "看下零业务，有哪些是客户端的。退网/省公司月报",
-      "createdAt": "2026-07-10T07:48:17.731Z",
-      "updatedAt": "2026-07-10T09:22:44.412Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrenarvkfe0il",
-      "type": "task",
-      "content": "我再尝试下瑞斯康达的Genvue帐号，如果可以访问就备注在excel表上。",
-      "createdAt": "2026-07-10T07:59:53.504Z",
-      "updatedAt": "2026-07-13T01:13:49.249Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mreqii8e8coa6",
       "type": "task",
       "content": "想下这周周报怎么反馈，退网不知道怎么说。因为这周没有什么进度。时间全用来搞网络信息安全方面的工作去了。“制定3季度退网目标，本周恢复退网工作推进”。那句话怎么说来着？？",
@@ -1154,34 +1112,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mril941fllmaw",
-      "type": "task",
-      "content": "网管看下增城的3499设备",
-      "createdAt": "2026-07-13T02:13:41.427Z",
-      "updatedAt": "2026-07-13T03:16:49.863Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mril9nbowmmbo",
-      "type": "task",
-      "content": "过天河ZC0920260708090590单",
-      "createdAt": "2026-07-13T02:14:06.420Z",
-      "updatedAt": "2026-07-13T03:13:20.777Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrimgezyyl07a",
       "type": "task",
       "content": "问下曾工，上网的事情。我先写一下问什么。就把跟李工说的话发给他就行了",
@@ -1194,20 +1124,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrinigfn9nbbm",
-      "type": "task",
-      "content": "过3499的退网单",
-      "createdAt": "2026-07-13T03:16:56.627Z",
-      "updatedAt": "2026-07-13T05:04:24.979Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrinivbo07nu4",
@@ -1271,20 +1187,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrio91rdnkxad",
-      "type": "task",
-      "content": "trace 132.96.50.62得到的结果是 traciroute to 132.96.50.62 over a maximum of 30 hopes  1 destination hos unreachable",
-      "createdAt": "2026-07-13T03:37:37.321Z",
-      "updatedAt": "2026-07-13T05:04:30.558Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mriojjezqftpm",
@@ -1431,9 +1333,9 @@
       "type": "task",
       "content": "旗杆-从化HC001-HB02(24)，可以退网了，但是还有补环的问题。我得先梳理下：截图，圈出要补纤端口-闭环进度上记录",
       "createdAt": "2026-07-13T07:31:40.615Z",
-      "updatedAt": "2026-07-13T23:39:41.639Z",
+      "updatedAt": "2026-07-14T02:06:41.792Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1457,11 +1359,11 @@
     {
       "id": "mriyfl7fveumj",
       "type": "task",
-      "content": "得先看看几个场景怎么指导他们退。美哥给的目标有很多，实际清单里又很少。看看怎么回事",
+      "content": "PDH清单直接发到群里，但我又怕给县分造成误会（为什么这里又有一份清单）那或许可以标注来源：《》",
       "createdAt": "2026-07-13T08:22:38.619Z",
-      "updatedAt": "2026-07-13T23:45:29.311Z",
+      "updatedAt": "2026-07-14T02:30:47.273Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1485,25 +1387,11 @@
     {
       "id": "mrj0w6ys96lp9",
       "type": "task",
-      "content": "思考下客户端设备怎么督促县分去退网。就把网管0业务的挑出来吧",
+      "content": "思考下客户端设备怎么督促县分去退网。就把网管0业务的挑出来吧。我都不知道怎么办了。这周先发一版excel吧。那我现在该怎么办？就是我很乱。那先问问看吧。",
       "createdAt": "2026-07-13T09:31:32.548Z",
-      "updatedAt": "2026-07-13T23:46:00.846Z",
+      "updatedAt": "2026-07-14T02:38:15.527Z",
       "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrj1dzc06ad2i",
-      "type": "task",
-      "content": "越秀和天河够呛，但是我得给出证明说天河越秀真的吃力，缺口多少，才有跟领导申请算力支援的资本啊。那我得计划一下怎么说才行。",
-      "createdAt": "2026-07-13T09:45:22.464Z",
-      "updatedAt": "2026-07-14T01:20:35.598Z",
-      "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1529,9 +1417,9 @@
       "type": "task",
       "content": "记录在0713核查结果中：从化鳌头新-从化HA003L(57)，不能退网。DTR5242643政企电路割接单弄完后可退。我都不知道记录在哪里",
       "createdAt": "2026-07-13T23:38:36.462Z",
-      "updatedAt": "2026-07-13T23:38:36.462Z",
+      "updatedAt": "2026-07-14T01:36:06.283Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1543,9 +1431,9 @@
       "type": "task",
       "content": "F0906100008、F0906050036网管搜一下是否还有这条光路。",
       "createdAt": "2026-07-14T01:13:16.512Z",
-      "updatedAt": "2026-07-14T01:13:16.512Z",
+      "updatedAt": "2026-07-14T01:51:16.416Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1573,9 +1461,9 @@
       "type": "task",
       "content": "我需要看下，如果我这样跟老公说：上周一直在配合，我没缓过来劲儿。如果今晚还是配合你等老大的时间，我会觉得没有掌控。所以我想做点有控制感的事情，决定回家吃个饭。这样我能自己决定事情。这样说我老公会有什么想法？",
       "createdAt": "2026-07-14T01:24:51.621Z",
-      "updatedAt": "2026-07-14T01:24:51.621Z",
+      "updatedAt": "2026-07-14T02:49:51.412Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1587,9 +1475,9 @@
       "type": "task",
       "content": "1111-黄陂揽元窝，归属天河（资源有误）",
       "createdAt": "2026-07-14T01:25:58.323Z",
-      "updatedAt": "2026-07-14T01:25:58.323Z",
+      "updatedAt": "2026-07-14T01:53:03.572Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1597,27 +1485,13 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mrjz07sz7vm60",
-      "type": "task",
-      "content": "看下天河低效的问题是什么？写下我可以怎么解决",
-      "createdAt": "2026-07-14T01:26:27.203Z",
-      "updatedAt": "2026-07-14T01:26:27.203Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrjz15n0inkh3",
       "type": "task",
       "content": "我转发从化的邮件给施工。",
       "createdAt": "2026-07-14T01:27:11.052Z",
-      "updatedAt": "2026-07-14T01:27:11.052Z",
+      "updatedAt": "2026-07-14T01:54:57.422Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1629,9 +1503,9 @@
       "type": "task",
       "content": "将验收单号copy到excel清单中",
       "createdAt": "2026-07-14T01:27:46.580Z",
-      "updatedAt": "2026-07-14T01:27:46.580Z",
+      "updatedAt": "2026-07-14T01:56:28.400Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1651,6 +1525,146 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrjz7wtcyn8j0",
+      "type": "task",
+      "content": "写下整理pdh、客户端爬虫的下一步行动计划",
+      "createdAt": "2026-07-14T01:32:26.208Z",
+      "updatedAt": "2026-07-14T01:32:26.208Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrjzwcohweiz2",
+      "type": "task",
+      "content": "烽火c1看下网元：淘金1-GZWC053",
+      "createdAt": "2026-07-14T01:51:26.513Z",
+      "updatedAt": "2026-07-14T01:51:26.513Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrk01e8av12vy",
+      "type": "task",
+      "content": "网安回单：ip申请",
+      "createdAt": "2026-07-14T01:55:21.802Z",
+      "updatedAt": "2026-07-14T01:55:21.802Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrk01mfl7p5f4",
+      "type": "task",
+      "content": "确定128是不是能退网了",
+      "createdAt": "2026-07-14T01:55:32.433Z",
+      "updatedAt": "2026-07-14T01:55:32.433Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrk032p1ecuhl",
+      "type": "task",
+      "content": "验收单子",
+      "createdAt": "2026-07-14T01:56:40.165Z",
+      "updatedAt": "2026-07-14T01:56:40.165Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrk045yil95me",
+      "type": "task",
+      "content": "给县分发0业务退网清单，我觉得在群里更好。但是我的共享表有很多还未核查的，我觉得让县分看到了不好。但是私发又没能让领导看到我在干活。怎么办呢？",
+      "createdAt": "2026-07-14T01:57:31.050Z",
+      "updatedAt": "2026-07-14T01:59:34.525Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrk0xge23syg6",
+      "type": "task",
+      "content": "打电话问下胡芳华，sdh客户端175是按什么标准筛选的？",
+      "createdAt": "2026-07-14T02:20:17.594Z",
+      "updatedAt": "2026-07-14T02:20:17.594Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrk1drniwiuic",
+      "type": "task",
+      "content": "问下泳哥低效的资源口径、清运口径是啥意思？",
+      "createdAt": "2026-07-14T02:32:58.686Z",
+      "updatedAt": "2026-07-14T02:32:58.687Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrk1eeqbsh6zs",
+      "type": "task",
+      "content": "想一下BU这个怎么办，怎么解释",
+      "createdAt": "2026-07-14T02:33:28.595Z",
+      "updatedAt": "2026-07-14T02:33:28.595Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrk1trsa7c3gc",
+      "type": "task",
+      "content": "拆解第一个支援任务吧",
+      "createdAt": "2026-07-14T02:45:25.354Z",
+      "updatedAt": "2026-07-14T02:45:25.354Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -2411,6 +2425,16 @@
       ],
       "createdAt": "2026-07-14T00:39:54.564Z",
       "updatedAt": "2026-07-14T01:01:28.734Z"
+    },
+    {
+      "id": "mrjzeiuyqa662",
+      "content": "我不知道跟老公说了给小明龙眼的想法后，他会不会不开心，说‘那是不是之后都各吃各的了’。如果是，那也得承担责任、做好解释工作。但我起码对自己忠诚，对得起自己。",
+      "tags": [
+        "观察记录",
+        "担心焦虑"
+      ],
+      "createdAt": "2026-07-14T01:37:34.714Z",
+      "updatedAt": "2026-07-14T01:38:28.893Z"
     }
   ],
   "slots": [],
@@ -3393,6 +3417,10 @@
       "activeTextColor": "#FFFFFF"
     },
     "回头看": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
+    },
+    "担心焦虑": {
       "color": "#f5f5f0",
       "textColor": "#333333"
     }
@@ -4609,10 +4637,10 @@
       "title": "低效清单进度",
       "type": "ideas",
       "tags": [],
-      "content": "### 低效清单整理：\n- **客户端**：10台未退网\n- **接入间**：现场未拆除8个、3个未退网\n- **PDH**：448台未退网",
+      "content": "### 低效清单整理：\n**客户端**\n> - 低效清单：10台未退网\n> - 26年清单：1925台未退网\n\n- **接入间**：现场未拆除8个、3个未退网\n- **PDH**：448台未退网",
       "format": "markdown",
       "createdAt": "2026-07-13T10:04:10.355Z",
-      "updatedAt": "2026-07-13T10:04:10.355Z"
+      "updatedAt": "2026-07-14T02:10:56.097Z"
     },
     {
       "id": "1783955755166feougylt1",
@@ -4625,6 +4653,18 @@
       "format": "markdown",
       "createdAt": "2026-07-13T15:15:55.167Z",
       "updatedAt": "2026-07-13T15:15:55.167Z"
+    },
+    {
+      "id": "1783997105378hrbp6ngps",
+      "title": "争取算力支援依据",
+      "type": "ideas",
+      "tags": [
+        "退网"
+      ],
+      "content": "## 目标：越秀和天河够呛，我得给出证明说天河越秀真的吃力，缺口多少，才有跟领导申请算力支援的资本\n- 一季度、二季度天河、越秀完成情况\n- 目前退网依据主要是0业务和0高值少量局内\n|/|天河|越秀|\n|----|----|----|\n|**清单内**0业务和少量高值数量|x个|x个|\n|**预计实际**能退数量|x个|x个|\n|缺口|x个|x个|\n|不可退**原因分析**|？？|？？|",
+      "format": "markdown",
+      "createdAt": "2026-07-14T02:45:05.378Z",
+      "updatedAt": "2026-07-14T02:45:05.378Z"
     }
   ],
   "trackerConfig": {
@@ -5068,6 +5108,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-14T01:23:14.103Z"
+    "lastSync": "2026-07-14T01:29:20.650Z"
   }
 }
