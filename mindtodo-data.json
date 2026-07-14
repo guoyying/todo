@@ -1513,11 +1513,11 @@
     {
       "id": "mriw66we04t3w",
       "type": "task",
-      "content": "记录从化鳌头新-从化HA003L(57)，DTR5242643政企电路割接单弄完后可退，我都不知道记录在哪里",
+      "content": "记录在0713核查结果中：从化鳌头新-从化HA003L(57)，不能退网。DTR5242643政企电路割接单弄完后可退。我都不知道记录在哪里",
       "createdAt": "2026-07-13T07:19:20.942Z",
-      "updatedAt": "2026-07-13T07:19:20.942Z",
+      "updatedAt": "2026-07-13T23:38:44.466Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1527,9 +1527,9 @@
     {
       "id": "mriwm1mvnir0u",
       "type": "task",
-      "content": "旗杆-从化HC001-HB02(24)，可以退网了，但是还有补环的问题。我得先梳理下",
+      "content": "旗杆-从化HC001-HB02(24)，可以退网了，但是还有补环的问题。我得先梳理下：截图，圈出要补纤端口-闭环进度上记录",
       "createdAt": "2026-07-13T07:31:40.615Z",
-      "updatedAt": "2026-07-13T07:31:40.615Z",
+      "updatedAt": "2026-07-13T23:39:41.639Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1555,9 +1555,9 @@
     {
       "id": "mriyfl7fveumj",
       "type": "task",
-      "content": "想一下怎么把清单发给县分，制定sop",
+      "content": "得先看看几个场景怎么指导他们退。美哥给的目标有很多，实际清单里又很少。看看怎么回事",
       "createdAt": "2026-07-13T08:22:38.619Z",
-      "updatedAt": "2026-07-13T08:22:38.619Z",
+      "updatedAt": "2026-07-13T23:45:29.311Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1597,9 +1597,9 @@
     {
       "id": "mrj0w6ys96lp9",
       "type": "task",
-      "content": "思考下客户端设备怎么督促县分去退网",
+      "content": "思考下客户端设备怎么督促县分去退网。就把网管0业务的挑出来吧",
       "createdAt": "2026-07-13T09:31:32.548Z",
-      "updatedAt": "2026-07-13T09:31:32.548Z",
+      "updatedAt": "2026-07-13T23:46:00.846Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1627,7 +1627,21 @@
       "type": "task",
       "content": "将pdh的sheet另存到本地excel，然后右侧新增6列，然后爬虫",
       "createdAt": "2026-07-13T10:01:48.132Z",
-      "updatedAt": "2026-07-13T15:15:17.559Z",
+      "updatedAt": "2026-07-13T23:38:40.075Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrjv5iy68of12",
+      "type": "task",
+      "content": "记录在0713核查结果中：从化鳌头新-从化HA003L(57)，不能退网。DTR5242643政企电路割接单弄完后可退。我都不知道记录在哪里",
+      "createdAt": "2026-07-13T23:38:36.462Z",
+      "updatedAt": "2026-07-13T23:38:36.462Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1667,7 +1681,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
