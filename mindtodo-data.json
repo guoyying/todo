@@ -1581,20 +1581,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mrj0iftmgoj7t",
-      "type": "task",
-      "content": "F1004210009资源系统搜一下，是怎么看出到基站的？这个也搜一下看看：石井庆丰C网基站-GZHC333-HA17L也是端口无占用，却有F0901060025",
-      "createdAt": "2026-07-13T09:20:50.842Z",
-      "updatedAt": "2026-07-13T09:23:28.804Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrj0w6ys96lp9",
       "type": "task",
       "content": "思考下客户端设备怎么督促县分去退网。就把网管0业务的挑出来吧",
@@ -1611,9 +1597,9 @@
     {
       "id": "mrj1dzc06ad2i",
       "type": "task",
-      "content": "我得先梳理下今年进度，其他县分缺口多少。这样才好让算力退啊。",
+      "content": "越秀和天河够呛，但是我得给出证明说天河越秀真的吃力，缺口多少，才有跟领导申请算力支援的资本啊。那我得计划一下怎么说才行。",
       "createdAt": "2026-07-13T09:45:22.464Z",
-      "updatedAt": "2026-07-13T09:45:22.464Z",
+      "updatedAt": "2026-07-14T01:20:35.598Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1649,6 +1635,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrjyj9pch8ne5",
+      "type": "task",
+      "content": "F0906100008、F0906050036网管搜一下是否还有这条光路。",
+      "createdAt": "2026-07-14T01:13:16.512Z",
+      "updatedAt": "2026-07-14T01:13:16.512Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrjylbpooptpk",
+      "type": "task",
+      "content": "我现在都不知道怎么办了。我这边又还没定下来。我又不能说太多话，我又得尽快解决免得被说简单事情复杂化。不知道怎么给我妈回应。",
+      "createdAt": "2026-07-14T01:14:52.428Z",
+      "updatedAt": "2026-07-14T01:19:07.685Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -2400,6 +2416,15 @@
       ],
       "createdAt": "2026-07-13T03:20:29.863Z",
       "updatedAt": "2026-07-13T03:20:29.863Z"
+    },
+    {
+      "id": "mrjxcczoqrntb",
+      "content": "有时候真的挺无语和无奈的，才送走这个，又要管那个。都还未获得喘息机会呢。我就想回家吃饭，完成这个任务，自己也能有点掌控感。我有选择安排的权力。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-07-14T00:39:54.564Z",
+      "updatedAt": "2026-07-14T01:01:28.734Z"
     }
   ],
   "slots": [],
