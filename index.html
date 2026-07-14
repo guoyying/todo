@@ -2790,6 +2790,46 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             color: white;
         }
         
+        /* 批量模式复选框样式 */
+        .compact-checkbox-batch {
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #ff9800;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 4px;
+            font-size: 14px;
+            color: #ff9800;
+            transition: all 0.2s;
+            background: transparent;
+        }
+        
+        .compact-checkbox-batch:hover {
+            background: rgba(255, 152, 0, 0.1);
+            border-color: #f57c00;
+            color: #f57c00;
+        }
+        
+        .compact-checkbox-batch.checked {
+            background: #ff9800;
+            border-color: #ff9800;
+            color: white;
+        }
+        
+        /* 批量模式下按钮样式 */
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #b55a5a;
+        }
+        
         .compact-content {
             flex: 1;
             min-width: 0;
@@ -7658,6 +7698,11 @@ padding: 7px !important;
             <div class="filter-bar" id="listTodoFilterBar">
                 <input type="text" id="listTodoSearch" placeholder="搜索清单..." oninput="renderListTodos()">
                 <div class="tag-filter" id="listTodoTagFilter"></div>
+                <div style="display:flex;gap:8px;margin-top:8px;">
+                    <button class="btn btn-small btn-danger" onclick="deleteListSelectedTasks()" id="listDeleteSelectedBtn" style="display:none;">🗑️ 删除选中</button>
+                    <button class="btn btn-small btn-secondary" onclick="clearListSelectedTasks()" id="listClearSelectedBtn" style="display:none;">🍂 清空选择</button>
+                    <button class="btn btn-small btn-secondary" onclick="toggleListBatchMode()" id="listBatchModeBtn">📋 批量删除</button>
+                </div>
             </div>
             <div id="listTodoList"></div>
         </div>
@@ -10504,13 +10549,17 @@ ${taskContent}
         content.updatedAt = nowStr();
         
         saveData();
-        showToast('AI内容已更新');
+        showToast('AI 内容已更新');
         hideAiContentSaveModal();
         
-        // 刷新AI内容列表
+        // 刷新 AI 内容列表并重新打开详情
         renderAiContentList();
+        // 延迟打开详情，确保列表已刷新
+        setTimeout(() => {
+            showAiContentDetail(contentId);
+        }, 1);
         
-        // 如果启用了GitHub同步，则推送更改
+        // 如果启用了 GitHub 同步，则推送更改
         if (data.githubSyncEnabled) {
             pushToGitHub();
         }
@@ -13699,6 +13748,9 @@ let list = data.tasks.filter(i => {
             const compactList = document.createElement('div');
             compactList.className = 'compact-todo-list';
             
+            // 检查是否在批量模式
+            const isBatchMode = document.getElementById('listBatchModeBtn')?.dataset.active === 'true';
+            
             // 渲染清单任务（带复选框，支持 Markdown，复用待办显示逻辑）
             list.forEach(item => {
                 const row = document.createElement('div');
@@ -13707,12 +13759,24 @@ let list = data.tasks.filter(i => {
                 
                 // 复选框
                 const cb = document.createElement('span');
-                cb.className = 'compact-checkbox' + (item.done ? ' checked' : '');
-                cb.innerHTML = item.done ? '✓' : '';
-                cb.onclick = (e) => {
-                    e.stopPropagation();
-                    toggleListTaskDone(item.id);
-                };
+                if (isBatchMode) {
+                    // 批量模式：显示多选框
+                    cb.className = 'compact-checkbox-batch';
+                    cb.innerHTML = '';
+                    cb.onclick = (e) => {
+                        e.stopPropagation();
+                        cb.classList.toggle('checked');
+                        cb.innerHTML = cb.classList.contains('checked') ? '✓' : '';
+                    };
+                } else {
+                    // 正常模式：显示完成状态
+                    cb.className = 'compact-checkbox' + (item.done ? ' checked' : '');
+                    cb.innerHTML = item.done ? '✓' : '';
+                    cb.onclick = (e) => {
+                        e.stopPropagation();
+                        toggleListTaskDone(item.id);
+                    };
+                }
                 row.appendChild(cb);
                 
                 // 内容区域（复用待办的内联编辑逻辑）
@@ -13953,6 +14017,94 @@ updateStrongReminderBanner();
                 // 更新强提醒横幅
                 updateStrongReminderBanner();
             }
+        }
+        
+        // ============ 清单任务批量删除功能 ============
+        
+        // 切换批量模式
+        function toggleListBatchMode() {
+            const btn = document.getElementById('listBatchModeBtn');
+            const deleteBtn = document.getElementById('listDeleteSelectedBtn');
+            const clearBtn = document.getElementById('listClearSelectedBtn');
+            
+            if (btn.dataset.active === 'true') {
+                // 退出批量模式
+                btn.dataset.active = 'false';
+                btn.textContent = '📋 批量删除';
+                deleteBtn.style.display = 'none';
+                clearBtn.style.display = 'none';
+                // 取消所有选中状态
+                const checkboxes = document.querySelectorAll('.compact-checkbox-batch');
+                checkboxes.forEach(cb => {
+                    cb.classList.remove('checked');
+                    cb.innerHTML = '';
+                });
+                // 重新渲染列表
+                renderListTodos();
+            } else {
+                // 进入批量模式
+                btn.dataset.active = 'true';
+                btn.textContent = '❌ 取消批量';
+                deleteBtn.style.display = 'inline-block';
+                clearBtn.style.display = 'inline-block';
+                // 重新渲染列表以显示多选框
+                renderListTodos();
+            }
+        }
+        
+        // 删除选中的清单任务
+        function deleteListSelectedTasks() {
+            const checkboxes = document.querySelectorAll('.compact-checkbox-batch.checked');
+            
+            if (checkboxes.length === 0) {
+                alert('请先选择要删除的任务');
+                return;
+            }
+            
+            if (!confirm(`确定要删除选中的 ${checkboxes.length} 个任务吗？此操作不可恢复！`)) {
+                return;
+            }
+            
+            const taskIds = [];
+            checkboxes.forEach(cb => {
+                const row = cb.closest('.compact-item');
+                if (row) {
+                    taskIds.push(row.dataset.id);
+                }
+            });
+            
+            // 从数据中删除任务
+            data.tasks = data.tasks.filter(task => !taskIds.includes(task.id));
+            
+            saveData();
+            
+            // 退出批量模式
+            toggleListBatchMode();
+            
+            // 刷新列表
+            renderListTodos();
+            updateAllTagFilters();
+            
+            alert(`已删除 ${taskIds.length} 个任务`);
+        }
+        
+        // 清空选中的清单任务
+        function clearListSelectedTasks() {
+            const checkboxes = document.querySelectorAll('.compact-checkbox-batch.checked');
+            
+            if (checkboxes.length === 0) {
+                alert('请先选择任务');
+                return;
+            }
+            
+            if (!confirm(`确定要清空 ${checkboxes.length} 个任务的选择吗？`)) {
+                return;
+            }
+            
+            checkboxes.forEach(cb => {
+                cb.classList.remove('checked');
+                cb.innerHTML = '';
+            });
         }
 
 // ============ 任务清单管理功能 ============
