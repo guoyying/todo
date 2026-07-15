@@ -1409,9 +1409,9 @@
       "type": "task",
       "content": "退网核查：该核查流量的核查流量",
       "createdAt": "2026-07-15T01:58:28.456Z",
-      "updatedAt": "2026-07-15T07:44:36.627Z",
+      "updatedAt": "2026-07-15T09:26:17.039Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1491,11 +1491,11 @@
     {
       "id": "mrloop93krqic",
       "type": "task",
-      "content": "写一下低效清单我现在的问题是什么",
+      "content": "写一下低效清单我现在的问题是什么。我不知道该不该发清单给县分，发怎样的清单。为什么呢，pdh那边还好呢，我就梳理了0业务的让他们退就行了。但sdh问题比较多，我可以做个表格吧。行",
       "createdAt": "2026-07-15T06:13:06.135Z",
-      "updatedAt": "2026-07-15T06:27:04.620Z",
+      "updatedAt": "2026-07-15T08:08:27.718Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1521,9 +1521,9 @@
       "type": "task",
       "content": "思考下天河那几台我怎么跟妙君说的",
       "createdAt": "2026-07-15T06:47:01.506Z",
-      "updatedAt": "2026-07-15T06:47:01.506Z",
+      "updatedAt": "2026-07-15T08:11:43.226Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1549,14 +1549,70 @@
       "type": "task",
       "content": "给施工发邮件说：拆运一体单未走完审核流程。因急拆，已提前审核，可实施。请天河继续跟进拆运单流程",
       "createdAt": "2026-07-15T07:19:36.420Z",
-      "updatedAt": "2026-07-15T07:19:36.420Z",
+      "updatedAt": "2026-07-15T09:33:08.894Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrlssmbmdf6u2",
+      "type": "task",
+      "content": "SDHde 175个设备做个表格分类",
+      "createdAt": "2026-07-15T08:08:07.426Z",
+      "updatedAt": "2026-07-15T08:15:12.389Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrlt7xpavw3en",
+      "type": "task",
+      "content": "我现在就是核查0高值业务的情况，看下网管怎样个情况",
+      "createdAt": "2026-07-15T08:20:02.014Z",
+      "updatedAt": "2026-07-15T08:42:54.474Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrltbg71vruug",
+      "type": "task",
+      "content": "低效：\n1. 3555-十八大会议(珠岛宾馆礼堂主席台侧)-GZHC696-HA02L，离线了，业务又激活，是啥意思？\n2. 5559-政法委亚运安保部署(珠岛宾馆)-GZHC750-HA17L，有接入号，但24年就告警了，激活，离线。那还在用吗？3544-珠岛宾馆八角楼岭南厅(沿江东路)-GZHC393-HA10L相似现象\n3. 市委-较场会议电视/30N0002PT、市委DID-GZHB332部分激活，业务归档，离线，那还在用吗？\n4. 电信广场-GZHC130-HA03，离线，F0608100005接长途45-较场西9500B 22-1)这句话啥意思？业务部分激活",
+      "createdAt": "2026-07-15T08:22:45.949Z",
+      "updatedAt": "2026-07-15T08:37:36.938Z",
       "tags": [],
       "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrlut50b9yg02",
+      "type": "task",
+      "content": "低效依据我的笔记本，看下怎么跟总监说计划",
+      "createdAt": "2026-07-15T09:04:30.875Z",
+      "updatedAt": "2026-07-15T09:04:30.875Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1582,7 +1638,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5021,6 +5077,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-15T03:51:55.971Z"
+    "lastSync": "2026-07-15T07:45:12.115Z"
   }
 }
