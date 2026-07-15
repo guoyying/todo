@@ -1473,6 +1473,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrllh38gdb43s",
+      "type": "task",
+      "content": "写一下看客户端设备，我想了解什么？",
+      "createdAt": "2026-07-15T04:43:12.160Z",
+      "updatedAt": "2026-07-15T04:43:12.160Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
