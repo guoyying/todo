@@ -1463,9 +1463,9 @@
     {
       "id": "mrljm7xnuitsj",
       "type": "task",
-      "content": "处理下爬虫结果sdh未在25年清单内的，然后跟pdh合并到一个文件夹",
+      "content": "SDH跟pdh合并到一个excel表",
       "createdAt": "2026-07-15T03:51:12.299Z",
-      "updatedAt": "2026-07-15T03:51:12.299Z",
+      "updatedAt": "2026-07-15T04:00:26.426Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1498,7 +1498,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4937,6 +4937,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-15T02:35:24.737Z"
+    "lastSync": "2026-07-15T03:51:55.971Z"
   }
 }
