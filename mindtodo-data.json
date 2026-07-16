@@ -1503,7 +1503,7 @@
       "type": "task",
       "content": "联系黄埔问下啥情况，那个故障单的",
       "createdAt": "2026-07-16T06:39:01.539Z",
-      "updatedAt": "2026-07-16T06:39:01.539Z",
+      "updatedAt": "2026-07-16T08:15:43.097Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1543,11 +1543,11 @@
     {
       "id": "mrn5n1956j5bp",
       "type": "task",
-      "content": "分析下传输策略，未改造的情况。我发现是未改造，备用网关也未改造的。哎我都不知道咋整了，先问她吧再看看啥情况",
+      "content": "分析下传输策略，未改造的情况。我发现是未改造，备用网关也未改造的",
       "createdAt": "2026-07-16T06:55:28.025Z",
-      "updatedAt": "2026-07-16T07:38:30.662Z",
+      "updatedAt": "2026-07-16T09:39:18.489Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1601,9 +1601,9 @@
       "type": "task",
       "content": "看验收单",
       "createdAt": "2026-07-16T07:49:02.847Z",
-      "updatedAt": "2026-07-16T07:49:02.847Z",
+      "updatedAt": "2026-07-16T08:36:17.396Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1629,14 +1629,56 @@
       "type": "task",
       "content": "问下周工：低效清单，县分反馈矫正区域后仍错误，该在哪里反馈?",
       "createdAt": "2026-07-16T08:06:46.636Z",
-      "updatedAt": "2026-07-16T08:06:46.636Z",
+      "updatedAt": "2026-07-16T08:15:48.746Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrn8kd3d6gx6m",
+      "type": "task",
+      "content": "归属修改的，思考怎么跟县分说吧。县分在群里问我，归属有误的怎么办。我得跟他说，跟对应归属的人确认后，联系周斌修改。但其实可以我这边收集信息的，但我不确定该不该我来收集，我怕不收集，又被说没责任心，收集了，又怕不该我管的事，不够聪明。怎么办",
+      "createdAt": "2026-07-16T08:17:22.249Z",
+      "updatedAt": "2026-07-16T09:10:02.417Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn8kkopc4e6g",
+      "type": "task",
+      "content": "看下从化的设备，她想做啥。我不知道她想说啥喔。",
+      "createdAt": "2026-07-16T08:17:32.089Z",
+      "updatedAt": "2026-07-16T09:16:13.205Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn971wygyhv8",
+      "type": "task",
+      "content": "看下为啥0192验收单的15014没有网管标记的？我不会看，验收资料的sheet名称跟网管的对不上的？",
+      "createdAt": "2026-07-16T08:35:00.850Z",
+      "updatedAt": "2026-07-16T09:17:38.836Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1662,7 +1704,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3847,21 +3889,6 @@
       "lastReminderTimes": {
         "0": "2026-07-16T06:50:00.830Z"
       }
-    },
-    {
-      "id": "mrn76lmknr685",
-      "taskId": "mrn5n1956j5bp",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-16T17:04"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-16T07:38:40.508Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -5146,6 +5173,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-16T07:13:51.566Z"
+    "lastSync": "2026-07-16T08:07:40.385Z"
   }
 }
