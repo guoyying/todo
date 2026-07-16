@@ -1461,9 +1461,9 @@
       "type": "task",
       "content": "找回问罗工的黄埔故障单看看情况。",
       "createdAt": "2026-07-16T03:18:23.570Z",
-      "updatedAt": "2026-07-16T03:18:23.570Z",
+      "updatedAt": "2026-07-16T05:18:59.956Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1476,6 +1476,20 @@
       "content": "省soc漏洞扫描网安回单，看下怎么处理?",
       "createdAt": "2026-07-16T03:31:18.355Z",
       "updatedAt": "2026-07-16T03:31:18.355Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn27dtelxa6d",
+      "type": "task",
+      "content": "我得思考下萝岗这个怎么处理，目前又有新的信息了。",
+      "createdAt": "2026-07-16T05:19:18.962Z",
+      "updatedAt": "2026-07-16T05:19:18.962Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1508,7 +1522,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4957,6 +4971,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-15T09:40:52.608Z"
+    "lastSync": "2026-07-16T05:15:40.527Z"
   }
 }
