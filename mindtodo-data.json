@@ -1389,25 +1389,11 @@
     {
       "id": "mrmxcj16lub0p",
       "type": "task",
-      "content": "低效清单已经准备好了，我得结合话术了。",
+      "content": "各位同事，此清单基于《低效_双周报》梳理，提供不同场景低效传输设备的业务信息及处理建议，请依照推进低效资源清运工作。如有疑问请随时联系，谢谢。",
       "createdAt": "2026-07-16T03:03:20.922Z",
-      "updatedAt": "2026-07-16T03:03:20.922Z",
+      "updatedAt": "2026-07-16T06:29:51.682Z",
       "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrmxff0gzr3rv",
-      "type": "task",
-      "content": "打开网监的故障单，看下我要做什么",
-      "createdAt": "2026-07-16T03:05:35.680Z",
-      "updatedAt": "2026-07-16T03:05:35.680Z",
-      "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1417,11 +1403,11 @@
     {
       "id": "mrmxjcuy4nsgp",
       "type": "task",
-      "content": "思考下noc的怎么回复和处理？",
+      "content": "思考下noc的怎么回复和处理？就他的问题是，对这些网元用什么策略？最小化访问控制啊。只放通网管的IP，就说这些网元是怎么上网的。我得找几个看下。",
       "createdAt": "2026-07-16T03:08:39.514Z",
-      "updatedAt": "2026-07-16T03:08:39.514Z",
+      "updatedAt": "2026-07-16T06:36:32.619Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1431,11 +1417,11 @@
     {
       "id": "mrmxulu7hnovq",
       "type": "task",
-      "content": "黄埔剔除告警的，我不知道该怎么做，得跟泳哥说这个事，确认能剔除。然后邮件回复什么呢？属实之类的回复。",
+      "content": "黄埔剔除告警的，我不知道该怎么做，得跟泳哥说这个事，确认能剔除。然后邮件回复什么呢？属实之类的回复。现在的问题是，泳哥不建议我剔除。那我邮件该如何处理？他的意思是，这种之后就很麻烦，不想让他们开了这个头。那只能认栽了。我现在也不知道怎么处理。我得联系黄埔问下啥情况",
       "createdAt": "2026-07-16T03:17:24.367Z",
-      "updatedAt": "2026-07-16T03:17:24.367Z",
+      "updatedAt": "2026-07-16T06:39:06.177Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1447,9 +1433,9 @@
       "type": "task",
       "content": "思考下黄埔和电信大厦故障单怎么处理，两个处理方法不同的。",
       "createdAt": "2026-07-16T03:17:48.574Z",
-      "updatedAt": "2026-07-16T03:17:48.574Z",
+      "updatedAt": "2026-07-16T06:39:17.635Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1475,21 +1461,7 @@
       "type": "task",
       "content": "省soc漏洞扫描网安回单，看下怎么处理?",
       "createdAt": "2026-07-16T03:31:18.355Z",
-      "updatedAt": "2026-07-16T03:31:18.355Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrn27dtelxa6d",
-      "type": "task",
-      "content": "我得思考下萝岗这个怎么处理，目前又有新的信息了。",
-      "createdAt": "2026-07-16T05:19:18.962Z",
-      "updatedAt": "2026-07-16T05:19:18.962Z",
+      "updatedAt": "2026-07-16T06:41:39.894Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1501,9 +1473,107 @@
     {
       "id": "mrn49axxo9sbe",
       "type": "task",
-      "content": "我得写下dcibox的尝试路径，得验收这个单子啊",
+      "content": "我得写下dcibox的尝试路径，得验收这个单子啊。首先我得看下那个群共享表才行",
       "createdAt": "2026-07-16T06:16:47.781Z",
-      "updatedAt": "2026-07-16T06:16:47.781Z",
+      "updatedAt": "2026-07-16T06:42:13.882Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn4z8dbacmb0",
+      "type": "task",
+      "content": "挑几个在改造范围，但未改造的清单。看下主备网关",
+      "createdAt": "2026-07-16T06:36:57.503Z",
+      "updatedAt": "2026-07-16T06:55:01.961Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrn51w2rzk1ol",
+      "type": "task",
+      "content": "联系黄埔问下啥情况，那个故障单的",
+      "createdAt": "2026-07-16T06:39:01.539Z",
+      "updatedAt": "2026-07-16T06:39:01.539Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrn56a03729ge",
+      "type": "task",
+      "content": "看下dcibox群共享表，我之前的记录",
+      "createdAt": "2026-07-16T06:42:26.211Z",
+      "updatedAt": "2026-07-16T07:11:16.982Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrn5ida2voja3",
+      "type": "task",
+      "content": "我需要看下两张故障单，需要我做什么\n\n6-大沙东1-GZHD037(ASON)（IP：132.123.76.54）；以及电信大厦的ip-132.123.75.2看下是否在网关域改造范围\n1.依据网管信息，1646-萝岗1-GZHC697目前通过备用网关6-大沙东1-GZHD037(ASON)（IP：132.123.76.54）通信，该备用网关已改造（132.123.76.49），请县分查询132.123.76.49上联交换机。\n2. 3255-萝岗机楼2楼-GZHC771的mac为\n\n1. 请县分查找132.123.75.1上联交换机",
+      "createdAt": "2026-07-16T06:51:50.330Z",
+      "updatedAt": "2026-07-16T06:52:04.555Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn5n1956j5bp",
+      "type": "task",
+      "content": "分析下传输策略，未改造的情况。我发现是未改造，备用网关也未改造的",
+      "createdAt": "2026-07-16T06:55:28.025Z",
+      "updatedAt": "2026-07-16T06:55:28.025Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn68009pkjs3",
+      "type": "task",
+      "content": "计划下验收单第三个的查看sop",
+      "createdAt": "2026-07-16T07:11:46.185Z",
+      "updatedAt": "2026-07-16T07:11:58.552Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrn6a53d6hbyl",
+      "type": "task",
+      "content": "看下县分的一体化想表达啥",
+      "createdAt": "2026-07-16T07:13:26.089Z",
+      "updatedAt": "2026-07-16T07:13:26.089Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -3711,7 +3781,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-07-09T06:53:05.112Z"
+            "confirmationTime": "2026-07-16T06:52:11.787Z"
           }
         ]
       },
@@ -3719,8 +3789,23 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-07-09T06:49:26.039Z"
+        "0": "2026-07-16T06:50:00.830Z"
       }
+    },
+    {
+      "id": "mrn55iaeegqbb",
+      "taskId": "mrmychcjsuna0",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-16T16:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-16T06:41:50.294Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4985,6 +5070,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-16T05:19:46.783Z"
+    "lastSync": "2026-07-16T06:17:07.016Z"
   }
 }
