@@ -1735,6 +1735,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrnhp6xtlx5q7",
+      "type": "task",
+      "content": "找答案：为什么要驱逐？不能复辟。\n冯的出发点是什么？",
+      "createdAt": "2026-07-16T12:33:04.097Z",
+      "updatedAt": "2026-07-16T12:43:36.363Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrnhycrmovqbe",
+      "type": "task",
+      "content": "还是没想好怎么回复小明",
+      "createdAt": "2026-07-16T12:40:11.554Z",
+      "updatedAt": "2026-07-16T12:48:53.779Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1760,7 +1788,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
