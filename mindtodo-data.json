@@ -1377,23 +1377,9 @@
       "type": "task",
       "content": "下载验收的excel，然后把网管名称copy到表格里，然后笔记本写下信息",
       "createdAt": "2026-07-16T02:37:50.076Z",
-      "updatedAt": "2026-07-16T02:37:57.581Z",
+      "updatedAt": "2026-07-16T04:41:38.579Z",
       "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrmwsmor78cf8",
-      "type": "task",
-      "content": "3555-十八大会议(珠岛宾馆礼堂主席台侧)-GZHC696-HA02L，离线了，业务又激活。我得看下这几条业务的源宿端是否端口屏蔽告警了",
-      "createdAt": "2026-07-16T02:47:52.539Z",
-      "updatedAt": "2026-07-16T02:47:52.539Z",
-      "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3710,6 +3696,16 @@
     }
   ],
   "knowledgeBase": [
+    {
+      "id": "mrn22kdgzu3o44x2ij",
+      "content": "奥普泰交换机\n- show ? 会展示可以用的指令\n- config t进入配置模式后，输入show ?也可以展示该模式下可用的指令",
+      "tags": [
+        "网安",
+        "奥普泰交换机指令"
+      ],
+      "createdAt": "2026-07-16T05:15:34.180Z",
+      "updatedAt": "2026-07-16T05:15:34.180Z"
+    },
     {
       "id": "mrhz2mst2bx77d9feui",
       "content": "“凡事都有因果。今天的不安，来自过去的经历；今天的决定，又会是未来的因。”\n   ——所以我不过度责怪自己现在的不允许，也清醒承担自己选择带来的未来。",
