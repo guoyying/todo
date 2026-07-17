@@ -1009,9 +1009,9 @@
       "type": "task",
       "content": "邮件看下越秀的海印花园、荔湾窖口发了没",
       "createdAt": "2026-07-17T00:59:17.248Z",
-      "updatedAt": "2026-07-17T01:00:25.265Z",
+      "updatedAt": "2026-07-17T02:33:32.906Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1021,11 +1021,11 @@
     {
       "id": "mro8encbhdsnf",
       "type": "task",
-      "content": "发邮件（天河、荔湾、越秀）拆运一体",
+      "content": "下载荔湾的几个到荔湾文件夹，发邮件（天河、荔湾、越秀）拆运一体",
       "createdAt": "2026-07-17T01:00:41.771Z",
-      "updatedAt": "2026-07-17T01:00:41.771Z",
+      "updatedAt": "2026-07-17T03:33:48.555Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1037,9 +1037,9 @@
       "type": "task",
       "content": "看下省soc的漏洞扫描情况",
       "createdAt": "2026-07-17T01:13:41.237Z",
-      "updatedAt": "2026-07-17T01:13:41.237Z",
+      "updatedAt": "2026-07-17T02:50:18.606Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1079,9 +1079,9 @@
       "type": "task",
       "content": "看下黄埔几个故障单的情况",
       "createdAt": "2026-07-17T01:31:53.747Z",
-      "updatedAt": "2026-07-17T02:04:41.924Z",
+      "updatedAt": "2026-07-17T03:44:24.137Z",
       "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1107,9 +1107,9 @@
       "type": "task",
       "content": "看下核查0业务的清单，制定今天核查计划",
       "createdAt": "2026-07-17T01:49:26.116Z",
-      "updatedAt": "2026-07-17T01:49:26.116Z",
+      "updatedAt": "2026-07-17T02:27:53.176Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1121,9 +1121,9 @@
       "type": "task",
       "content": "看下荔湾的四个拆运单",
       "createdAt": "2026-07-17T02:04:37.440Z",
-      "updatedAt": "2026-07-17T02:04:37.440Z",
+      "updatedAt": "2026-07-17T02:43:44.742Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1199,6 +1199,132 @@
       },
       "projectId": "1780299661890",
       "subtasks": []
+    },
+    {
+      "id": "mrobj48mq4rlv",
+      "type": "task",
+      "content": "更新下从化聊天框提到的几个设备状态",
+      "createdAt": "2026-07-17T02:28:09.142Z",
+      "updatedAt": "2026-07-17T02:28:09.142Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrobjcxryhza4",
+      "type": "task",
+      "content": "今天看30个退网设备核查",
+      "createdAt": "2026-07-17T02:28:20.415Z",
+      "updatedAt": "2026-07-17T03:21:13.636Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrobmr10nfi6k",
+      "type": "task",
+      "content": "思考下省公司电路经过哪些传输设备，这个要怎么做",
+      "createdAt": "2026-07-17T02:30:58.644Z",
+      "updatedAt": "2026-07-17T02:30:58.644Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrobqnlye8d7z",
+      "type": "task",
+      "content": "想想从化的改路由，怎么做。",
+      "createdAt": "2026-07-17T02:34:00.838Z",
+      "updatedAt": "2026-07-17T02:34:00.838Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrobz4f0gan4g",
+      "type": "task",
+      "content": "思考下海珠这个怎么做？",
+      "createdAt": "2026-07-17T02:40:35.868Z",
+      "updatedAt": "2026-07-17T02:40:35.868Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mroc84ptry09v",
+      "type": "task",
+      "content": "思考下128怎么退网",
+      "createdAt": "2026-07-17T02:47:36.161Z",
+      "updatedAt": "2026-07-17T02:47:36.161Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mroccjcjosiif",
+      "type": "task",
+      "content": "想想无法扫描这个事怎么办：132.97.42.125和132.97.120.223",
+      "createdAt": "2026-07-17T02:51:01.747Z",
+      "updatedAt": "2026-07-17T02:51:01.747Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrod41ptihre5",
+      "type": "task",
+      "content": "960-耀中广场接入网机房-GZHC594-HA01L或许可以去激活了，2-7，已经告警了一个月。6-1看下有无端口占用的，跑马场1-GZHD004-HC01的4-40这条业务看看现场有无接入号的？",
+      "createdAt": "2026-07-17T03:12:25.265Z",
+      "updatedAt": "2026-07-17T03:14:59.567Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrodmg6efrv2b",
+      "type": "task",
+      "content": "天河两张清运单啥情况啊？我得备注下，mss名称、现有名称，对应什么单号",
+      "createdAt": "2026-07-17T03:26:43.814Z",
+      "updatedAt": "2026-07-17T03:27:02.983Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -3419,21 +3545,6 @@
       "lastReminderTimes": {
         "0": "2026-07-16T06:50:00.830Z"
       }
-    },
-    {
-      "id": "mroaphsw7e5ts",
-      "taskId": "mro9irrn72wa8",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-17T11:42"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-17T02:05:07.040Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4295,32 +4406,7 @@
     "directions": [
       "跟进网关上联接入交换机的安全策略"
     ],
-    "selectedItems": [
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "跟进CRM系统的业务清单的清理工作，拆除无效业务",
-        "addedAt": 1782206979921
-      },
-      {
-        "projectId": "1779778092169",
-        "projectName": "退网",
-        "direction": "制定第三季度退网目标，跟总监反馈天河退网情况",
-        "addedAt": 1782873033489
-      },
-      {
-        "projectId": "1780299661890",
-        "projectName": "网信安",
-        "direction": "跟进网关上联接入交换机的安全策略",
-        "addedAt": 1782873038791
-      },
-      {
-        "projectId": "1780299687739",
-        "projectName": "新建工程验收",
-        "direction": "更新RPA最新进度，核查不能抓取局端数据的原因",
-        "addedAt": 1782873093609
-      }
-    ]
+    "selectedItems": []
   },
   "practiceScenarios": [
     {
@@ -4739,6 +4825,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-17T01:48:40.344Z"
+    "lastSync": "2026-07-17T02:14:10.383Z"
   }
 }
