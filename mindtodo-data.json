@@ -1154,11 +1154,11 @@
     {
       "id": "mrobj48mq4rlv",
       "type": "task",
-      "content": "更新下从化聊天框提到的几个设备状态",
+      "content": "更新下从化聊天框提到的几个设备状态。我不知道哪些该标记，就局端那些啊。其他的别管了先",
       "createdAt": "2026-07-17T02:28:09.142Z",
-      "updatedAt": "2026-07-17T02:28:09.142Z",
+      "updatedAt": "2026-07-17T06:25:38.240Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1182,11 +1182,11 @@
     {
       "id": "mrobmr10nfi6k",
       "type": "task",
-      "content": "思考下省公司电路经过哪些传输设备，这个要怎么做",
+      "content": "思考下省公司电路经过哪些传输设备，这个要怎么做。我目前只能想到一条条看，至于说能不能批量导出来，那就……首先我得了解下存量有多少。然后找3条看看。才行",
       "createdAt": "2026-07-17T02:30:58.644Z",
-      "updatedAt": "2026-07-17T02:30:58.644Z",
+      "updatedAt": "2026-07-17T06:26:59.475Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1196,11 +1196,11 @@
     {
       "id": "mrobqnlye8d7z",
       "type": "task",
-      "content": "想想从化的改路由，怎么做。",
+      "content": "想想从化的改路由，怎么做。我得依据激活业务端口板卡，看下要哪里连哪里。最终是得到一个判断：啥设备的啥端口连啥端口，要改什么配置。我先记录从化三个网元吧，然后找业务少的去看下。",
       "createdAt": "2026-07-17T02:34:00.838Z",
-      "updatedAt": "2026-07-17T02:34:00.838Z",
+      "updatedAt": "2026-07-17T06:33:24.376Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1210,11 +1210,11 @@
     {
       "id": "mrobz4f0gan4g",
       "type": "task",
-      "content": "思考下海珠这个怎么做？",
+      "content": "思考下海珠这个怎么做？问题：客户侧设备找不到。实际上也不是找不到设备，就是没办法回收，没有对应的客户经理牵头，很难找到客户。找不到客户。",
       "createdAt": "2026-07-17T02:40:35.868Z",
-      "updatedAt": "2026-07-17T02:40:35.868Z",
+      "updatedAt": "2026-07-17T06:36:59.123Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1224,11 +1224,11 @@
     {
       "id": "mroc84ptry09v",
       "type": "task",
-      "content": "思考下128怎么退网",
+      "content": "思考下128怎么退网。我可以先问下之前退了一台设备，问下。是哪台设备来着",
       "createdAt": "2026-07-17T02:47:36.161Z",
-      "updatedAt": "2026-07-17T02:47:36.161Z",
+      "updatedAt": "2026-07-17T06:38:51.147Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1238,11 +1238,11 @@
     {
       "id": "mroccjcjosiif",
       "type": "task",
-      "content": "想想无法扫描这个事怎么办：132.97.42.125和132.97.120.223",
+      "content": "想想无法扫描这个事怎么办：132.97.42.125和132.97.120.223从采集器tracert到目的机，看网络断在哪里。加群询问厂家。",
       "createdAt": "2026-07-17T02:51:01.747Z",
-      "updatedAt": "2026-07-17T02:51:01.747Z",
+      "updatedAt": "2026-07-17T06:45:12.237Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1254,23 +1254,9 @@
       "type": "task",
       "content": "960-耀中广场接入网机房-GZHC594-HA01L或许可以去激活了，2-7，已经告警了一个月。6-1看下有无端口占用的，跑马场1-GZHD004-HC01的4-40这条业务看看现场有无接入号的？",
       "createdAt": "2026-07-17T03:12:25.265Z",
-      "updatedAt": "2026-07-17T03:14:59.567Z",
+      "updatedAt": "2026-07-17T06:48:38.481Z",
       "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrodmg6efrv2b",
-      "type": "task",
-      "content": "天河两张清运单啥情况啊？我得备注下，mss名称、现有名称，对应什么单号",
-      "createdAt": "2026-07-17T03:26:43.814Z",
-      "updatedAt": "2026-07-17T03:27:02.983Z",
-      "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1282,9 +1268,9 @@
       "type": "task",
       "content": "回复省soc漏洞扫描的单子",
       "createdAt": "2026-07-17T05:32:10.406Z",
-      "updatedAt": "2026-07-17T05:32:10.406Z",
+      "updatedAt": "2026-07-17T09:13:46.304Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1294,11 +1280,11 @@
     {
       "id": "mroi45rbwlbg6",
       "type": "task",
-      "content": "思考下怎么跟黄埔说故障单的事儿",
+      "content": "思考下怎么搞故障单的事情。怎么回应剔除？就是说今年已经4次该设备端口R_LOS告警，该端口无业务，无需处理告警。同意剔除该故障考核。",
       "createdAt": "2026-07-17T05:32:28.583Z",
-      "updatedAt": "2026-07-17T05:32:28.583Z",
+      "updatedAt": "2026-07-17T07:12:24.496Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1339,6 +1325,146 @@
       },
       "projectId": "1779778092169",
       "subtasks": []
+    },
+    {
+      "id": "mrok2654ll8e7",
+      "type": "task",
+      "content": "了解下省公司电路存量有多少。然后找3条看看路径，经过哪些网元",
+      "createdAt": "2026-07-17T06:26:55.000Z",
+      "updatedAt": "2026-07-17T07:18:50.568Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrokaqtlht85a",
+      "type": "task",
+      "content": "从化3个网元，找业务量少的看下。",
+      "createdAt": "2026-07-17T06:33:35.049Z",
+      "updatedAt": "2026-07-17T07:25:42.278Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrokps63zzvfm",
+      "type": "task",
+      "content": "132.97.42.125和132.97.120.223从采集器tracert到目的机，看网络断在哪里。加群询问厂家。",
+      "createdAt": "2026-07-17T06:45:16.636Z",
+      "updatedAt": "2026-07-17T07:31:48.141Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrokqffff2tqu",
+      "type": "task",
+      "content": "过黄埔的退网单，弄好了就跟他说。",
+      "createdAt": "2026-07-17T06:45:46.779Z",
+      "updatedAt": "2026-07-17T07:43:54.724Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrokrgdh10w1u",
+      "type": "task",
+      "content": "再打电话给网监何工",
+      "createdAt": "2026-07-17T06:46:34.661Z",
+      "updatedAt": "2026-07-17T07:05:57.617Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mroljw41skmtz",
+      "type": "task",
+      "content": "跟泳哥说故障单的事情：4次",
+      "createdAt": "2026-07-17T07:08:41.425Z",
+      "updatedAt": "2026-07-17T09:14:31.174Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrolqji2xjdeg",
+      "type": "task",
+      "content": "更新s转o月报",
+      "createdAt": "2026-07-17T07:13:51.674Z",
+      "updatedAt": "2026-07-17T07:13:51.674Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "1min",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrolxe8f3pvyl",
+      "type": "task",
+      "content": "我得想下我的发现，省公司电路涉及设备的事情，怎么跟总监说。我都不知道哪些电路是不能拆的，还要用。我猜测是备注了需保留的那些。得跟泳哥确认。我先捋一下有多少个吧。这样的需保留设备。现在的逻辑是，有些电路不能拆不能退还有用，那相应的设备也就没法退了。就是要看哪些电路还有用的。",
+      "createdAt": "2026-07-17T07:19:11.439Z",
+      "updatedAt": "2026-07-17T08:28:21.939Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mromn8dgw78yy",
+      "type": "task",
+      "content": "思考下天河拆运一体的事情。怎么提醒他们之后起码要先上单有个流水号，怎么跟他们说?",
+      "createdAt": "2026-07-17T07:39:16.900Z",
+      "updatedAt": "2026-07-17T08:46:43.331Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mroo843bieqrp",
+      "type": "task",
+      "content": "先给个数吧，需保留、现场进一步核查的那些电路",
+      "createdAt": "2026-07-17T08:23:30.743Z",
+      "updatedAt": "2026-07-17T08:23:30.743Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1364,7 +1490,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2108,10 +2234,11 @@
       "content": "昨晚去中山图书馆看书了，好舒服。有时候看书不是为了看，而是翻书时思绪非常放松，像散步一样会回顾今日发生总总，主动想起今日哪里做的好、做的不好…复盘和调整。",
       "tags": [
         "观点看法",
-        "观察记录"
+        "观察记录",
+        "待表达"
       ],
       "createdAt": "2026-07-17T01:27:12.809Z",
-      "updatedAt": "2026-07-17T01:27:12.809Z"
+      "updatedAt": "2026-07-17T07:12:42.877Z"
     }
   ],
   "slots": [],
@@ -3100,6 +3227,10 @@
     "担心焦虑": {
       "color": "#f5f5f0",
       "textColor": "#333333"
+    },
+    "待表达": {
+      "color": "#f5f5f0",
+      "textColor": "#333333"
     }
   },
   "dailyTimeline": {
@@ -3559,6 +3690,21 @@
       "lastReminderTimes": {
         "0": "2026-07-16T06:50:00.830Z"
       }
+    },
+    {
+      "id": "mrolr1n8il34d",
+      "taskId": "mrolqji2xjdeg",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-29T10:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-17T07:14:15.188Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4839,6 +4985,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-17T03:44:33.608Z"
+    "lastSync": "2026-07-17T05:36:03.438Z"
   }
 }
