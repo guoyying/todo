@@ -3132,36 +3132,19 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             align-items: center;
         }
         
-        /* 添加标签按钮 - 默认显示 */
-        .add-tag-btn {
-            width: 18px !important;
-            height: 18px !important;
-            min-width: 18px !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background: #e8f5e9 !important;
-            border: 1px solid #4caf50 !important;
-            border-radius: 4px !important;
-            cursor: pointer !important;
-            font-size: 14px !important;
-            font-weight: bold !important;
-            color: #4caf50 !important;
-            transition: all 0.2s ease !important;
-            flex-shrink: 0 !important;
-            padding: 0 !important;
-            margin-left: 4px !important;
-            line-height: 1 !important;
-        }
-        
-        .add-tag-btn:hover {
-            background: #4caf50 !important;
-            color: white !important;
-        }
-        
-        .add-tag-btn:hover {
-            background: var(--primary) !important;
-            color: white !important;
+        /* 迷你标签样式 - 用于待整理任务列表 */
+        .mini-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 11px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 4px;
+            margin-right: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80px;
         }
         
         /* 标签下拉菜单 */
@@ -3244,6 +3227,38 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
         
         .tag-selector-dropdown .tag-selector-add:hover {
             opacity: 0.9;
+        }
+        
+        /* 整理界面标签选择器样式优化 */
+        #organizerTagsContainer {
+            position: relative;
+            width: 100%;
+        }
+        
+        #organizerTagsDropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            margin-top: 4px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 12px;
+        }
+        
+        /* 已选标签移除按钮样式 */
+        .tag-selector-option.selected-tag span:last-child {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1;
+            padding: 0 2px;
+        }
+        
+        .tag-selector-option.selected-tag:hover span:last-child {
+            color: #fff;
         }
         
         .pending-task-time {
@@ -8403,7 +8418,19 @@ padding: 7px !important;
                         <!-- 标签选择 -->
                         <div>
                             <label style="display:block;margin-bottom:6px;font-weight:500;">🏷️ 标签 <span style="color:var(--danger);">*</span></label>
-                            <div id="organizerTags" class="tags-select"></div>
+                            <div id="organizerTagsContainer" style="position: relative;">
+                                <button id="organizerTagsBtn" class="btn btn-secondary" style="width: 100%; text-align: left; justify-content: space-between;">
+                                    <span id="organizerTagsSelected" style="display: flex; flex-wrap: wrap; gap: 4px; align-items: center;">
+                                        <span>点击选择标签</span>
+                                    </span>
+                                    <span>▼</span>
+                                </button>
+                                <div id="organizerTagsDropdown" class="tag-selector-dropdown" style="display: none;">
+                                    <input type="text" class="tag-selector-input" placeholder="搜索或输入新标签" />
+                                    <div class="tag-selector-options" id="organizerTagsOptions"></div>
+                                    <button class="tag-selector-add" id="organizerTagsAddBtn">添加新标签</button>
+                                </div>
+                            </div>
                         </div>
                         <!-- 整理字段 - 桌面端双列，移动端单列 -->
                         <div class="organizer-fields-container">
@@ -11652,6 +11679,10 @@ function renderTags(containerId, selected=[]) {
         }
 
         function getSelectedTags(containerId) {
+            // 特殊处理 organizerTags（使用新的下拉式选择器）
+            if (containerId === 'organizerTags') {
+                return getOrganizerTags();
+            }
             return Array.from(document.querySelectorAll(`#${containerId} .tag.active`)).map(el => {
                 // 只获取标签文本，不包含删除按钮
                 const textSpan = el.querySelector('span:first-child');
@@ -22177,8 +22208,8 @@ ${ammoToAnalyze.map((ammo, index) =>
          // 加载已整理的任务列表
          loadOrganizedTasksList();
          
-         // 初始化标签选择器（使用 renderTags 函数）
-         renderTags('organizerTags', []);
+         // 初始化标签选择器（使用新的下拉式选择器）
+         initOrganizerTagsSelector();
          
          // 加载项目列表到关联选择器
          loadOrganizerProjectList();
@@ -22303,14 +22334,18 @@ ${ammoToAnalyze.map((ammo, index) =>
                // 检查该任务是否之前被勾选过
                const isChecked = currentlyCheckedTaskIds.has(task.id);
                
+               // 显示任务已有的标签
+               const existingTags = (task.tags || []).map(tag =>
+                   `<span class="mini-tag">${tag}</span>`
+               ).join('');
+               
                item.innerHTML = `
                    <input type="checkbox" class="pending-task-checkbox" data-task-id="${task.id}" ${isChecked ? 'checked' : ''}>
                    <div class="pending-task-content" title="${task.content}">${task.content}</div>
                    <button class="pending-task-expand-btn" title="展开/收起">▼</button>
                    <div class="pending-task-meta">
                        <span class="pending-task-time">${doneTime}</span>
-                       <div class="pending-task-tags">${tagsDots}</div>
-                       <button class="add-tag-btn" data-task-id="${task.id}" title="添加标签">+</button>
+                       <div class="pending-task-tags">${existingTags}</div>
                    </div>
                `;
                
@@ -22383,17 +22418,9 @@ ${ammoToAnalyze.map((ammo, index) =>
                });
            });
            
-           // 添加"添加标签"按钮点击事件
-           document.querySelectorAll('.add-tag-btn').forEach(btn => {
-               btn.addEventListener('click', function(e) {
-                   e.stopPropagation();
-                   const taskId = this.dataset.taskId;
-                   showTagSelector(this, taskId);
-               });
-           });
        }
            
-           // 显示标签选择器
+           // 显示标签选择器（保留函数，其他位置可能还在使用）
            function showTagSelector(btn, taskId) {
                // 关闭其他已打开的选择器
                document.querySelectorAll('.tag-selector-dropdown').forEach(el => el.remove());
@@ -22485,6 +22512,178 @@ ${ammoToAnalyze.map((ammo, index) =>
                }
            }
        
+       // ==================== 整理界面标签选择器 ====================
+       let organizerTagsSelected = []; // 存储选中的标签
+       
+       // 初始化整理界面标签选择器
+       function initOrganizerTagsSelector() {
+           organizerTagsSelected = [];
+           const btn = document.getElementById('organizerTagsBtn');
+           const dropdown = document.getElementById('organizerTagsDropdown');
+           const optionsContainer = document.getElementById('organizerTagsOptions');
+           const input = dropdown.querySelector('.tag-selector-input');
+           const addBtn = document.getElementById('organizerTagsAddBtn');
+           
+           if (!btn || !dropdown || !optionsContainer) return;
+           
+           // 更新显示
+           updateOrganizerTagsDisplay();
+           
+           // 点击按钮展开/收起下拉框
+           btn.onclick = (e) => {
+               e.stopPropagation();
+               const isHidden = dropdown.style.display === 'none';
+               dropdown.style.display = isHidden ? 'block' : 'none';
+               if (isHidden) {
+                   renderOrganizerTagsOptions();
+               }
+           };
+           
+           // 渲染标签选项
+           function renderOrganizerTagsOptions() {
+               const allTags = getTaskTags(); // 获取所有任务标签
+               optionsContainer.innerHTML = '';
+               
+               // 显示已选中的标签（可以移除）
+               if (organizerTagsSelected.length > 0) {
+                   const selectedSection = document.createElement('div');
+                   selectedSection.style.cssText = 'margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border);';
+                   selectedSection.innerHTML = '<div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">已选标签（点击移除）：</div>';
+                   
+                   const selectedContainer = document.createElement('div');
+                   selectedContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 4px;';
+                   
+                   organizerTagsSelected.forEach(tag => {
+                       const span = document.createElement('span');
+                       span.className = 'tag-selector-option selected-tag';
+                       span.style.cssText += ' display: inline-flex; align-items: center; gap: 4px;';
+                       span.innerHTML = `${tag} <span style="cursor: pointer; margin-left: 2px;" title="移除">×</span>`;
+                       span.onclick = (e) => {
+                           e.stopPropagation();
+                           organizerTagsSelected = organizerTagsSelected.filter(t => t !== tag);
+                           updateOrganizerTagsDisplay();
+                           // 重新渲染选项列表
+                           renderOrganizerTagsOptions();
+                       };
+                       selectedContainer.appendChild(span);
+                   });
+                   
+                   selectedSection.appendChild(selectedContainer);
+                   optionsContainer.appendChild(selectedSection);
+               }
+               
+               // 显示可用标签（可以添加）
+               const availableTags = allTags.filter(tag => !organizerTagsSelected.includes(tag));
+               
+               if (availableTags.length > 0) {
+                   const availableSection = document.createElement('div');
+                   availableSection.style.cssText = 'margin-top: 8px;';
+                   availableSection.innerHTML = '<div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">可用标签（点击添加）：</div>';
+                   
+                   const availableContainer = document.createElement('div');
+                   availableContainer.style.cssText = 'display: flex; flex-wrap: wrap; gap: 4px;';
+                   
+                   availableTags.forEach(tag => {
+                       const span = document.createElement('span');
+                       span.className = 'tag-selector-option';
+                       span.textContent = tag;
+                       span.onclick = () => {
+                           organizerTagsSelected.push(tag);
+                           updateOrganizerTagsDisplay();
+                           dropdown.style.display = 'none';
+                       };
+                       availableContainer.appendChild(span);
+                   });
+                   
+                   availableSection.appendChild(availableContainer);
+                   optionsContainer.appendChild(availableSection);
+               } else if (organizerTagsSelected.length === 0) {
+                   // 既没有已选标签，也没有可用标签
+                   optionsContainer.innerHTML = '<div style="padding: 8px; color: var(--text-secondary); font-size: 12px;">暂无可用标签，请输入新标签</div>';
+               }
+           }
+           
+           // 更新显示（使用外部全局函数）
+           
+           // 添加新标签
+           addBtn.onclick = () => {
+               const newTag = input.value.trim();
+               if (newTag) {
+                   // 添加到 common 标签数组
+                   if (!data.commonTaskTags.includes(newTag)) {
+                       data.commonTaskTags.push(newTag);
+                       saveData();
+                   }
+                   // 选中该标签
+                   organizerTagsSelected.push(newTag);
+                   updateOrganizerTagsDisplay();
+                   dropdown.style.display = 'none';
+                   input.value = '';
+                   // 更新所有标签筛选器
+                   updateAllTagFilters();
+               }
+           };
+           
+           // 回车键添加
+           input.addEventListener('keypress', (e) => {
+               if (e.key === 'Enter') {
+                   addBtn.onclick();
+               }
+           });
+           
+           // 点击外部关闭
+           document.addEventListener('click', (e) => {
+               const container = document.getElementById('organizerTagsContainer');
+               if (container && !container.contains(e.target)) {
+                   dropdown.style.display = 'none';
+               }
+           });
+       }
+       
+       // 移除整理界面标签（全局函数）
+       function removeOrganizerTag(tag) {
+           organizerTagsSelected = organizerTagsSelected.filter(t => t !== tag);
+           updateOrganizerTagsDisplay();
+       }
+       
+       // 更新显示函数（全局可用）
+       function updateOrganizerTagsDisplay() {
+           const selectedSpan = document.getElementById('organizerTagsSelected');
+           if (!selectedSpan) return;
+           
+           if (organizerTagsSelected.length === 0) {
+               selectedSpan.innerHTML = '<span>点击选择标签</span>';
+               if (selectedSpan.firstChild) {
+                   selectedSpan.firstChild.style.color = 'var(--text-secondary)';
+               }
+           } else {
+               // 显示已选标签，每个标签带有关闭按钮
+               let html = '';
+               organizerTagsSelected.forEach(tag => {
+                   const safeTag = tag.replace(/"/g, '&quot;');
+                   html += `<span class="tag-selector-option selected-tag" style="display: inline-flex; align-items: center; gap: 4px; cursor: pointer;" data-tag="${safeTag}">${safeTag}<span style="margin-left:2px;cursor:pointer;" onclick="removeOrganizerTag('${safeTag}')">×</span></span>`;
+               });
+               selectedSpan.innerHTML = html;
+           }
+       }
+       
+       // 设置整理界面标签
+       function setOrganizerTags(tags) {
+           organizerTagsSelected = tags || [];
+           updateOrganizerTagsDisplay();
+       }
+       
+       // 清空整理界面标签
+       function clearOrganizerTags() {
+           organizerTagsSelected = [];
+           updateOrganizerTagsDisplay();
+       }
+       
+       // 获取整理界面选中的标签
+       function getOrganizerTags() {
+           return organizerTagsSelected;
+       }
+       
        // 更新选中任务数量
        function updateSelectedTasksCount() {
            const count = document.querySelectorAll('.pending-task-checkbox:checked').length;
@@ -22554,7 +22753,7 @@ ${ammoToAnalyze.map((ammo, index) =>
            clearAllPoints();
            
            // 清空标签选择
-           renderTags('organizerTags', []);
+           clearOrganizerTags();
            
            // 清空选中的任务
            document.querySelectorAll('.pending-task-checkbox').forEach(cb => cb.checked = false);
@@ -22985,9 +23184,22 @@ ${ammoToAnalyze.map((ammo, index) =>
        }
        
        // 折叠字段功能
-        function toggleField(header) {
-            header.classList.toggle('collapsed-field');
-        }
+         function toggleField(header) {
+             header.classList.toggle('collapsed-field');
+         }
+         
+         // 初始化整理字段折叠状态
+         function initOrganizerFieldsCollapsed() {
+             // 除"行动、阶段成效"外，其他所有整理字段默认折叠
+             const fieldHeaders = document.querySelectorAll('.organizer-fields-container .field-header');
+             fieldHeaders.forEach(header => {
+                 const fieldName = header.textContent.trim();
+                 // "行动、阶段成效"保持展开，其他字段添加 collapsed-field 类
+                 if (!fieldName.includes('行动、阶段成效')) {
+                     header.classList.add('collapsed-field');
+                 }
+             });
+         }
         
         // 切换帮助提示显示/隐藏
         function toggleHelp(event, btn, hintText) {
@@ -23721,9 +23933,9 @@ ${ammoToAnalyze.map((ammo, index) =>
            loadPointsFromText('organizerAssets', task.organization.assets);
            loadPointsFromJSON('organizerAssets', task.organization.assetsWeeks);  // 加载周信息
            
-           // 设置标签（使用renderTags函数）
+           // 设置标签（使用新的下拉式选择器）
            const taskTags = task.tags || [];
-           renderTags('organizerTags', taskTags);
+           setOrganizerTags(taskTags);
            
            // 隐藏合并信息
            document.getElementById('mergedTaskInfo').style.display = 'none';
@@ -29593,6 +29805,9 @@ document.addEventListener('DOMContentLoaded', () => {
         initProjectGoalTracker(true);  // true 表示只初始化结构，不渲染数据
         // 初始检查页面状态
         checkAndShowTrackerPanel();
+        
+        // 初始化整理字段折叠状态
+        initOrganizerFieldsCollapsed();
         
         // 如果有 GitHub 配置，等待自动拉取完成后再渲染面板数据
         if (data.github && data.github.username) {
