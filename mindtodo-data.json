@@ -1149,9 +1149,9 @@
       "type": "task",
       "content": "整理下思考性任务已完成的部分",
       "createdAt": "2026-07-20T01:02:30.392Z",
-      "updatedAt": "2026-07-20T01:02:37.084Z",
+      "updatedAt": "2026-07-20T01:25:51.222Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1161,9 +1161,9 @@
     {
       "id": "mrsiv3wl06ckt",
       "type": "task",
-      "content": "写一下任务清单部分，刷新后、新增清单后不能及时渲染的现象。",
+      "content": "写一下任务清单部分，刷新后、新增清单后不能及时渲染的现象。新增任务清单后，不能在下拉选择菜单及时显示。得在管理界面点击箭头移动清单排序，才会在下拉选择菜单显示。如果我有个‘思考性’任务排第二，且刷新前正在使用这个清单。我刷新后",
       "createdAt": "2026-07-20T01:04:30.597Z",
-      "updatedAt": "2026-07-20T01:04:30.597Z",
+      "updatedAt": "2026-07-20T01:27:59.355Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1171,20 +1171,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrsiyj3o2xp6e",
-      "type": "task",
-      "content": "问下noc马，省soc ping的结果，卡在哪里了？",
-      "createdAt": "2026-07-20T01:07:10.260Z",
-      "updatedAt": "2026-07-20T01:07:10.260Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mrsj59xffzv7u",
@@ -1227,6 +1213,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrsjlbyjbldrx",
+      "type": "task",
+      "content": "问下noc马，省soc ping的结果，卡在哪里了？",
+      "createdAt": "2026-07-20T01:24:54.091Z",
+      "updatedAt": "2026-07-20T01:24:54.091Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1259,7 +1259,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
