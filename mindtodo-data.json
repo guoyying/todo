@@ -1241,6 +1241,20 @@
       "isList": false,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrt2vsh4r41mz",
+      "type": "task",
+      "content": "行啊，今天打球，他还在家里睡觉，那打完球吃饭肯定要考虑他啊，都烦死了。真的是看着都眼冤。开了一天空调。",
+      "createdAt": "2026-07-20T10:24:54.760Z",
+      "updatedAt": "2026-07-20T10:26:07.234Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1784509194257"
     }
   ],
   "taskLists": [
@@ -1273,7 +1287,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1784509194257",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
