@@ -14305,6 +14305,8 @@ updateCurrentListInfo();
 renderListTodos();
 // 更新任务创建区域的清单选择器
 renderTaskListSelector();
+// 更新快速过滤栏的清单选择器
+renderQuickListSelector();
 };
 
 // 切换清单
@@ -14316,6 +14318,8 @@ window.switchList = function(listId) {
     renderListTodos();
     // 更新任务创建区域的清单选择器
     renderTaskListSelector();
+    // 更新快速过滤栏的清单选择器
+    renderQuickListSelector();
 };
 
 // 确认删除清单（点击删除按钮）
@@ -18897,9 +18901,15 @@ function closeModal(modalId) {
                 saveData();
                 applyTitle();
                 render();
+                 
+                // 立即更新所有模型选择器
+                updateAllModelSelectors();
                 
-                 // 立即更新所有模型选择器
-                 updateAllModelSelectors();
+                // 【新增】同步更新任务清单相关 UI，确保下拉菜单和清单列表显示最新状态
+                renderTaskListSelector();      // 更新任务创建区域下拉菜单
+                renderQuickListSelector();     // 更新顶部快速过滤栏下拉菜单
+                updateCurrentListInfo();       // 更新页面标题和弹窗信息
+                renderListsContainer();        // 更新管理界面清单列表
                 
                  // 拉取完成后检查并触发提醒
                 checkTriggers();
@@ -19161,14 +19171,16 @@ function closeModal(modalId) {
         const initialTab = data.activeTab || 'feeling';
         switchMainTab(initialTab);
         // 初始化清单选择器
-renderTaskListSelector();
-// 初始化快速清单选择器
-renderQuickListSelector();
-applyTitle();
-// 初始化时更新清单标题
-updateCurrentListInfo();
-// 初始化时渲染清单任务列表
-renderListTodos();
+        renderTaskListSelector();
+        // 初始化快速清单选择器
+        renderQuickListSelector();
+        applyTitle();
+        // 初始化时更新清单标题和弹窗信息
+        updateCurrentListInfo();
+        // 初始化时渲染清单管理界面（显示当前清单的选中状态）
+        renderListsContainer();
+        // 初始化时渲染清单任务列表
+        renderListTodos();
 // 展开清单任务区域（移除 collapsed 类）
 const listTodoWrapper = document.getElementById('listTodoWrapper');
 if (listTodoWrapper) {
