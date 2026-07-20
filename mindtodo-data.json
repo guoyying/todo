@@ -1401,9 +1401,9 @@
       "type": "task",
       "content": "问下客资董靖华",
       "createdAt": "2026-07-20T08:56:06.159Z",
-      "updatedAt": "2026-07-20T08:56:06.159Z",
+      "updatedAt": "2026-07-20T09:35:56.440Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1415,9 +1415,9 @@
       "type": "task",
       "content": "再筛选一次新港机楼的机房，看下ppt有无信息",
       "createdAt": "2026-07-20T08:56:24.663Z",
-      "updatedAt": "2026-07-20T09:02:54.983Z",
+      "updatedAt": "2026-07-20T09:19:55.225Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1443,9 +1443,9 @@
       "type": "task",
       "content": "问下单工但是斌哥有无邮件给他抄送",
       "createdAt": "2026-07-20T09:04:21.174Z",
-      "updatedAt": "2026-07-20T09:04:21.174Z",
+      "updatedAt": "2026-07-20T09:37:04.853Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1471,14 +1471,28 @@
       "type": "task",
       "content": "退网过单",
       "createdAt": "2026-07-20T09:14:32.404Z",
-      "updatedAt": "2026-07-20T09:14:32.404Z",
+      "updatedAt": "2026-07-20T09:17:46.177Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrt0kni7pyz8m",
+      "type": "task",
+      "content": "我可以打开共享文档去找黄埔新港机楼有多少个机房，目前拆除的怎样呢",
+      "createdAt": "2026-07-20T09:20:15.871Z",
+      "updatedAt": "2026-07-20T09:20:15.871Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1511,7 +1525,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5022,6 +5036,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-20T09:04:35.116Z"
+    "lastSync": "2026-07-20T09:14:55.286Z"
   }
 }
