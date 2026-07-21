@@ -3606,25 +3606,28 @@
             "startTime": "11:20",
             "endTime": "11:50",
             "message": "卖油",
-            "confirmed": false,
-            "confirmationTime": null
+            "confirmed": true,
+            "confirmationTime": "2026-07-21T03:30:29.523Z"
           }
         ]
       },
       "createdAt": "2026-07-20T09:52:16.847Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-07-21T03:30:28.144Z"
+      }
     }
   ],
   "knowledgeBase": [
     {
       "id": "mru28nzdnm0v1ilhx9c",
-      "content": "政企项目，得有具体客户名，才是行运。不然就是大网的，归综维优管。",
+      "content": "政企项目，得有具体客户名，才是行运。不然就是大网的，归综维优管。\n主站是装维，主建是客资",
       "tags": [
         "工作"
       ],
       "createdAt": "2026-07-21T02:54:42.025Z",
-      "updatedAt": "2026-07-21T02:54:42.025Z"
+      "updatedAt": "2026-07-21T03:31:03.652Z"
     },
     {
       "id": "mrsjiq5tg2et6ghp9o",
