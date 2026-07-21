@@ -1303,9 +1303,9 @@
       "type": "task",
       "content": "电话问下杨工",
       "createdAt": "2026-07-21T02:42:55.034Z",
-      "updatedAt": "2026-07-21T02:42:55.034Z",
+      "updatedAt": "2026-07-21T09:02:37.470Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1317,9 +1317,9 @@
       "type": "task",
       "content": "约周四上午去新港机楼吧",
       "createdAt": "2026-07-21T04:43:35.097Z",
-      "updatedAt": "2026-07-21T04:43:35.097Z",
+      "updatedAt": "2026-07-21T09:01:45.745Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1397,20 +1397,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mruaol6dcnh7m",
-      "type": "task",
-      "content": "",
-      "createdAt": "2026-07-21T06:51:01.813Z",
-      "updatedAt": "2026-07-21T08:59:50.297Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrucuu3hjikdk",
       "type": "task",
       "content": "了解下怎么将一列的数据用+拼接起来。excel如何将一列数据用字符拼接起来？",
@@ -1429,9 +1415,9 @@
       "type": "task",
       "content": "省平台电路捋一共多少条要处理",
       "createdAt": "2026-07-21T07:52:09.873Z",
-      "updatedAt": "2026-07-21T07:52:09.873Z",
+      "updatedAt": "2026-07-21T09:27:37.493Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1471,28 +1457,14 @@
       "type": "task",
       "content": "看花都华为网管的设备",
       "createdAt": "2026-07-21T08:12:51.188Z",
-      "updatedAt": "2026-07-21T08:12:51.188Z",
+      "updatedAt": "2026-07-21T09:42:28.128Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrudrvqeg1640",
-      "type": "task",
-      "content": "网安接单",
-      "createdAt": "2026-07-21T08:17:34.310Z",
-      "updatedAt": "2026-07-21T08:17:34.310Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     },
     {
       "id": "mruds3ptfa0ym",
@@ -1535,6 +1507,76 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrufe5qgv19yy",
+      "type": "task",
+      "content": "想下资产的会议占用了我一天，这个进度怎么写？",
+      "createdAt": "2026-07-21T09:02:53.320Z",
+      "updatedAt": "2026-07-21T09:02:53.320Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrufeprj3t2zh",
+      "type": "task",
+      "content": "网安接单",
+      "createdAt": "2026-07-21T09:03:19.279Z",
+      "updatedAt": "2026-07-21T09:03:19.279Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrufgfy8xnhwg",
+      "type": "task",
+      "content": "过拆运单，从化的",
+      "createdAt": "2026-07-21T09:04:39.872Z",
+      "updatedAt": "2026-07-21T09:22:20.616Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrug70kvv7scw",
+      "type": "task",
+      "content": "我得问下总监‘工程队测试不在用’那就不用统计了吧？",
+      "createdAt": "2026-07-21T09:25:19.663Z",
+      "updatedAt": "2026-07-21T09:25:19.663Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrugtdpfg89ch",
+      "type": "task",
+      "content": "花都烽火的资源系统检查下有无上联华为的设备",
+      "createdAt": "2026-07-21T09:42:43.107Z",
+      "updatedAt": "2026-07-21T09:42:43.107Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1567,7 +1609,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5182,6 +5224,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T08:24:29.654Z"
+    "lastSync": "2026-07-21T09:00:19.785Z"
   }
 }
