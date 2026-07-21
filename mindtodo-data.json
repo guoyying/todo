@@ -1373,9 +1373,9 @@
       "type": "task",
       "content": "问下华姐传输专业拆运一体单要关注什么（从化）",
       "createdAt": "2026-07-21T06:14:46.511Z",
-      "updatedAt": "2026-07-21T06:15:11.614Z",
+      "updatedAt": "2026-07-21T08:14:26.915Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1387,9 +1387,9 @@
       "type": "task",
       "content": "看下网安群要自查什么东西",
       "createdAt": "2026-07-21T06:20:00.676Z",
-      "updatedAt": "2026-07-21T06:20:00.676Z",
+      "updatedAt": "2026-07-21T08:17:30.553Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1479,6 +1479,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrudrvqeg1640",
+      "type": "task",
+      "content": "网安接单",
+      "createdAt": "2026-07-21T08:17:34.310Z",
+      "updatedAt": "2026-07-21T08:17:34.310Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mruds3ptfa0ym",
+      "type": "task",
+      "content": "转发网安自测题",
+      "createdAt": "2026-07-21T08:17:44.657Z",
+      "updatedAt": "2026-07-21T08:17:44.657Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1511,7 +1539,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5116,6 +5144,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T07:44:42.665Z"
+    "lastSync": "2026-07-21T08:13:17.947Z"
   }
 }
