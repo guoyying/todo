@@ -1068,48 +1068,6 @@
       "listId": "list_1783565463457"
     },
     {
-      "id": "mrsjlbyjbldrx",
-      "type": "task",
-      "content": "问下noc马，省soc ping的结果，卡在哪里了？",
-      "createdAt": "2026-07-20T01:24:54.091Z",
-      "updatedAt": "2026-07-20T03:06:39.259Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrsjrfmq2mdyn",
-      "type": "task",
-      "content": "问下张枝：卖油的",
-      "createdAt": "2026-07-20T01:29:38.786Z",
-      "updatedAt": "2026-07-20T08:55:26.058Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrsml2njj50wr",
-      "type": "task",
-      "content": "跟泳哥确认下省平台电路的范围是哪些还在用",
-      "createdAt": "2026-07-20T02:48:40.879Z",
-      "updatedAt": "2026-07-20T03:25:43.870Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
       "id": "mrsoas545wftd",
       "type": "task",
       "content": "就是东莞庄、元岗、马场这些本地机房有业务的重点关注。长途0业务的（实际有业务承载）也看看",
@@ -1122,34 +1080,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrszpkwfzh6zu",
-      "type": "task",
-      "content": "问下客资董靖华",
-      "createdAt": "2026-07-20T08:56:06.159Z",
-      "updatedAt": "2026-07-20T09:35:56.440Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrt006uufxoy9",
-      "type": "task",
-      "content": "问下单工但是斌哥有无邮件给他抄送",
-      "createdAt": "2026-07-20T09:04:21.174Z",
-      "updatedAt": "2026-07-20T09:37:04.853Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
     },
     {
       "id": "mrt06kl1weoof",
@@ -1261,9 +1191,9 @@
       "type": "task",
       "content": "买耳钉的事情",
       "createdAt": "2026-07-21T00:56:31.395Z",
-      "updatedAt": "2026-07-21T00:56:31.395Z",
+      "updatedAt": "2026-07-21T02:39:29.910Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1339,6 +1269,48 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru1qq2y2awy2",
+      "type": "task",
+      "content": "省平台电路现在要怎么做？",
+      "createdAt": "2026-07-21T02:40:44.938Z",
+      "updatedAt": "2026-07-21T02:40:44.938Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru1r0kg5x160",
+      "type": "task",
+      "content": "思考下服务器ping不通咋回事",
+      "createdAt": "2026-07-21T02:40:58.528Z",
+      "updatedAt": "2026-07-21T02:40:58.528Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru1tigqkhpjr",
+      "type": "task",
+      "content": "电话问下杨工",
+      "createdAt": "2026-07-21T02:42:55.034Z",
+      "updatedAt": "2026-07-21T02:42:55.034Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1371,7 +1343,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4930,6 +4902,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T02:17:40.568Z"
+    "lastSync": "2026-07-21T02:37:23.180Z"
   }
 }
