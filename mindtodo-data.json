@@ -3618,6 +3618,15 @@
   ],
   "knowledgeBase": [
     {
+      "id": "mru28nzdnm0v1ilhx9c",
+      "content": "政企项目，得有具体客户名，才是行运。不然就是大网的，归综维优管。",
+      "tags": [
+        "工作"
+      ],
+      "createdAt": "2026-07-21T02:54:42.025Z",
+      "updatedAt": "2026-07-21T02:54:42.025Z"
+    },
+    {
       "id": "mrsjiq5tg2et6ghp9o",
       "content": "故障单剔除，不要随意剔。得思考会不会日后这种类型的都来找剔除了，这种就不行的。",
       "tags": [],
@@ -4911,6 +4920,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T02:43:01.091Z"
+    "lastSync": "2026-07-21T02:48:21.246Z"
   }
 }
