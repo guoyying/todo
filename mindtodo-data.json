@@ -1297,6 +1297,48 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565463457"
+    },
+    {
+      "id": "mru1kh6xcz3l8",
+      "type": "task",
+      "content": "思考下“铜缆入机房口无法清理”啥意思，问谁",
+      "createdAt": "2026-07-21T02:35:53.482Z",
+      "updatedAt": "2026-07-21T02:35:53.482Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru1l87b48ptw",
+      "type": "task",
+      "content": "思考下啥时候去新港机楼",
+      "createdAt": "2026-07-21T02:36:28.487Z",
+      "updatedAt": "2026-07-21T02:36:28.487Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru1m9f4dmd6v",
+      "type": "task",
+      "content": "做个现场看的问答表（哪些已拆除，多少吨，哪些未拆除，计划啥时候拆除。已拆除的目前在仓库还是已经清运了）",
+      "createdAt": "2026-07-21T02:37:16.721Z",
+      "updatedAt": "2026-07-21T02:37:16.721Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
