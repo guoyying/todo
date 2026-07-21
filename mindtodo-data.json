@@ -1359,7 +1359,35 @@
       "type": "task",
       "content": "简单看下资产清单属于综维优的设备",
       "createdAt": "2026-07-21T04:44:30.716Z",
-      "updatedAt": "2026-07-21T04:44:30.716Z",
+      "updatedAt": "2026-07-21T06:20:09.903Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mru9dypbuzzml",
+      "type": "task",
+      "content": "问下华姐传输专业拆运一体单要关注什么（从化）",
+      "createdAt": "2026-07-21T06:14:46.511Z",
+      "updatedAt": "2026-07-21T06:15:11.614Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mru9kp44a6j24",
+      "type": "task",
+      "content": "看下网安群要自查什么东西",
+      "createdAt": "2026-07-21T06:20:00.676Z",
+      "updatedAt": "2026-07-21T06:20:00.676Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -4979,6 +5007,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T02:48:21.246Z"
+    "lastSync": "2026-07-21T04:44:38.310Z"
   }
 }
