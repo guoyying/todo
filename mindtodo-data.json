@@ -1567,9 +1567,9 @@
     {
       "id": "mrugtdpfg89ch",
       "type": "task",
-      "content": "花都烽火的资源系统检查下有无上联华为的设备(炭步机楼-花都HC001（停用）)",
+      "content": "花都烽火的资源系统检查下有无上联华为的设备",
       "createdAt": "2026-07-21T09:42:43.107Z",
-      "updatedAt": "2026-07-21T09:54:59.842Z",
+      "updatedAt": "2026-07-21T09:57:19.148Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -5252,6 +5252,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T09:42:49.319Z"
+    "lastSync": "2026-07-21T09:55:18.188Z"
   }
 }
