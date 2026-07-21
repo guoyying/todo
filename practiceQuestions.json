@@ -2927,7 +2927,8 @@
       "answer": "B",
       "analysis": "PM监控ODUk的净荷区域，不包括ODUk开销本身",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_5",
@@ -2957,7 +2958,8 @@
       "answer": "B",
       "analysis": "ODTUG2是逻辑上的中间复用级，用于将多个低速ODU1时分复用后映射到OPU2",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_7",
@@ -3034,9 +3036,10 @@
         "D. 物理层"
       ],
       "answer": "B",
-      "analysis": "B1字节用于再生段层误码监控",
+      "analysis": "B1字节用于再生段层误码监控。再生段就是两个相邻的光放大器或中继器之间的那段光纤线路",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_12",
@@ -3064,9 +3067,10 @@
         "D. 隧道和PW是一对一绑定的"
       ],
       "answer": "B",
-      "analysis": "一条隧道可以承载多条PW，就像一条高速公路可以跑多辆车",
+      "analysis": "一条隧道可以承载多条PW，就像一条高速公路可以跑多辆车。主要用在以下场景：\n运营商网络融合 🏢\n当运营商想把不同客户的老旧网络（如ATM、TDM专线）迁移到统一的IP/MPLS骨干网时，PWE3能“假装”这些老网络还在，让客户无感过渡。\n企业专线互联 🔗\n比如一家公司总部和分公司原本通过昂贵的专线连接，现在可以用PWE3在便宜的IP网上模拟出同样的效果，省钱又灵活。\n传统业务迁移 🚚\n银行、政府等机构还在用SDH/ATM等传统技术，PWE3可以帮它们在不改变设备的情况下，平滑接入新的IP网络。",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.802Z"
+      "createdAt": "2026-07-13T15:02:03.802Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_14",
@@ -3129,7 +3133,7 @@
       "analysis": "ODU2速率约10G，ODU1速率约2.5G，ODU2是ODU1的4倍",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.802Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "chuanshu_18",
@@ -3192,7 +3196,7 @@
       "analysis": "四种场景都是PWE3的典型应用",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "chuanshu_22",
@@ -3286,7 +3290,8 @@
       "answer": "ABC",
       "analysis": "VC12交叉灵活但时延大，VC4交叉时延小但灵活性差",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "wrong"
     },
     {
       "id": "chuanshu_28",
@@ -3318,7 +3323,7 @@
       "analysis": "Directioned场景下波长固定方向，调整需改光纤，不支持任意调整",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "chuanshu_30",
@@ -3365,7 +3370,7 @@
       "analysis": "业务分界符为User时，PE不识别处理U-TAG",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "chuanshu_33",
@@ -3397,7 +3402,7 @@
       "analysis": "四种情况都可能导致光路质量变差，引发误码过量。\nOTUk 前向纠错不可纠正误码（OTUk EXcessive bit errors）",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_35",
@@ -3413,7 +3418,7 @@
       "analysis": "一条Tunnel可承载多条PW；一条PW只能绑定一条Tunnel，但可配置保护隧道；各PW隔离",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "chuanshu_36",
@@ -3426,7 +3431,7 @@
         "D. 不同监控层监控范围相同"
       ],
       "answer": "ABC",
-      "analysis": "BIP8是1字节误码检测字段，存在于SM/PM/TCM，但各层监控范围不同",
+      "analysis": "BIP8（8比特间插奇偶）是1字节误码检测字段，存在于SM/PM/TCM，但各层监控范围不同",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
       "status": "unknown"
@@ -3461,7 +3466,7 @@
       "analysis": "四个描述均正确，ODTUG2是逻辑中间级，最多4个ODU1时分复用，帧周期为1/4",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_39",
@@ -3507,7 +3512,7 @@
       "analysis": "单站交叉指单个网元内部完成业务调度，不涉及多网元协作",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_42",
@@ -3546,7 +3551,8 @@
       "answer": "A",
       "analysis": "TCM1~TCM6共6级",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "unknown"
     },
     {
       "id": "chuanshu_45",
@@ -3601,7 +3607,8 @@
       "answer": "B",
       "analysis": "BEFFEC_EXC是纠错后仍有误码，业务已受损",
       "subject": "chuanshu",
-      "createdAt": "2026-07-13T15:02:03.803Z"
+      "createdAt": "2026-07-13T15:02:03.803Z",
+      "status": "correct"
     },
     {
       "id": "chuanshu_49",
@@ -3615,7 +3622,7 @@
       "analysis": "这种架构常用于环网，最多支持2个方向",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_50",
@@ -3629,8 +3636,8 @@
       "analysis": "CE不感知仿真业务，只看到一条直连线路",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     }
   ],
-  "lastUpdated": "2026-07-14T16:14:12.839Z"
+  "lastUpdated": "2026-07-21T00:12:54.551Z"
 }
