@@ -1219,9 +1219,9 @@
       "type": "task",
       "content": "电话确认黄埔机楼",
       "createdAt": "2026-07-21T02:18:26.543Z",
-      "updatedAt": "2026-07-21T02:18:26.543Z",
+      "updatedAt": "2026-07-21T02:47:15.609Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1259,9 +1259,9 @@
     {
       "id": "mru1m9f4dmd6v",
       "type": "task",
-      "content": "做个现场看的问答表（哪些已拆除，多少吨，哪些未拆除，计划啥时候拆除。已拆除的目前在仓库还是已经清运了）",
+      "content": "做个现场看的问答表（哪些已拆除，多少吨，哪些未拆除，计划啥时候拆除。已拆除的目前在仓库还是已经清运了）。我还想搞个可以看参考图的形式",
       "createdAt": "2026-07-21T02:37:16.721Z",
-      "updatedAt": "2026-07-21T02:37:16.721Z",
+      "updatedAt": "2026-07-21T02:47:35.648Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1343,7 +1343,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565463457",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2101,6 +2101,15 @@
       ],
       "createdAt": "2026-07-20T01:39:35.751Z",
       "updatedAt": "2026-07-20T01:39:35.751Z"
+    },
+    {
+      "id": "mru20ceca4h4g",
+      "content": "开资产卡片争议会议，觉得得摆出理由才有资本去吵归属。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-07-21T02:48:13.764Z",
+      "updatedAt": "2026-07-21T02:48:13.764Z"
     }
   ],
   "slots": [],
@@ -4902,6 +4911,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T02:37:23.180Z"
+    "lastSync": "2026-07-21T02:43:01.091Z"
   }
 }
