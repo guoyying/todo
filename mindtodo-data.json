@@ -1275,14 +1275,28 @@
       "type": "task",
       "content": "新港机楼4个机房的联系人找到，打电话联系对方确认哪些机房有mdf架子",
       "createdAt": "2026-07-21T01:01:24.382Z",
-      "updatedAt": "2026-07-21T01:01:41.290Z",
+      "updatedAt": "2026-07-21T02:18:02.208Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mru0y1dbw5xny",
+      "type": "task",
+      "content": "电话确认黄埔机楼",
+      "createdAt": "2026-07-21T02:18:26.543Z",
+      "updatedAt": "2026-07-21T02:18:26.543Z",
       "tags": [],
       "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1315,7 +1329,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4874,6 +4888,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-20T09:37:30.591Z"
+    "lastSync": "2026-07-21T02:17:40.568Z"
   }
 }
