@@ -1399,9 +1399,9 @@
     {
       "id": "mruaol6dcnh7m",
       "type": "task",
-      "content": "~~使用部门是县分的，IDC就是综维优。解决办法：要县分认领，如果不认要给算力认领。\n待云网部确认：有争议的，机房无法确认是算力还是县分的\n用户机房\nIDC不算是算力有争议的机房（东莞庄、马场等），大概率不是算力用的设备。除非使用部门是算力，那才是他们用的》",
+      "content": "",
       "createdAt": "2026-07-21T06:51:01.813Z",
-      "updatedAt": "2026-07-21T07:44:41.197Z",
+      "updatedAt": "2026-07-21T08:59:50.297Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1443,9 +1443,9 @@
       "type": "task",
       "content": "按照锦囊看下125这台设备的访问控制策略",
       "createdAt": "2026-07-21T08:04:55.181Z",
-      "updatedAt": "2026-07-21T08:04:55.181Z",
+      "updatedAt": "2026-07-21T08:39:51.783Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1455,11 +1455,11 @@
     {
       "id": "mrudedcyxvk5y",
       "type": "task",
-      "content": "写一下给波总的话术，为什么要审批，提交给谁？",
+      "content": "写一下给波总的话术，为什么要审批，提交给谁？省IT系统需要三证，我在MSS计划建设系统给您提交审批，您通过后提交给李武平。谢谢您",
       "createdAt": "2026-07-21T08:07:03.970Z",
-      "updatedAt": "2026-07-21T08:07:03.970Z",
+      "updatedAt": "2026-07-21T08:59:25.861Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1521,6 +1521,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrufa0q9dzmu6",
+      "type": "task",
+      "content": "想下怎么让黄打开服务器看下策略",
+      "createdAt": "2026-07-21T08:59:40.209Z",
+      "updatedAt": "2026-07-21T08:59:40.209Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1553,7 +1567,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4732,6 +4746,16 @@
       "format": "markdown",
       "createdAt": "2026-07-21T08:04:36.799Z",
       "updatedAt": "2026-07-21T08:04:36.799Z"
+    },
+    {
+      "id": "1784624402765qgng59nh0",
+      "title": "留底的资产归属",
+      "type": "",
+      "tags": [],
+      "content": "使用部门是县分的，IDC就是综维优。解决办法：要县分认领，如果不认要给算力认领。\n待云网部确认：有争议的，机房无法确认是算力还是县分的\n用户机房\nIDC不算是算力有争议的机房（东莞庄、马场等），大概率不是算力用的设备。除非使用部门是算力，那才是他们用的》",
+      "format": "plain",
+      "createdAt": "2026-07-21T09:00:02.765Z",
+      "updatedAt": "2026-07-21T09:00:02.765Z"
     }
   ],
   "trackerConfig": {
@@ -5158,6 +5182,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T08:19:30.882Z"
+    "lastSync": "2026-07-21T08:24:29.654Z"
   }
 }
