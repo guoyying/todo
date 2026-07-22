@@ -29,7 +29,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_3",
@@ -92,7 +93,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_7",
@@ -124,7 +126,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "CSL3_9",
@@ -140,7 +142,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_10",
@@ -155,7 +157,8 @@
       "answer": "A",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "wrong"
     },
     {
       "id": "CSL3_11",
@@ -168,9 +171,10 @@
         "D. 业务分界符为Service时，PE设备将根据PW封装模式识别和处理TAG"
       ],
       "answer": "B",
-      "analysis": "",
+      "analysis": "你（用户）家里有多个设备（电脑、电视、手机）上网，运营商（PE设备）需要知道哪个数据包是给电视的、哪个是给电脑的。于是，业务分界标签 就像给每个数据包贴一个“身份标签”🏷️，告诉运营商：“这是电视业务”或“这是普通上网业务”。\n业务分界符 = User：运营商不管你的标签（U-TAG），只管把数据原样传过去，就像快递员只看地址，不拆包裹。📦\n业务分界符 = Service：运营商要识别并处理你的标签（比如剥掉或修改），就像快递员帮你拆箱检查再封装。🔧\n而 PW封装模式（Raw/Tag）则决定了运营商在传输时是否保留你的原始标签。比如：\nRaw模式：直接传，不碰标签（适合用户自己管理标签）。\nTag模式：运营商可能会添加或修改标签（适合运营商统一管理业务）。",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "unknown"
     },
     {
       "id": "CSL3_12",
@@ -399,7 +403,7 @@
         "D. OTN帧结构中的3825-4080列为FEC区域"
       ],
       "answer": "CD",
-      "analysis": "",
+      "analysis": "ODU1帧大小是 2.5G 级别的，ODU2是 10G 级别的，帧大小（字节数）是4倍没错，但题目问的是“帧结构”，而ODU2的帧周期（即每帧传输的时间）与ODU1相同（都是固定的 48.971 μs），所以大小4倍，但周期相同，A说法本身正确但容易混淆，这里可能因为题目有陷阱（比如“帧周期”和“帧大小”混着考）。实际上标准答案认为A错误，因为ODU2帧大小是ODU1的4倍，但周期不变 OTN帧结构是 1-16列开销 + 17-3824列净荷 + 3825-4080列FEC",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
       "status": "unknown"
@@ -415,10 +419,10 @@
         "D. ROADM站点一定需要配置光交叉"
       ],
       "answer": "AB",
-      "analysis": "",
+      "analysis": "ROADM（可重构光分插复用器）\nFOADM（固定光分插复用器）",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "CSL3_28",
@@ -464,7 +468,8 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_31",
@@ -479,7 +484,8 @@
       "answer": "ABCD",
       "analysis": "",
       "subject": "CSL3",
-      "createdAt": "2026-07-01T09:45:55.801Z"
+      "createdAt": "2026-07-01T09:45:55.801Z",
+      "status": "correct"
     },
     {
       "id": "CSL3_32",
@@ -510,7 +516,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.801Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_34",
@@ -557,7 +563,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-04T23:53:34.898Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "CSL3_37",
@@ -747,7 +753,7 @@
       "analysis": "",
       "subject": "CSL3",
       "createdAt": "2026-07-01T09:45:55.802Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "CSL3_50",
@@ -3670,7 +3676,8 @@
       "answer": "C",
       "analysis": "总体印象是个体整合各种具体信息后形成的完整认知。第一印象是初次接触形成的印象；刻板印象是对某类群体的固定看法；光环效应是以偏概全。题干关键词\"综合\"\"一致性\"指向总体印象的形成。",
       "subject": "shxlx",
-      "createdAt": "2026-07-22T02:27:16.792Z"
+      "createdAt": "2026-07-22T02:27:16.792Z",
+      "status": "correct"
     },
     {
       "id": "shxlx_3",
@@ -6049,7 +6056,8 @@
       "answer": "A",
       "analysis": "时尚是社会层面的研究内容，因为它涉及社会文化、社会变迁和集体行为，不是单个个体的心理。个体层面研究个体心理过程；人际层面研究两两互动；群体层面研究小群体内部动态。",
       "subject": "shxlx",
-      "createdAt": "2026-07-22T02:27:16.793Z"
+      "createdAt": "2026-07-22T02:27:16.793Z",
+      "status": "correct"
     },
     {
       "id": "shxlx_160",
@@ -6790,8 +6798,9 @@
       "answer": "",
       "analysis": "",
       "subject": "shxlx",
-      "createdAt": "2026-07-22T02:27:16.794Z"
+      "createdAt": "2026-07-22T02:27:16.794Z",
+      "status": "wrong"
     }
   ],
-  "lastUpdated": "2026-07-22T05:48:15.822Z"
+  "lastUpdated": "2026-07-22T07:23:58.153Z"
 }
