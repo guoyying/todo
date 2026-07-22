@@ -1142,9 +1142,9 @@
       "type": "task",
       "content": "问高华姐要20个单子",
       "createdAt": "2026-07-21T00:56:10.722Z",
-      "updatedAt": "2026-07-21T00:56:10.722Z",
+      "updatedAt": "2026-07-22T01:48:01.392Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1520,9 +1520,9 @@
       "type": "task",
       "content": "我得问下总监‘工程队测试不在用’那就不用统计了吧？",
       "createdAt": "2026-07-21T09:25:19.663Z",
-      "updatedAt": "2026-07-21T09:25:19.663Z",
+      "updatedAt": "2026-07-22T01:48:09.555Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1548,9 +1548,9 @@
       "type": "task",
       "content": "做网安自测题",
       "createdAt": "2026-07-21T09:43:42.829Z",
-      "updatedAt": "2026-07-21T09:43:42.829Z",
+      "updatedAt": "2026-07-22T01:32:43.794Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1562,9 +1562,9 @@
       "type": "task",
       "content": "再试下dcibox的帐号",
       "createdAt": "2026-07-21T09:45:06.916Z",
-      "updatedAt": "2026-07-21T09:45:06.916Z",
+      "updatedAt": "2026-07-22T01:39:38.812Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1581,20 +1581,6 @@
         "生活"
       ],
       "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrvd51snsw9ym",
-      "type": "task",
-      "content": "梳理下脑子里目前的任务，好多怎么办。有时候真的得让自己不要管那么多，累人。资产卡片的要想下怎么跟华姐说。",
-      "createdAt": "2026-07-22T00:47:35.255Z",
-      "updatedAt": "2026-07-22T00:58:49.437Z",
-      "tags": [],
-      "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1639,11 +1625,11 @@
     {
       "id": "mrvdjoph6lwus",
       "type": "task",
-      "content": "资产卡片的想下怎么跟华姐说。",
+      "content": "资产卡片的想下怎么跟华姐说。我得先看看哪些是我们管的，才行。",
       "createdAt": "2026-07-22T00:58:58.133Z",
-      "updatedAt": "2026-07-22T00:58:58.133Z",
+      "updatedAt": "2026-07-22T02:27:02.409Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1655,9 +1641,9 @@
       "type": "task",
       "content": "查一下荔湾的拆运单",
       "createdAt": "2026-07-22T00:59:13.476Z",
-      "updatedAt": "2026-07-22T00:59:13.476Z",
+      "updatedAt": "2026-07-22T01:45:16.231Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1667,11 +1653,11 @@
     {
       "id": "mrvdk8ico104n",
       "type": "task",
-      "content": "写一下从出门到检查的sop",
+      "content": "写一下从出门到检查的sop。\n1. 8.30出门，坐地铁往珠江新城方向；",
       "createdAt": "2026-07-22T00:59:23.796Z",
-      "updatedAt": "2026-07-22T00:59:23.796Z",
+      "updatedAt": "2026-07-22T03:00:40.001Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1681,11 +1667,11 @@
     {
       "id": "mrvdrn4lj1xaf",
       "type": "task",
-      "content": "写一下跟饶总的话术，要检查网安",
+      "content": "写一下跟饶总的话术，要检查网安：饶总，中心要开展对领导的接入DCN办公电脑安全检查。您今日有空吗，我来做个检查。\n饶总，中心近期组织DCN接入电脑安全检查，需要检查您的办公电脑。您今天有空吗？我过来配合您完成。检查内容细项：是否安装了EDR，明文存储的办公系统账号密码，是否存在在非涉密终端存储了涉密文件；浏览器是否是否使用了浏览器存储保存账号密码等",
       "createdAt": "2026-07-22T01:05:09.333Z",
-      "updatedAt": "2026-07-22T01:05:09.333Z",
+      "updatedAt": "2026-07-22T03:08:33.580Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1697,9 +1683,9 @@
       "type": "task",
       "content": "将社会心理学题库导出到excel并传入todo",
       "createdAt": "2026-07-22T01:10:07.788Z",
-      "updatedAt": "2026-07-22T01:10:07.788Z",
+      "updatedAt": "2026-07-22T02:37:00.836Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1712,6 +1698,34 @@
       "content": "网管查下这几个烽火上联的端口",
       "createdAt": "2026-07-22T01:20:40.914Z",
       "updatedAt": "2026-07-22T01:20:40.914Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrvfbse6sefoi",
+      "type": "task",
+      "content": "省公司电路，想下接下来怎么搞，得计划下时间了。有目标有进度才行",
+      "createdAt": "2026-07-22T01:48:48.894Z",
+      "updatedAt": "2026-07-22T01:48:54.399Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrvgy8z1dbszg",
+      "type": "task",
+      "content": "预约这两个机房，看下问卷调查有无新增的要求。筛选这几个机房过往的检查记录",
+      "createdAt": "2026-07-22T02:34:16.429Z",
+      "updatedAt": "2026-07-22T02:35:00.281Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1751,7 +1765,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4025,21 +4039,6 @@
       "lastReminderTimes": {
         "0": "2026-07-21T03:30:28.144Z"
       }
-    },
-    {
-      "id": "mru9m6rt69gba",
-      "taskId": "mrty08v6vwsjb",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-22T09:44"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-21T06:21:10.217Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -4940,6 +4939,16 @@
       "format": "plain",
       "createdAt": "2026-07-21T09:00:02.765Z",
       "updatedAt": "2026-07-21T09:00:02.765Z"
+    },
+    {
+      "id": "1784688469081ylk8wzpc8",
+      "title": "萤火行动",
+      "type": "ideas",
+      "tags": [],
+      "content": "| \\ | MDF | DDF | 机房名称1 | 机房名称2 |\n| --- | --- | --- | --- | --- |\n| 总量 | 0 |0 |0 |0 |\n| 已拆 |0|0|0|0|\n| 未拆 |0|0|0|0|\n|计划拆除时间|0|0|0|0|",
+      "format": "plain",
+      "createdAt": "2026-07-22T02:47:49.082Z",
+      "updatedAt": "2026-07-22T03:01:50.023Z"
     }
   ],
   "trackerConfig": {
@@ -5366,6 +5375,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-22T00:59:41.111Z"
+    "lastSync": "2026-07-22T02:31:07.574Z"
   }
 }
