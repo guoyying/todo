@@ -1605,6 +1605,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrvcly9kg8ujp",
+      "type": "task",
+      "content": "思考下编绳步骤 写下来",
+      "createdAt": "2026-07-22T00:32:44.216Z",
+      "updatedAt": "2026-07-22T00:32:44.216Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1637,7 +1651,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
