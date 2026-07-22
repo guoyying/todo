@@ -1492,9 +1492,9 @@
       "type": "task",
       "content": "网安接单",
       "createdAt": "2026-07-21T09:03:19.279Z",
-      "updatedAt": "2026-07-21T09:03:19.279Z",
+      "updatedAt": "2026-07-22T01:04:52.451Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1534,9 +1534,9 @@
       "type": "task",
       "content": "花都烽火的资源系统检查下有无上联华为的设备",
       "createdAt": "2026-07-21T09:42:43.107Z",
-      "updatedAt": "2026-07-21T09:57:19.148Z",
+      "updatedAt": "2026-07-22T01:20:30.441Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1677,6 +1677,48 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrvdrn4lj1xaf",
+      "type": "task",
+      "content": "写一下跟饶总的话术，要检查网安",
+      "createdAt": "2026-07-22T01:05:09.333Z",
+      "updatedAt": "2026-07-22T01:05:09.333Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrvdy1f077tvt",
+      "type": "task",
+      "content": "将社会心理学题库导出到excel并传入todo",
+      "createdAt": "2026-07-22T01:10:07.788Z",
+      "updatedAt": "2026-07-22T01:10:07.788Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrveblxu16zfs",
+      "type": "task",
+      "content": "网管查下这几个烽火上联的端口",
+      "createdAt": "2026-07-22T01:20:40.914Z",
+      "updatedAt": "2026-07-22T01:20:40.914Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -5324,6 +5366,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-21T09:55:18.188Z"
+    "lastSync": "2026-07-22T00:59:41.111Z"
   }
 }
