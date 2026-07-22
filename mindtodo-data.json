@@ -1697,9 +1697,9 @@
       "type": "task",
       "content": "网管查下这几个烽火上联的端口",
       "createdAt": "2026-07-22T01:20:40.914Z",
-      "updatedAt": "2026-07-22T01:20:40.914Z",
+      "updatedAt": "2026-07-22T03:50:02.313Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1726,6 +1726,34 @@
       "content": "预约这两个机房，看下问卷调查有无新增的要求。筛选这几个机房过往的检查记录",
       "createdAt": "2026-07-22T02:34:16.429Z",
       "updatedAt": "2026-07-22T02:35:00.281Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrvijmuc5qavu",
+      "type": "task",
+      "content": "网管验收下载对应的单子",
+      "createdAt": "2026-07-22T03:18:53.796Z",
+      "updatedAt": "2026-07-22T03:18:53.796Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrvjnuzisilgf",
+      "type": "task",
+      "content": "继续看花都剩余两个网元的告警",
+      "createdAt": "2026-07-22T03:50:10.591Z",
+      "updatedAt": "2026-07-22T03:50:16.948Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -5375,6 +5403,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-22T03:08:45.390Z"
+    "lastSync": "2026-07-22T03:14:33.719Z"
   }
 }
