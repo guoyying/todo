@@ -3095,7 +3095,7 @@
       "analysis": "OTN帧第1-16列为开销，第17-3824列为净荷区域",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.802Z",
-      "status": "wrong"
+      "status": "correct"
     },
     {
       "id": "chuanshu_15",
@@ -3561,7 +3561,7 @@
       "analysis": "TCM1~TCM6共6级",
       "subject": "chuanshu",
       "createdAt": "2026-07-13T15:02:03.803Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "chuanshu_45",
@@ -6827,5 +6827,5 @@
       "createdAt": "2026-07-22T07:30:28.922Z"
     }
   ],
-  "lastUpdated": "2026-07-22T13:44:39.099Z"
+  "lastUpdated": "2026-07-22T14:31:57.635Z"
 }
