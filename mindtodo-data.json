@@ -1765,7 +1765,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4945,10 +4945,10 @@
       "title": "萤火行动",
       "type": "ideas",
       "tags": [],
-      "content": "| \\ | MDF | DDF | 机房名称1 | 机房名称2 |\n| --- | --- | --- | --- | --- |\n| 总量 | 0 |0 |0 |0 |\n| 已拆 |0|0|0|0|\n| 未拆 |0|0|0|0|\n|计划拆除时间|0|0|0|0|",
-      "format": "plain",
+      "content": "## 萤火行动\n| \\ | MDF | DDF | 机房名称1 | 机房名称2 |\n| ----- | ----- | ----- | ----- | ----- |\n| 总量 | 0 | 0 | 0 | 0 |\n| 已拆 | 0 | 0 | 0 | 0 |\n| 未拆 | 0 | 0 | 0 | 0 |\n| 计划拆除时间 | 0 | 0 | 0 | 0 |",
+      "format": "markdown",
       "createdAt": "2026-07-22T02:47:49.082Z",
-      "updatedAt": "2026-07-22T03:01:50.023Z"
+      "updatedAt": "2026-07-22T03:14:18.057Z"
     }
   ],
   "trackerConfig": {
@@ -5375,6 +5375,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-22T02:31:07.574Z"
+    "lastSync": "2026-07-22T03:08:45.390Z"
   }
 }
