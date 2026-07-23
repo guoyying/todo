@@ -1182,11 +1182,11 @@
     {
       "id": "mrvvb0uu82ac1",
       "type": "task",
-      "content": "我都不知道咋办了，清单里要迁转的，退网了。那这种要不要纳入考虑啊-都不考虑了。导出那些就标记哪些电路编号即可。有遗漏的之后再说了",
+      "content": "我都不知道咋办了，清单里要迁转的，退网了。那这种要不要纳入考虑啊-都不考虑了。导出那些就标记哪些电路编号即可。有遗漏的之后再说了。那我今天先导出两个标签的清单，先照着分析下吧。就是将电路编号筛选出来。没事之后再调整也行。不追求一下子全对",
       "createdAt": "2026-07-22T09:16:07.062Z",
-      "updatedAt": "2026-07-23T01:00:42.520Z",
+      "updatedAt": "2026-07-23T06:15:38.369Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1266,11 +1266,11 @@
     {
       "id": "mrwsv0ulyv9i5",
       "type": "task",
-      "content": "省平台电路进度这周该怎么写？",
+      "content": "省平台电路进度这周该怎么写？我也不知道该怎么写啊。其实将所有的匹配下也不是不行。试试吧。",
       "createdAt": "2026-07-23T00:55:27.502Z",
-      "updatedAt": "2026-07-23T00:55:27.502Z",
+      "updatedAt": "2026-07-23T06:43:08.015Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1296,9 +1296,9 @@
       "type": "task",
       "content": "网安接单检查定级备案",
       "createdAt": "2026-07-23T02:59:16.247Z",
-      "updatedAt": "2026-07-23T02:59:16.247Z",
+      "updatedAt": "2026-07-23T06:43:30.300Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1308,11 +1308,11 @@
     {
       "id": "mrwy15l10haok",
       "type": "task",
-      "content": "看下团支部要干啥",
+      "content": "看下团支部要干啥。我们的优秀团员，得找回那个群才知道，然后看下人数。",
       "createdAt": "2026-07-23T03:20:11.653Z",
-      "updatedAt": "2026-07-23T03:20:11.653Z",
+      "updatedAt": "2026-07-23T06:52:49.399Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1322,11 +1322,11 @@
     {
       "id": "mrwy1bmi339zm",
       "type": "task",
-      "content": "想下补环怎么搞",
+      "content": "想下补环怎么搞。什么叫做补环怎么搞，哎。就是现在还剩下退网那个保护环，得破环。我现在不敢动了，或者我保留之前的信息也可以。截图，标注端口和光编号就行了。",
       "createdAt": "2026-07-23T03:20:19.482Z",
-      "updatedAt": "2026-07-23T03:20:19.482Z",
+      "updatedAt": "2026-07-23T06:56:23.384Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1339,6 +1339,162 @@
       "content": "我想看古诗词有赏析的那种书。",
       "createdAt": "2026-07-23T03:29:36.760Z",
       "updatedAt": "2026-07-23T03:29:36.760Z",
+      "tags": [
+        "生活"
+      ],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrx453qo8nq7u",
+      "type": "task",
+      "content": "写一下萤火行动的检查sop。打开填写表，把5楼的填写进去。3楼传输机房也写进去吧。",
+      "createdAt": "2026-07-23T06:11:13.584Z",
+      "updatedAt": "2026-07-23T06:57:15.363Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrx4ao5cg6u0f",
+      "type": "task",
+      "content": "excel导出所有标签的清单，整理一下，资源系统搜索，筛选掉‘退网’的。整理excel清单的电路编号、ems名称字段到一个新的sheet",
+      "createdAt": "2026-07-23T06:15:33.312Z",
+      "updatedAt": "2026-07-23T06:43:18.759Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx59584u0611",
+      "type": "task",
+      "content": "定级备案网页修改防汛字眼",
+      "createdAt": "2026-07-23T06:42:21.748Z",
+      "updatedAt": "2026-07-23T06:42:21.748Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx5akeme2ejk",
+      "type": "task",
+      "content": "写一下网安单回复的sop",
+      "createdAt": "2026-07-23T06:43:28.078Z",
+      "updatedAt": "2026-07-23T07:01:06.811Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrx5h36mve0hg",
+      "type": "task",
+      "content": "网安接单，两张单子思考下怎么搞。",
+      "createdAt": "2026-07-23T06:48:32.350Z",
+      "updatedAt": "2026-07-23T07:07:45.255Z",
+      "tags": [],
+      "done": true,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrx5kldffpvsc",
+      "type": "task",
+      "content": "拆运一体发邮件",
+      "createdAt": "2026-07-23T06:51:15.891Z",
+      "updatedAt": "2026-07-23T06:51:15.891Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx5mgut022ly",
+      "type": "task",
+      "content": "打开优秀团员评议的投票，然后记录算力和zwy人数。只看zwy的就行了",
+      "createdAt": "2026-07-23T06:52:43.349Z",
+      "updatedAt": "2026-07-23T06:52:43.349Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx5mpysayqz8",
+      "type": "task",
+      "content": "问下周去年优秀团员是谁",
+      "createdAt": "2026-07-23T06:52:55.156Z",
+      "updatedAt": "2026-07-23T06:52:55.156Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
+    },
+    {
+      "id": "mrx5r3bwhainp",
+      "type": "task",
+      "content": "保留之前的信息。截图保护环界面，标注端口和光编号就行了。",
+      "createdAt": "2026-07-23T06:56:19.100Z",
+      "updatedAt": "2026-07-23T06:56:19.100Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx5sh83u6jgg",
+      "type": "task",
+      "content": "萤火行动：打开填写表，把5楼的填写进去。3楼传输机房也写进去吧。",
+      "createdAt": "2026-07-23T06:57:23.763Z",
+      "updatedAt": "2026-07-23T06:57:23.763Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrx66469u9jba",
+      "type": "task",
+      "content": "记录下想想，掼蛋怎么将大道理用在实际中",
+      "createdAt": "2026-07-23T07:08:00.033Z",
+      "updatedAt": "2026-07-23T07:08:00.033Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1348,32 +1504,18 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mrwydmq0lxen1",
+      "id": "mrx6735l09ogj",
       "type": "task",
-      "content": "没想好中午吃啥，现在回不回去，怎么办？",
-      "createdAt": "2026-07-23T03:29:53.736Z",
-      "updatedAt": "2026-07-23T03:29:53.736Z",
+      "content": "这种都不经过我们的吗？荔湾发过来，我们转施工实施就行了？",
+      "createdAt": "2026-07-23T07:08:45.369Z",
+      "updatedAt": "2026-07-23T07:08:45.369Z",
       "tags": [],
       "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrwyv7d4gfp9r",
-      "type": "task",
-      "content": "我就怕一回家发现有人，烦死了。不可控的",
-      "createdAt": "2026-07-23T03:43:33.640Z",
-      "updatedAt": "2026-07-23T03:43:33.640Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1784509194257"
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1406,7 +1548,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3641,7 +3783,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-07-16T06:52:11.787Z"
+            "confirmationTime": "2026-07-23T06:51:17.436Z"
           }
         ]
       },
@@ -3649,7 +3791,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-07-16T06:50:00.830Z"
+        "0": "2026-07-23T06:51:00.007Z"
       }
     },
     {
@@ -3705,6 +3847,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-23T02:58:49.870Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mrx67fyngizln",
+      "taskId": "mrwyd9mgju1gz",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-23T18:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-23T07:09:01.967Z",
       "lastReminderTime": null,
       "active": true
     }
