@@ -958,20 +958,6 @@
       "listId": "list_1783565463457"
     },
     {
-      "id": "mrsjjta2uko71",
-      "type": "task",
-      "content": "找杨工问下128退网的事情，要准备些什么材料",
-      "createdAt": "2026-07-20T01:23:43.226Z",
-      "updatedAt": "2026-07-20T03:03:59.895Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
       "id": "mrsoas545wftd",
       "type": "task",
       "content": "就是东莞庄、元岗、马场这些本地机房有业务的重点关注。长途0业务的（实际有业务承载）也看看",
@@ -1051,76 +1037,6 @@
       "listId": "list_1783565463457"
     },
     {
-      "id": "mrty08v6vwsjb",
-      "type": "task",
-      "content": "问高华姐要20个单子",
-      "createdAt": "2026-07-21T00:56:10.722Z",
-      "updatedAt": "2026-07-22T01:48:01.392Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mru0y1dbw5xny",
-      "type": "task",
-      "content": "电话确认黄埔机楼",
-      "createdAt": "2026-07-21T02:18:26.543Z",
-      "updatedAt": "2026-07-21T02:47:15.609Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mru1tigqkhpjr",
-      "type": "task",
-      "content": "电话问下杨工",
-      "createdAt": "2026-07-21T02:42:55.034Z",
-      "updatedAt": "2026-07-21T09:02:37.470Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mru64oxl2y0we",
-      "type": "task",
-      "content": "约周四上午去新港机楼吧",
-      "createdAt": "2026-07-21T04:43:35.097Z",
-      "updatedAt": "2026-07-21T09:01:45.745Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
-      "id": "mru9dypbuzzml",
-      "type": "task",
-      "content": "问下华姐传输专业拆运一体单要关注什么（从化）",
-      "createdAt": "2026-07-21T06:14:46.511Z",
-      "updatedAt": "2026-07-21T08:14:26.915Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
-    },
-    {
       "id": "mrudedcyxvk5y",
       "type": "task",
       "content": "跟进省it系统三证申请工作；配合完成办公终端网络安全检查；",
@@ -1151,20 +1067,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrug70kvv7scw",
-      "type": "task",
-      "content": "我得问下总监‘工程队测试不在用’那就不用统计了吧？",
-      "createdAt": "2026-07-21T09:25:19.663Z",
-      "updatedAt": "2026-07-22T01:48:09.555Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
     },
     {
       "id": "mrvcly9kg8ujp",
@@ -1374,6 +1276,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrwt2bw5aciec",
+      "type": "task",
+      "content": "问下杨工设备退网的事情",
+      "createdAt": "2026-07-23T01:01:08.405Z",
+      "updatedAt": "2026-07-23T01:01:08.405Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1406,7 +1322,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5016,6 +4932,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-23T00:56:55.042Z"
+    "lastSync": "2026-07-23T01:00:49.165Z"
   }
 }
