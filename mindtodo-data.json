@@ -1526,9 +1526,9 @@
     {
       "id": "mrvtxvcqqw4pw",
       "type": "task",
-      "content": "看网管验收-资源系统",
+      "content": "看网管验收-资源系统部分",
       "createdAt": "2026-07-22T08:37:53.786Z",
-      "updatedAt": "2026-07-22T09:43:38.831Z",
+      "updatedAt": "2026-07-23T00:57:23.020Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1540,9 +1540,9 @@
     {
       "id": "mrvudv59o0tn8",
       "type": "task",
-      "content": "vscode：任务清单、待办、锦囊都支持markdown格式显示内容。它们是如何将文本字符渲染为css样式的？",
+      "content": "vscode：任务清单、待办、锦囊都支持markdown格式显示内容。它们是如何将文本字符渲染为css样式的",
       "createdAt": "2026-07-22T08:50:20.013Z",
-      "updatedAt": "2026-07-22T08:50:20.013Z",
+      "updatedAt": "2026-07-23T00:57:27.931Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1557,20 +1557,6 @@
       "content": "我都不知道咋办了，清单里要迁转的，退网了。那这种要不要纳入考虑啊？",
       "createdAt": "2026-07-22T09:16:07.062Z",
       "updatedAt": "2026-07-22T09:16:07.062Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrvwezlc68m0x",
-      "type": "task",
-      "content": "整理下任务清单吧。",
-      "createdAt": "2026-07-22T09:47:11.664Z",
-      "updatedAt": "2026-07-22T09:47:11.664Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1694,7 +1680,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5304,6 +5290,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-22T07:30:45.347Z"
+    "lastSync": "2026-07-23T00:56:55.042Z"
   }
 }
