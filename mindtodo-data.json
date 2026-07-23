@@ -2529,6 +2529,15 @@
       ],
       "createdAt": "2026-07-23T05:16:16.294Z",
       "updatedAt": "2026-07-23T05:16:16.294Z"
+    },
+    {
+      "id": "mrxd1knjtl9vq",
+      "content": "我妈今天从柜底翻出那盒蜡笔，是我小时候用的。她居然还留着。\n她说，丢了怪舍不得的。我站在那儿，看着那盒边角都磨圆了的蜡笔，忽然就明白了——舍不得的不是这东西，是那段再也回不去的时光。\n原来回忆是有重量的。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-07-23T10:20:25.423Z",
+      "updatedAt": "2026-07-23T10:20:25.423Z"
     }
   ],
   "slots": [],
@@ -4043,21 +4052,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-23T02:58:49.870Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mrx67fyngizln",
-      "taskId": "mrwyd9mgju1gz",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-23T18:15"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-23T07:09:01.967Z",
       "lastReminderTime": null,
       "active": true
     }
