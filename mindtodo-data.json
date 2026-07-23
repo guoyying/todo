@@ -1318,6 +1318,34 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrwy15l10haok",
+      "type": "task",
+      "content": "看下团支部要干啥",
+      "createdAt": "2026-07-23T03:20:11.653Z",
+      "updatedAt": "2026-07-23T03:20:11.653Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrwy1bmi339zm",
+      "type": "task",
+      "content": "想下补环怎么搞",
+      "createdAt": "2026-07-23T03:20:19.482Z",
+      "updatedAt": "2026-07-23T03:20:19.482Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1350,7 +1378,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4985,6 +5013,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-23T03:10:37.694Z"
+    "lastSync": "2026-07-23T03:14:20.440Z"
   }
 }
