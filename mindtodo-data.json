@@ -1139,22 +1139,6 @@
       "subtasks": []
     },
     {
-      "id": "mrwyd9mgju1gz",
-      "type": "task",
-      "content": "我想看古诗词有赏析的那种书。",
-      "createdAt": "2026-07-23T03:29:36.760Z",
-      "updatedAt": "2026-07-23T03:29:36.760Z",
-      "tags": [
-        "生活"
-      ],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mrxbbta80buus",
       "type": "task",
       "content": "跟昂绿说下已解决",
@@ -1173,7 +1157,7 @@
       "type": "task",
       "content": "还是没想到怎么搞，太多太乱了这些电路",
       "createdAt": "2026-07-23T09:36:02.144Z",
-      "updatedAt": "2026-07-23T09:36:02.144Z",
+      "updatedAt": "2026-07-23T23:55:34.194Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1201,7 +1185,7 @@
       "type": "task",
       "content": "我得看下旗杆-从化HC001-HB02(24)要不要补环。找回当时的笔记本",
       "createdAt": "2026-07-23T09:39:06.738Z",
-      "updatedAt": "2026-07-23T09:39:06.738Z",
+      "updatedAt": "2026-07-23T23:55:37.443Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1258,6 +1242,20 @@
       },
       "projectId": "1780299661890",
       "subtasks": []
+    },
+    {
+      "id": "mry66xhjafhmf",
+      "type": "task",
+      "content": "拆运一体发邮件（连同荔湾的）",
+      "createdAt": "2026-07-23T23:56:24.200Z",
+      "updatedAt": "2026-07-23T23:56:24.200Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1290,7 +1288,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4952,6 +4950,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-23T12:56:20.936Z"
+    "lastSync": "2026-07-24T00:04:36.106Z"
   }
 }
