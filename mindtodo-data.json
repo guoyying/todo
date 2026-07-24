@@ -1550,6 +1550,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mrykzsx4ns17y",
+      "type": "task",
+      "content": "真是烦的不行。可怜之人必有可恨之处，他喜欢去外面吃。难道他不会自己做吗？不会，不知道学着做吗？",
+      "createdAt": "2026-07-24T06:50:45.928Z",
+      "updatedAt": "2026-07-24T06:50:45.928Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1784509194257"
     }
   ],
   "taskLists": [
@@ -1582,7 +1596,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1784509194257",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3890,21 +3904,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-23T02:58:49.870Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mrya5yux0zaz9",
-      "taskId": "mrya5qo1t08te",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-24T14:23"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-24T01:47:37.785Z",
       "lastReminderTime": null,
       "active": true
     },
