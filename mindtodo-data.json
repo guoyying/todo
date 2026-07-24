@@ -1440,20 +1440,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mryaps7qadgog",
-      "type": "task",
-      "content": "核查越秀告警端口的网元",
-      "createdAt": "2026-07-24T02:03:02.294Z",
-      "updatedAt": "2026-07-24T02:03:02.294Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mrycxwhzoiuoq",
       "type": "task",
       "content": "思考下学习材料如何转发，说些什么",
@@ -1486,9 +1472,9 @@
       "type": "task",
       "content": "我希望任务清单按下键盘左右能切换清单顺序",
       "createdAt": "2026-07-24T03:07:46.801Z",
-      "updatedAt": "2026-07-24T03:07:46.801Z",
+      "updatedAt": "2026-07-24T06:58:48.542Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1564,6 +1550,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1784509194257"
+    },
+    {
+      "id": "mryla3qjtgnzh",
+      "type": "task",
+      "content": "核查越秀告警端口的网元",
+      "createdAt": "2026-07-24T06:58:46.507Z",
+      "updatedAt": "2026-07-24T06:58:46.507Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1596,7 +1596,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1784509194257",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5273,6 +5273,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-24T06:13:41.806Z"
+    "lastSync": "2026-07-24T06:53:33.279Z"
   }
 }
