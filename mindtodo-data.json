@@ -1578,6 +1578,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mryqy6le1lha3",
+      "type": "task",
+      "content": "看下体检的事情30号前完成",
+      "createdAt": "2026-07-24T09:37:28.034Z",
+      "updatedAt": "2026-07-24T09:37:28.034Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -5326,6 +5340,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-24T07:07:45.249Z"
+    "lastSync": "2026-07-24T08:36:32.579Z"
   }
 }
