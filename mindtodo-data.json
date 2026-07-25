@@ -1144,7 +1144,9 @@
       "content": "其实我可以先用已有的信息筛选啊，直接匹配有多少个。先给出个结果嘛。",
       "createdAt": "2026-07-23T09:36:02.144Z",
       "updatedAt": "2026-07-24T01:00:44.171Z",
-      "tags": [],
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "dueTime": "",
       "unknown": false,
@@ -1510,20 +1512,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mryl33zx1puut",
-      "type": "task",
-      "content": "真是烦的不行。可怜之人必有可恨之处，他喜欢去外面吃。难道他不会自己做吗？不会，不知道学着做吗？什么时候才能长大啊。如果我老公觉得憋屈：为什么我喊他回家吃饭都要这样问，要经过我审核。我可以反驳，那是因为你没管好。别说其他人了，我吧。不说做饭给父母了，起码懂得帮轻下父母，打个下手。他呢，有家里人托举，工作嫌这辛苦那辛苦，干一个月就不做了。一边说没钱一边又不努力。你能看得惯，我看不惯。也不关我事，他怎样，别让我知道。",
-      "createdAt": "2026-07-24T06:53:20.253Z",
-      "updatedAt": "2026-07-24T07:20:49.995Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1784509194257"
-    },
-    {
       "id": "mryla3qjtgnzh",
       "type": "task",
       "content": "核查越秀告警端口的网元",
@@ -1585,6 +1573,34 @@
       "content": "看下体检的事情30号前完成",
       "createdAt": "2026-07-24T09:37:28.034Z",
       "updatedAt": "2026-07-24T09:37:28.034Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrznu6x8na1m7",
+      "type": "task",
+      "content": "想想怎么完善整理任务的提示词（在备忘录里头）",
+      "createdAt": "2026-07-25T00:58:09.164Z",
+      "updatedAt": "2026-07-25T00:58:09.164Z",
+      "tags": [],
+      "done": false,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mrznvaw6trygb",
+      "type": "task",
+      "content": "我还想做个月历视图，记录耳钉（因）还有工作",
+      "createdAt": "2026-07-25T00:59:00.966Z",
+      "updatedAt": "2026-07-25T01:01:30.363Z",
       "tags": [],
       "done": false,
       "dueTime": "",
