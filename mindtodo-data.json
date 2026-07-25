@@ -1256,20 +1256,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mry9hm6bmz7v0",
-      "type": "task",
-      "content": "跟饶总说已检查完，增加了办工密码。饶总，上午杰哥带我做了您办工电脑的检查。设备没有设置锁屏密码，已设置。密码杰哥那边记录了",
-      "createdAt": "2026-07-24T01:28:41.603Z",
-      "updatedAt": "2026-07-24T01:51:29.245Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "mry9me0u6nfmk",
       "type": "task",
       "content": "看下这个从化网元怎么找下带业务",
@@ -1510,9 +1496,9 @@
     {
       "id": "mryoqo2dzo9cg",
       "type": "task",
-      "content": "一季度大会：打开文件夹，找到通知；人数：拿出一季度的签到表",
+      "content": "一季度大会：打开文件夹，找到通知；人数：拿出一季度的签到表。",
       "createdAt": "2026-07-24T08:35:38.197Z",
-      "updatedAt": "2026-07-24T08:35:51.326Z",
+      "updatedAt": "2026-07-25T12:33:20.318Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1524,9 +1510,9 @@
     {
       "id": "mryqy6le1lha3",
       "type": "task",
-      "content": "看下体检的事情30号前完成",
+      "content": "看下体检的事情30号前完成.",
       "createdAt": "2026-07-24T09:37:28.034Z",
-      "updatedAt": "2026-07-24T09:37:28.034Z",
+      "updatedAt": "2026-07-25T12:33:39.359Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -3991,6 +3977,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-24T07:58:24.630Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms0co0glpg7py",
+      "taskId": "mryonrcxmb7eo",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-27T09:13"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-25T12:33:11.253Z",
       "lastReminderTime": null,
       "active": true
     }
