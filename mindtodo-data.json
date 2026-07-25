@@ -244,21 +244,6 @@
       "doneAt": "2026-05-23T07:03:43.445Z"
     },
     {
-      "id": "mpj7j5zetq0kk",
-      "type": "task",
-      "content": "做糖水（雪梨、银耳、红枣、冰糖）",
-      "createdAt": "2026-05-24T03:17:57.386Z",
-      "updatedAt": "2026-05-24T15:23:23.111Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [],
-      "doneAt": "2026-05-24T15:23:23.111Z"
-    },
-    {
       "id": "mpkmm784xz7mk",
       "type": "task",
       "content": "整理视频",
@@ -643,21 +628,6 @@
       "updatedAt": "2026-06-17T20:32:52.732Z"
     },
     {
-      "id": "mqitc2syp4vz3",
-      "type": "task",
-      "content": "买鼠标和鼠标垫",
-      "createdAt": "2026-06-18T01:20:14.386Z",
-      "updatedAt": "2026-06-18T03:54:04.107Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "8min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-18T03:54:04.107Z"
-    },
-    {
       "id": "mqked8r3ky0m6",
       "type": "task",
       "content": "🎯 练习表达反馈：无情境\n\n当然，理解你想在假期轻松的氛围里，既自然带出工作内容，又不让老公觉得你在“加班式聊天”。可以试试这样表达，既简洁、有趣，又带点“成果感”：---你可以这样说：“老公，我跟你说个挺有成就感的事——下周二的汇报，我准备讲我们团队最近在做的‘网络瘦身’计划。简单说就是：把老旧、没用的设备拆掉、退网，这样既能省电费，又能腾出机房空间，网络还更稳。”“而且我们搞了个小工具，能自动追踪退网进度，不用再靠人工一个个查，效率高了不少。感觉就像给网络‘减了个肥’哈哈。”---要点：• 用“瘦身”“减肥”类比，轻松有趣，避免术语堆砌。• 突出“成就感”“省电费”“更稳”，听起来像好事，不像压力。• 最后用“哈哈”收尾，传递轻松感，让老公觉得你是在分享快乐，不是在加班。如果需要更短或更口语化的版本，也可以再调整。希望对你有帮助！",
@@ -984,22 +954,6 @@
       "isList": false,
       "subtasks": [],
       "listId": "list_1783565463457"
-    },
-    {
-      "id": "mrvcly9kg8ujp",
-      "type": "task",
-      "content": "完成老公的编绳",
-      "createdAt": "2026-07-22T00:32:44.216Z",
-      "updatedAt": "2026-07-23T00:53:33.277Z",
-      "tags": [
-        "生活"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     },
     {
       "id": "1784681793302",
@@ -1608,6 +1562,41 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "1784980792933",
+      "type": "task",
+      "content": "生活",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
+      "doneAt": "2026-06-18T03:54:04.107Z",
+      "organizedAt": "2026-07-25T11:59:52.933Z",
+      "createdAt": "2026-06-18T01:20:14.386Z",
+      "updatedAt": "2026-07-25T11:59:52.933Z",
+      "listId": "list_1783562300215",
+      "organization": {
+        "goal": "做糖水（雪梨、银耳、红枣、冰糖）\n觉得人体工学鼠标对肌肉好，就买了粉色和绿色鼠标和垫\n老公的编绳坏了，而且容易脏，换了个深绿色",
+        "goalWeeks": "[{\"content\":\"做糖水（雪梨、银耳、红枣、冰糖）\",\"week\":{\"start\":\"2026-05-17T16:00:00.000Z\",\"end\":\"2026-05-23T16:00:00.000Z\",\"label\":\"2026/5/18 - 2026/5/24\"}},{\"content\":\"觉得人体工学鼠标对肌肉好，就买了粉色和绿色鼠标和垫\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"2026/6/29 - 2026/7/5\"}},{\"content\":\"老公的编绳坏了，而且容易脏，换了个深绿色\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"5天前 - 刚刚\"}}]",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "",
+        "successWeeks": "",
+        "problems": "",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "",
+        "methodsWeeks": "",
+        "assets": "",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-25T11:59:52.933Z"
+      },
+      "projectId": "1784980792208",
+      "subtasks": []
     }
   ],
   "taskLists": [
@@ -4626,6 +4615,16 @@
       "status": "active",
       "createdAt": "2026-06-17T08:44:20.305Z",
       "updatedAt": "2026-06-17T08:44:20.305Z",
+      "subDirections": [],
+      "milestones": []
+    },
+    {
+      "id": "1784980792208",
+      "name": "生活",
+      "description": "",
+      "status": "active",
+      "createdAt": "2026-07-25T11:59:52.208Z",
+      "updatedAt": "2026-07-25T11:59:52.208Z",
       "subDirections": [],
       "milestones": []
     }
