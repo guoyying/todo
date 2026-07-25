@@ -8583,6 +8583,7 @@ padding: 7px !important;
                         <div style="display:flex;gap:8px;">
                             <button class="btn btn-primary" onclick="saveTaskOrganizer()" style="flex:1;">💾 保存整理</button>
                             <button class="btn btn-secondary" onclick="clearOrganizerForm()" style="flex:1;">🗑️ 清空表单</button>
+                            <button id="calendarViewBtn" class="btn btn-secondary" onclick="showTaskCalendarView()" style="flex:0 0 140px;display:none;">📅 月历视图</button>
                         </div>
                     </div>
                 </div>
@@ -13732,6 +13733,20 @@ const item = {
         // ============ 任务清单渲染 ============
         function renderListTodos() {
             const container = document.getElementById('listTodoList');
+            
+            // 在重新渲染前，保存批量模式下的选中状态
+            const isBatchMode = document.getElementById('listBatchModeBtn')?.dataset.active === 'true';
+            const checkedTaskIds = [];
+            if (isBatchMode) {
+                const checkboxes = document.querySelectorAll('.compact-checkbox-batch.checked');
+                checkboxes.forEach(cb => {
+                    const row = cb.closest('.compact-item');
+                    if (row) {
+                        checkedTaskIds.push(row.dataset.id);
+                    }
+                });
+            }
+            
             container.innerHTML = '';
             
             // 获取筛选条件
@@ -13778,9 +13793,6 @@ let list = data.tasks.filter(i => {
             // 紧凑列表容器
             const compactList = document.createElement('div');
             compactList.className = 'compact-todo-list';
-            
-            // 检查是否在批量模式
-            const isBatchMode = document.getElementById('listBatchModeBtn')?.dataset.active === 'true';
             
             // 渲染清单任务（带复选框，支持 Markdown，复用待办显示逻辑）
             list.forEach(item => {
@@ -13998,6 +14010,7 @@ addTaskBtn.onclick = function() {
                     updatedAt: nowStr(),
                     tags: [],
                     done: false,
+                    doneAt: null,
                     dueTime: '',
                     unknown: false,
                     isList: true,
@@ -14031,6 +14044,20 @@ compactList.appendChild(addTaskBtn);
 
 container.appendChild(compactList);
 
+// 在批量模式下，恢复选中状态（必须在 container.appendChild(compactList) 之后）
+if (isBatchMode && checkedTaskIds.length > 0) {
+    checkedTaskIds.forEach(taskId => {
+        const row = container.querySelector(`.compact-item[data-id="${taskId}"]`);
+        if (row) {
+            const cb = row.querySelector('.compact-checkbox-batch');
+            if (cb) {
+                cb.classList.add('checked');
+                cb.innerHTML = '✓';
+            }
+        }
+    });
+}
+
 // 更新强提醒横幅
 updateStrongReminderBanner();
 }
@@ -14040,6 +14067,12 @@ updateStrongReminderBanner();
             const task = data.tasks.find(t => t.id === taskId);
             if (task) {
                 task.done = !task.done;
+                // 如果任务变为完成，设置 doneAt；如果变为未完成，清除 doneAt
+                if (task.done) {
+                    task.doneAt = nowStr();
+                } else {
+                    task.doneAt = null;
+                }
                 task.updatedAt = nowStr();
                 saveData();
                 renderListTodos();
@@ -23968,6 +24001,355 @@ ${ammoToAnalyze.map((ammo, index) =>
                loadPendingTasksList();
                renderCompleted();
            }
+       }
+       
+       // 查看已整理任务（原来的功能：切换到整理表单并填充数据）
+       function viewOrganizedTask(taskId) {
+           const task = data.tasks.find(t => t.id === taskId);
+           if (!task || !task.organization) return;
+           
+           // 切换到整理任务选项卡
+           switchOrganizerTab('organizer');
+           
+           // 确保待整理任务列表已展开
+           const container = document.getElementById('pendingTasksContainer');
+           if (container.style.display === 'none') {
+               container.style.display = 'block';
+           }
+           
+           // 重新加载待整理任务列表以确保任务已渲染
+           loadPendingTasksList();
+           
+           // 自动勾选对应的任务
+           setTimeout(() => {
+               const checkbox = document.querySelector(`.pending-task-checkbox[data-task-id="${taskId}"]`);
+               if (checkbox) {
+                   checkbox.checked = true;
+                   // 触发 change 事件以更新选中状态和数量
+                   checkbox.dispatchEvent(new Event('change'));
+                   // 滚动到该任务位置
+                   const taskItem = checkbox.closest('.pending-task-item');
+                   if (taskItem) {
+                       taskItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                   }
+               }
+           }, 100);
+           
+           // 填充表单
+           document.getElementById('organizerTaskContent').value = task.content;
+           
+           // 加载要点数据
+           loadPointsFromText('organizerGoal', task.organization.goal);
+           loadPointsFromJSON('organizerGoal', task.organization.goalWeeks);
+           loadPointsFromText('organizerImprovement', task.organization.improvement);
+           loadPointsFromJSON('organizerImprovement', task.organization.improvementWeeks);
+           loadPointsFromText('organizerSkills', task.organization.skills);
+           loadPointsFromJSON('organizerSkills', task.organization.skillsWeeks);
+           loadPointsFromText('organizerSuccess', task.organization.success);
+           loadPointsFromJSON('organizerSuccess', task.organization.successWeeks);
+           loadPointsFromText('organizerProblems', task.organization.problems);
+           loadPointsFromJSON('organizerProblems', task.organization.problemsWeeks);
+           loadPointsFromText('organizerSummary', task.organization.summary);
+           loadPointsFromJSON('organizerSummary', task.organization.summaryWeeks);
+           loadPointsFromText('organizerMethods', task.organization.methods);
+           loadPointsFromJSON('organizerMethods', task.organization.methodsWeeks);
+           loadPointsFromText('organizerAssets', task.organization.assets);
+           loadPointsFromJSON('organizerAssets', task.organization.assetsWeeks);
+           
+           // 设置标签（使用新的下拉式选择器）
+           const taskTags = task.tags || [];
+           setOrganizerTags(taskTags);
+           
+           // 隐藏合并信息
+           document.getElementById('mergedTaskInfo').style.display = 'none';
+           
+           // 清空合并任务 ID
+           window.mergedTaskIds = null;
+           
+           // 显示月历视图按钮
+           const calendarBtn = document.getElementById('calendarViewBtn');
+           if (calendarBtn) {
+               calendarBtn.style.display = 'block';
+               calendarBtn.dataset.taskId = taskId;
+           }
+       }
+       
+       // 显示任务月历视图（弹窗）
+       function showTaskCalendarView() {
+           const calendarBtn = document.getElementById('calendarViewBtn');
+           if (!calendarBtn || !calendarBtn.dataset.taskId) {
+               alert('请先选择一个任务');
+               return;
+           }
+           
+           const taskId = calendarBtn.dataset.taskId;
+           const task = data.tasks.find(t => t.id === taskId);
+           if (!task || !task.organization) {
+               alert('该任务没有整理数据');
+               return;
+           }
+           
+           // 创建详情弹窗
+           const modal = document.createElement('div');
+           modal.className = 'modal-overlay';
+           modal.id = 'taskCalendarModal';
+           modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:10000;';
+           
+           modal.innerHTML = `
+               <div class="modal" style="max-width:1000px;max-height:90vh;overflow-y:auto;">
+                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:16px;">
+                       <div>
+                           <h3 style="margin:0 0 8px 0;">📅 任务整理月历视图</h3>
+                           <div style="font-size:14px;color:var(--text-secondary);">${escapeHtml(task.content)}</div>
+                       </div>
+                       <button onclick="document.getElementById('taskCalendarModal').remove()" style="background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-secondary);padding:0;">✕</button>
+                   </div>
+                   
+                   <div style="padding:8px 16px 16px;">
+                       <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                           <label style="font-size:14px;color:var(--text);">筛选月份：</label>
+                           <select id="monthFilter" style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;font-size:14px;background:var(--bg);color:var(--text);">
+                               <option value="all">全部月份</option>
+                           </select>
+                           <button id="clearFilter" style="padding:6px 12px;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);cursor:pointer;font-size:14px;">清除筛选</button>
+                       </div>
+                       <div id="taskCalendarView"></div>
+                   </div>
+               </div>
+           `;
+           
+           document.body.appendChild(modal);
+           
+           // 渲染月历
+           renderTaskCalendarView(task, modal.querySelector('#taskCalendarView'));
+       }
+       
+       // 渲染单个任务的月历视图
+       function renderTaskCalendarView(task, container) {
+           const org = task.organization;
+           
+           // 定义字段配置
+           const fieldConfig = {
+               'goal': { label: '🎯 行动、阶段成效', color: '#4CAF50' },
+               'improvement': { label: '🔄 下次改进建议', color: '#FF9800' },
+               'skills': { label: '📚 新知摄取', color: '#2196F3' },
+               'success': { label: '✨ 成功经验', color: '#9C27B0' },
+               'problems': { label: '❌ 遇到问题', color: '#f44336' },
+               'summary': { label: '📝 经验总结', color: '#795548' },
+               'methods': { label: '💡 好用的方法', color: '#00BCD4' },
+               'assets': { label: '📦 资产沉淀', color: '#607D8B' }
+           };
+           
+           // 收集所有周数据
+           const allEvents = [];
+           
+           Object.keys(fieldConfig).forEach(fieldKey => {
+               const weeksKey = fieldKey + 'Weeks';
+               
+               if (org && org[weeksKey]) {
+                   try {
+                       const weeksData = JSON.parse(org[weeksKey]);
+                       if (Array.isArray(weeksData)) {
+                           weeksData.forEach(item => {
+                               if (item.content && item.week && item.week.start && item.week.end) {
+                                   allEvents.push({
+                                       fieldKey: fieldKey,
+                                       fieldLabel: fieldConfig[fieldKey].label,
+                                       fieldColor: fieldConfig[fieldKey].color,
+                                       content: item.content,
+                                       start: new Date(item.week.start),
+                                       end: new Date(item.week.end)
+                                   });
+                               }
+                           });
+                       }
+                   } catch (e) {
+                       // 解析失败，跳过
+                   }
+               }
+           });
+           
+           if (allEvents.length === 0) {
+               container.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px;font-size:14px;">暂无周度记录数据</div>';
+               return;
+           }
+           
+           // 找到最早和最晚的日期
+           let minDate = allEvents[0].start;
+           let maxDate = allEvents[0].end;
+           
+           allEvents.forEach(event => {
+               if (event.start < minDate) minDate = event.start;
+               if (event.end > maxDate) maxDate = event.end;
+           });
+           
+           // 填充月份筛选器
+           const monthFilter = document.getElementById('monthFilter');
+           if (monthFilter) {
+               // 收集所有有数据的月份
+               const eventsByMonth = {};
+               allEvents.forEach(event => {
+                   const monthKey = `${event.start.getFullYear()}-${String(event.start.getMonth() + 1).padStart(2, '0')}`;
+                   if (!eventsByMonth[monthKey]) {
+                       eventsByMonth[monthKey] = [];
+                   }
+                   eventsByMonth[monthKey].push(event);
+               });
+               
+               const sortedMonths = Object.keys(eventsByMonth).sort();
+               
+               sortedMonths.forEach(monthKey => {
+                   const [year, month] = monthKey.split('-').map(Number);
+                   const monthName = new Date(year, month - 1).toLocaleString('zh-CN', { month: 'long' });
+                   const option = document.createElement('option');
+                   option.value = monthKey;
+                   option.textContent = `${year}年${month}月 (${eventsByMonth[monthKey].length}条)`;
+                   monthFilter.appendChild(option);
+               });
+               
+               // 筛选事件处理
+               monthFilter.onchange = () => {
+                   renderTimeline();
+               };
+           }
+           
+           // 清除筛选按钮
+           const clearFilterBtn = document.getElementById('clearFilter');
+           if (clearFilterBtn) {
+               clearFilterBtn.onclick = () => {
+                   if (monthFilter) {
+                       monthFilter.value = 'all';
+                       renderTimeline();
+                   }
+               };
+           }
+           
+           // 渲染时间轴函数
+           function renderTimeline() {
+               const selectedMonth = monthFilter ? monthFilter.value : 'all';
+               
+               // 渲染时间轴视图（类似参考文件风格）
+               const timelineContainer = document.createElement('div');
+               timelineContainer.style.cssText = 'background:var(--bg-secondary);border-radius:8px;padding:20px;';
+               
+               // 字段图例
+               const legendContainer = document.createElement('div');
+               legendContainer.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border);';
+               
+               Object.keys(fieldConfig).forEach(fieldKey => {
+                   const legendItem = document.createElement('div');
+                   legendItem.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);';
+                   legendItem.innerHTML = `
+                       <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${fieldConfig[fieldKey].color};"></span>
+                       <span>${fieldConfig[fieldKey].label}</span>
+                   `;
+                   legendContainer.appendChild(legendItem);
+               });
+               
+               timelineContainer.appendChild(legendContainer);
+               
+               // 按月份分组事件（根据筛选条件）
+               const eventsByMonth = {};
+               allEvents.forEach(event => {
+                   const monthKey = `${event.start.getFullYear()}-${String(event.start.getMonth() + 1).padStart(2, '0')}`;
+                   if (selectedMonth === 'all' || monthKey === selectedMonth) {
+                       if (!eventsByMonth[monthKey]) {
+                           eventsByMonth[monthKey] = [];
+                       }
+                       eventsByMonth[monthKey].push(event);
+                   }
+               });
+               
+               // 按时间排序月份
+               const sortedMonths = Object.keys(eventsByMonth).sort();
+               
+               if (sortedMonths.length === 0) {
+                   timelineContainer.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:40px;font-size:14px;">该月份暂无记录数据</div>';
+               } else {
+                   // 为每个月渲染时间轴
+                   sortedMonths.forEach((monthKey, index) => {
+                       const monthTimeline = createTaskMonthTimeline(monthKey, eventsByMonth[monthKey], fieldConfig);
+                       timelineContainer.appendChild(monthTimeline);
+                       
+                       // 不是最后一个月，添加分隔线
+                       if (index < sortedMonths.length - 1) {
+                           const separator = document.createElement('div');
+                           separator.style.cssText = 'height:1px;background:var(--border);margin:16px 0;';
+                           timelineContainer.appendChild(separator);
+                       }
+                   });
+               }
+               
+               // 清空并重新添加容器
+               container.innerHTML = '';
+               container.appendChild(timelineContainer);
+           }
+           
+           // 初始渲染
+           renderTimeline();
+       }
+       
+       // 创建单月时间轴（类似参考文件风格）
+       function createTaskMonthTimeline(monthKey, events, fieldConfig) {
+           const [year, month] = monthKey.split('-').map(Number);
+           const monthName = new Date(year, month - 1).toLocaleString('zh-CN', { month: 'long' });
+           
+           const monthContainer = document.createElement('div');
+           monthContainer.style.cssText = 'position:relative;padding-left:24px;';
+           
+           // 月份标题和时间轴起点
+           const monthHeader = document.createElement('div');
+           monthHeader.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:16px;';
+           monthHeader.innerHTML = `
+               <div style="position:relative;">
+                   <div style="width:16px;height:16px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;">
+                       <span style="font-size:10px;color:#fff;font-weight:bold;">${month}</span>
+                   </div>
+                   <div style="position:absolute;top:8px;left:7px;height:calc(100% + 20px);width:2px;background:var(--primary);"></div>
+               </div>
+               <div>
+                   <h4 style="margin:0;font-size:14px;font-weight:bold;color:var(--text);">${year}年${monthName}</h4>
+                   <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">${events.length} 条记录</div>
+               </div>
+           `;
+           monthContainer.appendChild(monthHeader);
+           
+           // 事件列表
+           const eventsList = document.createElement('div');
+           eventsList.style.cssText = 'display:flex;flex-direction:column;gap:8px;';
+           
+           // 按日期排序事件
+           const sortedEvents = [...events].sort((a, b) => a.start - b.start);
+           
+           sortedEvents.forEach(event => {
+               const eventCard = document.createElement('div');
+               eventCard.style.cssText = 'position:relative;padding:12px 16px;background:var(--bg);border-radius:6px;border-left:3px solid ' + event.fieldColor + ';';
+               
+               // 日期标签
+               const dateLabel = document.createElement('div');
+               dateLabel.style.cssText = 'font-size:11px;color:var(--text-secondary);margin-bottom:4px;';
+               const startDate = new Date(event.start);
+               dateLabel.textContent = `${month}月${startDate.getDate()}日 · ${event.fieldLabel}`;
+               eventCard.appendChild(dateLabel);
+               
+               // 内容
+               const contentDiv = document.createElement('div');
+               contentDiv.style.cssText = 'font-size:13px;color:var(--text);line-height:1.5;';
+               contentDiv.textContent = event.content;
+               eventCard.appendChild(contentDiv);
+               
+               // 点击查看详情
+               eventCard.style.cursor = 'pointer';
+               eventCard.onclick = () => {
+                   alert(`${event.fieldLabel}\n\n${event.content}\n\n时间：${startDate.toLocaleDateString('zh-CN')}`);
+               };
+               
+               eventsList.appendChild(eventCard);
+           });
+           
+           monthContainer.appendChild(eventsList);
+           
+           return monthContainer;
        }
        
        // 导出任务整理
