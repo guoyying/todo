@@ -995,7 +995,7 @@
       "type": "task",
       "content": "三码过单",
       "createdAt": "2026-07-22T06:57:01.585Z",
-      "updatedAt": "2026-07-22T07:29:17.846Z",
+      "updatedAt": "2026-07-25T13:00:45.337Z",
       "tags": [
         "退网"
       ],
@@ -1004,7 +1004,8 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-25T13:00:45.337Z"
     },
     {
       "id": "mrvstw4ar0sbe",
@@ -1097,7 +1098,7 @@
       "type": "task",
       "content": "本周整理可退网设备xx个，并联系县分及时上单",
       "createdAt": "2026-07-23T09:36:35.135Z",
-      "updatedAt": "2026-07-25T12:47:37.874Z",
+      "updatedAt": "2026-07-25T13:00:47.437Z",
       "tags": [
         "退网"
       ],
@@ -1106,7 +1107,8 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-25T13:00:47.437Z"
     },
     {
       "id": "1784811931637",
@@ -1148,7 +1150,7 @@
       "type": "task",
       "content": "拆运一体邮件通知施工实施单20个",
       "createdAt": "2026-07-23T23:56:24.200Z",
-      "updatedAt": "2026-07-25T12:48:26.505Z",
+      "updatedAt": "2026-07-25T13:00:49.235Z",
       "tags": [
         "拆运一体"
       ],
@@ -1157,14 +1159,15 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-25T13:00:49.235Z"
     },
     {
       "id": "mry7sikoo83f3",
       "type": "task",
       "content": "护vv行动：宣贯邮件安全打开规范",
       "createdAt": "2026-07-24T00:41:10.920Z",
-      "updatedAt": "2026-07-25T12:49:31.334Z",
+      "updatedAt": "2026-07-25T13:00:51.103Z",
       "tags": [
         "网安"
       ],
@@ -1173,7 +1176,8 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-25T13:00:51.103Z"
     },
     {
       "id": "mry82ndbhzr3m",
