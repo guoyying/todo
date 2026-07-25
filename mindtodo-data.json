@@ -1093,56 +1093,14 @@
       "subtasks": []
     },
     {
-      "id": "mrxbghnkknwip",
+      "id": "mrxbh73zzxa34",
       "type": "task",
-      "content": "其实我可以先用已有的信息筛选啊，直接匹配有多少个。先给出个结果嘛。",
-      "createdAt": "2026-07-23T09:36:02.144Z",
-      "updatedAt": "2026-07-24T01:00:44.171Z",
+      "content": "本周整理可退网设备xx个，并联系县分及时上单",
+      "createdAt": "2026-07-23T09:36:35.135Z",
+      "updatedAt": "2026-07-25T12:47:37.874Z",
       "tags": [
         "退网"
       ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrxbh73zzxa34",
-      "type": "task",
-      "content": "看越秀的可退网清单标记蓝色的",
-      "createdAt": "2026-07-23T09:36:35.135Z",
-      "updatedAt": "2026-07-24T02:02:44.538Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrxbkg36noz3d",
-      "type": "task",
-      "content": "我得看下旗杆-从化HC001-HB02(24)要不要补环。找回当时的笔记本",
-      "createdAt": "2026-07-23T09:39:06.738Z",
-      "updatedAt": "2026-07-24T01:32:12.614Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrxbp7m8p1odz",
-      "type": "task",
-      "content": "从化军体院C网基站-CHJTYWC001-WA01上烽火看下网管，以及上联资源设备。可以的话过退网但",
-      "createdAt": "2026-07-23T09:42:49.040Z",
-      "updatedAt": "2026-07-24T02:05:57.961Z",
-      "tags": [],
       "done": true,
       "dueTime": "",
       "unknown": false,
@@ -1188,10 +1146,12 @@
     {
       "id": "mry66xhjafhmf",
       "type": "task",
-      "content": "拆运一体发邮件（连同荔湾的）",
+      "content": "拆运一体邮件通知施工实施单20个",
       "createdAt": "2026-07-23T23:56:24.200Z",
-      "updatedAt": "2026-07-24T02:10:22.643Z",
-      "tags": [],
+      "updatedAt": "2026-07-25T12:48:26.505Z",
+      "tags": [
+        "拆运一体"
+      ],
       "done": true,
       "dueTime": "",
       "unknown": false,
@@ -1202,30 +1162,18 @@
     {
       "id": "mry7sikoo83f3",
       "type": "task",
-      "content": "将规范给团队成员签名",
+      "content": "护vv行动：宣贯邮件安全打开规范",
       "createdAt": "2026-07-24T00:41:10.920Z",
-      "updatedAt": "2026-07-24T05:27:21.285Z",
-      "tags": [],
+      "updatedAt": "2026-07-25T12:49:31.334Z",
+      "tags": [
+        "网安"
+      ],
       "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mry7twtc8bv3u",
-      "type": "task",
-      "content": "联系杰哥要看饶总的办工电脑",
-      "createdAt": "2026-07-24T00:42:16.032Z",
-      "updatedAt": "2026-07-24T01:28:18.875Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457"
     },
     {
       "id": "mry82ndbhzr3m",
@@ -1233,49 +1181,9 @@
       "content": "选钻石耳钉，想想有无更好的选择。铂金也挺好，继续查询下",
       "createdAt": "2026-07-24T00:49:03.695Z",
       "updatedAt": "2026-07-24T01:35:18.232Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mry8ml3rgxajl",
-      "type": "task",
-      "content": "先将全量目标筛选，把az端的合并到一列，然后做成清单匹配局端sdh",
-      "createdAt": "2026-07-24T01:04:33.879Z",
-      "updatedAt": "2026-07-24T02:28:23.121Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mry9me0u6nfmk",
-      "type": "task",
-      "content": "看下这个从化网元怎么找下带业务",
-      "createdAt": "2026-07-24T01:32:24.318Z",
-      "updatedAt": "2026-07-24T03:28:40.179Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mry9qeddhg0er",
-      "type": "task",
-      "content": "看下铂金能不能睡觉也戴上",
-      "createdAt": "2026-07-24T01:35:31.393Z",
-      "updatedAt": "2026-07-24T02:59:03.500Z",
-      "tags": [],
+      "tags": [
+        "生活"
+      ],
       "done": true,
       "dueTime": "",
       "unknown": false,
@@ -1286,80 +1194,12 @@
     {
       "id": "mry9qrjvob3u6",
       "type": "task",
-      "content": "思考下这个故障单想我做啥。",
+      "content": "爬虫有可能结果不准的，得再次核对才能关电。",
       "createdAt": "2026-07-24T01:35:48.475Z",
-      "updatedAt": "2026-07-24T03:37:19.619Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mry9s5gyo1xq9",
-      "type": "task",
-      "content": "我得查一下那个PDH在我发给他们的清单是多少，我现在资源查是多少",
-      "createdAt": "2026-07-24T01:36:53.170Z",
-      "updatedAt": "2026-07-24T03:37:22.340Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrya59x4lkvqb",
-      "type": "task",
-      "content": "我要看下问ai是怎么渲染markdown的",
-      "createdAt": "2026-07-24T01:47:05.464Z",
-      "updatedAt": "2026-07-24T06:16:28.591Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrya6b7khrqpg",
-      "type": "task",
-      "content": "答题我希望~~能返回到上一题~~。问ai，点击遮罩层（非关闭）就隐藏，再次点击‘问ai’可以回到原来的显示状态",
-      "createdAt": "2026-07-24T01:47:53.792Z",
-      "updatedAt": "2026-07-24T06:13:08.241Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrya921rbuttj",
-      "type": "task",
-      "content": "看下团支部这边我要做什么。要录入季度大会和学习材料的。那我先思考学习材料、转发，然后再录入吧",
-      "createdAt": "2026-07-24T01:50:01.887Z",
-      "updatedAt": "2026-07-24T03:10:28.777Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mryab4x4ugh1x",
-      "type": "task",
-      "content": "看下密码检查如何回单",
-      "createdAt": "2026-07-24T01:51:38.920Z",
-      "updatedAt": "2026-07-24T07:10:13.797Z",
-      "tags": [],
+      "updatedAt": "2026-07-25T12:46:02.563Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "dueTime": "",
       "unknown": false,
@@ -1382,34 +1222,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mryd0d9zxyxp7",
-      "type": "task",
-      "content": "看下教育实践录入的格式内容，要填什么。形成sop到确定性任务中",
-      "createdAt": "2026-07-24T03:07:15.383Z",
-      "updatedAt": "2026-07-24T08:00:01.222Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mryd11ip7prj3",
-      "type": "task",
-      "content": "我希望任务清单按下键盘左右能切换清单顺序",
-      "createdAt": "2026-07-24T03:07:46.801Z",
-      "updatedAt": "2026-07-24T06:58:48.542Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mryds1264c8xk",
       "type": "task",
       "content": "下周一上班，我去激活114-神岗-从化HA001观察看看吧，如果没有报障就可以退网了。",
@@ -1422,62 +1234,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mryi0a3u85g22",
-      "type": "task",
-      "content": "看下耳钉清洗器",
-      "createdAt": "2026-07-24T05:27:09.354Z",
-      "updatedAt": "2026-07-24T08:12:59.118Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mryi0p1tigc0p",
-      "type": "task",
-      "content": "拍照转pdf回单",
-      "createdAt": "2026-07-24T05:27:28.721Z",
-      "updatedAt": "2026-07-24T07:07:13.739Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mryla3qjtgnzh",
-      "type": "task",
-      "content": "核查越秀告警端口的网元",
-      "createdAt": "2026-07-24T06:58:46.507Z",
-      "updatedAt": "2026-07-24T08:33:12.060Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mrynhdrxgeo8o",
-      "type": "task",
-      "content": "写一下教育实践录入在哪里找材料，形成sop无脑自行。一季度大会：打开文件夹，找到通知；人数：打开企微群，找到当时一季度通知和知晓请假形式的才行。噢不对，我拿出一季度的签到表就行了。",
-      "createdAt": "2026-07-24T08:00:25.341Z",
-      "updatedAt": "2026-07-24T08:35:31.986Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     },
     {
       "id": "mryonrcxmb7eo",
@@ -1615,7 +1371,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5356,6 +5112,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-24T09:37:34.633Z"
+    "lastSync": "2026-07-25T12:33:59.486Z"
   }
 }
