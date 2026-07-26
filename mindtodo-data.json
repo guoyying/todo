@@ -1282,34 +1282,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "mrznu6x8na1m7",
-      "type": "task",
-      "content": "想想怎么完善整理任务的提示词（在备忘录里头）",
-      "createdAt": "2026-07-25T00:58:09.164Z",
-      "updatedAt": "2026-07-25T00:58:09.164Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "mrznvaw6trygb",
-      "type": "task",
-      "content": "我还想做个月历视图，记录耳钉（因）还有工作",
-      "createdAt": "2026-07-25T00:59:00.966Z",
-      "updatedAt": "2026-07-25T01:01:30.363Z",
-      "tags": [],
-      "done": false,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "1784980792933",
       "type": "task",
       "content": "生活",
@@ -1375,7 +1347,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
