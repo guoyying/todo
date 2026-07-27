@@ -1003,36 +1003,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mryonrcxmb7eo",
-      "type": "task",
-      "content": "去激活越秀的设备吧",
-      "createdAt": "2026-07-24T08:33:22.497Z",
-      "updatedAt": "2026-07-27T02:43:14.872Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132",
-      "doneAt": "2026-07-27T02:43:14.872Z"
-    },
-    {
-      "id": "mryoqo2dzo9cg",
-      "type": "task",
-      "content": "一季度大会：打开文件夹，找到通知；人数：拿出一季度的签到表。",
-      "createdAt": "2026-07-24T08:35:38.197Z",
-      "updatedAt": "2026-07-27T03:02:40.142Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132",
-      "doneAt": "2026-07-27T03:02:40.142Z"
-    },
-    {
       "id": "mryqy6le1lha3",
       "type": "task",
       "content": "看下体检的事情30号前完成.",
@@ -1152,66 +1122,6 @@
       "subtasks": []
     },
     {
-      "id": "ms2lhyk5329jg",
-      "type": "task",
-      "content": "将已筛选的设备，跟最新的爬虫结果表匹配下。看下有多少业务在的。",
-      "createdAt": "2026-07-27T02:15:57.749Z",
-      "updatedAt": "2026-07-27T06:21:36.990Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:21:36.990Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "ms2n6jxhmtlni",
-      "type": "task",
-      "content": "我得找到两次大会实际的签到表啊，对着勾选才行。",
-      "createdAt": "2026-07-27T03:03:04.805Z",
-      "updatedAt": "2026-07-27T04:41:28.839Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T04:41:28.838Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "ms2uafdotie4s",
-      "type": "task",
-      "content": "得跟总监说下进度，确认下一阶段的行动才行。",
-      "createdAt": "2026-07-27T06:22:02.844Z",
-      "updatedAt": "2026-07-27T08:22:54.714Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565463457",
-      "doneAt": "2026-07-27T08:22:54.714Z"
-    },
-    {
-      "id": "ms2vempobbxx8",
-      "type": "task",
-      "content": "给天河越秀算力接口人发我那个清单，提醒说有多少个可以处理。先这样吧。",
-      "createdAt": "2026-07-27T06:53:18.588Z",
-      "updatedAt": "2026-07-27T06:57:41.126Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:57:41.126Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "ms2y89grljjn7",
       "type": "task",
       "content": "安装零信任",
@@ -1274,9 +1184,9 @@
     {
       "id": "ms30tbb8metq6",
       "type": "task",
-      "content": "对于复盘，其实用现有的素材就行了啊。我可以将已完成的任务写进去，有个按钮可以月历视图（以完成时间为标记，而不是修改时间），月历内可以筛选范围、按标签筛选。但我没想好这种‘有进度’的该怎么写。",
+      "content": "对于复盘，其实用现有的素材就行了啊。我可以将已完成的任务写进去，有个按钮可以月历视图（以完成时间为标记，而不是修改时间），月历内可以筛选范围、按标签筛选。有进度的：里程碑单独放，燃料、阻碍清除和减少行动可以每天都有。",
       "createdAt": "2026-07-27T09:24:41.732Z",
-      "updatedAt": "2026-07-27T09:34:07.920Z",
+      "updatedAt": "2026-07-27T09:59:47.255Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5206,6 +5116,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T09:53:49.644Z"
+    "lastSync": "2026-07-27T09:57:49.556Z"
   }
 }
