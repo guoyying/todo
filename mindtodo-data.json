@@ -1160,66 +1160,6 @@
       "subtasks": []
     },
     {
-      "id": "ms2jjj6a23k78",
-      "type": "task",
-      "content": "我想上午爬虫呢，或者我先过退网单再爬。",
-      "createdAt": "2026-07-27T01:21:11.890Z",
-      "updatedAt": "2026-07-27T02:24:46.774Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T02:24:46.774Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2k9wytfe4eo",
-      "type": "task",
-      "content": "更新给美哥的月报吧，写一下sop。资源系统导出数据，我得看下要求跟之前的有无不一样",
-      "createdAt": "2026-07-27T01:41:42.821Z",
-      "updatedAt": "2026-07-27T06:34:51.211Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:34:51.211Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2keuecmfq6s",
-      "type": "task",
-      "content": "写一下陈工的问题是什么，问谁",
-      "createdAt": "2026-07-27T01:45:32.772Z",
-      "updatedAt": "2026-07-27T06:40:35.588Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:40:35.588Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2l7oeyo99kc",
-      "type": "task",
-      "content": "问下黄超那个交换机的事情吧。",
-      "createdAt": "2026-07-27T02:07:58.042Z",
-      "updatedAt": "2026-07-27T03:30:52.265Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T03:30:52.265Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms2lhyk5329jg",
       "type": "task",
       "content": "将已筛选的设备，跟最新的爬虫结果表匹配下。看下有多少业务在的。",
@@ -1265,51 +1205,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "ms2qrmq5dqaul",
-      "type": "task",
-      "content": "低效的工作思考下目前我要做什么。据说进度落后了，我得看下哪些地方落后了，怎么提醒。我打算就给天河越秀算力接口人发我那个清单，提醒说有多少个可以处理。先这样吧。",
-      "createdAt": "2026-07-27T04:43:27.053Z",
-      "updatedAt": "2026-07-27T06:53:23.299Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:53:23.299Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2sss3voo416",
-      "type": "task",
-      "content": "### 完成度\n1. 拆解里程碑：“当这件事完成时，所有人都能明显看到项目进入了新阶段”(比如：初稿完成，可以发给领导提意见了)\n- [ ] 只看百分比，不看做了多少事。强迫自己给节点打分\n\n### 阻碍扫除\n今日扫除了哪个障碍？只写那个‘一旦通了，后面就顺了’的关键\n|内容|进度|\n|---|---|\n|天河陈工的问题跟进，预计可以解决一批烽火离线进一步确认是否在用设备|/|\n\n### 减法决策\n只写今天‘主动不做什么’，或‘砍掉了什么’。目标的达成，不是靠做完所有事，而是靠果断放弃那些不重要的事。",
-      "createdAt": "2026-07-27T05:40:19.915Z",
-      "updatedAt": "2026-07-27T06:26:17.560Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2ty2xiwfu1w",
-      "type": "task",
-      "content": "我想今天下午就按照这个新的复盘来做喔。下一步是怎样的呢？退网制定里程碑，然后陈工那个问题可以算作阻碍扫除。然后呢？",
-      "createdAt": "2026-07-27T06:12:26.838Z",
-      "updatedAt": "2026-07-27T06:21:25.867Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T06:21:25.867Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms2uafdotie4s",
       "type": "task",
       "content": "得跟总监说下进度，确认下一阶段的行动才行。",
@@ -1325,51 +1220,6 @@
       "doneAt": "2026-07-27T08:22:54.714Z"
     },
     {
-      "id": "ms2ufg9j6uip2",
-      "type": "task",
-      "content": "看下最近的邮件讲了啥",
-      "createdAt": "2026-07-27T06:25:57.271Z",
-      "updatedAt": "2026-07-27T07:24:03.850Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T07:24:03.850Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2ugrknpb7f3",
-      "type": "task",
-      "content": "生活、跟老公相处类的事情 复盘模板怎样为好？",
-      "createdAt": "2026-07-27T06:26:58.583Z",
-      "updatedAt": "2026-07-27T06:26:58.583Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2uqqbdanve9",
-      "type": "task",
-      "content": "我得看下零信任咋搞...哎又来了",
-      "createdAt": "2026-07-27T06:34:43.513Z",
-      "updatedAt": "2026-07-27T08:12:13.727Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T08:12:13.727Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms2vempobbxx8",
       "type": "task",
       "content": "给天河越秀算力接口人发我那个清单，提醒说有多少个可以处理。先这样吧。",
@@ -1383,21 +1233,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "ms2wk6i20e2le",
-      "type": "task",
-      "content": "我觉得有必要收集下低效各个县分卡点，这样汇报时有话讲(三个落后县分)",
-      "createdAt": "2026-07-27T07:25:37.130Z",
-      "updatedAt": "2026-07-27T08:22:41.050Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-27T08:22:41.050Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     },
     {
       "id": "ms2y89grljjn7",
@@ -1450,6 +1285,21 @@
       "content": "越秀，看下SDH622M331是不是对应资源系统那台。",
       "createdAt": "2026-07-27T08:42:07.544Z",
       "updatedAt": "2026-07-27T08:42:07.544Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms30tbb8metq6",
+      "type": "task",
+      "content": "好像有点思路了！对于复盘的事情，等待我梳理并实现。其实用现有的素材就行了啊。",
+      "createdAt": "2026-07-27T09:24:41.732Z",
+      "updatedAt": "2026-07-27T09:24:41.732Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -4849,6 +4699,16 @@
       "format": "markdown",
       "createdAt": "2026-07-27T01:47:48.095Z",
       "updatedAt": "2026-07-27T01:47:48.095Z"
+    },
+    {
+      "id": "178514434168242x0kp3p6",
+      "title": "有进度的复盘模板",
+      "type": "ideas",
+      "tags": [],
+      "content": "### 完成度\n1. 拆解里程碑：“当这件事完成时，所有人都能明显看到项目进入了新阶段”(比如：初稿完成，可以发给领导提意见了)\n- [ ] 只看百分比，不看做了多少事。强迫自己给节点打分\n\n### 阻碍扫除\n今日扫除了哪个障碍？只写那个‘一旦通了，后面就顺了’的关键\n|内容|进度|\n|---|---|\n|天河陈工的问题跟进，预计可以解决一批烽火离线进一步确认是否在用设备|/|\n\n### 减法决策\n只写今天‘主动不做什么’，或‘砍掉了什么’。目标的达成，不是靠做完所有事，而是靠果断放弃那些不重要的事。\n1. 我想先最小限度做工作，有需要我再加码。拒绝完美主义。有很多事情都不是必须要做的",
+      "format": "markdown",
+      "createdAt": "2026-07-27T09:25:41.682Z",
+      "updatedAt": "2026-07-27T09:25:41.682Z"
     }
   ],
   "trackerConfig": {
@@ -5291,6 +5151,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T08:23:51.101Z"
+    "lastSync": "2026-07-27T08:57:13.362Z"
   }
 }
