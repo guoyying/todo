@@ -387,9 +387,9 @@
     {
       "id": "mq4lttsv98ee6",
       "type": "task",
-      "content": "我想重新做个白边框的模糊蓝色背景的就行了。裁剪9：16",
+      "content": "有了好看的照片就想做聊天背景了呢",
       "createdAt": "2026-06-08T02:41:19.135Z",
-      "updatedAt": "2026-06-09T02:28:12.155Z",
+      "updatedAt": "2026-07-27T09:52:20.447Z",
       "tags": [
         "生活"
       ],
@@ -1175,21 +1175,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "ms2ltv0gvnx5x",
-      "type": "task",
-      "content": "我今天上午做了啥：\n\n\n2. 团支部：系统填写团支部2个季度的教育实践录入。这是组织委员的工作之一。\n3. 处理厂家上网的事：这个一直反反复复。26.1开始上不了网，3.4建群，一直反复出现问题。EDR检测不到被禁、访问不了外网（x次，日期：）、上不了网（x次，日期：）",
-      "createdAt": "2026-07-27T02:25:13.024Z",
-      "updatedAt": "2026-07-27T09:50:32.181Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms2n6jxhmtlni",
       "type": "task",
       "content": "我得找到两次大会实际的签到表啊，对着勾选才行。",
@@ -1342,6 +1327,38 @@
       "subtasks": [],
       "listId": "list_1783562300215",
       "doneAt": "2026-07-27T09:50:52.842Z"
+    },
+    {
+      "id": "ms31tpouyjyf3",
+      "type": "task",
+      "content": "团支部：系统填写团支部2个季度的教育实践录入。这是组织委员的工作之一。",
+      "createdAt": "2026-07-27T09:52:59.982Z",
+      "updatedAt": "2026-07-27T09:52:59.982Z",
+      "tags": [
+        "团支部"
+      ],
+      "done": false,
+      "dueTime": "1min",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms31ty6degkww",
+      "type": "task",
+      "content": "处理厂家上网的事：这个一直反反复复。26.1开始上不了网，3.4建群，一直反复出现问题。EDR检测不到被禁、访问不了外网（x次，日期：）、上不了网（x次，日期：）",
+      "createdAt": "2026-07-27T09:53:10.981Z",
+      "updatedAt": "2026-07-27T09:53:10.981Z",
+      "tags": [
+        "网安"
+      ],
+      "done": false,
+      "dueTime": "1min",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -5185,6 +5202,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T09:26:09.768Z"
+    "lastSync": "2026-07-27T09:50:59.535Z"
   }
 }
