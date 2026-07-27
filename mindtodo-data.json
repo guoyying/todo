@@ -1030,14 +1030,15 @@
       "type": "task",
       "content": "一季度大会：打开文件夹，找到通知；人数：拿出一季度的签到表。",
       "createdAt": "2026-07-24T08:35:38.197Z",
-      "updatedAt": "2026-07-25T12:33:20.318Z",
+      "updatedAt": "2026-07-27T03:02:40.142Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-27T03:02:40.142Z"
     },
     {
       "id": "mryqy6le1lha3",
@@ -1178,10 +1179,10 @@
       "type": "task",
       "content": "我要看下怎么跟越秀说退网设备的事情，有无需要直接说的。越秀好像还有一条没搞定，我忘了上周是啥进度了。",
       "createdAt": "2026-07-27T01:13:52.589Z",
-      "updatedAt": "2026-07-27T02:18:40.669Z",
+      "updatedAt": "2026-07-27T02:47:37.040Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-27T02:47:37.040Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1238,10 +1239,10 @@
       "type": "task",
       "content": "问下黄超那个交换机的事情吧。",
       "createdAt": "2026-07-27T02:07:58.042Z",
-      "updatedAt": "2026-07-27T02:07:58.042Z",
+      "updatedAt": "2026-07-27T03:30:52.265Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-27T03:30:52.265Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1266,9 +1267,9 @@
     {
       "id": "ms2ltv0gvnx5x",
       "type": "task",
-      "content": "我今天上午做了啥：\n### 生活\n1. 跟我老公说了昨天吵架的事，表达了不满：他的姿态让我感觉到就我一个人做错了，这让我感到不公平。后来他道歉了，我恢复理智。\n\n### 工作\n1. 退网：跟越秀说了5台设备可以退网；",
+      "content": "我今天上午做了啥：\n### 生活\n1. 跟我老公说了昨天吵架的事，表达了不满：他的姿态让我感觉到就我一个人做错了，这让我感到不公平。后来他道歉了，我恢复理智。但还是觉得差点意思，哪有这么快就认错的？不过是无奈罢了。\n\n### 工作\n1. 退网：跟越秀说了5台设备可以退网；提醒越秀上传关电照片1个，规范化退网流程；我怕报障，所以先去激活观察一条业务，这是推进退网，同时又考虑中断业务风险的表示。\n2. 团支部：系统填写团支部2个季度的教育实践录入。这是组织委员的工作之一。\n3. 处理厂家上网的事：这个一直反反复复。26.1开始上不了网，3.4建群，一直反复出现问题。EDR检测不到被禁、访问不了外网（x次，日期：）、上不了网（x次，日期：）",
       "createdAt": "2026-07-27T02:25:13.024Z",
-      "updatedAt": "2026-07-27T02:34:20.673Z",
+      "updatedAt": "2026-07-27T03:52:12.101Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1277,6 +1278,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2n6jxhmtlni",
+      "type": "task",
+      "content": "我得找到两次大会实际的签到表啊，对着勾选才行。",
+      "createdAt": "2026-07-27T03:03:04.805Z",
+      "updatedAt": "2026-07-27T03:03:04.805Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1309,7 +1325,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5063,6 +5079,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T00:06:34.942Z"
+    "lastSync": "2026-07-27T02:43:22.728Z"
   }
 }
