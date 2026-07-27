@@ -1254,10 +1254,10 @@
       "type": "task",
       "content": "将已筛选的设备，跟最新的爬虫结果表匹配下。看下有多少业务在的。",
       "createdAt": "2026-07-27T02:15:57.749Z",
-      "updatedAt": "2026-07-27T02:15:57.749Z",
+      "updatedAt": "2026-07-27T06:21:36.990Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-27T06:21:36.990Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1308,6 +1308,50 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2sss3voo416",
+      "type": "task",
+      "content": "### 完成度\n1. 拆解里程碑：但这件事完成时，所有人都能明显看到项目进入了新阶段(比如：初稿完成，可以发给领导提意见了)\n- [ ] 只看百分比，不看做了多少事。强迫自己给节点打分\n\n### 阻碍扫除\n今日扫除了哪个障碍？只写那个‘一旦通了，后面就顺了’的关键\n|内容|进度|\n|---|---|\n|天河陈工的问题跟进，预计可以解决一批烽火离线进一步确认是否在用设备|/|\n\n### 减法决策\n只写今天‘主动不做什么’，或‘砍掉了什么’。目标的达成，不是靠做完所有事，而是靠果断放弃那些不重要的事。",
+      "createdAt": "2026-07-27T05:40:19.915Z",
+      "updatedAt": "2026-07-27T06:21:20.800Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2ty2xiwfu1w",
+      "type": "task",
+      "content": "我想今天下午就按照这个新的复盘来做喔。下一步是怎样的呢？退网制定里程碑，然后陈工那个问题可以算作阻碍扫除。然后呢？",
+      "createdAt": "2026-07-27T06:12:26.838Z",
+      "updatedAt": "2026-07-27T06:21:25.867Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-07-27T06:21:25.867Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2uafdotie4s",
+      "type": "task",
+      "content": "得跟总监说下进度，确认下一阶段的行动才行。",
+      "createdAt": "2026-07-27T06:22:02.844Z",
+      "updatedAt": "2026-07-27T06:22:02.844Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565463457"
     }
   ],
   "taskLists": [
@@ -1340,7 +1384,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565463457",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2918,6 +2962,23 @@
         "scenarioPractices": []
       },
       "digestionProgress": 0
+    },
+    {
+      "id": "ms2txew1eiy47",
+      "content": "运维/支撑类岗位的进度，不以‘完成’为目标，而是‘没出事’",
+      "type": "general",
+      "createdAt": "2026-07-27T06:11:55.681Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
     }
   ],
   "communicationChecklists": [
@@ -4229,8 +4290,8 @@
           "completed": false
         },
         {
-          "id": "1782872884033",
-          "name": "制定第三季度退网目标，跟总监反馈天河退网情况",
+          "id": "1785133171235",
+          "name": "8月初完成489台设备退网，当前差73台（0727）",
           "completed": false
         }
       ],
@@ -5109,6 +5170,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T03:52:46.473Z"
+    "lastSync": "2026-07-27T05:15:53.525Z"
   }
 }
