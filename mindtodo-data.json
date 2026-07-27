@@ -654,21 +654,6 @@
       "updatedAt": "2026-06-19T16:21:37.034Z"
     },
     {
-      "id": "mqojph4wnfc8z",
-      "type": "task",
-      "content": "过番禺的拆运单",
-      "createdAt": "2026-06-22T01:37:20.384Z",
-      "updatedAt": "2026-06-22T06:21:42.008Z",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "5min",
-      "unknown": false,
-      "doneAt": "2026-06-22T06:21:42.008Z",
-      "subtasks": []
-    },
-    {
       "id": "mqojryj1wnxnl",
       "type": "task",
       "content": "提交高潜材料",
@@ -682,21 +667,6 @@
       "unknown": false,
       "doneAt": "2026-06-22T06:58:42.025Z",
       "subtasks": []
-    },
-    {
-      "id": "mqotxwbsl1fj5",
-      "type": "task",
-      "content": "过拆运一体单子9张",
-      "createdAt": "2026-06-22T06:23:49.480Z",
-      "updatedAt": "2026-06-22T09:13:57.387Z",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "20min",
-      "unknown": false,
-      "subtasks": [],
-      "doneAt": "2026-06-22T09:13:57.387Z"
     },
     {
       "id": "mqqg2wbz3tlgg",
@@ -926,41 +896,6 @@
       "listId": "list_1783565463457"
     },
     {
-      "id": "1784681793302",
-      "type": "task",
-      "content": "【*】拆运一体",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "doneAt": "2026-06-15T08:27:53.083Z",
-      "organizedAt": "2026-07-22T00:56:33.302Z",
-      "createdAt": "2026-06-15T07:39:19.833Z",
-      "updatedAt": "2026-07-22T00:56:33.302Z",
-      "listId": "list_1783565139132",
-      "organization": {
-        "goal": "过单、邮件通知施工方实施17张拆运单\n【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。",
-        "goalWeeks": "[{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2天前 - 刚刚\"}}]",
-        "improvement": "",
-        "improvementWeeks": "",
-        "skills": "",
-        "skillsWeeks": "",
-        "success": "",
-        "successWeeks": "",
-        "problems": "",
-        "problemsWeeks": "",
-        "summary": "",
-        "summaryWeeks": "",
-        "methods": "",
-        "methodsWeeks": "",
-        "assets": "拆运一体过单sop",
-        "assetsWeeks": "",
-        "organizedAt": "2026-07-22T00:56:33.302Z"
-      },
-      "projectId": "1781685860305",
-      "subtasks": []
-    },
-    {
       "id": "1784767747302",
       "type": "task",
       "content": "【*】萤火行动：了解更新的检查细则，自制问卷对照检查表",
@@ -1029,23 +964,6 @@
       },
       "projectId": "1780299661890",
       "subtasks": []
-    },
-    {
-      "id": "mry66xhjafhmf",
-      "type": "task",
-      "content": "拆运一体邮件通知施工实施单20个",
-      "createdAt": "2026-07-23T23:56:24.200Z",
-      "updatedAt": "2026-07-25T13:00:49.235Z",
-      "tags": [
-        "拆运一体"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132",
-      "doneAt": "2026-07-25T13:00:49.235Z"
     },
     {
       "id": "mry7sikoo83f3",
@@ -1202,6 +1120,41 @@
         "organizedAt": "2026-07-27T00:04:12.435Z"
       },
       "projectId": "1779778092169",
+      "subtasks": []
+    },
+    {
+      "id": "1785110836833",
+      "type": "task",
+      "content": "【*】拆运一体",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-07-25T13:00:49.235Z",
+      "organizedAt": "2026-07-27T00:07:16.833Z",
+      "createdAt": "2026-07-23T23:56:24.200Z",
+      "updatedAt": "2026-07-27T00:07:16.833Z",
+      "listId": "list_1783565139132",
+      "organization": {
+        "goal": "过单、邮件通知施工方实施17张拆运单\n【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\n拆运一体邮件通知施工实施单20个",
+        "goalWeeks": "[{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2天前 - 刚刚\"}},{\"content\":\"拆运一体邮件通知施工实施单20个\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2026/7/20 - 1天前\"}}]",
+        "improvement": "",
+        "improvementWeeks": "",
+        "skills": "",
+        "skillsWeeks": "",
+        "success": "",
+        "successWeeks": "",
+        "problems": "",
+        "problemsWeeks": "",
+        "summary": "",
+        "summaryWeeks": "",
+        "methods": "",
+        "methodsWeeks": "",
+        "assets": "拆运一体过单sop",
+        "assetsWeeks": "",
+        "organizedAt": "2026-07-27T00:07:16.833Z"
+      },
+      "projectId": "1781685860305",
       "subtasks": []
     }
   ],
@@ -4985,6 +4938,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-26T15:27:53.473Z"
+    "lastSync": "2026-07-27T00:06:34.942Z"
   }
 }
