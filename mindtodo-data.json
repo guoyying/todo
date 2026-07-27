@@ -1403,10 +1403,10 @@
       "type": "task",
       "content": "我得看下零信任咋搞...哎又来了",
       "createdAt": "2026-07-27T06:34:43.513Z",
-      "updatedAt": "2026-07-27T06:34:43.513Z",
+      "updatedAt": "2026-07-27T08:12:13.727Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-27T08:12:13.727Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1427,6 +1427,51 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms2wk6i20e2le",
+      "type": "task",
+      "content": "我觉得有必要收集下低效各个县分卡点，这样汇报时有话讲(三个落后县分)",
+      "createdAt": "2026-07-27T07:25:37.130Z",
+      "updatedAt": "2026-07-27T07:25:44.962Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2y89grljjn7",
+      "type": "task",
+      "content": "安装零信任",
+      "createdAt": "2026-07-27T08:12:20.331Z",
+      "updatedAt": "2026-07-27T08:12:24.597Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms2y98g2fjfuu",
+      "type": "task",
+      "content": "我还是得梳理下不在用的清单，因为emm虽然测试不在用，但没说不能停",
+      "createdAt": "2026-07-27T08:13:05.666Z",
+      "updatedAt": "2026-07-27T08:13:05.666Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -3873,6 +3918,21 @@
       "createdAt": "2026-07-27T05:13:38.446Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "ms2y8kgoiqw7j",
+      "taskId": "ms2y89grljjn7",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-28T11:00"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-27T08:12:34.584Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -5245,6 +5305,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T06:57:50.979Z"
+    "lastSync": "2026-07-27T07:24:14.328Z"
   }
 }
