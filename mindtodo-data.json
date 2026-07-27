@@ -5,22 +5,14 @@
       "type": "task",
       "content": "**好想练习表达啊**",
       "createdAt": "2026-04-28T04:26:14.426Z",
-      "updatedAt": "2026-07-13T09:51:56.085Z",
+      "updatedAt": "2026-07-27T09:56:10.244Z",
       "tags": [
         "表达"
       ],
       "done": true,
       "dueTime": null,
       "unknown": true,
-      "subtasks": [
-        {
-          "id": "moi4ity1vb71k",
-          "content": "写一下某场景我想实现什么效果",
-          "estimatedTime": "5min",
-          "done": false,
-          "placedIn": null
-        }
-      ],
+      "subtasks": [],
       "doneAt": "2026-04-28T05:07:23.775Z"
     },
     {
@@ -1333,32 +1325,34 @@
       "type": "task",
       "content": "团支部：系统填写团支部2个季度的教育实践录入。这是组织委员的工作之一。",
       "createdAt": "2026-07-27T09:52:59.982Z",
-      "updatedAt": "2026-07-27T09:52:59.982Z",
+      "updatedAt": "2026-07-27T09:56:16.280Z",
       "tags": [
         "团支部"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "1min",
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783562300215",
+      "doneAt": "2026-07-27T09:56:16.280Z"
     },
     {
       "id": "ms31ty6degkww",
       "type": "task",
       "content": "处理厂家上网的事：这个一直反反复复。26.1开始上不了网，3.4建群，一直反复出现问题。EDR检测不到被禁、访问不了外网（x次，日期：）、上不了网（x次，日期：）",
       "createdAt": "2026-07-27T09:53:10.981Z",
-      "updatedAt": "2026-07-27T09:53:10.981Z",
+      "updatedAt": "2026-07-27T09:56:18.804Z",
       "tags": [
         "网安"
       ],
-      "done": false,
+      "done": true,
       "dueTime": "1min",
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783562300215",
+      "doneAt": "2026-07-27T09:56:18.804Z"
     }
   ],
   "taskLists": [
@@ -2203,6 +2197,16 @@
       ],
       "createdAt": "2026-07-27T01:49:13.835Z",
       "updatedAt": "2026-07-27T01:49:13.835Z"
+    },
+    {
+      "id": "ms31zocscpje5",
+      "content": "这两三天一直没想明白怎么做复盘，不会‘用勤奋掩盖战术懒惰’。我就用最顺手舒服的方式先记录着实现着，结果做着做着思路就有了。仅仅花了半天时间",
+      "tags": [
+        "观察记录",
+        "观点看法"
+      ],
+      "createdAt": "2026-07-27T09:57:38.188Z",
+      "updatedAt": "2026-07-27T09:57:38.188Z"
     }
   ],
   "slots": [],
@@ -5202,6 +5206,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T09:50:59.535Z"
+    "lastSync": "2026-07-27T09:53:49.644Z"
   }
 }
