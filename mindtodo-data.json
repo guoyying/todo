@@ -1344,14 +1344,15 @@
       "type": "task",
       "content": "得跟总监说下进度，确认下一阶段的行动才行。",
       "createdAt": "2026-07-27T06:22:02.844Z",
-      "updatedAt": "2026-07-27T06:22:02.844Z",
+      "updatedAt": "2026-07-27T08:22:54.714Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565463457"
+      "listId": "list_1783565463457",
+      "doneAt": "2026-07-27T08:22:54.714Z"
     },
     {
       "id": "ms2ubz7t95tgz",
@@ -1433,10 +1434,10 @@
       "type": "task",
       "content": "我觉得有必要收集下低效各个县分卡点，这样汇报时有话讲(三个落后县分)",
       "createdAt": "2026-07-27T07:25:37.130Z",
-      "updatedAt": "2026-07-27T07:25:44.962Z",
+      "updatedAt": "2026-07-27T08:22:41.050Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-27T08:22:41.050Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1464,6 +1465,21 @@
       "content": "我还是得梳理下不在用的清单，因为emm虽然测试不在用，但没说不能停",
       "createdAt": "2026-07-27T08:13:05.666Z",
       "updatedAt": "2026-07-27T08:13:05.666Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms2ymt5u53ayi",
+      "type": "task",
+      "content": "可以考虑跟进crm",
+      "createdAt": "2026-07-27T08:23:39.042Z",
+      "updatedAt": "2026-07-27T08:23:39.042Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5305,6 +5321,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T07:24:14.328Z"
+    "lastSync": "2026-07-27T08:13:28.602Z"
   }
 }
