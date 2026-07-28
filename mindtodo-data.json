@@ -1121,21 +1121,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "ms2ymt5u53ayi",
-      "type": "task",
-      "content": "可以考虑跟进crm还有DDF。用最小的时间做。DDF那个做到知晓即可。哎呀我要通知县分，那就得群发。这周的退网还没发呢，这个进度一点都不好。又爬虫？先过单咯，然后再爬虫。",
-      "createdAt": "2026-07-27T08:23:39.042Z",
-      "updatedAt": "2026-07-28T01:05:07.269Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T01:04:53.542Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms30tbb8metq6",
       "type": "task",
       "content": "## 原料待加工\n对于复盘，其实用现有的素材就行了啊。我可以将已完成的任务写进去，有个按钮可以月历视图（以完成时间为标记，而不是修改时间），月历内可以筛选范围、按标签筛选。有进度的：里程碑单独放，燃料、阻碍清除和减少行动可以每天都有。",
@@ -1316,21 +1301,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "ms3yebnhcefiu",
-      "type": "task",
-      "content": "看下DDF有无字段标注在用？不在用呢。这个可以知道ddf有多少是有退网空间的，燃料剂属于是。用时大概xx可以梳理出清单和整理建议，预计能推动不少呢。",
-      "createdAt": "2026-07-28T01:04:49.277Z",
-      "updatedAt": "2026-07-28T02:52:19.016Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T02:52:19.016Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms3yfo7aqb5s0",
       "type": "task",
       "content": "实物资产盘点报名",
@@ -1339,21 +1309,6 @@
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms40ue0m1mxey",
-      "type": "task",
-      "content": "回答算力的问题，看下是什么。就是缓慢推进目标吧。或许能给其他县分建议。是助燃剂。",
-      "createdAt": "2026-07-28T02:13:18.070Z",
-      "updatedAt": "2026-07-28T02:24:14.070Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T02:24:14.070Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -5275,6 +5230,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T03:16:27.807Z"
+    "lastSync": "2026-07-28T03:40:23.076Z"
   }
 }
