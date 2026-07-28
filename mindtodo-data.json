@@ -1395,29 +1395,14 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "ms49nndjrbodn",
-      "type": "task",
-      "content": "找些未核查的网元看业务",
-      "createdAt": "2026-07-28T06:20:00.151Z",
-      "updatedAt": "2026-07-28T06:20:00.151Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms4arjbfk4k7z",
       "type": "task",
-      "content": "思考下退网的sop，写一下步骤",
+      "content": "思考下退网的sop，写一下步骤。进度是啥就写啥啊。这个1、给领导看我有在干活；2、提醒县分进度是这样的，再次提醒县分能上单的赶紧上单(有一定概率推动，值得做)。",
       "createdAt": "2026-07-28T06:51:01.131Z",
-      "updatedAt": "2026-07-28T06:51:01.131Z",
+      "updatedAt": "2026-07-28T08:12:20.439Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T08:12:20.439Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1427,12 +1412,12 @@
     {
       "id": "ms4bcv4yn3se9",
       "type": "task",
-      "content": "推进8月底提交的检查的工作",
+      "content": "推进8月底提交的检查的工作。这种呢是早晚都要做的，不做会被说，做了相当于没做一样。处理建议：15-20分钟分批做。",
       "createdAt": "2026-07-28T07:07:36.226Z",
-      "updatedAt": "2026-07-28T07:07:36.226Z",
+      "updatedAt": "2026-07-28T08:31:45.970Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T08:31:45.970Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1505,6 +1490,51 @@
       "content": "结合天河和越秀，想下怎么办低效的。他们推不动，那能怎么办",
       "createdAt": "2026-07-28T07:13:38.576Z",
       "updatedAt": "2026-07-28T07:13:38.576Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms4bwsn3kj2rh",
+      "type": "task",
+      "content": "找些未核查的网元看业务。属于推动大目标退网的，不是直接推动，只是增加成功概率。\n**本周计划核查40个0业务设备网管情况**，进度0/40 (0%)",
+      "createdAt": "2026-07-28T07:23:06.111Z",
+      "updatedAt": "2026-07-28T07:23:12.814Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms4c4fwdgc67a",
+      "type": "task",
+      "content": "我觉得退网：追踪发出去-到今天为止哪些设备动了-哪些没动，有一定概率提高。\n这个属于感悟类的，可以接下来尝试或许有效的方法",
+      "createdAt": "2026-07-28T07:29:02.845Z",
+      "updatedAt": "2026-07-28T07:34:42.397Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms4edfniniu2o",
+      "type": "task",
+      "content": "想下以什么形式发送提醒非涉密自查",
+      "createdAt": "2026-07-28T08:32:01.662Z",
+      "updatedAt": "2026-07-28T08:32:01.662Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -4018,6 +4048,21 @@
       "createdAt": "2026-07-28T06:24:46.599Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "ms4ccfnfxxuc0",
+      "taskId": "ms4c4fwdgc67a",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-06T10:03"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-28T07:35:15.771Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -5400,6 +5445,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T06:25:16.438Z"
+    "lastSync": "2026-07-28T07:14:39.319Z"
   }
 }
