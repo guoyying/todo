@@ -1288,9 +1288,9 @@
     {
       "id": "ms3yfo7aqb5s0",
       "type": "task",
-      "content": "实物资产盘点报名",
+      "content": "实物资产盘点报名。上午给笔记本充电",
       "createdAt": "2026-07-28T01:05:52.198Z",
-      "updatedAt": "2026-07-28T01:05:52.198Z",
+      "updatedAt": "2026-07-28T06:24:37.346Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1330,6 +1330,81 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms49dcc1a8dr5",
+      "type": "task",
+      "content": "我又有点想做个表格形式了，将任务拖拉到里面一起看。",
+      "createdAt": "2026-07-28T06:11:59.281Z",
+      "updatedAt": "2026-07-28T06:11:59.281Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms49dprtwx7j4",
+      "type": "task",
+      "content": "我就是觉得这些工作都是被动响应的，所以我不愿意去做。",
+      "createdAt": "2026-07-28T06:12:16.697Z",
+      "updatedAt": "2026-07-28T06:12:16.697Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms49eqa8m6ueq",
+      "type": "task",
+      "content": "将现存的工作记录到清单中",
+      "createdAt": "2026-07-28T06:13:04.016Z",
+      "updatedAt": "2026-07-28T06:13:04.016Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms49mi98nwaah",
+      "type": "task",
+      "content": "我现在都不知道下午要做啥了，脑子里有太多的想做的事",
+      "createdAt": "2026-07-28T06:19:06.860Z",
+      "updatedAt": "2026-07-28T06:19:06.860Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms49nndjrbodn",
+      "type": "task",
+      "content": "找些未核查的网元看业务",
+      "createdAt": "2026-07-28T06:20:00.151Z",
+      "updatedAt": "2026-07-28T06:20:00.151Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -3820,6 +3895,21 @@
       "createdAt": "2026-07-28T03:16:15.244Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "ms49tsef50dtq",
+      "taskId": "ms3yfo7aqb5s0",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-29T09:19"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-28T06:24:46.599Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -5202,6 +5292,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T03:57:51.096Z"
+    "lastSync": "2026-07-28T05:15:33.746Z"
   }
 }
