@@ -1362,23 +1362,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "ms4bju8lbhsg0",
-      "type": "task",
-      "content": "看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（0%）",
-      "createdAt": "2026-07-28T07:13:01.653Z",
-      "updatedAt": "2026-07-28T09:34:12.960Z",
-      "tags": [
-        "退网"
-      ],
-      "done": true,
-      "doneAt": "2026-07-28T09:33:58.115Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": false,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms4bk0z72mz2b",
       "type": "task",
       "content": "看下从化补环的事情：对方说起来，我知道怎么回事。起码。\n核查网元业务情况，该去激活的去激活——知道当前补环怎么回事，是否能退\n（进度：30%）",
@@ -1490,9 +1473,9 @@
     {
       "id": "ms4gll6cti25o",
       "type": "task",
-      "content": "白云退网的补环",
+      "content": "看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（0%）",
       "createdAt": "2026-07-28T09:34:21.300Z",
-      "updatedAt": "2026-07-28T09:34:21.300Z",
+      "updatedAt": "2026-07-28T14:41:54.700Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1500,7 +1483,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783565139132"
     },
     {
       "id": "ms4jf4ebmybb4",
@@ -5522,6 +5505,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T13:38:42.628Z"
+    "lastSync": "2026-07-28T14:02:50.570Z"
   }
 }
