@@ -1320,10 +1320,12 @@
       "type": "task",
       "content": "我觉得可以在思考阶段先判断任务，剪掉不用做的任务。放到确定性的任务都是可以无脑，此时无需判断了",
       "createdAt": "2026-07-28T02:45:31.914Z",
-      "updatedAt": "2026-07-28T02:45:31.914Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-07-28T03:44:25.532Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "doneAt": "2026-07-28T03:44:25.532Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -5230,6 +5232,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T03:40:23.076Z"
+    "lastSync": "2026-07-28T03:42:28.666Z"
   }
 }
