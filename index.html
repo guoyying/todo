@@ -16773,7 +16773,8 @@ function closeModal(modalId) {
             const options = [
                 { label: '🏷️ 添加标签', action: 'tag' },
                 { label: '💡 AI 帮想点子', action: 'aiIdeas' },
-                { label: '⏰ 触发提醒', action: 'trigger' }
+                { label: '⏰ 触发提醒', action: 'trigger' },
+                { label: '📤 移出清单', action: 'removeFromList' }
             ];
             
             options.forEach(opt => {
@@ -16852,6 +16853,17 @@ function closeModal(modalId) {
                     } else {
                         showTriggerSetup(taskId);
                     }
+                    break;
+                case 'removeFromList':
+                    // 将任务的 isList 字段从 true 改为 false
+                    task.isList = false;
+                    task.updatedAt = nowStr();
+                    saveData();
+                    // 刷新清单列表和待办列表
+                    renderListTodos();
+                    renderToday();
+                    renderCompleted();
+                    updateAllTagFilters();
                     break;
             }
         }
