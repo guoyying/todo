@@ -1361,9 +1361,9 @@
     {
       "id": "ms4bcv4yn3se9",
       "type": "task",
-      "content": "非涉密办工设备自查工作\n里程碑：（1）自己完成自查表填写——（2）收集完成成员表\n（1）进度：50%",
+      "content": "非涉密办工设备自查工作\n里程碑：（1）自己完成自查表填写——（2）收集完成成员表（提醒大家早上扫描，时间较长）\n（1）进度：50%",
       "createdAt": "2026-07-28T07:07:36.226Z",
-      "updatedAt": "2026-07-28T08:38:16.652Z",
+      "updatedAt": "2026-07-28T09:24:13.778Z",
       "tags": [
         "杂事"
       ],
@@ -1393,49 +1393,49 @@
     {
       "id": "ms4bel0o5rv23",
       "type": "task",
-      "content": "查下11-石井1-GZHD050的mac：0025-9e20-04e8",
+      "content": "查下11-石井1-GZHD050的mac：0025-9e20-04e8。这个目标是完成闭环，目前处于排查原因阶段，问题还不清晰。无法确定进度\n进度10%",
       "createdAt": "2026-07-28T07:08:56.424Z",
-      "updatedAt": "2026-07-28T07:08:56.424Z",
+      "updatedAt": "2026-07-28T09:50:31.454Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T09:38:27.996Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
     {
       "id": "ms4bju8lbhsg0",
       "type": "task",
-      "content": "看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（70%）",
+      "content": "看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（0%）",
       "createdAt": "2026-07-28T07:13:01.653Z",
-      "updatedAt": "2026-07-28T09:20:26.729Z",
+      "updatedAt": "2026-07-28T09:34:12.960Z",
       "tags": [
         "退网"
       ],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T09:33:58.115Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
     {
       "id": "ms4bk0z72mz2b",
       "type": "task",
-      "content": "看下从化补环的事情：对方说起来，我知道怎么回事。起码。\n知道当前补环怎么回事（进度：0%）",
+      "content": "看下从化补环的事情：对方说起来，我知道怎么回事。起码。\n核查网元业务情况，该去激活的去激活——知道当前补环怎么回事，是否能退\n（进度：30%）",
       "createdAt": "2026-07-28T07:13:10.387Z",
-      "updatedAt": "2026-07-28T09:21:53.042Z",
+      "updatedAt": "2026-07-28T09:50:28.081Z",
       "tags": [
         "退网"
       ],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T09:50:25.471Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
@@ -1528,6 +1528,21 @@
       "dueTime": "",
       "unknown": false,
       "isList": false,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms4gll6cti25o",
+      "type": "task",
+      "content": "白云退网的补环",
+      "createdAt": "2026-07-28T09:34:21.300Z",
+      "updatedAt": "2026-07-28T09:34:21.300Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
     }
@@ -5432,6 +5447,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T08:42:37.524Z"
+    "lastSync": "2026-07-28T09:22:50.217Z"
   }
 }
