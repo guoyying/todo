@@ -991,9 +991,9 @@
     {
       "id": "mryds1264c8xk",
       "type": "task",
-      "content": "下周一上班，我去激活114-神岗-从化HA001观察看看吧，如果没有报障就可以退网了。",
+      "content": "去激活114-神岗-从化HA001观察看看吧，如果没有报障就可以退网了。\n**悟到了一个断测方法**：上班时间去激活-去激活一条业务-等1-2天观察。没有故障再继续去激活，这样稳妥点，可追踪",
       "createdAt": "2026-07-24T03:28:45.918Z",
-      "updatedAt": "2026-07-24T03:28:45.918Z",
+      "updatedAt": "2026-07-28T02:33:53.540Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1007,14 +1007,15 @@
       "type": "task",
       "content": "看下体检的事情30号前完成.",
       "createdAt": "2026-07-24T09:37:28.034Z",
-      "updatedAt": "2026-07-25T12:33:39.359Z",
+      "updatedAt": "2026-07-28T02:43:36.332Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783562300215",
+      "doneAt": "2026-07-28T02:43:36.332Z"
     },
     {
       "id": "1785080002282",
@@ -1285,16 +1286,17 @@
     {
       "id": "ms36nf32oabrt",
       "type": "task",
-      "content": "过拆运一体单",
+      "content": "过拆运一体单13张。流程节点性工作：筛选分类可以减少精力消耗，不用一条条横向肉眼比对",
       "createdAt": "2026-07-27T12:08:04.382Z",
-      "updatedAt": "2026-07-27T12:08:04.382Z",
+      "updatedAt": "2026-07-28T02:12:47.469Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-07-28T02:12:47.469Z"
     },
     {
       "id": "ms3w2qva7w2xv",
@@ -1335,10 +1337,10 @@
       "type": "task",
       "content": "看下体检1000多了什么项目",
       "createdAt": "2026-07-28T00:40:45.112Z",
-      "updatedAt": "2026-07-28T00:40:45.112Z",
+      "updatedAt": "2026-07-28T02:43:39.147Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T02:43:39.147Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1378,12 +1380,12 @@
     {
       "id": "ms3yebnhcefiu",
       "type": "task",
-      "content": "看下DDF有无字段标注在用？不在用呢",
+      "content": "看下DDF有无字段标注在用？不在用呢。这个可以知道ddf有多少是有退网空间的，燃料剂属于是。用时大概xx可以梳理出清单和整理建议，预计能推动不少呢。",
       "createdAt": "2026-07-28T01:04:49.277Z",
-      "updatedAt": "2026-07-28T01:04:49.277Z",
+      "updatedAt": "2026-07-28T02:52:19.016Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-28T02:52:19.016Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1404,6 +1406,80 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms40ue0m1mxey",
+      "type": "task",
+      "content": "回答算力的问题，看下是什么。就是缓慢推进目标吧。或许能给其他县分建议。是助燃剂。",
+      "createdAt": "2026-07-28T02:13:18.070Z",
+      "updatedAt": "2026-07-28T02:24:14.070Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-07-28T02:24:14.070Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms41zu6i76dxm",
+      "type": "task",
+      "content": "我觉得可以在思考阶段先判断任务，剪掉不用做的任务。放到确定性的任务都是可以无脑，此时无需判断了",
+      "createdAt": "2026-07-28T02:45:31.914Z",
+      "updatedAt": "2026-07-28T02:45:31.914Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms426fvxh9pb9",
+      "type": "task",
+      "content": "DDF梳理出天河和越秀的，增加处理建议咯。60%概率可以推动指标，数量不少。",
+      "createdAt": "2026-07-28T02:50:39.981Z",
+      "updatedAt": "2026-07-28T03:05:12.592Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-07-28T03:05:12.592Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms42pgqmkz47j",
+      "type": "task",
+      "content": "我得停一停再发低效DDF给天河和越秀",
+      "createdAt": "2026-07-28T03:05:27.550Z",
+      "updatedAt": "2026-07-28T03:05:27.550Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms433gcqy6n5o",
+      "type": "task",
+      "content": "问华姐要验收单看看，并说",
+      "createdAt": "2026-07-28T03:16:20.234Z",
+      "updatedAt": "2026-07-28T03:16:20.235Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1436,7 +1512,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3750,7 +3826,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-06-30T02:31:27.052Z"
+        "0": "2026-07-28T02:32:26.593Z"
       }
     },
     {
@@ -3836,36 +3912,6 @@
       "active": true
     },
     {
-      "id": "ms2kek51g18ks",
-      "taskId": "mryqy6le1lha3",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-28T10:32"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-27T01:45:19.477Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "ms2mh00yzh57n",
-      "taskId": "mryds1264c8xk",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-28T09:43"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-27T02:43:12.610Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms2rugem828yn",
       "taskId": "mrsoas545wftd",
       "type": "time",
@@ -3881,21 +3927,6 @@
       "active": true
     },
     {
-      "id": "ms2y8kgoiqw7j",
-      "taskId": "ms2y89grljjn7",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-28T11:00"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-27T08:12:34.584Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms3yy3pyqmjse",
       "taskId": "ms30tbb8metq6",
       "type": "time",
@@ -3907,6 +3938,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-28T01:20:12.118Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms41m0suksr5a",
+      "taskId": "mryds1264c8xk",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-29T10:09"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-28T02:34:47.310Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms433ci4e6gs2",
+      "taskId": "ms2y89grljjn7",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-29T11:16"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-28T03:16:15.244Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -5291,6 +5352,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-27T12:08:32.297Z"
+    "lastSync": "2026-07-28T02:47:16.160Z"
   }
 }
