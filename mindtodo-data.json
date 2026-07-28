@@ -1211,12 +1211,14 @@
       "type": "task",
       "content": "过拆运一体单13张。\n### 流程节点性工作\n### 压单情况\n处理时间是否合理？有无别人催你？\n- 效率提高了，筛选分类可以减少精力消耗，不用一条条横向肉眼比对。\n\n### 异常率\n有无自己疏忽导致返工？有没有遇到流程堵塞却没说？\n\n### 协作感\n有没有及时反馈进度？遇到模糊，是否及时与上游沟通了？",
       "createdAt": "2026-07-27T12:08:04.382Z",
-      "updatedAt": "2026-07-28T03:49:00.621Z",
-      "tags": [],
+      "updatedAt": "2026-07-28T08:39:13.996Z",
+      "tags": [
+        "拆运一体"
+      ],
       "done": true,
       "dueTime": null,
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132",
       "doneAt": "2026-07-28T02:12:47.469Z"
@@ -1226,7 +1228,7 @@
       "type": "task",
       "content": "打牌时怎么回答，照顾双方？—‘我先自个儿动脑子，不会了再问’",
       "createdAt": "2026-07-27T23:59:49.895Z",
-      "updatedAt": "2026-07-28T00:50:08.688Z",
+      "updatedAt": "2026-07-28T08:36:15.717Z",
       "tags": [
         "生活"
       ],
@@ -1234,7 +1236,7 @@
       "doneAt": "2026-07-28T00:50:08.688Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
@@ -1243,7 +1245,7 @@
       "type": "task",
       "content": "“今天的月亮好圆啊”怎么回应：狼人要变身了/城市也变温柔了",
       "createdAt": "2026-07-28T00:00:02.041Z",
-      "updatedAt": "2026-07-28T00:56:10.567Z",
+      "updatedAt": "2026-07-28T08:36:16.956Z",
       "tags": [
         "生活"
       ],
@@ -1251,37 +1253,42 @@
       "doneAt": "2026-07-28T00:56:10.567Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
     {
       "id": "ms3y7rjngpk5o",
       "type": "task",
-      "content": "打开省平台电路清单，反选为‘工程队测试不在用’-》copy网管名称。有蛮多都是重复的",
+      "content": "打开省平台电路清单，反选为‘工程队测试不在用’-》目前一共有177个在SDH清单内设备、188个在低效内设备。\n里程碑是反馈给领导：60%",
       "createdAt": "2026-07-28T00:59:43.283Z",
-      "updatedAt": "2026-07-28T06:48:32.881Z",
-      "tags": [],
+      "updatedAt": "2026-07-28T08:40:56.539Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "doneAt": "2026-07-28T06:48:32.881Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
     {
       "id": "ms3ycjlqb2goe",
       "type": "task",
-      "content": "CRM核查10个在用情况吧，业务情况的，我可以concat将名称合并，用+分隔。查询到实物id后再爬虫。",
+      "content": "CRM核查：concat将名称合并，用+分隔。这个方法好用\n里程碑:核查完所有设备（当前进度80%）",
       "createdAt": "2026-07-28T01:03:26.270Z",
-      "updatedAt": "2026-07-28T06:58:02.200Z",
-      "tags": [],
+      "updatedAt": "2026-07-28T08:41:47.615Z",
+      "tags": [
+        "退网",
+        "CRM"
+      ],
       "done": true,
       "doneAt": "2026-07-28T06:58:02.200Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -1305,7 +1312,7 @@
       "type": "task",
       "content": "我觉得可以在思考阶段先判断任务，剪掉不用做的任务。放到确定性的任务都是可以无脑，此时无需判断了",
       "createdAt": "2026-07-28T02:45:31.914Z",
-      "updatedAt": "2026-07-28T03:44:25.532Z",
+      "updatedAt": "2026-07-28T08:36:18.816Z",
       "tags": [
         "工作"
       ],
@@ -1313,37 +1320,7 @@
       "doneAt": "2026-07-28T03:44:25.532Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms433gcqy6n5o",
-      "type": "task",
-      "content": "问华姐要验收单看看，并说",
-      "createdAt": "2026-07-28T03:16:20.234Z",
-      "updatedAt": "2026-07-28T06:59:32.025Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132",
-      "doneAt": "2026-07-28T06:59:32.025Z"
-    },
-    {
-      "id": "ms49dcc1a8dr5",
-      "type": "task",
-      "content": "我又有点想做个表格形式了，将任务拖拉到里面一起看。",
-      "createdAt": "2026-07-28T06:11:59.281Z",
-      "updatedAt": "2026-07-28T07:06:56.426Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T07:06:56.426Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
@@ -1352,7 +1329,7 @@
       "type": "task",
       "content": "我就是觉得这些工作都是被动响应的，所以我不愿意去做。或许可以记录觉察，发现才是解决问题的开始。",
       "createdAt": "2026-07-28T06:12:16.697Z",
-      "updatedAt": "2026-07-28T07:07:19.466Z",
+      "updatedAt": "2026-07-28T08:36:20.704Z",
       "tags": [
         "工作"
       ],
@@ -1360,22 +1337,7 @@
       "doneAt": "2026-07-28T07:06:58.929Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms49eqa8m6ueq",
-      "type": "task",
-      "content": "将现存的工作记录到清单中",
-      "createdAt": "2026-07-28T06:13:04.016Z",
-      "updatedAt": "2026-07-28T07:13:49.672Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T07:13:49.672Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
@@ -1384,43 +1346,32 @@
       "type": "task",
       "content": "我现在都不知道下午要做啥了，脑子里有太多的想做的事。后来觉得不知道该如何分类，那就明确的那些pick出来，无法分类的就先不管。等待从零散想法~结构化",
       "createdAt": "2026-07-28T06:19:06.860Z",
-      "updatedAt": "2026-07-28T07:13:47.561Z",
-      "tags": [],
+      "updatedAt": "2026-07-28T08:36:25.539Z",
+      "tags": [
+        "工作"
+      ],
       "done": true,
       "doneAt": "2026-07-28T07:13:47.561Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms4arjbfk4k7z",
-      "type": "task",
-      "content": "思考下退网的sop，写一下步骤。进度是啥就写啥啊。这个1、给领导看我有在干活；2、提醒县分进度是这样的，再次提醒县分能上单的赶紧上单(有一定概率推动，值得做)。",
-      "createdAt": "2026-07-28T06:51:01.131Z",
-      "updatedAt": "2026-07-28T08:12:20.439Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T08:12:20.439Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
     {
       "id": "ms4bcv4yn3se9",
       "type": "task",
-      "content": "推进8月底提交的检查的工作。这种呢是早晚都要做的，不做会被说，做了相当于没做一样。处理建议：15-20分钟分批做。",
+      "content": "非涉密办工设备自查工作\n里程碑：（1）自己完成自查表填写——（2）收集完成成员表\n（1）进度：50%",
       "createdAt": "2026-07-28T07:07:36.226Z",
-      "updatedAt": "2026-07-28T08:31:45.970Z",
-      "tags": [],
+      "updatedAt": "2026-07-28T08:38:16.652Z",
+      "tags": [
+        "杂事"
+      ],
       "done": true,
       "doneAt": "2026-07-28T08:31:45.970Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783562300215"
     },
@@ -1543,6 +1494,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms4eqd2nrn7gd",
+      "type": "task",
+      "content": "工程验收",
+      "createdAt": "2026-07-28T08:42:04.847Z",
+      "updatedAt": "2026-07-28T08:42:04.847Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
