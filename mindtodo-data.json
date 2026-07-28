@@ -958,23 +958,6 @@
       "subtasks": []
     },
     {
-      "id": "mry7sikoo83f3",
-      "type": "task",
-      "content": "护vv行动：宣贯邮件安全打开规范",
-      "createdAt": "2026-07-24T00:41:10.920Z",
-      "updatedAt": "2026-07-25T13:00:51.103Z",
-      "tags": [
-        "网安"
-      ],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132",
-      "doneAt": "2026-07-25T13:00:51.103Z"
-    },
-    {
       "id": "mrycxwhzoiuoq",
       "type": "task",
       "content": "【三季度大会展示下这些学习材料，拍个照吧】各位团员，根据团中央部署要求，请大家围绕习近平总书记在庆祝中国共产党成立105周年大会上的重要讲话精神，认真开展专题学习。学习资料详见下方链接。",
@@ -1001,21 +984,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mryqy6le1lha3",
-      "type": "task",
-      "content": "看下体检的事情30号前完成.",
-      "createdAt": "2026-07-24T09:37:28.034Z",
-      "updatedAt": "2026-07-28T02:43:36.332Z",
-      "tags": [],
-      "done": true,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215",
-      "doneAt": "2026-07-28T02:43:36.332Z"
     },
     {
       "id": "1785080002282",
@@ -1140,9 +1108,9 @@
     {
       "id": "ms2y98g2fjfuu",
       "type": "task",
-      "content": "我还是得梳理下不在用的清单，因为emm虽然测试不在用，但没说不能停。因为不是重点推进里程碑，只是了解情况而已，可以增长见识和探索吧。所以就用最小的时间做即可。",
+      "content": "### 探索性、低优先级的任务\n核心目的是“了解情况、增长见识”，而不是产出关键里程碑或解决核心问题。这是轻量级任务，复盘也建议3分钟内完成\n1. 是否达到了目的？\n2. 有没有了解到以前不知道的状态？比如发现某个服务其实早就没用了，或者某个资源长期没人碰。\n哪怕没有任何新发现，也说明“当前情况清晰”，这也是一种结果。\n3. 时间控制是否合理？是否超时了？如果超了，是因为什么？（比如纠结于某个不确定项花了太久）\n下次类似“最小时间”任务，可以更果断地跳过无法确认的项，只标注“待后续确认”。\n有没有意外收获？\n比如通过这个清单，你发现了某个可以清理的冗余资源，或者对系统架构多了一点理解。如果有，简单记录一句话，方便以后参考。",
       "createdAt": "2026-07-27T08:13:05.666Z",
-      "updatedAt": "2026-07-28T00:59:39.990Z",
+      "updatedAt": "2026-07-28T03:40:03.628Z",
       "tags": [],
       "done": true,
       "doneAt": "2026-07-28T00:59:39.942Z",
@@ -1161,21 +1129,6 @@
       "tags": [],
       "done": true,
       "doneAt": "2026-07-28T01:04:53.542Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms2zakhkma8jf",
-      "type": "task",
-      "content": "越秀，看下SDH622M331是不是对应资源系统那台。",
-      "createdAt": "2026-07-27T08:42:07.544Z",
-      "updatedAt": "2026-07-28T01:17:03.755Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T01:17:03.755Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1286,9 +1239,9 @@
     {
       "id": "ms36nf32oabrt",
       "type": "task",
-      "content": "过拆运一体单13张。流程节点性工作：筛选分类可以减少精力消耗，不用一条条横向肉眼比对",
+      "content": "过拆运一体单13张。\n流程节点性工作：\n### 压单情况\n处理时间是否合理？有无别人催你？\n- 效率提高了，筛选分类可以减少精力消耗，不用一条条横向肉眼比对。\n\n### 异常率\n有无自己疏忽导致返工？有没有遇到流程堵塞却没说？\n\n### 协作感\n有没有及时反馈进度？遇到模糊，是否及时与上游沟通了？",
       "createdAt": "2026-07-27T12:08:04.382Z",
-      "updatedAt": "2026-07-28T02:12:47.469Z",
+      "updatedAt": "2026-07-28T03:32:25.288Z",
       "tags": [],
       "done": true,
       "dueTime": null,
@@ -1326,21 +1279,6 @@
       ],
       "done": true,
       "doneAt": "2026-07-28T00:56:10.567Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "ms3xjdbsxzpjl",
-      "type": "task",
-      "content": "看下体检1000多了什么项目",
-      "createdAt": "2026-07-28T00:40:45.112Z",
-      "updatedAt": "2026-07-28T02:43:39.147Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T02:43:39.147Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1438,21 +1376,6 @@
       "listId": "list_1783562300215"
     },
     {
-      "id": "ms426fvxh9pb9",
-      "type": "task",
-      "content": "DDF梳理出天河和越秀的，增加处理建议咯。60%概率可以推动指标，数量不少。",
-      "createdAt": "2026-07-28T02:50:39.981Z",
-      "updatedAt": "2026-07-28T03:05:12.592Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-28T03:05:12.592Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "ms42pgqmkz47j",
       "type": "task",
       "content": "我得停一停再发低效DDF给天河和越秀",
@@ -1512,7 +1435,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -3885,7 +3808,7 @@
             "endTime": "11:50",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-07-21T03:30:29.523Z"
+            "confirmationTime": "2026-07-28T03:31:10.479Z"
           }
         ]
       },
@@ -3893,7 +3816,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-07-21T03:30:28.144Z"
+        "0": "2026-07-28T03:31:00.578Z"
       }
     },
     {
@@ -5352,6 +5275,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T02:47:16.160Z"
+    "lastSync": "2026-07-28T03:16:27.807Z"
   }
 }
