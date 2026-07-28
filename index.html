@@ -3229,6 +3229,38 @@ margin: 15vh auto 20vh auto !important;  /* 上边距 5vh，下边距 20vh，避
             opacity: 0.9;
         }
         
+        /* 清单下拉菜单（用于移动任务） */
+        .list-selector-dropdown {
+            position: absolute;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 6px 6px;
+            z-index: 10000;
+            min-width: 160px;
+            max-width: 220px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .list-selector-dropdown .list-selector-option {
+            display: block;
+            padding: 8px 12px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .list-selector-dropdown .list-selector-option:last-child {
+            border-bottom: none;
+        }
+        
+        .list-selector-dropdown .list-selector-option:hover {
+            background: var(--hover);
+        }
+        
         /* 整理界面标签选择器样式优化 */
         #organizerTagsContainer {
             position: relative;
@@ -16774,7 +16806,8 @@ function closeModal(modalId) {
                 { label: '🏷️ 添加标签', action: 'tag' },
                 { label: '💡 AI 帮想点子', action: 'aiIdeas' },
                 { label: '⏰ 触发提醒', action: 'trigger' },
-                { label: '📤 移出清单', action: 'removeFromList' }
+                { label: '📤 移出清单', action: 'removeFromList' },
+                { label: '📂 移动到另一个清单', action: 'moveToList' }
             ];
             
             options.forEach(opt => {
@@ -16788,11 +16821,13 @@ function closeModal(modalId) {
                 item.onmouseenter = function() { this.style.background = 'var(--hover)'; };
                 item.onmouseleave = function() { this.style.background = 'transparent'; };
                 item.onclick = () => {
-                    // 重置按钮状态
+                    // 保存按钮引用（用于 moveToList 操作）
                     const btn = document.querySelector('.item-tag[data-menu-open="true"]');
+                    // 重置按钮状态
                     if (btn) btn.dataset.menuOpen = 'false';
                     menu.remove();
-                    handleCompactMenuAction(opt.action, taskId);
+                    // 传递按钮引用给 handleCompactMenuAction
+                    handleCompactMenuAction(opt.action, taskId, btn);
                 };
                 menu.appendChild(item);
             });
@@ -16834,7 +16869,7 @@ function closeModal(modalId) {
             }
         }
         // 处理紧凑列表菜单操作
-        function handleCompactMenuAction(action, taskId) {
+        function handleCompactMenuAction(action, taskId, clickedBtn) {
             const task = data.tasks.find(t => t.id === taskId);
             if (!task) return;
             
@@ -16865,7 +16900,116 @@ function closeModal(modalId) {
                     renderCompleted();
                     updateAllTagFilters();
                     break;
+                case 'moveToList':
+                    // 使用传入的按钮引用显示清单选择器
+                    if (clickedBtn) {
+                        showListSelectorForMove(taskId, clickedBtn);
+                    }
+                    break;
             }
+        }
+        
+        // 显示清单选择器（用于移动任务）
+        function showListSelectorForMove(taskId, btnElement) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            // 关闭其他已打开的选择器
+            document.querySelectorAll('.list-selector-dropdown').forEach(el => el.remove());
+            
+            // 获取所有清单（排除当前清单）
+            const availableLists = (data.taskLists || []).filter(l => l.id !== task.listId);
+            
+            if (availableLists.length === 0) {
+                showToast('没有其他清单可移动');
+                return;
+            }
+            
+            // 创建下拉菜单
+            const dropdown = document.createElement('div');
+            dropdown.className = 'list-selector-dropdown';
+            dropdown.style.position = 'fixed';
+            dropdown.style.zIndex = '10000';
+            
+            // 构建清单选项 HTML
+            let optionsHtml = '<div style="font-size:10px;color:var(--text-secondary);margin-bottom:6px;">选择目标清单：</div>';
+            
+            availableLists.forEach(list => {
+                const safeName = escapeHtml(list.name);
+                optionsHtml += `<span class="list-selector-option" data-list-id="${list.id}">${safeName}</span>`;
+            });
+            
+            dropdown.innerHTML = optionsHtml;
+            
+            // 定位到按钮下方
+            if (btnElement) {
+                const rect = btnElement.getBoundingClientRect();
+                dropdown.style.top = (rect.bottom + 4) + 'px';
+                dropdown.style.left = rect.left + 'px';
+                
+                // 确保菜单不超出屏幕右侧
+                const dropdownWidth = 180;
+                if (rect.left + dropdownWidth > window.innerWidth) {
+                    dropdown.style.left = (window.innerWidth - dropdownWidth - 10) + 'px';
+                }
+            }
+            
+            document.body.appendChild(dropdown);
+            
+            // 添加点击事件
+            const options = dropdown.querySelectorAll('.list-selector-option');
+            options.forEach(option => {
+                option.style.display = 'block';
+                option.style.padding = '8px 12px';
+                option.style.cursor = 'pointer';
+                option.style.fontSize = '13px';
+                option.style.transition = 'background 0.2s';
+                option.style.borderBottom = '1px solid var(--border)';
+                option.onmouseenter = function() { this.style.background = 'var(--hover)'; };
+                option.onmouseleave = function() { this.style.background = 'transparent'; };
+                option.onclick = () => {
+                    const targetListId = option.dataset.listId;
+                    moveTaskToList(taskId, targetListId);
+                    dropdown.remove();
+                };
+            });
+            
+            // 点击其他地方关闭选择器
+            setTimeout(() => {
+                document.addEventListener('click', closeMenu);
+            }, 0);
+            
+            function closeMenu(e2) {
+                if (!dropdown.contains(e2.target)) {
+                    dropdown.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            }
+        }
+        
+        // 移动任务到另一个清单
+        function moveTaskToList(taskId, targetListId) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            // 更新任务的 listId
+            const oldListId = task.listId;
+            task.listId = targetListId;
+            task.updatedAt = nowStr();
+            saveData();
+            
+            // 刷新相关视图
+            renderListTodos(); // 刷新当前清单列表
+            
+            // 如果目标清单是当前清单，也需要刷新
+            if (targetListId === data.currentListId && oldListId !== data.currentListId) {
+                renderListTodos();
+            }
+            
+            updateAllTagFilters();
+            
+            const targetList = data.taskLists.find(l => l.id === targetListId);
+            showToast(`已移动到：${targetList ? targetList.name : '未知清单'}`);
         }
         
         // 显示任务标签选择器
