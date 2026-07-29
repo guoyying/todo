@@ -1049,13 +1049,15 @@
       "type": "task",
       "content": "安装零信任",
       "createdAt": "2026-07-27T08:12:20.331Z",
-      "updatedAt": "2026-07-27T08:12:24.597Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-07-29T03:43:57.943Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
+      "doneAt": "2026-07-29T03:43:50.479Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -1332,9 +1334,9 @@
     {
       "id": "ms4bd9oypg4a8",
       "type": "task",
-      "content": "开始整理给上头的月报，想下怎么做。\n- 为了挖掘价值，我接触了什么其他工作信息：\n- 交付品是一页整理好数据的ppt\n---\n**里程碑**：完成初步数据填充--完成全部\n进度5%",
+      "content": "开始整理给上头的月报，想下怎么做。\n- 为了挖掘价值，我接触了什么其他工作信息：\n- 交付品是一页整理好数据的ppt\n---\n**里程碑**：完成初步数据填充--完成全部\n已完成客资数据的填充，还剩下我的、张的\n进度33%",
       "createdAt": "2026-07-28T07:07:55.090Z",
-      "updatedAt": "2026-07-28T13:32:51.006Z",
+      "updatedAt": "2026-07-29T03:44:33.822Z",
       "tags": [
         "退网"
       ],
@@ -1460,9 +1462,9 @@
     {
       "id": "ms4gll6cti25o",
       "type": "task",
-      "content": "### 周三上午主任务2：\n看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（60%）\n我完成了网管配置，等待白云查看现场。原来是另一条光路的问题",
+      "content": "### 周三上午主任务2：\n看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n新get技能：修改完环节点数后，要重新‘全网启动’。等待一会儿再看收发光是否正常。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（60%）\n我完成了网管配置，等待白云查看现场。原来是另一条光路的问题",
       "createdAt": "2026-07-28T09:34:21.300Z",
-      "updatedAt": "2026-07-29T02:46:38.509Z",
+      "updatedAt": "2026-07-29T03:46:26.574Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1592,15 +1594,32 @@
     {
       "id": "ms5fwoijogbr5",
       "type": "task",
-      "content": "给厂家分配IP试试。\n价值：让他们能上网，不过归到客观原因也是可以的。主要是能不能长期解决问题。\n**里程碑**：摸索出解决问题的路径——厂家能上网了，并且稳定不容易断网\n进度：*一阶段*20%",
+      "content": "给厂家分配IP试试。\n价值：让他们能上网，不过归到客观原因也是可以的。主要是能不能长期解决问题。\n**新get技能**：可以提交给算力分配ip\n**里程碑**：摸索出解决问题的路径——厂家能上网了，并且稳定不容易断网\n进度：*一阶段*70%",
       "createdAt": "2026-07-29T02:02:45.403Z",
-      "updatedAt": "2026-07-29T02:07:51.774Z",
+      "updatedAt": "2026-07-29T03:47:52.935Z",
       "tags": [],
       "done": false,
       "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms5jphph3mm7w",
+      "type": "task",
+      "content": "好用的方法：既然时间破碎，那就用‘时间块’的方法。半天确定一个主任务，就盯着，有消息立马响应。其他任务可以插缝推进，结束后再汇总进度即可。",
+      "createdAt": "2026-07-29T03:49:08.453Z",
+      "updatedAt": "2026-07-29T03:49:16.706Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "doneAt": "2026-07-29T03:49:14.771Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     }
@@ -4066,21 +4085,6 @@
       "active": true
     },
     {
-      "id": "ms433ci4e6gs2",
-      "taskId": "ms2y89grljjn7",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-29T11:16"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-28T03:16:15.244Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms4ccfnfxxuc0",
       "taskId": "ms4c4fwdgc67a",
       "type": "time",
@@ -5516,6 +5520,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-29T02:46:45.180Z"
+    "lastSync": "2026-07-29T03:12:42.487Z"
   }
 }
