@@ -928,9 +928,9 @@
     {
       "id": "mryds1264c8xk",
       "type": "task",
-      "content": "去激活114-神岗-从化HA001观察看看吧，如果没有报障就可以退网了。\n**悟到了一个断测方法**：上班时间去激活-去激活一条业务-等1-2天观察。没有故障再继续去激活，这样稳妥点，可追踪",
+      "content": "去激活114-神岗-从化HA001观察看看吧，如果没有报障就可以退网了。\n做这个事情的价值是：\n1. 这台设备能退网，直接算一个指标\n2. 关联‘从化补环’工作：环网元也可以用此方法去激活业务，逐渐找到可退设备\n**悟到了一个断测方法**：上班时间去激活-去激活一条业务-等1-2天观察。没有故障再继续去激活，这样稳妥点，可追踪。\n接下来是去激活业务——判断是否能退网\n进度：80%",
       "createdAt": "2026-07-24T03:28:45.918Z",
-      "updatedAt": "2026-07-28T02:33:53.540Z",
+      "updatedAt": "2026-07-29T02:12:11.421Z",
       "tags": [],
       "done": false,
       "dueTime": "",
@@ -1475,9 +1475,9 @@
     {
       "id": "ms4gll6cti25o",
       "type": "task",
-      "content": "看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（0%）",
+      "content": "### 周三上午主任务2：\n看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（60%）\n我完成了网管配置，等待白云查看现场。原来是另一条光路的问题",
       "createdAt": "2026-07-28T09:34:21.300Z",
-      "updatedAt": "2026-07-28T14:41:54.700Z",
+      "updatedAt": "2026-07-29T02:46:38.509Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1607,9 +1607,9 @@
     {
       "id": "ms5fwoijogbr5",
       "type": "task",
-      "content": "给厂家分配IP试试。\n价值：让他们能上网，不过归到客观原因也是可以的。主要是能不能长期解决问题。",
+      "content": "给厂家分配IP试试。\n价值：让他们能上网，不过归到客观原因也是可以的。主要是能不能长期解决问题。\n**里程碑**：摸索出解决问题的路径——厂家能上网了，并且稳定不容易断网\n进度：*一阶段*20%",
       "createdAt": "2026-07-29T02:02:45.403Z",
-      "updatedAt": "2026-07-29T02:03:29.007Z",
+      "updatedAt": "2026-07-29T02:07:51.774Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1617,7 +1617,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -1650,7 +1650,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4010,21 +4010,6 @@
       }
     },
     {
-      "id": "mrolr1n8il34d",
-      "taskId": "mrolqji2xjdeg",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-29T10:40"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-17T07:14:15.188Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mrt1ptqnqc7hh",
       "taskId": "mrt1pflb87nuf",
       "type": "condition",
@@ -4096,21 +4081,6 @@
       "active": true
     },
     {
-      "id": "ms41m0suksr5a",
-      "taskId": "mryds1264c8xk",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-29T10:09"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-28T02:34:47.310Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms433ci4e6gs2",
       "taskId": "ms2y89grljjn7",
       "type": "time",
@@ -4152,6 +4122,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-29T02:06:33.879Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms5g3ox83lf32",
+      "taskId": "ms4lzbte764h5",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-02T08:23"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-29T02:08:12.524Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -5546,6 +5531,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-29T00:53:51.107Z"
+    "lastSync": "2026-07-29T02:06:53.211Z"
   }
 }
