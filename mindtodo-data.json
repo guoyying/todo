@@ -1251,10 +1251,10 @@
       "type": "task",
       "content": "实物资产盘点报名。上午给笔记本充电",
       "createdAt": "2026-07-28T01:05:52.198Z",
-      "updatedAt": "2026-07-28T06:24:37.346Z",
+      "updatedAt": "2026-07-29T02:02:20.412Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-29T02:02:20.412Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1441,15 +1441,17 @@
     {
       "id": "ms4eqd2nrn7gd",
       "type": "task",
-      "content": "周三上午主任务：工程验收15个单子\n价值在于可以直接写进周报了\n**里程碑**：完成验收\n进度：0/10",
+      "content": "周三上午主任务：工程验收10个单子\n价值：成果可以直接写进周报\n**里程碑**：完成验收\n进度：100%",
       "createdAt": "2026-07-28T08:42:04.847Z",
-      "updatedAt": "2026-07-29T00:36:57.666Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-07-29T01:54:08.060Z",
+      "tags": [
+        "验收"
+      ],
+      "done": true,
+      "doneAt": "2026-07-29T01:53:57.970Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -1593,6 +1595,21 @@
       "content": "不能在零信任里面切换控制器吗？问下。\n价值在于可以快速切换内网和外网",
       "createdAt": "2026-07-29T00:53:25.363Z",
       "updatedAt": "2026-07-29T00:53:37.634Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "ms5fwoijogbr5",
+      "type": "task",
+      "content": "给厂家分配IP试试。\n价值：让他们能上网，不过归到客观原因也是可以的。主要是能不能长期解决问题。",
+      "createdAt": "2026-07-29T02:02:45.403Z",
+      "updatedAt": "2026-07-29T02:03:29.007Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -4109,21 +4126,6 @@
       "active": true
     },
     {
-      "id": "ms49tsef50dtq",
-      "taskId": "ms3yfo7aqb5s0",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-29T09:19"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-28T06:24:46.599Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms4ccfnfxxuc0",
       "taskId": "ms4c4fwdgc67a",
       "type": "time",
@@ -4135,6 +4137,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-28T07:35:15.771Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms5g1kt3v33ei",
+      "taskId": "ms4n7hwjdg0cq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-29T17:40"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-29T02:06:33.879Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -5529,6 +5546,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-28T14:02:50.570Z"
+    "lastSync": "2026-07-29T00:53:51.107Z"
   }
 }
