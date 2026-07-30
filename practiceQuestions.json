@@ -1550,7 +1550,7 @@
       "analysis": "传输层提供端到端的可靠或不可靠数据传输服务，如TCP/UDP。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_2",
@@ -1748,7 +1748,8 @@
       "answer": "C",
       "analysis": "重放攻击主动向网络发送恶意数据包，属于主动攻击。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_15",
@@ -1794,7 +1795,8 @@
       "answer": "C",
       "analysis": "100Base-TX采用4B/5B编码，配合MLT-3线路编码。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_18",
@@ -1883,10 +1885,10 @@
         "D. TCP"
       ],
       "answer": "D",
-      "analysis": "TCP提供面向连接、可靠的数据流传输。\nTCP：传输控制协议\nUDP：用户数据报协议",
+      "analysis": "TCP提供面向连接、可靠的数据流传输。\nTCP：传输控制协议。先建立连接（“握手”）再传数据\nUDP：用户数据报协议",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_24",
@@ -1932,7 +1934,7 @@
       "analysis": "IP和ICMP工作在网络层。ARP属于网络层但更偏向链路层，TCP为传输层。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_27",
@@ -1995,7 +1997,7 @@
       "analysis": "FTP、SMTP、Telnet、DHCP均为应用层协议。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlgcs_31",
@@ -2144,7 +2146,8 @@
       "answer": "BCD",
       "analysis": "子网划分不增加可用IP总数（反而损失一些），但减少广播域、借主机位、提升性能。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_42",
@@ -6872,5 +6875,5 @@
       "status": "unknown"
     }
   ],
-  "lastUpdated": "2026-07-29T23:15:03.328Z"
+  "lastUpdated": "2026-07-30T00:00:55.261Z"
 }
