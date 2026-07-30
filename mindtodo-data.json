@@ -818,14 +818,17 @@
       "type": "task",
       "content": "就是东莞庄、元岗、马场这些本地机房有业务的重点关注。长途0业务的（实际有业务承载）也看看。",
       "createdAt": "2026-07-20T03:36:39.928Z",
-      "updatedAt": "2026-07-27T05:13:29.901Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-07-30T04:51:02.283Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "list_1783562300215",
+      "doneAt": "2026-07-30T04:50:45.183Z"
     },
     {
       "id": "mrt1pflb87nuf",
@@ -1065,9 +1068,9 @@
     {
       "id": "ms30tbb8metq6",
       "type": "task",
-      "content": "## 原料待加工\n对于复盘，其实用现有的素材就行了啊。我可以将已完成的任务写进去，有个按钮可以月历视图（以完成时间为标记，而不是修改时间），月历内可以筛选范围、按标签筛选。有进度的：里程碑单独放，燃料、阻碍清除和减少行动可以每天都有。\n我又有点想做个表格形式了，将任务拖拉到里面一起看。",
+      "content": "## 找到不内耗的工作方法\n0728对于复盘，其实用现有的素材就行了啊。我可以将已完成的任务写进去，有个按钮可以月历视图（以完成时间为标记，而不是修改时间），月历内可以筛选范围、按标签筛选。有进度的：里程碑单独放，燃料、阻碍清除和减少行动可以每天都有。\n0728我又有点想做个表格形式了，将任务拖拉到里面一起看。\n0730看书心静，悟到了变就是唯一不变的事。哪怕今天确定了一个系统，明天还是会变、会不适用。倒不如以一句话为道：我想从这个任务获得什么？价值在哪里？下一步作什么?确定里程碑（当前已经完成了），以不变应万变。",
       "createdAt": "2026-07-27T09:24:41.732Z",
-      "updatedAt": "2026-07-28T07:06:50.973Z",
+      "updatedAt": "2026-07-30T04:49:51.765Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1250,21 +1253,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "ms3yfo7aqb5s0",
-      "type": "task",
-      "content": "实物资产盘点报名。上午给笔记本充电",
-      "createdAt": "2026-07-28T01:05:52.198Z",
-      "updatedAt": "2026-07-29T02:02:20.412Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-07-29T02:02:20.412Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
       "id": "ms41zu6i76dxm",
       "type": "task",
       "content": "我觉得可以在思考阶段先判断任务，剪掉不用做的任务。放到确定性的任务都是可以无脑，此时无需判断了",
@@ -1386,10 +1374,10 @@
       "type": "task",
       "content": "### 周四上午主任务：\n结合天河和越秀，想下怎么办低效的。他们推不动，那能怎么办。现在天河已经梳理完了。我得看下越秀的聊天内容，先盘下指标吧。就是指标梳理而已，不是要那么准确。但是那个确实可以，就可以用最短时间去问一嘴获得信息。我想更新下里程碑。\n0730：目前是我梳理了天河和越秀的空间，等待他们结合现场确认空间。等待中，发现这并不是能立马回复的。\n0730：让他们梳理的时候，发现有可能是可以测的，只是不会而已。所以调整了里程碑，再做努力尝试。\n\n做这个事有啥好处？\n1. 让县分感觉到有托举，真的有人在帮他们解决问题。\n2. 让领导知道我们有作为，只是客观原因不允许\n---\n**里程碑**：梳理了天河越秀的空间----天河越秀结合现场，了解可退、卡点情况---可解决的问题，看能否解决---跟领导反馈现状，寻求下一步行动的指导建议\n进度：一阶段100%---二阶段50%（天河已有阶段性成果，等待越秀反馈）",
       "createdAt": "2026-07-28T07:13:38.576Z",
-      "updatedAt": "2026-07-30T04:05:14.560Z",
+      "updatedAt": "2026-07-30T04:51:13.812Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-07-30T04:51:13.812Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1768,7 +1756,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4169,21 +4157,6 @@
       "active": true
     },
     {
-      "id": "ms3yy3pyqmjse",
-      "taskId": "ms30tbb8metq6",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-07-30T12:26"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-28T01:20:12.118Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "ms4ccfnfxxuc0",
       "taskId": "ms4c4fwdgc67a",
       "type": "time",
@@ -4225,6 +4198,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-07-29T09:04:27.906Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms71byzhlk5j6",
+      "taskId": "ms30tbb8metq6",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-04T12:32"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-30T04:50:16.925Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms71chdvegvfk",
+      "taskId": "ms4n7hwjdg0cq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-07-31T17:29"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-07-30T04:50:40.771Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -5619,6 +5622,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-30T04:05:50.089Z"
+    "lastSync": "2026-07-30T04:06:40.481Z"
   }
 }
