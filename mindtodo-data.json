@@ -1224,12 +1224,12 @@
       "type": "task",
       "content": "打开省平台电路清单，反选为‘工程队测试不在用’-》目前一共有177个在SDH清单内设备、188个在低效内设备。\n里程碑是反馈给领导：60%\n我现在是要想下怎么给华姐。乱得很。",
       "createdAt": "2026-07-28T00:59:43.283Z",
-      "updatedAt": "2026-07-31T08:59:01.953Z",
+      "updatedAt": "2026-08-01T00:53:35.924Z",
       "tags": [
         "退网"
       ],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-01T00:53:35.924Z",
       "dueTime": "",
       "unknown": false,
       "isList": false,
@@ -1725,7 +1725,7 @@
       "type": "task",
       "content": "萝岗业务的事情跟进下。这也是个大活，哎。做这个事情的价值是。就写个进度即可。哎这个之前不是填过吗，我得找下之前的进度。我都忘了。\n里程碑：找到之前填写的进度，可以找聊天内容\n进度：0%",
       "createdAt": "2026-07-31T01:57:43.163Z",
-      "updatedAt": "2026-07-31T08:16:57.550Z",
+      "updatedAt": "2026-08-01T00:50:58.995Z",
       "tags": [
         "网安"
       ],
@@ -1735,7 +1735,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565463457"
     },
     {
       "id": "ms8kzfgonkm2u",
@@ -1813,6 +1813,21 @@
       "dueTime": "",
       "unknown": false,
       "isList": false,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "ms9nrrfdymb80",
+      "type": "task",
+      "content": "### 8.1&给老妈过生日\n过生日那块儿，我只需要买好菜和拿蛋糕就行了。做好我那个丝瓜汤。8.1给老公发个红包。\n下一步是写下**丝瓜汤**做法：\n1. 瑶柱虾米泡一下\n2. 丝瓜削皮、准备蒜末和姜丝\n3. 贝壳焯水\n4. 姜丝和瑶柱虾米贝壳一起炒，然后加水下丝瓜\n5. 加一点淀粉\n\n**里程碑**：给老公发红包——买虾和贝壳——拿蛋糕——做丝瓜汤\n**进度**：0%",
+      "createdAt": "2026-08-01T00:53:57.529Z",
+      "updatedAt": "2026-08-01T01:00:21.671Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
     }
@@ -4330,6 +4345,96 @@
       "createdAt": "2026-07-31T06:47:25.576Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "ms9nnnr4yjo2u",
+      "taskId": "ms8nn3lz58fum",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:50"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:50:46.144Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms9nnu7m5lotz",
+      "taskId": "ms8kzfgonkm2u",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:50"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:50:54.514Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms9no3uwtwgnp",
+      "taskId": "ms886f5fpxnzm",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:51:07.016Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms9nogdriigvs",
+      "taskId": "ms6ubw2wdqqru",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:51:23.247Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms9noof50gpdu",
+      "taskId": "ms8alwmznhw79",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:51:33.665Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "ms9nouofgdp7v",
+      "taskId": "ms8nnp3ra876t",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T08:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-01T00:51:41.775Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -5732,6 +5837,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-07-31T09:34:00.745Z"
+    "lastSync": "2026-07-31T16:16:28.619Z"
   }
 }
