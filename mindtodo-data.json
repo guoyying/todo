@@ -1325,9 +1325,9 @@
     {
       "id": "ms4bd9oypg4a8",
       "type": "task",
-      "content": "开始整理给上头的月报，想下怎么做。\n- 为了挖掘价值，我接触了什么其他工作信息：\n- 交付品是一页整理好数据的ppt\n---\n**里程碑**：完成初步数据填充--完成全部\n已完成客资数据的填充，还剩下张的‘装新拆旧’——给云网部看看——给发送文件\n进度95%",
+      "content": "### 周一主任务：\n整理给上头的月报\n- 为了挖掘价值，我接触了什么其他工作信息：\n- 交付品是一页整理好数据的ppt\n---\n还得填省公司那个表呢。\n**里程碑**：完成初步数据填充--完成全部\n已完成客资数据的填充，还剩下张的‘装新拆旧’——给云网部看看——给发送文件——填省公司的表和BU表\n进度95%",
       "createdAt": "2026-07-28T07:07:55.090Z",
-      "updatedAt": "2026-07-31T06:47:06.786Z",
+      "updatedAt": "2026-08-03T01:15:35.781Z",
       "tags": [
         "退网"
       ],
@@ -1459,12 +1459,12 @@
       "type": "task",
       "content": "### 周三上午主任务2：\n看下白云补环的事情。这个补完就能退网了，实际上效益还是较高的。但是所需时间不短。\n新get技能：\n1. 修改完环节点数后，要重新‘全网启动’。等待一会儿再看收发光是否正常。\n2. ‘这条光路能断开测了吧’，多一嘴提问，可以督促对方思考流程漏洞。\n\n里程碑：隐患完成——完成退网环补\n进度：隐患完成（100%），退网补环（60%）\n我完成了网管配置，等待白云查看现场。原来是另一条光路的问题",
       "createdAt": "2026-07-28T09:34:21.300Z",
-      "updatedAt": "2026-07-29T06:44:13.196Z",
+      "updatedAt": "2026-08-03T01:13:18.478Z",
       "tags": [
         "退网"
       ],
-      "done": true,
-      "doneAt": "2026-07-29T06:44:06.641Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": false,
@@ -1738,21 +1738,6 @@
       "listId": "list_1783565463457"
     },
     {
-      "id": "ms8kzfgonkm2u",
-      "type": "task",
-      "content": "爬虫这周的退网进度。目的是什么，下周就不用重新开始了。",
-      "createdAt": "2026-07-31T06:48:10.248Z",
-      "updatedAt": "2026-07-31T08:40:44.116Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "ms8lmb1bgahub",
       "type": "task",
       "content": "我发现有那么2-3天我以几个大任务去推进，其他工作就不想加入进来。等到推进到里程碑了，我就可以更新一批任务群了。这种节奏有满足感且舒服。不会觉得工作源源不断。",
@@ -1832,6 +1817,36 @@
       "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mscirrert37em",
+      "type": "task",
+      "content": "我想整理下退网的清单喔。又想看看上周工作进度。",
+      "createdAt": "2026-08-03T00:57:17.955Z",
+      "updatedAt": "2026-08-03T00:57:17.955Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
+    },
+    {
+      "id": "mscj9p9gg2l3d",
+      "type": "task",
+      "content": "掼蛋总结经验",
+      "createdAt": "2026-08-03T01:11:14.980Z",
+      "updatedAt": "2026-08-03T01:11:14.980Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -4319,21 +4334,6 @@
       "active": true
     },
     {
-      "id": "ms8kygzsueq3n",
-      "taskId": "ms4bd9oypg4a8",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-03T09:07"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-07-31T06:47:25.576Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "msci0z779llfa",
       "taskId": "ms4lzbte764h5",
       "type": "time",
@@ -4345,6 +4345,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-03T00:36:28.339Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mscj67wklkng7",
+      "taskId": "ms4n7hwjdg0cq",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-03T17:50"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-03T01:08:32.516Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -5749,6 +5764,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-03T00:34:28.584Z"
+    "lastSync": "2026-08-03T00:56:58.461Z"
   }
 }
