@@ -1559,9 +1559,9 @@
     {
       "id": "ms4n7hwjdg0cq",
       "type": "task",
-      "content": "下一阶段我就想阅读理解那些我不懂的内容了。因为我能看进去是因为我对书中的某个概念有认识有理解，我需要通过阅读拓展慢慢拓宽扩大我的舒适圈以及熟悉的东西。不要强求一下子搞懂所有内容。\n> 舒适圈的扩大不是推倒围墙，而是开一扇门，先迈一只脚进去看看。 每当你从“陌生”中找到一点自己已知的影子，那就是进步。\n\n0801：想看书但觉得这个目标太大，什么叫“用旧的知识去理解新知识”，何为新？\n0802：或是将模糊的思想转为具体的文字，也是一种新；“你能说出这是什么吗”作为判断依据\n0803：我亲身体会应当是这样子的：通过量子力学爱因斯坦的相对论理解世界万物是不断在变化的，从而能将这个理论应用到我工作的实际\n0803：我在生活中经历过，然后看到书中的某句话能联系起来且有共鸣；另一情况是我理解书中的某句话，然后在某一天某个场景联系起这句话。后者是我目前未能达到的。\n**目标**：理解书中某句话，未来又在某场景联系起这句话。\n**里程碑**：确认自己想获得什么——实际获得了\n**阶段交付品**：\n书中某句话：\n未来联系起这句话的场景是：________\n进度：一阶段100%——二阶段0%",
+      "content": "下一阶段我就想阅读理解那些我不懂的内容了。因为我能看进去是因为我对书中的某个概念有认识有理解，我需要通过阅读拓展慢慢拓宽扩大我的舒适圈以及熟悉的东西。不要强求一下子搞懂所有内容。\n> 舒适圈的扩大不是推倒围墙，而是开一扇门，先迈一只脚进去看看。 每当你从“陌生”中找到一点自己已知的影子，那就是进步。\n\n0801：想看书但觉得这个目标太大，什么叫“用旧的知识去理解新知识”，何为新？\n0802：或是将模糊的思想转为具体的文字，也是一种新；“你能说出这是什么吗”作为判断依据\n0803：我亲身体会应当是这样子的：通过量子力学爱因斯坦的相对论理解世界万物是不断在变化的，从而能将这个理论应用到我工作的实际\n0803：我在生活中经历过，然后看到书中的某句话能联系起来且有共鸣；另一情况是我理解书中的某句话，然后在某一天某个场景联系起这句话。后者是我目前未能达到的。\n0803：我觉得难在，那些能让我为来想起来的内容都是当时费心去学去理解的。比如高中背过考过的古诗、大学为期末考理解过的相对论…读书如果没有这个过程是很难做到未来某天想起的。\n**目标**：理解书中某句话，未来又在某场景联系起这句话。\n**里程碑**：确认自己想获得什么——实际获得了\n**阶段交付品**：\n书中某句话：\n未来联系起这句话的场景是：________\n进度：一阶段100%——二阶段0%",
       "createdAt": "2026-07-28T12:39:21.187Z",
-      "updatedAt": "2026-08-03T00:56:46.707Z",
+      "updatedAt": "2026-08-03T15:25:12.217Z",
       "tags": [
         "生活"
       ],
@@ -1776,10 +1776,10 @@
       "type": "task",
       "content": "打印尾纤。做这个有啥好处？用最小的时间积累友善，之后要帮忙也好开口。",
       "createdAt": "2026-07-31T08:03:01.719Z",
-      "updatedAt": "2026-08-03T03:55:15.333Z",
+      "updatedAt": "2026-08-03T15:31:32.059Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-03T15:31:32.059Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1866,7 +1866,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2738,6 +2738,241 @@
   "title": "🌿 todo",
   "ammoLibrary": [
     {
+      "id": "ms4huj8zb86yk",
+      "content": "对每件事都认真负责，看到了它们的价值。但正如你所说，“保留精力”本身也是一种更高维度的价值——它让你能持续、高质量地完成真正重要的事，而不是被所有“有价值”的事耗尽",
+      "type": null,
+      "createdAt": "2026-07-28T10:09:18.323Z",
+      "tags": []
+    },
+    {
+      "id": "ms2txew1eiy47",
+      "content": "运维/支撑类岗位的进度，不以‘完成’为目标，而是‘没出事’",
+      "type": "general",
+      "createdAt": "2026-07-27T06:11:55.681Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrynaaqmudxi8",
+      "content": "别总是觉得自己没做好，我们总忍不住用自己的那杆秤去量别人，量着量着就把“心疼”量成“亏欠”。无论是谁，都有自己的路要走",
+      "type": "general",
+      "createdAt": "2026-07-24T07:54:54.814Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrym5qb8kccp5",
+      "content": "帮你是情分，但你要先证明自己值得帮",
+      "type": null,
+      "createdAt": "2026-07-24T07:23:22.100Z",
+      "tags": []
+    },
+    {
+      "id": "mrhz0j7uad6sf",
+      "content": "沟通中最有力量的一层——不只是表达情绪，而是表达“情绪的来源与演化路径”。\n“我现在的不安，不是凭空针对你，是从过去那条线上长出来的。”\n对方听到的就不再是“控制”或“任性”，而是一条他可以走进去理解的路径。",
+      "type": null,
+      "createdAt": "2026-07-12T15:51:09.642Z",
+      "tags": [],
+      "digestion": {
+        "scenarios": [
+          {
+            "scenario": "亲密关系中的情绪回溯沟通",
+            "reference": "伴侣之间，当一方因为对方晚归而感到焦虑时，可以这样说：“我现在的不安，不是凭空在指责你晚归，而是从过去几次你答应早点回来却失约的那条线上长出来的。每次等不到你，我都会想起之前那种被忽视的感觉。我不是要控制你，只是想让你理解我为什么这么紧张，这样我们才能一起想办法。”"
+          },
+          {
+            "scenario": "职场中向上管理时的压力表达",
+            "reference": "面对领导突然增加的任务量感到慌乱时，可以这样说：“领导，我现在感到有些慌乱，不是对您安排的任务有意见，而是从过去几次紧急任务中因为时间不足而出现疏漏的路径上长出来的。我担心这次重蹈覆辙。所以我想和您确认一下优先级，或者看能否调整一下交付节奏，这样我能更从容地保证质量。”"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mrhyvfwtrf0ns",
+      "content": "我现在需要你听我说，然后给我一个回应——哪怕是‘我听到了，我暂时做不到，但我记着’。” 这就是你为自己争取的“更好体验”",
+      "type": null,
+      "createdAt": "2026-07-12T15:47:12.077Z",
+      "tags": []
+    },
+    {
+      "id": "mrhlcg2ap1ndu",
+      "content": "被看见是解决问题的起点。但被看见不一定等于立刻改变安排，而是让对方理解你的行为逻辑。他未来就更可能在类似情境中主动替你挡一下，或帮你创造空间。",
+      "type": "general",
+      "createdAt": "2026-07-12T09:28:30.802Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [
+          {
+            "scenario": "自我提升：记录日常效率卡点",
+            "reference": "当我发现自己总在某个环节拖延或出错时，我会先记录下来，不急着批评自己。因为被看见是解决问题的起点——我让自己理解这个行为背后的原因，比如任务太模糊或精力不足。这样，下次遇到类似情况，我就能主动提前调整安排，比如拆解步骤或设定定时休息，让效率更顺滑。"
+          },
+          {
+            "scenario": "相处：伴侣抱怨我回家太晚",
+            "reference": "当伴侣对我说‘你总这么晚回来，心里还有没有这个家’时，我会先不急着辩解或道歉，而是平静地说：‘我听到你的担心了，谢谢你告诉我。我想让你明白，我加班是因为项目截止期紧，不是不在意你。被看见是解决问题的起点——你能理解我的行为逻辑，下次我加班时，你或许会主动帮我留盏灯，或者提醒我早点结束，这样我们都能更舒服。’"
+          }
+        ],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrf5nih0qj1yc",
+      "content": "你确实告诉了我事实。但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪你‘没说’，我只是在告诉你，我现在‘感受到’了什么。",
+      "type": "general",
+      "createdAt": "2026-07-10T16:33:40.932Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [
+          {
+            "scenario": "自我提升：复盘与优化",
+            "reference": "在复盘一次工作或学习任务时，对自己说：“你确实告诉了自己‘已经完成了任务’这个事实。但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪自己‘没做好’，我只是在告诉自己，我现在‘感受到’了什么——比如过程中哪里卡住了、哪里觉得累。这样我才能找到真正需要优化的细节。”"
+          },
+          {
+            "scenario": "相处：冷静沟通框架",
+            "reference": "当伴侣或朋友说‘我已经解释过了’时，你可以用这句话回应：“你确实告诉了我事实，但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪你‘没说清楚’，我只是在告诉你，我现在‘感受到’了什么——比如被忽略或不被理解。我们可以先停一下，一起看看我感受到的这部分，再聊怎么调整，好吗？”"
+          }
+        ],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrf5mgx9aga0d",
+      "content": "尴尬往往来源于“无法被理解的委屈”，而一旦你清晰、有力且不带攻击性地表达了自己，尴尬就会转化为“相互理解的沉默”——那种沉默不再是冰冷，而是温暖的沉思。",
+      "type": "general",
+      "createdAt": "2026-07-10T16:32:52.270Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrf5hlq37qacp",
+      "content": "尴尬，是因为你们刚刚触碰到了彼此真实的内核，而真实本身是有重量的。 这种“不想说话”的时刻，其实是你们都在消化对方的立场，就像大地在雨后需要时间吸收水分一样。它不是“不好”，而是“必需”的——它让深刻的对话有了余韵",
+      "type": "general",
+      "createdAt": "2026-07-10T16:29:05.211Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrdgt584g80d1",
+      "content": "当你不再强迫自己开心，那个“不开心”的劲儿反而会因为失去对抗的燃料而慢慢消散。就像握紧的沙子，手松开，沙子反而留住了。\n\n\n\n\n所以，这句话真正的精髓是：“我选择用新的行为，去覆盖旧的感受，而不是用新的感受，去覆盖旧的感受。”",
+      "type": "general",
+      "createdAt": "2026-07-09T12:10:27.124Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrdfvk8xwcupn",
+      "content": "刷淘宝、刷小红书，是消耗时间，是“填满空隙”，但本质上你还是在被动接受信息，大脑并没有真正被滋养。\n但跟朋友、跟家人聊天呢？那是连接。是“我被听见了”，是“我的世界还在”。那种“庆幸”的感觉，其实就是你的心在说：“哦，原来我的人生里，不是只有某个角色，我还是那个被朋友惦记、能跟家人唠嗑的我自己。",
+      "type": "general",
+      "createdAt": "2026-07-09T11:44:20.289Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrddd1nmp2068",
+      "content": "对外界社交的深度与共鸣感有较高需求。你并非“不会社交”，而是对肤浅互动感到消耗",
+      "type": null,
+      "createdAt": "2026-07-09T10:33:57.154Z",
+      "tags": []
+    },
+    {
+      "id": "mrdb8oniyqbsj",
+      "content": "云主机在哪里访问？哪里能获得登录权限？指令是什么？上不了网怎么排查？\n我在做的，本质上是将‘黑盒’变成‘白盒’。在此之前，这些东西散落在不同人的脑子里、没有文档记录、遇到问题只能临时问。",
+      "type": "general",
+      "createdAt": "2026-07-09T09:34:34.446Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
+      "id": "mrdb057lpwmg4",
+      "content": "团队没人懂，总监也不懂”。这恰恰意味着你是这个领域的唯一责任人。总监虽然不懂技术，但他懂“只有你在扛这件事”。所以你不必证明“我很忙”，只需要证明 “这件事有我在，不会出问题”。",
+      "type": "general",
+      "createdAt": "2026-07-09T09:27:56.001Z",
+      "tags": [],
+      "digestion": {
+        "whyMakesSense": "",
+        "solvesProblem": "",
+        "cases": [],
+        "rewrites": [],
+        "scenarios": [],
+        "usageHistory": [],
+        "scenarioPractices": []
+      },
+      "digestionProgress": 0
+    },
+    {
       "id": "mrbazete32ad5",
       "content": "在高密度地处理复杂且信息不完整的问题。组织内部的知识图谱没有沉淀，只能一层层去推倒。在替团队支付“信息不透明”的成本。\n历史信息的核对，对我来说是一次很好的‘查漏补缺’。",
       "type": null,
@@ -3279,241 +3514,6 @@
       "sourceBlockName": "自己做小工具的意义",
       "createdAt": "2026-04-29T13:10:16.368Z",
       "useCount": 0,
-      "tags": []
-    },
-    {
-      "id": "mrdb057lpwmg4",
-      "content": "团队没人懂，总监也不懂”。这恰恰意味着你是这个领域的唯一责任人。总监虽然不懂技术，但他懂“只有你在扛这件事”。所以你不必证明“我很忙”，只需要证明 “这件事有我在，不会出问题”。",
-      "type": "general",
-      "createdAt": "2026-07-09T09:27:56.001Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrdb8oniyqbsj",
-      "content": "云主机在哪里访问？哪里能获得登录权限？指令是什么？上不了网怎么排查？\n我在做的，本质上是将‘黑盒’变成‘白盒’。在此之前，这些东西散落在不同人的脑子里、没有文档记录、遇到问题只能临时问。",
-      "type": "general",
-      "createdAt": "2026-07-09T09:34:34.446Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrddd1nmp2068",
-      "content": "对外界社交的深度与共鸣感有较高需求。你并非“不会社交”，而是对肤浅互动感到消耗",
-      "type": null,
-      "createdAt": "2026-07-09T10:33:57.154Z",
-      "tags": []
-    },
-    {
-      "id": "mrdfvk8xwcupn",
-      "content": "刷淘宝、刷小红书，是消耗时间，是“填满空隙”，但本质上你还是在被动接受信息，大脑并没有真正被滋养。\n但跟朋友、跟家人聊天呢？那是连接。是“我被听见了”，是“我的世界还在”。那种“庆幸”的感觉，其实就是你的心在说：“哦，原来我的人生里，不是只有某个角色，我还是那个被朋友惦记、能跟家人唠嗑的我自己。",
-      "type": "general",
-      "createdAt": "2026-07-09T11:44:20.289Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrdgt584g80d1",
-      "content": "当你不再强迫自己开心，那个“不开心”的劲儿反而会因为失去对抗的燃料而慢慢消散。就像握紧的沙子，手松开，沙子反而留住了。\n\n\n\n\n所以，这句话真正的精髓是：“我选择用新的行为，去覆盖旧的感受，而不是用新的感受，去覆盖旧的感受。”",
-      "type": "general",
-      "createdAt": "2026-07-09T12:10:27.124Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrf5hlq37qacp",
-      "content": "尴尬，是因为你们刚刚触碰到了彼此真实的内核，而真实本身是有重量的。 这种“不想说话”的时刻，其实是你们都在消化对方的立场，就像大地在雨后需要时间吸收水分一样。它不是“不好”，而是“必需”的——它让深刻的对话有了余韵",
-      "type": "general",
-      "createdAt": "2026-07-10T16:29:05.211Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrf5mgx9aga0d",
-      "content": "尴尬往往来源于“无法被理解的委屈”，而一旦你清晰、有力且不带攻击性地表达了自己，尴尬就会转化为“相互理解的沉默”——那种沉默不再是冰冷，而是温暖的沉思。",
-      "type": "general",
-      "createdAt": "2026-07-10T16:32:52.270Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrf5nih0qj1yc",
-      "content": "你确实告诉了我事实。但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪你‘没说’，我只是在告诉你，我现在‘感受到’了什么。",
-      "type": "general",
-      "createdAt": "2026-07-10T16:33:40.932Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [
-          {
-            "scenario": "自我提升：复盘与优化",
-            "reference": "在复盘一次工作或学习任务时，对自己说：“你确实告诉了自己‘已经完成了任务’这个事实。但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪自己‘没做好’，我只是在告诉自己，我现在‘感受到’了什么——比如过程中哪里卡住了、哪里觉得累。这样我才能找到真正需要优化的细节。”"
-          },
-          {
-            "scenario": "相处：冷静沟通框架",
-            "reference": "当伴侣或朋友说‘我已经解释过了’时，你可以用这句话回应：“你确实告诉了我事实，但事实和体验是不一样的。就像我知道海很深，但只有当我真的跳进去游泳时，我才知道海浪打在身上的感觉是什么。我不是在责怪你‘没说清楚’，我只是在告诉你，我现在‘感受到’了什么——比如被忽略或不被理解。我们可以先停一下，一起看看我感受到的这部分，再聊怎么调整，好吗？”"
-          }
-        ],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrhlcg2ap1ndu",
-      "content": "被看见是解决问题的起点。但被看见不一定等于立刻改变安排，而是让对方理解你的行为逻辑。他未来就更可能在类似情境中主动替你挡一下，或帮你创造空间。",
-      "type": "general",
-      "createdAt": "2026-07-12T09:28:30.802Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [
-          {
-            "scenario": "自我提升：记录日常效率卡点",
-            "reference": "当我发现自己总在某个环节拖延或出错时，我会先记录下来，不急着批评自己。因为被看见是解决问题的起点——我让自己理解这个行为背后的原因，比如任务太模糊或精力不足。这样，下次遇到类似情况，我就能主动提前调整安排，比如拆解步骤或设定定时休息，让效率更顺滑。"
-          },
-          {
-            "scenario": "相处：伴侣抱怨我回家太晚",
-            "reference": "当伴侣对我说‘你总这么晚回来，心里还有没有这个家’时，我会先不急着辩解或道歉，而是平静地说：‘我听到你的担心了，谢谢你告诉我。我想让你明白，我加班是因为项目截止期紧，不是不在意你。被看见是解决问题的起点——你能理解我的行为逻辑，下次我加班时，你或许会主动帮我留盏灯，或者提醒我早点结束，这样我们都能更舒服。’"
-          }
-        ],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "mrhyvfwtrf0ns",
-      "content": "我现在需要你听我说，然后给我一个回应——哪怕是‘我听到了，我暂时做不到，但我记着’。” 这就是你为自己争取的“更好体验”",
-      "type": null,
-      "createdAt": "2026-07-12T15:47:12.077Z",
-      "tags": []
-    },
-    {
-      "id": "mrhz0j7uad6sf",
-      "content": "沟通中最有力量的一层——不只是表达情绪，而是表达“情绪的来源与演化路径”。\n“我现在的不安，不是凭空针对你，是从过去那条线上长出来的。”\n对方听到的就不再是“控制”或“任性”，而是一条他可以走进去理解的路径。",
-      "type": null,
-      "createdAt": "2026-07-12T15:51:09.642Z",
-      "tags": [],
-      "digestion": {
-        "scenarios": [
-          {
-            "scenario": "亲密关系中的情绪回溯沟通",
-            "reference": "伴侣之间，当一方因为对方晚归而感到焦虑时，可以这样说：“我现在的不安，不是凭空在指责你晚归，而是从过去几次你答应早点回来却失约的那条线上长出来的。每次等不到你，我都会想起之前那种被忽视的感觉。我不是要控制你，只是想让你理解我为什么这么紧张，这样我们才能一起想办法。”"
-          },
-          {
-            "scenario": "职场中向上管理时的压力表达",
-            "reference": "面对领导突然增加的任务量感到慌乱时，可以这样说：“领导，我现在感到有些慌乱，不是对您安排的任务有意见，而是从过去几次紧急任务中因为时间不足而出现疏漏的路径上长出来的。我担心这次重蹈覆辙。所以我想和您确认一下优先级，或者看能否调整一下交付节奏，这样我能更从容地保证质量。”"
-          }
-        ]
-      }
-    },
-    {
-      "id": "mrym5qb8kccp5",
-      "content": "帮你是情分，但你要先证明自己值得帮",
-      "type": null,
-      "createdAt": "2026-07-24T07:23:22.100Z",
-      "tags": []
-    },
-    {
-      "id": "mrynaaqmudxi8",
-      "content": "别总是觉得自己没做好，我们总忍不住用自己的那杆秤去量别人，量着量着就把“心疼”量成“亏欠”。无论是谁，都有自己的路要走",
-      "type": "general",
-      "createdAt": "2026-07-24T07:54:54.814Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "ms2txew1eiy47",
-      "content": "运维/支撑类岗位的进度，不以‘完成’为目标，而是‘没出事’",
-      "type": "general",
-      "createdAt": "2026-07-27T06:11:55.681Z",
-      "tags": [],
-      "digestion": {
-        "whyMakesSense": "",
-        "solvesProblem": "",
-        "cases": [],
-        "rewrites": [],
-        "scenarios": [],
-        "usageHistory": [],
-        "scenarioPractices": []
-      },
-      "digestionProgress": 0
-    },
-    {
-      "id": "ms4huj8zb86yk",
-      "content": "对每件事都认真负责，看到了它们的价值。但正如你所说，“保留精力”本身也是一种更高维度的价值——它让你能持续、高质量地完成真正重要的事，而不是被所有“有价值”的事耗尽",
-      "type": null,
-      "createdAt": "2026-07-28T10:09:18.323Z",
       "tags": []
     }
   ],
