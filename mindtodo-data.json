@@ -1725,7 +1725,7 @@
       "type": "task",
       "content": "萝岗业务的事情跟进下。这也是个大活，哎。做这个事情的价值是。就写个进度即可。哎这个之前不是填过吗，我得找下之前的进度。我都忘了。\n里程碑：找到之前填写的进度，可以找聊天内容\n进度：0%",
       "createdAt": "2026-07-31T01:57:43.163Z",
-      "updatedAt": "2026-08-01T00:50:58.995Z",
+      "updatedAt": "2026-08-03T03:53:16.204Z",
       "tags": [
         "网安"
       ],
@@ -1735,7 +1735,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565463457"
+      "listId": "list_1783565139132"
     },
     {
       "id": "ms8lmb1bgahub",
@@ -1772,9 +1772,9 @@
     {
       "id": "ms8nnp3ra876t",
       "type": "task",
-      "content": "打印尾纤",
+      "content": "打印尾纤。做这个有啥好处？用最小的时间积累友善，之后要帮忙也好开口。",
       "createdAt": "2026-07-31T08:03:01.719Z",
-      "updatedAt": "2026-07-31T08:03:01.719Z",
+      "updatedAt": "2026-08-03T03:55:15.333Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1836,9 +1836,9 @@
     {
       "id": "mscj9p9gg2l3d",
       "type": "task",
-      "content": "掼蛋总结经验",
+      "content": "掼蛋总结经验，我的目的是对于昨天打牌哪里打的不好，觉得有困难，记录下来，之后找到解决办法。\n**里程碑**：觉察昨日打牌我觉得卡住不顺的地方----找到解决办法\n**进度**：0%",
       "createdAt": "2026-08-03T01:11:14.980Z",
-      "updatedAt": "2026-08-03T01:11:14.980Z",
+      "updatedAt": "2026-08-03T03:54:35.965Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1879,7 +1879,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
