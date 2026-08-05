@@ -27613,7 +27613,7 @@ function deleteMilestone(projectId, milestoneId) {
                       ${(item.tags || []).map(tag => `<span class="kb-detail-tag">${escapeHtml(tag)}</span>`).join('')}
                   </div>
               </div>
-              <div class="ai-search-content">${marked.parse(item.content || '')}</div>
+              <div class="ai-search-content">${marked.parse(item.content || '', { breaks: true })}</div>
               <div class="kb-detail-meta">
                   <div>创建时间：${formatDate(item.createdAt)}</div>
                   <div>更新时间：${formatDate(item.updatedAt)}</div>
