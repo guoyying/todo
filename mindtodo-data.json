@@ -1890,36 +1890,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "msei4li0knbsl",
-      "type": "task",
-      "content": "我想了解清楚今天下午发生了什么。为什么不回消息",
-      "createdAt": "2026-08-04T10:14:49.560Z",
-      "updatedAt": "2026-08-04T10:14:49.560Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
-    },
-    {
-      "id": "msei5vb5yonsi",
-      "type": "task",
-      "content": "今晚做番茄鸡蛋瘦肉面吧，然后炒包菜。我老是想买木耳，炒起来很方便。然后是虾滑怎么做？",
-      "createdAt": "2026-08-04T10:15:48.929Z",
-      "updatedAt": "2026-08-04T10:15:48.929Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783562300215"
     }
   ],
   "taskLists": [
@@ -1952,7 +1922,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1783562300215",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -2820,6 +2790,15 @@
       ],
       "createdAt": "2026-08-04T03:25:43.175Z",
       "updatedAt": "2026-08-04T03:25:43.175Z"
+    },
+    {
+      "id": "msfd3u7u7tpi5",
+      "content": "我发现老公下午不回消息，我当下很想追问，但又怕他不耐烦的表情，所以选择忍着。到最后是憋坏了自己。",
+      "tags": [
+        "观察记录"
+      ],
+      "createdAt": "2026-08-05T00:42:02.298Z",
+      "updatedAt": "2026-08-05T00:42:02.298Z"
     }
   ],
   "slots": [],
@@ -4433,13 +4412,22 @@
   ],
   "knowledgeBase": [
     {
-      "id": "mru28nzdnm0v1ilhx9c",
-      "content": "测试表格：\n\n| 项目 | 数量 |\n|-----|-----|\n| A   | 1   |\n| B   | 2   |---\n| 项目 | MDF | DDF | 机房名称1 | 机房名称2 |\n| ----- | ----- | ----- | ----- | ----- |\n| 总量 | 0 | 0 | 0 | 0 |\n| 已拆 | 0 | 0 | 0 | 0 |\n| 未拆 | 0 | 0 | 0 | 0 |\n| 计划拆除时间 | 0 | 0 | 0 | 0 |",
+      "id": "msfdbpyjrcl7yfpkhps",
+      "content": "时间从来不语，却回答了所有问题。",
       "tags": [
-        "工作"
+        "阅读"
       ],
-      "createdAt": "2026-07-21T02:54:42.025Z",
-      "updatedAt": "2026-07-24T05:42:05.378Z"
+      "createdAt": "2026-08-05T00:48:10.027Z",
+      "updatedAt": "2026-08-05T00:48:10.027Z"
+    },
+    {
+      "id": "msfdbbyb6tk2nyq81mj",
+      "content": "有些短文来自写作时的‘走神’：明明规划了目标，却在写作中走上了其他方向，于是这些文字就被另存为未发表的‘半成品’。",
+      "tags": [
+        "阅读"
+      ],
+      "createdAt": "2026-08-05T00:47:51.875Z",
+      "updatedAt": "2026-08-05T00:47:51.875Z"
     },
     {
       "id": "mrsjiq5tg2et6ghp9o",
