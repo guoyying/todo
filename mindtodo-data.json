@@ -1928,6 +1928,20 @@
       "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "msfxeigt6yo4j",
+      "type": "task",
+      "content": "老公今晚出去应酬。我想规划下今晚做什么，让值得\n- 完成家里扫地\n- 北京路口红试色，那个日常的口红\n- 完成跳操20分钟\n- 掼蛋练习有感悟，写下一句话\n- 吃啥\n- 家里看书",
+      "createdAt": "2026-08-05T10:10:12.605Z",
+      "updatedAt": "2026-08-05T10:13:30.437Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
