@@ -13882,13 +13882,19 @@ let list = data.tasks.filter(i => {
                     displayDiv.textContent = item.content;
                 }
                 
+                let isEditing = false;
+                
                 displayDiv.style.cursor = 'pointer';
                 displayDiv.onclick = function(e) {
+                    if (isEditing) return;
+                    isEditing = true;
+                    
                     e.stopPropagation();
                     
                     // 检查强提醒
                     if (hasStrongReminder(item.id)) {
                         showToast(`存在强提醒任务，无法编辑任务内容！请先处理超过 12 小时未更新的任务。`, { duration: 5000 });
+                        isEditing = false;
                         return;
                     }
                     
@@ -13931,20 +13937,22 @@ let list = data.tasks.filter(i => {
                     
                     // 保存函数
                     const save = () => {
-                        const newContent = textarea.value.trim();
-                        if (newContent !== item.content) {
-                            item.content = newContent;
-                            item.updatedAt = nowStr();
-                            saveData();
+                        if (isEditing) {
+                            const newContent = textarea.value.trim();
+                            if (newContent !== item.content) {
+                                item.content = newContent;
+                                item.updatedAt = nowStr();
+                                saveData();
+                            }
+                            isEditing = false;
                             renderListTodos();
                             updateAllTagFilters();
-                        } else {
-                            renderListTodos();
                         }
                     };
                     
                     // 取消编辑
                     const cancel = () => {
+                        isEditing = false;
                         renderListTodos();
                     };
                     
