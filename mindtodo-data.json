@@ -1932,16 +1932,19 @@
     {
       "id": "msfxeigt6yo4j",
       "type": "task",
-      "content": "老公今晚出去应酬。我想规划下今晚做什么，让值得\n- 完成家里扫地\n- 北京路口红试色，那个日常的口红\n- [x] 完成跳操20分钟\n- [x] 掼蛋练习有感悟，写下一句话\n- 吃啥\n- 家里看书",
+      "content": "老公今晚出去应酬。我想规划下今晚做什么，让值得\n- [x] 完成家里扫地\n- [ ] 北京路口红试色，那个日常的口红\n- [x] 完成跳操20分钟\n- [x] 掼蛋练习有感悟，写下一句话\n- [x] 吃鸡蛋灌饼\n- [x] 图书馆看书",
       "createdAt": "2026-08-05T10:10:12.605Z",
-      "updatedAt": "2026-08-05T11:15:10.673Z",
-      "tags": [],
-      "done": false,
+      "updatedAt": "2026-08-06T00:28:11.041Z",
+      "tags": [
+        "生活"
+      ],
+      "done": true,
       "dueTime": null,
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1783565139132",
+      "doneAt": "2026-08-06T00:28:09.079Z"
     }
   ],
   "taskLists": [
