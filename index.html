@@ -418,6 +418,7 @@
          .ai-search-content h1,
          .ai-search-content h2,
          .ai-search-content h3 {
+             font-size: 1.2em !important;
              color: #667eea;
              margin-top: 16px;
              margin-bottom: 8px;
@@ -461,7 +462,7 @@
          }
          
           .ai-search-content strong {
-              color: #6B8E6B;
+              color: #f38c05;
               font-weight: 600;
           }
           
@@ -9837,9 +9838,7 @@ padding: 7px !important;
         // 设置提示词（如果是同一个任务且已有提示词，则保留）
         const promptInput = document.getElementById('aiIdeasPromptInput');
         if (!isSameTask || !promptInput.value.trim()) {
-            const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。
-
-要求：考虑不同的情况和需求，提供可行的方法。使用emoji增加可读性
+            const defaultPrompt = `请帮我针对这个任务想一些具体的点子或建议。使用emoji增加可读性
 任务：${task.content}`;
             promptInput.value = defaultPrompt;
         }
@@ -10017,9 +10016,7 @@ ${taskContent}
             // 构建提示词
             let prompt = promptInput.value.trim();
             if (!prompt) {
-                prompt = `请帮我针对这个任务想一些具体的点子或建议。
-
-要求：考虑不同的情况和需求，提供可行的方法。使用emoji增加可读性
+                prompt = `请帮我针对这个任务想一些具体的点子或建议。使用emoji增加可读性
 任务：${task.content}`;
             }
             
@@ -19612,7 +19609,7 @@ updateGithubStatus();
          
          sessionAmmoList.innerHTML = '<div style="color:var(--text-secondary);text-align:center;padding:10px;font-size:13px;">暂无添加</div>';
          // 设置默认提示词到输入框
-         const defaultPromptText = `请帮我挖掘感受背后的成因，并提供一些应对或调整的建议。使用emoji增加可读性（如性（如💭、🏷️、💡等）`;
+         const defaultPromptText = `请帮我挖掘感受背后的成因，并提供一些应对或调整的建议。使用emoji增加可读性（如💭、🏷️、💡等）`;
          customPromptInput.value = defaultPromptText;
          
          // 填充模型选择器
@@ -25349,6 +25346,223 @@ function importQuestionsFromExcel(input) {
     }
 }
 
+// 显示导入格式选择器
+function showImportFormatSelector() {
+    const selector = document.getElementById('importFormatSelector');
+    if (selector.style.display === 'none' || selector.style.display === '') {
+        selector.style.display = 'block';
+        // 点击其他地方关闭选择器
+        setTimeout(() => {
+            document.addEventListener('click', closeImportFormatSelectorOutside);
+        }, 10);
+    } else {
+        selector.style.display = 'none';
+        document.removeEventListener('click', closeImportFormatSelectorOutside);
+    }
+}
+
+// 点击其他地方关闭导入格式选择器
+function closeImportFormatSelectorOutside(event) {
+    const selector = document.getElementById('importFormatSelector');
+    const importBtn = event.target.closest('.btn-primary');
+    if (selector && !selector.contains(event.target) && !importBtn) {
+        selector.style.display = 'none';
+        document.removeEventListener('click', closeImportFormatSelectorOutside);
+    }
+}
+
+// 选择导入格式
+function selectImportFormat(format) {
+    const selector = document.getElementById('importFormatSelector');
+    selector.style.display = 'none';
+    document.removeEventListener('click', closeImportFormatSelectorOutside);
+    
+    if (format === 'excel') {
+        document.getElementById('importFileInput').click();
+    } else if (format === 'paste') {
+        showPasteDialog();
+    }
+}
+
+// 显示粘贴对话框
+function showPasteDialog() {
+    const dialogHtml = `
+        <div id="pasteDialog" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:3000;display:flex;align-items:center;justify-content:center;">
+            <div style="background:var(--card);border-radius:12px;padding:20px;max-width:700px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <h3 style="margin:0;font-size:18px;color:var(--text);">📋 粘贴题目文本</h3>
+                    <button onclick="closePasteDialog()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-secondary);">&times;</button>
+                </div>
+                <div style="margin-bottom:12px;font-size:13px;color:var(--text-secondary);line-height:1.6;">
+                    <p style="margin:0 0 8px 0;"><strong>格式说明：</strong></p>
+                    <p style="margin:0 0 4px 0;">• 字段分隔符：逗号（,）</p>
+                    <p style="margin:0 0 4px 0;">• 字段顺序：科目，题号，题型，题目内容，选项 A,选项 B,选项 C,选项 D,正确答案，解析/备注</p>
+                    <p style="margin:0 0 4px 0;">• 第一行可以是标题行（包含"科目"、"题号"、"题型"）</p>
+                    <p style="margin:0;"><strong>示例：</strong><br/>科目，题号，题型，题目内容，选项 A,选项 B,选项 C,选项 D,正确答案，解析/备注<br/>csl3,1,单选题，题目内容...,选项 A,选项 B,选项 C,选项 D,A，解析内容</p>
+                </div>
+                <textarea id="pasteText" style="width:100%;height:300px;padding:12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:13px;resize:vertical;outline:none;" placeholder="请在此粘贴题目文本..."></textarea>
+                <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+                    <button onclick="closePasteDialog()" style="padding:8px 16px;border:1px solid var(--border);background:var(--bg);border-radius:6px;cursor:pointer;font-size:13px;">取消</button>
+                    <button onclick="processPastedText()" style="padding:8px 16px;border:none;background:var(--primary);color:white;border-radius:6px;cursor:pointer;font-size:13px;">导入题目</button>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', dialogHtml);
+    document.getElementById('pasteText').focus();
+}
+
+// 关闭粘贴对话框
+function closePasteDialog() {
+    const dialog = document.getElementById('pasteDialog');
+    if (dialog) {
+        dialog.remove();
+    }
+}
+
+// 处理粘贴的文本
+function processPastedText() {
+    const text = document.getElementById('pasteText').value;
+    if (!text || text.trim() === '') {
+        showToast('请输入题目文本');
+        return;
+    }
+    
+    // 复用文本导入逻辑
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line);
+    
+    if (lines.length === 0) {
+        showToast('请输入题目文本');
+        return;
+    }
+    
+    // 检查第一行是否是标题行
+    let startIndex = 0;
+    if (lines[0].includes('科目') && lines[0].includes('题号') && lines[0].includes('题型')) {
+        startIndex = 1;
+    }
+    
+    let importedCount = 0;
+    let updateCount = 0;
+    let errorCount = 0;
+    
+    for (let i = startIndex; i < lines.length; i++) {
+        const line = lines[i];
+        if (!line) continue;
+        
+        const fields = parseCSVLine(line);
+        
+        if (fields.length < 10) {
+            console.warn(`第${i + 1}行字段数量不足（需要 10 个字段），跳过：${line}`);
+            errorCount++;
+            continue;
+        }
+        
+        const subject = fields[0] ? String(fields[0]).trim() : '未分类';
+        const rawQuestionNumber = fields[1] ? String(fields[1]).trim() : '';
+        const questionType = fields[2] ? String(fields[2]).trim() : '单选';
+        const questionText = fields[3] ? String(fields[3]).trim() : '';
+        const optionA = fields[4] ? String(fields[4]).trim() : '';
+        const optionB = fields[5] ? String(fields[5]).trim() : '';
+        const optionC = fields[6] ? String(fields[6]).trim() : '';
+        const optionD = fields[7] ? String(fields[7]).trim() : '';
+        const answer = fields[8] ? String(fields[8]).trim() : '';
+        const analysis = fields[9] ? String(fields[9]).trim() : '';
+        
+        if (!questionText) {
+            errorCount++;
+            continue;
+        }
+        
+        let questionNumber;
+        if (rawQuestionNumber) {
+            questionNumber = `${subject}_${rawQuestionNumber}`;
+        } else {
+            const existingCount = data.practiceQuestions.filter(q => q.subject === subject).length;
+            const importedInThisBatch = data.practiceQuestions.filter(q =>
+                q.subject === subject && q.id.startsWith(`${subject}_`)
+            ).length;
+            const seq = existingCount + importedInThisBatch + 1;
+            questionNumber = `${subject}_${String(seq).padStart(3, '0')}`;
+        }
+        
+        const typeMap = {
+            '单选': 'single',
+            '多选': 'multiple',
+            '不定项': 'indefinite',
+            '判断': 'judge',
+            '单选题': 'single',
+            '多选题': 'multiple',
+            '不定项选择题': 'indefinite',
+            '判断题': 'judge'
+        };
+        const normalizedType = typeMap[questionType] || 'single';
+        
+        const options = [];
+        if (optionA) options.push('A. ' + optionA);
+        if (optionB) options.push('B. ' + optionB);
+        if (optionC) options.push('C. ' + optionC);
+        if (optionD) options.push('D. ' + optionD);
+        
+        const existingIndex = data.practiceQuestions.findIndex(q => q.id === questionNumber);
+        
+        const newQuestion = {
+            id: questionNumber,
+            type: normalizedType,
+            question: questionText,
+            options: options,
+            answer: answer,
+            analysis: analysis,
+            subject: subject,
+            createdAt: new Date().toISOString()
+        };
+        
+        if (existingIndex >= 0) {
+            data.practiceQuestions[existingIndex] = newQuestion;
+            updateCount++;
+        } else {
+            data.practiceQuestions.push(newQuestion);
+            importedCount++;
+        }
+    }
+    
+    saveData();
+    renderQuestionList();
+    closePasteDialog();
+    showToast(`导入成功！新增：${importedCount}道，更新：${updateCount}道，失败：${errorCount}道`);
+}
+
+// 解析 CSV 行（处理引号内的逗号）
+function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+                // 转义的引号
+                current += '"';
+                i++;
+            } else {
+                // 引号的开始或结束
+                inQuotes = !inQuotes;
+            }
+        } else if (char === ',' && !inQuotes) {
+            // 分隔符
+            result.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    
+    result.push(current);
+    return result;
+}
+
 
 // 显示新增题目表单
 function showAddQuestionForm() {
@@ -26964,15 +27178,8 @@ function deleteMilestone(projectId, milestoneId) {
         
         // 获取默认提示词
      function getDefaultSummaryPrompt() {
-         return `请根据以下任务列表，生成一份智能汇总报告：
-
- 汇总要求：
- 1. 统计任务总数、标签分布
- 2. 按标签分类展示任务（每个标签下列出具体任务）
- 3. 提供工作效率评估和建议
- 4. 使用简洁、友好的语言
- 5. 使用emoji增加可读性（如📊、🏷️、💡等）
-请生成一份结构清晰、内容丰富的汇总报告。`;
+         return `请根据以下任务列表，按要求完成我的需求。
+    需求描述：统计任务总数；【……描述具体要求……】；使用emoji增加可读性（如📊、🏷️、💡等）`;
      }
      
      // 恢复默认提示词
@@ -27323,22 +27530,15 @@ function deleteMilestone(projectId, milestoneId) {
          }).join('\n\n');
          
          // 构建提示词
-         const prompt = `请根据以下${typeText}完成的任务列表，生成一份智能汇总报告：
+         const prompt = `请根据以下${typeText}完成的任务列表，按要求完成我的需求：
  
  时间范围：${dateText}
  任务总数：${tasks.length}个
  
  任务列表：
  ${tasksText}
- 
- 汇总要求：
- 1. 统计任务总数、标签分布
- 2. 按标签分类展示任务（每个标签下列出具体任务）
- 3. 提供工作效率评估和建议
- 4. 使用简洁、友好的语言
- 5. 使用emoji增加可读性（如📊、🏷️、💡等）
- 
- 请生成一份结构清晰、内容丰富的汇总报告。`;
+
+    需求描述：统计任务总数；【……描述具体要求……】；使用emoji增加可读性（如📊、🏷️、💡等）`;
          
          return prompt;
      }
@@ -27453,6 +27653,9 @@ function deleteMilestone(projectId, milestoneId) {
      
      // 手动关闭知识库面板（点击关闭按钮）
      function manualCloseKnowledgeBasePanel() {
+         // 清除滚动位置（下次打开时回到顶部）
+         window.kbListScrollPosition = undefined;
+         
          document.getElementById('knowledgeBasePanel').classList.add('hidden');
          // 重置进入方式标记
          isDirectAiContentAccess = false;
@@ -27594,6 +27797,12 @@ function deleteMilestone(projectId, milestoneId) {
          const item = data.knowledgeBase.find(kb => kb.id === id);
          if (!item) return;
          
+         // 保存列表滚动位置（modal-body 是滚动容器）
+         const modalBody = document.querySelector('#knowledgeBasePanel .modal-body');
+         if (modalBody) {
+             window.kbListScrollPosition = modalBody.scrollTop;
+         }
+         
          document.getElementById('kbListView').classList.add('hidden');
          document.getElementById('kbDetailView').classList.remove('hidden');
          document.getElementById('backToKBListBtn').classList.remove('hidden');
@@ -27643,6 +27852,12 @@ function deleteMilestone(projectId, milestoneId) {
          document.getElementById('kbDetailView').classList.add('hidden');
          document.getElementById('aiContentManagerView').classList.add('hidden');
          document.getElementById('backToKBListBtn').classList.add('hidden');
+         
+         // 恢复列表滚动位置（modal-body 是滚动容器）
+         const modalBody = document.querySelector('#knowledgeBasePanel .modal-body');
+         if (modalBody && window.kbListScrollPosition !== undefined) {
+             modalBody.scrollTop = window.kbListScrollPosition;
+         }
          
          // 重新渲染标签筛选按钮
          renderKBTagFilters();
@@ -32218,7 +32433,15 @@ const newTask = {
         <div class="modal-header" id="practiceHeader" style="display:flex;justify-content:space-between;align-items:center;width:100%; margin-bottom:5px; padding:10px;">
             <h3 class="modal-title">✍️ 答题</h3>
             <div style="display:flex;gap:8px;align-items:center;flex-shrink:0;">
-                <button class="btn btn-small btn-primary" onclick="document.getElementById('importFileInput').click()">📥 导入</button>
+                <div style="display:flex;gap:4px;position:relative;">
+                    <button class="btn btn-small btn-primary" onclick="showImportFormatSelector()">📥 导入</button>
+                    <div id="importFormatSelector" style="display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--card);border:1px solid var(--border);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:10000;min-width:140px;">
+                        <div style="padding:8px 0;">
+                            <div class="dropdown-item" style="padding:8px 16px;cursor:pointer;font-size:13px;" onclick="selectImportFormat('excel')">📊 Excel 格式</div>
+                            <div class="dropdown-item" style="padding:8px 16px;cursor:pointer;font-size:13px;" onclick="selectImportFormat('paste')">📋 粘贴文本</div>
+                        </div>
+                    </div>
+                </div>
                 <button class="btn btn-small btn-success" onclick="exportQuestionsToExcel()">📤 导出</button>
                 <button class="btn btn-small btn-primary" onclick="showAddQuestionForm()">➕ 新增</button>
                 <button class="btn btn-small btn-secondary" onclick="hideAllLearningPanels();resetPracticeState()">关闭</button>
