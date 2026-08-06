@@ -1974,6 +1974,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "msgsmw6lg8pqw",
+      "type": "task",
+      "content": "更新进度（见todo）",
+      "createdAt": "2026-08-06T00:44:31.725Z",
+      "updatedAt": "2026-08-06T00:44:31.725Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msgsntgw4nnu6",
+      "type": "task",
+      "content": "CRM推进",
+      "createdAt": "2026-08-06T00:45:14.864Z",
+      "updatedAt": "2026-08-06T00:45:14.864Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
