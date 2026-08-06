@@ -1842,32 +1842,19 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msh51p4w2az4z",
+      "id": "msh7yqlpvqt0b",
       "type": "task",
-      "content": "### 周四下午主任务：拆运过单",
-      "createdAt": "2026-08-06T06:31:57.824Z",
-      "updatedAt": "2026-08-06T06:31:57.824Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "content": "拆运一体 August 第一周**完成14张单**",
+      "createdAt": "2026-08-06T07:53:38.605Z",
+      "updatedAt": "2026-08-06T07:53:52.142Z",
+      "tags": [
+        "拆运一体"
+      ],
+      "done": true,
+      "doneAt": "2026-08-06T07:53:50.013Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "msh6xk65p5lxf",
-      "type": "task",
-      "content": "再次提醒同事做涉密扫描。",
-      "createdAt": "2026-08-06T07:24:43.997Z",
-      "updatedAt": "2026-08-06T07:24:43.997Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     }
@@ -5816,6 +5803,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-06T02:56:20.189Z"
+    "lastSync": "2026-08-06T07:25:26.707Z"
   }
 }
