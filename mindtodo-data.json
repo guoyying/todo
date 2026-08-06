@@ -1949,9 +1949,9 @@
     {
       "id": "msgs6xf1o6ovj",
       "type": "task",
-      "content": "我也不知道今天做啥。好想看书",
+      "content": "我也不知道今天做啥。好想看书。就是很想看那种议论类的，不是小说。",
       "createdAt": "2026-08-06T00:32:06.829Z",
-      "updatedAt": "2026-08-06T00:36:00.120Z",
+      "updatedAt": "2026-08-06T01:20:29.895Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -1963,9 +1963,9 @@
     {
       "id": "msgsei4tjt2fg",
       "type": "task",
-      "content": "我今天还想把答题部分优化下呢。还有知识库显示的。把ai汇总、帮想点子的提示词优化下",
+      "content": "我今天还想把答题部分优化下呢。还有知识库显示的。把ai汇总、帮想点子的提示词优化下。比较难搞的是答题部分，我得想想在哪里添加才行。答题部分似乎ok了",
       "createdAt": "2026-08-06T00:38:00.269Z",
-      "updatedAt": "2026-08-06T00:39:20.508Z",
+      "updatedAt": "2026-08-06T02:00:17.124Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1978,9 +1978,9 @@
     {
       "id": "msgsmw6lg8pqw",
       "type": "task",
-      "content": "更新进度（见todo）",
+      "content": "更新进度（见todo），就是仙村进度、低效还有，白云补环应该完成了啊。",
       "createdAt": "2026-08-06T00:44:31.725Z",
-      "updatedAt": "2026-08-06T00:44:31.725Z",
+      "updatedAt": "2026-08-06T00:58:09.936Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1993,9 +1993,9 @@
     {
       "id": "msgsntgw4nnu6",
       "type": "task",
-      "content": "CRM推进",
+      "content": "CRM推进，目前是已经核查完了，接下来是思考怎么分类让其他人处理了。得先跟泳哥说才行。",
       "createdAt": "2026-08-06T00:45:14.864Z",
-      "updatedAt": "2026-08-06T00:45:14.864Z",
+      "updatedAt": "2026-08-06T00:59:17.657Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2008,9 +2008,9 @@
     {
       "id": "msgsoa10fouz4",
       "type": "task",
-      "content": "### 周四上午主任务\n网管验收10个单子",
+      "content": "### 周四上午主任务\n网管验收10个单子。\n现在就是下载好了，还没copy到excel上。\n还是觉得看起来太费劲了，能不能有更快的方法啊。",
       "createdAt": "2026-08-06T00:45:36.324Z",
-      "updatedAt": "2026-08-06T00:48:48.204Z",
+      "updatedAt": "2026-08-06T02:00:10.276Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2023,9 +2023,24 @@
     {
       "id": "msgsr2bftc8ju",
       "type": "task",
-      "content": "换个手机壳",
+      "content": "换个手机壳。我就是想有支架的透明的那种。试试看。",
       "createdAt": "2026-08-06T00:47:46.299Z",
-      "updatedAt": "2026-08-06T00:47:46.299Z",
+      "updatedAt": "2026-08-06T01:19:48.865Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msgt69b6gd12r",
+      "type": "task",
+      "content": "网安接单",
+      "createdAt": "2026-08-06T00:59:35.202Z",
+      "updatedAt": "2026-08-06T00:59:35.202Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5995,6 +6010,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-06T00:45:21.834Z"
+    "lastSync": "2026-08-06T00:49:07.065Z"
   }
 }
