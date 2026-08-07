@@ -1180,9 +1180,9 @@
     {
       "id": "ms4c4fwdgc67a",
       "type": "task",
-      "content": "我觉得退网：追踪发出去-到今天为止哪些设备动了-哪些没动，有一定概率提高。\n虽然到目前没有成形的系统，但东一枪西一枪到时可以了。\n0807：我想实现的效果是：今天给xx发了什么设备，我想追踪这个到什么流程了，过了多少天。目前还没有完善的方法来，既简单又清晰的。没有。\n这个属于感悟类的，可以接下来尝试或许有效的方法",
+      "content": "我觉得退网：追踪发出去-到今天为止哪些设备动了-哪些没动，有一定概率提高。\n虽然到目前没有成形的系统，但东一枪西一枪到时可以了。\n0807：我想实现的效果是：今天给xx发了什么设备，我想追踪这个到什么流程了，过了多少天。目前还没有完善的方法来，既简单又清晰的。没有。",
       "createdAt": "2026-07-28T07:29:02.845Z",
-      "updatedAt": "2026-08-07T01:17:25.629Z",
+      "updatedAt": "2026-08-07T09:31:12.413Z",
       "tags": [
         "工作"
       ],
@@ -1872,12 +1872,27 @@
       "type": "task",
       "content": "看下民宿",
       "createdAt": "2026-08-07T08:07:45.205Z",
-      "updatedAt": "2026-08-07T08:07:45.205Z",
+      "updatedAt": "2026-08-07T09:38:59.951Z",
       "tags": [
         "生活"
       ],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-07T09:38:59.951Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msir6bt0ljrum",
+      "type": "task",
+      "content": "有个故障分析要反馈，啊。",
+      "createdAt": "2026-08-07T09:39:11.556Z",
+      "updatedAt": "2026-08-07T10:20:29.194Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-07T10:20:29.194Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1915,7 +1930,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783562300215",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5845,6 +5860,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-07T07:37:41.068Z"
+    "lastSync": "2026-08-07T09:29:51.010Z"
   }
 }
