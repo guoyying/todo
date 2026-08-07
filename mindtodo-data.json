@@ -1825,9 +1825,9 @@
     {
       "id": "msi9asn1epz29",
       "type": "task",
-      "content": "过完退网单就爬虫，然后写周报。",
+      "content": "整理这周进度，然后写周报。",
       "createdAt": "2026-08-07T01:18:46.909Z",
-      "updatedAt": "2026-08-07T01:18:46.909Z",
+      "updatedAt": "2026-08-07T04:39:54.699Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5796,6 +5796,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-07T01:19:13.131Z"
+    "lastSync": "2026-08-07T04:26:56.265Z"
   }
 }
