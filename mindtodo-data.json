@@ -1180,10 +1180,12 @@
     {
       "id": "ms4c4fwdgc67a",
       "type": "task",
-      "content": "我觉得退网：追踪发出去-到今天为止哪些设备动了-哪些没动，有一定概率提高。\n虽然到目前没有成形的系统，但东一枪西一枪到时可以了。\n这个属于感悟类的，可以接下来尝试或许有效的方法",
+      "content": "我觉得退网：追踪发出去-到今天为止哪些设备动了-哪些没动，有一定概率提高。\n虽然到目前没有成形的系统，但东一枪西一枪到时可以了。\n0807：我想实现的效果是：今天给xx发了什么设备，我想追踪这个到什么流程了，过了多少天。目前还没有完善的方法来，既简单又清晰的。没有。\n这个属于感悟类的，可以接下来尝试或许有效的方法",
       "createdAt": "2026-07-28T07:29:02.845Z",
-      "updatedAt": "2026-08-06T02:10:12.194Z",
-      "tags": [],
+      "updatedAt": "2026-08-07T01:17:25.629Z",
+      "tags": [
+        "工作"
+      ],
       "done": false,
       "doneAt": null,
       "dueTime": "",
@@ -1740,9 +1742,9 @@
     {
       "id": "msgsntgw4nnu6",
       "type": "task",
-      "content": "CRM推进，目前是已经核查完了，接下来是思考怎么分类让其他人处理了。得先跟泳哥说才行。",
+      "content": "### 周五上午主任务：\nCRM推进，目前是已经核查完了，接下来是思考怎么分类让其他人处理了。得先跟泳哥说才行。",
       "createdAt": "2026-08-06T00:45:14.864Z",
-      "updatedAt": "2026-08-06T00:59:17.657Z",
+      "updatedAt": "2026-08-07T01:18:59.629Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1789,10 +1791,12 @@
     {
       "id": "msgxto1ujaqry",
       "type": "task",
-      "content": "还是想下RPA工具吧，别到时真的说我了。推他们好麻烦。得想办法，哎。",
+      "content": "还是想下RPA工具吧，别到时真的说我了。推他们好麻烦。得想办法，哎。\n我现在都不知道这个流程到哪里了。RPA还有什么优化空间。",
       "createdAt": "2026-08-06T03:09:45.858Z",
-      "updatedAt": "2026-08-06T03:12:03.891Z",
-      "tags": [],
+      "updatedAt": "2026-08-07T01:18:12.125Z",
+      "tags": [
+        "RPA"
+      ],
       "done": false,
       "doneAt": null,
       "dueTime": "",
@@ -1815,6 +1819,36 @@
       "dueTime": "",
       "unknown": false,
       "isList": false,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msi8zodkp3ikp",
+      "type": "task",
+      "content": "写一下我现在的想法。有点凌乱没进入状态。我得设置下主任务才行。",
+      "createdAt": "2026-08-07T01:10:08.168Z",
+      "updatedAt": "2026-08-07T01:10:08.168Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msi9asn1epz29",
+      "type": "task",
+      "content": "过完退网单就爬虫，然后写周报。",
+      "createdAt": "2026-08-07T01:18:46.909Z",
+      "updatedAt": "2026-08-07T01:18:46.909Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
     }
