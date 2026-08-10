@@ -1924,21 +1924,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msmkro1naarkf",
-      "type": "task",
-      "content": "哪个县分推动较慢？退网的0业务清单；\n为什么做这个事情？因为想知道我发了，县分啥时候动了，间隔时间多少。\n我可以继续挨个县分通知，没推进流程的设备。",
-      "createdAt": "2026-08-10T01:50:54.587Z",
-      "updatedAt": "2026-08-10T03:03:18.554Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "msmktjv51hec7",
       "type": "task",
       "content": "退网发周进度通报\n进度是多少，上周新增多少个设备。\n哪些县分还没上单的，提醒下",
@@ -1974,6 +1959,21 @@
       "content": "试下网管看看流量",
       "createdAt": "2026-08-10T03:03:25.575Z",
       "updatedAt": "2026-08-10T03:03:25.575Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msmu3fsfbsy6x",
+      "type": "task",
+      "content": "### 周一下午主任务：开网安会议\n这个是我网安接口人的工作啊，价值在于了解然后跟团队传达信息。\n交付品：群内传达一段话。提醒大家。\n**新鲜事**：\n进度0%",
+      "createdAt": "2026-08-10T06:12:00.303Z",
+      "updatedAt": "2026-08-10T06:14:47.184Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6018,6 +6018,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-10T01:37:34.229Z"
+    "lastSync": "2026-08-10T03:46:57.996Z"
   }
 }
