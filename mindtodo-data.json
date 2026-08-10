@@ -1858,11 +1858,28 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msmim5908m8p2",
+      "id": "msmjagbgl1rjz",
       "type": "task",
-      "content": "好多事情做啊，周一。列举一下吧",
-      "createdAt": "2026-08-10T00:50:37.716Z",
-      "updatedAt": "2026-08-10T00:50:37.716Z",
+      "content": "高绩效和不被边缘化：\n 0807：也许当了领导，就能理解领导关注什么了。\n 0810：这个写周报的形式，没有人跟自己说过这样写不行。拿不了高绩效跟写周报有关，只是我的猜测罢了。 \n0810：知道自己追求的不是周报怎么写，而是如何获得高绩效和重视度，不被边缘化。下一阶段目标就调整了。\n0810：周报如何写、如何写进度：做了什么、价值、为什么汇报这个、下一步行动",
+      "createdAt": "2026-08-10T01:09:31.804Z",
+      "updatedAt": "2026-08-10T01:37:25.403Z",
+      "tags": [
+        "工作"
+      ],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msmjr7izwbebf",
+      "type": "task",
+      "content": "低效那个进度跟领导企微汇报下，就算这周任务完成了。",
+      "createdAt": "2026-08-10T01:22:33.563Z",
+      "updatedAt": "2026-08-10T01:22:33.563Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -1873,14 +1890,27 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msmjagbgl1rjz",
+      "id": "msmk1t183kezi",
       "type": "task",
-      "content": "高绩效和不被边缘化：\n 0807：也许当了领导，就能理解领导关注什么了。\n 0810：这个写周报的形式，没有人跟自己说过这样写不行。拿不了高绩效跟写周报有关，只是我的猜测罢了。 \n0810：知道自己追求的不是周报怎么写，而是如何获得高绩效和重视度，不被边缘化。下一阶段目标就调整了。",
-      "createdAt": "2026-08-10T01:09:31.804Z",
-      "updatedAt": "2026-08-10T01:09:42.424Z",
-      "tags": [
-        "工作"
-      ],
+      "content": "问下断测什么的，有无方法指引",
+      "createdAt": "2026-08-10T01:30:47.996Z",
+      "updatedAt": "2026-08-10T01:30:47.996Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msmk8gs2jyppl",
+      "type": "task",
+      "content": "我现在就是觉得脑子好多好乱。我不知道该怎么写进度啊。那就先用一个模板啊，试试看。然后慢慢优化模板喽。",
+      "createdAt": "2026-08-10T01:35:58.706Z",
+      "updatedAt": "2026-08-10T01:35:58.706Z",
+      "tags": [],
       "done": false,
       "doneAt": null,
       "dueTime": "",
