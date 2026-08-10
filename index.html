@@ -20022,6 +20022,10 @@ updateGithubStatus();
        
        // 调用 DeepSeek API
       async function callDeepSeekApi(prompt, modelId) {
+          console.log('=== DeepSeek API 请求开始 ===');
+          console.log('模型 ID:', modelId);
+          console.log('提示词长度:', prompt?.length || 0);
+          
           const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
               method: 'POST',
               headers: {
@@ -20037,27 +20041,88 @@ updateGithubStatus();
                       role: 'user',
                       content: prompt
                   }],
-                  max_tokens: 2000,
+                  max_tokens: 4000,
                   temperature: 0.7,
                   // DeepSeek V4 模型专用参数
                   ...(modelId === 'deepseek-v4-pro' && {
+                      // Pro 模式：启用推理，但限制推理 token 数量
                       reasoning_effort: 'high',
                       extra_body: {
                           thinking: {
-                              type: 'enabled'
+                              type: 'enabled',
+                              budget_tokens: 2000  // 限制推理最多使用 2000 tokens
+                          }
+                      }
+                  }),
+                  ...(modelId === 'deepseek-v4-flash' && {
+                      // Flash 模式：禁用推理，快速响应
+                      reasoning_effort: 'none',
+                      extra_body: {
+                          thinking: {
+                              type: 'disabled'
                           }
                       }
                   })
               })
           });
           
+          console.log('DeepSeek API 响应状态:', response.status, response.statusText);
+          
            if (!response.ok) {
-               const error = await response.json();
-               throw new Error(error.error?.message || 'API 调用失败');
+               let errorMessage = `API 调用失败 (${response.status})`;
+               try {
+                   const error = await response.json();
+                   errorMessage = error.error?.message || errorMessage;
+                   console.error('DeepSeek API 错误详情:', error);
+               } catch (e) {
+                   console.error('无法解析错误响应:', e);
+                   const errorText = await response.text();
+                   console.error('原始错误响应:', errorText);
+               }
+               throw new Error(errorMessage);
            }
            
            const result = await response.json();
-           return result.choices[0].message.content;
+           console.log('=== DeepSeek API 原始返回结果 ===');
+           console.log('完整响应:', JSON.stringify(result, null, 2));
+           console.log('choices 数组:', result.choices);
+           
+           // 检查返回结果是否有效
+           if (!result.choices || result.choices.length === 0) {
+               console.error('DeepSeek API 返回的 choices 为空:', result);
+               throw new Error('API 返回结果为空，请检查模型配置或输入内容');
+           }
+           
+           if (!result.choices[0].message) {
+               console.error('DeepSeek API 返回的 message 为空:', result.choices[0]);
+               throw new Error('API 返回内容无效，请检查模型配置');
+           }
+           
+           // 优先使用 content，如果为空则尝试使用 reasoning_content
+           let content = result.choices[0].message.content;
+           const reasoningContent = result.choices[0].message.reasoning_content;
+           
+           // 如果 content 为空但有 reasoning_content，使用 reasoning_content
+           if (!content && reasoningContent) {
+               console.warn('DeepSeek 返回的 content 为空，使用 reasoning_content 替代');
+               content = reasoningContent;
+           }
+           
+           // 如果两者都为空，检查 finish_reason
+           if (!content) {
+               const finishReason = result.choices[0].finish_reason;
+               if (finishReason === 'length') {
+                   console.error('DeepSeek API 输出被截断，达到 max_tokens 限制');
+                   throw new Error('模型输出被截断，可能是因为输入内容过长或 max_tokens 设置过小。建议增加 max_tokens 或简化输入内容。');
+               } else {
+                   console.error('DeepSeek API 返回的内容为空:', result.choices[0]);
+                   throw new Error('API 返回内容无效，可能是模型未生成响应或输入内容过长');
+               }
+           }
+           console.log('解码后的内容:', content);
+           console.log('内容类型:', typeof content);
+           console.log('内容长度:', content.length);
+           return content;
        }
        
        // 调用阿里云千问API
