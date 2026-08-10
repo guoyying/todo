@@ -1830,10 +1830,12 @@
       "type": "task",
       "content": "看下报销的怎么填写：打印中。",
       "createdAt": "2026-08-07T06:47:28.762Z",
-      "updatedAt": "2026-08-10T01:07:26.491Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-10T01:48:47.898Z",
+      "tags": [
+        "杂事"
+      ],
+      "done": true,
+      "doneAt": "2026-08-10T01:48:47.898Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1877,12 +1879,14 @@
     {
       "id": "msmjr7izwbebf",
       "type": "task",
-      "content": "低效那个进度跟领导企微汇报下，就算这周任务完成了。",
+      "content": "### 周一上午主任务：\n低效那个进度跟领导企微汇报下，就算这周任务完成了。\n9.57：我想怎么汇报呢？我想跟领导同步这个信息，以及为什么做这个事情，想领导判断下这个情况是否需要行动干预，还是按照当前方式继续即可？\n10.21：哎呀天河多了指标，我要给领导反馈那得重新写了。我觉得自己好墨迹啊，明明几分钟就能写好发出去的，非要拖拖拖。不知道怕啥\n10.36：发了发了，先迈出一步总比做到完美才交付更好。没有获得反馈，永远做不到所谓的完美。\n\n交付品：给总监发一段话\n\n进度：100%",
       "createdAt": "2026-08-10T01:22:33.563Z",
-      "updatedAt": "2026-08-10T01:22:33.563Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-10T02:37:27.351Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-10T02:37:27.351Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -1910,6 +1914,36 @@
       "content": "我现在就是觉得脑子好多好乱。我不知道该怎么写进度啊。那就先用一个模板啊，试试看。然后慢慢优化模板喽。",
       "createdAt": "2026-08-10T01:35:58.706Z",
       "updatedAt": "2026-08-10T01:35:58.706Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msmkro1naarkf",
+      "type": "task",
+      "content": "哪个县分推动较慢？退网的0业务清单；",
+      "createdAt": "2026-08-10T01:50:54.587Z",
+      "updatedAt": "2026-08-10T01:50:54.587Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msmktjv51hec7",
+      "type": "task",
+      "content": "退网发周进度通报",
+      "createdAt": "2026-08-10T01:52:22.481Z",
+      "updatedAt": "2026-08-10T01:52:22.481Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5954,6 +5988,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-10T00:02:49.386Z"
+    "lastSync": "2026-08-10T01:37:34.229Z"
   }
 }
