@@ -2200,10 +2200,10 @@
       "type": "task",
       "content": "防勒索的研究下",
       "createdAt": "2026-08-14T00:39:10.952Z",
-      "updatedAt": "2026-08-14T00:39:10.952Z",
+      "updatedAt": "2026-08-14T09:41:29.999Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T09:41:29.999Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2410,10 +2410,10 @@
       "type": "task",
       "content": "天河拆运过单",
       "createdAt": "2026-08-14T08:11:12.874Z",
-      "updatedAt": "2026-08-14T08:11:12.874Z",
+      "updatedAt": "2026-08-14T09:41:28.741Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T09:41:28.741Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2452,7 +2452,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6560,6 +6560,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-14T08:11:55.429Z"
+    "lastSync": "2026-08-14T08:30:23.407Z"
   }
 }
