@@ -2152,7 +2152,7 @@
       "type": "task",
       "content": "完成月度主机漏洞扫描任务；跟进处理云主机Docker逃逸漏洞、防勒索部署；",
       "createdAt": "2026-08-14T00:37:36.730Z",
-      "updatedAt": "2026-08-14T09:50:28.551Z",
+      "updatedAt": "2026-08-14T10:32:10.321Z",
       "tags": [
         "网安"
       ],
@@ -2160,7 +2160,7 @@
       "doneAt": "2026-08-14T01:02:41.462Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -2242,15 +2242,17 @@
     {
       "id": "mssd4ueih5uev",
       "type": "task",
-      "content": "我就找无线的总监，转发这个，确认下是否经过这几个设备。预计什么时候割接？",
+      "content": "0814：找800M团队看下哪些设备可退、哪些跟未割基站有关暂不能退（预计完成时间）。\n价值：用轻松不耗时的方式看看有无新发现；知道这批设备几月能退，有个计划；排雷避免关电告警；\n里程碑是：获得不同状态的反馈（进度：20%）",
       "createdAt": "2026-08-14T03:03:49.482Z",
-      "updatedAt": "2026-08-14T03:48:26.311Z",
-      "tags": [],
+      "updatedAt": "2026-08-14T10:32:08.872Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "doneAt": "2026-08-14T03:48:26.311Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
