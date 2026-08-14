@@ -2361,21 +2361,6 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mssc6y43t2s6k",
-      "type": "task",
-      "content": "客资的低效进度清单。风险是我不确定这样写行不行。\n我能做的是：看下这些退网设备，列出我的问题。写一版本建议。",
-      "createdAt": "2026-08-14T02:37:27.987Z",
-      "updatedAt": "2026-08-14T03:57:00.738Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mssd4ueih5uev",
       "type": "task",
       "content": "我就找无线的总监，转发这个，确认下是否经过这几个设备。预计什么时候割接？",
@@ -2406,29 +2391,14 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mssdftw2g64ot",
-      "type": "task",
-      "content": "我得评估下这样做能不能剔除。",
-      "createdAt": "2026-08-14T03:12:22.034Z",
-      "updatedAt": "2026-08-14T03:33:55.436Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-14T03:33:55.436Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mssf3lu29n8l0",
       "type": "task",
-      "content": "看看清单，写下所有我的疑问。和想法。",
+      "content": "看看低效评估的清单，写下所有我的疑问。和想法。",
       "createdAt": "2026-08-14T03:58:50.954Z",
-      "updatedAt": "2026-08-14T03:58:50.954Z",
+      "updatedAt": "2026-08-14T07:24:51.419Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T07:24:46.042Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2452,7 +2422,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6575,6 +6545,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-14T03:59:06.167Z"
+    "lastSync": "2026-08-14T04:00:46.832Z"
   }
 }
