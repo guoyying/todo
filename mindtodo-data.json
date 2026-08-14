@@ -2256,21 +2256,6 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mss89b967u34g",
-      "type": "task",
-      "content": "天河454的现场状态看下",
-      "createdAt": "2026-08-14T00:47:19.866Z",
-      "updatedAt": "2026-08-14T00:47:19.866Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mss8badugeo3p",
       "type": "task",
       "content": "800M武邮烽火设备。这个确实不紧急，但是是个排除隐患的方式。\n我能做的行动是：load出sdh武邮烽火的设备清单，然后问无线同事。\n我不知道这个工作是为了什么，我可以了解他们，然后确认风险。从模糊到清晰也是一种价值。",
@@ -2404,6 +2389,51 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mssmopl776tvq",
+      "type": "task",
+      "content": "提醒下算力的清单",
+      "createdAt": "2026-08-14T07:31:12.907Z",
+      "updatedAt": "2026-08-14T07:31:12.907Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msso45eyiyrox",
+      "type": "task",
+      "content": "天河拆运过单",
+      "createdAt": "2026-08-14T08:11:12.874Z",
+      "updatedAt": "2026-08-14T08:11:12.874Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msso4m3w9uiz5",
+      "type": "task",
+      "content": "整理下今天的进度吧，里程碑啥的。",
+      "createdAt": "2026-08-14T08:11:34.508Z",
+      "updatedAt": "2026-08-14T08:11:34.508Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -2422,7 +2452,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5044,21 +5074,6 @@
       "createdAt": "2026-08-13T08:37:09.437Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mssb2i6u3dowv",
-      "taskId": "mss89b967u34g",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-14T16:05"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-14T02:06:01.110Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -6545,6 +6560,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-14T04:00:46.832Z"
+    "lastSync": "2026-08-14T07:25:20.359Z"
   }
 }
