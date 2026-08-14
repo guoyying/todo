@@ -652,7 +652,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783565463457"
+      "listId": "default"
     },
     {
       "id": "mrt1pflb87nuf",
@@ -666,7 +666,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783565463457"
+      "listId": "default"
     },
     {
       "id": "1784767747302",
@@ -680,7 +680,7 @@
       "organizedAt": "2026-07-23T00:49:07.302Z",
       "createdAt": "2026-06-11T06:32:25.050Z",
       "updatedAt": "2026-07-23T00:49:07.302Z",
-      "listId": "list_1783562300215",
+      "listId": "default",
       "organization": {
         "goal": "新港机楼开展萤火行动，检查架子和架顶电缆拆除情况",
         "goalWeeks": "[{\"content\":\"新港机楼开展萤火行动，检查架子和架顶电缆拆除情况\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
@@ -715,7 +715,7 @@
       "organizedAt": "2026-07-23T13:05:31.637Z",
       "createdAt": "2026-06-17T00:52:10.221Z",
       "updatedAt": "2026-07-23T13:05:31.637Z",
-      "listId": "list_1783562300215",
+      "listId": "default",
       "organization": {
         "goal": "欣诺通信有限公司设备弱口令问题排查及反馈\n卸载旧蜜罐代理文件\n完成月度主机漏洞扫描工作，发现了2个资产扫描盲区，完成上报；中高危漏洞申请添加白名单；\n260622参加综维优磐石行动宣贯会议\n【行动】配合处理中心IP迁移网段工作\n【行动】磐石行动，跟进盒式波分设备安全加固工作【成效】已完成访问控制策略核查、网关网元纳管SOC\n【行动】跟进传输网元最小化访问工作【成效】最新的华为网关网元业务流清单\n【行动】云主机安装微蜜罐，放通ssh端口\n【行动】漏洞整改【成效】MSAP、瑞斯康达是光猫，基本转o且不看网管（可退网）。烽火优先关注，华为次之。\n【行动】完成月度省soc主机漏洞扫描工作；跟进NOC隐患排查工作，保证华为NCE网管对网络设备的管控链路通畅\n【行动】本周主要完成了天眼监测API风险处理、跟进省IT系统三证申请及办公终端网络安全检查，持续推进HVV行动相关工作。",
         "goalWeeks": "[{\"content\":\"欣诺通信有限公司设备弱口令问题排查及反馈\",\"week\":{\"start\":\"2026-06-14T16:00:00.000Z\",\"end\":\"2026-06-20T16:00:00.000Z\",\"label\":\"2026/6/15 - 5天前\"}},{\"content\":\"卸载旧蜜罐代理文件\",\"week\":{\"start\":\"2026-06-14T16:00:00.000Z\",\"end\":\"2026-06-20T16:00:00.000Z\",\"label\":\"2026/6/15 - 5天前\"}},{\"content\":\"完成月度主机漏洞扫描工作，发现了2个资产扫描盲区，完成上报；中高危漏洞申请添加白名单；\",\"week\":{\"start\":\"2026-06-14T16:00:00.000Z\",\"end\":\"2026-06-20T16:00:00.000Z\",\"label\":\"2026/6/15 - 5天前\"}},{\"content\":\"260622参加综维优磐石行动宣贯会议\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"4天前 - 刚刚\"}},{\"content\":\"【行动】配合处理中心IP迁移网段工作\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"4天前 - 刚刚\"}},{\"content\":\"【行动】磐石行动，跟进盒式波分设备安全加固工作【成效】已完成访问控制策略核查、网关网元纳管SOC\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"2天前 - 刚刚\"}},{\"content\":\"【行动】跟进传输网元最小化访问工作【成效】最新的华为网关网元业务流清单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"1天前 - 刚刚\"}},{\"content\":\"【行动】云主机安装微蜜罐，放通ssh端口\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"4天前 - 刚刚\"}},{\"content\":\"【行动】漏洞整改【成效】MSAP、瑞斯康达是光猫，基本转o且不看网管（可退网）。烽火优先关注，华为次之。\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"4天前 - 刚刚\"}},{\"content\":\"【行动】完成月度省soc主机漏洞扫描工作；跟进NOC隐患排查工作，保证华为NCE网管对网络设备的管控链路通畅\",\"week\":{\"start\":\"2026-07-12T16:00:00.000Z\",\"end\":\"2026-07-18T16:00:00.000Z\",\"label\":\"4天前 - 刚刚\"}},{\"content\":\"【行动】本周主要完成了天眼监测API风险处理、跟进省IT系统三证申请及办公终端网络安全检查，持续推进HVV行动相关工作。\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"17小时前 - 刚刚\"}}]",
@@ -750,7 +750,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "mryds1264c8xk",
@@ -781,7 +781,7 @@
       "organizedAt": "2026-07-26T15:33:22.282Z",
       "createdAt": "2026-06-18T01:20:14.386Z",
       "updatedAt": "2026-07-26T15:33:22.282Z",
-      "listId": "list_1783562300215",
+      "listId": "default",
       "organization": {
         "goal": "做糖水（雪梨、银耳、红枣、冰糖）\n觉得人体工学鼠标对肌肉好，就买了粉色和绿色鼠标和垫\n老公的编绳坏了，而且容易脏，换了个深绿色\n想买钻石耳钉了",
         "goalWeeks": "[{\"content\":\"做糖水（雪梨、银耳、红枣、冰糖）\",\"week\":{\"start\":\"2026-05-17T16:00:00.000Z\",\"end\":\"2026-05-23T16:00:00.000Z\",\"label\":\"2026/5/18 - 2026/5/24\"}},{\"content\":\"觉得人体工学鼠标对肌肉好，就买了粉色和绿色鼠标和垫\",\"week\":{\"start\":\"2026-06-28T16:00:00.000Z\",\"end\":\"2026-07-04T16:00:00.000Z\",\"label\":\"2026/6/29 - 2026/7/5\"}},{\"content\":\"老公的编绳坏了，而且容易脏，换了个深绿色\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"5天前 - 刚刚\"}},{\"content\":\"想买钻石耳钉了\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"6天前 - 23小时前\"}}]",
@@ -887,7 +887,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms31j184k468n",
@@ -903,7 +903,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215",
+      "listId": "default",
       "doneAt": "2026-07-27T09:44:49.723Z"
     },
     {
@@ -920,7 +920,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215",
+      "listId": "default",
       "doneAt": "2026-07-27T09:56:16.280Z"
     },
     {
@@ -937,7 +937,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215",
+      "listId": "default",
       "doneAt": "2026-07-27T09:56:18.804Z"
     },
     {
@@ -954,7 +954,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215",
+      "listId": "default",
       "doneAt": "2026-07-27T11:44:18.897Z"
     },
     {
@@ -989,7 +989,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms3w308prvj3a",
@@ -1006,7 +1006,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms3ycjlqb2goe",
@@ -1041,7 +1041,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms49dprtwx7j4",
@@ -1058,7 +1058,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms49mi98nwaah",
@@ -1075,7 +1075,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4bcv4yn3se9",
@@ -1092,7 +1092,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4bd9oypg4a8",
@@ -1124,7 +1124,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4bkmq8ab3k9",
@@ -1175,7 +1175,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4eqd2nrn7gd",
@@ -1209,7 +1209,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4gll6cti25o",
@@ -1243,7 +1243,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4jrvyhx2khc",
@@ -1260,7 +1260,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4lj6f2a2lr8",
@@ -1277,7 +1277,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms4lzbte764h5",
@@ -1310,7 +1310,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215",
+      "listId": "default",
       "doneAt": "2026-07-28T12:36:39.466Z"
     },
     {
@@ -1328,7 +1328,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms5fwoijogbr5",
@@ -1516,7 +1516,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms8nn3lz58fum",
@@ -1550,7 +1550,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "ms9nrrfdymb80",
@@ -1584,7 +1584,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1783562300215"
+      "listId": "default"
     },
     {
       "id": "msdxr5rj0yd25",
@@ -2085,13 +2085,15 @@
       "type": "task",
       "content": "1620-会展三期4C网基站-GZHC363-HA63L，这个有个PQ业务，我想看下能不能转走。这样算一个指标。趁机学下业务知识。\n现在是这个设备还有上联的光路在用，那我得找到下联的才行。\n我的问题及解决进度：\n1. 这个SDH设备下挂客户侧什么设备？（0%）\n2. 有具体客户业务接入号吗（0%）",
       "createdAt": "2026-08-12T06:34:59.992Z",
-      "updatedAt": "2026-08-13T08:21:47.318Z",
-      "tags": [],
+      "updatedAt": "2026-08-14T00:34:52.577Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "doneAt": "2026-08-13T08:21:47.318Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -2100,28 +2102,16 @@
       "type": "task",
       "content": "虚拟网元跟进\n我可以做的事：让政企部的人看下这几条业务的单位是谁。\n\n**信息**：政企部可以查到接入号的客户经理信息\n\n**里程碑**：\n1. 我把CRM整理出可直接退网的清单发给县分了，这个动作花精力少，收益又较高。\n2. 让政企部的人看下这几条业务的客户经理是谁，这个是轻松又有反馈的。\n\n**价值**：在于通过这个过程，我初步摸清了该联系哪位同事（政企）、获取什么信息（收费情况、客户经理），指引县分做什么动作（跟客户经理确认是否在用）",
       "createdAt": "2026-08-13T01:23:17.600Z",
-      "updatedAt": "2026-08-13T08:54:37.237Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-14T00:37:20.693Z",
+      "tags": [
+        "CRM",
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-14T00:37:18.701Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "msqu4xxs43qg5",
-      "type": "task",
-      "content": "网安单：扫描、Docker逃逸、防勒索部署",
-      "createdAt": "2026-08-13T01:24:15.184Z",
-      "updatedAt": "2026-08-13T08:15:32.125Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1783565139132"
     },
@@ -2147,7 +2137,25 @@
       "type": "task",
       "content": "现在CRM那边就卡我这了，得推下才行啊\n行动：\n1. 有业务-拿SDH且高值少的做探索-确定客户经理-归属部门（可以行动）\n2. 网管查下流量（低）",
       "createdAt": "2026-08-13T07:11:10.249Z",
-      "updatedAt": "2026-08-13T09:00:04.511Z",
+      "updatedAt": "2026-08-14T00:45:15.987Z",
+      "tags": [
+        "退网",
+        "CRM"
+      ],
+      "done": true,
+      "doneAt": "2026-08-14T00:45:15.987Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msr9l7bqu1ond",
+      "type": "task",
+      "content": "给张枝带糖水",
+      "createdAt": "2026-08-13T08:36:48.086Z",
+      "updatedAt": "2026-08-13T08:36:48.086Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2158,11 +2166,176 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msr9l7bqu1ond",
+      "id": "mss7wtay1x87m",
       "type": "task",
-      "content": "给张枝带糖水",
-      "createdAt": "2026-08-13T08:36:48.086Z",
-      "updatedAt": "2026-08-13T08:36:48.086Z",
+      "content": "省soc看下扫描结果，然后回单",
+      "createdAt": "2026-08-14T00:37:36.730Z",
+      "updatedAt": "2026-08-14T01:02:41.462Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-14T01:02:41.462Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mss7x316asiw3",
+      "type": "task",
+      "content": "没用内网，就看下docker逃逸的事情",
+      "createdAt": "2026-08-14T00:37:49.338Z",
+      "updatedAt": "2026-08-14T01:01:02.217Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-14T01:01:02.217Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mss7yu089p2zx",
+      "type": "task",
+      "content": "防勒索的研究下",
+      "createdAt": "2026-08-14T00:39:10.952Z",
+      "updatedAt": "2026-08-14T00:39:10.952Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mss87tqbr8651",
+      "type": "task",
+      "content": "邮箱看下越秀更新的拆运单号，copy下载excel附件。连邮箱的pdf一起转给施工。",
+      "createdAt": "2026-08-14T00:46:10.499Z",
+      "updatedAt": "2026-08-14T01:06:34.540Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-14T01:06:34.540Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mss88ke20ilv3",
+      "type": "task",
+      "content": "看下天河清单是不是都能退了。都是SDH啊，问题就在于我得看下上联。我又忘了当时我有没有看上联设备，因为是第一批的。所以我下一步行动是看下具体是几号给的、备注是什么，确定有无看上联。",
+      "createdAt": "2026-08-14T00:46:45.050Z",
+      "updatedAt": "2026-08-14T00:55:41.037Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439",
+      "doneAt": "2026-08-14T00:55:41.037Z"
+    },
+    {
+      "id": "mss88r4jrx3uy",
+      "type": "task",
+      "content": "跟进下CRM的事情",
+      "createdAt": "2026-08-14T00:46:53.779Z",
+      "updatedAt": "2026-08-14T00:46:53.779Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss89b967u34g",
+      "type": "task",
+      "content": "天河454的现场状态看下",
+      "createdAt": "2026-08-14T00:47:19.866Z",
+      "updatedAt": "2026-08-14T00:47:19.866Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss89gu136x4e",
+      "type": "task",
+      "content": "爬虫退网进度的",
+      "createdAt": "2026-08-14T00:47:27.097Z",
+      "updatedAt": "2026-08-14T00:47:27.097Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss8aaajk7hsc",
+      "type": "task",
+      "content": "客资已退网加快动作",
+      "createdAt": "2026-08-14T00:48:05.275Z",
+      "updatedAt": "2026-08-14T00:48:05.275Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss8afo9a5s4b",
+      "type": "task",
+      "content": "过退网单（荔湾）",
+      "createdAt": "2026-08-14T00:48:12.249Z",
+      "updatedAt": "2026-08-14T00:48:16.057Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss8badugeo3p",
+      "type": "task",
+      "content": "800M武邮烽火设备",
+      "createdAt": "2026-08-14T00:48:52.050Z",
+      "updatedAt": "2026-08-14T00:48:52.050Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mss8jyiy4m9ct",
+      "type": "task",
+      "content": "天河：看下具体是几号给的、备注是什么，确定有无看上联",
+      "createdAt": "2026-08-14T00:55:36.586Z",
+      "updatedAt": "2026-08-14T00:55:36.586Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2182,24 +2355,10 @@
       "isDefault": false
     },
     {
-      "id": "list_1783562300215",
-      "name": "思考性",
-      "description": "",
-      "createdAt": "2026-07-09T01:58:20.215Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1783565463457",
-      "name": "协作型",
-      "description": "",
-      "createdAt": "2026-07-09T02:51:03.457Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1784509194257",
-      "name": "需要开导释放的",
-      "description": "",
-      "createdAt": "2026-07-20T00:59:54.257Z",
+      "id": "list_1786668268439",
+      "name": "待评估决策",
+      "description": "未评估做不做、该怎么做、什么时间做",
+      "createdAt": "2026-08-14T00:44:28.439Z",
       "isDefault": false
     }
   ],
@@ -4816,6 +4975,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-13T08:37:09.437Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mss7z1ptmn8oa",
+      "taskId": "mss7yu089p2zx",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-14T11:15"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-14T00:39:20.945Z",
       "lastReminderTime": null,
       "active": true
     }
