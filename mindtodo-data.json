@@ -2273,12 +2273,12 @@
     {
       "id": "mss8badugeo3p",
       "type": "task",
-      "content": "800M武邮烽火设备",
+      "content": "800M武邮烽火设备。这个确实不紧急，但是是个排除隐患的方式。\n我能做的行动是：load出sdh武邮烽火的设备清单，然后问无线同事。\n我不知道这个工作是为了什么，我可以了解他们，然后确认风险。从模糊到清晰也是一种价值。",
       "createdAt": "2026-08-14T00:48:52.050Z",
-      "updatedAt": "2026-08-14T00:48:52.050Z",
+      "updatedAt": "2026-08-14T03:47:59.213Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T03:47:59.213Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2290,10 +2290,10 @@
       "type": "task",
       "content": "天河：看下具体是几号给的、备注是什么，确定有无看上联",
       "createdAt": "2026-08-14T00:55:36.586Z",
-      "updatedAt": "2026-08-14T00:55:36.586Z",
+      "updatedAt": "2026-08-14T03:06:23.487Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T03:06:23.487Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2320,10 +2320,10 @@
       "type": "task",
       "content": "问下荔湾的，就说这条接入号CRM查到是荔湾分公司在用的，但网管可能没流量了。能确认下是否还在用吗？",
       "createdAt": "2026-08-14T02:05:26.339Z",
-      "updatedAt": "2026-08-14T02:05:26.339Z",
+      "updatedAt": "2026-08-14T03:10:39.696Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-14T03:10:39.696Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2335,7 +2335,52 @@
       "type": "task",
       "content": "先过退网单再做爬虫。",
       "createdAt": "2026-08-14T02:09:39.539Z",
-      "updatedAt": "2026-08-14T02:09:39.539Z",
+      "updatedAt": "2026-08-14T03:21:32.274Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-14T03:21:32.274Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mssc3v7wnped3",
+      "type": "task",
+      "content": "感悟：\n1、囤了任务后就开始决策，统一决策时间。\n2、不是非要全部决策评估完后再切换，随时都可以切换。因为任务是非常动态的。\n2、开始做了、发消息了，就开启零乱回复状态，以一个工作为主任务。\n3、什么工作容易在半天有里程碑的，就安排为主任务。其他的没把握的，就作为零碎任务去推进。\n4、以里程碑为目标，而不是行动。否则拆解为一个个行动会很凌乱、没有满足感。\n5、为了保持任务连贯性，可以发呆缓解焦虑然后继续行动的，就不要再安排另外时间做评估决策了。一切都以任务闭环为首要考虑。",
+      "createdAt": "2026-08-14T02:35:04.268Z",
+      "updatedAt": "2026-08-14T03:45:53.737Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mssc6y43t2s6k",
+      "type": "task",
+      "content": "客资的低效进度清单。风险是我不确定这样写行不行。",
+      "createdAt": "2026-08-14T02:37:27.987Z",
+      "updatedAt": "2026-08-14T02:37:27.987Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mssd4ueih5uev",
+      "type": "task",
+      "content": "我就找无线的总监，转发这个，确认下是否经过这几个设备。预计什么时候割接？",
+      "createdAt": "2026-08-14T03:03:49.482Z",
+      "updatedAt": "2026-08-14T03:04:03.026Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2344,6 +2389,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "mssd67032bkos",
+      "type": "task",
+      "content": "给省soc换个扫描器试试看。",
+      "createdAt": "2026-08-14T03:04:52.467Z",
+      "updatedAt": "2026-08-14T03:04:52.467Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mssdftw2g64ot",
+      "type": "task",
+      "content": "我得评估下这样做能不能剔除。",
+      "createdAt": "2026-08-14T03:12:22.034Z",
+      "updatedAt": "2026-08-14T03:33:55.436Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-14T03:33:55.436Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -2362,7 +2437,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4113,6 +4188,13 @@
       "type": null,
       "createdAt": "2026-08-12T01:22:24.479Z",
       "tags": []
+    },
+    {
+      "id": "msschp6dgidss",
+      "content": "真正的里程碑不是“开始行动”，而是“想清楚后开始行动”。",
+      "type": null,
+      "createdAt": "2026-08-14T02:45:49.621Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -4975,21 +5057,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-13T08:37:09.437Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mss7z1ptmn8oa",
-      "taskId": "mss7yu089p2zx",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-14T11:15"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-14T00:39:20.945Z",
       "lastReminderTime": null,
       "active": true
     },
@@ -6031,6 +6098,16 @@
       "format": "markdown",
       "createdAt": "2026-08-14T01:53:04.667Z",
       "updatedAt": "2026-08-14T01:53:04.667Z"
+    },
+    {
+      "id": "1786675444265jon9wtd8h",
+      "title": "里程碑路径，对于一个事情来讲也可以是这样：不知道为什么这样做，要不要这样做，这样做对我有什么好处——》明晰上述问题，然后做出判断我该怎么做。",
+      "type": "ideas",
+      "tags": [],
+      "content": "这段话是对“里程碑路径”的一种个性化、偏重内在动机的解读。它强调了在行动之前，必须先解决“为什么”和“值不值”的问题，而不是直接跳到“怎么做”。\n\n可以将其拆解为三个递进阶段：\n\n1. **困惑期（迷雾）**：不知道原因（不知道为什么这样做）、不确定意愿（要不要这样做）、不清楚收益（对我有什么好处）。这是行动前的迷茫，是决策的起点。\n2. **明晰期（灯塔）**：通过思考、咨询、调研，把上述三个“不知道”变为“知道”。即：明确目的、确认意愿、评估利弊。\n3. **决策期（路径）**：基于明晰后的信息，做出“我该怎么做”的判断。这时，“怎么做”才是有根基的，而不是盲目的。\n\n**核心观点**：真正的里程碑不是“开始行动”，而是“想清楚后开始行动”。如果跳过前两步，直接进入“怎么做”，往往会导致方向错误或动力不足。",
+      "format": "markdown",
+      "createdAt": "2026-08-14T02:44:04.265Z",
+      "updatedAt": "2026-08-14T02:44:04.265Z"
     }
   ],
   "trackerConfig": {
