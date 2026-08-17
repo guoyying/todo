@@ -2419,10 +2419,10 @@
       "type": "task",
       "content": "看下拆运单越秀那个、天河过单",
       "createdAt": "2026-08-17T07:09:33.311Z",
-      "updatedAt": "2026-08-17T07:09:38.761Z",
+      "updatedAt": "2026-08-17T08:02:03.880Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-17T08:02:03.880Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2430,11 +2430,11 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msww8orxxw9au",
+      "id": "mswyciqctcvxs",
       "type": "task",
-      "content": "网管验收导出清单",
-      "createdAt": "2026-08-17T07:09:46.221Z",
-      "updatedAt": "2026-08-17T07:09:46.221Z",
+      "content": "张枝的2个验收。网管验收。",
+      "createdAt": "2026-08-17T08:08:44.244Z",
+      "updatedAt": "2026-08-17T08:08:44.244Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2442,7 +2442,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -2462,7 +2462,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6570,6 +6570,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-17T03:48:21.601Z"
+    "lastSync": "2026-08-17T07:29:48.128Z"
   }
 }
