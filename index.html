@@ -8141,11 +8141,33 @@ padding: 7px !important;
             <div style="padding:20px;">
                 <p style="margin-bottom:16px;color:#666;">确定要删除清单 <strong id="deleteListName"></strong> 吗？</p>
                 <div id="deleteWarning" style="margin-bottom:16px;padding:12px;background:#fff3f3;border-radius:6px;border:1px solid #ffcdd2;">
-                    <p style="margin:0;color:#c62828;font-size:13px;">⚠️ 删除后，该清单下的所有任务将移至"默认清单"。</p>
+                    <p style="margin:0;color:#c62828;font-size:13px;">⚠️ 删除后，该清单下的所有任务将移至首个清单。</p>
                 </div>
                 <div style="display:flex;justify-content:flex-end;gap:10px;">
                     <button class="btn btn-secondary" onclick="closeModal('deleteListConfirmModal')">取消</button>
                     <button class="btn btn-danger" onclick="confirmDeleteList()">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 重命名清单确认弹窗 -->
+<div class="modal-overlay hidden" id="renameListConfirmModal" onclick="closeModal('renameListConfirmModal')">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width:400px;">
+        <div class="modal-header">
+            <h3>✏️ 重命名清单</h3>
+            <span class="close" onclick="closeModal('renameListConfirmModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div style="padding:20px;">
+                <div style="margin-bottom:16px;">
+                    <label style="display:block;margin-bottom:8px;font-weight:bold;">新名称：</label>
+                    <input type="text" id="renameListNameInput" class="form-control" placeholder="请输入新名称" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:4px;">
+                </div>
+                <div style="display:flex;justify-content:flex-end;gap:10px;">
+                    <button class="btn btn-secondary" onclick="closeModal('renameListConfirmModal')">取消</button>
+                    <button class="btn btn-primary" onclick="confirmRenameList()">确认</button>
                 </div>
             </div>
         </div>
@@ -14300,6 +14322,7 @@ data.taskLists.forEach((list, index) => {
                     <button class="btn btn-icon" onclick="moveListDown('${list.id}')" ${!hasNext ? 'disabled' : ''} title="下移">
                         ▼
                     </button>
+                    <button class="btn btn-secondary" onclick="confirmRenameListClick('${list.id}')">✏️ 重命名</button>
                 ` : ''}
                 ${list.id !== 'default' ? `<button class="btn btn-secondary" onclick="switchList('${list.id}')">${list.id === data.currentListId ? '使用中' : '切换到此清单'}</button>` : ''}
                 ${!list.isDefault ? `<button class="btn btn-danger" onclick="confirmDeleteListClick('${list.id}')">删除清单</button>` : ''}
@@ -14438,6 +14461,54 @@ window.switchList = function(listId) {
     renderQuickListSelector();
 };
 
+// 确认重命名清单（点击重命名按钮）
+window.confirmRenameListClick = function(listId) {
+    const list = data.taskLists.find(l => l.id === listId);
+    if (!list) return;
+    
+    // 设置输入框的默认值为当前名称
+    document.getElementById('renameListNameInput').value = list.name;
+    
+    const modal = document.getElementById('renameListConfirmModal');
+    if (modal) modal.classList.remove('hidden');
+    
+    // 保存待修改的清单 ID
+    modal.dataset.renameListId = listId;
+    
+    // 聚焦到输入框
+    setTimeout(() => {
+        document.getElementById('renameListNameInput').focus();
+    }, 100);
+};
+
+// 确认重命名
+window.confirmRenameList = function() {
+    const modal = document.getElementById('renameListConfirmModal');
+    const listId = modal.dataset.renameListId;
+    const newName = document.getElementById('renameListNameInput').value.trim();
+    
+    if (!newName) {
+        alert('请输入清单名称');
+        return;
+    }
+    
+    // 找到并更新清单名称
+    const list = data.taskLists.find(l => l.id === listId);
+    if (!list) return;
+    
+    list.name = newName;
+    list.updatedAt = new Date().toISOString();
+    
+    saveData();
+    
+    closeModal('renameListConfirmModal');
+    renderListsContainer();
+    updateCurrentListInfo();
+    renderListTodos();
+    renderTaskListSelector();
+    renderQuickListSelector();
+};
+
 // 确认删除清单（点击删除按钮）
 window.confirmDeleteListClick = function(listId) {
     const list = data.taskLists.find(l => l.id === listId);
@@ -14462,17 +14533,20 @@ window.confirmDeleteList = function() {
     const listIndex = data.taskLists.findIndex(l => l.id === listId);
     if (listIndex === -1) return;
     
-    // 将该清单下的所有任务移至默认清单
-    const defaultListId = 'default';
+    // 将该清单下的所有任务移至首个清单
+    // 获取删除清单之前的首个清单（排除被删除的清单本身）
+    const remainingLists = data.taskLists.filter(l => l.id !== listId);
+    const firstList = remainingLists.length > 0 ? remainingLists[0] : null;
+    
     data.tasks.forEach(task => {
         if (task.listId === listId) {
-            task.listId = defaultListId;
+            task.listId = firstList ? firstList.id : 'default';
         }
     });
     
-    // 如果当前选中的是被删除的清单，切换到默认清单
+    // 如果当前选中的是被删除的清单，切换到首个清单（或默认清单）
     if (data.currentListId === listId) {
-        data.currentListId = defaultListId;
+        data.currentListId = firstList ? firstList.id : 'default';
     }
     
     // 删除清单
@@ -14484,6 +14558,10 @@ window.confirmDeleteList = function() {
     renderListsContainer();
     updateCurrentListInfo();
     renderListTodos();
+    // 更新任务创建区域的清单选择器
+    renderTaskListSelector();
+    // 更新快速过滤栏的清单选择器
+    renderQuickListSelector();
 };
 
 // 辅助函数：转义 HTML
