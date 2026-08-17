@@ -2235,32 +2235,19 @@
     {
       "id": "mswkeqe7710xp",
       "type": "task",
-      "content": "天河回答问题，拔纤操作。",
+      "content": "解答天河问题：拔纤操作。\n| 我担心的/焦虑的… | 我做了什么，结果如何 | 下一步计划做 |\n|-----|-----|-----|\n| 巨烦：没有一个规范，搞得每次都要我自己去想、回应。我想写个规范，有人问了我按照规范来就好了。但我不知道该从何开始，针对什么场景的、起什么标题。怎么报备网监。 | 摒弃完美的规范，我脑子里清晰即可，这样能先回应天河的问题（应急）。效果不错，天河说‘好’   | 写成一个操作指引吧 |\n| 我现在不敢拿去问泳哥，我怕问不完全，也怕同事觉得我问题幼稚  | 总监还是很耐心讲的。其他同事不知会不会觉得我的问题幼稚，但他们也有可能不清晰。 | / |",
       "createdAt": "2026-08-17T01:38:32.863Z",
-      "updatedAt": "2026-08-17T01:38:32.863Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-17T03:13:50.204Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-17T03:13:48.973Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mswkfvqeigj1t",
-      "type": "task",
-      "content": "低效评估的事儿",
-      "createdAt": "2026-08-17T01:39:26.438Z",
-      "updatedAt": "2026-08-17T01:39:26.438Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1783565139132"
     },
     {
       "id": "mswkg5xg2o1c3",
@@ -2313,6 +2300,21 @@
       "content": "算力少了6个指标喔。看下啥情况",
       "createdAt": "2026-08-17T01:45:28.447Z",
       "updatedAt": "2026-08-17T01:45:28.447Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mswntkw10up31",
+      "type": "task",
+      "content": "更新下低效评估共享表",
+      "createdAt": "2026-08-17T03:14:04.417Z",
+      "updatedAt": "2026-08-17T03:14:04.417Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6462,6 +6464,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-17T01:16:10.906Z"
+    "lastSync": "2026-08-17T01:53:40.451Z"
   }
 }
