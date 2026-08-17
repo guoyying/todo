@@ -2137,10 +2137,10 @@
       "type": "task",
       "content": "给张枝带糖水",
       "createdAt": "2026-08-13T08:36:48.086Z",
-      "updatedAt": "2026-08-13T08:36:48.086Z",
+      "updatedAt": "2026-08-17T05:08:41.832Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-17T05:08:41.832Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2356,7 +2356,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6464,6 +6464,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-17T03:14:17.291Z"
+    "lastSync": "2026-08-17T03:48:21.601Z"
   }
 }
