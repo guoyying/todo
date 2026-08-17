@@ -2338,6 +2338,20 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "mswt3j9bch8uy",
+      "type": "task",
+      "content": "测试用用",
+      "createdAt": "2026-08-17T05:41:46.943Z",
+      "updatedAt": "2026-08-17T05:41:46.943Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786945299675"
     }
   ],
   "taskLists": [
@@ -2346,7 +2360,8 @@
       "name": "确定性",
       "description": "",
       "createdAt": "2026-07-09T02:45:39.132Z",
-      "isDefault": false
+      "isDefault": false,
+      "updatedAt": "2026-08-17T05:41:33.620Z"
     },
     {
       "id": "list_1786668268439",
@@ -2354,9 +2369,16 @@
       "description": "未评估做不做、该怎么做、什么时间做",
       "createdAt": "2026-08-14T00:44:28.439Z",
       "isDefault": false
+    },
+    {
+      "id": "list_1786945299675",
+      "name": "测试用",
+      "description": "",
+      "createdAt": "2026-08-17T05:41:39.675Z",
+      "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786945299675",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
