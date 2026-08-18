@@ -2405,6 +2405,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "msyi9jzcdaa3t",
+      "type": "task",
+      "content": "skill看下能做什么",
+      "createdAt": "2026-08-18T10:14:04.392Z",
+      "updatedAt": "2026-08-18T10:14:04.392Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
