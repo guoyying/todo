@@ -2303,10 +2303,10 @@
       "type": "task",
       "content": "省soc扫描回单",
       "createdAt": "2026-08-17T09:52:05.848Z",
-      "updatedAt": "2026-08-18T00:04:37.143Z",
+      "updatedAt": "2026-08-18T01:40:29.086Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-18T01:40:29.086Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2318,10 +2318,10 @@
       "type": "task",
       "content": "看 isoc下发了没",
       "createdAt": "2026-08-17T09:52:38.585Z",
-      "updatedAt": "2026-08-18T00:04:26.285Z",
+      "updatedAt": "2026-08-18T02:32:40.129Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-18T02:32:40.129Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2348,12 +2348,12 @@
     {
       "id": "msxypxaf8du3u",
       "type": "task",
-      "content": "美哥那边的什么交换机那个也看下，目的是避免被他说的风险\n把那5个加上去而已啊。备注一下就行了。然后把id和备注留下，其他删掉。",
+      "content": "美哥那边的什么交换机那个也看下，目的是避免被他说的风险\n把那5个加上去而已啊。备注一下就行了。然后把id和备注留下，其他删掉。\n最后那台好奇怪啊，我都乱了：9739是退网发现改‘已用’的---退网、现场未拆除，在申请剔除清单。\n我接下来就等美哥弄完。这个0817是最新的，我加上这5个算力的---改为‘0818更新’---发给算力看。",
       "createdAt": "2026-08-18T01:06:55.815Z",
-      "updatedAt": "2026-08-18T01:07:41.967Z",
+      "updatedAt": "2026-08-18T01:35:55.825Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-18T01:35:55.825Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2389,6 +2389,54 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "msxyzkyuzcsrf",
+      "type": "task",
+      "content": "退网过单",
+      "createdAt": "2026-08-18T01:14:26.406Z",
+      "updatedAt": "2026-08-18T01:14:26.406Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msy07li6ld1t5",
+      "type": "task",
+      "content": "各接口人：\n\n关于低效设备清理工作，涉及DDF架端子拆除的操作指引详见附件1。请大家按照指引要求开展相关工作，如有疑问，请随时联系。感谢配合。",
+      "createdAt": "2026-08-18T01:48:39.966Z",
+      "updatedAt": "2026-08-18T02:32:45.078Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-18T02:32:45.078Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msy1tm0k2ov7e",
+      "type": "task",
+      "content": "交换机的事情，想下怎么问泳哥。我只想快点结束这个事，不要磨磨唧唧的。浪费好多时间了。\n**收获**：让对方邮件回复，是比企微私聊更省节省流程的方法。",
+      "createdAt": "2026-08-18T02:33:46.676Z",
+      "updatedAt": "2026-08-18T02:46:40.720Z",
+      "tags": [
+        "工作",
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-18T02:46:40.720Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -6516,6 +6564,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-18T00:06:38.487Z"
+    "lastSync": "2026-08-18T01:14:09.854Z"
   }
 }
