@@ -2349,9 +2349,9 @@
     {
       "id": "msy7cnm5dr8pe",
       "type": "task",
-      "content": "权衡下低效已完成+进度怎么整理，花多长时间整理。我的目的是精简、思路清晰些。主要是为了自己舒服，不会老想着乱。不必用太多时间。",
+      "content": "权衡下低效已完成+进度怎么整理，花多长时间整理。我的目的是精简、思路清晰些。主要是为了自己舒服，不会老想着乱。不必用太多时间。\n0817:花了差不多10分钟才把第一个写完。实在有点慢啊",
       "createdAt": "2026-08-18T05:08:33.293Z",
-      "updatedAt": "2026-08-18T06:44:35.275Z",
+      "updatedAt": "2026-08-18T07:32:42.958Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2375,6 +2375,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "msycicq4pcp6b",
+      "type": "task",
+      "content": "低效发邮件了\n我发的那个版本算力确认了，客资删掉了11个就得到了sheet1（此时是xx个），算力核查后是637个，加上原来县分的xx个不变，一共是xx个。\n1. 不知道怎么说，邮件内容",
+      "createdAt": "2026-08-18T07:32:57.196Z",
+      "updatedAt": "2026-08-18T07:35:29.741Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -2394,7 +2409,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
