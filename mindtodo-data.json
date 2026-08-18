@@ -2101,9 +2101,9 @@
     {
       "id": "mss7wtay1x87m",
       "type": "task",
-      "content": "完成月度主机漏洞扫描任务；跟进处理云主机Docker逃逸漏洞、防勒索部署；\n防勒索部署：isoc下发，我摸清楚步骤了不复杂。有几个自查的到时看看即可，先做下发和部署。进度：30%",
+      "content": "完成月度主机漏洞扫描任务；跟进处理云主机Docker逃逸漏洞、防勒索部署；\n防勒索部署：isoc下发，我摸清楚步骤了不复杂。有几个自查的到时看看即可，先做下发和部署。进度：100%",
       "createdAt": "2026-08-14T00:37:36.730Z",
-      "updatedAt": "2026-08-18T04:54:15.971Z",
+      "updatedAt": "2026-08-18T09:12:32.779Z",
       "tags": [
         "网安"
       ],
@@ -2347,21 +2347,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "msy7cnm5dr8pe",
-      "type": "task",
-      "content": "权衡下低效已完成+进度怎么整理，花多长时间整理。我的目的是精简、思路清晰些。主要是为了自己舒服，不会老想着乱。不必用太多时间。\n0817:花了差不多10分钟才把第一个写完。实在有点慢啊",
-      "createdAt": "2026-08-18T05:08:33.293Z",
-      "updatedAt": "2026-08-18T07:32:42.958Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "msyarer4hitay",
       "type": "task",
       "content": "思考做什么，这周周报我可以写什么。",
@@ -2390,6 +2375,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
+    },
+    {
+      "id": "msyfuy9pax9wd",
+      "type": "task",
+      "content": "我发现自己对于发邮件好费劲，总是斟酌词句。",
+      "createdAt": "2026-08-18T09:06:43.837Z",
+      "updatedAt": "2026-08-18T09:06:43.837Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "msyfyrmlf5sg3",
+      "type": "task",
+      "content": "跟总监说下高潜结果",
+      "createdAt": "2026-08-18T09:09:41.853Z",
+      "updatedAt": "2026-08-18T09:09:41.853Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -6517,6 +6532,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-18T08:22:08.417Z"
+    "lastSync": "2026-08-18T09:01:25.945Z"
   }
 }
