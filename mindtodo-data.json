@@ -2299,21 +2299,6 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "msx21fx4na9vl",
-      "type": "task",
-      "content": "省soc扫描回单",
-      "createdAt": "2026-08-17T09:52:05.848Z",
-      "updatedAt": "2026-08-18T01:40:29.086Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-18T01:40:29.086Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "msx2256hcfjb8",
       "type": "task",
       "content": "看 isoc下发了没",
@@ -2380,10 +2365,10 @@
       "type": "task",
       "content": "张枝的1个网管验收。",
       "createdAt": "2026-08-18T01:13:39.223Z",
-      "updatedAt": "2026-08-18T01:13:39.223Z",
+      "updatedAt": "2026-08-18T03:06:44.444Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-18T03:06:44.444Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2437,6 +2422,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "msy312slh2hcy",
+      "type": "task",
+      "content": "老感觉今天上午没做什么的。我得写一下做了啥。省soc回单，完成这个工作了，知道扫描不了可能是不用做，让接口人问下对方即可。\nisoc下发，我摸清楚步骤了，不复杂。有几个自查的到时看看即可，先做下发和部署。进度：30%\n低效清单这个感觉花了时间长。但其实还好，就花了十来二十分钟问美哥-等消息，然后就收到总监的活了。",
+      "createdAt": "2026-08-18T03:07:34.629Z",
+      "updatedAt": "2026-08-18T03:15:28.477Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msy3hiyzfwyc8",
+      "type": "task",
+      "content": "561-粤海凯旋大、中远船务C网基站-GZWC03（武邮）、新港机楼GZWC039，上联新港-GZHC335的4板1口、2口有没有在用，我看（武邮）、龙头山（800M）C网基站-GZWC039-WA16上联石溪1-GZHD018的18板6口、7口有没在用\n我能找到上联，但我不知道",
+      "createdAt": "2026-08-18T03:20:22.091Z",
+      "updatedAt": "2026-08-18T03:52:40.836Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -4948,7 +4963,7 @@
             "endTime": "11:50",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-08-11T03:33:07.332Z"
+            "confirmationTime": "2026-08-18T03:35:19.119Z"
           }
         ]
       },
@@ -4956,7 +4971,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-08-11T03:32:00.022Z"
+        "0": "2026-08-18T03:33:00.012Z"
       }
     },
     {
@@ -6564,6 +6579,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-18T01:14:09.854Z"
+    "lastSync": "2026-08-18T02:47:02.057Z"
   }
 }
