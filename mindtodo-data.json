@@ -2359,12 +2359,12 @@
     {
       "id": "msze6dokyeocs",
       "type": "task",
-      "content": "下一步是什么？看下skill的要求，做到熟悉即可。\n1. 我可以试试与内网相关的、别人的skill，看效果是咋样的。-突然理解了teleagent是能做操作，而不是只bababa的东西。待补充\n3. 或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理",
+      "content": "这几个还做吗？做多少，评估下\n1. 我可以试试与内网相关的、别人的skill，看效果是咋样的。-突然理解了teleagent是能做操作，而不是只bababa的东西。待补充\n3. 或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理",
       "createdAt": "2026-08-19T01:07:23.972Z",
-      "updatedAt": "2026-08-19T09:54:43.974Z",
+      "updatedAt": "2026-08-19T10:01:02.833Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-08-19T09:42:10.140Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -6584,6 +6584,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-19T07:13:21.767Z"
+    "lastSync": "2026-08-19T09:56:34.197Z"
   }
 }
