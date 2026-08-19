@@ -1,21 +1,6 @@
 {
   "tasks": [
     {
-      "id": "moi4ity1j44ix",
-      "type": "task",
-      "content": "**好想练习表达啊**",
-      "createdAt": "2026-04-28T04:26:14.426Z",
-      "updatedAt": "2026-07-27T09:56:10.244Z",
-      "tags": [
-        "表达"
-      ],
-      "done": true,
-      "dueTime": null,
-      "unknown": true,
-      "subtasks": [],
-      "doneAt": "2026-04-28T05:07:23.775Z"
-    },
-    {
       "id": "mosodmjpkbp8e",
       "type": "task",
       "content": "给老公看手机，生日礼物",
@@ -2357,9 +2342,9 @@
     {
       "id": "msyi9jzcdaa3t",
       "type": "task",
-      "content": "skill看下能做什么。这个现在不着急，但是如果现在不开始准备熟悉，之后肯定会陷入焦虑。所以还是有必要做‘熟悉’的工作。下一步是什么？看下skill的要求，做到熟悉即可。",
+      "content": "skill看下能做什么。这个现在不着急，但是如果现在不开始准备熟悉，之后肯定会陷入焦虑。\n看下skill的要求，做到熟悉即可。\n\n---\n【8月19日】问下彭工爬虫是否涉及生产系统？-是公开数据来的。\n大目标是学会用skill到自己的工作场景。这是个探索问题和路径的过程。还没办法写进度，只能说解答了疑惑50%。",
       "createdAt": "2026-08-18T10:14:04.392Z",
-      "updatedAt": "2026-08-19T01:07:26.042Z",
+      "updatedAt": "2026-08-19T09:39:50.024Z",
       "tags": [
         "数字化"
       ],
@@ -2367,19 +2352,19 @@
       "doneAt": "2026-08-19T01:07:26.042Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1786668268439"
     },
     {
       "id": "msze6dokyeocs",
       "type": "task",
-      "content": "下一步是什么？看下skill的要求，做到熟悉即可。\n1. 我可以试试别人的skill，看效果是咋样的。\n2. 问下彭工爬虫是否涉及生产系统？\n3. 或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理",
+      "content": "下一步是什么？看下skill的要求，做到熟悉即可。\n1. 我可以试试与内网相关的、别人的skill，看效果是咋样的。-突然理解了teleagent是能做操作，而不是只bababa的东西。待补充\n3. 或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理",
       "createdAt": "2026-08-19T01:07:23.972Z",
-      "updatedAt": "2026-08-19T07:12:53.453Z",
+      "updatedAt": "2026-08-19T09:42:10.140Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-19T09:42:10.140Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2389,9 +2374,41 @@
     {
       "id": "mszf08mjt9kc4",
       "type": "task",
-      "content": "有些感悟如何往上统筹？比如：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。",
+      "content": "我想学会问、学会说，引导对方表达，从而获得想知道的东西：\n**为什么想做**：会说而不说，跟不会说，那是两码事。\n0428：就记录下想练习表达的想法了。那会儿是想清晰表达自己感受需求、跟领导汇报时不慌。\n0819：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。",
       "createdAt": "2026-08-19T01:30:37.099Z",
-      "updatedAt": "2026-08-19T01:34:39.597Z",
+      "updatedAt": "2026-08-19T08:14:48.474Z",
+      "tags": [
+        "表达"
+      ],
+      "done": true,
+      "doneAt": "2026-08-19T07:57:44.451Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mszq2a910odkh",
+      "type": "task",
+      "content": "思考下上itsm单流程。我可以问芳华姐，提交给谁？有模板吗？先自己截个图，我估计问题不少。",
+      "createdAt": "2026-08-19T06:40:08.293Z",
+      "updatedAt": "2026-08-19T09:06:01.963Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-19T09:06:01.963Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msztjbibi440p",
+      "type": "task",
+      "content": "### 用于决策评估的若干问题：\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 我担心什么？\n- 我能做的行动是？",
+      "createdAt": "2026-08-19T08:17:21.923Z",
+      "updatedAt": "2026-08-19T08:18:42.992Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2402,11 +2419,11 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mszq0o7p9lme5",
+      "id": "msztlbeqghdsp",
       "type": "task",
-      "content": "继续网管验收",
-      "createdAt": "2026-08-19T06:38:53.077Z",
-      "updatedAt": "2026-08-19T06:38:53.077Z",
+      "content": "### 用于总结的若干问题：\n- 这个关联什么大目标？对大目标的推进有多少？\n- 完成该任务后当前进度从xx% -> xx%？\n- 这个行动的价值是什么？\n- 下一步要做什么？\n- 哪里做的不够好？或者哪里能做的更好？",
+      "createdAt": "2026-08-19T08:18:55.106Z",
+      "updatedAt": "2026-08-19T08:20:21.978Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2415,21 +2432,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1783565139132"
-    },
-    {
-      "id": "mszq2a910odkh",
-      "type": "task",
-      "content": "思考下上itsm单流程",
-      "createdAt": "2026-08-19T06:40:08.293Z",
-      "updatedAt": "2026-08-19T06:40:08.293Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -2449,7 +2451,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5069,6 +5071,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-19T01:32:41.701Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mszsuqabvq4lx",
+      "taskId": "mszf08mjt9kc4",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-26T15:57"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-19T07:58:14.675Z",
       "lastReminderTime": null,
       "active": true
     }
