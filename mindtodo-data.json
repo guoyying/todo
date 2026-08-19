@@ -2361,7 +2361,7 @@
       "type": "task",
       "content": "下一步是什么？看下skill的要求，做到熟悉即可。\n1. 我可以试试与内网相关的、别人的skill，看效果是咋样的。-突然理解了teleagent是能做操作，而不是只bababa的东西。待补充\n3. 或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理",
       "createdAt": "2026-08-19T01:07:23.972Z",
-      "updatedAt": "2026-08-19T09:42:10.140Z",
+      "updatedAt": "2026-08-19T09:54:43.974Z",
       "tags": [],
       "done": true,
       "doneAt": "2026-08-19T09:42:10.140Z",
@@ -2369,7 +2369,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1786668268439"
     },
     {
       "id": "mszf08mjt9kc4",
@@ -2406,9 +2406,9 @@
     {
       "id": "msztjbibi440p",
       "type": "task",
-      "content": "### 用于决策评估的若干问题：\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 我担心什么？\n- 我能做的行动是？",
+      "content": "### 用于决策评估的若干问题：\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 能写进工作周报吗？\n- 我担心什么？\n- 我能做的行动是？",
       "createdAt": "2026-08-19T08:17:21.923Z",
-      "updatedAt": "2026-08-19T08:18:42.992Z",
+      "updatedAt": "2026-08-19T09:54:10.192Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2451,7 +2451,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
