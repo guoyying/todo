@@ -16935,7 +16935,7 @@ function closeModal(modalId) {
                 { label: '🏷️ 添加标签', action: 'tag' },
                 { label: '💡 AI 帮想点子', action: 'aiIdeas' },
                 { label: '⏰ 触发提醒', action: 'trigger' },
-                { label: '📤 移出清单', action: 'removeFromList' },
+                { label: '📤 移出清单', action: 'removeFromListSub' },
                 { label: '📂 移动到另一个清单', action: 'moveToList' }
             ];
             
@@ -17018,6 +17018,10 @@ function closeModal(modalId) {
                         showTriggerSetup(taskId);
                     }
                     break;
+                case 'removeFromListSub':
+                    // 显示移出清单的子菜单
+                    showRemoveFromListSubmenu(taskId, clickedBtn);
+                    break;
                 case 'removeFromList':
                     // 将任务的 isList 字段从 true 改为 false
                     task.isList = false;
@@ -17028,6 +17032,10 @@ function closeModal(modalId) {
                     renderToday();
                     renderCompleted();
                     updateAllTagFilters();
+                    break;
+                case 'appendToCompleted':
+                    // 将内容追加到选中的已完成任务并删除当前任务
+                    appendToCompletedAndDelete(taskId, clickedBtn);
                     break;
                 case 'moveToList':
                     // 使用传入的按钮引用显示清单选择器
@@ -17139,6 +17147,341 @@ function closeModal(modalId) {
             
             const targetList = data.taskLists.find(l => l.id === targetListId);
             showToast(`已移动到：${targetList ? targetList.name : '未知清单'}`);
+        }
+        
+        // 显示移出清单的子菜单
+        function showRemoveFromListSubmenu(taskId, btnElement) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            // 关闭其他已打开的菜单
+            document.querySelectorAll('.remove-from-list-submenu').forEach(el => el.remove());
+            
+            // 创建子菜单
+            const submenu = document.createElement('div');
+            submenu.className = 'remove-from-list-submenu';
+            submenu.style.position = 'fixed';
+            submenu.style.zIndex = '10001';
+            submenu.style.background = 'var(--bg)';
+            submenu.style.border = '1px solid var(--border)';
+            submenu.style.borderRadius = '8px';
+            submenu.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            submenu.style.minWidth = '180px';
+            
+            // 子菜单选项
+            const subOptions = [
+                { label: '📤 移出到待办/已完成', action: 'removeFromList' },
+                { label: '📋 追加到已完成任务并删除', action: 'appendToCompleted' }
+            ];
+            
+            subOptions.forEach(opt => {
+                const item = document.createElement('div');
+                item.className = 'compact-menu-item';
+                item.textContent = opt.label;
+                item.style.padding = '10px 12px';
+                item.style.cursor = 'pointer';
+                item.style.fontSize = '14px';
+                item.style.transition = 'background 0.2s';
+                item.onmouseenter = function() { this.style.background = 'var(--hover)'; };
+                item.onmouseleave = function() { this.style.background = 'transparent'; };
+                item.onclick = () => {
+                    submenu.remove();
+                    handleCompactMenuAction(opt.action, taskId, btnElement);
+                };
+                submenu.appendChild(item);
+            });
+            
+            // 定位到按钮下方
+            if (btnElement) {
+                const rect = btnElement.getBoundingClientRect();
+                submenu.style.top = (rect.bottom + 4) + 'px';
+                submenu.style.left = rect.left + 'px';
+                
+                // 确保菜单不超出屏幕右侧
+                const submenuWidth = 220;
+                if (rect.left + submenuWidth > window.innerWidth) {
+                    submenu.style.left = (window.innerWidth - submenuWidth - 10) + 'px';
+                }
+            }
+            
+            document.body.appendChild(submenu);
+            
+            // 点击其他地方关闭菜单
+            setTimeout(() => {
+                document.addEventListener('click', closeMenu);
+            }, 0);
+            
+            function closeMenu(e2) {
+                if (!submenu.contains(e2.target)) {
+                    submenu.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            }
+        }
+        
+        // 将内容追加到选中的已完成任务并删除当前任务
+        function appendToCompletedAndDelete(taskId, btnElement) {
+            const task = data.tasks.find(t => t.id === taskId);
+            if (!task) return;
+            
+            // 获取所有已完成的任务（排除当前任务）
+            let completedTasks = data.tasks.filter(t => t.done && t.id !== taskId);
+            
+            if (completedTasks.length === 0) {
+                showToast('没有已完成的任务可追加');
+                return;
+            }
+            
+            // 创建已完成任务选择器
+            const dropdown = document.createElement('div');
+            dropdown.className = 'list-selector-dropdown';
+            dropdown.style.position = 'fixed';
+            dropdown.style.zIndex = '10000';
+            dropdown.style.background = 'var(--bg)';
+            dropdown.style.border = '1px solid var(--border)';
+            dropdown.style.borderRadius = '8px';
+            dropdown.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            dropdown.style.minWidth = '500px';
+            dropdown.style.maxWidth = '600px';
+            dropdown.style.maxHeight = '500px';
+            dropdown.style.display = 'flex';
+            dropdown.style.flexDirection = 'column';
+            
+            // 头部：标题 + 筛选栏
+            const headerHtml = `
+                <div style="padding:10px 12px;border-bottom:1px solid var(--border);">
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">选择要追加的已完成任务：</div>
+                    <input type="text" id="completedSearchInput" placeholder="搜索任务内容..."
+                        style="width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;margin-bottom:6px;box-sizing:border-box;">
+                    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                        <select id="completedTimeFilterSelect" style="flex:1;min-width:80px;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:11px;">
+                            <option value="all">全部时间</option>
+                            <option value="today">今天</option>
+                            <option value="thisWeek">本周</option>
+                            <option value="thisMonth">本月</option>
+                            <option value="custom">自定义</option>
+                        </select>
+                        <div id="customDateRangeSelect" style="display:none;flex:2;gap:2px;">
+                            <input type="date" id="customStartDateSelect" style="flex:1;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:11px;">
+                            <input type="date" id="customEndDateSelect" style="flex:1;padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:11px;">
+                        </div>
+                    </div>
+                    <div id="tagFilterContainer" style="margin-top:6px;"></div>
+                </div>
+            `;
+            
+            // 任务列表容器
+            const listContainer = document.createElement('div');
+            listContainer.style.flex = '1';
+            listContainer.style.overflowY = 'auto';
+            listContainer.style.padding = '8px 0';
+            listContainer.style.maxHeight = '280px';
+            
+            dropdown.innerHTML = headerHtml;
+            dropdown.appendChild(listContainer);
+            
+            // 定位到画面中间
+            const dropdownWidth = 600;
+            const dropdownHeight = 500;
+            const topPos = (window.innerHeight - dropdownHeight) / 2;
+            const leftPos = (window.innerWidth - dropdownWidth) / 2;
+            
+            dropdown.style.top = topPos + 'px';
+            dropdown.style.left = leftPos + 'px';
+            
+            document.body.appendChild(dropdown);
+            
+            // 渲染任务列表函数
+            function renderTaskList() {
+                const searchTerm = document.getElementById('completedSearchInput').value.toLowerCase();
+                const timeFilter = document.getElementById('completedTimeFilterSelect').value;
+                const selectedTagsStr = document.getElementById('tagFilterContainer').dataset.selectedTags || '[]';
+                const selectedTags = JSON.parse(selectedTagsStr);
+                
+                let filteredTasks = [...completedTasks];
+                
+                // 应用搜索过滤
+                if (searchTerm) {
+                    filteredTasks = filteredTasks.filter(t => t.content.toLowerCase().includes(searchTerm));
+                }
+                
+                // 应用时间筛选
+                const now = new Date();
+                if (timeFilter === 'today') {
+                    filteredTasks = filteredTasks.filter(t => {
+                        const doneDate = new Date(t.doneAt || t.updatedAt);
+                        return doneDate.toDateString() === now.toDateString();
+                    });
+                } else if (timeFilter === 'thisWeek') {
+                    const startOfWeek = new Date(now);
+                    startOfWeek.setDate(now.getDate() - now.getDay());
+                    startOfWeek.setHours(0, 0, 0, 0);
+                    filteredTasks = filteredTasks.filter(t => {
+                        const doneDate = new Date(t.doneAt || t.updatedAt);
+                        return doneDate >= startOfWeek;
+                    });
+                } else if (timeFilter === 'thisMonth') {
+                    filteredTasks = filteredTasks.filter(t => {
+                        const doneDate = new Date(t.doneAt || t.updatedAt);
+                        return doneDate.getMonth() === now.getMonth() && doneDate.getFullYear() === now.getFullYear();
+                    });
+                } else if (timeFilter === 'custom') {
+                    const startDate = document.getElementById('customStartDateSelect').value;
+                    const endDate = document.getElementById('customEndDateSelect').value;
+                    if (startDate && endDate) {
+                        const start = new Date(startDate);
+                        start.setHours(0, 0, 0, 0);
+                        const end = new Date(endDate);
+                        end.setHours(23, 59, 59, 999);
+                        filteredTasks = filteredTasks.filter(t => {
+                            const doneDate = new Date(t.doneAt || t.updatedAt);
+                            return doneDate >= start && doneDate <= end;
+                        });
+                    }
+                }
+                
+                // 应用标签过滤
+                if (selectedTags && selectedTags.length > 0) {
+                    filteredTasks = filteredTasks.filter(t => t.tags && t.tags.some(tag => selectedTags.includes(tag)));
+                }
+                
+                // 渲染任务列表
+                if (filteredTasks.length === 0) {
+                    listContainer.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-secondary);font-size:12px;">暂无匹配的任务</div>';
+                    return;
+                }
+                
+                let html = '';
+                filteredTasks.forEach(t => {
+                    const safeContent = escapeHtml(t.content.substring(0, 200)) + (t.content.length > 200 ? '...' : '');
+                    const doneDate = t.doneAt ? new Date(t.doneAt).toLocaleDateString('zh-CN') : '未知日期';
+                    const tagsHtml = t.tags && t.tags.length > 0
+                        ? '<div style="margin-top:4px;">' + t.tags.map(tag => `<span style="display:inline-block;padding:1px 6px;background:var(--tag-bg);color:var(--tag-text);border-radius:3px;font-size:10px;margin-right:4px;">${escapeHtml(tag)}</span>`).join('') + '</div>'
+                        : '';
+                    
+                    html += `<div class="list-selector-option" data-task-id="${t.id}" style="padding:8px 12px;margin-bottom:4px;border-bottom:1px solid var(--border);cursor:pointer;">
+                        <div style="font-size:13px;word-break:break-all;">${safeContent}</div>
+                        <div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">完成于：${doneDate}</div>
+                        ${tagsHtml}
+                    </div>`;
+                });
+                listContainer.innerHTML = html;
+                
+                // 添加点击事件
+                const options = listContainer.querySelectorAll('.list-selector-option');
+                options.forEach(option => {
+                    option.onmouseenter = function() { this.style.background = 'var(--hover)'; };
+                    option.onmouseleave = function() { this.style.background = 'transparent'; };
+                    option.onclick = () => {
+                        const targetTaskId = option.dataset.taskId;
+                        performAppendAndDelete(taskId, targetTaskId);
+                        dropdown.remove();
+                    };
+                });
+            }
+            
+            // 渲染标签筛选器
+            function renderTagFilter() {
+                const container = document.getElementById('tagFilterContainer');
+                if (!container) return;
+                
+                // 获取所有标签
+                const allTags = new Set();
+                completedTasks.forEach(t => {
+                    if (t.tags) t.tags.forEach(tag => allTags.add(tag));
+                });
+                
+                if (allTags.size === 0) {
+                    container.innerHTML = '';
+                    return;
+                }
+                
+                const tagsHtml = Array.from(allTags).map(tag =>
+                    `<span class="tag-filter-chip" data-tag="${escapeHtml(tag)}" style="display:inline-block;padding:2px 8px;background:var(--tag-bg);color:var(--tag-text);border-radius:12px;font-size:11px;margin-right:4px;margin-bottom:4px;cursor:pointer;user-select:none;">
+                        ${escapeHtml(tag)}
+                    </span>`
+                ).join('');
+                
+                container.innerHTML = `<div style="font-size:10px;color:var(--text-secondary);margin-bottom:2px;">标签过滤：</div>${tagsHtml}`;
+                
+                // 添加标签点击事件
+                container.querySelectorAll('.tag-filter-chip').forEach(chip => {
+                    chip.onclick = () => {
+                        const tag = chip.dataset.tag;
+                        const selectedTagsStr = container.dataset.selectedTags || '[]';
+                        let selectedTags = JSON.parse(selectedTagsStr);
+                        
+                        if (selectedTags.includes(tag)) {
+                            selectedTags = selectedTags.filter(t => t !== tag);
+                            chip.style.background = 'var(--tag-bg)';
+                        } else {
+                            selectedTags.push(tag);
+                            chip.style.background = 'var(--primary)';
+                            chip.style.color = '#fff';
+                        }
+                        
+                        container.dataset.selectedTags = JSON.stringify(selectedTags);
+                        renderTaskList();
+                    };
+                });
+            }
+            
+            // 初始化
+            renderTaskList();
+            renderTagFilter();
+            
+            // 绑定事件
+            document.getElementById('completedSearchInput').addEventListener('input', renderTaskList);
+            document.getElementById('completedTimeFilterSelect').addEventListener('change', function() {
+                const customRange = document.getElementById('customDateRangeSelect');
+                customRange.style.display = this.value === 'custom' ? 'flex' : 'none';
+                renderTaskList();
+            });
+            document.getElementById('customStartDateSelect')?.addEventListener('change', renderTaskList);
+            document.getElementById('customEndDateSelect')?.addEventListener('change', renderTaskList);
+            
+            // 点击其他地方关闭选择器
+            setTimeout(() => {
+                document.addEventListener('click', closeMenu);
+            }, 0);
+            
+            function closeMenu(e2) {
+                if (!dropdown.contains(e2.target)) {
+                    dropdown.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            }
+        }
+        
+        // 执行追加并删除操作
+        function performAppendAndDelete(sourceTaskId, targetTaskId) {
+            const sourceTask = data.tasks.find(t => t.id === sourceTaskId);
+            const targetTask = data.tasks.find(t => t.id === targetTaskId);
+            
+            if (!sourceTask || !targetTask) {
+                showToast('任务不存在');
+                return;
+            }
+            
+            // 将源任务的内容追加到目标任务
+            const now = new Date();
+            const appendTime = (now.getMonth() + 1) + '月' + now.getDate() + '日';
+            const appendContent = '\n\n---\n【' + appendTime + '】' + sourceTask.content;
+            targetTask.content += appendContent;
+            targetTask.updatedAt = nowStr();
+            
+            // 删除源任务
+            data.tasks = data.tasks.filter(t => t.id !== sourceTaskId);
+            
+            saveData();
+            
+            // 刷新所有相关视图
+            renderListTodos();
+            renderToday();
+            renderCompleted();
+            updateAllTagFilters();
+            
+            showToast('已追加到已完成任务并删除');
         }
         
         // 显示任务标签选择器
