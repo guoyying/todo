@@ -2372,41 +2372,11 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mszdk56zgjvel",
-      "type": "task",
-      "content": "过拆运一体单子",
-      "createdAt": "2026-08-19T00:50:06.539Z",
-      "updatedAt": "2026-08-19T04:42:57.954Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "msze5wfnzr2ak",
-      "type": "task",
-      "content": "下一步是什么？对照每项工作，评估这周做了啥，跟大目标的差距。",
-      "createdAt": "2026-08-19T01:07:01.619Z",
-      "updatedAt": "2026-08-19T01:07:01.619Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "msze6dokyeocs",
       "type": "task",
-      "content": "下一步是什么？看下skill的要求，做到熟悉即可。",
+      "content": "下一步是什么？看下skill的要求，做到熟悉即可。\n1. 我可以试试别人的skill，看效果是咋样的。\n2. 问下彭工爬虫是否涉及生产系统？\n3. 或许可以试着给我的工作做大目标绑定。",
       "createdAt": "2026-08-19T01:07:23.972Z",
-      "updatedAt": "2026-08-19T01:07:23.972Z",
+      "updatedAt": "2026-08-19T07:01:06.870Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2422,6 +2392,36 @@
       "content": "有些感悟如何往上统筹？比如：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。",
       "createdAt": "2026-08-19T01:30:37.099Z",
       "updatedAt": "2026-08-19T01:34:39.597Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mszq0o7p9lme5",
+      "type": "task",
+      "content": "继续网管验收",
+      "createdAt": "2026-08-19T06:38:53.077Z",
+      "updatedAt": "2026-08-19T06:38:53.077Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mszq2a910odkh",
+      "type": "task",
+      "content": "思考下上itsm单流程",
+      "createdAt": "2026-08-19T06:40:08.293Z",
+      "updatedAt": "2026-08-19T06:40:08.293Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2449,7 +2449,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6567,6 +6567,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-19T03:38:20.340Z"
+    "lastSync": "2026-08-19T04:45:05.832Z"
   }
 }
