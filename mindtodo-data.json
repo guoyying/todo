@@ -1265,9 +1265,9 @@
     {
       "id": "ms4lzbte764h5",
       "type": "task",
-      "content": "我想找些什么批评议论类的书看看 图书馆怎样的分类有这种书。我的目的是知道哪些类别有我需要的，然后按图索骥。真正落实看一本书。\n找到书籍类别——落实去找去看一本书\n0805：去了图书馆也并没有顺着分类去找，觉得不想、没必要了。\n0812：深圳卫视晚上有个科技节目，也是议论类的。这种也不错。但我发现别人的观点无法成为自己的观点，看后依旧表述不出来。很多时候得记录-刻意复述练习才行，不能听一遍就记住。\n进度：一阶段100%——二阶段0%",
+      "content": "我想找些什么批评议论类的书看看 图书馆怎样的分类有这种书。我的目的是知道哪些类别有我需要的，然后按图索骥。真正落实看一本书。\n找到书籍类别——落实去找去看一本书\n0805：去了图书馆也并没有顺着分类去找，觉得不想、没必要了。\n0812：深圳卫视晚上有个科技节目，也是议论类的。这种也不错。但我发现别人的观点无法成为自己的观点，看后依旧表述不出来。很多时候得记录-刻意复述练习才行，不能听一遍就记住。\n0819：最近看议论类书没啥动力，觉得看了也没啥用，没有快速实际的反馈进步，就后劲不足了。\n进度：一阶段100%——二阶段0%",
       "createdAt": "2026-07-28T12:05:00.435Z",
-      "updatedAt": "2026-08-12T01:21:24.180Z",
+      "updatedAt": "2026-08-19T01:32:17.147Z",
       "tags": [
         "生活"
       ],
@@ -2349,12 +2349,12 @@
     {
       "id": "msyarer4hitay",
       "type": "task",
-      "content": "思考做什么，这周周报我可以写什么。",
+      "content": "思考做什么，这周周报我可以写什么。今天周三了，上午想想周报有什么进度，可以的挺好。下一步是什么？对照每项工作，评估这周做了啥，跟大目标的差距。",
       "createdAt": "2026-08-18T06:44:00.496Z",
-      "updatedAt": "2026-08-18T09:01:17.451Z",
+      "updatedAt": "2026-08-19T01:06:58.450Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-19T01:06:58.450Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2366,10 +2366,10 @@
       "type": "task",
       "content": "低效发邮件了\n我发的那个版本算力确认了，客资删掉了11个就得到了sheet1（此时是739个），算力核查后是637个，加上原来县分的84个不变，一共是721个。\n步骤：所以我就拿群里那个0818版本，将反馈建议合并（先写申请剔除-合并右列原因到后面）——删除列——就可以了——原来的sheet2可以保留——更新word和邮件内容\n我自己心里得有个数才行，客资删除了11个（算力10，越秀1）；然后算力加了5个、可处理23个。\n1. 我还得跟总监说下删除了其他列信息，目前是xx个。\n\n关于更新清单的说明（以此版为准）\n\n尊敬的[省公司名称/部门名称]：\n您好！\n现就此前发送的清单进行更新，更新后的清单已附于本邮件中，请以此版为准。\n\n本次更新主要涉及[简要说明更新原因，如：部分项目信息调整/补充新增内容/修正数据等]，具体内容请查阅附件。如有任何疑问或需进一步沟通，请随时与我联系。\n由此带来的不便，敬请谅解\n\n[您的姓名] [您的职务] [您的公司名称] [联系电话] [日期]\n\n附件：更新后的清单（文件名请明确标注“更新版”及日期）",
       "createdAt": "2026-08-18T07:32:57.196Z",
-      "updatedAt": "2026-08-18T09:01:05.382Z",
+      "updatedAt": "2026-08-19T01:30:11.559Z",
       "tags": [],
       "done": true,
-      "doneAt": "2026-08-18T09:01:05.382Z",
+      "doneAt": "2026-08-19T01:30:11.559Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2379,27 +2379,46 @@
     {
       "id": "msyfuy9pax9wd",
       "type": "task",
-      "content": "我发现自己对于发邮件好费劲，总是斟酌词句。",
+      "content": "我发现自己对于发邮件好费劲，总是斟酌词句，怕出错所以反复检查。我可以给自己时间和次数限制，写好一版后我就放着，限定3次必须发送了。\n另外我觉得比较少做的工作，就会这样。如果经常做，就不会老忘记要点了。",
       "createdAt": "2026-08-18T09:06:43.837Z",
-      "updatedAt": "2026-08-18T09:06:43.837Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-19T00:53:48.614Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "doneAt": "2026-08-19T00:53:46.974Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1786668268439"
     },
     {
       "id": "msyfyrmlf5sg3",
       "type": "task",
-      "content": "跟总监说下高潜结果",
+      "content": "跟总监说下高潜结果。觉得隔了这么久才说，有点奇怪。而且我拿了最低档次（人人有份的那种），我该怎么说呢。我想表达虽然我拿了最低档次，还是感谢他当初的支持和帮助我修改ppt\n不好说那就避而不谈。",
       "createdAt": "2026-08-18T09:09:41.853Z",
-      "updatedAt": "2026-08-18T09:09:41.853Z",
+      "updatedAt": "2026-08-19T01:06:22.989Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "doneAt": "2026-08-19T01:05:35.830Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "msyi9jzcdaa3t",
+      "type": "task",
+      "content": "skill看下能做什么。这个现在不着急，但是如果现在不开始准备熟悉，之后肯定会陷入焦虑。所以还是有必要做‘熟悉’的工作。下一步是什么？看下skill的要求，做到熟悉即可。",
+      "createdAt": "2026-08-18T10:14:04.392Z",
+      "updatedAt": "2026-08-19T01:07:26.042Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-19T01:07:26.042Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2407,11 +2426,71 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "msyi9jzcdaa3t",
+      "id": "mszdk56zgjvel",
       "type": "task",
-      "content": "skill看下能做什么",
-      "createdAt": "2026-08-18T10:14:04.392Z",
-      "updatedAt": "2026-08-18T10:14:04.392Z",
+      "content": "过拆运一体单子",
+      "createdAt": "2026-08-19T00:50:06.539Z",
+      "updatedAt": "2026-08-19T00:50:06.539Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mszdk9q4hlnic",
+      "type": "task",
+      "content": "网管验收",
+      "createdAt": "2026-08-19T00:50:12.412Z",
+      "updatedAt": "2026-08-19T00:50:12.412Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msze5wfnzr2ak",
+      "type": "task",
+      "content": "下一步是什么？对照每项工作，评估这周做了啥，跟大目标的差距。",
+      "createdAt": "2026-08-19T01:07:01.619Z",
+      "updatedAt": "2026-08-19T01:07:01.619Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "msze6dokyeocs",
+      "type": "task",
+      "content": "下一步是什么？看下skill的要求，做到熟悉即可。",
+      "createdAt": "2026-08-19T01:07:23.972Z",
+      "updatedAt": "2026-08-19T01:07:23.972Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mszf08mjt9kc4",
+      "type": "task",
+      "content": "有些感悟如何往上统筹？比如：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。",
+      "createdAt": "2026-08-19T01:30:37.099Z",
+      "updatedAt": "2026-08-19T01:34:39.597Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2439,7 +2518,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4973,21 +5052,6 @@
       "active": true
     },
     {
-      "id": "mspen8hw4v67a",
-      "taskId": "ms4lzbte764h5",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-19T09:22"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-12T01:22:48.644Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "msqum977a8xct",
       "taskId": "ms4n7hwjdg0cq",
       "type": "time",
@@ -5059,6 +5123,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-18T01:12:24.277Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mszf2wrpvkm9p",
+      "taskId": "ms4lzbte764h5",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-26T09:32"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-19T01:32:41.701Z",
       "lastReminderTime": null,
       "active": true
     }
