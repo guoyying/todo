@@ -2357,21 +2357,6 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "msze6dokyeocs",
-      "type": "task",
-      "content": "这几个还做吗？做多少，评估下\n1. 我可以试试与内网相关的、别人的skill，看效果是咋样的。-突然理解了teleagent是能做操作，而不是只bababa的东西。待补充\n\n不会花太多时间，就尝试下，可以感受、获得反馈。用最短时间，尝试一个自己感兴趣的skill。",
-      "createdAt": "2026-08-19T01:07:23.972Z",
-      "updatedAt": "2026-08-20T01:27:14.614Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-20T01:27:14.614Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mszf08mjt9kc4",
       "type": "task",
       "content": "我想学会问、学会说，引导对方表达，从而获得想知道的东西：\n**为什么想做**：会说而不说，跟不会说，那是两码事。\n0428：就记录下想练习表达的想法了。那会儿是想清晰表达自己感受需求、跟领导汇报时不慌。\n0819：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。",
@@ -2387,21 +2372,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
-    },
-    {
-      "id": "mszq2a910odkh",
-      "type": "task",
-      "content": "思考下上itsm单流程。我可以问芳华姐，提交给谁？有模板吗？先自己截个图，我估计问题不少。\n目前是卡住了，",
-      "createdAt": "2026-08-19T06:40:08.293Z",
-      "updatedAt": "2026-08-20T02:39:17.749Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-19T09:06:01.963Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "msztjbibi440p",
@@ -2449,66 +2419,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mt0u68f1cfldg",
-      "type": "task",
-      "content": "用最短时间，尝试一个自己感兴趣的skill：应用xx——》底层逻辑及如何使用？",
-      "createdAt": "2026-08-20T01:22:57.181Z",
-      "updatedAt": "2026-08-20T02:52:17.739Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-20T02:52:17.739Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mt0ubz85v4d17",
-      "type": "task",
-      "content": "或许可以试着给我的工作做大目标绑定。试试先导出数据，再给teleagent处理。\n关联大目标1是我的时间管理办法，2是中心skill工作指标。对大目标都是做了探索，知道有这么回事。",
-      "createdAt": "2026-08-20T01:27:25.205Z",
-      "updatedAt": "2026-08-20T01:32:29.545Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-20T01:32:29.545Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mt0ulo0liiyaq",
-      "type": "task",
-      "content": "我想尝试MCP，外出可以获取信息",
-      "createdAt": "2026-08-20T01:34:57.237Z",
-      "updatedAt": "2026-08-20T02:59:15.711Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-20T02:59:06.491Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
-      "id": "mt0vmivvxc0qb",
-      "type": "task",
-      "content": "问下海燕姐上itsm单是怎样的。",
-      "createdAt": "2026-08-20T02:03:36.859Z",
-      "updatedAt": "2026-08-20T02:20:54.112Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-08-20T02:20:54.112Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
-    },
-    {
       "id": "mt0vxdtv9ieaw",
       "type": "task",
       "content": "【煎了鸡蛋，老公不吃了。第一反应不是说：哎呀给你煎了又不吃，得明天我吃了。而是不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。",
@@ -2526,9 +2436,24 @@
     {
       "id": "mt0wp7utsgc8t",
       "type": "task",
-      "content": "### 话题：TeleAgent可以做什么\n可以接入小红书、企业微信。首次使用需要扫码，智能体会帮助生成cookies.json凭据并保存到本地，所以是很安全的。\n\n可以@skill，问底层逻辑、有哪些功能，了解这个skill可以帮你做啥。\n我向它提问：“小红书收藏夹里有哪些与做菜有关的内容”，会给出结果：\n| # | 标题 | 作者 | 点赞 | 类型 |\n| --- | --- | --- | --- | --- |\n| 1 | 如何炒肉不粘锅，保姆级教程快收藏！ | 西楼的生活日记 | 4408 | 视频 |\n| 2 | 秋梨排骨汤，入秋后的排骨汤可以这样炖 | 这位糖的四季厨房 | 4829 | 视频 |\n| 3 | 西葫芦木耳炒鸡蛋，给孩子吃的简单的家常菜 | 核桃妈小食堂 | 1.7万 | 视频 |\n| 7 | 看我妈做饭，就懂广东懒人夏天做饭有多省事！ | 大虾的虾酱 | 1.8万 | 视频 |\n| 8 | 潮汕人懂的味道！巨好吃巨简单！快去试试 | 珠迪儿 | 1.2万 | 视频 |\n| 10 | 丝瓜浸鸡 一锅出有肉有菜还有汤 做起来！ | 今日食乜阿陈 | 3472 | 视频 |",
+      "content": "### 话题：TeleAgent可以做什么\n可以接入小红书、企业微信。首次使用需要扫码，智能体会帮助生成cookies.json凭据并保存到本地，所以是很安全的。\n\n可以@skill，问底层逻辑、有哪些功能，了解这个skill可以帮你做啥。\n我向它提问：“小红书收藏夹里有哪些与做菜有关的内容”，会给出结果：\n| # | 标题 | 作者 | 点赞 | 类型 |\n| --- | --- | --- | --- | --- |\n| 1 | 如何炒肉不粘锅，保姆级教程快收藏！ | 西楼的生活日记 | 4408 | 视频 |\n| 2 | 秋梨排骨汤，入秋后的排骨汤可以这样炖 | 这位糖的四季厨房 | 4829 | 视频 |\n| 3 | 西葫芦木耳炒鸡蛋，给孩子吃的简单的家常菜 | 核桃妈小食堂 | 1.7万 | 视频 |\n\n\n小红书是把浏览器登录后的 Cookie \"偷\"出来复用，todo是 OAuth/API Token 模式",
       "createdAt": "2026-08-20T02:33:42.149Z",
-      "updatedAt": "2026-08-20T02:49:22.937Z",
+      "updatedAt": "2026-08-20T03:37:26.696Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt0yvg9mkir6f",
+      "type": "task",
+      "content": "一开始只是为了探索teleagent可以用来做什么，了解一下。最开始我对它没啥兴趣，觉得提到的skill都与我工作关联不大。后来我在技能广场找到了小红书skill，成功实现了我之前想做却没能力做的事：读取收藏夹里做菜视频。这一下子打开了我的兴趣和探索欲，因为我是很想将todo里记录的已完成任务做整理，无论以图表、文字形式呈现。",
+      "createdAt": "2026-08-20T03:34:32.218Z",
+      "updatedAt": "2026-08-20T03:35:34.370Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2556,7 +2481,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6689,6 +6614,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-19T09:56:34.197Z"
+    "lastSync": "2026-08-20T03:14:00.431Z"
   }
 }
