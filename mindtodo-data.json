@@ -2376,9 +2376,9 @@
     {
       "id": "msztjbibi440p",
       "type": "task",
-      "content": "### 用于决策评估的若干问题\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 能写进工作周报吗？怎么包装能写进工作周报？\n- 我担心什么？\n- 我能做的行动是？",
+      "content": "### 用于决策评估的若干问题\n- 我想做什么？\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 能写进工作周报吗？怎么包装能写进工作周报？能怎么跟领导说？\n- 我担心什么？\n- 我能做的行动是？",
       "createdAt": "2026-08-19T08:17:21.923Z",
-      "updatedAt": "2026-08-20T02:05:59.682Z",
+      "updatedAt": "2026-08-20T06:24:35.059Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2406,10 +2406,12 @@
     {
       "id": "mt0vxdtv9ieaw",
       "type": "task",
-      "content": "【煎了鸡蛋，老公不吃了。第一反应不是说：哎呀给你煎了又不吃，得明天我吃了。而是不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。",
+      "content": "### 我想更有主体性，第一句话是自己的感受，哪怕闪过对方不开心的反馈\n0820：【昨晚我煎了鸡蛋，老公不吃了。我第一反应不是“哎呀给你煎了又不吃，得明天我吃了”，而是怎么表现不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。",
       "createdAt": "2026-08-20T02:12:03.523Z",
-      "updatedAt": "2026-08-20T02:12:03.523Z",
-      "tags": [],
+      "updatedAt": "2026-08-20T06:20:04.869Z",
+      "tags": [
+        "生活"
+      ],
       "done": false,
       "doneAt": null,
       "dueTime": "",
@@ -2438,9 +2440,24 @@
     {
       "id": "mt11lwny99pf3",
       "type": "task",
-      "content": "将业务量少的CRM的SDH设备pick出来，核查业务+网管流量。",
+      "content": "将业务量少的CRM的SDH设备pick出来，核查业务+网管流量。\n我想把上次梳理的十来个SDH设备筛选出来，concatli一个个看业务情况，记录下来。比较花时间，而且有可能后期县分不配合。不过我还不知道什么情况呢，有可能网管也找不到了。还是要探索。那我下一步想做的事情是统计这些业务数量，预估下可以多少台好处理的。，查询也不会太费时间。有机会推进迁转。不能写进周报，但倒是能跟领导汇报下这件事的进度。",
       "createdAt": "2026-08-20T04:51:05.758Z",
-      "updatedAt": "2026-08-20T04:51:09.361Z",
+      "updatedAt": "2026-08-20T06:25:01.026Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-20T06:25:01.026Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mt14ne2rzol3h",
+      "type": "task",
+      "content": "荔湾的那个怎么说啊？那我得问下怎么拆机才行，找谁。",
+      "createdAt": "2026-08-20T06:16:13.827Z",
+      "updatedAt": "2026-08-20T06:25:42.910Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2448,7 +2465,37 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt14o298h9zmn",
+      "type": "task",
+      "content": "我下午想做下网管验收资料的teleagent。\n我就想给几个例子，让她提取信息，整理成我想要的资源、网管格式。",
+      "createdAt": "2026-08-20T06:16:45.164Z",
+      "updatedAt": "2026-08-20T06:26:17.946Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt14yqqjnljx5",
+      "type": "task",
+      "content": "统计这些业务数量，预估下可以多少台好处理的。，查询也不会太费时间。有机会推进迁转。不能写进周报，但倒是能跟领导汇报下这件事的进度。",
+      "createdAt": "2026-08-20T06:25:03.451Z",
+      "updatedAt": "2026-08-20T06:25:03.451Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -5113,6 +5160,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-20T02:02:39.363Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt14ttumhajnp",
+      "taskId": "mt0vxdtv9ieaw",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-27T14:21"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-20T06:21:14.206Z",
       "lastReminderTime": null,
       "active": true
     }
