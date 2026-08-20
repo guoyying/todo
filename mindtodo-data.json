@@ -2457,10 +2457,10 @@
       "type": "task",
       "content": "荔湾的那个怎么说啊？那我得问下怎么拆机才行，找谁。",
       "createdAt": "2026-08-20T06:16:13.827Z",
-      "updatedAt": "2026-08-20T06:25:42.910Z",
+      "updatedAt": "2026-08-20T06:33:06.267Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-20T06:33:06.267Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2491,6 +2491,23 @@
       "tags": [],
       "done": false,
       "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt16qhl8qqzzb",
+      "type": "task",
+      "content": "上ITSM单剔除",
+      "createdAt": "2026-08-20T07:14:37.580Z",
+      "updatedAt": "2026-08-20T07:14:39.004Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-20T07:14:39.004Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -4991,7 +5008,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-08-13T06:58:12.336Z"
+            "confirmationTime": "2026-08-20T07:14:10.182Z"
           }
         ]
       },
@@ -4999,7 +5016,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-08-13T06:52:59.560Z"
+        "0": "2026-08-20T06:53:46.028Z"
       }
     },
     {
@@ -6673,6 +6690,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-20T03:44:21.871Z"
+    "lastSync": "2026-08-20T06:26:25.232Z"
   }
 }
