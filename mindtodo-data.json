@@ -2455,9 +2455,9 @@
     {
       "id": "mt2obl7xx1aui",
       "type": "task",
-      "content": "就运行下代码，替换cookie，看下会出现什么。整个过程就几分钟，超级简单。",
+      "content": "就运行下代码，替换cookie，看下会出现什么。整个过程就几分钟，超级简单。\n或许我拿爬虫代码让agent参考",
       "createdAt": "2026-08-21T08:14:41.709Z",
-      "updatedAt": "2026-08-21T08:14:41.709Z",
+      "updatedAt": "2026-08-22T01:51:34.901Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2500,7 +2500,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5160,6 +5160,66 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-20T06:21:14.206Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt3q2vwn06e4u",
+      "taskId": "mt2obl7xx1aui",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-24T09:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-22T01:51:41.063Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt3q30vre9a16",
+      "taskId": "mt2p0sqpk43sa",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-24T09:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-22T01:51:47.511Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt3q39psntovl",
+      "taskId": "msztlbeqghdsp",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-24T07:51"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-22T01:51:58.960Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt3q3kovqg5tu",
+      "taskId": "msztjbibi440p",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-24T07:52"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-22T01:52:13.183Z",
       "lastReminderTime": null,
       "active": true
     }
