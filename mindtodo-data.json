@@ -2545,9 +2545,9 @@
     {
       "id": "mt6kvlf9tshlw",
       "type": "task",
-      "content": "上午做了的事情：\n1. 计划退网的提醒；\n2. 超过一个月的看下什么原因，不能退还是怎么样。发现了4个有很大希望能退的设备，是之前有业务卡流程的。\n3. 电话联系天河，问啥原因。获得了：已经核查过一遍 的信息\n4. 将0业务加入每周退网进度\n---\n0824：探索接下来更有效推进退网的方式。毕竟目前每周一提醒的方式，还是差了点意思。打算打电话了解情况+核查计划退网状态的网元。\n\n\n\n**价值**：可以从“计划退网”作为突破点，有希望推进。",
+      "content": "0824：继续提醒县分。另外，探索接下来更有效推进退网的方式。毕竟目前每周一提醒的方式，还是差了点意思。打算打电话了解情况+核查计划退网状态的网元。\n\n写进周报：上周对超1个月处于计划退网状态网元做梳理，找出了xx个可以推进流程的（其他的为有业务卡单，暂不能退）【周一上午4+】；继续提醒超1个月未走退网流程的县分【周一上午32台+】\n\n**价值**：可以从“计划退网”作为突破点，有希望推进。",
       "createdAt": "2026-08-24T01:49:21.333Z",
-      "updatedAt": "2026-08-24T04:57:36.853Z",
+      "updatedAt": "2026-08-24T05:03:35.795Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2595,6 +2595,51 @@
       "content": "打电话问下重点几个县分（可以是4个）了解下进度到那里了？目的是有话说，起码可以说“当前现状…·",
       "createdAt": "2026-08-24T04:56:33.045Z",
       "updatedAt": "2026-08-24T04:56:33.046Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt6rn8o5psi6u",
+      "type": "task",
+      "content": "天河补环那个，可以跟对方说了。",
+      "createdAt": "2026-08-24T04:58:48.869Z",
+      "updatedAt": "2026-08-24T04:58:48.869Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt6rtlaspq20i",
+      "type": "task",
+      "content": "再核查几个计划退网的网元",
+      "createdAt": "2026-08-24T05:03:45.172Z",
+      "updatedAt": "2026-08-24T05:03:45.172Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt6rtpr9vq1df",
+      "type": "task",
+      "content": "退网周报更新。",
+      "createdAt": "2026-08-24T05:03:50.949Z",
+      "updatedAt": "2026-08-24T05:03:50.949Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6780,6 +6825,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-24T04:57:19.269Z"
+    "lastSync": "2026-08-24T04:58:01.953Z"
   }
 }
