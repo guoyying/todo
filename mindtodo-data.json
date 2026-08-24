@@ -2376,9 +2376,9 @@
     {
       "id": "msztjbibi440p",
       "type": "task",
-      "content": "### 用于决策评估的若干问题：\n- 我想做什么？\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 如果还未有清晰路径，还处于探索阶段，请你记录下想探索的问题…便于后续发现成长过程\n- 能写进工作周报吗？怎么包装能写进工作周报？能怎么跟领导说？\n- 我担心什么？\n- 我能做的行动是？",
+      "content": "### 用于决策评估的若干问题\n- 我想做什么？\n- 做这件事要花多长时间？\n- 能产生什么价值？达成期望价值的概率有多大？\n- 如果还未有清晰路径，还处于探索阶段，请你记录下想探索的问题…便于后续发现成长过程\n- 能写进工作周报吗？怎么包装能写进工作周报？能怎么跟领导说？\n- 我担心什么？\n- 我能做的行动是？",
       "createdAt": "2026-08-19T08:17:21.923Z",
-      "updatedAt": "2026-08-21T08:14:02.879Z",
+      "updatedAt": "2026-08-24T00:52:28.249Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2391,9 +2391,9 @@
     {
       "id": "msztlbeqghdsp",
       "type": "task",
-      "content": "### 用于总结的若干问题：\n- 我做了啥？\n- 这个关联什么大目标？\n- 这个行动能写进工作周报吗？如果不能，能写进周报的样子是什么呢？\n- 跟领导汇报可以说些什么？\n- 这个行动对大目标的推进有多少？完成该任务后当前进度从xx% -> xx%？\n- 这个行动的价值是什么？\n- 下一步要做什么？\n- 哪里做的不够好？或者哪里能做的更好？\n- 我探索了什么，xxx从不知道变为知道。->添加到表达知识库话题",
+      "content": "### 用于总结的若干问题\n- 我做了啥？\n- 这个关联什么大目标？\n- 这个行动能写进工作周报吗？如果不能，能写进周报的样子是什么呢？\n- 跟领导汇报可以说些什么？\n- 这个行动对大目标的推进有多少？完成该任务后当前进度从xx% -> xx%？\n- 这个行动的价值是什么？\n- 下一步要做什么？\n- 哪里做的不够好？或者哪里能做的更好？\n- 我探索了什么，xxx从不知道变为知道。->添加到表达知识库话题",
       "createdAt": "2026-08-19T08:18:55.106Z",
-      "updatedAt": "2026-08-21T00:49:02.729Z",
+      "updatedAt": "2026-08-24T00:52:32.356Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2457,7 +2457,7 @@
       "type": "task",
       "content": "就运行下代码，替换cookie，看下会出现什么。整个过程就几分钟，超级简单。\n或许我拿爬虫代码让agent参考",
       "createdAt": "2026-08-21T08:14:41.709Z",
-      "updatedAt": "2026-08-22T01:51:34.901Z",
+      "updatedAt": "2026-08-24T01:53:02.455Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2465,14 +2465,89 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1786668268439"
     },
     {
       "id": "mt2p0sqpk43sa",
       "type": "task",
       "content": "下一步：问下业支匹配的同事。",
       "createdAt": "2026-08-21T08:34:17.857Z",
-      "updatedAt": "2026-08-21T08:34:17.857Z",
+      "updatedAt": "2026-08-24T01:53:04.855Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mt3q73j2mlam6",
+      "type": "task",
+      "content": "承包助手：萤火行动\n看下工作要求啊，有无新行动。就了解即可，几分钟。达到目的“知道自己不知道”的概率蛮大的。这个可以工作群发消息通知大家。",
+      "createdAt": "2026-08-22T01:54:57.566Z",
+      "updatedAt": "2026-08-24T01:29:20.666Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132",
+      "doneAt": "2026-08-24T01:29:20.666Z"
+    },
+    {
+      "id": "mt6iuq3f4uyni",
+      "type": "task",
+      "content": "弄下爬虫结果数据。",
+      "createdAt": "2026-08-24T00:52:41.499Z",
+      "updatedAt": "2026-08-24T01:07:02.735Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-24T01:07:02.735Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
+    },
+    {
+      "id": "mt6jhebv3ehh7",
+      "type": "task",
+      "content": "我觉得得做下退网进度评估了。三季度缺口太大了。\n我想做的事有：\n1、跟领导同步下退网三季度进度，缺口\n2、看下itsm单走到哪里了。\n3、——这个用时较久，得追踪下。那能产生什么价值呢？了解县分慢的原因。我觉得可以给每个县分一个画像。先探索一个县分的退网追踪方法，之后可运用到其他县分上，就快了。有多少是能退的？什么时候提醒了？隔了多久了还未处理？\n\n我是觉得，既然前期私戳提醒没啥效果，那就要换条路走了。\n我知道做这个事要较多时间，我又想尽快8月搞定这个进度统计，给出一版反馈。",
+      "createdAt": "2026-08-24T01:10:19.339Z",
+      "updatedAt": "2026-08-24T01:49:24.577Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-24T01:49:24.577Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mt6juy5n7c35u",
+      "type": "task",
+      "content": "想一下这周退网通报要跟大家说些什么",
+      "createdAt": "2026-08-24T01:20:51.563Z",
+      "updatedAt": "2026-08-24T01:20:51.563Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mt6kvlf9tshlw",
+      "type": "task",
+      "content": "先探索一个县分的退网追踪方法，之后可运用到其他县分上，就快了。有多少是能退的？什么时候提醒了？隔了多久了还未处理？\n**待探索**：我不知道对于一直是‘计划退网‘的情况要怎么处理。\n现在的问题在于，那些计划退网的，可能原因各种各样，我要一个个核查？或许需要做个专项去核查更新能不能退才行。做个专项吧，把那些有问题的备注出来。\n再提醒也是。。我可以打电话问一下\n\n今天上午，我是想给领导说下这个季度指标还差两百多个。推不动。那我得给证据啊，就说我什么时间提醒了，还是没上单等。另外我还有可为空间，就是1、计划退网的提醒；2、超过一个月的看下什么原因，不能退还是怎么样。",
+      "createdAt": "2026-08-24T01:49:21.333Z",
+      "updatedAt": "2026-08-24T03:14:44.336Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2483,18 +2558,19 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mt3q73j2mlam6",
+      "id": "mt6ollshlj8ol",
       "type": "task",
-      "content": "承包助手，萤火行动",
-      "createdAt": "2026-08-22T01:54:57.566Z",
-      "updatedAt": "2026-08-22T01:54:57.566Z",
+      "content": "天河退网画像：\n0812：提醒0业务核查\n0824：提醒0业务核查、计划退网推进；目前有23个是计划退网/已用，0业务核查的。",
+      "createdAt": "2026-08-24T03:33:33.713Z",
+      "updatedAt": "2026-08-24T03:38:50.848Z",
       "tags": [],
       "done": false,
-      "dueTime": null,
+      "doneAt": null,
+      "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
@@ -2514,7 +2590,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1783565139132",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5174,81 +5250,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-20T06:21:14.206Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mt3q2vwn06e4u",
-      "taskId": "mt2obl7xx1aui",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-24T09:51"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-22T01:51:41.063Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mt3q30vre9a16",
-      "taskId": "mt2p0sqpk43sa",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-24T09:51"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-22T01:51:47.511Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mt3q39psntovl",
-      "taskId": "msztlbeqghdsp",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-24T07:51"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-22T01:51:58.960Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mt3q3kovqg5tu",
-      "taskId": "msztjbibi440p",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-24T07:52"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-22T01:52:13.183Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mt3q7907k98v7",
-      "taskId": "mt3q73j2mlam6",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-24T08:54"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-22T01:55:04.663Z",
       "lastReminderTime": null,
       "active": true
     }
