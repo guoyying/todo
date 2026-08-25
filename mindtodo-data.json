@@ -2568,9 +2568,9 @@
     {
       "id": "mt7wax0hn69fu",
       "type": "task",
-      "content": "### 这周做退网宣贯、组织teleagent培训让我最焦虑了，都是要“说的”。我记录下全流程心路历程，便于发现问题。\n0825:难，又还不着急，就会有拖延。\n9.25：开始准备话稿，定下10点要交付并结束。",
+      "content": "### 这周做退网宣贯、组织teleagent培训让我最焦虑了，都是要“说的”。我记录下全流程心路历程，便于发现问题。\n0825:难，又还不着急，就会有拖延。\n9.25：开始准备话稿，定下10点要交付并结束。效果不错，没有反刍。",
       "createdAt": "2026-08-24T23:56:58.145Z",
-      "updatedAt": "2026-08-25T02:05:25.455Z",
+      "updatedAt": "2026-08-25T02:23:38.864Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2583,9 +2583,9 @@
     {
       "id": "mt7y85zpeyguw",
       "type": "task",
-      "content": "我打算打个稿子说下我退网要说些什么",
+      "content": "我打算打个稿子说下我退网要说些什么。建议早点，这样发现问题有多些时间思考答案。\n- 拆和关电能一起吗？-打电话问下海珠等\n- 如果有人拿退网规范反驳我，说正常是30天，我们不慢。该如何回应？\n- 看到番禺网管数据拆除-设备下电间隔了一个月。想了解下。\n- 所有设备都要拔纤观察半个月吗？花都“肯定要拔纤观察一个半个月的啦，而且拔了纤最好等一个多小时，没问题再走。再过来下电。”\n\n指导县分的做法\n- 可以自己筛选0业务，选择临近的设备批量完成，这样节省时间（没有听任何同事提起过，想确认是否可行）",
       "createdAt": "2026-08-25T00:50:49.045Z",
-      "updatedAt": "2026-08-25T00:50:49.045Z",
+      "updatedAt": "2026-08-25T03:19:56.761Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2609,21 +2609,6 @@
       "dueTime": "",
       "unknown": false,
       "isList": false,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mt7yfjf372keu",
-      "type": "task",
-      "content": "过退网单、过拆运一体单",
-      "createdAt": "2026-08-25T00:56:33.039Z",
-      "updatedAt": "2026-08-25T00:56:33.039Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
     }
@@ -5100,7 +5085,7 @@
             "endTime": "18:00",
             "message": "退网进度.月度统计",
             "confirmed": true,
-            "confirmationTime": "2026-08-03T09:55:35.804Z",
+            "confirmationTime": "2026-08-25T02:34:14.688Z",
             "customInterval": "28",
             "customIntervalUnit": "day"
           }
@@ -5110,7 +5095,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-07-28T02:32:26.593Z"
+        "0": "2026-08-25T02:33:00.006Z"
       }
     },
     {
@@ -6810,6 +6795,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-25T02:03:29.481Z"
+    "lastSync": "2026-08-25T02:15:36.929Z"
   }
 }
