@@ -2626,6 +2626,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "mt8brldkey3hk",
+      "type": "task",
+      "content": "0825:听下沉员工分享会感悟：真的落实、自己去做这件事（真的去现场核查退网设备），才知道流程、难点。",
+      "createdAt": "2026-08-25T07:09:50.456Z",
+      "updatedAt": "2026-08-25T07:10:26.029Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
