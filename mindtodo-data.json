@@ -2568,9 +2568,9 @@
     {
       "id": "mt7wax0hn69fu",
       "type": "task",
-      "content": "### 这周做退网宣贯、组织teleagent培训让我最焦虑了，都是要“说的”。我记录下全流程心路历程，便于发现问题。\n0825:难，又还不着急，就会有拖延。",
+      "content": "### 这周做退网宣贯、组织teleagent培训让我最焦虑了，都是要“说的”。我记录下全流程心路历程，便于发现问题。\n0825:难，又还不着急，就会有拖延。\n9.25：开始准备话稿，定下10点要交付并结束。",
       "createdAt": "2026-08-24T23:56:58.145Z",
-      "updatedAt": "2026-08-25T00:50:17.469Z",
+      "updatedAt": "2026-08-25T02:05:25.455Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2579,21 +2579,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
-    },
-    {
-      "id": "mt7y7ug6vkvfk",
-      "type": "task",
-      "content": "我打算上午念一遍teleagent的稿子\n我打算再用下我的skill看看。\n交付品：知道分享，可以讲什么内容。就10点前吧。\n练习一次稿子。大概5分钟即可。价值：捋清楚线条。能。\n\n### 用于总结的若干问题：\n- 我做了啥？走一遍teleagent稿子。做培训，1是梳理稿子过程又了解了新东西；2是达到了数字化的工作目标，年末时我可以说：我做了1次培训分享。\n- 哪里做的不够好？或者哪里能做的更好？\n- 我探索了什么，xxx从不知道变为知道。->添加到表达知识库话题",
-      "createdAt": "2026-08-25T00:50:34.086Z",
-      "updatedAt": "2026-08-25T01:59:18.061Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1783565139132"
     },
     {
       "id": "mt7y85zpeyguw",
@@ -2613,15 +2598,17 @@
     {
       "id": "mt7y8rctp0fep",
       "type": "task",
-      "content": "昨天失败就在于，对于有不断优化空间的任务，我竟然试图寻求完美！",
+      "content": "昨天失败就在于，对于有不断优化空间的任务，我竟然试图寻求完美！明明计划今天跟领导汇报进度，那就以上周五为时间定格就好了。我偏偏想多做些什么，让汇报更完美。这就搞到我很焦虑，想快点做完。\n任务本质：有持续优化空间（永远可以更好）；实际需求：按节点汇报（以上周五为截止点即可）\n先完成，再完美，才是对资源（包括时间）的尊重。",
       "createdAt": "2026-08-25T00:51:16.733Z",
-      "updatedAt": "2026-08-25T00:51:16.733Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-08-25T02:15:23.504Z",
+      "tags": [
+        "工作"
+      ],
+      "done": true,
+      "doneAt": "2026-08-25T02:15:20.130Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1786668268439"
     },
@@ -2658,7 +2645,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6823,6 +6810,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-25T02:02:02.457Z"
+    "lastSync": "2026-08-25T02:03:29.481Z"
   }
 }
