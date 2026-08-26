@@ -2359,9 +2359,9 @@
     {
       "id": "mszf08mjt9kc4",
       "type": "task",
-      "content": "我想学会问、学会说，引导对方表达，从而获得想知道的东西：\n**为什么想做**：会说而不说，跟不会说，那是两码事。\n0428：就记录下想练习表达的想法了。那会儿是想清晰表达自己感受需求、跟领导汇报时不慌。\n0819：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。\n0825：打电话了解才发现：让县分推进，我说【哪些设备退网有困难】比【请推进这些设备退网】更能引起表达欲。",
+      "content": "我想学会问、学会说，引导对方表达，从而获得想知道的东西：\n**为什么想做**：会说而不说，跟不会说，那是两码事。\n0428：就记录下想练习表达的想法了。那会儿是想清晰表达自己感受需求、跟领导汇报时不慌。\n0819：报告高潜结果，能获得反馈信息“我的面试表现算是很不错了”。没有外部信息反馈，光靠自己想是不可能打开思路的。\n0825：打电话了解才发现：让县分推进，我说【哪些设备退网有困难】比【请推进这些设备退网】更能引起表达欲。\n0826：问句比陈述句能提高响应。",
       "createdAt": "2026-08-19T01:30:37.099Z",
-      "updatedAt": "2026-08-25T02:00:32.656Z",
+      "updatedAt": "2026-08-26T09:21:55.978Z",
       "tags": [
         "表达"
       ],
@@ -2665,18 +2665,19 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mt9juccvctpb3",
+      "id": "mt9vulnlrvejt",
       "type": "task",
-      "content": "如果我在退网工作会议中说“大家拿到清单后，如果有因流程问题比如要上拆机单等，有很多前置工作要做的，得告诉我，说了才知道你们是干了活的，而不是就一个收到，我会以为流程很顺利，但两周后回顾发现并没有推进多少，我会以为你们没努力。同时，接下来我这边也会更精细将0业务清单布置下去，明确完成时间。”\n如果我这样说，参会的县分同事会有什么消极的想法？\n【遇到阻碍随时同步，我会协调资源，也会为流程预留时间。\n之后会更加提前下发这种前置的清单，预留时间给你们完成。】",
-      "createdAt": "2026-08-26T03:43:41.839Z",
-      "updatedAt": "2026-08-26T03:43:41.839Z",
+      "content": "好难受，现在又陷入了重复查看的怪圈。一直在看那些备注了，但是不知道怎么解决的问题。怎么办啊？",
+      "createdAt": "2026-08-26T09:19:49.281Z",
+      "updatedAt": "2026-08-26T09:19:49.281Z",
       "tags": [],
       "done": false,
-      "dueTime": null,
+      "doneAt": null,
+      "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -2696,7 +2697,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1783565139132",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -4471,6 +4472,13 @@
       "type": null,
       "createdAt": "2026-08-24T08:35:30.445Z",
       "tags": []
+    },
+    {
+      "id": "mt9ty9enhkkil",
+      "content": "困扰很真实——既想推动进展，又怕显得外行或空洞。关键在于转换视角：从“给建议”变为“提问题”，从“解决问题”变为“暴露风险”。 这样既显得专业，又能有效推动行动。",
+      "type": null,
+      "createdAt": "2026-08-26T08:26:40.799Z",
+      "tags": []
     }
   ],
   "communicationChecklists": [
@@ -5423,6 +5431,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-26T08:16:42.025Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt9u8ermirl95",
+      "taskId": "mt9d8glnahivt",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-27T08:34"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-26T08:34:34.306Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mt9vxm82td1gr",
+      "taskId": "mszf08mjt9kc4",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-28T10:22"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-26T09:22:09.986Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -6930,6 +6968,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-26T04:30:02.570Z"
+    "lastSync": "2026-08-26T08:19:18.849Z"
   }
 }
