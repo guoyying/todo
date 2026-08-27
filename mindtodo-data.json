@@ -2678,6 +2678,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtb8dt98f03ol",
+      "type": "task",
+      "content": "**AI启动会**：\n1、寻找支局的小切口，撕开一个裂口，再慢慢拓展到全流程。\n2、AI落地不需要“宏大叙事”，有时候“微小的逼迫”反而能带来长期的、自发的价值。即便开始是敷衍，但被迫接触的过程，当初那点皮毛知识，就成了他们探索的起点。",
+      "createdAt": "2026-08-27T07:58:27.164Z",
+      "updatedAt": "2026-08-27T07:58:38.780Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -5187,7 +5202,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-08-20T07:14:10.182Z"
+            "confirmationTime": "2026-08-27T07:45:23.892Z"
           }
         ]
       },
@@ -5195,7 +5210,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-08-20T06:53:46.028Z"
+        "0": "2026-08-27T07:45:22.142Z"
       }
     },
     {
@@ -6938,6 +6953,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-27T02:35:48.438Z"
+    "lastSync": "2026-08-27T06:24:20.768Z"
   }
 }
