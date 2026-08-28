@@ -2813,6 +2813,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcsbxkb6ea30",
+      "type": "task",
+      "content": "跟进下消防设施",
+      "createdAt": "2026-08-28T10:04:37.931Z",
+      "updatedAt": "2026-08-28T10:04:37.931Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
     }
   ],
   "taskLists": [
@@ -7172,6 +7187,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-28T09:36:11.676Z"
+    "lastSync": "2026-08-28T09:53:43.571Z"
   }
 }
