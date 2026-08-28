@@ -2654,9 +2654,9 @@
     {
       "id": "mt9wiyt04zw85",
       "type": "task",
-      "content": "@所有人 本周到我环节的单都已完成处理。\n每周开始时提醒：请大家检查环节单是否可以推进。",
+      "content": "@所有人 每周开始时提醒：请大家检查环节单是否可以推进。",
       "createdAt": "2026-08-26T09:38:46.068Z",
-      "updatedAt": "2026-08-26T09:39:06.050Z",
+      "updatedAt": "2026-08-28T09:23:39.296Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2720,9 +2720,71 @@
     {
       "id": "mtckcb63nsn34",
       "type": "task",
-      "content": "下午做什么？\n1. 跟晓华反馈拆除情况。\n2. 拆运过单\n3. 退网过单\n4. 爬虫",
+      "content": "下午做什么？\n- [x] 跟晓华反馈拆除情况。\n- [x] 退网过单\n- [x] 爬虫\n- [x] 各个县分的问题：就剩下越秀联通那个业务，我得判断下能不能退。或者我先登记下来吧。如果不知道咋处理的话，那台较场西也是\n6. 思考下下周退网和低效怎么统计和开展本周工作计划。",
       "createdAt": "2026-08-28T06:20:58.635Z",
-      "updatedAt": "2026-08-28T06:21:28.226Z",
+      "updatedAt": "2026-08-28T09:21:12.242Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcktnf8qo69j",
+      "type": "task",
+      "content": "我得想想怎么跟总监说这个事儿。\n就说支局的同事问能不能一并看了，刚好五个机房都在南部。我就看了然后有些铜缆未抽出的就拍了照，反馈给晓华那边了。",
+      "createdAt": "2026-08-28T06:34:27.668Z",
+      "updatedAt": "2026-08-28T06:47:07.730Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcmes38bhuyq",
+      "type": "task",
+      "content": "### 退网/荔湾：\n0831-0904工作：100%\n1、核查国际银行业务在用情况\n2、跟进人民中两台设备关电情况\n\n### 退网/越秀：\n1、2643-省委党校公务大楼-YXHB021-HA06准备关电的照片\n\n### 退网/白云：\n1、新市1-GZHC046是否漏上单了？",
+      "createdAt": "2026-08-28T07:18:53.108Z",
+      "updatedAt": "2026-08-28T09:22:23.625Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcmv13o6w12r",
+      "type": "task",
+      "content": "低效：\nPDC31343354G，HDC11303541G、HDC11303512G。较场西1-GZHC155-HB02（广州数据中心三楼）仔细核查下其他两条业务；\n我不知道这种情况该如何处理：网管上有这条业务，但资源设备没绑定，又说现场已拆除设备了。",
+      "createdAt": "2026-08-28T07:31:31.284Z",
+      "updatedAt": "2026-08-28T09:25:40.798Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-08-28T09:25:37.160Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": false,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcp1f8ezxjel",
+      "type": "task",
+      "content": "预约体检",
+      "createdAt": "2026-08-28T08:32:28.767Z",
+      "updatedAt": "2026-08-28T08:32:28.767Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3657,6 +3719,15 @@
       ],
       "createdAt": "2026-08-20T05:17:26.000Z",
       "updatedAt": "2026-08-20T05:17:26.000Z"
+    },
+    {
+      "id": "mtclhtcbrsudm",
+      "content": "去荔湾做萤火行动，坐着工程车，短途大约10分钟一个点。倒也乐得轻松和舒服。",
+      "tags": [
+        "观点看法"
+      ],
+      "createdAt": "2026-08-28T06:53:15.083Z",
+      "updatedAt": "2026-08-28T06:53:15.083Z"
     }
   ],
   "slots": [],
@@ -5383,21 +5454,6 @@
       "active": true
     },
     {
-      "id": "mt9x14r6h2l9s",
-      "taskId": "mt9wiyt04zw85",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-28T15:26"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-26T09:52:53.586Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mtaua5uhyfidx",
       "taskId": "mt2p0sqpk43sa",
       "type": "time",
@@ -5514,6 +5570,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-28T04:03:53.068Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mtcqvhk32i4vy",
+      "taskId": "mt9wiyt04zw85",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-31T08:23"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-28T09:23:51.075Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -7021,6 +7092,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-28T03:50:26.373Z"
+    "lastSync": "2026-08-28T06:21:34.214Z"
   }
 }
