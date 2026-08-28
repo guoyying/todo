@@ -2738,9 +2738,9 @@
     {
       "id": "mtcktnf8qo69j",
       "type": "task",
-      "content": "我得想想怎么跟总监说这个事儿。\n就说支局的同事问能不能一并看了，刚好五个机房都在南部。我就看了然后有些铜缆未抽出的就拍了照，反馈给晓华那边了。",
+      "content": "我得想想怎么跟总监说这个事儿。\n就说支局的同事问能不能一并看了，刚好五个机房都在南部。我就看了然后有些铜缆未抽出的就拍了照，反馈给晓华那边了。\n看看我这样说，会发生什么。",
       "createdAt": "2026-08-28T06:34:27.668Z",
-      "updatedAt": "2026-08-28T06:47:07.730Z",
+      "updatedAt": "2026-08-28T09:53:35.234Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5652,6 +5652,21 @@
       "createdAt": "2026-08-28T09:35:35.745Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mtcrdwuqa40ke",
+      "taskId": "mtcp1f8ezxjel",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-31T08:38"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-28T09:38:10.706Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -7157,6 +7172,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-28T09:32:09.514Z"
+    "lastSync": "2026-08-28T09:36:11.676Z"
   }
 }
