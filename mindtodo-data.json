@@ -2637,9 +2637,9 @@
     {
       "id": "mt9vulnlrvejt",
       "type": "task",
-      "content": "好难受，现在又陷入了重复查看的怪圈。一直在看那些备注了，但是不知道怎么解决的问题。怎么办啊。",
+      "content": "好难受，现在又陷入了重复查看的怪圈。一直在看那些备注了，但是不知道怎么解决的问题。怎么办啊。\n我想知道会议上能跟县分说什么，所以我看备注试图找到可说的话——但我又不满意自己应对的话。",
       "createdAt": "2026-08-26T09:19:49.281Z",
-      "updatedAt": "2026-08-27T08:56:50.613Z",
+      "updatedAt": "2026-08-28T02:29:34.190Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5366,21 +5366,6 @@
       "active": true
     },
     {
-      "id": "mt9vxm82td1gr",
-      "taskId": "mszf08mjt9kc4",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-28T10:22"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-26T09:22:09.986Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mt9x14r6h2l9s",
       "taskId": "mt9wiyt04zw85",
       "type": "time",
@@ -5467,21 +5452,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-27T06:24:13.789Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mtba8qd4ahhpt",
-      "taskId": "mt7wax0hn69fu",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-28T09:50"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-27T08:50:29.368Z",
       "lastReminderTime": null,
       "active": true
     },
