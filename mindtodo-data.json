@@ -2723,12 +2723,12 @@
     {
       "id": "mtckcb63nsn34",
       "type": "task",
-      "content": "下午做什么？\n- [x] 跟晓华反馈拆除情况。\n- [x] 退网过单\n- [x] 爬虫\n- [x] 各个县分的问题：就剩下越秀联通那个业务，我得判断下能不能退。或者我先登记下来吧。如果不知道咋处理的话，那台较场西也是\n6. 思考下下周退网和低效怎么统计和开展本周工作计划。我觉得得开始布局才行。就是说有个系统的方法。可为空间？每周提醒县分什么东西？等等。",
+      "content": "下午做什么？\n- [x] 跟晓华反馈拆除情况。\n- [x] 退网过单\n- [x] 爬虫\n- [x] 各个县分的问题：就剩下越秀联通那个业务，我得判断下能不能退。或者我先登记下来吧。如果不知道咋处理的话，那台较场西也是",
       "createdAt": "2026-08-28T06:20:58.635Z",
-      "updatedAt": "2026-08-28T09:26:44.570Z",
+      "updatedAt": "2026-08-28T09:35:41.825Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-28T09:35:41.825Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2789,6 +2789,23 @@
       "createdAt": "2026-08-28T08:32:28.767Z",
       "updatedAt": "2026-08-28T08:32:28.767Z",
       "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtcra67u741wi",
+      "type": "task",
+      "content": "退网和低效怎么统计和开展本周工作计划。我觉得得开始布局才行。\n\n0828：就是说有个系统的方法。可为空间？每周提醒县分什么东西？等等。还要推动虚拟网元迁转方案的制作。",
+      "createdAt": "2026-08-28T09:35:16.218Z",
+      "updatedAt": "2026-08-28T09:35:20.099Z",
+      "tags": [
+        "退网"
+      ],
       "done": false,
       "doneAt": null,
       "dueTime": "",
@@ -5620,6 +5637,21 @@
       "createdAt": "2026-08-28T09:31:47.237Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mtcrala9dknhq",
+      "taskId": "mtcra67u741wi",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-08-31T09:35"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-08-28T09:35:35.745Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -7125,6 +7157,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-28T09:26:20.661Z"
+    "lastSync": "2026-08-28T09:32:09.514Z"
   }
 }
