@@ -1550,7 +1550,7 @@
       "analysis": "传输层提供端到端的可靠或不可靠数据传输服务，如TCP/UDP。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlgcs_2",
@@ -1565,7 +1565,8 @@
       "answer": "C",
       "analysis": "/24表示前24位为网络位，对应掩码255.255.255.0。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_3",
@@ -1595,7 +1596,8 @@
       "answer": "B",
       "analysis": "RIP基于跳数作为度量，是典型的距离矢量路由协议。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_5",
@@ -1610,7 +1612,8 @@
       "answer": "C",
       "analysis": "第二次握手由服务器发送，携带SYN和ACK标志位。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_6",
@@ -1671,7 +1674,8 @@
       "answer": "B",
       "analysis": "A记录（Address Record）将域名映射到IPv4地址。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_10",
@@ -1702,7 +1706,7 @@
       "analysis": "私有地址包括10.0.0.0/8、172.16.0.0/12、192.168.0.0/16。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_12",
@@ -1826,7 +1830,8 @@
       "answer": "C",
       "analysis": "Linux下使用 route -n 或 ip route 查看路由表。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_20",
@@ -1888,7 +1893,7 @@
       "analysis": "TCP提供面向连接、可靠的数据流传输。\nTCP：传输控制协议。先建立连接（“握手”）再传数据\nUDP：用户数据报协议",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "unknown"
+      "status": "correct"
     },
     {
       "id": "wlgcs_24",
@@ -1918,7 +1923,8 @@
       "answer": "B",
       "analysis": "DR在广播网络中减少LSA泛洪和邻接数，BDR为备份。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_26",
@@ -2010,7 +2016,8 @@
       "answer": "正确",
       "analysis": "127.0.0.1是环回地址，用于本地测试，不可用于网络接口。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "wrong"
     },
     {
       "id": "wlgcs_32",
@@ -2024,7 +2031,7 @@
       "analysis": "交换机若找不到目标MAC，会向除接收端口外的所有端口泛洪（广播）。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "wrong"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_33",
@@ -2065,7 +2072,7 @@
       "analysis": "关闭SSID广播后，终端可手动输入SSID连接，并非无法连接。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "unknown"
+      "status": "wrong"
     },
     {
       "id": "wlgcs_36",
@@ -2131,7 +2138,8 @@
       "answer": "正确",
       "analysis": "RSVP（Resource Reservation Protocol）用于网络资源预留。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "unknown"
     },
     {
       "id": "wlgcs_41",
@@ -2193,7 +2201,8 @@
       "answer": "ABCD",
       "analysis": "以上均属于身份认证技术或协议。",
       "subject": "wlgcs",
-      "createdAt": "2026-07-06T09:56:36.538Z"
+      "createdAt": "2026-07-06T09:56:36.538Z",
+      "status": "correct"
     },
     {
       "id": "wlgcs_45",
@@ -2255,7 +2264,7 @@
       "analysis": "双栈、隧道（6to4/ISATAP）、NAT64均为IPv6过渡技术。",
       "subject": "wlgcs",
       "createdAt": "2026-07-06T09:56:36.538Z",
-      "status": "correct"
+      "status": "unknown"
     },
     {
       "id": "wlgcs_49",
@@ -6876,5 +6885,5 @@
       "createdAt": "2026-07-31T00:40:33.111Z"
     }
   ],
-  "lastUpdated": "2026-08-22T01:57:10.466Z"
+  "lastUpdated": "2026-08-30T04:50:20.628Z"
 }
