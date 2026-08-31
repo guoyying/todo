@@ -2783,10 +2783,10 @@
       "type": "task",
       "content": "oa弄下待办的事儿，不然考核到团队了不好。",
       "createdAt": "2026-08-31T03:43:45.436Z",
-      "updatedAt": "2026-08-31T03:43:45.436Z",
+      "updatedAt": "2026-08-31T05:35:38.405Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-08-31T05:35:38.405Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2796,9 +2796,9 @@
     {
       "id": "mtgrhebn9chp9",
       "type": "task",
-      "content": "214镇龙有太多业务了，而且又要去激活观察。得花好久时间啊，怎么办",
+      "content": "214镇龙有太多业务了，而且又要去激活观察。得花好久时间啊，怎么办。\n1318：目前是一条条来去激活观察咯。耐心点是可以的，而且还能发现几个类似的一块儿去激活了。",
       "createdAt": "2026-08-31T04:51:58.019Z",
-      "updatedAt": "2026-08-31T04:51:58.019Z",
+      "updatedAt": "2026-08-31T05:28:45.342Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5943,6 +5943,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-31T03:54:26.640Z"
+    "lastSync": "2026-08-31T04:55:35.789Z"
   }
 }
