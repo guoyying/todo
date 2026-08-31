@@ -2717,9 +2717,9 @@
     {
       "id": "mtcmes38bhuyq",
       "type": "task",
-      "content": "每个县分的每周工作安排：\n### 退网/荔湾：\n0831-0904工作：100%\n1、核查国际银行业务在用情况\n2、跟进人民中两台设备关电情况\n\n### 退网/越秀：\n1、2643-省委党校公务大楼-YXHB021-HA06准备关电的照片\n\n### 退网/白云：\n1、新市1-GZHC046是否漏上单了？",
+      "content": "每个县分的每周工作安排：\n### 退网/荔湾：\n0831-0904工作：100%\n2、跟进人民中两台设备关电情况\n3、跟进花地1-GZHC013补环工作\n\n### 退网/越秀：\n1、2643-省委党校公务大楼-YXHB021-HA06准备关电的照片\n2、推进这几个局内业务拆除\n\n### 退网/白云：\n1、新市1-GZHC046是否漏上单了？\n2、2台设备本周走退网；\n3、继续跟进局内业务拆除\n\n---\n电话联系：\n### 从化：\n1、4台计划退网的进度是什么？\n\n### 番禺：\n1、3053-广州新火车站基站（800M）-GZXHCZC2HWSDH2.5G001\n2、3052还在计划退网，目前什么进度\n\n### 荔湾：\n1、西华移动和国际银行，资源系统删除吧。",
       "createdAt": "2026-08-28T07:18:53.108Z",
-      "updatedAt": "2026-08-31T01:34:48.096Z",
+      "updatedAt": "2026-08-31T06:54:56.569Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2749,9 +2749,9 @@
     {
       "id": "mtcra67u741wi",
       "type": "task",
-      "content": "退网和低效怎么统计和开展本周工作计划。我觉得得开始布局才行。\n\n0828：就是说有个系统的方法。可为空间？每周提醒县分什么东西？等等。还要推动虚拟网元迁转方案的制作。。",
+      "content": "退网和低效怎么统计和开展本周工作计划。我觉得得开始布局才行。\n\n0828：就是说有个系统的方法。可为空间？每周提醒县分什么东西？等等。还要推动虚拟网元迁转方案的制作。\n0831：这个事儿比较大啊，一是低效，二是退网。主要是还要做汇报，就很着急。不知道怎么办了。\n14.14：我看着这些县分脑子都大了，不知从何下手。不如就从荔湾、越秀和白云着手吧。我觉得可以，就是针对这三个县分，我先发本周工作。然后我自己再盘些给他们。\n14.24：我现在担心的地方是，还是不够啊。怎么办。\n14.25：低效那边我都不知道该怎么做。\n1434：一般周一是发送本周计划要点的，结果我是周一才开始核查。这哪来得及呀。所以还是得周四、五核查，周一发送，这样最好。\n1513：所以说，要用结果倒推。**我发现周一私戳县分时被动了，我就要找到哪里被动了。提前安排逆推行动。**\n\n### 探索的问题：我知道接下来9月可以怎么发力",
       "createdAt": "2026-08-28T09:35:16.218Z",
-      "updatedAt": "2026-08-31T01:24:42.665Z",
+      "updatedAt": "2026-08-31T07:15:43.144Z",
       "tags": [
         "退网"
       ],
@@ -2768,10 +2768,10 @@
       "type": "task",
       "content": "妙君的问题",
       "createdAt": "2026-08-31T02:48:52.594Z",
-      "updatedAt": "2026-08-31T03:50:52.549Z",
+      "updatedAt": "2026-08-31T06:12:32.252Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-08-31T03:50:52.549Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2798,7 +2798,67 @@
       "type": "task",
       "content": "214镇龙有太多业务了，而且又要去激活观察。得花好久时间啊，怎么办。\n1318：目前是一条条来去激活观察咯。耐心点是可以的，而且还能发现几个类似的一块儿去激活了。",
       "createdAt": "2026-08-31T04:51:58.019Z",
-      "updatedAt": "2026-08-31T05:28:45.342Z",
+      "updatedAt": "2026-08-31T06:10:47.190Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-08-31T06:10:47.190Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtgukqeu97nt1",
+      "type": "task",
+      "content": "### 退网本周安排：\n1. 荔湾：给荔湾盘点些0业务设备\n2. 越秀：盘点些0业务设备\n3. 白云：盘点些0业务设备",
+      "createdAt": "2026-08-31T06:18:32.502Z",
+      "updatedAt": "2026-08-31T06:22:46.861Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtguyxnzztyhq",
+      "type": "task",
+      "content": "我只能说看下清单，再盘点下空间。\n我说不上要多久，这是个探索的过程。得先知道县分缺多少，有多少，然后才能做。",
+      "createdAt": "2026-08-31T06:29:35.087Z",
+      "updatedAt": "2026-08-31T06:29:40.809Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtgvv4bvi1j3s",
+      "type": "task",
+      "content": "计划退网的进度，从天河开始就不想看了。。晚点再看吧。",
+      "createdAt": "2026-08-31T06:54:36.715Z",
+      "updatedAt": "2026-08-31T06:54:36.715Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtgwvw74oq62h",
+      "type": "task",
+      "content": "发邮件给",
+      "createdAt": "2026-08-31T07:23:12.448Z",
+      "updatedAt": "2026-08-31T07:23:12.448Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5006,21 +5066,6 @@
       "active": true
     },
     {
-      "id": "mtgkeryirya66",
-      "taskId": "mt9dyvg8h8k2u",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-08-31T15:33"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-08-31T01:33:58.410Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mtgkfc3lmpdav",
       "taskId": "mtb8l2a3mqb1w",
       "type": "time",
@@ -5090,14 +5135,17 @@
             "startTime": "15:00",
             "endTime": "18:00",
             "message": "拆运一体发邮件",
-            "confirmed": false,
-            "confirmationTime": null
+            "confirmed": true,
+            "confirmationTime": "2026-08-31T07:03:10.711Z"
           }
         ]
       },
       "createdAt": "2026-08-31T01:38:37.648Z",
       "lastReminderTime": null,
-      "active": true
+      "active": true,
+      "lastReminderTimes": {
+        "0": "2026-08-31T07:00:59.557Z"
+      }
     },
     {
       "id": "mtgkmd49256nx",
@@ -5943,6 +5991,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-31T04:55:35.789Z"
+    "lastSync": "2026-08-31T05:36:01.655Z"
   }
 }
