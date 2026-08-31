@@ -2764,14 +2764,14 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mtcsbxkb6ea30",
+      "id": "mtgn33oyrughk",
       "type": "task",
-      "content": "跟进下消防设施：问-是否有消防器材纳入采购？",
-      "createdAt": "2026-08-28T10:04:37.931Z",
-      "updatedAt": "2026-08-31T02:58:29.769Z",
+      "content": "妙君的问题",
+      "createdAt": "2026-08-31T02:48:52.594Z",
+      "updatedAt": "2026-08-31T03:50:52.549Z",
       "tags": [],
       "done": true,
-      "doneAt": "2026-08-31T02:58:29.769Z",
+      "doneAt": "2026-08-31T03:50:52.549Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2779,11 +2779,11 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mtgn33oyrughk",
+      "id": "mtgp1ogspja13",
       "type": "task",
-      "content": "妙君的问题",
-      "createdAt": "2026-08-31T02:48:52.594Z",
-      "updatedAt": "2026-08-31T02:48:52.594Z",
+      "content": "oa弄下待办的事儿，不然考核到团队了不好。",
+      "createdAt": "2026-08-31T03:43:45.436Z",
+      "updatedAt": "2026-08-31T03:43:45.436Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5928,6 +5928,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-08-31T01:40:39.055Z"
+    "lastSync": "2026-08-31T03:35:05.428Z"
   }
 }
