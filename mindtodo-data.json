@@ -2796,9 +2796,9 @@
     {
       "id": "mtgukqeu97nt1",
       "type": "task",
-      "content": "### 退网本周安排：\n1. 荔湾：给荔湾盘点些0业务设备\n- 6788-中国银行(海珠中路支行)-ZHC793-HA13L、4850- 观绿机楼3楼、764-交行站西支行-ZHC397-HA07L\n\n\n2. 越秀：盘点些0业务设备\n3. 白云：盘点些0业务设备",
+      "content": "### 退网本周安排：\n2. 越秀：盘点些0业务设备\n3. 白云：盘点些0业务设备",
       "createdAt": "2026-08-31T06:18:32.502Z",
-      "updatedAt": "2026-09-01T03:44:42.416Z",
+      "updatedAt": "2026-09-01T03:45:54.061Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3037,6 +3037,23 @@
       "dueTime": "",
       "unknown": false,
       "isList": true,
+      "subtasks": [],
+      "listId": "list_1786668268439"
+    },
+    {
+      "id": "mti4lg4edlsyl",
+      "type": "task",
+      "content": "0901周二上午：\n原想给荔湾盘0业务，发现量太少了->盘可退空间、现状及解决方案->整理了0业务、少量局内、有高值3种场景的现状。",
+      "createdAt": "2026-09-01T03:46:48.158Z",
+      "updatedAt": "2026-09-01T03:47:09.095Z",
+      "tags": [
+        "退网"
+      ],
+      "done": true,
+      "doneAt": "2026-09-01T03:46:52.797Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1786668268439"
     }
@@ -6721,6 +6738,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-01T03:40:38.724Z"
+    "lastSync": "2026-09-01T03:45:32.427Z"
   }
 }
