@@ -1472,9 +1472,9 @@
     {
       "id": "ms8alwmznhw79",
       "type": "task",
-      "content": "## 萝岗业务云主机迁移\n里程碑：找到之前填写的进度，可以找聊天内容\n进度：100%",
+      "content": "## 萝岗业务云主机迁移\n里程碑：找到之前填写的进度，可以找聊天内容\n进度：100%\n\n---\n【9月2日】我去那个云资源的迁移，我都不知道怎么做。当时只报了上去，怎么迁移全都不知道。",
       "createdAt": "2026-07-31T01:57:43.163Z",
-      "updatedAt": "2026-08-03T07:06:47.754Z",
+      "updatedAt": "2026-09-02T09:47:06.529Z",
       "tags": [
         "网安"
       ],
@@ -3045,36 +3045,6 @@
       "listId": "list_1783565139132"
     },
     {
-      "id": "mtjp9b0gk2vhf",
-      "type": "task",
-      "content": "我现在都不知道做啥了。其实不是不知道做啥，我知道，只是没有这个动力去做罢了。",
-      "createdAt": "2026-09-02T06:12:59.776Z",
-      "updatedAt": "2026-09-02T06:12:59.776Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mtjpj5y88jlon",
-      "type": "task",
-      "content": "跟泳哥请教：或者3点再发消息吧。",
-      "createdAt": "2026-09-02T06:20:39.776Z",
-      "updatedAt": "2026-09-02T06:53:17.459Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-02T06:53:17.459Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mtjppg32cwh22",
       "type": "task",
       "content": "末梢系统的跟进：\n- 主管业务部门是我们吧？\n- 年底要搞定，我们是迁转还是退网？\n- 服务器合并到省系统，还是网管软件安装到省系统上？\n\n### 我希望周四下午我能跟领导说：\n要精简系统，所以计划年底要服务器纳入省系统/软件安装到省系统上。看我们是退网还是纳管。纳管我们需要做……\n1、这么多网元，我也没看到有在线的了。或许能退。华为M可能还不行，烽火的可以\n2、如果退了，没想到有什么再需要用的场景。看能否规避风险。",
@@ -3101,51 +3071,6 @@
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mtjreh8n07ywz",
-      "type": "task",
-      "content": "张枝的网管验收",
-      "createdAt": "2026-09-02T07:13:00.359Z",
-      "updatedAt": "2026-09-02T07:13:00.359Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mtjsqablfrbr0",
-      "type": "task",
-      "content": "我去那个云资源的迁移，我都不知道怎么做。当时只报了上去，怎么迁移全都不知道。",
-      "createdAt": "2026-09-02T07:50:10.881Z",
-      "updatedAt": "2026-09-02T09:19:01.722Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-02T09:19:01.722Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mtjvkq806byie",
-      "type": "task",
-      "content": "更新数据：\n1、共享表剩余设备未退网的。搞个sheet2\n2、",
-      "createdAt": "2026-09-02T09:09:50.400Z",
-      "updatedAt": "2026-09-02T09:19:00.717Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-02T09:19:00.717Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -6878,6 +6803,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-02T07:13:37.525Z"
+    "lastSync": "2026-09-02T09:43:23.612Z"
   }
 }
