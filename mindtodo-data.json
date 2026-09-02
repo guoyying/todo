@@ -3079,6 +3079,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1786668268439"
+    },
+    {
+      "id": "mtk5zrcy99j6g",
+      "type": "task",
+      "content": "### 我要追踪：不想大目标因为小目标也费时间和庞大，做着做着就不觉得重要了。导致ddl时又没完成的被动",
+      "createdAt": "2026-09-02T14:01:27.874Z",
+      "updatedAt": "2026-09-02T14:01:27.874Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1783565139132"
     }
   ],
   "taskLists": [
