@@ -3110,29 +3110,14 @@
       "listId": "list_1788398096734"
     },
     {
-      "id": "mtkr59rus7v4i",
-      "type": "task",
-      "content": "看退网单",
-      "createdAt": "2026-09-02T23:53:36.954Z",
-      "updatedAt": "2026-09-03T03:08:50.718Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-03T03:08:50.718Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788398096734"
-    },
-    {
       "id": "mtku0v2ws4lq7",
       "type": "task",
       "content": "上午用零碎时间做数据整理，我要把影响降到最小。\n- ~~我先拆解任务吧。我要找到T0的数量，广州管控、省管部分都要。可以看下txt有没有~~\n- ~~客户侧现在没退的有多少？在退网目标测算里load下数量-就筛选客户侧~~\n- ~~省管部分的格式是，全量xx个，到目前已完成xx个，进度xx%~~\n- ~~问下彤姐25年到现在退了多少台省平台涉及配套设备？~~\n\n还是用了50分钟啊。主要是我要的数据又没有，得花时间去找。",
       "createdAt": "2026-09-03T01:14:10.136Z",
-      "updatedAt": "2026-09-03T01:51:25.124Z",
+      "updatedAt": "2026-09-03T03:54:55.690Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-09-03T01:51:25.124Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3144,13 +3129,15 @@
       "type": "task",
       "content": "跟进省压降oss系统数量工作，说明业务系统在用未能今年10月退网的现状。沟通得到省里系统台账删除主数据的处理方式，不会对系统运维有影响。",
       "createdAt": "2026-09-03T01:53:10.930Z",
-      "updatedAt": "2026-09-03T03:12:58.058Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "updatedAt": "2026-09-03T03:55:25.866Z",
+      "tags": [
+        "网安"
+      ],
+      "done": true,
+      "doneAt": "2026-09-03T03:55:16.476Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1788398096734"
     }
@@ -3179,7 +3166,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1788398096734",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5544,6 +5531,36 @@
       "createdAt": "2026-09-02T23:48:56.354Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mtkzqsh20j3gv",
+      "taskId": "mtb8l2a3mqb1w",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-04T09:54"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-03T03:54:17.894Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mtkzrr6840rao",
+      "taskId": "mtku0v2ws4lq7",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-03T14:54"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-03T03:55:02.864Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -6872,6 +6889,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-03T02:16:24.392Z"
+    "lastSync": "2026-09-03T03:50:06.469Z"
   }
 }
