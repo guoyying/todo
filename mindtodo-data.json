@@ -3260,6 +3260,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtljkp1798t00",
+      "type": "task",
+      "content": "我现在想有个分类依据，对每种任务：重要性、完成时间、意义价值等。因为我意识到找不到解决方法是因为没有分类意识，所以搞不清楚这种类型的任务有什么特点，会如何让我焦虑。",
+      "createdAt": "2026-09-03T13:09:25.819Z",
+      "updatedAt": "2026-09-03T13:09:25.819Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
     }
   ],
   "taskLists": [
