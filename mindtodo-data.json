@@ -3265,10 +3265,11 @@
     },
     {
       "id": "list_1788398096734",
-      "name": "待评估",
+      "name": "仓库",
       "description": "",
       "createdAt": "2026-09-03T01:14:56.734Z",
-      "isDefault": false
+      "isDefault": false,
+      "updatedAt": "2026-09-03T09:52:13.400Z"
     }
   ],
   "currentListId": "list_1788398096734",
@@ -6964,6 +6965,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-03T08:51:33.976Z"
+    "lastSync": "2026-09-03T09:48:36.680Z"
   }
 }
