@@ -3097,9 +3097,9 @@
     {
       "id": "mtkr1n1e25bmv",
       "type": "task",
-      "content": "看柴云一体单子",
+      "content": "看拆运一体单子",
       "createdAt": "2026-09-02T23:50:47.522Z",
-      "updatedAt": "2026-09-03T01:15:16.728Z",
+      "updatedAt": "2026-09-03T02:16:57.256Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3179,7 +3179,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1788398096734",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6872,6 +6872,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-02T14:01:36.436Z"
+    "lastSync": "2026-09-03T02:16:24.392Z"
   }
 }
