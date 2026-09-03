@@ -2717,12 +2717,15 @@
     {
       "id": "mtcmes38bhuyq",
       "type": "task",
-      "content": "基于电话联系有效果而诞生的行动建议：\n电话联系每个县分的每周工作安排：\n### 从化：\n1、4台计划退网的进度是什么？\n\n### 番禺：\n1、3053-广州新火车站基站（800M）-GZXHCZC2HWSDH2.5G001\n2、3052还在计划退网，目前什么进度\n\n### 荔湾：\n1、西华移动和国际银行，资源系统删除吧。",
+      "content": "基于电话联系有效果而诞生的行动建议：\n电话联系每个县分的每周工作安排\n0903：不打算打了。觉得这样催也没意思，不是管理者该有的姿态。这个并不是我的责任。",
       "createdAt": "2026-08-28T07:18:53.108Z",
-      "updatedAt": "2026-09-01T02:57:46.927Z",
-      "tags": [],
+      "updatedAt": "2026-09-03T06:30:35.108Z",
+      "tags": [
+        "退网",
+        "工作启发（需时不时回看）"
+      ],
       "done": true,
-      "doneAt": "2026-08-31T08:53:10.593Z",
+      "doneAt": "2026-09-03T06:30:35.108Z",
       "dueTime": "",
       "unknown": false,
       "isList": false,
@@ -3081,10 +3084,10 @@
       "type": "task",
       "content": "看拆运一体单子：\n发邮件呗。",
       "createdAt": "2026-09-02T23:50:47.522Z",
-      "updatedAt": "2026-09-03T05:08:20.071Z",
+      "updatedAt": "2026-09-03T06:45:28.024Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-03T06:45:28.024Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3122,6 +3125,126 @@
       "isList": false,
       "subtasks": [],
       "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl4ybxybj2wq",
+      "type": "task",
+      "content": "打电话联系体检中心",
+      "createdAt": "2026-09-03T06:20:07.798Z",
+      "updatedAt": "2026-09-03T08:24:12.651Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-03T08:24:12.651Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl5gv7jmk6cn",
+      "type": "task",
+      "content": "天河两个互联互通的，实际上能退吗？可能得问下华姐才行。",
+      "createdAt": "2026-09-03T06:34:32.575Z",
+      "updatedAt": "2026-09-03T06:34:32.575Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl5rlrjhqx55",
+      "type": "task",
+      "content": "顺便看下IPTV那个验收单搞了没。用本地nce的",
+      "createdAt": "2026-09-03T06:42:53.551Z",
+      "updatedAt": "2026-09-03T06:42:53.551Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl63mtyjwli4",
+      "type": "task",
+      "content": "teleagent的记忆如何迁移到其他设备上？我希望在别的电脑也能同步。",
+      "createdAt": "2026-09-03T06:52:14.806Z",
+      "updatedAt": "2026-09-03T08:19:15.525Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-03T08:19:15.525Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl77aouxdaiy",
+      "type": "task",
+      "content": "214-镇龙的也要看看",
+      "createdAt": "2026-09-03T07:23:05.310Z",
+      "updatedAt": "2026-09-03T07:23:05.310Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl7c3kv3n25l",
+      "type": "task",
+      "content": "核查完0业务的，该确认的要发，可退的也要发。",
+      "createdAt": "2026-09-03T07:26:49.375Z",
+      "updatedAt": "2026-09-03T07:26:49.375Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl7n1lk9eaqn",
+      "type": "task",
+      "content": "备注了可以转o的，是可以优先制作方案的。没备注的就是业务太多了不好搞。",
+      "createdAt": "2026-09-03T07:35:20.024Z",
+      "updatedAt": "2026-09-03T08:24:29.274Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
+    },
+    {
+      "id": "mtl97v5dhczvi",
+      "type": "task",
+      "content": "在自己电脑也链接下onedrive吧。",
+      "createdAt": "2026-09-03T08:19:31.057Z",
+      "updatedAt": "2026-09-03T08:19:31.057Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788398096734"
     }
   ],
   "taskLists": [
@@ -3148,7 +3271,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1788398096734",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5513,21 +5636,6 @@
       "createdAt": "2026-09-03T03:54:17.894Z",
       "lastReminderTime": null,
       "active": true
-    },
-    {
-      "id": "mtkzrr6840rao",
-      "taskId": "mtku0v2ws4lq7",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-03T14:54"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-03T03:55:02.864Z",
-      "lastReminderTime": null,
-      "active": true
     }
   ],
   "knowledgeBase": [
@@ -6856,6 +6964,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-03T05:08:32.803Z"
+    "lastSync": "2026-09-03T06:12:45.842Z"
   }
 }
