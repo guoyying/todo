@@ -3030,24 +3030,6 @@
       "listId": "list_1786668268439"
     },
     {
-      "id": "mtjppg32cwh22",
-      "type": "task",
-      "content": "末梢系统的跟进：\n- 主管业务部门是我们吧？\n- 年底要搞定，我们是迁转还是退网？\n- 服务器合并到省系统，还是网管软件安装到省系统上？\n\n### 我希望周四下午我能跟领导说：\n要精简系统，所以计划年底要服务器纳入省系统/软件安装到省系统上。看我们是退网还是纳管。纳管我们需要做……\n1、这么多网元，我也没看到有在线的了。或许能退。华为M可能还不行，烽火的可以\n2、如果退了，没想到有什么再需要用的场景。看能否规避风险。",
-      "createdAt": "2026-09-02T06:25:32.846Z",
-      "updatedAt": "2026-09-02T09:42:45.634Z",
-      "tags": [
-        "我怕到时催我了，就很被动。",
-        "网安"
-      ],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mtjqs74vfn6bm",
       "type": "task",
       "content": "### 我想做个多维看板。这个list是一种维度，显示时间顺序。另外一个维度是关联大目标的\n- 我想……动机| 想做的事1、2、3| 用项目列表来显示，这样有完成的满足感\n\n1504：每个任务增加个字段比如叫goal，对于同一goal就颜色色块+list汇总合并。任务清单有个切换看板的选项。没有goal的任务就不显示。可以在看板界面新增goal，将现有的任务已完成/未完成都移动到一个goal下。也可以做移除、移动。\n2、我想删除项目管理和整理的功能了，冗余了。\n1725：我可以用标签先试试嘛。不着急立马行动的。先试点。标签这个方法还挺好的，现有的都是能变一变，就应用到多种场景。",
@@ -3166,7 +3148,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788398096734",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5503,21 +5485,6 @@
       "active": true
     },
     {
-      "id": "mtjwr9bdynxj1",
-      "taskId": "mtjppg32cwh22",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-03T13:42"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-02T09:42:54.697Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mtkqz99dmghp7",
       "taskId": "mtk5zrcy99j6g",
       "type": "time",
@@ -6889,6 +6856,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-03T03:55:56.077Z"
+    "lastSync": "2026-09-03T05:08:32.803Z"
   }
 }
