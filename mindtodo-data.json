@@ -2771,7 +2771,7 @@
       "type": "task",
       "content": "214镇龙有太多业务了，而且又要去激活观察。得花好久时间啊，怎么办。\n1318：目前是一条条来去激活观察咯。耐心点是可以的，而且还能发现几个类似的一块儿去激活了。\n0901：有些3500看下联设备，如果都预配置了，说明有可能没用了。",
       "createdAt": "2026-08-31T04:51:58.019Z",
-      "updatedAt": "2026-09-02T23:49:11.202Z",
+      "updatedAt": "2026-09-03T09:48:10.192Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2779,7 +2779,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1788398096734"
     },
     {
       "id": "mtgukqeu97nt1",
@@ -2871,7 +2871,7 @@
       "type": "task",
       "content": "保密培训：\n花几分钟看下。",
       "createdAt": "2026-09-01T01:48:06.995Z",
-      "updatedAt": "2026-09-02T23:49:10.620Z",
+      "updatedAt": "2026-09-03T09:48:12.983Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2879,7 +2879,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1783565139132"
+      "listId": "list_1788398096734"
     },
     {
       "id": "mti12uhgjyiqg",
@@ -3095,21 +3095,6 @@
       "listId": "list_1788398096734"
     },
     {
-      "id": "mtku0v2ws4lq7",
-      "type": "task",
-      "content": "上午用零碎时间做数据整理，我要把影响降到最小。\n- ~~我先拆解任务吧。我要找到T0的数量，广州管控、省管部分都要。可以看下txt有没有~~\n- ~~客户侧现在没退的有多少？在退网目标测算里load下数量-就筛选客户侧~~\n- ~~省管部分的格式是，全量xx个，到目前已完成xx个，进度xx%~~\n- ~~问下彤姐25年到现在退了多少台省平台涉及配套设备？~~\n\n还是用了50分钟啊。主要是我要的数据又没有，得花时间去找。",
-      "createdAt": "2026-09-03T01:14:10.136Z",
-      "updatedAt": "2026-09-03T03:54:55.690Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
       "id": "mtkvf18yyj97o",
       "type": "task",
       "content": "跟进省压降oss系统数量工作，说明业务系统在用未能今年10月退网的现状。沟通得到省里系统台账删除主数据的处理方式，不会对系统运维有影响。",
@@ -3187,21 +3172,6 @@
       "listId": "list_1788398096734"
     },
     {
-      "id": "mtl77aouxdaiy",
-      "type": "task",
-      "content": "214-镇龙的也要看看",
-      "createdAt": "2026-09-03T07:23:05.310Z",
-      "updatedAt": "2026-09-03T07:23:05.310Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788398096734"
-    },
-    {
       "id": "mtl7c3kv3n25l",
       "type": "task",
       "content": "核查完0业务的，该确认的要发，可退的也要发。",
@@ -3236,10 +3206,10 @@
       "type": "task",
       "content": "在自己电脑也链接下onedrive吧。",
       "createdAt": "2026-09-03T08:19:31.057Z",
-      "updatedAt": "2026-09-03T08:19:31.057Z",
+      "updatedAt": "2026-09-03T09:31:37.077Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-03T09:31:37.077Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3264,9 +3234,9 @@
     {
       "id": "mtl9ui8h6x6zq",
       "type": "task",
-      "content": "对，我找到一台设备可以转o，那下一步我该怎么做呢？钟村-番禺HC002-HB01(206)",
+      "content": "对，我找到一台设备可以转o，那下一步我该怎么做呢？钟村-番禺HC002-HB01(206)\n- 问题清单：\n1、番禺有个2500只有一条业务了，是EFS板卡的。IP端口，RJ45_100M端口类型。是属于这种电口的情况吗，下一步是让县分做什么？",
       "createdAt": "2026-09-03T08:37:07.409Z",
-      "updatedAt": "2026-09-03T08:38:47.965Z",
+      "updatedAt": "2026-09-03T09:19:33.362Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6994,6 +6964,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-03T08:24:54.519Z"
+    "lastSync": "2026-09-03T08:51:33.976Z"
   }
 }
