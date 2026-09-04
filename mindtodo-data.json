@@ -3204,10 +3204,10 @@
       "type": "task",
       "content": "过退网单、爬虫",
       "createdAt": "2026-09-04T02:42:12.347Z",
-      "updatedAt": "2026-09-04T02:42:12.347Z",
+      "updatedAt": "2026-09-04T09:01:08.763Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-04T09:01:08.763Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3235,21 +3235,6 @@
       "content": "我得写一下这周周报了，不然下周会焦虑。",
       "createdAt": "2026-09-04T06:52:51.775Z",
       "updatedAt": "2026-09-04T06:52:51.775Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788483645719"
-    },
-    {
-      "id": "mtmlkrk86m9rt",
-      "type": "task",
-      "content": "发现自己下意识就避重就轻，逃避“不知道怎么做”类型的任务",
-      "createdAt": "2026-09-04T06:53:14.504Z",
-      "updatedAt": "2026-09-04T08:17:57.691Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -7040,6 +7025,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-04T08:21:24.535Z"
+    "lastSync": "2026-09-04T08:24:50.837Z"
   }
 }
