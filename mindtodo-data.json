@@ -3234,9 +3234,24 @@
     {
       "id": "mtmbsq2yo89ce",
       "type": "task",
-      "content": "感觉可以像退网进度一样，每一列是每一天的任务，当然也可以移动。",
+      "content": "感觉可以像退网进度一样，每一列是每一天的任务，当然也可以移动。有个地方是归档每个小行动的，可以看到来时路。也能做多维看板，将所有日期的纵向拼起来，筛选标签可以看到低效、退网每一天诞生了什么任务，如何推进的。",
       "createdAt": "2026-09-04T02:19:29.674Z",
-      "updatedAt": "2026-09-04T02:19:29.674Z",
+      "updatedAt": "2026-09-04T02:37:33.284Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788483645719"
+    },
+    {
+      "id": "mtmceu851ger3",
+      "type": "task",
+      "content": "低效周报来了，要看了。",
+      "createdAt": "2026-09-04T02:36:41.477Z",
+      "updatedAt": "2026-09-04T02:36:41.477Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6982,6 +6997,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-04T02:24:45.243Z"
+    "lastSync": "2026-09-04T02:33:58.945Z"
   }
 }
