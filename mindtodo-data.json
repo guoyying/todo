@@ -2920,9 +2920,9 @@
     {
       "id": "mti6vkcw01bl1",
       "type": "task",
-      "content": "跟云网部领导说下番禺的现状，不然说我没做事。",
+      "content": "跟云网部领导说下番禺的现状，不然说我没做事。\n“番禺这周去现场说没有找到这种类型的线缆了，架顶线缆清理大部分都拆掉了”",
       "createdAt": "2026-09-01T04:50:39.440Z",
-      "updatedAt": "2026-09-06T03:27:33.112Z",
+      "updatedAt": "2026-09-06T03:52:50.680Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5629,6 +5629,21 @@
       "createdAt": "2026-09-06T03:45:57.873Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mtpa0maprf847",
+      "taskId": "mti6vkcw01bl1",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-07T09:52"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-06T03:52:57.313Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -6967,6 +6982,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-06T03:31:01.597Z"
+    "lastSync": "2026-09-06T03:46:59.833Z"
   }
 }
