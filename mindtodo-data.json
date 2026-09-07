@@ -2754,10 +2754,10 @@
       "type": "task",
       "content": "214镇龙有太多业务了，而且又要去激活观察。得花好久时间啊，怎么办。\n1318：目前是一条条来去激活观察咯。耐心点是可以的，而且还能发现几个类似的一块儿去激活了。\n0901：有些3500看下联设备，如果都预配置了，说明有可能没用了。\n0907：提醒黄埔去激活了没报障，就没啥问题了。",
       "createdAt": "2026-08-31T04:51:58.019Z",
-      "updatedAt": "2026-09-04T06:39:48.608Z",
+      "updatedAt": "2026-09-07T06:49:46.482Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-07T06:49:46.482Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3251,10 +3251,10 @@
       "type": "task",
       "content": "看下花都的屏蔽端口的，是不是对应双向有光的。",
       "createdAt": "2026-09-07T02:26:40.811Z",
-      "updatedAt": "2026-09-07T02:26:40.811Z",
+      "updatedAt": "2026-09-07T06:08:57.483Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-07T06:08:57.482Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3294,9 +3294,9 @@
     {
       "id": "mtqp2l3vuq9a0",
       "type": "task",
-      "content": "看下客资的周报，写了啥。这个比较重要啊，对于我了解进度。",
+      "content": "看下客资的周报，写了啥。这个比较重要啊，对于我了解进度。\n我就看未完成的设备，是一个怎样的进度：\n问题1、天河有没有反馈类似这种进度？\n天河和越秀都在测试DDF，我不知道该不该收集测试预计时间和进度。有没有必要。\n现在是要我盘点可为空间，哪些是能做的。盘了啊，然后呢？\n我知道有哪些业务类型了，然后呢？如何写报告，要写些什么？",
       "createdAt": "2026-09-07T03:42:09.499Z",
-      "updatedAt": "2026-09-07T03:42:09.499Z",
+      "updatedAt": "2026-09-07T07:49:47.359Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3312,6 +3312,111 @@
       "content": "备注白云的：各别未下电",
       "createdAt": "2026-09-07T04:27:18.495Z",
       "updatedAt": "2026-09-07T04:27:18.495Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqu7mbczh3go",
+      "type": "task",
+      "content": "拆运一体看下要做啥？（天河和邮件）",
+      "createdAt": "2026-09-07T06:06:02.424Z",
+      "updatedAt": "2026-09-07T09:05:08.329Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T09:05:08.329Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqu81c4f4wb8",
+      "type": "task",
+      "content": "验收单过一下",
+      "createdAt": "2026-09-07T06:06:21.892Z",
+      "updatedAt": "2026-09-07T09:02:36.834Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T09:02:36.834Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqupwjw0oasg",
+      "type": "task",
+      "content": "花都全量C网基站网元啊？那得上烽火看下才行。现在的原因是出现故障了：离线。要全量在线的是干啥？可能是有份清单吧。我不知道怎么导出c网基站、在线的喔。只能上网管看看。",
+      "createdAt": "2026-09-07T06:20:15.500Z",
+      "updatedAt": "2026-09-07T10:03:35.677Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T10:03:35.677Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqweotru4vf0",
+      "type": "task",
+      "content": "三码过单，越秀能直接退网了。",
+      "createdAt": "2026-09-07T07:07:31.503Z",
+      "updatedAt": "2026-09-07T07:07:39.246Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtr0h3m9fpyz6",
+      "type": "task",
+      "content": "验收单有个芳村的、IPTV要本地网管，其他的是OTN的。",
+      "createdAt": "2026-09-07T09:01:22.449Z",
+      "updatedAt": "2026-09-07T10:03:32.268Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T10:03:32.268Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtr14tadf2979",
+      "type": "task",
+      "content": "华姐那个流水号要额外过单。",
+      "createdAt": "2026-09-07T09:19:48.805Z",
+      "updatedAt": "2026-09-07T09:29:44.559Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T09:29:44.559Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtr1qplfh8bvd",
+      "type": "task",
+      "content": "线复那个，看下有没做保护组备注+线复。验收单",
+      "createdAt": "2026-09-07T09:36:50.451Z",
+      "updatedAt": "2026-09-07T09:37:05.948Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5596,7 +5701,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-08-31T07:03:10.711Z"
+            "confirmationTime": "2026-09-07T07:07:33.343Z"
           }
         ]
       },
@@ -5604,7 +5709,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-08-31T07:00:59.557Z"
+        "0": "2026-09-07T07:00:59.572Z"
       }
     },
     {
@@ -5724,21 +5829,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-09-04T02:18:58.998Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mtml3n74g4us9",
-      "taskId": "mtgrhebn9chp9",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-07T14:39"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-04T06:39:55.696Z",
       "lastReminderTime": null,
       "active": true
     },
@@ -7094,6 +7184,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-07T04:27:23.838Z"
+    "lastSync": "2026-09-07T05:16:39.988Z"
   }
 }
