@@ -2922,10 +2922,10 @@
       "type": "task",
       "content": "跟云网部领导说下番禺的现状，不然说我没做事。\n“番禺这周去现场说没有找到这种类型的线缆了，架顶线缆清理大部分都拆掉了”",
       "createdAt": "2026-09-01T04:50:39.440Z",
-      "updatedAt": "2026-09-06T03:52:50.680Z",
+      "updatedAt": "2026-09-07T02:31:56.956Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-07T02:31:56.956Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3187,11 +3187,56 @@
       "listId": "list_1788483645719"
     },
     {
-      "id": "mtmretiu5luh5",
+      "id": "mtqkt4mpnqu84",
       "type": "task",
-      "content": "- 算力这个229的算不算剔除之后的啊？",
-      "createdAt": "2026-09-04T09:36:34.806Z",
-      "updatedAt": "2026-09-07T00:57:41.950Z",
+      "content": "退网进度提醒：觉得得说些什么。这样太干巴了。有些是计划退网的，推进下了。暂时没有已用的，都私戳提醒了。",
+      "createdAt": "2026-09-07T01:42:49.777Z",
+      "updatedAt": "2026-09-07T03:38:10.431Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185",
+      "doneAt": "2026-09-07T03:38:10.431Z"
+    },
+    {
+      "id": "mtqkyxiudcde4",
+      "type": "task",
+      "content": "想将低效的做个共享表，限制访问权限的。",
+      "createdAt": "2026-09-07T01:47:20.502Z",
+      "updatedAt": "2026-09-07T02:32:02.038Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T02:32:02.038Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqlvekan45qy",
+      "type": "task",
+      "content": "共享表的sheet3是还未处理的0业务清单，每台设备一行，照示例填下当前进度和原因。如有卡点或需要支撑，也请一并注明，便于后续协调解决。麻烦本周三前回复，谢谢",
+      "createdAt": "2026-09-07T02:12:35.578Z",
+      "updatedAt": "2026-09-07T02:23:33.190Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T02:23:33.190Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqm3ag9rbgmp",
+      "type": "task",
+      "content": "老公见亲戚的事儿：",
+      "createdAt": "2026-09-07T02:18:43.497Z",
+      "updatedAt": "2026-09-07T02:34:01.682Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3199,31 +3244,48 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788483645719"
+      "listId": "list_1788742639185"
     },
     {
-      "id": "mtqkt4mpnqu84",
+      "id": "mtqmdiqzu3u91",
       "type": "task",
-      "content": "退网进度提醒",
-      "createdAt": "2026-09-07T01:42:49.777Z",
-      "updatedAt": "2026-09-07T01:42:49.777Z",
+      "content": "看下花都的屏蔽端口的，是不是对应双向有光的。",
+      "createdAt": "2026-09-07T02:26:40.811Z",
+      "updatedAt": "2026-09-07T02:26:40.811Z",
       "tags": [],
       "done": false,
-      "dueTime": null,
+      "doneAt": null,
+      "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1788742639185"
     },
     {
-      "id": "mtqktiuj3d8ps",
+      "id": "mtqnehbv538vf",
       "type": "task",
-      "content": "检查下低效剔除里面的设备还在不在目标里头。",
-      "createdAt": "2026-09-07T01:43:08.203Z",
-      "updatedAt": "2026-09-07T01:43:08.203Z",
+      "content": "越秀出租业务备注下，响应总结她的问题。\n首先是她说反馈了好几次，实际上并没有啊。\n7月初是说有高值，那能不能转o处理？也没个说法。现在又来说我。",
+      "createdAt": "2026-09-07T02:55:25.243Z",
+      "updatedAt": "2026-09-07T03:38:13.793Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-07T03:38:13.793Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqoeojf7iicq",
+      "type": "task",
+      "content": "我得将0业务清单搬移到‘历史清单’里，我要关注县分哪些已经备注在上面了",
+      "createdAt": "2026-09-07T03:23:34.203Z",
+      "updatedAt": "2026-09-07T03:23:34.203Z",
       "tags": [],
       "done": false,
-      "dueTime": null,
+      "doneAt": null,
+      "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
@@ -5463,7 +5525,7 @@
             "endTime": "18:00",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-08-31T03:00:03.433Z"
+            "confirmationTime": "2026-09-07T03:01:22.632Z"
           }
         ]
       },
@@ -5471,7 +5533,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-08-31T03:00:00.004Z"
+        "0": "2026-09-07T03:00:00.016Z"
       }
     },
     {
@@ -5662,21 +5724,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-09-06T03:45:57.873Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mtpa0maprf847",
-      "taskId": "mti6vkcw01bl1",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-07T09:52"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-06T03:52:57.313Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -7017,6 +7064,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-07T00:58:08.860Z"
+    "lastSync": "2026-09-07T01:43:31.388Z"
   }
 }
