@@ -3290,6 +3290,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqp2l3vuq9a0",
+      "type": "task",
+      "content": "看下客资的周报，写了啥。这个比较重要啊，对于我了解进度。",
+      "createdAt": "2026-09-07T03:42:09.499Z",
+      "updatedAt": "2026-09-07T03:42:09.499Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
     }
   ],
   "taskLists": [
@@ -7064,6 +7079,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-07T01:43:31.388Z"
+    "lastSync": "2026-09-07T03:41:05.764Z"
   }
 }
