@@ -3202,11 +3202,25 @@
       "listId": "list_1788483645719"
     },
     {
-      "id": "mtqj7icu3mee1",
+      "id": "mtqkt4mpnqu84",
       "type": "task",
-      "content": "整理退网进度，爬虫结果",
-      "createdAt": "2026-09-07T00:58:01.518Z",
-      "updatedAt": "2026-09-07T00:58:01.518Z",
+      "content": "退网进度提醒",
+      "createdAt": "2026-09-07T01:42:49.777Z",
+      "updatedAt": "2026-09-07T01:42:49.777Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788742639185"
+    },
+    {
+      "id": "mtqktiuj3d8ps",
+      "type": "task",
+      "content": "检查下低效剔除里面的设备还在不在目标里头。",
+      "createdAt": "2026-09-07T01:43:08.203Z",
+      "updatedAt": "2026-09-07T01:43:08.203Z",
       "tags": [],
       "done": false,
       "dueTime": null,
@@ -7003,6 +7017,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-06T04:05:31.671Z"
+    "lastSync": "2026-09-07T00:58:08.860Z"
   }
 }
