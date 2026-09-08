@@ -2395,7 +2395,7 @@
       "type": "task",
       "content": "### 用于决策评估的若干问题：\n- 我想达成什么效果？这要花多长时间？能产生什么价值？->我该用多少精力做此事？该怎样规划时间在这个事上？\n**（若依旧迷雾，才继续以下问答）**\n---\n\n- 我期望到【周四下午】，我能对领导说出xxx/我能写出……\n- 我想做什么？\n- 做这个事，达成期望价值的概率有多大？\n- 我闪过什么小行动，可以立即行动不必有较多准备时间的？\n- 如果还未有清晰路径，还处于探索阶段，请你记录下想探索的问题…便于后续发现成长过程\n- 能写进工作周报吗？怎么包装能写进工作周报？能怎么跟领导说？\n- 我担心什么？\n- 我能做的行动是？\n- 如果推进任务期间，我闪过“不知道该怎么……“的念头，随便定下一个行动，追踪效果。\n- 如果不做这个，我怕……",
       "createdAt": "2026-08-19T08:17:21.923Z",
-      "updatedAt": "2026-09-07T00:57:56.241Z",
+      "updatedAt": "2026-09-08T00:40:24.855Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2410,7 +2410,7 @@
       "type": "task",
       "content": "### 用于总结的若干问题\n- 我做了啥？\n- 这个关联什么大目标？\n- 这个行动能写进工作周报吗？如果不能，能写进周报的样子是什么呢？\n- 当前的进展，跟领导汇报可以说些什么？\n- 这个行动对大目标的推进有多少？完成该任务后当前进度从xx% -> xx%？\n- 这个行动的价值是什么？\n- 下一步要做什么？\n- 哪里做的不够好？或者哪里能做的更好？\n- 我探索了什么，xxx从不知道变为知道。->添加到表达知识库话题",
       "createdAt": "2026-08-19T08:18:55.106Z",
-      "updatedAt": "2026-09-07T00:57:59.063Z",
+      "updatedAt": "2026-09-08T00:40:26.871Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2854,7 +2854,7 @@
       "type": "task",
       "content": "保密培训：\n花几分钟看下。",
       "createdAt": "2026-09-01T01:48:06.995Z",
-      "updatedAt": "2026-09-07T00:57:46.191Z",
+      "updatedAt": "2026-09-08T00:40:21.509Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2954,10 +2954,10 @@
       "type": "task",
       "content": "|周一 | 周二 | 周三 |\n|-----|-----|-----|\n|  | 上午：分析荔湾可退空间。对其他县分的分析路径有铺垫和启发  | 杂事都弄下（网管验收、给领导数据、整理非0业务的网管问题、拆运荔湾一体化机柜等） |\n| B   | 下午：整理了退网表格，明确了截至目前0业务可退空间有多少   | 学习了有业务的设备退网方式 |",
       "createdAt": "2026-09-01T07:21:09.548Z",
-      "updatedAt": "2026-09-07T00:57:47.085Z",
+      "updatedAt": "2026-09-08T00:40:18.531Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-08T00:40:18.531Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3018,9 +3018,9 @@
     {
       "id": "mtk5zrcy99j6g",
       "type": "task",
-      "content": "### 我要追踪：不想大目标因为小目标也费时间和庞大，做着做着就不觉得重要了。导致ddl时又没完成的被动\n0902:目前还没有想到好的、容易的、我操作不费力的办法",
+      "content": "### 我要追踪：不想大目标因为小目标也费时间和庞大，做着做着就不觉得重要了。导致ddl时又没完成的被动\n0902:目前还没有想到好的、容易的、我操作不费力的办法\n0908：借助agent、时间提醒、每周回顾。这些法子够了",
       "createdAt": "2026-09-02T14:01:27.874Z",
-      "updatedAt": "2026-09-02T23:48:48.370Z",
+      "updatedAt": "2026-09-08T00:41:03.370Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3069,7 +3069,7 @@
       "type": "task",
       "content": "天河两个互联互通的，实际上能退吗？可能得问下华姐才行。",
       "createdAt": "2026-09-03T06:34:32.575Z",
-      "updatedAt": "2026-09-07T00:57:48.289Z",
+      "updatedAt": "2026-09-08T00:40:16.601Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3084,7 +3084,7 @@
       "type": "task",
       "content": "顺便看下IPTV那个验收单搞了没。用本地nce的",
       "createdAt": "2026-09-03T06:42:53.551Z",
-      "updatedAt": "2026-09-07T00:57:49.101Z",
+      "updatedAt": "2026-09-08T00:40:15.913Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3099,7 +3099,7 @@
       "type": "task",
       "content": "核查完0业务的，该确认的要发，可退的也要发。",
       "createdAt": "2026-09-03T07:26:49.375Z",
-      "updatedAt": "2026-09-07T00:57:49.959Z",
+      "updatedAt": "2026-09-08T00:40:15.214Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3114,7 +3114,7 @@
       "type": "task",
       "content": "备注了可以转o的，是可以优先制作方案的。没备注的就是业务太多了不好搞。\n什么时间统一去看？什么时间统一去跟县分说？我看还得花不少时间呢\n-》先最小行动先动起来：先看5个跟县分说，不要我一个人卡住大进度",
       "createdAt": "2026-09-03T07:35:20.024Z",
-      "updatedAt": "2026-09-07T00:57:43.706Z",
+      "updatedAt": "2026-09-08T00:40:09.113Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3176,7 +3176,7 @@
       "type": "task",
       "content": "我得想个法子让对方多说有用的话，这样我就不必依赖张枝问问题了。",
       "createdAt": "2026-09-04T08:16:00.962Z",
-      "updatedAt": "2026-09-07T00:57:42.680Z",
+      "updatedAt": "2026-09-08T00:40:07.925Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3281,7 +3281,7 @@
       "type": "task",
       "content": "我得将0业务清单搬移到‘历史清单’里，我要关注县分哪些已经备注在上面了",
       "createdAt": "2026-09-07T03:23:34.203Z",
-      "updatedAt": "2026-09-07T03:23:34.203Z",
+      "updatedAt": "2026-09-08T00:40:03.272Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3313,7 +3313,7 @@
       "type": "task",
       "content": "备注白云的：各别未下电",
       "createdAt": "2026-09-07T04:27:18.495Z",
-      "updatedAt": "2026-09-07T04:27:18.495Z",
+      "updatedAt": "2026-09-08T00:40:02.402Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3373,10 +3373,10 @@
       "type": "task",
       "content": "三码过单，越秀能直接退网了。",
       "createdAt": "2026-09-07T07:07:31.503Z",
-      "updatedAt": "2026-09-07T07:07:39.246Z",
+      "updatedAt": "2026-09-08T00:40:00.718Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-08T00:40:00.718Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3414,11 +3414,40 @@
       "listId": "list_1788742639185"
     },
     {
-      "id": "mtr1qplfh8bvd",
+      "id": "mtry6rrc38ao6",
       "type": "task",
-      "content": "线复那个，看下有没做保护组备注+线复。验收单",
-      "createdAt": "2026-09-07T09:36:50.451Z",
-      "updatedAt": "2026-09-07T09:37:05.948Z",
+      "content": "思考下怎么跟领导说明天不在。报名了明天秋游。中午问下张",
+      "createdAt": "2026-09-08T00:45:07.464Z",
+      "updatedAt": "2026-09-08T01:02:15.046Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtryjwf7ac0i3",
+      "type": "task",
+      "content": "看下天河拆运一体的。转发实施",
+      "createdAt": "2026-09-08T00:55:20.035Z",
+      "updatedAt": "2026-09-08T01:20:20.767Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-08T01:20:20.767Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtrzo6i5d0wll",
+      "type": "task",
+      "content": "报告要统一润色",
+      "createdAt": "2026-09-08T01:26:39.341Z",
+      "updatedAt": "2026-09-08T01:26:39.341Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3426,7 +3455,37 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788742639185"
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtrzpjjqhrdi3",
+      "type": "task",
+      "content": "- 我不知道是以第三季度的缺口为目标，还是全年的缺口\n- 我不知道0业务未处理完成的，该放到报告哪里。\n- 那种退网、退网中，现场又是未拆除的，又有端口占用的是什么情况。是否直接改状态就行了\n\n妈呀，我感觉自己得做个大表才行。\n局内和高值，有无必要统计出数目呢？\n实在不知道怎么写分析报告了。",
+      "createdAt": "2026-09-08T01:27:42.902Z",
+      "updatedAt": "2026-09-08T02:23:59.852Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mts2irow79bki",
+      "type": "task",
+      "content": "0业务，直接退。这个无问题，可以写进去。\n第二第三批这个，有细分的接入类型啊，而且也不是必须要分这个类，主要是看怎么接入的。那我可以将PDH、SDH接入、客户端都load出来看下有哪些接入方式。",
+      "createdAt": "2026-09-08T02:46:25.712Z",
+      "updatedAt": "2026-09-08T02:47:39.703Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
     }
   ],
   "taskLists": [
@@ -3466,9 +3525,16 @@
       "description": "",
       "createdAt": "2026-09-07T00:57:19.185Z",
       "isDefault": false
+    },
+    {
+      "id": "list_1788828295706",
+      "name": "0908",
+      "description": "",
+      "createdAt": "2026-09-08T00:44:55.706Z",
+      "isDefault": false
     }
   ],
-  "currentListId": "list_1788742639185",
+  "currentListId": "list_1788828295706",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5775,36 +5841,6 @@
       "active": true
     },
     {
-      "id": "mtjidoblcnu4p",
-      "taskId": "mthy1tz4rwp5j",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-08T11:00"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-02T03:00:26.337Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mtkqz99dmghp7",
-      "taskId": "mtk5zrcy99j6g",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-08T07:48"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-02T23:48:56.354Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mtmatg4wmbdzc",
       "taskId": "mt0vxdtv9ieaw",
       "type": "time",
@@ -5846,6 +5882,36 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-09-06T03:45:57.873Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mtry1o1k8uyab",
+      "taskId": "mtk5zrcy99j6g",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-15T08:41"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-08T00:41:09.368Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "mtryszmi2lbej",
+      "taskId": "mtry6rrc38ao6",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-08T12:02"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-08T01:02:24.091Z",
       "lastReminderTime": null,
       "active": true
     }
