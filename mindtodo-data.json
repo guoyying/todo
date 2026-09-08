@@ -3443,21 +3443,6 @@
       "listId": "list_1788828295706"
     },
     {
-      "id": "mtrzo6i5d0wll",
-      "type": "task",
-      "content": "报告要统一润色",
-      "createdAt": "2026-09-08T01:26:39.341Z",
-      "updatedAt": "2026-09-08T01:26:39.341Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
       "id": "mtrzpjjqhrdi3",
       "type": "task",
       "content": "- 我不知道是以第三季度的缺口为目标，还是全年的缺口\n- 我不知道0业务未处理完成的，该放到报告哪里。\n- 那种退网、退网中，现场又是未拆除的，又有端口占用的是什么情况。是否直接改状态就行了\n\n妈呀，我感觉自己得做个大表才行。\n局内和高值，有无必要统计出数目呢？\n实在不知道怎么写分析报告了。",
@@ -3490,9 +3475,69 @@
     {
       "id": "mts4a6e981npk",
       "type": "task",
-      "content": "天鹿站(800M)-GZWC0这个能退吗？",
+      "content": "2148-电信大厦20楼基站（800：网管端口检查+去激活---》20002026052200000237",
       "createdAt": "2026-09-08T03:35:44.097Z",
-      "updatedAt": "2026-09-08T03:35:44.097Z",
+      "updatedAt": "2026-09-08T07:49:52.507Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtsaiy5m4m6fy",
+      "type": "task",
+      "content": "诺基亚退单，其他两个修改资源、网管名称。后过单",
+      "createdAt": "2026-09-08T06:30:31.018Z",
+      "updatedAt": "2026-09-08T06:34:28.537Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-08T06:34:28.537Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtsak8f91qrr0",
+      "type": "task",
+      "content": "看下花园酒店的DTR电路",
+      "createdAt": "2026-09-08T06:31:30.981Z",
+      "updatedAt": "2026-09-08T07:50:03.131Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-08T07:50:03.131Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtsdcv32exf7n",
+      "type": "task",
+      "content": "天鹿站的备注在共享文档：天鹿站(800M)-GZWC035-WA10：SDH设备可以拆，但光缆不能拆，这个站IP化改造利旧光路",
+      "createdAt": "2026-09-08T07:49:45.950Z",
+      "updatedAt": "2026-09-08T07:49:45.950Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtsdd6okr9k01",
+      "type": "task",
+      "content": "天鹿站过退网单",
+      "createdAt": "2026-09-08T07:50:00.980Z",
+      "updatedAt": "2026-09-08T07:50:00.980Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3549,7 +3594,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1786668268439",
+  "currentListId": "list_1788828295706",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5916,21 +5961,6 @@
       "active": true
     },
     {
-      "id": "mtryszmi2lbej",
-      "taskId": "mtry6rrc38ao6",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-08T12:02"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-08T01:02:24.091Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mts4rimcqb6sv",
       "taskId": "mthy1tz4rwp5j",
       "type": "time",
@@ -7282,6 +7312,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-08T03:21:14.860Z"
+    "lastSync": "2026-09-08T03:49:18.084Z"
   }
 }
