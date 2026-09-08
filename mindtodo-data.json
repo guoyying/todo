@@ -2818,9 +2818,9 @@
     {
       "id": "mthy1tz4rwp5j",
       "type": "task",
-      "content": "想添置些短款衣服专门搭配粉色裙子\n动机：穿衣服时总是穿过的，而且有的长款扎到粉色半身裙里皮筋都露出来了，不好看。\n0902：这个比较散的任务，没有连贯性。不知道该安排在什么时间\n\n### 穿衣风格走向：\n有段时间添置很多带领子的衣服->饱和了，想换些款式（无领）我老公又觉得好看的->尝试过新中式上衣，不错->",
+      "content": "想添置些短款衣服专门搭配粉色裙子\n动机：穿衣服时总是穿过的，而且有的长款扎到粉色半身裙里皮筋都露出来了，不好看。米色裙子也是有皮筋的。\n0902：这个比较散的任务，没有连贯性。不知道该安排在什么时间\n0908：被我老公说过一次棕色不好看之后，就很少买这种衣服了。\n\n### 穿衣风格走向：\n有段时间添置很多带领子的衣服->饱和了，想换些款式（无领）我老公又觉得好看的->尝试过新中式上衣，不错->",
       "createdAt": "2026-09-01T00:43:35.296Z",
-      "updatedAt": "2026-09-02T02:57:58.532Z",
+      "updatedAt": "2026-09-08T03:49:07.698Z",
       "tags": [
         "生活"
       ],
@@ -3486,6 +3486,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788828295706"
+    },
+    {
+      "id": "mts4a6e981npk",
+      "type": "task",
+      "content": "天鹿站(800M)-GZWC0这个能退吗？",
+      "createdAt": "2026-09-08T03:35:44.097Z",
+      "updatedAt": "2026-09-08T03:35:44.097Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
     }
   ],
   "taskLists": [
@@ -3534,7 +3549,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788828295706",
+  "currentListId": "list_1786668268439",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5914,6 +5929,21 @@
       "createdAt": "2026-09-08T01:02:24.091Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mts4rimcqb6sv",
+      "taskId": "mthy1tz4rwp5j",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-09-15T11:49"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-09-08T03:49:13.092Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -7252,6 +7282,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-07T10:03:50.982Z"
+    "lastSync": "2026-09-08T03:21:14.860Z"
   }
 }
