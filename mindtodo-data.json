@@ -3281,9 +3281,9 @@
     {
       "id": "mtqoeojf7iicq",
       "type": "task",
-      "content": "我得将0业务清单搬移到‘历史清单’里，我要关注县分哪些已经备注在上面了",
+      "content": "我得将0业务清单搬移到‘历史清单’里，我要关注县分哪些已经备注在上面了。\n得想个法子不能这样磨磨唧唧了。没想好，我得花时间识别哪些是他们自己备注的。。。\n- 天河有两列有断测备注\n- 备注列有县分个性化的备注。\n- 没有其他的备注了，就按上面的来即可。",
       "createdAt": "2026-09-07T03:23:34.203Z",
-      "updatedAt": "2026-09-09T03:29:38.839Z",
+      "updatedAt": "2026-09-09T08:31:19.680Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3390,10 +3390,10 @@
       "type": "task",
       "content": "DDF归并，是怎么归并？",
       "createdAt": "2026-09-08T09:06:07.190Z",
-      "updatedAt": "2026-09-09T03:29:33.730Z",
+      "updatedAt": "2026-09-09T06:39:43.441Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-09T06:39:43.441Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3489,6 +3489,66 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788828295706"
+    },
+    {
+      "id": "mttllvzz3126i",
+      "type": "task",
+      "content": "生命周期退网，待跟进为何现场无法拆除？",
+      "createdAt": "2026-09-09T04:28:30.143Z",
+      "updatedAt": "2026-09-09T04:28:30.143Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mttr029egiqle",
+      "type": "task",
+      "content": "看下几个县分备注的进度，是否有必要记录在清单里",
+      "createdAt": "2026-09-09T06:59:29.522Z",
+      "updatedAt": "2026-09-09T08:02:55.097Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-09T08:02:55.097Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mttsjaeiu7mdi",
+      "type": "task",
+      "content": "给天河越秀发清单之前，再次各自检查设备、配线架是否同步了它们现场反馈的信息",
+      "createdAt": "2026-09-09T07:42:26.154Z",
+      "updatedAt": "2026-09-09T08:02:52.911Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-09T08:02:52.911Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mttskzcdpmlre",
+      "type": "task",
+      "content": "我现在要将DDF端口占用少的，标记：端口占用数较少，可优先组织归并\nMDF端口占用少的，标记：端口占用数较少，光改。",
+      "createdAt": "2026-09-09T07:43:45.133Z",
+      "updatedAt": "2026-09-09T08:02:51.974Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-09T08:02:51.974Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
     }
   ],
   "taskLists": [
@@ -3537,7 +3597,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788828295706",
+  "currentListId": "list_1788742639185",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7255,6 +7315,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-09T03:41:55.544Z"
+    "lastSync": "2026-09-09T03:42:38.772Z"
   }
 }
