@@ -3208,66 +3208,6 @@
       "listId": "list_1788828295706"
     },
     {
-      "id": "mtqupwjw0oasg",
-      "type": "task",
-      "content": "花都全量C网基站网元啊？那得上烽火看下才行。现在的原因是出现故障了：离线。要全量在线的是干啥？可能是有份清单吧。我不知道怎么导出c网基站、在线的喔。只能上网管看看。",
-      "createdAt": "2026-09-07T06:20:15.500Z",
-      "updatedAt": "2026-09-07T10:03:35.677Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-07T10:03:35.677Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788742639185"
-    },
-    {
-      "id": "mtqweotru4vf0",
-      "type": "task",
-      "content": "三码过单，越秀能直接退网了。",
-      "createdAt": "2026-09-07T07:07:31.503Z",
-      "updatedAt": "2026-09-08T00:40:00.718Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-08T00:40:00.718Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788742639185"
-    },
-    {
-      "id": "mtr0h3m9fpyz6",
-      "type": "task",
-      "content": "验收单有个芳村的、IPTV要本地网管，其他的是OTN的。",
-      "createdAt": "2026-09-07T09:01:22.449Z",
-      "updatedAt": "2026-09-07T10:03:32.268Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-07T10:03:32.268Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788742639185"
-    },
-    {
-      "id": "mtr14tadf2979",
-      "type": "task",
-      "content": "华姐那个流水号要额外过单。",
-      "createdAt": "2026-09-07T09:19:48.805Z",
-      "updatedAt": "2026-09-07T09:29:44.559Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-07T09:29:44.559Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788742639185"
-    },
-    {
       "id": "mtsg31zqxrprj",
       "type": "task",
       "content": "DDF归并，是怎么归并？",
@@ -3392,7 +3332,7 @@
       "type": "task",
       "content": "看下3431增城的网元",
       "createdAt": "2026-09-10T01:32:15.780Z",
-      "updatedAt": "2026-09-10T06:39:49.884Z",
+      "updatedAt": "2026-09-10T07:06:00.581Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3400,14 +3340,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789022371136"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtuuwq9hwdixq",
       "type": "task",
       "content": "从化的131有些以太网业务可以去激活看看：0910看了点，还没看完。",
       "createdAt": "2026-09-10T01:36:38.645Z",
-      "updatedAt": "2026-09-10T06:39:52.384Z",
+      "updatedAt": "2026-09-10T07:06:04.125Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3415,17 +3355,17 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789022371136"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtuz2bxu7p05p",
       "type": "task",
       "content": "本周核查的0业务，要跟县分说。",
       "createdAt": "2026-09-10T03:32:58.482Z",
-      "updatedAt": "2026-09-10T06:49:23.610Z",
+      "updatedAt": "2026-09-10T07:37:27.966Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-10T07:37:27.966Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3437,7 +3377,37 @@
       "type": "task",
       "content": "科韵大厦C网基站-GZHC331-HA34L，退网可能性比较大，要核查流量去激活。\n- 科韵大厦C网基站-GZHC331-HA34L&广州市天河区员村白马岗9号C网基站-GZHC331-HA28L-科韵大厦C网基站-GZHC331-HA34L&1004-跑马场1-GZHC453-VC12-001450270。。这几条路径是核查流量和资源端口空闲，考虑预配置科韵大厦后，去激活业务了。现在还没法去激活。",
       "createdAt": "2026-09-10T03:34:06.680Z",
-      "updatedAt": "2026-09-10T06:39:55.518Z",
+      "updatedAt": "2026-09-10T07:06:06.661Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtv2auolr4o0e",
+      "type": "task",
+      "content": "华工信息-GZHC118网管有条业务：LDC31804874G我感觉应该是转o了。华工那边有台OTN的CPE了。",
+      "createdAt": "2026-09-10T05:03:34.870Z",
+      "updatedAt": "2026-09-10T07:06:08.937Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtv6dwoiwmk56",
+      "type": "task",
+      "content": "记录转o的经验-昨天黄埔",
+      "createdAt": "2026-09-10T06:57:55.890Z",
+      "updatedAt": "2026-09-10T06:57:55.890Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3448,11 +3418,26 @@
       "listId": "list_1789022371136"
     },
     {
-      "id": "mtv2auolr4o0e",
+      "id": "mtv6nxe8jgve5",
       "type": "task",
-      "content": "华工信息-GZHC118网管有条业务：LDC31804874G我感觉应该是转o了。华工那边有台OTN的CPE了。",
-      "createdAt": "2026-09-10T05:03:34.870Z",
-      "updatedAt": "2026-09-10T06:39:57.950Z",
+      "content": "等待天河回复海心沙两台是否能退了。",
+      "createdAt": "2026-09-10T07:05:43.376Z",
+      "updatedAt": "2026-09-10T07:51:38.346Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789022371136"
+    },
+    {
+      "id": "mtv79gjuahgmh",
+      "type": "task",
+      "content": "将省商检局的路径copy到退网文件夹中，待办备注",
+      "createdAt": "2026-09-10T07:22:27.978Z",
+      "updatedAt": "2026-09-10T07:22:27.978Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3501,7 +3486,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788483645719",
+  "currentListId": "list_1789022371136",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7219,6 +7204,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-10T05:05:52.526Z"
+    "lastSync": "2026-09-10T06:56:34.213Z"
   }
 }
