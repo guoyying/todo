@@ -3639,6 +3639,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtuz2bxu7p05p",
+      "type": "task",
+      "content": "本周核查的0业务，要跟县分说。",
+      "createdAt": "2026-09-10T03:32:58.482Z",
+      "updatedAt": "2026-09-10T03:32:58.482Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
+    },
+    {
+      "id": "mtuz3sk8d3i73",
+      "type": "task",
+      "content": "科韵大厦C网基站-GZHC331-HA34L，退网可能性比较大，要核查流量去激活。",
+      "createdAt": "2026-09-10T03:34:06.680Z",
+      "updatedAt": "2026-09-10T03:34:06.680Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1788828295706"
     }
   ],
   "taskLists": [
@@ -7390,6 +7420,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-10T02:44:56.482Z"
+    "lastSync": "2026-09-10T02:53:11.474Z"
   }
 }
