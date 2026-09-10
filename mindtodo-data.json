@@ -3422,10 +3422,10 @@
       "type": "task",
       "content": "F0114：我不知道OLT作为海心沙下联，能不能拆，还有没有在用\nF00210可以拆了，上联是跑马场；",
       "createdAt": "2026-09-10T07:05:43.376Z",
-      "updatedAt": "2026-09-10T08:33:18.291Z",
+      "updatedAt": "2026-09-10T09:32:34.024Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-10T09:32:34.024Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3483,6 +3483,36 @@
       "content": "低效清单我们对标全年目标，整理了接下来可优先处理的建议清单。分两类： ① 设备：仍有少量业务的，做迁转；已无业务的，走退网。 ② 配线架：端口占用较少的，做归并或光改。每个资产的处置方式已标注在 “处理建议0909” 列，请参考该列实施。如有与现场实际不符或难以执行的，请随时标注原因反馈我",
       "createdAt": "2026-09-10T08:52:11.341Z",
       "updatedAt": "2026-09-10T09:12:47.870Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789022371136"
+    },
+    {
+      "id": "mtvbyidbf75gq",
+      "type": "task",
+      "content": "共享表备注下355-的OLT的进度吧",
+      "createdAt": "2026-09-10T09:33:55.199Z",
+      "updatedAt": "2026-09-10T09:33:55.199Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789022371136"
+    },
+    {
+      "id": "mtvcgwf44fpix",
+      "type": "task",
+      "content": "一整个大无语了，越秀的进度又要更新一版。",
+      "createdAt": "2026-09-10T09:48:13.216Z",
+      "updatedAt": "2026-09-10T09:48:13.216Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -7249,6 +7279,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-10T07:52:03.826Z"
+    "lastSync": "2026-09-10T09:15:34.353Z"
   }
 }
