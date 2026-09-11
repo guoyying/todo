@@ -3527,10 +3527,10 @@
       "type": "task",
       "content": "网管验收10个",
       "createdAt": "2026-09-11T01:01:43.289Z",
-      "updatedAt": "2026-09-11T01:13:14.520Z",
+      "updatedAt": "2026-09-11T09:35:44.455Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-11T09:35:44.455Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3540,9 +3540,9 @@
     {
       "id": "mtw9zwkwcvelm",
       "type": "task",
-      "content": "3431-仙村，有个6板SLQ光接入网络的。想知道下联设备的组网形式是咋样的。",
+      "content": "3431-仙村，有个6板SLQ光接入网络的。想知道下联设备的组网形式是咋样的。如何帮助县分迁转",
       "createdAt": "2026-09-11T01:26:47.216Z",
-      "updatedAt": "2026-09-11T01:26:47.216Z",
+      "updatedAt": "2026-09-11T09:36:29.451Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3558,21 +3558,6 @@
       "content": "新港-GZHC335看下流量",
       "createdAt": "2026-09-11T01:47:07.705Z",
       "updatedAt": "2026-09-11T01:47:07.705Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtweegm5mmrh9",
-      "type": "task",
-      "content": "分析下3431-的SL板卡如何帮助县分迁转",
-      "createdAt": "2026-09-11T03:30:04.829Z",
-      "updatedAt": "2026-09-11T03:30:04.829Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3748,7 +3733,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788828295706",
+  "currentListId": "list_1789088463577",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7451,6 +7436,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-11T09:05:21.768Z"
+    "lastSync": "2026-09-11T09:29:54.051Z"
   }
 }
