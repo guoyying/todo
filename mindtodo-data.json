@@ -3392,7 +3392,7 @@
       "type": "task",
       "content": "华工信息-GZHC118网管有条业务：LDC31804874G我感觉应该是转o了。华工那边有台OTN的CPE了。",
       "createdAt": "2026-09-10T05:03:34.870Z",
-      "updatedAt": "2026-09-11T00:54:27.577Z",
+      "updatedAt": "2026-09-11T01:02:14.304Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3400,7 +3400,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789088463577"
     },
     {
       "id": "mtv6dwoiwmk56",
@@ -3452,10 +3452,10 @@
       "type": "task",
       "content": "网管验收分工",
       "createdAt": "2026-09-10T08:19:53.557Z",
-      "updatedAt": "2026-09-11T00:54:31.251Z",
+      "updatedAt": "2026-09-11T01:01:21.816Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-11T01:01:21.816Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3521,6 +3521,51 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789022371136"
+    },
+    {
+      "id": "mtw93o55tnq8x",
+      "type": "task",
+      "content": "网管验收后10个单子，我先copy到excel里。",
+      "createdAt": "2026-09-11T01:01:43.289Z",
+      "updatedAt": "2026-09-11T01:01:48.743Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtw94lzbzps6w",
+      "type": "task",
+      "content": "增城3431、从化131核查",
+      "createdAt": "2026-09-11T01:02:27.143Z",
+      "updatedAt": "2026-09-11T01:02:27.143Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtw94ttc7i5he",
+      "type": "task",
+      "content": "给天河和越秀发清单",
+      "createdAt": "2026-09-11T01:02:37.296Z",
+      "updatedAt": "2026-09-11T01:02:37.296Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
     }
   ],
   "taskLists": [
@@ -3559,9 +3604,16 @@
       "description": "",
       "createdAt": "2026-09-10T06:39:31.136Z",
       "isDefault": false
+    },
+    {
+      "id": "list_1789088463577",
+      "name": "仓库0911",
+      "description": "",
+      "createdAt": "2026-09-11T01:01:03.577Z",
+      "isDefault": false
     }
   ],
-  "currentListId": "list_1789022371136",
+  "currentListId": "list_1789088463577",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7279,6 +7331,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-10T09:15:34.353Z"
+    "lastSync": "2026-09-11T00:54:41.728Z"
   }
 }
