@@ -2410,7 +2410,7 @@
       "type": "task",
       "content": "### 我想更有主体性，第一句话是自己的感受，哪怕闪过对方不开心的反馈\n0820：【昨晚我煎了鸡蛋，老公不吃了。我第一反应不是“哎呀给你煎了又不吃，得明天我吃了”，而是怎么表现不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。\n0826：甄嬛传声音太大了，我纠结了很久还是说出来。我觉得有必要让老公知道。忠于自己，再求共识。【我就看看老公有啥反应】\n0904：倒是不担心自己不会说出来，会说了。现在的问题是怎么说，才能达到自己目的，并且不会越说越委屈而发脾气。",
       "createdAt": "2026-08-20T02:12:03.523Z",
-      "updatedAt": "2026-09-04T01:51:57.033Z",
+      "updatedAt": "2026-09-11T01:52:02.688Z",
       "tags": [
         "生活"
       ],
@@ -3603,6 +3603,51 @@
       "content": "3431-仙村，有个6板SLQ光接入网络的。想知道下联设备的组网形式是咋样的。",
       "createdAt": "2026-09-11T01:26:47.216Z",
       "updatedAt": "2026-09-11T01:26:47.216Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtwaq2bdm9j7y",
+      "type": "task",
+      "content": "新港-GZHC335看下流量",
+      "createdAt": "2026-09-11T01:47:07.705Z",
+      "updatedAt": "2026-09-11T01:47:07.705Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtwaxghd0l9ye",
+      "type": "task",
+      "content": "粉色和红色两列不一致的，就是有更新的，处理建议要同步更新。最后就导出越秀的设备、配线架即可。",
+      "createdAt": "2026-09-11T01:52:52.657Z",
+      "updatedAt": "2026-09-11T01:52:52.657Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtwb0gt5pwnxr",
+      "type": "task",
+      "content": "我想做个规则，如果不一致，就高亮",
+      "createdAt": "2026-09-11T01:55:13.049Z",
+      "updatedAt": "2026-09-11T01:55:13.049Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5920,21 +5965,6 @@
       "active": true
     },
     {
-      "id": "mtmatg4wmbdzc",
-      "taskId": "mt0vxdtv9ieaw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-11T09:51"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-04T01:52:03.824Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mtp9rmnljla3r",
       "taskId": "mtm91jzsy7ozl",
       "type": "time",
@@ -7376,6 +7406,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-11T01:13:21.989Z"
+    "lastSync": "2026-09-11T01:32:48.885Z"
   }
 }
