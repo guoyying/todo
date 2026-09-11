@@ -3525,9 +3525,9 @@
     {
       "id": "mtw93o55tnq8x",
       "type": "task",
-      "content": "网管验收后10个单子，我先copy到excel里。",
+      "content": "网管验收10个",
       "createdAt": "2026-09-11T01:01:43.289Z",
-      "updatedAt": "2026-09-11T01:01:48.743Z",
+      "updatedAt": "2026-09-11T01:13:14.520Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3558,6 +3558,21 @@
       "content": "给天河和越秀发清单",
       "createdAt": "2026-09-11T01:02:37.296Z",
       "updatedAt": "2026-09-11T01:02:37.296Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtw9i9aym8ylm",
+      "type": "task",
+      "content": "完了，有两个是DCIBOX的验收，那意味着要登录了。",
+      "createdAt": "2026-09-11T01:13:03.898Z",
+      "updatedAt": "2026-09-11T01:13:03.898Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -7331,6 +7346,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-11T00:54:41.728Z"
+    "lastSync": "2026-09-11T01:03:11.329Z"
   }
 }
