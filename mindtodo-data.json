@@ -3675,9 +3675,9 @@
     {
       "id": "mtwrvdrnu85lw",
       "type": "task",
-      "content": "互联互通的两台设备",
+      "content": "互联互通的两台设备：让数据张工查下接入号相应交换机。如果没有信息的话，拆掉也没关系，毕竟会立马报障的。",
       "createdAt": "2026-09-11T09:47:09.299Z",
-      "updatedAt": "2026-09-11T09:47:09.299Z",
+      "updatedAt": "2026-09-11T09:56:27.010Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -7436,6 +7436,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-11T09:36:44.502Z"
+    "lastSync": "2026-09-11T09:48:48.994Z"
   }
 }
