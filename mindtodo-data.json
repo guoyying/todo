@@ -3671,6 +3671,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789088463577"
+    },
+    {
+      "id": "mtzj6xqvckbnm",
+      "type": "task",
+      "content": "旧电脑处理下",
+      "createdAt": "2026-09-13T08:07:30.391Z",
+      "updatedAt": "2026-09-13T08:07:30.391Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789088463577"
     }
   ],
   "taskLists": [
@@ -7436,6 +7451,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-11T09:48:48.994Z"
+    "lastSync": "2026-09-13T08:07:11.952Z"
   }
 }
