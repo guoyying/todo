@@ -3041,12 +3041,12 @@
       "type": "task",
       "content": "低效： PDC31343354G，HDC11303541G、HDC11303512G。较场西1-GZHC155-HB02（广州数据中心三楼）仔细核查下其他两条业务； 我不知道这种情况该如何处理：网管上有这条业务，但资源设备没绑定，又说现场已拆除设备了\nPDC31343354G：资源没有绑定业务，但未退网。网管在较场西网元上。对端有还有收光。\nHDC11303541G：\nHDC11303512G：\n0904：我的问题是不会判断这种情况在不在用？有什么方法可以推动退网。这种要么过段时间再看，要么就专门一个时间处理。是比较难的又没那么重要的。",
       "createdAt": "2026-09-04T01:02:22.840Z",
-      "updatedAt": "2026-09-06T03:44:11.737Z",
+      "updatedAt": "2026-09-14T07:01:04.384Z",
       "tags": [
         "退网"
       ],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-14T07:01:04.384Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3555,9 +3555,9 @@
     {
       "id": "mtwaq2bdm9j7y",
       "type": "task",
-      "content": "新港-GZHC335看下流量",
+      "content": "新港-GZHC335等待有无告警报障",
       "createdAt": "2026-09-11T01:47:07.705Z",
-      "updatedAt": "2026-09-14T03:01:32.603Z",
+      "updatedAt": "2026-09-14T07:01:54.544Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3565,7 +3565,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789354881629"
+      "listId": "list_1789088463577"
     },
     {
       "id": "mtwej052ri30s",
@@ -3828,6 +3828,21 @@
       "content": "思考下退网和低效咋弄？",
       "createdAt": "2026-09-14T03:02:07.576Z",
       "updatedAt": "2026-09-14T03:02:07.576Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789354881629"
+    },
+    {
+      "id": "mu0uxoqg7v973",
+      "type": "task",
+      "content": "看下越秀那几个网元的接入号啥情况",
+      "createdAt": "2026-09-14T06:24:00.376Z",
+      "updatedAt": "2026-09-14T06:24:00.376Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6125,7 +6140,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-09-07T07:07:33.343Z"
+            "confirmationTime": "2026-09-14T07:01:01.965Z"
           }
         ]
       },
@@ -6133,7 +6148,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-09-07T07:00:59.572Z"
+        "0": "2026-09-14T07:01:00.026Z"
       }
     },
     {
@@ -6148,21 +6163,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-31T01:40:29.102Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mtp9rmnljla3r",
-      "taskId": "mtm91jzsy7ozl",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-14T11:45"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-06T03:45:57.873Z",
       "lastReminderTime": null,
       "active": true
     },
@@ -7608,6 +7608,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-14T03:02:16.416Z"
+    "lastSync": "2026-09-14T03:44:54.463Z"
   }
 }
