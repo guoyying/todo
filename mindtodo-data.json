@@ -3797,10 +3797,10 @@
       "type": "task",
       "content": "想把上午看法律的知识点记录下来，形成可视化了才能作迁移",
       "createdAt": "2026-09-14T01:30:56.947Z",
-      "updatedAt": "2026-09-14T03:01:49.953Z",
+      "updatedAt": "2026-09-14T03:37:30.028Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-14T03:37:30.028Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -7608,6 +7608,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-13T08:07:11.952Z"
+    "lastSync": "2026-09-14T03:02:16.416Z"
   }
 }
