@@ -3523,21 +3523,6 @@
       "listId": "list_1789022371136"
     },
     {
-      "id": "mtw93o55tnq8x",
-      "type": "task",
-      "content": "网管验收10个",
-      "createdAt": "2026-09-11T01:01:43.289Z",
-      "updatedAt": "2026-09-11T09:35:44.455Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-11T09:35:44.455Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
       "id": "mtw9zwkwcvelm",
       "type": "task",
       "content": "3431-仙村，有个6板SLQ光接入网络的。想知道下联设备的组网形式是咋样的。如何帮助县分迁转",
@@ -3576,21 +3561,6 @@
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtwl0s4ily2ej",
-      "type": "task",
-      "content": "我不知道dcibox要看什么东西，没有标注纤缆名称和端口端子喔。",
-      "createdAt": "2026-09-11T06:35:23.874Z",
-      "updatedAt": "2026-09-11T07:24:41.984Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-11T07:24:41.984Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3675,21 +3645,6 @@
       "listId": "list_1789433893790"
     },
     {
-      "id": "mu0isze3afm5z",
-      "type": "task",
-      "content": "发送虚拟网元的邮件",
-      "createdAt": "2026-09-14T00:44:25.515Z",
-      "updatedAt": "2026-09-14T02:29:54.836Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T02:29:54.836Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
       "id": "mu0j5pcjhh1sz",
       "type": "task",
       "content": "网安：主机扫描的事儿",
@@ -3703,36 +3658,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0jee8yhzqdn",
-      "type": "task",
-      "content": "把白云和南沙的看了吧，或者，然后添加到周报里头。",
-      "createdAt": "2026-09-14T01:01:04.546Z",
-      "updatedAt": "2026-09-14T01:50:58.065Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T01:50:58.065Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mu0k2pc3dlyx3",
-      "type": "task",
-      "content": "想问下体检中心有没有正儿八经的体检报告啊",
-      "createdAt": "2026-09-14T01:19:58.659Z",
-      "updatedAt": "2026-09-14T02:30:00.518Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T02:30:00.518Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
     },
     {
       "id": "mu0kd08jdjrh2",
@@ -3758,36 +3683,6 @@
       "tags": [],
       "done": true,
       "doneAt": "2026-09-14T03:37:30.028Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0mladkkmyjl",
-      "type": "task",
-      "content": "验收群里那十几个单子",
-      "createdAt": "2026-09-14T02:30:24.968Z",
-      "updatedAt": "2026-09-15T03:34:06.873Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T03:34:06.873Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu0nq2fss6nfq",
-      "type": "task",
-      "content": "思考下退网和低效咋弄？",
-      "createdAt": "2026-09-14T03:02:07.576Z",
-      "updatedAt": "2026-09-14T08:54:01.133Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T08:54:01.133Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3870,21 +3765,6 @@
       "listId": "list_1789354881629"
     },
     {
-      "id": "mu12mnp3nw7ue",
-      "type": "task",
-      "content": "退网还是要提醒县分推进计划退网的流程",
-      "createdAt": "2026-09-14T09:59:22.743Z",
-      "updatedAt": "2026-09-15T00:50:09.234Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
       "id": "mu1yrw4rvqyyk",
       "type": "task",
       "content": "看下退网清单中有多少是SDH在低效清单里的。",
@@ -3893,21 +3773,6 @@
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu1ys1xo1g9l3",
-      "type": "task",
-      "content": "提醒计划退网、已用的。",
-      "createdAt": "2026-09-15T00:59:22.188Z",
-      "updatedAt": "2026-09-15T02:17:47.786Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T02:17:47.786Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3953,36 +3818,6 @@
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu226a86t4hpy",
-      "type": "task",
-      "content": "我挑一个对端网元看，有无这条光编号",
-      "createdAt": "2026-09-15T02:34:24.966Z",
-      "updatedAt": "2026-09-15T02:42:54.307Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T02:42:54.307Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu2276sn5v5rb",
-      "type": "task",
-      "content": "第一张单子改名字啊。",
-      "createdAt": "2026-09-15T02:35:07.175Z",
-      "updatedAt": "2026-09-15T02:51:22.480Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T02:51:22.480Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -4064,7 +3899,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789088463577",
+  "currentListId": "list_1789433893790",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7752,6 +7587,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-15T03:29:28.693Z"
+    "lastSync": "2026-09-15T03:45:45.254Z"
   }
 }
