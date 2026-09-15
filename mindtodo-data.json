@@ -3557,10 +3557,10 @@
       "type": "task",
       "content": "新港-GZHC335等待有无告警报障",
       "createdAt": "2026-09-11T01:47:07.705Z",
-      "updatedAt": "2026-09-15T00:49:59.108Z",
+      "updatedAt": "2026-09-15T03:36:15.089Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-15T03:36:15.089Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3600,45 +3600,17 @@
     {
       "id": "mtwlog9mxmv6a",
       "type": "task",
-      "content": "天河两个移动和联通的，不知道怎么处理。",
+      "content": "互联互通网元要看局内业务，是否割接了、相应交换机是否有信息。一般断测有故障会立马有故障单的。",
       "createdAt": "2026-09-11T06:53:48.250Z",
-      "updatedAt": "2026-09-11T08:18:05.050Z",
-      "tags": [],
+      "updatedAt": "2026-09-15T03:45:38.383Z",
+      "tags": [
+        "退网"
+      ],
       "done": true,
       "doneAt": "2026-09-11T08:18:05.050Z",
       "dueTime": "",
       "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtwmscjodjdr2",
-      "type": "task",
-      "content": "两张dcibox退单",
-      "createdAt": "2026-09-11T07:24:49.668Z",
-      "updatedAt": "2026-09-11T09:04:42.445Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-11T09:04:42.445Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtwmsj3qyw8kz",
-      "type": "task",
-      "content": "响应虚拟网元方案修改",
-      "createdAt": "2026-09-11T07:24:58.166Z",
-      "updatedAt": "2026-09-11T07:29:35.423Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-11T07:29:35.423Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
+      "isList": false,
       "subtasks": [],
       "listId": "list_1789088463577"
     },
@@ -3797,10 +3769,10 @@
       "type": "task",
       "content": "验收群里那十几个单子",
       "createdAt": "2026-09-14T02:30:24.968Z",
-      "updatedAt": "2026-09-15T00:58:23.344Z",
+      "updatedAt": "2026-09-15T03:34:06.873Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-15T03:34:06.873Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -4092,7 +4064,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789433893790",
+  "currentListId": "list_1789088463577",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7780,6 +7752,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-14T07:02:14.013Z"
+    "lastSync": "2026-09-15T03:29:28.693Z"
   }
 }
