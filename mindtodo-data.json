@@ -3733,6 +3733,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789433893790"
+    },
+    {
+      "id": "mu3itykie5rwy",
+      "type": "task",
+      "content": "较场西2-GZHC019、广东省公安厅出入境管理局(东风东路)-GZHC584-HA27L多有告警，可以优先去激活",
+      "createdAt": "2026-09-16T03:08:29.634Z",
+      "updatedAt": "2026-09-16T03:09:13.416Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789433893790"
+    },
+    {
+      "id": "mu3jeucjkwea2",
+      "type": "task",
+      "content": "跟天河说：FRPORT4157833查下这个还有无收费？如果有收费，就转o。没收费就拆机了。关联278-勤建大厦-GZHC220-HA03L、中国银行中海观园支行HC220-HA05（离线，资源有1高值）",
+      "createdAt": "2026-09-16T03:24:43.939Z",
+      "updatedAt": "2026-09-16T03:25:02.418Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789433893790"
     }
   ],
   "taskLists": [
@@ -3794,7 +3824,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788828295706",
+  "currentListId": "list_1789433893790",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6056,21 +6086,6 @@
       "active": true
     },
     {
-      "id": "mttjl7uqt5523",
-      "taskId": "mswiznlrffxrw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-16T11:31"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-09T03:31:59.618Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
       "id": "mttjoo58qg4wr",
       "taskId": "ms4lzbte764h5",
       "type": "time",
@@ -7497,6 +7512,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-16T00:47:10.783Z"
+    "lastSync": "2026-09-16T02:24:28.718Z"
   }
 }
