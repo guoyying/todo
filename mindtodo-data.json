@@ -3649,7 +3649,7 @@
       "type": "task",
       "content": "3375-龙潭收费站C网基站-CHHC212-HA05L看看端口，就一条业务了。",
       "createdAt": "2026-09-18T03:44:04.435Z",
-      "updatedAt": "2026-09-20T01:40:44.206Z",
+      "updatedAt": "2026-09-20T06:47:48.810Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3657,14 +3657,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789606194867"
+      "listId": "list_1789886832410"
     },
     {
       "id": "mu6pzvzhpnmo1",
       "type": "task",
       "content": "整理下吧，团员请假的情况。",
       "createdAt": "2026-09-18T08:52:22.061Z",
-      "updatedAt": "2026-09-20T01:40:45.390Z",
+      "updatedAt": "2026-09-20T06:47:43.035Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3672,7 +3672,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789606194867"
+      "listId": "list_1789886832410"
     },
     {
       "id": "mu6s5qi3g0eg3",
@@ -3709,10 +3709,10 @@
       "type": "task",
       "content": "退网进度通报",
       "createdAt": "2026-09-20T01:56:26.178Z",
-      "updatedAt": "2026-09-20T01:56:26.178Z",
+      "updatedAt": "2026-09-20T06:47:34.836Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-20T06:47:34.836Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3737,9 +3737,9 @@
     {
       "id": "mu97z6rnbzld5",
       "type": "task",
-      "content": "等待较场西IDC的业务反馈，确定是否能退网。",
+      "content": "等待较场西IDC的业务反馈，确定是否能退网。\n备注花地013的",
       "createdAt": "2026-09-20T02:51:14.819Z",
-      "updatedAt": "2026-09-20T02:51:14.819Z",
+      "updatedAt": "2026-09-20T06:49:25.931Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3747,7 +3747,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789606194867"
+      "listId": "list_1789886832410"
     },
     {
       "id": "mu985n51fxy4l",
@@ -3763,6 +3763,51 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789606194867"
+    },
+    {
+      "id": "mu9fsfoiwgmu1",
+      "type": "task",
+      "content": "准备党会的发言。",
+      "createdAt": "2026-09-20T06:29:56.706Z",
+      "updatedAt": "2026-09-20T06:47:23.918Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
+    },
+    {
+      "id": "mu9gfkpuhz68r",
+      "type": "task",
+      "content": "验收单处理",
+      "createdAt": "2026-09-20T06:47:56.322Z",
+      "updatedAt": "2026-09-20T06:47:56.322Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
+    },
+    {
+      "id": "mu9ghq1whsfif",
+      "type": "task",
+      "content": "推进下什么退网和低效的工作",
+      "createdAt": "2026-09-20T06:49:36.548Z",
+      "updatedAt": "2026-09-20T06:49:36.548Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
     }
   ],
   "taskLists": [
@@ -3829,9 +3874,16 @@
       "description": "",
       "createdAt": "2026-09-17T00:49:54.867Z",
       "isDefault": false
+    },
+    {
+      "id": "list_1789886832410",
+      "name": "0920",
+      "description": "",
+      "createdAt": "2026-09-20T06:47:12.410Z",
+      "isDefault": false
     }
   ],
-  "currentListId": "list_1789606194867",
+  "currentListId": "list_1789886832410",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7534,6 +7586,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-20T03:53:18.313Z"
+    "lastSync": "2026-09-20T05:08:40.684Z"
   }
 }
