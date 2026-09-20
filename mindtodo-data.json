@@ -3349,10 +3349,10 @@
       "type": "task",
       "content": "网安：主机扫描的事儿",
       "createdAt": "2026-09-14T00:54:19.027Z",
-      "updatedAt": "2026-09-20T01:40:26.691Z",
+      "updatedAt": "2026-09-20T09:15:52.422Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-20T09:15:52.422Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3480,21 +3480,6 @@
       "listId": "list_1789433893790"
     },
     {
-      "id": "mu3dzrx9uuph7",
-      "type": "task",
-      "content": "“有关联资产卡片号14656334绑定为支路盘，其机框资产无法通过换绑的办法重绑，现场无实物已报警”，我不知道这个想表达什么，为什么不能退，因为资产绑定的问题。因为怕之后不合规，所以先不退。\n神岗格塘C网基站-SGGTWC001/A01",
-      "createdAt": "2026-09-16T00:53:02.877Z",
-      "updatedAt": "2026-09-20T02:32:41.171Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T02:32:41.171Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
       "id": "mu3fvavyvx8m9",
       "type": "task",
       "content": "番禺说DDF架跳线没人会做了，以前的都退休了。那得有所行动啊，他们不能说没人会做，就不做这件事。我们帮忙是一方面，另一方面他们能不能协调其他会做的县分去学呢？",
@@ -3589,10 +3574,10 @@
       "type": "task",
       "content": "跟总监说国庆前一天休假",
       "createdAt": "2026-09-16T09:31:32.431Z",
-      "updatedAt": "2026-09-20T09:11:03.961Z",
+      "updatedAt": "2026-09-20T09:16:01.417Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-20T09:16:01.417Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3784,10 +3769,10 @@
       "type": "task",
       "content": "验收单处理",
       "createdAt": "2026-09-20T06:47:56.322Z",
-      "updatedAt": "2026-09-20T06:47:56.322Z",
+      "updatedAt": "2026-09-20T09:16:03.507Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-20T09:16:03.507Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3883,6 +3868,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789886832410"
+    },
+    {
+      "id": "mu9lqcw03s5ak",
+      "type": "task",
+      "content": "问下华姐：哪里看的ODUflex啊？不用做线复。",
+      "createdAt": "2026-09-20T09:16:17.472Z",
+      "updatedAt": "2026-09-20T09:16:17.472Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
+    },
+    {
+      "id": "mu9m12q25gear",
+      "type": "task",
+      "content": "上休假单",
+      "createdAt": "2026-09-20T09:24:37.514Z",
+      "updatedAt": "2026-09-20T09:24:37.514Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
     }
   ],
   "taskLists": [
@@ -3959,7 +3974,7 @@
       "updatedAt": "2026-09-20T09:11:13.930Z"
     }
   ],
-  "currentListId": "list_1789433893790",
+  "currentListId": "list_1789886832410",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7662,6 +7677,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-20T06:49:54.667Z"
+    "lastSync": "2026-09-20T09:11:28.671Z"
   }
 }
