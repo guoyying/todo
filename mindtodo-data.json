@@ -598,7 +598,7 @@
       "organizedAt": "2026-07-09T10:21:15.138Z",
       "createdAt": "2026-06-15T01:19:36.003Z",
       "updatedAt": "2026-07-09T10:21:15.138Z",
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "organization": {
         "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n【行动】建立问题共享表，方便同步问题状态和解决进度；新建工程验收，配合RPA测试\n【成效】清晰展现问题解决流程，避免聊天工具消息轰炸，关键信息难从聊天记录找",
         "goalWeeks": "",
@@ -633,7 +633,7 @@
       "organizedAt": "2026-07-09T10:22:12.516Z",
       "createdAt": "2026-05-26T01:44:46.898Z",
       "updatedAt": "2026-07-09T10:22:12.516Z",
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "organization": {
         "goal": "参加二阶段all in ai评审",
         "goalWeeks": "[{\"content\":\"参加二阶段all in ai评审\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
@@ -768,7 +768,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-07-31T02:46:33.915Z"
     },
     {
@@ -818,7 +818,7 @@
       "organizedAt": "2026-07-27T00:04:12.435Z",
       "createdAt": "2026-07-23T09:36:35.135Z",
       "updatedAt": "2026-07-27T00:04:12.435Z",
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "organization": {
         "goal": "260622-0626【行动】关注中山四、七星岗等机楼设备业务情况。【成果】尚无很多设备可退\n跟进处理省公司下发长途无业务清单（206个设备）；\n【行动】梳理零业务网元：周一/白云1、天河9，共10；\n【行动与交付品】完成约550个低效传输设备的业务信息整理与处理建议输出\n梳理可退清单17个\n引入数字化手段开发工具，覆盖设备核查、退网进度记录。实现退网全流程可追踪、可管控，有效提升流程规范性、数据准确率和协同效率\n【crm进度】## 🛠️ CRM核查 ### “时间轴” - **动作**：不要从零规划。先问自己：“我最希望CRM在**哪一天**能跑通某个功能（比如录入第一个客户）？” 然后从那天**倒推**：  | 时间节点 | 目标 | |:----:|:----:| | 7.15 | 完成核查 |  处理建议： > 1. 已退网->不用处理； > 2. 在用，已转虚拟网元或资源退网->不用处理； > 3. 在用，挂设备->核查设备现场情况（关电/在用/拆除），对于关电/拆除情况，下一步迁转到虚拟网元\n本周整理可退网设备xx个，并联系县分及时上单\n三码工单处理",
         "goalWeeks": "[{\"content\":\"260622-0626【行动】关注中山四、七星岗等机楼设备业务情况。【成果】尚无很多设备可退\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"跟进处理省公司下发长途无业务清单（206个设备）；\",\"week\":{\"start\":\"2026-06-14T16:00:00.000Z\",\"end\":\"2026-06-20T16:00:00.000Z\",\"label\":\"2026/6/15 - 4天前\"}},{\"content\":\"【行动】梳理零业务网元：周一/白云1、天河9，共10；\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"15小时前 - 刚刚\"}},{\"content\":\"【行动与交付品】完成约550个低效传输设备的业务信息整理与处理建议输出\",\"week\":{\"start\":\"2026-05-31T16:00:00.000Z\",\"end\":\"2026-06-06T16:00:00.000Z\",\"label\":\"2026/6/1 - 2026/6/7\"}},{\"content\":\"梳理可退清单17个\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"本周整理可退网设备xx个，并联系县分及时上单\\n三码工单处理\",\"week\":{\"start\":\"2026-07-26T16:00:00.000Z\",\"end\":\"2026-08-01T16:00:00.000Z\",\"label\":\"8小时前 - 刚刚\"}}]",
@@ -853,7 +853,7 @@
       "organizedAt": "2026-07-27T00:07:16.833Z",
       "createdAt": "2026-07-23T23:56:24.200Z",
       "updatedAt": "2026-07-27T00:07:16.833Z",
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "organization": {
         "goal": "过单、邮件通知施工方实施17张拆运单\n【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\n拆运一体邮件通知施工实施单20个",
         "goalWeeks": "[{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2天前 - 刚刚\"}},{\"content\":\"拆运一体邮件通知施工实施单20个\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2026/7/20 - 1天前\"}}]",
@@ -889,7 +889,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms31j184k468n",
@@ -956,7 +956,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-07-28T02:12:47.469Z"
     },
     {
@@ -1009,7 +1009,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms41zu6i76dxm",
@@ -1094,7 +1094,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4bel0o5rv23",
@@ -1126,7 +1126,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4bwsn3kj2rh",
@@ -1143,7 +1143,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4c4fwdgc67a",
@@ -1160,7 +1160,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4eqd2nrn7gd",
@@ -1177,7 +1177,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4ex0j0597y5",
@@ -1211,7 +1211,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4jf4ebmybb4",
@@ -1279,7 +1279,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms4m8k5asdedg",
@@ -1313,7 +1313,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms5fwoijogbr5",
@@ -1330,7 +1330,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms5jphph3mm7w",
@@ -1347,7 +1347,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms5q6kpc8ta78",
@@ -1364,7 +1364,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms5qmino7w03r",
@@ -1381,7 +1381,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms6ubw2wdqqru",
@@ -1398,7 +1398,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms6vtukmgpvhy",
@@ -1415,7 +1415,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms6vz8x9r77be",
@@ -1432,7 +1432,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms6zriio2mrhx",
@@ -1450,7 +1450,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms886f5fpxnzm",
@@ -1467,7 +1467,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms8alwmznhw79",
@@ -1484,7 +1484,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms8lmb1bgahub",
@@ -1518,7 +1518,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "ms8nnp3ra876t",
@@ -1552,7 +1552,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mscj9p9gg2l3d",
@@ -1586,7 +1586,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msec0xp7teve3",
@@ -1603,7 +1603,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msfmf15wfgsp9",
@@ -1620,7 +1620,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msfmhw62i2lrq",
@@ -1637,7 +1637,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msfsdcvmh1bwm",
@@ -1654,7 +1654,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msfxeigt6yo4j",
@@ -1670,7 +1670,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-08-06T00:28:09.079Z"
     },
     {
@@ -1688,7 +1688,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msgsntgw4nnu6",
@@ -1706,7 +1706,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msgsoa10fouz4",
@@ -1723,7 +1723,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msgsr2bftc8ju",
@@ -1740,7 +1740,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msgxto1ujaqry",
@@ -1757,7 +1757,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msh7yqlpvqt0b",
@@ -1774,7 +1774,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msil1i4azbe6v",
@@ -1791,7 +1791,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msinwqidbfpnn",
@@ -1808,7 +1808,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msmjagbgl1rjz",
@@ -1825,7 +1825,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msmk1t183kezi",
@@ -1842,7 +1842,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msmk8gs2jyppl",
@@ -1859,7 +1859,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msmu3fsfbsy6x",
@@ -1876,7 +1876,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msnxq7aiv0e3z",
@@ -1893,7 +1893,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msnxqqyir64y3",
@@ -1910,7 +1910,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msnxrqfcm12ox",
@@ -1927,7 +1927,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mso2ekjzx5bnf",
@@ -1944,7 +1944,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mso3r2k4gxsem",
@@ -1961,7 +1961,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msoi57f8isic8",
@@ -1977,7 +1977,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-08-11T23:39:29.427Z"
     },
     {
@@ -1994,7 +1994,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-08-12T06:20:07.137Z"
     },
     {
@@ -2012,7 +2012,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mspmsgw60fzxd",
@@ -2029,7 +2029,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msppnhna0fupf",
@@ -2046,7 +2046,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msppspp46p1qf",
@@ -2063,7 +2063,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msqu3pi8azl9c",
@@ -2081,7 +2081,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msr5dfo3jvk28",
@@ -2098,7 +2098,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mss7wtay1x87m",
@@ -2115,7 +2115,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mssait13v7agz",
@@ -2132,7 +2132,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mssd4ueih5uev",
@@ -2149,7 +2149,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mswiznlrffxrw",
@@ -2166,7 +2166,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mswjlpkdnj8yn",
@@ -2183,7 +2183,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mswkeqe7710xp",
@@ -2200,7 +2200,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mswknn27nj29o",
@@ -2217,7 +2217,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mswudtiptqar2",
@@ -2234,7 +2234,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msww7ptpctgsp",
@@ -2251,7 +2251,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msxwh7mgb05p2",
@@ -2268,7 +2268,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msy1tm0k2ov7e",
@@ -2286,7 +2286,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msy3hiyzfwyc8",
@@ -2303,7 +2303,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msycicq4pcp6b",
@@ -2320,7 +2320,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msyfuy9pax9wd",
@@ -2337,7 +2337,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msyfyrmlf5sg3",
@@ -2354,7 +2354,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "msyi9jzcdaa3t",
@@ -2371,7 +2371,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mszf08mjt9kc4",
@@ -2388,22 +2388,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "msztjbibi440p",
-      "type": "task",
-      "content": "### 用于决策评估的若干问题：\n- 我想达成什么效果？这要花多长时间？能产生什么价值？->我该用多少精力做此事？该怎样规划时间在这个事上？\n**（若依旧迷雾，才继续以下问答）**\n---\n\n- 我期望到【周四下午】，我能对领导说出xxx/我能写出……\n- 我想做什么？\n- 做这个事，达成期望价值的概率有多大？\n- 我闪过什么小行动，可以立即行动不必有较多准备时间的？\n- 如果还未有清晰路径，还处于探索阶段，请你记录下想探索的问题…便于后续发现成长过程\n- 能写进工作周报吗？怎么包装能写进工作周报？能怎么跟领导说？\n- 我担心什么？\n- 我能做的行动是？\n- 如果推进任务期间，我闪过“不知道该怎么……“的念头，随便定下一个行动，追踪效果。\n- 如果不做这个，我怕……\n\n### 用于总结的若干问题\n- 我做了啥？\n- 这个关联什么大目标？\n- 这个行动能写进工作周报吗？如果不能，能写进周报的样子是什么呢？\n- 当前的进展，跟领导汇报可以说些什么？\n- 这个行动对大目标的推进有多少？完成该任务后当前进度从xx% -> xx%？\n- 这个行动的价值是什么？\n- 下一步要做什么？\n- 哪里做的不够好？或者哪里能做的更好？\n- 我探索了什么，xxx从不知道变为知道。->添加到表达知识库话题",
-      "createdAt": "2026-08-19T08:17:21.923Z",
-      "updatedAt": "2026-09-20T01:39:53.199Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt0vxdtv9ieaw",
@@ -2420,7 +2405,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt0wp7utsgc8t",
@@ -2437,7 +2422,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt2obl7xx1aui",
@@ -2455,7 +2440,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt3q73j2mlam6",
@@ -2471,7 +2456,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439",
+      "listId": "list_1788828295706",
       "doneAt": "2026-08-24T01:29:20.666Z"
     },
     {
@@ -2489,7 +2474,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt6ollshlj8ol",
@@ -2506,7 +2491,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt7wax0hn69fu",
@@ -2524,7 +2509,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt7y8rctp0fep",
@@ -2541,7 +2526,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt8gm9grlfeow",
@@ -2558,7 +2543,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt9d8glnahivt",
@@ -2576,7 +2561,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt9dbtat57oz5",
@@ -2593,7 +2578,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt9du37pnk7ie",
@@ -2610,7 +2595,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt9dyvg8h8k2u",
@@ -2626,7 +2611,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mt9vulnlrvejt",
@@ -2643,7 +2628,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtatvswtcjlii",
@@ -2661,7 +2646,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtb8dt98f03ol",
@@ -2679,7 +2664,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtb8l2a3mqb1w",
@@ -2697,7 +2682,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtcmes38bhuyq",
@@ -2715,7 +2700,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtcra67u741wi",
@@ -2732,7 +2717,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtgrhebn9chp9",
@@ -2749,7 +2734,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788483645719"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtgukqeu97nt1",
@@ -2766,7 +2751,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mth27ar9dgds3",
@@ -2783,7 +2768,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mthxrza9g5eqr",
@@ -2800,7 +2785,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mthy1tz4rwp5j",
@@ -2817,7 +2802,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mti00obvr3763",
@@ -2834,22 +2819,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mti0ctebxrarw",
-      "type": "task",
-      "content": "保密培训：\n花几分钟看下。",
-      "createdAt": "2026-09-01T01:48:06.995Z",
-      "updatedAt": "2026-09-15T07:44:24.152Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T07:44:24.152Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788483645719"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mti12uhgjyiqg",
@@ -2867,7 +2837,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mti184lvwdymo",
@@ -2885,7 +2855,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mti4lg4edlsyl",
@@ -2902,7 +2872,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtiaerfnq1hqj",
@@ -2919,7 +2889,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mticd7amx2gat",
@@ -2936,7 +2906,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtievagwhe4m3",
@@ -2953,7 +2923,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtifxpvrmkvgi",
@@ -2970,7 +2940,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtk5zrcy99j6g",
@@ -2985,7 +2955,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtkvf18yyj97o",
@@ -3002,7 +2972,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtl4ybxybj2wq",
@@ -3019,69 +2989,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1786668268439"
-    },
-    {
-      "id": "mtl7n1lk9eaqn",
-      "type": "task",
-      "content": "备注了可以转o的，是可以优先制作方案的。没备注的就是业务太多了不好搞。\n什么时间统一去看？什么时间统一去跟县分说？我看还得花不少时间呢\n-》先最小行动先动起来：先看5个跟县分说，不要我一个人卡住大进度",
-      "createdAt": "2026-09-03T07:35:20.024Z",
-      "updatedAt": "2026-09-20T01:40:06.716Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788483645719"
-    },
-    {
-      "id": "mtm91jzsy7ozl",
-      "type": "task",
-      "content": "低效： PDC31343354G，HDC11303541G、HDC11303512G。较场西1-GZHC155-HB02（广州数据中心三楼）仔细核查下其他两条业务； 我不知道这种情况该如何处理：网管上有这条业务，但资源设备没绑定，又说现场已拆除设备了\nPDC31343354G：长途电路，算力反馈国庆割接，11/12月拆设备\nHDC11303541G：断测了\nHDC11303512G：断测了\n\n广东省公安厅出入境管理局(东风东路)-GZHC584-HA27L：也是差不多的情况。业务资源系统未退网，但是没有绑定业务。",
-      "createdAt": "2026-09-04T01:02:22.840Z",
-      "updatedAt": "2026-09-20T07:32:07.348Z",
-      "tags": [
-        "退网"
-      ],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788483645719"
-    },
-    {
-      "id": "mtmoj7pesf6vj",
-      "type": "task",
-      "content": "我得想个法子让对方多说有用的话，这样我就不必依赖张枝问问题了。",
-      "createdAt": "2026-09-04T08:16:00.962Z",
-      "updatedAt": "2026-09-20T01:40:08.810Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788483645719"
-    },
-    {
-      "id": "mtqm3ag9rbgmp",
-      "type": "task",
-      "content": "老公见亲戚的事儿：",
-      "createdAt": "2026-09-07T02:18:43.497Z",
-      "updatedAt": "2026-09-07T05:16:26.837Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-07T05:16:26.837Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788742639185"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtqmdiqzu3u91",
@@ -3098,7 +3006,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788742639185"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtqp2l3vuq9a0",
@@ -3115,14 +3023,14 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788742639185"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtsgj2gf93nbs",
       "type": "task",
       "content": "0业务还没核查完呢",
       "createdAt": "2026-09-08T09:18:34.287Z",
-      "updatedAt": "2026-09-20T01:40:19.306Z",
+      "updatedAt": "2026-09-21T00:43:46.011Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3131,156 +3039,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1788828295706"
-    },
-    {
-      "id": "mttjuu9y3ybwb",
-      "type": "task",
-      "content": "这周跟小明说去家里吃饭的事儿",
-      "createdAt": "2026-09-09T03:39:28.582Z",
-      "updatedAt": "2026-09-14T00:41:36.006Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T00:41:36.006Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789022371136"
-    },
-    {
-      "id": "mttjyn5n1t3t4",
-      "type": "task",
-      "content": "我想更新下todo，删除‘整理’和‘项目管理’相关内容以及代码。",
-      "createdAt": "2026-09-09T03:42:25.979Z",
-      "updatedAt": "2026-09-20T01:40:20.073Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtuur3fo5p6b0",
-      "type": "task",
-      "content": "看下3431增城的网元",
-      "createdAt": "2026-09-10T01:32:15.780Z",
-      "updatedAt": "2026-09-15T08:20:51.857Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T08:20:51.857Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtuuwq9hwdixq",
-      "type": "task",
-      "content": "从化的131有些以太网业务可以去激活看看：0910看了点，还没看完。",
-      "createdAt": "2026-09-10T01:36:38.645Z",
-      "updatedAt": "2026-09-16T02:23:58.462Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-16T02:23:58.462Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtuz3sk8d3i73",
-      "type": "task",
-      "content": "科韵大厦C网基站-GZHC331-HA34L，退网可能性比较大，要核查流量去激活。\n- 科韵大厦C网基站-GZHC331-HA34L&广州市天河区员村白马岗9号C网基站-GZHC331-HA28L-科韵大厦C网基站-GZHC331-HA34L&1004-跑马场1-GZHC453-VC12-001450270。。这几条路径是核查流量和资源端口空闲，考虑预配置科韵大厦后，去激活业务了。现在还没法去激活。\n\n科韵大厦C网基站-GZHC331-HA34L\n广州市天河区员村白马岗9号C网基站\n跑马场1-GZHD023(ASON)",
-      "createdAt": "2026-09-10T03:34:06.680Z",
-      "updatedAt": "2026-09-17T02:28:57.892Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-17T02:28:57.892Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtv2auolr4o0e",
-      "type": "task",
-      "content": "华工信息-GZHC118网管有条业务：LDC31804874G：尝试去激活，应该是转o没用了。",
-      "createdAt": "2026-09-10T05:03:34.870Z",
-      "updatedAt": "2026-09-14T02:53:10.639Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T02:53:10.639Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtv6nxe8jgve5",
-      "type": "task",
-      "content": "F0114：我不知道OLT作为海心沙下联，能不能拆，还有没有在用\nF00210可以拆了，上联是跑马场；",
-      "createdAt": "2026-09-10T07:05:43.376Z",
-      "updatedAt": "2026-09-10T09:32:34.024Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-10T09:32:34.024Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789022371136"
-    },
-    {
-      "id": "mtvbyidbf75gq",
-      "type": "task",
-      "content": "共享表备注下355-的OLT的进度吧",
-      "createdAt": "2026-09-10T09:33:55.199Z",
-      "updatedAt": "2026-09-20T01:40:22.336Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789022371136"
-    },
-    {
-      "id": "mtw9zwkwcvelm",
-      "type": "task",
-      "content": "3431-仙村：去激活完了，观察中。",
-      "createdAt": "2026-09-11T01:26:47.216Z",
-      "updatedAt": "2026-09-16T09:18:20.714Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-16T09:18:20.714Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtwaq2bdm9j7y",
-      "type": "task",
-      "content": "新港-GZHC335等待有无告警报障",
-      "createdAt": "2026-09-11T01:47:07.705Z",
-      "updatedAt": "2026-09-15T03:36:15.089Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T03:36:15.089Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
     },
     {
       "id": "mtwlog9mxmv6a",
@@ -3297,29 +3055,14 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mtwrvdrnu85lw",
-      "type": "task",
-      "content": "互联互通的两台设备：让数据张工查下接入号相应交换机。如果没有信息的话，拆掉也没关系，毕竟会立马报障的。\n电信大厦3-GZHC030 移动：GZJN_CSGL3615530216、JN_CSGL2096335838\n电信大厦3-GZHC025  联通：JN_CSGL2557010646、JN_CSGL2557010633、JN_CSGL2107274059、JN_CSGL2107273925",
-      "createdAt": "2026-09-11T09:47:09.299Z",
-      "updatedAt": "2026-09-14T08:54:24.569Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T08:54:24.569Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789088463577"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mtzj6xqvckbnm",
       "type": "task",
       "content": "旧电脑处理下",
       "createdAt": "2026-09-13T08:07:30.391Z",
-      "updatedAt": "2026-09-20T01:40:24.607Z",
+      "updatedAt": "2026-09-21T01:17:28.407Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3327,44 +3070,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789088463577"
-    },
-    {
-      "id": "mu0ipy01ocuqn",
-      "type": "task",
-      "content": "跟老妈说下这样说行不行",
-      "createdAt": "2026-09-14T00:42:03.745Z",
-      "updatedAt": "2026-09-15T07:17:22.924Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-15T07:17:22.924Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu0j5pcjhh1sz",
-      "type": "task",
-      "content": "网安：主机扫描的事儿",
-      "createdAt": "2026-09-14T00:54:19.027Z",
-      "updatedAt": "2026-09-20T09:15:52.422Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:15:52.422Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mu0kd08jdjrh2",
       "type": "task",
-      "content": "想把机械键盘拆下来擦一下。",
+      "content": "等拔键器到了之后，我就开始清洁了。",
       "createdAt": "2026-09-14T01:27:59.347Z",
-      "updatedAt": "2026-09-20T01:40:27.298Z",
+      "updatedAt": "2026-09-21T01:31:54.716Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3372,59 +3085,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0kgt9vgu7sc",
-      "type": "task",
-      "content": "想把上午看法律的知识点记录下来，形成可视化了才能作迁移",
-      "createdAt": "2026-09-14T01:30:56.947Z",
-      "updatedAt": "2026-09-14T03:37:30.028Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T03:37:30.028Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0uxoqg7v973",
-      "type": "task",
-      "content": "看下越秀那几个网元的接入号啥情况",
-      "createdAt": "2026-09-14T06:24:00.376Z",
-      "updatedAt": "2026-09-20T01:40:27.952Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0wlwiwf4mub",
-      "type": "task",
-      "content": "问下从化、番禺那几十个的进度到哪里了？",
-      "createdAt": "2026-09-14T07:10:49.832Z",
-      "updatedAt": "2026-09-14T08:53:50.759Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T08:53:50.759Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mu0wm8lrzviev",
       "type": "task",
       "content": "算力还有200多个咋整？要我们管吗？",
       "createdAt": "2026-09-14T07:11:05.487Z",
-      "updatedAt": "2026-09-20T01:40:28.732Z",
+      "updatedAt": "2026-09-21T01:17:34.891Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3432,107 +3100,17 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0wnpw6d6hft",
-      "type": "task",
-      "content": "黄埔的安排测试，有预计完成时间吗？",
-      "createdAt": "2026-09-14T07:12:14.550Z",
-      "updatedAt": "2026-09-14T07:16:36.506Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T07:16:36.506Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
-    },
-    {
-      "id": "mu0wozmvlmy67",
-      "type": "task",
-      "content": "生命周期为在建，无法上退网单。这个也要解决",
-      "createdAt": "2026-09-14T07:13:13.831Z",
-      "updatedAt": "2026-09-14T07:16:38.056Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-14T07:16:38.056Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789354881629"
+      "listId": "list_1788828295706"
     },
     {
       "id": "mu20pso6rbi5t",
       "type": "task",
       "content": "2961-洛溪机楼、江南2-GZHC362、江埔-从化HC004（87）：也是能去激活看看的。\n江埔-从化HC004（87）：这台有数据库告警，已确定JN_FTTXOLT2067502779%无流量且退网了。",
       "createdAt": "2026-09-15T01:53:36.102Z",
-      "updatedAt": "2026-09-20T01:40:33.295Z",
+      "updatedAt": "2026-09-21T00:43:28.292Z",
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu3fvavyvx8m9",
-      "type": "task",
-      "content": "番禺说DDF架跳线没人会做了，以前的都退休了。那得有所行动啊，他们不能说没人会做，就不做这件事。我们帮忙是一方面，另一方面他们能不能协调其他会做的县分去学呢？",
-      "createdAt": "2026-09-16T01:45:33.406Z",
-      "updatedAt": "2026-09-16T08:49:20.815Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-16T08:49:20.815Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu3fyzl48ivyo",
-      "type": "task",
-      "content": "问泳哥有没有2M仪表测试的指引？或者问天河县分。跳线的指引呢？",
-      "createdAt": "2026-09-16T01:48:25.384Z",
-      "updatedAt": "2026-09-16T08:49:16.966Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-16T08:49:16.966Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu3itykie5rwy",
-      "type": "task",
-      "content": "较场西2-GZHC019、广东省公安厅出入境管理局(东风东路)-GZHC584-HA27L多有告警，可以优先去激活",
-      "createdAt": "2026-09-16T03:08:29.634Z",
-      "updatedAt": "2026-09-17T02:12:28.813Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-17T02:12:28.813Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu3jeucjkwea2",
-      "type": "task",
-      "content": "跟天河说：FRPORT4157833查下这个还有无收费？如果有收费，就转o。没收费就拆机了。关联278-勤建大厦-GZHC220-HA03L、中国银行中海观园支行HC220-HA05（离线，资源有1高值）",
-      "createdAt": "2026-09-16T03:24:43.939Z",
-      "updatedAt": "2026-09-18T02:05:48.769Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-18T02:05:48.769Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3544,7 +3122,7 @@
       "type": "task",
       "content": "看下蜜罐的事儿，我做完了没。",
       "createdAt": "2026-09-16T06:11:00.511Z",
-      "updatedAt": "2026-09-20T01:40:35.204Z",
+      "updatedAt": "2026-09-21T00:43:26.510Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3559,7 +3137,7 @@
       "type": "task",
       "content": "做主口，会影响这台3324吗？\n3324是支行的。为什么从化说市公司统一做主口，没等到，就改挂了？难道做主口的话，就从口就不用改挂吗？",
       "createdAt": "2026-09-16T07:59:01.917Z",
-      "updatedAt": "2026-09-20T01:40:35.881Z",
+      "updatedAt": "2026-09-21T00:43:25.776Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3570,56 +3148,11 @@
       "listId": "list_1789433893790"
     },
     {
-      "id": "mu3wik7i1mo22",
-      "type": "task",
-      "content": "跟总监说国庆前一天休假",
-      "createdAt": "2026-09-16T09:31:32.431Z",
-      "updatedAt": "2026-09-20T09:16:01.417Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:16:01.417Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu3xvthk4vtzm",
-      "type": "task",
-      "content": "a端和z端都要看，张提到了用户端pdh-局端PDH的以太网连接方式。说这种能转O。",
-      "createdAt": "2026-09-16T10:09:50.600Z",
-      "updatedAt": "2026-09-20T09:10:58.420Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:10:58.420Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu6bvrhl0id9x",
-      "type": "task",
-      "content": "省实业夏茅-GZHC092-HB02看能不能转o了？只有一条高值业务了，而且通往较场西的。",
-      "createdAt": "2026-09-18T02:17:14.985Z",
-      "updatedAt": "2026-09-20T05:08:24.964Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T05:08:24.964Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789606194867"
-    },
-    {
       "id": "mu6cq02a1ykjb",
       "type": "task",
-      "content": "新市-GZHC340去激活也能做了",
+      "content": "新市-GZHC340去激活也能做了，这个业务好多，得慢慢来做。",
       "createdAt": "2026-09-18T02:40:45.778Z",
-      "updatedAt": "2026-09-20T01:40:43.404Z",
+      "updatedAt": "2026-09-21T01:42:54.995Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3634,7 +3167,7 @@
       "type": "task",
       "content": "3375-龙潭收费站C网基站-CHHC212-HA05L看看端口，就一条业务了。",
       "createdAt": "2026-09-18T03:44:04.435Z",
-      "updatedAt": "2026-09-20T06:47:48.810Z",
+      "updatedAt": "2026-09-21T00:43:12.236Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3649,7 +3182,7 @@
       "type": "task",
       "content": "整理下吧，团员请假的情况。",
       "createdAt": "2026-09-18T08:52:22.061Z",
-      "updatedAt": "2026-09-20T06:47:43.035Z",
+      "updatedAt": "2026-09-21T00:43:12.950Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3664,7 +3197,7 @@
       "type": "task",
       "content": "准备调度员培训会议",
       "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-09-20T01:40:46.123Z",
+      "updatedAt": "2026-09-21T00:43:21.198Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3679,7 +3212,7 @@
       "type": "task",
       "content": "ip地址稽核的事儿",
       "createdAt": "2026-09-18T09:53:02.109Z",
-      "updatedAt": "2026-09-20T01:40:46.776Z",
+      "updatedAt": "2026-09-21T00:43:20.608Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3690,131 +3223,11 @@
       "listId": "list_1789606194867"
     },
     {
-      "id": "mu960p8icxh35",
-      "type": "task",
-      "content": "退网进度通报",
-      "createdAt": "2026-09-20T01:56:26.178Z",
-      "updatedAt": "2026-09-20T06:47:34.836Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T06:47:34.836Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789606194867"
-    },
-    {
-      "id": "mu97b9uqi77do",
-      "type": "task",
-      "content": "准备周一党会发言材料。",
-      "createdAt": "2026-09-20T02:32:39.074Z",
-      "updatedAt": "2026-09-20T09:10:38.162Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:10:38.162Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789433893790"
-    },
-    {
-      "id": "mu97z6rnbzld5",
-      "type": "task",
-      "content": "等待较场西IDC的业务反馈，确定是否能退网。\n备注花地013的\n备注122-小杉",
-      "createdAt": "2026-09-20T02:51:14.819Z",
-      "updatedAt": "2026-09-20T07:41:00.959Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T07:41:00.959Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu985n51fxy4l",
-      "type": "task",
-      "content": "等待广园西1-GZHC019的DTR2064995509能不能割接，2M的。",
-      "createdAt": "2026-09-20T02:56:15.973Z",
-      "updatedAt": "2026-09-20T03:06:55.296Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T03:06:55.296Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789606194867"
-    },
-    {
-      "id": "mu9fsfoiwgmu1",
-      "type": "task",
-      "content": "准备党会的发言。",
-      "createdAt": "2026-09-20T06:29:56.706Z",
-      "updatedAt": "2026-09-20T07:41:02.208Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T07:41:02.208Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu9gfkpuhz68r",
-      "type": "task",
-      "content": "验收单处理",
-      "createdAt": "2026-09-20T06:47:56.322Z",
-      "updatedAt": "2026-09-20T09:16:03.507Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:16:03.507Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu9ghq1whsfif",
-      "type": "task",
-      "content": "推进下什么退网和低效的工作",
-      "createdAt": "2026-09-20T06:49:36.548Z",
-      "updatedAt": "2026-09-20T09:10:26.658Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:10:26.658Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu9gx48k3t5em",
-      "type": "task",
-      "content": "oa待办处理、待阅处理",
-      "createdAt": "2026-09-20T07:01:34.772Z",
-      "updatedAt": "2026-09-20T09:10:28.196Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-09-20T09:10:28.196Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
       "id": "mu9jappb0tu69",
       "type": "task",
       "content": "花都LDC22464374G说用户机房+SDH/链接入，是怎样组网？\n用户机房+PDH接入，转O的方案是什么？",
       "createdAt": "2026-09-20T08:08:08.351Z",
-      "updatedAt": "2026-09-20T08:09:35.143Z",
+      "updatedAt": "2026-09-21T00:43:13.888Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3829,7 +3242,7 @@
       "type": "task",
       "content": "结合LDC20062792G，3211-东涌机楼传输机房1来学PDH接入以太网的转O方式。",
       "createdAt": "2026-09-20T08:35:13.032Z",
-      "updatedAt": "2026-09-20T08:35:13.032Z",
+      "updatedAt": "2026-09-21T00:43:14.768Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3844,7 +3257,7 @@
       "type": "task",
       "content": "主要是0业务标记的进度，看下是否有必要刷新本周的进度",
       "createdAt": "2026-09-20T08:46:19.991Z",
-      "updatedAt": "2026-09-20T08:46:19.991Z",
+      "updatedAt": "2026-09-21T00:43:15.350Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3859,22 +3272,7 @@
       "type": "task",
       "content": "盘点转O的清单，扩大可谓空间，这个有推进吗？",
       "createdAt": "2026-09-20T08:46:33.577Z",
-      "updatedAt": "2026-09-20T08:46:33.577Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu9lqcw03s5ak",
-      "type": "task",
-      "content": "问下华姐：哪里看的ODUflex啊？不用做线复。",
-      "createdAt": "2026-09-20T09:16:17.472Z",
-      "updatedAt": "2026-09-20T09:16:17.472Z",
+      "updatedAt": "2026-09-21T00:43:16.038Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3889,7 +3287,22 @@
       "type": "task",
       "content": "上休假单",
       "createdAt": "2026-09-20T09:24:37.514Z",
-      "updatedAt": "2026-09-20T09:24:37.514Z",
+      "updatedAt": "2026-09-21T00:43:17.314Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789886832410"
+    },
+    {
+      "id": "muak9cojx8f9y",
+      "type": "task",
+      "content": "等漏洞扫描完了，报告给noc。\n然后我调整125和223策略，再扫一次看看。",
+      "createdAt": "2026-09-21T01:22:50.611Z",
+      "updatedAt": "2026-09-21T02:44:40.478Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3902,54 +3315,12 @@
   ],
   "taskLists": [
     {
-      "id": "list_1786668268439",
-      "name": "待评估决策",
-      "description": "未评估做不做、该怎么做、什么时间做",
-      "createdAt": "2026-08-14T00:44:28.439Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1788483645719",
-      "name": "仓库0904",
-      "description": "",
-      "createdAt": "2026-09-04T01:00:45.719Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1788742639185",
-      "name": "仓库0907",
-      "description": "",
-      "createdAt": "2026-09-07T00:57:19.185Z",
-      "isDefault": false
-    },
-    {
       "id": "list_1788828295706",
-      "name": "仓库0908",
+      "name": "仓库-9月上旬",
       "description": "",
       "createdAt": "2026-09-08T00:44:55.706Z",
       "isDefault": false,
-      "updatedAt": "2026-09-10T06:39:41.902Z"
-    },
-    {
-      "id": "list_1789022371136",
-      "name": "仓库0910",
-      "description": "",
-      "createdAt": "2026-09-10T06:39:31.136Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1789088463577",
-      "name": "仓库0911",
-      "description": "",
-      "createdAt": "2026-09-11T01:01:03.577Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1789354881629",
-      "name": "仓库0914",
-      "description": "",
-      "createdAt": "2026-09-14T03:01:21.629Z",
-      "isDefault": false
+      "updatedAt": "2026-09-21T01:17:51.649Z"
     },
     {
       "id": "list_1789433893790",
