@@ -3238,21 +3238,6 @@
       "listId": "list_1789886832410"
     },
     {
-      "id": "muak9cojx8f9y",
-      "type": "task",
-      "content": "我调整125和223策略，再扫一次看看。",
-      "createdAt": "2026-09-21T01:22:50.611Z",
-      "updatedAt": "2026-09-21T06:47:41.007Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
       "id": "muav3w39rh6wp",
       "type": "task",
       "content": "有M网管的时候看下3694-从化东城，以及资源上联有无华为设备",
@@ -5535,7 +5520,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-09-14T07:01:01.965Z"
+            "confirmationTime": "2026-09-21T08:52:20.835Z"
           }
         ]
       },
@@ -5543,7 +5528,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-09-14T07:01:00.026Z"
+        "0": "2026-09-21T07:02:00.011Z"
       }
     },
     {
@@ -7003,6 +6988,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-21T06:48:02.716Z"
+    "lastSync": "2026-09-21T06:56:10.161Z"
   }
 }
