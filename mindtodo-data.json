@@ -2792,7 +2792,7 @@
       "type": "task",
       "content": "想添置些短款衣服专门搭配粉色裙子\n动机：穿衣服时总是穿过的，而且有的长款扎到粉色半身裙里皮筋都露出来了，不好看。米色裙子也是有皮筋的。\n0902：这个比较散的任务，没有连贯性。不知道该安排在什么时间\n0908：被我老公说过一次棕色不好看之后，就很少买这种衣服了。\n\n### 穿衣风格走向：\n有段时间添置很多带领子的衣服->饱和了，想换些款式（无领）我老公又觉得好看的->尝试过新中式上衣，不错->",
       "createdAt": "2026-09-01T00:43:35.296Z",
-      "updatedAt": "2026-09-15T07:17:48.678Z",
+      "updatedAt": "2026-09-22T07:21:01.817Z",
       "tags": [
         "生活"
       ],
@@ -3183,21 +3183,6 @@
       "content": "结合LDC20062792G，3211-东涌机楼传输机房1来学PDH接入以太网的转O方式。",
       "createdAt": "2026-09-20T08:35:13.032Z",
       "updatedAt": "2026-09-22T01:45:52.898Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1789886832410"
-    },
-    {
-      "id": "mu9kntxzxbp7v",
-      "type": "task",
-      "content": "低效工作：主要是0业务标记的进度，看下是否有必要刷新本周的进度",
-      "createdAt": "2026-09-20T08:46:19.991Z",
-      "updatedAt": "2026-09-22T01:48:12.278Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5543,21 +5528,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-08-31T01:40:29.102Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mu2cdrefvypqi",
-      "taskId": "mthy1tz4rwp5j",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-09-22T15:20"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-15T07:20:09.975Z",
       "lastReminderTime": null,
       "active": true
     },
