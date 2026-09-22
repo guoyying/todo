@@ -3236,6 +3236,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789886832410"
+    },
+    {
+      "id": "muc257og3a8it",
+      "type": "task",
+      "content": "江埔-从化HC004（87）无业务了，但是环内还有其他设备有业务。不知道是补环还是等其他的退网？还没定",
+      "createdAt": "2026-09-22T02:31:16.768Z",
+      "updatedAt": "2026-09-22T02:32:51.695Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1789433893790"
     }
   ],
   "taskLists": [
@@ -6958,6 +6973,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-21T09:42:35.867Z"
+    "lastSync": "2026-09-22T02:30:38.066Z"
   }
 }
