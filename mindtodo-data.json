@@ -3148,10 +3148,10 @@
       "type": "task",
       "content": "更新退网进度到网络简化",
       "createdAt": "2026-09-28T06:40:25.686Z",
-      "updatedAt": "2026-09-29T01:33:25.686Z",
+      "updatedAt": "2026-09-29T03:19:49.541Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-09-29T03:19:49.541Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3202,6 +3202,81 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789886832410"
+    },
+    {
+      "id": "mum1h4a7gqubp",
+      "type": "task",
+      "content": "核查0业务",
+      "createdAt": "2026-09-29T02:10:14.383Z",
+      "updatedAt": "2026-09-29T02:11:03.366Z",
+      "tags": [],
+      "done": true,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1790647796695",
+      "doneAt": "2026-09-29T02:11:03.366Z"
+    },
+    {
+      "id": "mum1h7677su6u",
+      "type": "task",
+      "content": "去激活业务",
+      "createdAt": "2026-09-29T02:10:18.127Z",
+      "updatedAt": "2026-09-29T02:11:03.879Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-29T02:11:03.879Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1790647796695"
+    },
+    {
+      "id": "mum1hqwu82zfv",
+      "type": "task",
+      "content": "通知未认领资产的县分",
+      "createdAt": "2026-09-29T02:10:43.710Z",
+      "updatedAt": "2026-09-29T02:28:36.755Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-09-29T02:28:36.755Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1790647796695"
+    },
+    {
+      "id": "mum1i46ur8f7p",
+      "type": "task",
+      "content": "抓两个县分分析进度，打电话问进度",
+      "createdAt": "2026-09-29T02:11:00.918Z",
+      "updatedAt": "2026-09-29T02:11:00.918Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1790647796695"
+    },
+    {
+      "id": "mum24ys88h1zx",
+      "type": "task",
+      "content": "解决todo里一个问题",
+      "createdAt": "2026-09-29T02:28:47.000Z",
+      "updatedAt": "2026-09-29T02:28:47.000Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1790647796695"
     }
   ],
   "taskLists": [
@@ -3234,6 +3309,13 @@
       "createdAt": "2026-09-20T06:47:12.410Z",
       "isDefault": false,
       "updatedAt": "2026-09-20T09:11:13.930Z"
+    },
+    {
+      "id": "list_1790647796695",
+      "name": "每日动作",
+      "description": "",
+      "createdAt": "2026-09-29T02:09:56.695Z",
+      "isDefault": false
     }
   ],
   "currentListId": "list_1789886832410",
@@ -6894,6 +6976,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-09-24T06:44:25.682Z"
+    "lastSync": "2026-09-29T01:59:54.658Z"
   }
 }
