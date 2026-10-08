@@ -746,14 +746,15 @@
       "type": "task",
       "content": "【三季度大会展示下这些学习材料，拍个照吧】各位团员，根据团中央部署要求，请大家围绕习近平总书记在庆祝中国共产党成立105周年大会上的重要讲话精神，认真开展专题学习。学习资料详见下方链接。",
       "createdAt": "2026-07-24T03:05:20.327Z",
-      "updatedAt": "2026-07-24T07:58:01.632Z",
+      "updatedAt": "2026-10-08T04:46:00.334Z",
       "tags": [],
       "done": false,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1788828295706",
+      "doneAt": null
     },
     {
       "id": "mryds1264c8xk",
@@ -5468,7 +5469,7 @@
             "endTime": "18:00",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-09-21T06:06:46.816Z"
+            "confirmationTime": "2026-10-08T04:45:57.682Z"
           }
         ]
       },
@@ -5476,7 +5477,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-09-28T06:32:55.145Z"
+        "0": "2026-10-08T04:45:56.142Z"
       }
     },
     {
