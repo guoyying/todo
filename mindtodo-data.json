@@ -3088,25 +3088,25 @@
       "type": "task",
       "content": "核查0业务",
       "createdAt": "2026-09-29T02:10:14.383Z",
-      "updatedAt": "2026-09-29T09:37:25.140Z",
+      "updatedAt": "2026-10-08T06:23:06.665Z",
       "tags": [],
-      "done": true,
+      "done": false,
       "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1790647796695",
-      "doneAt": "2026-09-29T09:37:25.140Z"
+      "doneAt": null
     },
     {
       "id": "mum1h7677su6u",
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-09-29T08:11:23.635Z",
+      "updatedAt": "2026-10-08T06:23:07.043Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-09-29T08:11:23.635Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3118,10 +3118,10 @@
       "type": "task",
       "content": "通知未认领资产的县分",
       "createdAt": "2026-09-29T02:10:43.710Z",
-      "updatedAt": "2026-09-29T02:28:36.755Z",
+      "updatedAt": "2026-10-08T06:23:07.403Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-09-29T02:28:36.755Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3133,10 +3133,10 @@
       "type": "task",
       "content": "抓两个县分分析进度，打电话问进度",
       "createdAt": "2026-09-29T02:11:00.918Z",
-      "updatedAt": "2026-09-29T07:27:58.839Z",
+      "updatedAt": "2026-10-08T06:23:07.835Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-09-29T07:27:58.839Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3146,12 +3146,12 @@
     {
       "id": "mum24ys88h1zx",
       "type": "task",
-      "content": "推进todo里一个问题\n- 主口转o（从化的）\n- 用户机房+PDH链形式\n- 3211-东涌转o，后来发现这台设备还有好多条。先不做了。\n- 走一遍转o可为空间盘点",
+      "content": "推进todo里一个问题",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-09-29T09:37:24.497Z",
+      "updatedAt": "2026-10-08T06:23:21.289Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-09-29T09:37:24.497Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3228,7 +3228,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789433893790",
+  "currentListId": "list_1790647796695",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6856,6 +6856,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-08T06:20:55.473Z"
+    "lastSync": "2026-10-08T06:23:15.744Z"
   }
 }
