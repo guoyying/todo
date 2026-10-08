@@ -2363,9 +2363,9 @@
     {
       "id": "mt0vxdtv9ieaw",
       "type": "task",
-      "content": "### 我想更有主体性，第一句话是自己的感受，哪怕闪过对方不开心的反馈\n0820：【昨晚我煎了鸡蛋，老公不吃了。我第一反应不是“哎呀给你煎了又不吃，得明天我吃了”，而是怎么表现不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。\n0826：甄嬛传声音太大了，我纠结了很久还是说出来。我觉得有必要让老公知道。忠于自己，再求共识。【我就看看老公有啥反应】\n0904：倒是不担心自己不会说出来，会说了。现在的问题是怎么说，才能达到自己目的，并且不会越说越委屈而发脾气。\n0913：现在是当下来不及说，过后越想越不对劲。但是已经晚了。\n0917：后悔当时没来得及说，过后会复盘。比如：我老公说‘你这是想要我夸你吗，这不是该做的吗’，换以前我就不吭声憋着了。但我昨晚直接说：对呀对呀，想你夸夸我。我老公就笑着说：好。情绪有了出口。\n0924：对老公雷区，还是不能立马说。或者说做好说完之后，吵架-冷两三天的准备。",
+      "content": "### 我想更有主体性，第一句话是自己的感受，哪怕闪过对方不开心的反馈\n0820：【昨晚我煎了鸡蛋，老公不吃了。我第一反应不是“哎呀给你煎了又不吃，得明天我吃了”，而是怎么表现不让对方有压力…】什么时候我才能把自己的感受作为第一句话说出来啊。\n0826：甄嬛传声音太大了，我纠结了很久还是说出来。我觉得有必要让老公知道。忠于自己，再求共识。【我就看看老公有啥反应】\n0904：倒是不担心自己不会说出来，会说了。现在的问题是怎么说，才能达到自己目的，并且不会越说越委屈而发脾气。\n0913：现在是当下来不及说，过后越想越不对劲。但是已经晚了。\n0917：后悔当时没来得及说，过后会复盘。比如：我老公说‘你这是想要我夸你吗，这不是该做的吗’，换以前我就不吭声憋着了。但我昨晚直接说：对呀对呀，想你夸夸我。我老公就笑着说：好。情绪有了出口。\n0924：对老公雷区，还是不能立马说。或者说做好说完之后，吵架-冷两三天的准备。\n1008：主体性的另一方面是工作上敢于提问、生活上敢于表达感受。但是如果试过表达会引发争吵0924，那就要换种方法。",
       "createdAt": "2026-08-20T02:12:03.523Z",
-      "updatedAt": "2026-09-24T09:30:35.080Z",
+      "updatedAt": "2026-10-08T09:30:48.543Z",
       "tags": [
         "生活"
       ],
@@ -3088,25 +3088,25 @@
       "type": "task",
       "content": "核查0业务",
       "createdAt": "2026-09-29T02:10:14.383Z",
-      "updatedAt": "2026-10-08T06:23:06.665Z",
+      "updatedAt": "2026-10-08T08:57:52.171Z",
       "tags": [],
-      "done": false,
+      "done": true,
       "dueTime": null,
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1790647796695",
-      "doneAt": null
+      "doneAt": "2026-10-08T08:57:52.171Z"
     },
     {
       "id": "mum1h7677su6u",
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-08T06:23:07.043Z",
+      "updatedAt": "2026-10-08T09:54:27.590Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-08T09:54:27.590Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3118,10 +3118,10 @@
       "type": "task",
       "content": "通知未认领资产的县分",
       "createdAt": "2026-09-29T02:10:43.710Z",
-      "updatedAt": "2026-10-08T06:23:07.403Z",
+      "updatedAt": "2026-10-08T09:31:48.215Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-08T09:31:48.215Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3131,9 +3131,9 @@
     {
       "id": "mum1i46ur8f7p",
       "type": "task",
-      "content": "抓两个县分分析进度，打电话问进度",
+      "content": "退网抓两个县分分析进度，打电话问进度",
       "createdAt": "2026-09-29T02:11:00.918Z",
-      "updatedAt": "2026-10-08T06:23:07.835Z",
+      "updatedAt": "2026-10-08T09:31:53.903Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3187,6 +3187,80 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1789886832410"
+    },
+    {
+      "id": "muz9u8lsj2owh",
+      "type": "task",
+      "content": "网安单：互联网暴露面自查",
+      "createdAt": "2026-10-08T08:25:23.728Z",
+      "updatedAt": "2026-10-08T08:25:23.728Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
+    },
+    {
+      "id": "muz9ukj49ayo7",
+      "type": "task",
+      "content": "花都政企端的设备是否有资产？已问钟工---1008",
+      "createdAt": "2026-10-08T08:25:39.184Z",
+      "updatedAt": "2026-10-08T09:56:59.802Z",
+      "tags": [],
+      "done": false,
+      "dueTime": null,
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791453412094",
+      "doneAt": null
+    },
+    {
+      "id": "muzbvdi0ye3hm",
+      "type": "task",
+      "content": "资产未承包，需要丢给其他部门的事情处理下。",
+      "createdAt": "2026-10-08T09:22:15.960Z",
+      "updatedAt": "2026-10-08T09:57:24.412Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
+    },
+    {
+      "id": "muzbvqjl8orkt",
+      "type": "task",
+      "content": "网安单：数据管控",
+      "createdAt": "2026-10-08T09:22:32.865Z",
+      "updatedAt": "2026-10-08T09:22:32.865Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
+    },
+    {
+      "id": "muzcjaoowbsxk",
+      "type": "task",
+      "content": "资产未承包，天河未反馈已联系。---10.8",
+      "createdAt": "2026-10-08T09:40:52.056Z",
+      "updatedAt": "2026-10-08T09:57:17.260Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791453412094"
     }
   ],
   "taskLists": [
@@ -3221,14 +3295,28 @@
       "updatedAt": "2026-09-20T09:11:13.930Z"
     },
     {
+      "id": "list_1791447897347",
+      "name": "仓库1008",
+      "description": "",
+      "createdAt": "2026-10-08T08:24:57.347Z",
+      "isDefault": false
+    },
+    {
       "id": "list_1790647796695",
       "name": "每日动作",
       "description": "",
       "createdAt": "2026-09-29T02:09:56.695Z",
       "isDefault": false
+    },
+    {
+      "id": "list_1791453412094",
+      "name": "每周周五对表",
+      "description": "",
+      "createdAt": "2026-10-08T09:56:52.094Z",
+      "isDefault": false
     }
   ],
-  "currentListId": "list_1790647796695",
+  "currentListId": "list_1789886832410",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5433,7 +5521,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-09-28T08:19:56.032Z"
+            "confirmationTime": "2026-10-08T08:24:41.965Z"
           }
         ]
       },
@@ -5441,7 +5529,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-09-28T07:02:00.024Z"
+        "0": "2026-10-08T07:00:00.030Z"
       }
     },
     {
@@ -5456,21 +5544,6 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-09-24T00:50:11.760Z",
-      "lastReminderTime": null,
-      "active": true
-    },
-    {
-      "id": "mufc0b9r3k61p",
-      "taskId": "mt0vxdtv9ieaw",
-      "type": "time",
-      "triggerConfig": {
-        "triggerTime": "2026-10-08T17:30"
-      },
-      "reminderConfig": {
-        "frequency": "once",
-        "message": "你有1个任务待处理"
-      },
-      "createdAt": "2026-09-24T09:30:42.831Z",
       "lastReminderTime": null,
       "active": true
     },
@@ -5516,6 +5589,21 @@
         "message": "你有1个任务待处理"
       },
       "createdAt": "2026-10-08T06:20:27.549Z",
+      "lastReminderTime": null,
+      "active": true
+    },
+    {
+      "id": "muzc6hj2j2mvz",
+      "taskId": "mt0vxdtv9ieaw",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-10-29T17:30"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-10-08T09:30:54.398Z",
       "lastReminderTime": null,
       "active": true
     }
@@ -6856,6 +6944,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-08T06:23:15.744Z"
+    "lastSync": "2026-10-08T06:23:41.913Z"
   }
 }
