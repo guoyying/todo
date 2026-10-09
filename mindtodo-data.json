@@ -3101,12 +3101,12 @@
     {
       "id": "mum24ys88h1zx",
       "type": "task",
-      "content": "推进todo里一个问题",
+      "content": "推进todo里一个问题\n- 从化的\n- 网管无业务，现场有的（增城）",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-09T00:39:18.463Z",
+      "updatedAt": "2026-10-09T08:10:25.961Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-09T08:10:05.549Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3452,7 +3452,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789886832410",
+  "currentListId": "list_1790647796695",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7050,6 +7050,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T08:07:21.067Z"
+    "lastSync": "2026-10-09T08:10:04.797Z"
   }
 }
