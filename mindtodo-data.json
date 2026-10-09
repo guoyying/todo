@@ -3144,21 +3144,6 @@
       "listId": "list_1789886832410"
     },
     {
-      "id": "muz9u8lsj2owh",
-      "type": "task",
-      "content": "网安单：互联网暴露面自查",
-      "createdAt": "2026-10-08T08:25:23.728Z",
-      "updatedAt": "2026-10-09T02:05:34.559Z",
-      "tags": [],
-      "done": true,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347",
-      "doneAt": "2026-10-09T02:05:34.559Z"
-    },
-    {
       "id": "muz9ukj49ayo7",
       "type": "task",
       "content": "花都政企端的设备是否有资产？已问钟工---1008",
@@ -3172,21 +3157,6 @@
       "subtasks": [],
       "listId": "list_1791453412094",
       "doneAt": null
-    },
-    {
-      "id": "muzbvdi0ye3hm",
-      "type": "task",
-      "content": "资产未承包，需要丢给其他部门的事情处理下。",
-      "createdAt": "2026-10-08T09:22:15.960Z",
-      "updatedAt": "2026-10-09T02:21:43.520Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-09T02:21:43.520Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
     },
     {
       "id": "muzcjaoowbsxk",
@@ -3204,59 +3174,14 @@
       "listId": "list_1791453412094"
     },
     {
-      "id": "mv096u9wa3wjw",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-10-09T00:54:58.244Z",
-      "updatedAt": "2026-10-09T07:04:45.548Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-09T07:04:45.548Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
       "id": "mv09706zgfwbo",
       "type": "task",
-      "content": "过拆运一体单",
+      "content": "过拆运一体单|下一步：把剩余11张单过了",
       "createdAt": "2026-10-09T00:55:05.915Z",
-      "updatedAt": "2026-10-09T00:55:05.915Z",
+      "updatedAt": "2026-10-09T08:13:13.160Z",
       "tags": [],
       "done": false,
       "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
-      "id": "mv09dmot8mo8j",
-      "type": "task",
-      "content": "把例子描写上去。部长",
-      "createdAt": "2026-10-09T01:00:15.005Z",
-      "updatedAt": "2026-10-09T02:29:09.042Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-09T02:29:09.042Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
-      "id": "mv0cao0nfjnoy",
-      "type": "task",
-      "content": "上午填写好资产归属修改的模板",
-      "createdAt": "2026-10-09T02:21:55.607Z",
-      "updatedAt": "2026-10-09T03:52:56.906Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-09T03:52:56.906Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3299,21 +3224,6 @@
       "content": "问下资产认领的事情",
       "createdAt": "2026-10-09T06:06:23.759Z",
       "updatedAt": "2026-10-09T06:06:23.759Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
-      "id": "mv0kn4vrikvp0",
-      "type": "task",
-      "content": "以资产归属更改举例，写下我任务管理的疑问。",
-      "createdAt": "2026-10-09T06:15:34.263Z",
-      "updatedAt": "2026-10-09T06:15:34.263Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3397,6 +3307,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791447897347"
+    },
+    {
+      "id": "mv0ozt76apff3",
+      "type": "task",
+      "content": "试下teleagent读取未动的网元。看下效果，分步进行吧",
+      "createdAt": "2026-10-09T08:17:24.114Z",
+      "updatedAt": "2026-10-09T08:17:24.114Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
     }
   ],
   "taskLists": [
@@ -3452,7 +3377,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1790647796695",
+  "currentListId": "list_1791447897347",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7050,6 +6975,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T08:10:04.797Z"
+    "lastSync": "2026-10-09T08:10:40.302Z"
   }
 }
