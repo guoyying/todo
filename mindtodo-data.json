@@ -2996,9 +2996,9 @@
     {
       "id": "mu6s5qi3g0eg3",
       "type": "task",
-      "content": "准备调度员培训会议",
+      "content": "准备调度员培训会议 | 下一步行动：把关电的那页材料做一下",
       "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-10-09T00:39:07.520Z",
+      "updatedAt": "2026-10-09T08:54:22.989Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3058,10 +3058,10 @@
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-09T00:39:19.654Z",
+      "updatedAt": "2026-10-09T08:46:02.580Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-09T08:46:02.580Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3348,7 +3348,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1788828295706",
+  "currentListId": "list_1789606194867",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6946,6 +6946,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T08:45:14.028Z"
+    "lastSync": "2026-10-09T08:45:48.167Z"
   }
 }
