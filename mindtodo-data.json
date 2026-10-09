@@ -3071,9 +3071,9 @@
     {
       "id": "mulz5bxg25dec",
       "type": "task",
-      "content": "从化昨天的问题梳理下。",
+      "content": "从化几个网元的问题解决下（当前下一步：等待华为厂家回复）",
       "createdAt": "2026-09-29T01:05:05.188Z",
-      "updatedAt": "2026-10-09T00:38:54.108Z",
+      "updatedAt": "2026-10-09T07:35:11.640Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3367,6 +3367,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791447897347"
+    },
+    {
+      "id": "mv0ncemv0d539",
+      "type": "task",
+      "content": "越秀的表拆运看下，无问题就先不过单、拆好了改好了再过单吧。",
+      "createdAt": "2026-10-09T07:31:12.535Z",
+      "updatedAt": "2026-10-09T07:31:12.535Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
+    },
+    {
+      "id": "mv0ofx96x8g8a",
+      "type": "task",
+      "content": "新塘2机楼ZCXTEWB001，邓丽莎端口占用0了，可以退网",
+      "createdAt": "2026-10-09T08:01:56.250Z",
+      "updatedAt": "2026-10-09T08:02:15.474Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
     }
   ],
   "taskLists": [
@@ -3422,7 +3452,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1790647796695",
+  "currentListId": "list_1791447897347",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -7020,6 +7050,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T07:05:27.284Z"
+    "lastSync": "2026-10-09T07:09:03.865Z"
   }
 }
