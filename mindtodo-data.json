@@ -3249,21 +3249,6 @@
       "listId": "list_1791453412094"
     },
     {
-      "id": "mv08n4hm63a1s",
-      "type": "task",
-      "content": "天河承包的梳理",
-      "createdAt": "2026-10-09T00:39:38.362Z",
-      "updatedAt": "2026-10-09T00:39:38.362Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
       "id": "mv096u9wa3wjw",
       "type": "task",
       "content": "过退网单",
@@ -3322,6 +3307,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791447897347"
+    },
+    {
+      "id": "mv0dpd809zolh",
+      "type": "task",
+      "content": "搞个人工的账号授权台账吧。",
+      "createdAt": "2026-10-09T03:01:21.072Z",
+      "updatedAt": "2026-10-09T03:01:21.072Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791447897347"
+    },
+    {
+      "id": "mv0ff9qwc8khh",
+      "type": "task",
+      "content": "等天河修改好实体id",
+      "createdAt": "2026-10-09T03:49:29.240Z",
+      "updatedAt": "2026-10-09T03:49:37.263Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791453412094"
     }
   ],
   "taskLists": [
@@ -6975,6 +6990,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T01:00:20.852Z"
+    "lastSync": "2026-10-09T02:57:49.345Z"
   }
 }
