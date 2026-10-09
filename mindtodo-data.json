@@ -3234,21 +3234,6 @@
       "listId": "list_1791447897347"
     },
     {
-      "id": "mv0ncemv0d539",
-      "type": "task",
-      "content": "越秀的表拆运看下，无问题就先不过单、拆好了改好了再过单吧。",
-      "createdAt": "2026-10-09T07:31:12.535Z",
-      "updatedAt": "2026-10-09T07:31:12.535Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
       "id": "mv0ofx96x8g8a",
       "type": "task",
       "content": "新塘2机楼ZCXTEWB001，邓丽莎端口占用0了，可以退网",
@@ -6931,6 +6916,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T09:27:32.228Z"
+    "lastSync": "2026-10-09T09:49:39.749Z"
   }
 }
