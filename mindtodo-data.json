@@ -3103,7 +3103,7 @@
       "type": "task",
       "content": "用户机房+SDH/链接入、用户机房+PDH接入都要在用户端替换C810设备。为什么没说PDH的方案不好做呢，反而说客户端SDH不那么容易做。",
       "createdAt": "2026-09-29T07:00:55.521Z",
-      "updatedAt": "2026-10-09T00:38:54.872Z",
+      "updatedAt": "2026-10-09T08:45:17.692Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3111,14 +3111,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789886832410"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mumcsmejef55b",
       "type": "task",
       "content": "怎么找到可用资源OTN？张有没有帮县分多做这一步？",
       "createdAt": "2026-09-29T07:27:06.859Z",
-      "updatedAt": "2026-10-09T00:38:55.911Z",
+      "updatedAt": "2026-10-09T08:45:20.028Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3126,7 +3126,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1789886832410"
+      "listId": "list_1789606194867"
     },
     {
       "id": "muz9ukj49ayo7",
@@ -3320,18 +3320,11 @@
     },
     {
       "id": "list_1789606194867",
-      "name": "仓库0917",
+      "name": "仓库-9月下旬",
       "description": "",
       "createdAt": "2026-09-17T00:49:54.867Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1789886832410",
-      "name": "仓库0920",
-      "description": "",
-      "createdAt": "2026-09-20T06:47:12.410Z",
       "isDefault": false,
-      "updatedAt": "2026-09-20T09:11:13.930Z"
+      "updatedAt": "2026-10-09T08:45:33.019Z"
     },
     {
       "id": "list_1791447897347",
@@ -3355,7 +3348,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789606194867",
+  "currentListId": "list_1788828295706",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6953,6 +6946,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-09T08:17:46.033Z"
+    "lastSync": "2026-10-09T08:45:14.028Z"
   }
 }
