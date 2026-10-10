@@ -599,7 +599,7 @@
       "organizedAt": "2026-07-09T10:21:15.138Z",
       "createdAt": "2026-06-15T01:19:36.003Z",
       "updatedAt": "2026-07-09T10:21:15.138Z",
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "organization": {
         "goal": "【进行中】重构获取端子信息的逻辑，预计优化后每单可节省时间25%\n【已完成】修复了Excel格式兼容问题\n【行动】建立问题共享表，方便同步问题状态和解决进度；新建工程验收，配合RPA测试\n【成效】清晰展现问题解决流程，避免聊天工具消息轰炸，关键信息难从聊天记录找",
         "goalWeeks": "",
@@ -634,7 +634,7 @@
       "organizedAt": "2026-07-09T10:22:12.516Z",
       "createdAt": "2026-05-26T01:44:46.898Z",
       "updatedAt": "2026-07-09T10:22:12.516Z",
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "organization": {
         "goal": "参加二阶段all in ai评审",
         "goalWeeks": "[{\"content\":\"参加二阶段all in ai评审\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}}]",
@@ -755,7 +755,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-07-31T02:46:33.915Z"
     },
     {
@@ -805,7 +805,7 @@
       "organizedAt": "2026-07-27T00:04:12.435Z",
       "createdAt": "2026-07-23T09:36:35.135Z",
       "updatedAt": "2026-07-27T00:04:12.435Z",
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "organization": {
         "goal": "260622-0626【行动】关注中山四、七星岗等机楼设备业务情况。【成果】尚无很多设备可退\n跟进处理省公司下发长途无业务清单（206个设备）；\n【行动】梳理零业务网元：周一/白云1、天河9，共10；\n【行动与交付品】完成约550个低效传输设备的业务信息整理与处理建议输出\n梳理可退清单17个\n引入数字化手段开发工具，覆盖设备核查、退网进度记录。实现退网全流程可追踪、可管控，有效提升流程规范性、数据准确率和协同效率\n【crm进度】## 🛠️ CRM核查 ### “时间轴” - **动作**：不要从零规划。先问自己：“我最希望CRM在**哪一天**能跑通某个功能（比如录入第一个客户）？” 然后从那天**倒推**：  | 时间节点 | 目标 | |:----:|:----:| | 7.15 | 完成核查 |  处理建议： > 1. 已退网->不用处理； > 2. 在用，已转虚拟网元或资源退网->不用处理； > 3. 在用，挂设备->核查设备现场情况（关电/在用/拆除），对于关电/拆除情况，下一步迁转到虚拟网元\n本周整理可退网设备xx个，并联系县分及时上单\n三码工单处理",
         "goalWeeks": "[{\"content\":\"260622-0626【行动】关注中山四、七星岗等机楼设备业务情况。【成果】尚无很多设备可退\",\"week\":{\"start\":\"2026-06-21T16:00:00.000Z\",\"end\":\"2026-06-27T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"跟进处理省公司下发长途无业务清单（206个设备）；\",\"week\":{\"start\":\"2026-06-14T16:00:00.000Z\",\"end\":\"2026-06-20T16:00:00.000Z\",\"label\":\"2026/6/15 - 4天前\"}},{\"content\":\"【行动】梳理零业务网元：周一/白云1、天河9，共10；\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"15小时前 - 刚刚\"}},{\"content\":\"【行动与交付品】完成约550个低效传输设备的业务信息整理与处理建议输出\",\"week\":{\"start\":\"2026-05-31T16:00:00.000Z\",\"end\":\"2026-06-06T16:00:00.000Z\",\"label\":\"2026/6/1 - 2026/6/7\"}},{\"content\":\"梳理可退清单17个\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"本周整理可退网设备xx个，并联系县分及时上单\\n三码工单处理\",\"week\":{\"start\":\"2026-07-26T16:00:00.000Z\",\"end\":\"2026-08-01T16:00:00.000Z\",\"label\":\"8小时前 - 刚刚\"}}]",
@@ -840,7 +840,7 @@
       "organizedAt": "2026-07-27T00:07:16.833Z",
       "createdAt": "2026-07-23T23:56:24.200Z",
       "updatedAt": "2026-07-27T00:07:16.833Z",
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "organization": {
         "goal": "过单、邮件通知施工方实施17张拆运单\n【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\n拆运一体邮件通知施工实施单20个",
         "goalWeeks": "[{\"content\":\"过单、邮件通知施工方实施17张拆运单\",\"week\":{\"start\":\"2026-07-05T16:00:00.000Z\",\"end\":\"2026-07-11T16:00:00.000Z\",\"label\":\"3天前 - 刚刚\"}},{\"content\":\"【行动】参加资产卡片归属讨论会议，明确了传输专业资产归属规则及部分资产认定结果。\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2天前 - 刚刚\"}},{\"content\":\"拆运一体邮件通知施工实施单20个\",\"week\":{\"start\":\"2026-07-19T16:00:00.000Z\",\"end\":\"2026-07-25T16:00:00.000Z\",\"label\":\"2026/7/20 - 1天前\"}}]",
@@ -876,7 +876,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms31j184k468n",
@@ -943,7 +943,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-07-28T02:12:47.469Z"
     },
     {
@@ -996,7 +996,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms41zu6i76dxm",
@@ -1081,7 +1081,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4bel0o5rv23",
@@ -1113,7 +1113,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4bwsn3kj2rh",
@@ -1130,7 +1130,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4c4fwdgc67a",
@@ -1147,7 +1147,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4eqd2nrn7gd",
@@ -1164,7 +1164,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4ex0j0597y5",
@@ -1198,7 +1198,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms4jf4ebmybb4",
@@ -1283,7 +1283,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms5fwoijogbr5",
@@ -1300,7 +1300,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms5jphph3mm7w",
@@ -1317,7 +1317,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms5q6kpc8ta78",
@@ -1334,7 +1334,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms5qmino7w03r",
@@ -1351,7 +1351,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms6ubw2wdqqru",
@@ -1368,7 +1368,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms6vtukmgpvhy",
@@ -1385,7 +1385,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms6vz8x9r77be",
@@ -1402,7 +1402,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms6zriio2mrhx",
@@ -1420,7 +1420,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms886f5fpxnzm",
@@ -1437,7 +1437,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms8alwmznhw79",
@@ -1454,7 +1454,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms8lmb1bgahub",
@@ -1488,7 +1488,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "ms8nnp3ra876t",
@@ -1522,7 +1522,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mscj9p9gg2l3d",
@@ -1556,7 +1556,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msec0xp7teve3",
@@ -1573,7 +1573,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msfmf15wfgsp9",
@@ -1590,7 +1590,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msfmhw62i2lrq",
@@ -1607,7 +1607,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msfsdcvmh1bwm",
@@ -1624,7 +1624,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msfxeigt6yo4j",
@@ -1640,7 +1640,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-08-06T00:28:09.079Z"
     },
     {
@@ -1658,7 +1658,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msgsntgw4nnu6",
@@ -1676,7 +1676,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msgsoa10fouz4",
@@ -1693,7 +1693,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msgsr2bftc8ju",
@@ -1710,7 +1710,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msgxto1ujaqry",
@@ -1727,7 +1727,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msh7yqlpvqt0b",
@@ -1744,7 +1744,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msil1i4azbe6v",
@@ -1761,7 +1761,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msinwqidbfpnn",
@@ -1778,7 +1778,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msmk1t183kezi",
@@ -1795,7 +1795,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msmk8gs2jyppl",
@@ -1812,7 +1812,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msmu3fsfbsy6x",
@@ -1829,7 +1829,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msnxq7aiv0e3z",
@@ -1846,7 +1846,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msnxqqyir64y3",
@@ -1863,7 +1863,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msnxrqfcm12ox",
@@ -1880,7 +1880,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mso2ekjzx5bnf",
@@ -1897,7 +1897,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mso3r2k4gxsem",
@@ -1914,7 +1914,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msoi57f8isic8",
@@ -1930,7 +1930,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-08-11T23:39:29.427Z"
     },
     {
@@ -1947,7 +1947,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-08-12T06:20:07.137Z"
     },
     {
@@ -1965,7 +1965,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mspmsgw60fzxd",
@@ -1982,7 +1982,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msppnhna0fupf",
@@ -1999,7 +1999,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msppspp46p1qf",
@@ -2016,7 +2016,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msqu3pi8azl9c",
@@ -2034,7 +2034,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msr5dfo3jvk28",
@@ -2051,7 +2051,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mss7wtay1x87m",
@@ -2068,7 +2068,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mssait13v7agz",
@@ -2085,7 +2085,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mssd4ueih5uev",
@@ -2102,7 +2102,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mswiznlrffxrw",
@@ -2119,7 +2119,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mswjlpkdnj8yn",
@@ -2136,7 +2136,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mswkeqe7710xp",
@@ -2153,7 +2153,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mswknn27nj29o",
@@ -2170,7 +2170,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mswudtiptqar2",
@@ -2187,7 +2187,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msww7ptpctgsp",
@@ -2204,7 +2204,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msxwh7mgb05p2",
@@ -2221,7 +2221,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msy1tm0k2ov7e",
@@ -2239,7 +2239,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msy3hiyzfwyc8",
@@ -2256,7 +2256,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msycicq4pcp6b",
@@ -2273,7 +2273,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msyfuy9pax9wd",
@@ -2290,7 +2290,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msyfyrmlf5sg3",
@@ -2307,7 +2307,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "msyi9jzcdaa3t",
@@ -2324,7 +2324,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mszf08mjt9kc4",
@@ -2341,7 +2341,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt0vxdtv9ieaw",
@@ -2358,7 +2358,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt0wp7utsgc8t",
@@ -2375,7 +2375,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt2obl7xx1aui",
@@ -2393,7 +2393,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt3q73j2mlam6",
@@ -2409,7 +2409,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706",
+      "listId": "list_1789606194867",
       "doneAt": "2026-08-24T01:29:20.666Z"
     },
     {
@@ -2427,7 +2427,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt6ollshlj8ol",
@@ -2444,7 +2444,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt7wax0hn69fu",
@@ -2462,7 +2462,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt7y8rctp0fep",
@@ -2479,7 +2479,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt8gm9grlfeow",
@@ -2496,7 +2496,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt9d8glnahivt",
@@ -2514,7 +2514,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt9dbtat57oz5",
@@ -2531,7 +2531,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt9du37pnk7ie",
@@ -2548,7 +2548,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mt9vulnlrvejt",
@@ -2565,7 +2565,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtatvswtcjlii",
@@ -2583,7 +2583,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtb8dt98f03ol",
@@ -2601,7 +2601,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtcmes38bhuyq",
@@ -2619,7 +2619,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtcra67u741wi",
@@ -2636,7 +2636,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtgrhebn9chp9",
@@ -2653,7 +2653,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtgukqeu97nt1",
@@ -2670,7 +2670,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mth27ar9dgds3",
@@ -2687,7 +2687,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mthxrza9g5eqr",
@@ -2704,7 +2704,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mthy1tz4rwp5j",
@@ -2721,7 +2721,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mti00obvr3763",
@@ -2738,7 +2738,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mti12uhgjyiqg",
@@ -2756,7 +2756,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mti184lvwdymo",
@@ -2774,7 +2774,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mti4lg4edlsyl",
@@ -2791,7 +2791,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtiaerfnq1hqj",
@@ -2808,7 +2808,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mticd7amx2gat",
@@ -2825,7 +2825,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtievagwhe4m3",
@@ -2842,7 +2842,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtifxpvrmkvgi",
@@ -2859,7 +2859,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtkvf18yyj97o",
@@ -2876,7 +2876,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtl4ybxybj2wq",
@@ -2893,7 +2893,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtqmdiqzu3u91",
@@ -2910,7 +2910,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtqp2l3vuq9a0",
@@ -2927,22 +2927,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
-    },
-    {
-      "id": "mtsgj2gf93nbs",
-      "type": "task",
-      "content": "0业务还没核查完呢",
-      "createdAt": "2026-09-08T09:18:34.287Z",
-      "updatedAt": "2026-10-10T00:47:44.369Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mtwlog9mxmv6a",
@@ -2959,7 +2944,7 @@
       "unknown": false,
       "isList": false,
       "subtasks": [],
-      "listId": "list_1788828295706"
+      "listId": "list_1789606194867"
     },
     {
       "id": "mu6s5qi3g0eg3",
@@ -2990,21 +2975,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791453412094"
-    },
-    {
-      "id": "mum1h4a7gqubp",
-      "type": "task",
-      "content": "核查0业务",
-      "createdAt": "2026-09-29T02:10:14.383Z",
-      "updatedAt": "2026-10-10T00:47:53.620Z",
-      "tags": [],
-      "done": false,
-      "dueTime": null,
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1790647796695",
-      "doneAt": null
     },
     {
       "id": "mum1h7677su6u",
@@ -3114,9 +3084,9 @@
     {
       "id": "mv0kbc3zq3e5w",
       "type": "task",
-      "content": "问下资产认领的事情 |---1009更新\n✅沙河仓库-云中台-->自己啃了\n⏳陈登昭-->待问客资是否接入设备归客资管？\n⏳温乐琦-->等待客资\n✅许纬\n⏳吕寿贞--->给领导拍板\n⏳吴雪峰",
+      "content": "问下资产认领的事情 |---1009更新\n✅沙河仓库-云中台-->自己啃了\n⏳陈登昭-->待问客资是否接入设备归客资管？\n⏳温乐琦-->等待客资\n✅许纬\n⏳吕寿贞--->给领导拍板\n⏳吴雪峰--->问下吕工",
       "createdAt": "2026-10-09T06:06:23.759Z",
-      "updatedAt": "2026-10-10T02:32:13.077Z",
+      "updatedAt": "2026-10-10T03:10:46.695Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3249,14 +3219,6 @@
   ],
   "taskLists": [
     {
-      "id": "list_1788828295706",
-      "name": "仓库-9月上旬",
-      "description": "",
-      "createdAt": "2026-09-08T00:44:55.706Z",
-      "isDefault": false,
-      "updatedAt": "2026-09-21T01:17:51.649Z"
-    },
-    {
       "id": "list_1789606194867",
       "name": "仓库-9月下旬",
       "description": "",
@@ -3293,7 +3255,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791594069475",
+  "currentListId": "list_1790647796695",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6891,6 +6853,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-10T02:32:26.824Z"
+    "lastSync": "2026-10-10T03:10:13.312Z"
   }
 }
