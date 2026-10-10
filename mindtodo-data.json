@@ -3114,9 +3114,9 @@
     {
       "id": "mv0kbc3zq3e5w",
       "type": "task",
-      "content": "问下资产认领的事情 |---1009更新\n⏳沙河仓库-云中台-->等待梁工反馈\n✅陈登昭-->估计可以跟云中台的合并考虑。\n⏳温乐琦-->等待客资\n✅许纬\n⏳吕寿贞--->等待华姐回复\n⏳吴雪峰",
+      "content": "问下资产认领的事情 |---1009更新\n✅沙河仓库-云中台-->自己啃了\n✅陈登昭-->估计可以跟云中台的合并考虑。\n⏳温乐琦-->等待客资\n✅许纬\n⏳吕寿贞--->给领导拍板\n⏳吴雪峰",
       "createdAt": "2026-10-09T06:06:23.759Z",
-      "updatedAt": "2026-10-10T01:56:41.987Z",
+      "updatedAt": "2026-10-10T02:31:43.447Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3192,6 +3192,21 @@
       "content": "学下低效的周报数据怎么看，得会看才行啊。",
       "createdAt": "2026-10-10T01:04:11.899Z",
       "updatedAt": "2026-10-10T01:04:11.899Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791594069475"
+    },
+    {
+      "id": "mv1r3yuknupm0",
+      "type": "task",
+      "content": "研发云提交评审",
+      "createdAt": "2026-10-10T02:04:23.468Z",
+      "updatedAt": "2026-10-10T02:04:23.468Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6846,6 +6861,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-10T01:59:08.167Z"
+    "lastSync": "2026-10-10T02:01:04.644Z"
   }
 }
