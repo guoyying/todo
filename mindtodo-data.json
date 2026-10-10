@@ -3174,24 +3174,9 @@
     {
       "id": "mv21pmuksabf3",
       "type": "task",
-      "content": "回应敏华姐和算力的吕工",
+      "content": "回应敏华姐和算力的吕工 | 下一步：等待吕工回复",
       "createdAt": "2026-10-10T07:01:10.508Z",
-      "updatedAt": "2026-10-10T07:01:10.508Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791594069475"
-    },
-    {
-      "id": "mv229id9t9ux2",
-      "type": "task",
-      "content": "越秀过退网单：同人宾馆的",
-      "createdAt": "2026-10-10T07:16:37.821Z",
-      "updatedAt": "2026-10-10T07:16:37.821Z",
+      "updatedAt": "2026-10-10T08:16:54.450Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3285,7 +3270,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791453412094",
+  "currentListId": "list_1791594069475",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6883,6 +6868,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-10T07:53:41.046Z"
+    "lastSync": "2026-10-10T08:16:48.197Z"
   }
 }
