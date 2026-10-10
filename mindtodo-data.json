@@ -2996,10 +2996,10 @@
       "type": "task",
       "content": "推进todo里一个问题",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-10T07:00:20.964Z",
+      "updatedAt": "2026-10-10T07:53:42.496Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-10T07:53:42.496Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3230,6 +3230,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791594069475"
+    },
+    {
+      "id": "mv24ejxrtqy1d",
+      "type": "task",
+      "content": "问了张枝一个问题，我想延申确认：为什么光猫笼和光纤收发器都是出光，前者不能接OTN的SLNO，后者就可以呢？",
+      "createdAt": "2026-10-10T08:16:32.367Z",
+      "updatedAt": "2026-10-10T08:16:32.367Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791453412094"
     }
   ],
   "taskLists": [
@@ -3270,7 +3285,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789606194867",
+  "currentListId": "list_1791453412094",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6868,6 +6883,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-10T07:50:14.757Z"
+    "lastSync": "2026-10-10T07:53:41.046Z"
   }
 }
