@@ -2981,10 +2981,10 @@
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-12T00:45:22.578Z",
+      "updatedAt": "2026-10-12T08:31:14.927Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-12T08:31:14.927Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3159,9 +3159,9 @@
     {
       "id": "mv26cakx2kykq",
       "type": "task",
-      "content": "3041-、2980-优先去激活，这样可以退2961一共三台了，番禺。",
+      "content": "3041-、2980-优先去激活，这样可以退2961一共三台了，番禺。| 等待番禺反馈2980光路是否在用？",
       "createdAt": "2026-10-10T09:10:46.161Z",
-      "updatedAt": "2026-10-12T00:45:19.558Z",
+      "updatedAt": "2026-10-12T08:44:04.511Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3170,6 +3170,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791594069475"
+    },
+    {
+      "id": "mv4uq5gatisn7",
+      "type": "task",
+      "content": "问一哥问题",
+      "createdAt": "2026-10-12T06:08:55.834Z",
+      "updatedAt": "2026-10-12T06:09:01.749Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791785326439"
+    },
+    {
+      "id": "mv4xtn6nv46i1",
+      "type": "task",
+      "content": "记录今日两个测试角度的工具和方法。",
+      "createdAt": "2026-10-12T07:35:37.631Z",
+      "updatedAt": "2026-10-12T07:35:37.631Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791785326439"
     }
   ],
   "taskLists": [
@@ -3196,6 +3226,13 @@
       "isDefault": false
     },
     {
+      "id": "list_1791785326439",
+      "name": "仓库1012",
+      "description": "",
+      "createdAt": "2026-10-12T06:08:46.439Z",
+      "isDefault": false
+    },
+    {
       "id": "list_1790647796695",
       "name": "每日动作",
       "description": "",
@@ -3210,7 +3247,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791447897347",
+  "currentListId": "list_1791594069475",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
