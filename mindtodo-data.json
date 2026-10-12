@@ -2932,9 +2932,9 @@
     {
       "id": "mu6s5qi3g0eg3",
       "type": "task",
-      "content": "准备调度员培训会议 | 下一步行动：把关电的那页材料做一下",
+      "content": "准备调度员培训会议 | 下一步行动：整理汇报逻辑，将材料摞起来---1012更新",
       "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-10-12T00:45:07.356Z",
+      "updatedAt": "2026-10-12T09:40:07.338Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -2995,21 +2995,6 @@
       "content": "问下资产认领的事情 |---1009更新\n✅沙河仓库-云中台-->\n⏳陈登昭-->\n⏳温乐琦-->\n✅许纬\n⏳吕寿贞--->\n⏳吴雪峰--->",
       "createdAt": "2026-10-09T06:06:23.759Z",
       "updatedAt": "2026-10-12T00:45:10.334Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791447897347"
-    },
-    {
-      "id": "mv0ofx96x8g8a",
-      "type": "task",
-      "content": "新塘2机楼ZCXTEWB001，邓丽莎端口占用0了，可以退网 | 下一步：看下增城仙村-ZCXCEWB001资源端口占用",
-      "createdAt": "2026-10-09T08:01:56.250Z",
-      "updatedAt": "2026-10-12T00:45:11.610Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3215,7 +3200,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1790647796695",
+  "currentListId": "list_1791447897347",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6798,6 +6783,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-12T09:10:24.280Z"
+    "lastSync": "2026-10-12T09:13:12.050Z"
   }
 }
