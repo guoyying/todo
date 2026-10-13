@@ -3170,11 +3170,11 @@
       "listId": "list_1791862676080"
     },
     {
-      "id": "mv6dbxq8ntds0",
+      "id": "mv6eaabm1tuhb",
       "type": "task",
-      "content": "看下DDF架子我要做什么",
-      "createdAt": "2026-10-13T07:37:31.520Z",
-      "updatedAt": "2026-10-13T07:37:31.520Z",
+      "content": "三码单处理",
+      "createdAt": "2026-10-13T08:04:14.146Z",
+      "updatedAt": "2026-10-13T08:04:14.146Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3185,11 +3185,11 @@
       "listId": "list_1791862676080"
     },
     {
-      "id": "mv6eaabm1tuhb",
+      "id": "mv6ebmqyo5jo7",
       "type": "task",
-      "content": "三码单处理",
-      "createdAt": "2026-10-13T08:04:14.146Z",
-      "updatedAt": "2026-10-13T08:04:14.146Z",
+      "content": "省SOC主机扫描",
+      "createdAt": "2026-10-13T08:05:16.906Z",
+      "updatedAt": "2026-10-13T08:05:16.906Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6820,6 +6820,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T08:04:33.717Z"
+    "lastSync": "2026-10-13T08:05:22.814Z"
   }
 }
