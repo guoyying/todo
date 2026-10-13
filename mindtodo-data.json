@@ -3170,26 +3170,11 @@
       "listId": "list_1791862676080"
     },
     {
-      "id": "mv6f8biy4yweq",
-      "type": "task",
-      "content": "研发云待评审",
-      "createdAt": "2026-10-13T08:30:42.010Z",
-      "updatedAt": "2026-10-13T08:30:42.010Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791862676080"
-    },
-    {
       "id": "mv6g4wurrn58i",
       "type": "task",
-      "content": "入党发展流程的事情",
+      "content": "入党发展流程的事情 | 周三上午打电话跟陈子静确认",
       "createdAt": "2026-10-13T08:56:02.643Z",
-      "updatedAt": "2026-10-13T08:56:02.643Z",
+      "updatedAt": "2026-10-13T09:22:42.973Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6828,6 +6813,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T08:56:26.282Z"
+    "lastSync": "2026-10-13T09:03:13.173Z"
   }
 }
