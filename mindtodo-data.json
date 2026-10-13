@@ -3198,6 +3198,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791862676080"
+    },
+    {
+      "id": "mv6eaabm1tuhb",
+      "type": "task",
+      "content": "三码单处理",
+      "createdAt": "2026-10-13T08:04:14.146Z",
+      "updatedAt": "2026-10-13T08:04:14.146Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791862676080"
     }
   ],
   "taskLists": [
@@ -6820,6 +6835,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T05:09:32.092Z"
+    "lastSync": "2026-10-13T07:38:03.026Z"
   }
 }
