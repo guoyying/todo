@@ -3007,9 +3007,9 @@
     {
       "id": "mv1tfi452l12t",
       "type": "task",
-      "content": "去激活看看：\n✅2821-石基新机楼-APYSJX00Z01-SJXJC1HWSDH2.5G001\n✅4217-啤酒厂包装处理站C网基站-GZHC736-HA06L\n245-石井1-GZHC424",
+      "content": "去激活看看：\n✅2821-石基新机楼-APYSJX00Z01-SJXJC1HWSDH2.5G001\n✅4217-啤酒厂包装处理站C网基站-GZHC736-HA06L\n❌245-石井1-GZHC424---不能退，有很多OTN业务经过该网元",
       "createdAt": "2026-10-10T03:09:20.885Z",
-      "updatedAt": "2026-10-13T00:33:43.684Z",
+      "updatedAt": "2026-10-13T08:32:48.516Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3198,6 +3198,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791862676080"
+    },
+    {
+      "id": "mv6f8biy4yweq",
+      "type": "task",
+      "content": "研发云待评审",
+      "createdAt": "2026-10-13T08:30:42.010Z",
+      "updatedAt": "2026-10-13T08:30:42.010Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791862676080"
     }
   ],
   "taskLists": [
@@ -3252,7 +3267,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791862676080",
+  "currentListId": "list_1791594069475",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6820,6 +6835,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T08:23:36.991Z"
+    "lastSync": "2026-10-13T08:26:49.969Z"
   }
 }
