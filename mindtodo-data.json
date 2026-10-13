@@ -3007,9 +3007,9 @@
     {
       "id": "mv0ozt76apff3",
       "type": "task",
-      "content": "试下teleagent读取未动的网元。看下效果，分步进行吧 | 下一步行动：那就试试本地表咯。",
+      "content": "试下teleagent读取未动的网元。看下效果，分步进行吧 | 下一步行动：那就试试本地表咯---1013更新",
       "createdAt": "2026-10-09T08:17:24.114Z",
-      "updatedAt": "2026-10-13T00:46:52.947Z",
+      "updatedAt": "2026-10-13T00:48:20.459Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3018,21 +3018,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791447897347"
-    },
-    {
-      "id": "mv1ouetc0mhl2",
-      "type": "task",
-      "content": "看下oa-隐患不达标，这个怎么处理？ | 下一步行动：还剩下8个处理",
-      "createdAt": "2026-10-10T01:00:58.368Z",
-      "updatedAt": "2026-10-13T00:33:43.144Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791594069475"
     },
     {
       "id": "mv1tfi452l12t",
@@ -3230,7 +3215,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791785326439",
+  "currentListId": "list_1791594069475",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6813,6 +6798,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T00:34:01.665Z"
+    "lastSync": "2026-10-13T00:48:46.360Z"
   }
 }
