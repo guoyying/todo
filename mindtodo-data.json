@@ -3159,7 +3159,7 @@
       "type": "task",
       "content": "退网通报进度，呈现第四季度的进度。",
       "createdAt": "2026-10-13T00:45:59.116Z",
-      "updatedAt": "2026-10-13T00:48:04.669Z",
+      "updatedAt": "2026-10-13T03:38:19.682Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3167,14 +3167,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791785326439"
+      "listId": "list_1791862676080"
     },
     {
       "id": "mv5z0utnvmb3y",
       "type": "task",
       "content": "拆运单12张过单",
       "createdAt": "2026-10-13T00:56:59.915Z",
-      "updatedAt": "2026-10-13T00:56:59.915Z",
+      "updatedAt": "2026-10-13T03:38:17.092Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3182,14 +3182,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791785326439"
+      "listId": "list_1791862676080"
     },
     {
       "id": "mv64ijgwxzo4z",
       "type": "task",
       "content": "算力的邮件",
       "createdAt": "2026-10-13T03:30:43.088Z",
-      "updatedAt": "2026-10-13T03:30:43.088Z",
+      "updatedAt": "2026-10-13T03:38:13.656Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3197,14 +3197,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791785326439"
+      "listId": "list_1791862676080"
     },
     {
       "id": "mv64o0y8cu46s",
       "type": "task",
       "content": "11.20前完成保密抽查（见邮件）",
       "createdAt": "2026-10-13T03:34:59.024Z",
-      "updatedAt": "2026-10-13T03:34:59.024Z",
+      "updatedAt": "2026-10-13T03:38:10.733Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3212,7 +3212,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791785326439"
+      "listId": "list_1791862676080"
     }
   ],
   "taskLists": [
@@ -3243,6 +3243,13 @@
       "name": "仓库1012",
       "description": "",
       "createdAt": "2026-10-12T06:08:46.439Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1791862676080",
+      "name": "仓库1013",
+      "description": "",
+      "createdAt": "2026-10-13T03:37:56.080Z",
       "isDefault": false
     },
     {
@@ -6828,6 +6835,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T00:57:08.734Z"
+    "lastSync": "2026-10-13T03:35:05.602Z"
   }
 }
