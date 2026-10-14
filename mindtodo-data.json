@@ -3172,9 +3172,9 @@
     {
       "id": "mv6g4wurrn58i",
       "type": "task",
-      "content": "入党发展流程的事情 | 周三上午打电话跟陈子静确认",
+      "content": "入党发展流程的事情 | 等待蓉姐回复",
       "createdAt": "2026-10-13T08:56:02.643Z",
-      "updatedAt": "2026-10-14T00:32:47.594Z",
+      "updatedAt": "2026-10-14T02:57:31.304Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3260,7 +3260,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1789606194867",
+  "currentListId": "list_1791862676080",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6828,6 +6828,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-13T09:50:44.240Z"
+    "lastSync": "2026-10-14T00:33:30.667Z"
   }
 }
