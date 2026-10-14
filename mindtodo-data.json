@@ -3080,21 +3080,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mv5z0utnvmb3y",
-      "type": "task",
-      "content": "拆运单12张过单 | 还剩下10张。",
-      "createdAt": "2026-10-13T00:56:59.915Z",
-      "updatedAt": "2026-10-14T00:32:43.281Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791862676080"
-    },
-    {
       "id": "mv64o0y8cu46s",
       "type": "task",
       "content": "11.20前完成保密抽查（见邮件）",
@@ -3236,6 +3221,13 @@
       "name": "仓库1013",
       "description": "",
       "createdAt": "2026-10-13T03:37:56.080Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1791946973972",
+      "name": "仓库1014",
+      "description": "",
+      "createdAt": "2026-10-14T03:02:53.972Z",
       "isDefault": false
     },
     {
@@ -6828,6 +6820,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-14T00:33:30.667Z"
+    "lastSync": "2026-10-14T02:57:37.756Z"
   }
 }
