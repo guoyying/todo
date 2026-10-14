@@ -3005,21 +3005,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mv1tfi452l12t",
-      "type": "task",
-      "content": "去激活看看：\n✅2821-石基新机楼-APYSJX00Z01-SJXJC1HWSDH2.5G001\n✅4217-啤酒厂包装处理站C网基站-GZHC736-HA06L\n❌245-石井1-GZHC424---不能退，有很多OTN业务经过该网元",
-      "createdAt": "2026-10-10T03:09:20.885Z",
-      "updatedAt": "2026-10-14T00:32:37.784Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791594069475"
-    },
-    {
       "id": "mv21pmuksabf3",
       "type": "task",
       "content": "回应敏华姐和算力的吕工 | 下一步：把有争议的写到共享表上，备注商量无果。",
@@ -3237,7 +3222,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791946973972",
+  "currentListId": "list_1791594069475",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6805,6 +6790,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-14T09:49:34.558Z"
+    "lastSync": "2026-10-14T09:49:57.698Z"
   }
 }
