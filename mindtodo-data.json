@@ -3170,36 +3170,6 @@
       "listId": "list_1792025079186"
     },
     {
-      "id": "mv97tf0z8k6wl",
-      "type": "task",
-      "content": "过那张四条光路的验收单",
-      "createdAt": "2026-10-15T07:26:27.923Z",
-      "updatedAt": "2026-10-15T07:26:27.923Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
-      "id": "mv98vi5w34krs",
-      "type": "task",
-      "content": "仓库填表，专业中心要做啥啊？ | 下一步：我们要审核什么表格啊？在哪里看？",
-      "createdAt": "2026-10-15T07:56:04.916Z",
-      "updatedAt": "2026-10-15T09:20:27.757Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
       "id": "mv99cloyd5r64",
       "type": "task",
       "content": "短信网关的业务看下",
@@ -3220,21 +3190,6 @@
       "content": "问总监数字化项目有无计划，现有的如何管理",
       "createdAt": "2026-10-15T08:52:12.206Z",
       "updatedAt": "2026-10-15T08:52:12.206Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
-      "id": "mv9axy31ce5w4",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-10-15T08:53:58.093Z",
-      "updatedAt": "2026-10-15T08:53:58.093Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6850,6 +6805,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T09:18:33.235Z"
+    "lastSync": "2026-10-15T09:20:34.887Z"
   }
 }
