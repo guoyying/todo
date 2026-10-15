@@ -3155,41 +3155,11 @@
       "listId": "list_1791946973972"
     },
     {
-      "id": "mv8tgfh8fqq42",
-      "type": "task",
-      "content": "看下拆运单-荔湾的",
-      "createdAt": "2026-10-15T00:44:27.356Z",
-      "updatedAt": "2026-10-15T00:44:49.952Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
-      "id": "mv8tid5yxf63o",
-      "type": "task",
-      "content": "| 上午总监回来后，看怎么说能回应两边。",
-      "createdAt": "2026-10-15T00:45:57.670Z",
-      "updatedAt": "2026-10-15T01:57:57.167Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
       "id": "mv8ydn5d591dd",
       "type": "task",
-      "content": "去激活：东成-从化HB010(64)\n637-从化青云-CHHC004\n3101-大学城中心湖(800M)C网基站\n3092-大学城中心体育场（800M）C网基站",
+      "content": "去激活：✅东成-从化HB010(64)\n637-从化青云-CHHC004\n3101-大学城中心湖(800M)C网基站\n3092-大学城中心体育场（800M）C网基站",
       "createdAt": "2026-10-15T03:02:15.409Z",
-      "updatedAt": "2026-10-15T03:02:47.840Z",
+      "updatedAt": "2026-10-15T03:32:26.996Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6812,6 +6782,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T03:02:21.945Z"
+    "lastSync": "2026-10-15T03:02:52.103Z"
   }
 }
