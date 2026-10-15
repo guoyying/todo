@@ -3187,9 +3187,9 @@
     {
       "id": "mv98vi5w34krs",
       "type": "task",
-      "content": "仓库填表，专业中心要做啥啊？",
+      "content": "仓库填表，专业中心要做啥啊？ | 下一步：我们要审核什么表格啊？在哪里看？",
       "createdAt": "2026-10-15T07:56:04.916Z",
-      "updatedAt": "2026-10-15T07:56:04.916Z",
+      "updatedAt": "2026-10-15T09:20:27.757Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6850,6 +6850,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T08:54:35.984Z"
+    "lastSync": "2026-10-15T09:18:33.235Z"
   }
 }
