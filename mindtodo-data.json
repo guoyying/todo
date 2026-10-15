@@ -3082,9 +3082,9 @@
     {
       "id": "mv6ebmqyo5jo7",
       "type": "task",
-      "content": "省SOC主机扫描 | 等待扫描成功",
+      "content": "省SOC主机扫描 | 等待NOC回复",
       "createdAt": "2026-10-13T08:05:16.906Z",
-      "updatedAt": "2026-10-15T00:40:13.730Z",
+      "updatedAt": "2026-10-15T01:41:26.774Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3097,9 +3097,9 @@
     {
       "id": "mv6g4wurrn58i",
       "type": "task",
-      "content": "入党发展流程的事情 | 等待蓉姐回复",
+      "content": "入党发展流程的事情 | 10点再检查一次",
       "createdAt": "2026-10-13T08:56:02.643Z",
-      "updatedAt": "2026-10-15T00:40:14.288Z",
+      "updatedAt": "2026-10-15T01:08:14.157Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3183,6 +3183,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792025079186"
+    },
+    {
+      "id": "mv8tid5yxf63o",
+      "type": "task",
+      "content": "跟一哥说",
+      "createdAt": "2026-10-15T00:45:57.670Z",
+      "updatedAt": "2026-10-15T00:45:57.670Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792025079186"
     }
   ],
   "taskLists": [
@@ -3236,7 +3251,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792025079186",
+  "currentListId": "list_1791862676080",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6804,6 +6819,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T00:44:56.792Z"
+    "lastSync": "2026-10-15T00:45:26.884Z"
   }
 }
