@@ -2919,10 +2919,10 @@
       "type": "task",
       "content": "准备调度员培训会议 | 下一步行动：下周一捋一次全程---1014更新",
       "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-10-15T00:40:32.173Z",
+      "updatedAt": "2026-10-15T09:41:58.020Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-15T09:41:58.020Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3024,10 +3024,10 @@
       "type": "task",
       "content": "isoc基线不达标 | 等待下一次通报我在处理",
       "createdAt": "2026-10-10T07:16:43.853Z",
-      "updatedAt": "2026-10-15T02:57:23.531Z",
+      "updatedAt": "2026-10-15T09:41:56.342Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-15T09:41:56.342Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3084,45 +3084,45 @@
       "type": "task",
       "content": "省SOC主机扫描 | 等待noc反馈",
       "createdAt": "2026-10-13T08:05:16.906Z",
-      "updatedAt": "2026-10-15T07:23:43.963Z",
+      "updatedAt": "2026-10-15T09:41:55.872Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-15T09:41:55.872Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791862676080"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mv6g4wurrn58i",
       "type": "task",
       "content": "入党发展流程的事情 | 等待陈老师回复",
       "createdAt": "2026-10-13T08:56:02.643Z",
-      "updatedAt": "2026-10-15T02:57:50.920Z",
+      "updatedAt": "2026-10-15T09:41:55.442Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-15T09:41:55.442Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791862676080"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mv6i2akte26ix",
       "type": "task",
       "content": "看下资产盘点 | 等待cdap权限走完流程",
       "createdAt": "2026-10-13T09:49:59.693Z",
-      "updatedAt": "2026-10-15T03:44:36.161Z",
+      "updatedAt": "2026-10-15T09:41:55.068Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-15T09:41:55.068Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791862676080"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mv8ydn5d591dd",
@@ -3237,7 +3237,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791862676080",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6805,6 +6805,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T09:38:43.407Z"
+    "lastSync": "2026-10-15T09:41:17.826Z"
   }
 }
