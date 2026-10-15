@@ -3112,9 +3112,9 @@
     {
       "id": "mv6g52vnk7oh5",
       "type": "task",
-      "content": "看下n条业务的网管情况 | 下一步：等芳华姐回复，或周四上午电话联系",
+      "content": "看下n条业务的网管情况 | 下一步：网管导出业务",
       "createdAt": "2026-10-13T08:56:10.451Z",
-      "updatedAt": "2026-10-15T00:40:17.048Z",
+      "updatedAt": "2026-10-15T01:41:39.359Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3187,9 +3187,9 @@
     {
       "id": "mv8tid5yxf63o",
       "type": "task",
-      "content": "跟一哥说",
+      "content": "| 上午总监回来后，看怎么说能回应两边。",
       "createdAt": "2026-10-15T00:45:57.670Z",
-      "updatedAt": "2026-10-15T00:45:57.670Z",
+      "updatedAt": "2026-10-15T01:57:57.167Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3251,7 +3251,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791862676080",
+  "currentListId": "list_1792025079186",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6819,6 +6819,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T00:45:26.884Z"
+    "lastSync": "2026-10-15T01:41:32.898Z"
   }
 }
