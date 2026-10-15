@@ -3127,9 +3127,9 @@
     {
       "id": "mv6i2akte26ix",
       "type": "task",
-      "content": "看下资产盘点 | 下一步是重新申请cdap权限",
+      "content": "看下资产盘点 | 等待cdap权限走完流程",
       "createdAt": "2026-10-13T09:49:59.693Z",
-      "updatedAt": "2026-10-15T03:42:13.546Z",
+      "updatedAt": "2026-10-15T03:44:36.161Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3175,21 +3175,6 @@
       "content": "梁工说找客资干啥",
       "createdAt": "2026-10-15T03:33:57.819Z",
       "updatedAt": "2026-10-15T03:33:57.819Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
-      "id": "mv8zspobeyugm",
-      "type": "task",
-      "content": "问华姐导出一份清单cdap的",
-      "createdAt": "2026-10-15T03:41:58.139Z",
-      "updatedAt": "2026-10-15T03:41:58.139Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6812,6 +6797,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T03:34:42.405Z"
+    "lastSync": "2026-10-15T03:42:49.150Z"
   }
 }
