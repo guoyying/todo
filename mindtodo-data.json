@@ -3127,24 +3127,9 @@
     {
       "id": "mv8ydn5d591dd",
       "type": "task",
-      "content": "去激活：✅东成-从化HB010(64)\n637-从化青云-CHHC004：LDC23284236G无流量，资源未退。待从化确认\n3101-大学城中心湖(800M)C网基站\n3092-大学城中心体育场（800M）C网基站",
+      "content": "去激活：✅东成-从化HB010(64)\n✅637-从化青云-CHHC004：LDC23284236G无流量，资源未退。待从化确认\n3101-大学城中心湖(800M)C网基站\n3092-大学城中心体育场（800M）C网基站",
       "createdAt": "2026-10-15T03:02:15.409Z",
-      "updatedAt": "2026-10-15T08:30:35.619Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
-      "id": "mv8zif23awxox",
-      "type": "task",
-      "content": "梁工说找客资干啥",
-      "createdAt": "2026-10-15T03:33:57.819Z",
-      "updatedAt": "2026-10-15T03:33:57.819Z",
+      "updatedAt": "2026-10-15T09:06:27.413Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3157,9 +3142,9 @@
     {
       "id": "mv957punu7hgk",
       "type": "task",
-      "content": "拆运一体过单 | 天河与番禺",
+      "content": "拆运一体过单 | 剩下番禺了",
       "createdAt": "2026-10-15T06:13:36.287Z",
-      "updatedAt": "2026-10-15T06:13:36.287Z",
+      "updatedAt": "2026-10-15T09:16:08.085Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3172,9 +3157,9 @@
     {
       "id": "mv97ru4xdoipz",
       "type": "task",
-      "content": "网安回单：省SOC扫描的",
+      "content": "网安回单：省SOC扫描的 | 周五下午回单",
       "createdAt": "2026-10-15T07:25:14.193Z",
-      "updatedAt": "2026-10-15T07:25:14.193Z",
+      "updatedAt": "2026-10-15T09:18:27.454Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6865,6 +6850,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-15T08:52:29.122Z"
+    "lastSync": "2026-10-15T08:54:35.984Z"
   }
 }
