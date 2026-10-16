@@ -3112,9 +3112,9 @@
     {
       "id": "mv6i2akte26ix",
       "type": "task",
-      "content": "看下资产盘点 | 等待cdap权限走完流程",
+      "content": "看下资产盘点 | 周一：cdap导出表，邮件发送让他们盘点",
       "createdAt": "2026-10-13T09:49:59.693Z",
-      "updatedAt": "2026-10-15T09:41:55.068Z",
+      "updatedAt": "2026-10-16T00:55:36.435Z",
       "tags": [],
       "done": true,
       "doneAt": "2026-10-15T09:41:55.068Z",
@@ -3274,7 +3274,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792111596641",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6842,6 +6842,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T00:47:09.758Z"
+    "lastSync": "2026-10-16T00:52:03.070Z"
   }
 }
