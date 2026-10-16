@@ -2964,10 +2964,10 @@
       "type": "task",
       "content": "推进todo里一个问题",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-16T00:28:55.378Z",
+      "updatedAt": "2026-10-16T09:05:44.557Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-16T09:05:44.557Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3125,41 +3125,26 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvabhnwthrego",
-      "type": "task",
-      "content": "看下3431-那条业务",
-      "createdAt": "2026-10-16T01:57:04.205Z",
-      "updatedAt": "2026-10-16T01:57:04.205Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792111596641"
-    },
-    {
-      "id": "mvabnyrq9k9w2",
-      "type": "task",
-      "content": "给增城看下可退网的一批",
-      "createdAt": "2026-10-16T02:01:58.214Z",
-      "updatedAt": "2026-10-16T02:19:47.500Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792111596641"
-    },
-    {
       "id": "mvap89xsr8r47",
       "type": "task",
       "content": "继续排查服务器吧，检查下ACL策略",
       "createdAt": "2026-10-16T08:21:40.816Z",
       "updatedAt": "2026-10-16T08:21:40.816Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792111596641"
+    },
+    {
+      "id": "mvarw7de50v25",
+      "type": "task",
+      "content": "优先看增城几个网元去激活：\n3491-派潭1\n3471-小楼\n136-仙村-AZCXCU00T01-ZCHC005\n4640-仙村-ZCHC002-HA62L\n63-仙村-银沙-AZCxCYSHRO1-ZCYSHB002",
+      "createdAt": "2026-10-16T09:36:16.466Z",
+      "updatedAt": "2026-10-16T09:36:59.098Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6768,6 +6753,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T08:22:13.265Z"
+    "lastSync": "2026-10-16T09:05:42.905Z"
   }
 }
