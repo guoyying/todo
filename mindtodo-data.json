@@ -3157,9 +3157,9 @@
     {
       "id": "mv9avodqwelhm",
       "type": "task",
-      "content": "问总监数字化项目有无计划，现有的如何管理",
+      "content": "问总监数字化项目有无计划，现有的如何管理 | 等领导回复",
       "createdAt": "2026-10-15T08:52:12.206Z",
-      "updatedAt": "2026-10-16T00:28:51.920Z",
+      "updatedAt": "2026-10-16T03:40:45.494Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6842,6 +6842,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T03:24:07.568Z"
+    "lastSync": "2026-10-16T03:40:42.844Z"
   }
 }
