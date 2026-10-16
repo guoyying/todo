@@ -3125,21 +3125,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mv97ru4xdoipz",
-      "type": "task",
-      "content": "网安回单：省SOC扫描的 | 周五下午回单",
-      "createdAt": "2026-10-15T07:25:14.193Z",
-      "updatedAt": "2026-10-16T00:28:51.250Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792025079186"
-    },
-    {
       "id": "mv99cloyd5r64",
       "type": "task",
       "content": "短信网关的业务看下",
@@ -3159,7 +3144,7 @@
       "type": "task",
       "content": "问总监数字化项目有无计划，现有的如何管理 | 等领导回复",
       "createdAt": "2026-10-15T08:52:12.206Z",
-      "updatedAt": "2026-10-16T03:40:45.494Z",
+      "updatedAt": "2026-10-16T04:51:07.031Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3167,7 +3152,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1792025079186"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mva8zhxke7xsa",
@@ -3239,13 +3224,6 @@
       "isDefault": false
     },
     {
-      "id": "list_1792025079186",
-      "name": "仓库1015",
-      "description": "",
-      "createdAt": "2026-10-15T00:44:39.186Z",
-      "isDefault": false
-    },
-    {
       "id": "list_1792111596641",
       "name": "仓库1016",
       "description": "",
@@ -3274,7 +3252,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792025079186",
+  "currentListId": "list_1792111596641",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6842,6 +6820,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T03:40:51.578Z"
+    "lastSync": "2026-10-16T03:42:59.107Z"
   }
 }
