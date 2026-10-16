@@ -3200,21 +3200,6 @@
       "listId": "list_1792111596641"
     },
     {
-      "id": "mva95y5dq9hsy",
-      "type": "task",
-      "content": "董工那个改IPRAN的业务，怎么处理？是否能退？",
-      "createdAt": "2026-10-16T00:51:58.369Z",
-      "updatedAt": "2026-10-16T00:51:58.369Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792111596641"
-    },
-    {
       "id": "mvabhnwthrego",
       "type": "task",
       "content": "看下3431-那条业务",
@@ -6872,6 +6857,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T02:19:59.235Z"
+    "lastSync": "2026-10-16T03:02:57.101Z"
   }
 }
