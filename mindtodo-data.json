@@ -2919,10 +2919,10 @@
       "type": "task",
       "content": "盘点转O的清单，扩大可为空间。\n防止被质疑工作量的话术：09.20向张枝要了26年可为的参考清单；目前已梳理9个设备、9 条业务、已发县分；在等反馈能不能转---10.08记录\n先跟完一个案例，再建核查转O的节奏---10.13记录",
       "createdAt": "2026-09-20T08:46:33.577Z",
-      "updatedAt": "2026-10-19T03:39:35.186Z",
+      "updatedAt": "2026-10-19T10:00:28.167Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-19T10:00:28.167Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2949,10 +2949,10 @@
       "type": "task",
       "content": "推进todo里一个问题",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-19T03:39:33.452Z",
+      "updatedAt": "2026-10-19T10:00:25.703Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-19T10:00:25.703Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3162,7 +3162,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792381213295",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
