@@ -3168,6 +3168,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792381213295"
+    },
+    {
+      "id": "mveq8dqlmc449",
+      "type": "task",
+      "content": "看越秀设备的网管",
+      "createdAt": "2026-10-19T04:00:50.061Z",
+      "updatedAt": "2026-10-19T04:00:50.061Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
     }
   ],
   "taskLists": [
@@ -3207,7 +3222,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792111596641",
+  "currentListId": "list_1792381213295",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6775,6 +6790,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-19T04:00:33.181Z"
+    "lastSync": "2026-10-19T04:00:50.878Z"
   }
 }
