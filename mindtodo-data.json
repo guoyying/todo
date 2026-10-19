@@ -3164,6 +3164,13 @@
       "isDefault": false
     },
     {
+      "id": "list_1792381213295",
+      "name": "仓库1019",
+      "description": "",
+      "createdAt": "2026-10-19T03:40:13.295Z",
+      "isDefault": false
+    },
+    {
       "id": "list_1790647796695",
       "name": "每日动作",
       "description": "",
@@ -3185,7 +3192,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1792111596641",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6753,6 +6760,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-16T09:05:42.905Z"
+    "lastSync": "2026-10-19T03:39:47.963Z"
   }
 }
