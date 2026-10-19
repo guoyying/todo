@@ -3065,21 +3065,6 @@
       "listId": "list_1792381213295"
     },
     {
-      "id": "mv9avodqwelhm",
-      "type": "task",
-      "content": "问总监数字化项目有无计划，现有的如何管理 | 等领导回复",
-      "createdAt": "2026-10-15T08:52:12.206Z",
-      "updatedAt": "2026-10-19T03:39:41.617Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-19T03:39:41.617Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvap89xsr8r47",
       "type": "task",
       "content": "继续排查服务器吧，检查下ACL策略",
@@ -6790,6 +6775,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-19T03:40:24.571Z"
+    "lastSync": "2026-10-19T04:00:15.334Z"
   }
 }
