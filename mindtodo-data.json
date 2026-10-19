@@ -2919,15 +2919,15 @@
       "type": "task",
       "content": "准备调度员培训会议 | 下一步行动：下周一捋一次全程---1014更新",
       "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-10-19T03:39:38.298Z",
+      "updatedAt": "2026-10-19T04:00:04.167Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-10-19T03:39:38.298Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791867278425"
+      "listId": "list_1792381213295"
     },
     {
       "id": "mu9ko4fdsmo4x",
@@ -3020,21 +3020,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mv229n0t0zcst",
-      "type": "task",
-      "content": "isoc基线不达标 | 等待下一次通报我在处理",
-      "createdAt": "2026-10-10T07:16:43.853Z",
-      "updatedAt": "2026-10-15T09:41:56.342Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-15T09:41:56.342Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mv50adplk1f51",
       "type": "task",
       "content": "记录：资源有光路，网管查不到，可以县分查关联业务号，看CRM是否在用。",
@@ -3065,49 +3050,19 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mv6ebmqyo5jo7",
-      "type": "task",
-      "content": "省SOC主机扫描 | 等待noc反馈",
-      "createdAt": "2026-10-13T08:05:16.906Z",
-      "updatedAt": "2026-10-15T09:41:55.872Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-15T09:41:55.872Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mv6g4wurrn58i",
-      "type": "task",
-      "content": "入党发展流程的事情 | 等待陈老师回复",
-      "createdAt": "2026-10-13T08:56:02.643Z",
-      "updatedAt": "2026-10-15T09:41:55.442Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-15T09:41:55.442Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mv6i2akte26ix",
       "type": "task",
       "content": "看下资产盘点 | 周一：cdap导出表，邮件发送让他们盘点",
       "createdAt": "2026-10-13T09:49:59.693Z",
-      "updatedAt": "2026-10-16T00:55:36.435Z",
+      "updatedAt": "2026-10-19T03:59:21.971Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-10-15T09:41:55.068Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1791867278425"
+      "listId": "list_1792381213295"
     },
     {
       "id": "mv9avodqwelhm",
@@ -3153,6 +3108,81 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792111596641"
+    },
+    {
+      "id": "mveq59qu59fjs",
+      "type": "task",
+      "content": "退网进度2周没动的县分打电话问情况",
+      "createdAt": "2026-10-19T03:58:24.918Z",
+      "updatedAt": "2026-10-19T03:58:36.799Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
+    },
+    {
+      "id": "mveq5sthwwylh",
+      "type": "task",
+      "content": "关注邮件保密材料的学习，要拍照啥的",
+      "createdAt": "2026-10-19T03:58:49.638Z",
+      "updatedAt": "2026-10-19T03:58:49.638Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
+    },
+    {
+      "id": "mveq5xhjalwvy",
+      "type": "task",
+      "content": "网管验收2个",
+      "createdAt": "2026-10-19T03:58:55.687Z",
+      "updatedAt": "2026-10-19T03:58:55.687Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
+    },
+    {
+      "id": "mveq646uf6ue5",
+      "type": "task",
+      "content": "看下DDF的id能不能资源查到？",
+      "createdAt": "2026-10-19T03:59:04.374Z",
+      "updatedAt": "2026-10-19T03:59:04.374Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
+    },
+    {
+      "id": "mveq6tbrz0miv",
+      "type": "task",
+      "content": "给发送党的材料。",
+      "createdAt": "2026-10-19T03:59:36.951Z",
+      "updatedAt": "2026-10-19T03:59:36.951Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
     }
   ],
   "taskLists": [
@@ -3192,7 +3222,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792111596641",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6760,6 +6790,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-19T03:39:47.963Z"
+    "lastSync": "2026-10-19T03:40:24.571Z"
   }
 }
