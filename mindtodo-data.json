@@ -2915,21 +2915,6 @@
       "listId": "list_1792111596641"
     },
     {
-      "id": "mu6s5qi3g0eg3",
-      "type": "task",
-      "content": "准备调度员培训会议 | 下一步行动：下周一捋一次全程---1014更新",
-      "createdAt": "2026-09-18T09:52:54.123Z",
-      "updatedAt": "2026-10-19T04:00:04.167Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792381213295"
-    },
-    {
       "id": "mu9ko4fdsmo4x",
       "type": "task",
       "content": "盘点转O的清单，扩大可为空间。\n防止被质疑工作量的话术：09.20向张枝要了26年可为的参考清单；目前已梳理9个设备、9 条业务、已发县分；在等反馈能不能转---10.08记录\n先跟完一个案例，再建核查转O的节奏---10.13记录",
@@ -6760,6 +6745,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-19T07:32:03.399Z"
+    "lastSync": "2026-10-19T07:39:49.780Z"
   }
 }
