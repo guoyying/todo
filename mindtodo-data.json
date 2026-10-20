@@ -3142,9 +3142,9 @@
     {
       "id": "mvg54p3pdglsa",
       "type": "task",
-      "content": "华为反馈的网元信息查看",
+      "content": "华为反馈的网元信息查看 | 已完成2个增城的核查，待核查n个",
       "createdAt": "2026-10-20T03:45:38.581Z",
-      "updatedAt": "2026-10-20T03:45:38.581Z",
+      "updatedAt": "2026-10-20T07:17:26.459Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3157,9 +3157,9 @@
     {
       "id": "mvgb5h3l3ge3m",
       "type": "task",
-      "content": "低效另一线：花都PDH、从化DDF、增城PDH都是量较大的，可以参考。",
+      "content": "低效另一线：花都PDH、从化DDF都是量较大的，可以参考。",
       "createdAt": "2026-10-20T06:34:12.561Z",
-      "updatedAt": "2026-10-20T06:34:12.561Z",
+      "updatedAt": "2026-10-20T06:39:57.082Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3214,7 +3214,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792381213295",
+  "currentListId": "list_1792461843237",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6782,6 +6782,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-20T06:35:02.876Z"
+    "lastSync": "2026-10-20T06:40:07.916Z"
   }
 }
