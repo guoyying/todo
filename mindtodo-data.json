@@ -3080,21 +3080,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mveq5xhjalwvy",
-      "type": "task",
-      "content": "网管验收2+5个 | 等待修改",
-      "createdAt": "2026-10-19T03:58:55.687Z",
-      "updatedAt": "2026-10-20T03:45:19.772Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792381213295"
-    },
-    {
       "id": "mvex7pgbk7n9g",
       "type": "task",
       "content": "关注800M相关电路的推进工作 | 我试下去激活吧",
@@ -3108,21 +3093,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792381213295"
-    },
-    {
-      "id": "mvg1idybfjaff",
-      "type": "task",
-      "content": "验收5张单",
-      "createdAt": "2026-10-20T02:04:18.851Z",
-      "updatedAt": "2026-10-20T02:04:22.413Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792461843237"
     },
     {
       "id": "mvg23h7m1tb7m",
@@ -3168,21 +3138,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvgetu8kdzcd7",
-      "type": "task",
-      "content": "黄埔的拆运单看看",
-      "createdAt": "2026-10-20T08:17:08.181Z",
-      "updatedAt": "2026-10-20T08:17:08.181Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792461843237"
     }
   ],
   "taskLists": [
@@ -6790,6 +6745,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-20T08:12:43.325Z"
+    "lastSync": "2026-10-20T08:17:34.605Z"
   }
 }
