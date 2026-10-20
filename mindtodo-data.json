@@ -2934,7 +2934,7 @@
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-20T00:37:42.691Z",
+      "updatedAt": "2026-10-20T05:02:52.821Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3039,10 +3039,10 @@
       "type": "task",
       "content": "继续排查服务器吧，检查下ACL策略 | 等NOC回复",
       "createdAt": "2026-10-16T08:21:40.816Z",
-      "updatedAt": "2026-10-20T02:19:44.188Z",
+      "updatedAt": "2026-10-20T05:02:57.407Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-20T05:02:57.407Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3069,10 +3069,10 @@
       "type": "task",
       "content": "关注邮件保密材料的学习，要拍照啥的 | 下一步：行动",
       "createdAt": "2026-10-19T03:58:49.638Z",
-      "updatedAt": "2026-10-20T02:19:48.734Z",
+      "updatedAt": "2026-10-20T05:02:57.828Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-20T05:02:57.828Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3108,21 +3108,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792381213295"
-    },
-    {
-      "id": "mvg1esvt36ctu",
-      "type": "task",
-      "content": "teleagent的事儿，继续跟进",
-      "createdAt": "2026-10-20T02:01:31.577Z",
-      "updatedAt": "2026-10-20T02:04:13.122Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792461843237"
     },
     {
       "id": "mvg1idybfjaff",
@@ -3229,7 +3214,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792381213295",
+  "currentListId": "list_1792111596641",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6797,6 +6782,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-20T03:46:19.820Z"
+    "lastSync": "2026-10-20T04:45:41.814Z"
   }
 }
