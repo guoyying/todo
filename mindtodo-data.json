@@ -3097,24 +3097,9 @@
     {
       "id": "mvex7pgbk7n9g",
       "type": "task",
-      "content": "关注800M相关电路的推进工作",
+      "content": "关注800M相关电路的推进工作 | 现在是觉得没有一个稳定的抓手，不知道怎么办",
       "createdAt": "2026-10-19T07:16:15.899Z",
-      "updatedAt": "2026-10-20T00:37:39.732Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792381213295"
-    },
-    {
-      "id": "mvfylgenyxrnk",
-      "type": "task",
-      "content": "解决基线不达标问题",
-      "createdAt": "2026-10-20T00:42:43.151Z",
-      "updatedAt": "2026-10-20T00:42:43.151Z",
+      "updatedAt": "2026-10-20T02:50:53.411Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3168,6 +3153,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792461843237"
+    },
+    {
+      "id": "mvg23h7m1tb7m",
+      "type": "task",
+      "content": "看下低效怎么弄",
+      "createdAt": "2026-10-20T02:20:42.850Z",
+      "updatedAt": "2026-10-20T02:20:42.850Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
     }
   ],
   "taskLists": [
@@ -6782,6 +6782,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-20T02:06:31.403Z"
+    "lastSync": "2026-10-20T02:19:55.096Z"
   }
 }
