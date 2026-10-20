@@ -3123,6 +3123,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792381213295"
+    },
+    {
+      "id": "mvfylgenyxrnk",
+      "type": "task",
+      "content": "解决基线不达标问题",
+      "createdAt": "2026-10-20T00:42:43.151Z",
+      "updatedAt": "2026-10-20T00:42:43.151Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792381213295"
     }
   ],
   "taskLists": [
@@ -3162,7 +3177,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1792381213295",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6730,6 +6745,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-19T08:57:46.816Z"
+    "lastSync": "2026-10-20T00:37:50.742Z"
   }
 }
