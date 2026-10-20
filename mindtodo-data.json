@@ -3082,9 +3082,9 @@
     {
       "id": "mveq5xhjalwvy",
       "type": "task",
-      "content": "网管验收2个 | 等待修改",
+      "content": "网管验收2+5个 | 等待修改",
       "createdAt": "2026-10-19T03:58:55.687Z",
-      "updatedAt": "2026-10-20T02:01:39.097Z",
+      "updatedAt": "2026-10-20T03:45:19.772Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6782,6 +6782,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-20T02:51:06.491Z"
+    "lastSync": "2026-10-20T03:45:16.525Z"
   }
 }
