@@ -2934,10 +2934,10 @@
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-21T00:58:25.329Z",
+      "updatedAt": "2026-10-21T08:12:19.677Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-21T08:12:19.677Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3112,17 +3112,17 @@
     {
       "id": "mvhev3f30qn5k",
       "type": "task",
-      "content": "那个VPN的怎么弄，怎么解决？",
+      "content": "那个VPN的怎么弄，怎么解决？ | 等客资",
       "createdAt": "2026-10-21T01:05:52.911Z",
-      "updatedAt": "2026-10-21T01:05:52.911Z",
+      "updatedAt": "2026-10-21T09:05:59.475Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-21T09:05:59.475Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1792544506789"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvhggd4s6lf85",
@@ -3140,26 +3140,11 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvhkb1hd1gdry",
+      "id": "mvhw0ap3w54ve",
       "type": "task",
-      "content": "再练习一次调度员，就收工",
-      "createdAt": "2026-10-21T03:38:14.977Z",
-      "updatedAt": "2026-10-21T03:38:14.977Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792544506789"
-    },
-    {
-      "id": "mvhkboiix2ois",
-      "type": "task",
-      "content": "从化的PDH问题，我想从她的信息里看能不能我问其他人什么问题，然后多给她判断信息。",
-      "createdAt": "2026-10-21T03:38:44.826Z",
-      "updatedAt": "2026-10-21T03:38:44.826Z",
+      "content": "我不确定较场西2-GZHC155能不能去激活喔，不知道怎么搞",
+      "createdAt": "2026-10-21T09:05:49.095Z",
+      "updatedAt": "2026-10-21T09:05:49.095Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6782,6 +6767,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-21T03:39:05.008Z"
+    "lastSync": "2026-10-21T06:13:31.285Z"
   }
 }
