@@ -3168,6 +3168,51 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792544506789"
+    },
+    {
+      "id": "mvhersvvobg35",
+      "type": "task",
+      "content": "验收单继续过一下",
+      "createdAt": "2026-10-21T01:03:19.291Z",
+      "updatedAt": "2026-10-21T01:03:19.291Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792544506789"
+    },
+    {
+      "id": "mvhev3f30qn5k",
+      "type": "task",
+      "content": "那个VPN的怎么弄，怎么解决？",
+      "createdAt": "2026-10-21T01:05:52.911Z",
+      "updatedAt": "2026-10-21T01:05:52.911Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792544506789"
+    },
+    {
+      "id": "mvhf9dm5toj85",
+      "type": "task",
+      "content": "问芸姐要电池",
+      "createdAt": "2026-10-21T01:16:59.309Z",
+      "updatedAt": "2026-10-21T01:16:59.309Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792544506789"
     }
   ],
   "taskLists": [
@@ -3214,7 +3259,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792461843237",
+  "currentListId": "list_1792544506789",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6782,6 +6827,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-21T00:59:50.406Z"
+    "lastSync": "2026-10-21T01:02:08.035Z"
   }
 }
