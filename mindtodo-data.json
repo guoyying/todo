@@ -3035,36 +3035,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvap89xsr8r47",
-      "type": "task",
-      "content": "继续排查服务器吧，检查下ACL策略 | 等NOC回复",
-      "createdAt": "2026-10-16T08:21:40.816Z",
-      "updatedAt": "2026-10-20T05:02:57.407Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-20T05:02:57.407Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvarw7de50v25",
-      "type": "task",
-      "content": "优先看增城几个网元去激活：\n3491-派潭1\n3471-小楼\n136-仙村-AZCXCU00T01-ZCHC005\n4640-仙村-ZCHC002-HA62L\n63-仙村-银沙-AZCxCYSHRO1-ZCYSHB002",
-      "createdAt": "2026-10-16T09:36:16.466Z",
-      "updatedAt": "2026-10-21T00:58:42.939Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-21T00:58:42.939Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mveq5sthwwylh",
       "type": "task",
       "content": "关注邮件保密材料的学习，要拍照啥的 | 下一步：行动",
@@ -3082,9 +3052,9 @@
     {
       "id": "mvex7pgbk7n9g",
       "type": "task",
-      "content": "关注800M相关电路的推进工作 | 我试下去激活吧",
+      "content": "关注800M相关电路的推进工作 | 梳理下800M相关已用、计划退网设备，看业务",
       "createdAt": "2026-10-19T07:16:15.899Z",
-      "updatedAt": "2026-10-21T00:58:22.264Z",
+      "updatedAt": "2026-10-21T02:19:56.053Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3228,6 +3198,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792544506789"
+    },
+    {
+      "id": "mvhggd4s6lf85",
+      "type": "task",
+      "content": "800M推进设备梳理",
+      "createdAt": "2026-10-21T01:50:24.892Z",
+      "updatedAt": "2026-10-21T01:50:26.467Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-10-21T01:50:26.467Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791867278425"
     }
   ],
   "taskLists": [
@@ -6842,6 +6827,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-21T01:38:39.365Z"
+    "lastSync": "2026-10-21T01:42:54.321Z"
   }
 }
