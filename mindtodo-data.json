@@ -3213,6 +3213,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792544506789"
+    },
+    {
+      "id": "mvhg6gl9bt1ej",
+      "type": "task",
+      "content": "ppt给梁工，拷贝吧",
+      "createdAt": "2026-10-21T01:42:42.813Z",
+      "updatedAt": "2026-10-21T01:42:42.813Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792544506789"
     }
   ],
   "taskLists": [
@@ -3259,7 +3274,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792461843237",
+  "currentListId": "list_1792544506789",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6827,6 +6842,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-21T01:17:04.624Z"
+    "lastSync": "2026-10-21T01:38:39.365Z"
   }
 }
