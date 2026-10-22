@@ -3213,21 +3213,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792660118229"
-    },
-    {
-      "id": "mvjcqr2g8qz3n",
-      "type": "task",
-      "content": "将待定的都变为橙色，这样没那么有迷惑性",
-      "createdAt": "2026-10-22T09:42:03.400Z",
-      "updatedAt": "2026-10-22T09:42:03.400Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
     }
   ],
   "taskLists": [
