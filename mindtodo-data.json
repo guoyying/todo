@@ -3157,9 +3157,9 @@
     {
       "id": "mvj5eoe4cqhn1",
       "type": "task",
-      "content": "番禺说拆完光路了：3041-、2980-大石网管去激活吧。",
+      "content": "番禺的3041、2980共享表备注下",
       "createdAt": "2026-10-22T06:16:42.748Z",
-      "updatedAt": "2026-10-22T06:23:37.627Z",
+      "updatedAt": "2026-10-22T09:42:26.015Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3167,14 +3167,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1792544506789"
+      "listId": "list_1792660118229"
     },
     {
       "id": "mvj5gjpmvkhq0",
       "type": "task",
       "content": "黄埔发邮件说接入号了。",
       "createdAt": "2026-10-22T06:18:09.994Z",
-      "updatedAt": "2026-10-22T06:18:09.994Z",
+      "updatedAt": "2026-10-22T09:08:57.765Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3182,7 +3182,67 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1792544506789"
+      "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvjbjdawpjr6w",
+      "type": "task",
+      "content": "越秀拆运单",
+      "createdAt": "2026-10-22T09:08:19.352Z",
+      "updatedAt": "2026-10-22T09:09:00.093Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvjbji4exym2t",
+      "type": "task",
+      "content": "天河拆运单",
+      "createdAt": "2026-10-22T09:08:25.598Z",
+      "updatedAt": "2026-10-22T09:09:02.537Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvjbjkxjuhjp4",
+      "type": "task",
+      "content": "过退网单",
+      "createdAt": "2026-10-22T09:08:29.239Z",
+      "updatedAt": "2026-10-22T09:09:05.165Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvjcqr2g8qz3n",
+      "type": "task",
+      "content": "将待定的都变为橙色，这样没那么有迷惑性",
+      "createdAt": "2026-10-22T09:42:03.400Z",
+      "updatedAt": "2026-10-22T09:42:03.400Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
     }
   ],
   "taskLists": [
@@ -3208,6 +3268,13 @@
       "isDefault": false
     },
     {
+      "id": "list_1792660118229",
+      "name": "仓库1022",
+      "description": "",
+      "createdAt": "2026-10-22T09:08:38.229Z",
+      "isDefault": false
+    },
+    {
       "id": "list_1790647796695",
       "name": "每日动作",
       "description": "",
@@ -3229,7 +3296,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792544506789",
+  "currentListId": "list_1792660118229",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6797,6 +6864,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-22T06:18:16.782Z"
+    "lastSync": "2026-10-22T08:26:07.599Z"
   }
 }
