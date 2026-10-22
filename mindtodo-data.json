@@ -2934,10 +2934,10 @@
       "type": "task",
       "content": "去激活业务",
       "createdAt": "2026-09-29T02:10:18.127Z",
-      "updatedAt": "2026-10-21T08:12:19.677Z",
+      "updatedAt": "2026-10-22T06:15:55.256Z",
       "tags": [],
-      "done": true,
-      "doneAt": "2026-10-21T08:12:19.677Z",
+      "done": false,
+      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -2949,7 +2949,7 @@
       "type": "task",
       "content": "推进todo里一个问题",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-21T00:58:25.665Z",
+      "updatedAt": "2026-10-22T06:15:55.627Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3054,7 +3054,7 @@
       "type": "task",
       "content": "关注800M相关电路的推进工作 | 梳理下800M相关已用、计划退网设备，看业务",
       "createdAt": "2026-10-19T07:16:15.899Z",
-      "updatedAt": "2026-10-21T02:19:56.053Z",
+      "updatedAt": "2026-10-22T06:15:48.797Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3084,7 +3084,7 @@
       "type": "task",
       "content": "华为反馈的网元信息查看 | 已完成5个增城的核查，待核查n个",
       "createdAt": "2026-10-20T03:45:38.581Z",
-      "updatedAt": "2026-10-21T01:38:33.463Z",
+      "updatedAt": "2026-10-22T06:15:50.770Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3144,7 +3144,7 @@
       "type": "task",
       "content": "我不确定较场西2-GZHC155能不能去激活喔，不知道怎么搞",
       "createdAt": "2026-10-21T09:05:49.095Z",
-      "updatedAt": "2026-10-21T09:05:49.095Z",
+      "updatedAt": "2026-10-22T06:15:52.972Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3199,7 +3199,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792544506789",
+  "currentListId": "list_1792381213295",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5333,7 +5333,7 @@
             "endTime": "18:00",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-10-15T06:13:25.678Z"
+            "confirmationTime": "2026-10-22T06:15:44.516Z"
           }
         ]
       },
@@ -5341,7 +5341,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-10-15T06:12:14.003Z"
+        "0": "2026-10-22T06:15:42.080Z"
       }
     },
     {
