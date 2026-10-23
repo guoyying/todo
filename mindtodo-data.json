@@ -3080,21 +3080,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvg54p3pdglsa",
-      "type": "task",
-      "content": "华为反馈的网元信息查看 | 已完成5个增城的核查，待核查n个",
-      "createdAt": "2026-10-20T03:45:38.581Z",
-      "updatedAt": "2026-10-23T00:59:02.369Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792461843237"
-    },
-    {
       "id": "mvgb5h3l3ge3m",
       "type": "task",
       "content": "低效另一线：花都PDH、从化DDF都是量较大的，可以参考。",
@@ -3140,41 +3125,11 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvhw0ap3w54ve",
-      "type": "task",
-      "content": "我不确定较场西2-GZHC155能不能去激活喔，不知道怎么搞",
-      "createdAt": "2026-10-21T09:05:49.095Z",
-      "updatedAt": "2026-10-23T00:59:04.397Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792544506789"
-    },
-    {
       "id": "mvj5eoe4cqhn1",
       "type": "task",
       "content": "番禺的3041、2980共享表备注下",
       "createdAt": "2026-10-22T06:16:42.748Z",
       "updatedAt": "2026-10-23T00:59:06.107Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
-    },
-    {
-      "id": "mvjo5wr7n6mk0",
-      "type": "task",
-      "content": "跟黄工说一声，发送了邮件。",
-      "createdAt": "2026-10-22T15:01:46.387Z",
-      "updatedAt": "2026-10-23T00:59:06.653Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3191,20 +3146,6 @@
       "name": "仓库1019",
       "description": "",
       "createdAt": "2026-10-19T03:40:13.295Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1792461843237",
-      "name": "仓库1020",
-      "description": "",
-      "createdAt": "2026-10-20T02:04:03.237Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1792544506789",
-      "name": "仓库1021",
-      "description": "",
-      "createdAt": "2026-10-21T01:01:46.789Z",
       "isDefault": false
     },
     {
@@ -3236,7 +3177,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1790647796695",
+  "currentListId": "list_1792660118229",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
