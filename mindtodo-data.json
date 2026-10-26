@@ -3168,6 +3168,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvoz82vnjs61c",
+      "type": "task",
+      "content": "电信大厦4-GZHC299，怎么判断业务还有没有经过299啊？",
+      "createdAt": "2026-10-26T08:10:14.291Z",
+      "updatedAt": "2026-10-26T08:10:14.291Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvp0ybfhqnoxm",
+      "type": "task",
+      "content": "重新分配疗休养额度1028之前",
+      "createdAt": "2026-10-26T08:58:38.045Z",
+      "updatedAt": "2026-10-26T08:58:38.045Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
     }
   ],
   "taskLists": [
@@ -6775,6 +6805,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-26T07:15:17.375Z"
+    "lastSync": "2026-10-26T07:57:32.183Z"
   }
 }
