@@ -3125,21 +3125,6 @@
       "listId": "list_1792660118229"
     },
     {
-      "id": "mvow5rah2175y",
-      "type": "task",
-      "content": "将清单发给某个邮箱",
-      "createdAt": "2026-10-26T06:44:27.113Z",
-      "updatedAt": "2026-10-26T06:44:27.113Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
-    },
-    {
       "id": "mvox8z8arh31w",
       "type": "task",
       "content": "看下南沙VPN2119478469、3384-南沙大涌接入网-PYHC772能不能转O",
@@ -3175,21 +3160,6 @@
       "content": "电信大厦4-GZHC299，怎么判断业务还有没有经过299啊？",
       "createdAt": "2026-10-26T08:10:14.291Z",
       "updatedAt": "2026-10-26T08:10:14.291Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
-    },
-    {
-      "id": "mvp0ybfhqnoxm",
-      "type": "task",
-      "content": "重新分配疗休养额度1028之前",
-      "createdAt": "2026-10-26T08:58:38.045Z",
-      "updatedAt": "2026-10-26T08:58:38.045Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6820,6 +6790,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-26T08:58:56.605Z"
+    "lastSync": "2026-10-26T09:07:26.638Z"
   }
 }
