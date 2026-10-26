@@ -3095,36 +3095,6 @@
       "listId": "list_1792660118229"
     },
     {
-      "id": "mvokxx80n06j4",
-      "type": "task",
-      "content": "什么退网退租群啊？",
-      "createdAt": "2026-10-26T01:30:25.776Z",
-      "updatedAt": "2026-10-26T01:30:25.776Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
-    },
-    {
-      "id": "mvole75tmh5er",
-      "type": "task",
-      "content": "发退网通报",
-      "createdAt": "2026-10-26T01:43:05.153Z",
-      "updatedAt": "2026-10-26T01:43:05.153Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1792660118229"
-    },
-    {
       "id": "mvoled5c9y1um",
       "type": "task",
       "content": "再弄下那个保密的",
@@ -6790,6 +6760,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-26T01:45:49.733Z"
+    "lastSync": "2026-10-26T03:17:55.350Z"
   }
 }
