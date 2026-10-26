@@ -3123,6 +3123,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1792660118229"
+    },
+    {
+      "id": "mvoled5c9y1um",
+      "type": "task",
+      "content": "再弄下那个保密的",
+      "createdAt": "2026-10-26T01:43:12.912Z",
+      "updatedAt": "2026-10-26T01:43:12.912Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1792660118229"
     }
   ],
   "taskLists": [
@@ -6730,6 +6745,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-26T01:30:31.289Z"
+    "lastSync": "2026-10-26T01:43:10.408Z"
   }
 }
