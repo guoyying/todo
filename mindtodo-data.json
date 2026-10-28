@@ -3110,21 +3110,6 @@
       "listId": "list_1793148649329"
     },
     {
-      "id": "mvqi3uy04jw45",
-      "type": "task",
-      "content": "要清理局内的标记出来",
-      "createdAt": "2026-10-27T09:46:36.264Z",
-      "updatedAt": "2026-10-28T00:52:02.129Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793148696081"
-    },
-    {
       "id": "mvrei2yexnqt4",
       "type": "task",
       "content": "推进下北城机楼搬迁的事情",
@@ -3153,6 +3138,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793149243577"
+    },
+    {
+      "id": "mvrqi7l45id7l",
+      "type": "task",
+      "content": "看下固资邮件讲的啥",
+      "createdAt": "2026-10-28T06:29:28.936Z",
+      "updatedAt": "2026-10-28T06:29:28.936Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793149243577"
     }
   ],
   "taskLists": [
@@ -3161,13 +3161,6 @@
       "name": "仓库1026",
       "description": "",
       "createdAt": "2026-10-28T00:50:49.329Z",
-      "isDefault": false
-    },
-    {
-      "id": "list_1793148696081",
-      "name": "仓库1027",
-      "description": "",
-      "createdAt": "2026-10-28T00:51:36.081Z",
       "isDefault": false
     },
     {
@@ -6767,6 +6760,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-28T04:31:40.684Z"
+    "lastSync": "2026-10-28T04:54:49.943Z"
   }
 }
