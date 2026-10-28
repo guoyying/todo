@@ -3022,17 +3022,17 @@
     {
       "id": "mvok9idsh4cgf",
       "type": "task",
-      "content": "黄埔三条高值电路要催促下政企部 | 周三催一下吧",
+      "content": "黄埔三条高值电路要催促下政企部 |",
       "createdAt": "2026-10-26T01:11:26.800Z",
-      "updatedAt": "2026-10-28T00:51:59.971Z",
+      "updatedAt": "2026-10-28T01:46:50.288Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-28T01:46:48.338Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148696081"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvoled5c9y1um",
@@ -3229,7 +3229,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148649329",
+  "currentListId": "list_1793148696081",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6797,6 +6797,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-28T01:32:32.844Z"
+    "lastSync": "2026-10-28T01:39:20.574Z"
   }
 }
