@@ -3052,9 +3052,9 @@
     {
       "id": "mvoos1jkcituc",
       "type": "task",
-      "content": "盘点通报 | 下一步：看下已退网清运的怎么搞。",
+      "content": "盘点通报 | 下一步：看下已退网清运的怎么搞，是板卡来的，闲置状态。",
       "createdAt": "2026-10-26T03:17:49.905Z",
-      "updatedAt": "2026-10-28T06:53:15.464Z",
+      "updatedAt": "2026-10-28T06:58:25.440Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6760,6 +6760,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-28T06:30:01.322Z"
+    "lastSync": "2026-10-28T06:53:46.196Z"
   }
 }
