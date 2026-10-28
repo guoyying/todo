@@ -2992,9 +2992,9 @@
     {
       "id": "mvg23h7m1tb7m",
       "type": "task",
-      "content": "看下低效怎么弄 | 下一步：等待从化、增城反馈PDH ---1020更新",
+      "content": "看下低效怎么弄 | 下一步：看这周增城和从化PDH的进度变化---1028更新",
       "createdAt": "2026-10-20T02:20:42.850Z",
-      "updatedAt": "2026-10-28T00:46:51.744Z",
+      "updatedAt": "2026-10-28T01:00:03.980Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3159,7 +3159,7 @@
       "type": "task",
       "content": "推进下北城机楼搬迁的事情",
       "createdAt": "2026-10-28T00:53:27.542Z",
-      "updatedAt": "2026-10-28T00:53:27.542Z",
+      "updatedAt": "2026-10-28T01:08:02.759Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3167,7 +3167,37 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148696081"
+      "listId": "list_1793149243577"
+    },
+    {
+      "id": "mvrevymdsbh9t",
+      "type": "task",
+      "content": "跟小明说周五吃饭的事情",
+      "createdAt": "2026-10-28T01:04:15.109Z",
+      "updatedAt": "2026-10-28T01:04:18.419Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793149243577"
+    },
+    {
+      "id": "mvrf0pgtrajrv",
+      "type": "task",
+      "content": "三码过单",
+      "createdAt": "2026-10-28T01:07:56.525Z",
+      "updatedAt": "2026-10-28T01:08:00.711Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793149243577"
     }
   ],
   "taskLists": [
@@ -3193,6 +3223,13 @@
       "isDefault": false
     },
     {
+      "id": "list_1793149243577",
+      "name": "仓库1028",
+      "description": "",
+      "createdAt": "2026-10-28T01:00:43.577Z",
+      "isDefault": false
+    },
+    {
       "id": "list_1790647796695",
       "name": "每日动作",
       "description": "",
@@ -3214,7 +3251,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1792660118229",
+  "currentListId": "list_1793148696081",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6782,6 +6819,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-28T00:53:37.183Z"
+    "lastSync": "2026-10-28T00:54:17.440Z"
   }
 }
