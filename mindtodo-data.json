@@ -2994,15 +2994,15 @@
       "type": "task",
       "content": "看下低效怎么弄 | 下一步：看这周增城和从化PDH的进度变化---1028更新",
       "createdAt": "2026-10-20T02:20:42.850Z",
-      "updatedAt": "2026-10-28T01:00:03.980Z",
+      "updatedAt": "2026-10-28T01:11:02.921Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-28T01:11:00.061Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1792660118229"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvgb5h3l3ge3m",
@@ -3251,7 +3251,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148696081",
+  "currentListId": "list_1792660118229",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6819,6 +6819,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-28T00:54:17.440Z"
+    "lastSync": "2026-10-28T01:08:08.994Z"
   }
 }
