@@ -3168,26 +3168,11 @@
       "listId": "list_1793149243577"
     },
     {
-      "id": "mvstfsc1wiekl",
-      "type": "task",
-      "content": "说下跟小明周末逛街的事情",
-      "createdAt": "2026-10-29T00:39:20.881Z",
-      "updatedAt": "2026-10-29T03:24:38.512Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793244258106"
-    },
-    {
       "id": "mvsx4118ph3lp",
       "type": "task",
       "content": "我还想知道是不是现在就要动起来了，规划经理不会帮你做这些？",
       "createdAt": "2026-10-29T02:22:10.748Z",
-      "updatedAt": "2026-10-29T03:24:42.314Z",
+      "updatedAt": "2026-10-29T05:22:51.811Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3195,7 +3180,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793244258106"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvsyru5htp6sg",
@@ -3247,7 +3232,7 @@
       "type": "task",
       "content": "给志愿者照片",
       "createdAt": "2026-10-29T03:13:42.662Z",
-      "updatedAt": "2026-10-29T03:13:42.662Z",
+      "updatedAt": "2026-10-29T05:21:00.150Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3255,7 +3240,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvsyyjnqlfrcv",
@@ -3347,7 +3332,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148649329",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6900,6 +6885,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T04:47:41.878Z"
+    "lastSync": "2026-10-29T05:21:41.427Z"
   }
 }
