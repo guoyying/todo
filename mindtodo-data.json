@@ -3037,9 +3037,9 @@
     {
       "id": "mvoos1jkcituc",
       "type": "task",
-      "content": "盘点通报 | 下一步：问下梁工入湖的表登记是怎样，是不算考核进度了是不是。看下已退网清运的怎么搞，是板卡来的，闲置状态。",
+      "content": "盘点通报 | 等待越秀答复是否报废了。",
       "createdAt": "2026-10-26T03:17:49.905Z",
-      "updatedAt": "2026-10-29T00:44:05.289Z",
+      "updatedAt": "2026-10-29T04:44:01.458Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3364,7 +3364,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793244258106",
+  "currentListId": "list_1793148649329",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6917,6 +6917,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T03:46:23.783Z"
+    "lastSync": "2026-10-29T04:43:28.683Z"
   }
 }
