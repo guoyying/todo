@@ -3063,21 +3063,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvrqi7l45id7l",
-      "type": "task",
-      "content": "看下固资邮件讲的啥",
-      "createdAt": "2026-10-28T06:29:28.936Z",
-      "updatedAt": "2026-10-29T00:34:38.224Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793149243577"
-    },
-    {
       "id": "mvstcob5f4ogy",
       "type": "task",
       "content": "推进今日任务",
@@ -3241,21 +3226,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793244258106"
-    },
-    {
-      "id": "mvtaeqywhcasw",
-      "type": "task",
-      "content": "搞一下资产归属变更的模板了",
-      "createdAt": "2026-10-29T08:34:25.928Z",
-      "updatedAt": "2026-10-29T08:34:25.928Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793244258106"
     }
   ],
   "taskLists": [
@@ -3302,7 +3272,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6855,6 +6825,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T08:34:56.111Z"
+    "lastSync": "2026-10-29T08:44:55.891Z"
   }
 }
