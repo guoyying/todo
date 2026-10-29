@@ -3155,9 +3155,9 @@
     {
       "id": "mvstdyivvekkq",
       "type": "task",
-      "content": "网安接单",
+      "content": "网安接单 | 周五中午再催一下",
       "createdAt": "2026-10-29T00:37:55.591Z",
-      "updatedAt": "2026-10-29T00:37:55.591Z",
+      "updatedAt": "2026-10-29T06:22:15.581Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3332,7 +3332,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148649329",
+  "currentListId": "list_1793149243577",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5532,6 +5532,21 @@
       "createdAt": "2026-10-29T06:19:55.643Z",
       "lastReminderTime": null,
       "active": true
+    },
+    {
+      "id": "mvt5n7gsgncq1",
+      "taskId": "mthy1tz4rwp5j",
+      "type": "time",
+      "triggerConfig": {
+        "triggerTime": "2026-11-27T14:20"
+      },
+      "reminderConfig": {
+        "frequency": "once",
+        "message": "你有1个任务待处理"
+      },
+      "createdAt": "2026-10-29T06:21:02.476Z",
+      "lastReminderTime": null,
+      "active": true
     }
   ],
   "knowledgeBase": [
@@ -6870,6 +6885,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T06:20:06.087Z"
+    "lastSync": "2026-10-29T06:21:10.488Z"
   }
 }
