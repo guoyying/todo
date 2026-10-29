@@ -3185,24 +3185,9 @@
     {
       "id": "mvsyru5htp6sg",
       "type": "task",
-      "content": "过拆运单",
+      "content": "过拆运单 | 还剩下海珠的未过单",
       "createdAt": "2026-10-29T03:08:41.189Z",
-      "updatedAt": "2026-10-29T03:24:45.320Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793244258106"
-    },
-    {
-      "id": "mvsysdpxiwuyg",
-      "type": "task",
-      "content": "发天河紧急拆运的邮件",
-      "createdAt": "2026-10-29T03:09:06.549Z",
-      "updatedAt": "2026-10-29T03:24:47.923Z",
+      "updatedAt": "2026-10-29T08:23:39.230Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3332,7 +3317,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793149243577",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5477,7 +5462,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-10-22T08:25:57.488Z"
+            "confirmationTime": "2026-10-29T08:09:51.705Z"
           }
         ]
       },
@@ -5485,7 +5470,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-10-22T07:24:00.036Z"
+        "0": "2026-10-29T07:25:00.023Z"
       }
     },
     {
@@ -6885,6 +6870,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T06:21:10.488Z"
+    "lastSync": "2026-10-29T06:22:25.316Z"
   }
 }
