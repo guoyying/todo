@@ -3035,21 +3035,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvoled5c9y1um",
-      "type": "task",
-      "content": "再弄下那个保密的",
-      "createdAt": "2026-10-26T01:43:12.912Z",
-      "updatedAt": "2026-10-29T00:34:37.864Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793149243577"
-    },
-    {
       "id": "mvoos1jkcituc",
       "type": "task",
       "content": "盘点通报 | 下一步：问下梁工入湖的表登记是怎样，是不算考核进度了是不是。看下已退网清运的怎么搞，是板卡来的，闲置状态。",
@@ -3213,6 +3198,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793149243577"
+    },
+    {
+      "id": "mvsx4118ph3lp",
+      "type": "task",
+      "content": "我还想知道是不是现在就要动起来了，规划经理不会帮你做这些？",
+      "createdAt": "2026-10-29T02:22:10.748Z",
+      "updatedAt": "2026-10-29T02:22:10.748Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793149243577"
     }
   ],
   "taskLists": [
@@ -3252,7 +3252,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148649329",
+  "currentListId": "list_1793149243577",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6805,6 +6805,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T00:44:11.659Z"
+    "lastSync": "2026-10-29T01:45:55.628Z"
   }
 }
