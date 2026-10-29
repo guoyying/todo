@@ -3039,7 +3039,7 @@
       "type": "task",
       "content": "盘点通报 | 等待越秀答复是否报废了。",
       "createdAt": "2026-10-26T03:17:49.905Z",
-      "updatedAt": "2026-10-29T04:44:01.458Z",
+      "updatedAt": "2026-10-29T04:47:04.578Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3047,7 +3047,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148649329"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvox8z8arh31w",
@@ -6917,6 +6917,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T04:43:28.683Z"
+    "lastSync": "2026-10-29T04:44:19.944Z"
   }
 }
