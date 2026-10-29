@@ -3189,7 +3189,7 @@
       "type": "task",
       "content": "说下跟小明周末逛街的事情",
       "createdAt": "2026-10-29T00:39:20.881Z",
-      "updatedAt": "2026-10-29T00:39:20.881Z",
+      "updatedAt": "2026-10-29T03:24:38.512Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3197,14 +3197,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsx4118ph3lp",
       "type": "task",
       "content": "我还想知道是不是现在就要动起来了，规划经理不会帮你做这些？",
       "createdAt": "2026-10-29T02:22:10.748Z",
-      "updatedAt": "2026-10-29T02:22:10.748Z",
+      "updatedAt": "2026-10-29T03:24:42.314Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3212,14 +3212,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsyru5htp6sg",
       "type": "task",
       "content": "过拆运单",
       "createdAt": "2026-10-29T03:08:41.189Z",
-      "updatedAt": "2026-10-29T03:08:41.189Z",
+      "updatedAt": "2026-10-29T03:24:45.320Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3227,14 +3227,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsysdpxiwuyg",
       "type": "task",
       "content": "发天河紧急拆运的邮件",
       "createdAt": "2026-10-29T03:09:06.549Z",
-      "updatedAt": "2026-10-29T03:09:06.549Z",
+      "updatedAt": "2026-10-29T03:24:47.923Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3242,14 +3242,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsywhbqlnvbf",
       "type": "task",
       "content": "看下北城搬迁的方案",
       "createdAt": "2026-10-29T03:12:17.846Z",
-      "updatedAt": "2026-10-29T03:12:17.846Z",
+      "updatedAt": "2026-10-29T03:24:51.357Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3257,7 +3257,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsyyarquihko",
@@ -3279,7 +3279,7 @@
       "type": "task",
       "content": "问下客资荔湾-海珠的光路啥情况",
       "createdAt": "2026-10-29T03:13:54.182Z",
-      "updatedAt": "2026-10-29T03:13:54.182Z",
+      "updatedAt": "2026-10-29T03:25:02.236Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3287,14 +3287,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     },
     {
       "id": "mvsyyzp91ail8",
       "type": "task",
       "content": "11.11健步行",
       "createdAt": "2026-10-29T03:14:14.973Z",
-      "updatedAt": "2026-10-29T03:14:14.973Z",
+      "updatedAt": "2026-10-29T03:25:05.286Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3302,7 +3302,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793149243577"
+      "listId": "list_1793244258106"
     }
   ],
   "taskLists": [
@@ -3318,6 +3318,13 @@
       "name": "仓库1028",
       "description": "",
       "createdAt": "2026-10-28T01:00:43.577Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1793244258106",
+      "name": "仓库1029",
+      "description": "",
+      "createdAt": "2026-10-29T03:24:18.106Z",
       "isDefault": false
     },
     {
@@ -6895,6 +6902,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T03:12:37.110Z"
+    "lastSync": "2026-10-29T03:14:34.969Z"
   }
 }
