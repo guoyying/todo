@@ -3005,9 +3005,9 @@
     {
       "id": "mvox8z8arh31w",
       "type": "task",
-      "content": "看下南沙VPN2119478469、3384-南沙大涌接入网-PYHC772能不能转O",
+      "content": "看下南沙VPN2119478469、3384-南沙大涌接入网-PYHC772能不能转O | 是用户端SDH，需要替换设备，待南沙回复。",
       "createdAt": "2026-10-26T07:14:56.986Z",
-      "updatedAt": "2026-10-30T00:37:25.844Z",
+      "updatedAt": "2026-10-30T01:07:45.276Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3015,7 +3015,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148649329"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvoz82vnjs61c",
@@ -3272,7 +3272,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793148649329",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6825,6 +6825,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-29T09:38:19.034Z"
+    "lastSync": "2026-10-30T00:37:48.990Z"
   }
 }
