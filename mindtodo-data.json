@@ -3138,21 +3138,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvsyru5htp6sg",
-      "type": "task",
-      "content": "过拆运单 | 还剩下海珠的未过单",
-      "createdAt": "2026-10-29T03:08:41.189Z",
-      "updatedAt": "2026-10-30T00:37:32.774Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793244258106"
-    },
-    {
       "id": "mvsywhbqlnvbf",
       "type": "task",
       "content": "看下北城搬迁的方案ppt",
@@ -3287,7 +3272,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793148649329",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6840,6 +6825,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T02:12:08.395Z"
+    "lastSync": "2026-10-30T02:27:39.122Z"
   }
 }
