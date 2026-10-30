@@ -2917,10 +2917,10 @@
       "type": "task",
       "content": "推进过去的任务",
       "createdAt": "2026-09-29T02:28:47.000Z",
-      "updatedAt": "2026-10-30T00:37:40.208Z",
+      "updatedAt": "2026-10-30T06:15:45.594Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-30T06:15:45.594Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3022,40 +3022,10 @@
       "type": "task",
       "content": "推进今日任务",
       "createdAt": "2026-10-29T00:36:55.697Z",
-      "updatedAt": "2026-10-30T00:37:40.674Z",
+      "updatedAt": "2026-10-30T06:15:46.064Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1790647796695"
-    },
-    {
-      "id": "mvstcxtl6su7i",
-      "type": "task",
-      "content": "核查3个北城机楼业务",
-      "createdAt": "2026-10-29T00:37:08.025Z",
-      "updatedAt": "2026-10-30T00:37:41.188Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1790647796695"
-    },
-    {
-      "id": "mvstd80gpw95u",
-      "type": "task",
-      "content": "问1个北城几楼搬迁相关问题",
-      "createdAt": "2026-10-29T00:37:21.232Z",
-      "updatedAt": "2026-10-30T00:37:41.608Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-30T06:15:46.064Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3213,7 +3183,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793244258106",
+  "currentListId": "list_1791453412094",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6766,6 +6736,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T03:28:57.891Z"
+    "lastSync": "2026-10-30T06:15:43.590Z"
   }
 }
