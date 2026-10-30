@@ -2975,42 +2975,12 @@
     {
       "id": "mvok9idsh4cgf",
       "type": "task",
-      "content": "黄埔三条高值电路要催促下政企部 |",
+      "content": "黄埔三条高值电路要催促下政企部 | 还剩下两条业务待反馈",
       "createdAt": "2026-10-26T01:11:26.800Z",
-      "updatedAt": "2026-10-28T01:46:50.288Z",
+      "updatedAt": "2026-10-30T03:07:09.661Z",
       "tags": [],
       "done": true,
       "doneAt": "2026-10-28T01:46:48.338Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvoos1jkcituc",
-      "type": "task",
-      "content": "盘点通报 | 等待越秀答复是否报废了。",
-      "createdAt": "2026-10-26T03:17:49.905Z",
-      "updatedAt": "2026-10-29T08:32:58.369Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-29T08:32:58.369Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvox8z8arh31w",
-      "type": "task",
-      "content": "看下南沙VPN2119478469、3384-南沙大涌接入网-PYHC772能不能转O | 是用户端SDH，需要替换设备，待南沙回复。",
-      "createdAt": "2026-10-26T07:14:56.986Z",
-      "updatedAt": "2026-10-30T01:07:45.276Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3022,30 +2992,30 @@
       "type": "task",
       "content": "电信大厦4-GZHC299，怎么判断业务还有没有经过299啊？ | LDC09999636G，108-4887-广州萝岗的9板8口",
       "createdAt": "2026-10-26T08:10:14.291Z",
-      "updatedAt": "2026-10-30T02:27:33.458Z",
+      "updatedAt": "2026-10-30T03:06:35.923Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-30T03:06:35.923Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148649329"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvp19ge7xce63",
       "type": "task",
       "content": "电信大厦1-GZHD001-HB01：还剩下NDC06955417G长途的业务，网管是告警的。但资源还归档，怎么办？",
       "createdAt": "2026-10-26T09:07:17.695Z",
-      "updatedAt": "2026-10-30T00:37:24.838Z",
+      "updatedAt": "2026-10-30T03:06:36.311Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-30T03:06:36.311Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793148649329"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvrei2yexnqt4",
@@ -3153,34 +3123,19 @@
       "listId": "list_1793244258106"
     },
     {
-      "id": "mvsyyarquihko",
+      "id": "mvsyyjnqlfrcv",
       "type": "task",
-      "content": "给志愿者照片",
-      "createdAt": "2026-10-29T03:13:42.662Z",
-      "updatedAt": "2026-10-29T08:32:59.644Z",
+      "content": "问下客资荔湾-海珠的光路啥情况",
+      "createdAt": "2026-10-29T03:13:54.182Z",
+      "updatedAt": "2026-10-30T02:51:39.739Z",
       "tags": [],
       "done": true,
-      "doneAt": "2026-10-29T08:32:59.644Z",
+      "doneAt": "2026-10-30T02:51:39.739Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvsyyjnqlfrcv",
-      "type": "task",
-      "content": "问下客资荔湾-海珠的光路啥情况",
-      "createdAt": "2026-10-29T03:13:54.182Z",
-      "updatedAt": "2026-10-30T00:37:32.042Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793244258106"
     },
     {
       "id": "mvsyyzp91ail8",
@@ -3287,7 +3242,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793244258106",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6840,6 +6795,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T02:48:59.445Z"
+    "lastSync": "2026-10-30T02:49:34.548Z"
   }
 }
