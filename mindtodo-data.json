@@ -3127,15 +3127,15 @@
       "type": "task",
       "content": "看下市工商局(天河路)-GZHC299(1)的7板1口有多少条业务，看下是主口还是从口",
       "createdAt": "2026-10-30T03:28:31.188Z",
-      "updatedAt": "2026-10-30T03:28:41.685Z",
+      "updatedAt": "2026-10-30T08:32:18.960Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-10-30T08:32:16.540Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793244258106"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvuexo3o9m4at",
@@ -3183,7 +3183,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6736,6 +6736,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T06:15:57.542Z"
+    "lastSync": "2026-10-30T07:50:39.411Z"
   }
 }
