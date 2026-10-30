@@ -3020,9 +3020,9 @@
     {
       "id": "mvoz82vnjs61c",
       "type": "task",
-      "content": "电信大厦4-GZHC299，怎么判断业务还有没有经过299啊？ | 登天河回复",
+      "content": "电信大厦4-GZHC299，怎么判断业务还有没有经过299啊？ | LDC09999636G，108-4887-广州萝岗的9板8口",
       "createdAt": "2026-10-26T08:10:14.291Z",
-      "updatedAt": "2026-10-30T02:09:06.547Z",
+      "updatedAt": "2026-10-30T02:27:33.458Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3287,7 +3287,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793244258106",
+  "currentListId": "list_1793148649329",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6840,6 +6840,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T02:09:11.661Z"
+    "lastSync": "2026-10-30T02:12:08.395Z"
   }
 }
