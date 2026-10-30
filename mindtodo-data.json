@@ -3226,6 +3226,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793244258106"
+    },
+    {
+      "id": "mvudivlw7551q",
+      "type": "task",
+      "content": "什么党建签到",
+      "createdAt": "2026-10-30T02:49:23.588Z",
+      "updatedAt": "2026-10-30T02:49:23.588Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793244258106"
     }
   ],
   "taskLists": [
@@ -6825,6 +6840,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T02:27:39.122Z"
+    "lastSync": "2026-10-30T02:48:59.445Z"
   }
 }
