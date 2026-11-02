@@ -3196,6 +3196,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
+    },
+    {
+      "id": "mvyz1ry9rx9st",
+      "type": "task",
+      "content": "研发云评审",
+      "createdAt": "2026-11-02T08:03:01.953Z",
+      "updatedAt": "2026-11-02T08:03:01.953Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
     }
   ],
   "taskLists": [
@@ -6788,6 +6803,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-02T07:45:08.164Z"
+    "lastSync": "2026-11-02T08:02:19.287Z"
   }
 }
