@@ -3110,9 +3110,9 @@
     {
       "id": "mvyny9enycaq7",
       "type": "task",
-      "content": "今天下班前完成资产盘点的反馈",
+      "content": "完成资产盘点的反馈",
       "createdAt": "2026-11-02T02:52:22.175Z",
-      "updatedAt": "2026-11-02T02:52:26.664Z",
+      "updatedAt": "2026-11-02T06:36:36.184Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3143,6 +3143,36 @@
       "content": "跟总监说北城机楼搬迁的预算 | 等待反馈",
       "createdAt": "2026-11-02T06:22:05.871Z",
       "updatedAt": "2026-11-02T06:35:21.840Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
+    },
+    {
+      "id": "mvyvyxl2136nw",
+      "type": "task",
+      "content": "未认领、未盘点资产看下咯。",
+      "createdAt": "2026-11-02T06:36:50.438Z",
+      "updatedAt": "2026-11-02T06:36:50.438Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
+    },
+    {
+      "id": "mvywn7gf8353k",
+      "type": "task",
+      "content": "审核一张清运单",
+      "createdAt": "2026-11-02T06:55:42.975Z",
+      "updatedAt": "2026-11-02T06:55:42.975Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6743,6 +6773,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-02T06:22:18.443Z"
+    "lastSync": "2026-11-02T06:36:04.409Z"
   }
 }
