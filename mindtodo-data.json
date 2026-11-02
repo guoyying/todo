@@ -3078,21 +3078,6 @@
       "listId": "list_1793244258106"
     },
     {
-      "id": "mvuex710rt8dt",
-      "type": "task",
-      "content": "看下市工商局(天河路)-GZHC299(1)的7板1口有多少条业务，看下是主口还是从口",
-      "createdAt": "2026-10-30T03:28:31.188Z",
-      "updatedAt": "2026-10-30T08:32:18.960Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-30T08:32:16.540Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvur6g9350fte",
       "type": "task",
       "content": "荔湾花地的跳纤，跟进下。",
@@ -3151,6 +3136,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793583076464"
+    },
+    {
+      "id": "mvyvfz1rcmlf7",
+      "type": "task",
+      "content": "跟总监说北城机楼搬迁的预算 | 等待反馈",
+      "createdAt": "2026-11-02T06:22:05.871Z",
+      "updatedAt": "2026-11-02T06:35:21.840Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
     }
   ],
   "taskLists": [
@@ -3190,7 +3190,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793583076464",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6743,6 +6743,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-02T06:21:00.451Z"
+    "lastSync": "2026-11-02T06:22:18.443Z"
   }
 }
