@@ -3157,7 +3157,7 @@
       "type": "task",
       "content": "验收10个",
       "createdAt": "2026-11-02T01:31:38.316Z",
-      "updatedAt": "2026-11-02T01:31:38.316Z",
+      "updatedAt": "2026-11-02T01:34:15.376Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3165,14 +3165,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793244258106"
+      "listId": "list_1793583076464"
     },
     {
       "id": "mvyl2o442cieu",
       "type": "task",
       "content": "思考下退网怎么通报",
       "createdAt": "2026-11-02T01:31:49.012Z",
-      "updatedAt": "2026-11-02T01:31:49.012Z",
+      "updatedAt": "2026-11-02T01:34:17.398Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3180,14 +3180,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793244258106"
+      "listId": "list_1793583076464"
     },
     {
       "id": "mvyl3qzghbacl",
       "type": "task",
       "content": "转o的有没有做完的啊？看看追踪",
       "createdAt": "2026-11-02T01:32:39.388Z",
-      "updatedAt": "2026-11-02T01:32:39.388Z",
+      "updatedAt": "2026-11-02T01:34:19.878Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3195,7 +3195,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793244258106"
+      "listId": "list_1793583076464"
     }
   ],
   "taskLists": [
@@ -6788,6 +6788,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-10-30T08:32:37.221Z"
+    "lastSync": "2026-11-02T01:32:43.526Z"
   }
 }
