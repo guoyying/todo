@@ -3142,7 +3142,7 @@
       "type": "task",
       "content": "未认领、未盘点资产看下咯 | 每周都看点咯",
       "createdAt": "2026-11-02T06:36:50.438Z",
-      "updatedAt": "2026-11-02T06:58:16.696Z",
+      "updatedAt": "2026-11-02T07:23:48.907Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3150,7 +3150,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793583076464"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvywn7gf8353k",
@@ -3170,17 +3170,17 @@
     {
       "id": "mvywpkb4504w7",
       "type": "task",
-      "content": "我打算问下越秀这批，客资有什么处理建议",
+      "content": "已经发送未报废资产清单给越秀。待反馈",
       "createdAt": "2026-11-02T06:57:32.944Z",
-      "updatedAt": "2026-11-02T06:57:32.944Z",
+      "updatedAt": "2026-11-02T07:23:45.228Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-02T07:23:43.058Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793583076464"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mvywpzxlpqnvl",
@@ -6803,6 +6803,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-02T07:09:37.426Z"
+    "lastSync": "2026-11-02T07:13:03.258Z"
   }
 }
