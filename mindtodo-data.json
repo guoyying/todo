@@ -3226,6 +3226,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793583076464"
+    },
+    {
+      "id": "mvz1ncfx865vu",
+      "type": "task",
+      "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。",
+      "createdAt": "2026-11-02T09:15:47.517Z",
+      "updatedAt": "2026-11-02T09:15:47.517Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
     }
   ],
   "taskLists": [
@@ -6818,6 +6833,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-02T09:09:03.826Z"
+    "lastSync": "2026-11-02T09:15:14.892Z"
   }
 }
