@@ -3142,10 +3142,10 @@
       "type": "task",
       "content": "算力4台可退设备，让莫经理看下。另外一台看下退了没",
       "createdAt": "2026-11-02T08:19:58.249Z",
-      "updatedAt": "2026-11-03T01:56:43.632Z",
+      "updatedAt": "2026-11-03T02:58:18.438Z",
       "tags": [],
       "done": true,
-      "doneAt": "2026-11-03T01:56:41.208Z",
+      "doneAt": "2026-11-03T02:58:15.650Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -6773,6 +6773,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-03T02:34:48.652Z"
+    "lastSync": "2026-11-03T02:49:53.923Z"
   }
 }
