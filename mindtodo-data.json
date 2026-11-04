@@ -3151,6 +3151,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793583076464"
+    },
+    {
+      "id": "mw1j424rmx4sy",
+      "type": "task",
+      "content": "看下数据给的资产表，核查下归属",
+      "createdAt": "2026-11-04T03:00:13.131Z",
+      "updatedAt": "2026-11-04T03:00:13.131Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793583076464"
     }
   ],
   "taskLists": [
@@ -6743,6 +6758,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-04T00:43:28.814Z"
+    "lastSync": "2026-11-04T02:26:51.284Z"
   }
 }
