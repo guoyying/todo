@@ -3035,9 +3035,9 @@
     {
       "id": "mvur6g9350fte",
       "type": "task",
-      "content": "荔湾花地的跳纤，跟进下。",
+      "content": "荔湾花地的跳纤，跟进下 | 可以找越秀看下",
       "createdAt": "2026-10-30T09:11:38.439Z",
-      "updatedAt": "2026-11-05T00:31:27.386Z",
+      "updatedAt": "2026-11-05T01:23:49.646Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3242,7 +3242,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793761506004",
+  "currentListId": "list_1793244258106",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6795,6 +6795,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-04T08:44:39.593Z"
+    "lastSync": "2026-11-05T01:13:43.483Z"
   }
 }
