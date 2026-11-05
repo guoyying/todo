@@ -2943,21 +2943,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvgb5h3l3ge3m",
-      "type": "task",
-      "content": "低效另一线：花都PDH、从化DDF都是量较大的，可以参考。",
-      "createdAt": "2026-10-20T06:34:12.561Z",
-      "updatedAt": "2026-10-21T00:58:29.943Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-21T00:58:29.943Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvok9idsh4cgf",
       "type": "task",
       "content": "黄埔三条高值电路要催促下政企部 | 还剩下两条业务待反馈",
@@ -3001,21 +2986,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1790647796695"
-    },
-    {
-      "id": "mvsyyjnqlfrcv",
-      "type": "task",
-      "content": "问下客资荔湾-海珠的光路啥情况",
-      "createdAt": "2026-10-29T03:13:54.182Z",
-      "updatedAt": "2026-10-30T02:51:39.739Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-30T02:51:39.739Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
     },
     {
       "id": "mvsyyzp91ail8",
@@ -3078,21 +3048,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvyznk4povl3r",
-      "type": "task",
-      "content": "算力4台可退设备，让莫经理看下。另外一台看下退了没",
-      "createdAt": "2026-11-02T08:19:58.249Z",
-      "updatedAt": "2026-11-03T02:58:18.438Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-03T02:58:15.650Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvz1ncfx865vu",
       "type": "task",
       "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。单靠我自己的力量其实并不能推动县分去做。我在想能不能借力。",
@@ -3106,36 +3061,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793583076464"
-    },
-    {
-      "id": "mw1e8431tnm4i",
-      "type": "task",
-      "content": "资产盘点：看下增城反馈的表格内容 | 等对方反馈，然后更新上传表格。",
-      "createdAt": "2026-11-04T00:43:24.206Z",
-      "updatedAt": "2026-11-04T07:19:00.598Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-04T07:18:50.216Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mw1j424rmx4sy",
-      "type": "task",
-      "content": "看下数据给的资产表，核查下归属",
-      "createdAt": "2026-11-04T03:00:13.131Z",
-      "updatedAt": "2026-11-04T07:19:06.864Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-04T07:19:04.424Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
     },
     {
       "id": "mw1q2arszvktk",
@@ -3220,7 +3145,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793761506004",
+  "currentListId": "list_1793583076464",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6773,6 +6698,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-05T01:23:57.558Z"
+    "lastSync": "2026-11-05T02:37:52.393Z"
   }
 }
