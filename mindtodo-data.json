@@ -3091,6 +3091,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
+    },
+    {
+      "id": "mw4scmymq7jgr",
+      "type": "task",
+      "content": "私聊海珠：看到这两周你们都有在推进设备退网下电。今年可为的基本就这些了，其他的要转O实现比较难。剩下一个半月主推这些吧。存量还有 10 个 0 业务、1 条光路、计划退网10个。",
+      "createdAt": "2026-11-06T09:42:08.446Z",
+      "updatedAt": "2026-11-06T09:43:05.823Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793761506004"
     }
   ],
   "taskLists": [
@@ -3130,7 +3145,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793761506004",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6683,6 +6698,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-06T08:59:19.926Z"
+    "lastSync": "2026-11-06T09:28:17.112Z"
   }
 }
