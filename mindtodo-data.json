@@ -3003,21 +3003,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvyx8tte4ew29",
-      "type": "task",
-      "content": "县分反馈的要修改归属的，我也要记录到归属修改的清单里 | 等那个天河反馈给我啊",
-      "createdAt": "2026-11-02T07:12:31.730Z",
-      "updatedAt": "2026-11-02T07:44:31.081Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-02T07:44:31.081Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvz1ncfx865vu",
       "type": "task",
       "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。单靠我自己的力量其实并不能推动县分去做。我在想能不能借力。",
@@ -3031,21 +3016,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793583076464"
-    },
-    {
-      "id": "mw1q2arszvktk",
-      "type": "task",
-      "content": "看下专业下发任务怎么办",
-      "createdAt": "2026-11-04T06:14:48.328Z",
-      "updatedAt": "2026-11-05T07:03:34.083Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-05T07:03:31.381Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
     },
     {
       "id": "mw1szglj6jt1p",
@@ -3078,21 +3048,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mw2y0ns8q8p05",
-      "type": "task",
-      "content": "网管验收修改",
-      "createdAt": "2026-11-05T02:45:14.984Z",
-      "updatedAt": "2026-11-05T06:16:12.466Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-05T06:16:10.089Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mw2y0xdl6559z",
       "type": "task",
       "content": "看下萝岗机楼搬迁的邮件",
@@ -3106,21 +3061,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
-    },
-    {
-      "id": "mw4lwps9p7mrf",
-      "type": "task",
-      "content": "看下基线的事情",
-      "createdAt": "2026-11-06T06:41:47.913Z",
-      "updatedAt": "2026-11-06T07:13:41.963Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793761506004"
     },
     {
       "id": "mw4lwz0p1isnq",
@@ -3138,34 +3078,19 @@
       "listId": "list_1793761506004"
     },
     {
-      "id": "mw4ohjpgop072",
-      "type": "task",
-      "content": "下单科创的东西",
-      "createdAt": "2026-11-06T07:53:59.044Z",
-      "updatedAt": "2026-11-06T07:53:59.044Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793761506004"
-    },
-    {
       "id": "mw4qt5vyalbhz",
       "type": "task",
       "content": "跟进资产盘点问题梳理的事情",
       "createdAt": "2026-11-06T08:59:00.238Z",
-      "updatedAt": "2026-11-06T08:59:00.238Z",
+      "updatedAt": "2026-11-06T09:27:44.163Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-06T09:27:41.877Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793761506004"
+      "listId": "list_1791867278425"
     }
   ],
   "taskLists": [
@@ -3205,7 +3130,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793761506004",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6758,6 +6683,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-06T07:54:26.356Z"
+    "lastSync": "2026-11-06T08:59:19.926Z"
   }
 }
