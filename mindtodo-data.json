@@ -3106,6 +3106,36 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1793761506004"
+    },
+    {
+      "id": "mw8jk0iiisgp3",
+      "type": "task",
+      "content": "退网通报写一下话术",
+      "createdAt": "2026-11-09T00:47:00.762Z",
+      "updatedAt": "2026-11-09T00:47:06.455Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793761506004"
+    },
+    {
+      "id": "mw8jkhnoetdxo",
+      "type": "task",
+      "content": "DCIBOX跟泳哥征求下意见和传达之情",
+      "createdAt": "2026-11-09T00:47:22.980Z",
+      "updatedAt": "2026-11-09T00:47:22.980Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1793761506004"
     }
   ],
   "taskLists": [
@@ -6698,6 +6728,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-06T09:43:25.431Z"
+    "lastSync": "2026-11-09T00:45:29.316Z"
   }
 }
