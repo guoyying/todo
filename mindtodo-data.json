@@ -3136,6 +3136,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1794186637284"
+    },
+    {
+      "id": "mw8vfsx0f6fdk",
+      "type": "task",
+      "content": "新建工程验收。",
+      "createdAt": "2026-11-09T06:19:39.684Z",
+      "updatedAt": "2026-11-09T06:19:39.684Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1794186637284"
     }
   ],
   "taskLists": [
@@ -6728,6 +6743,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-09T01:11:03.809Z"
+    "lastSync": "2026-11-09T03:30:19.404Z"
   }
 }
