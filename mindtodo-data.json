@@ -3093,21 +3093,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mw8jkhnoetdxo",
-      "type": "task",
-      "content": "DCIBOX跟泳哥征求下意见和传达之情",
-      "createdAt": "2026-11-09T00:47:22.980Z",
-      "updatedAt": "2026-11-09T01:10:51.853Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
       "id": "mw8jkuszgqtwt",
       "type": "task",
       "content": "看下资产专业反馈的进度怎么弄",
@@ -3143,6 +3128,21 @@
       "content": "写一下纳管百名单的申请",
       "createdAt": "2026-11-09T08:51:54.865Z",
       "updatedAt": "2026-11-09T08:51:54.865Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1794186637284"
+    },
+    {
+      "id": "mw92f3w3lfrv0",
+      "type": "task",
+      "content": "继续看下增城的几个网元",
+      "createdAt": "2026-11-09T09:35:04.563Z",
+      "updatedAt": "2026-11-09T09:35:04.563Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6743,6 +6743,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-09T08:19:57.912Z"
+    "lastSync": "2026-11-09T08:52:14.033Z"
   }
 }
