@@ -3112,7 +3112,7 @@
       "type": "task",
       "content": "退网通报写一下话术",
       "createdAt": "2026-11-09T00:47:00.762Z",
-      "updatedAt": "2026-11-09T00:47:06.455Z",
+      "updatedAt": "2026-11-09T01:10:49.723Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3120,14 +3120,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793761506004"
+      "listId": "list_1794186637284"
     },
     {
       "id": "mw8jkhnoetdxo",
       "type": "task",
       "content": "DCIBOX跟泳哥征求下意见和传达之情",
       "createdAt": "2026-11-09T00:47:22.980Z",
-      "updatedAt": "2026-11-09T00:47:22.980Z",
+      "updatedAt": "2026-11-09T01:10:51.853Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3135,14 +3135,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793761506004"
+      "listId": "list_1794186637284"
     },
     {
       "id": "mw8jkuszgqtwt",
       "type": "task",
       "content": "看下资产专业反馈的进度怎么弄",
       "createdAt": "2026-11-09T00:47:40.019Z",
-      "updatedAt": "2026-11-09T00:47:40.019Z",
+      "updatedAt": "2026-11-09T01:10:54.007Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3150,14 +3150,14 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793761506004"
+      "listId": "list_1794186637284"
     },
     {
       "id": "mw8jl20238g9i",
       "type": "task",
       "content": "了解下怎么核实资产盘点",
       "createdAt": "2026-11-09T00:47:49.346Z",
-      "updatedAt": "2026-11-09T00:47:49.346Z",
+      "updatedAt": "2026-11-09T01:10:56.133Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3165,7 +3165,7 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1793761506004"
+      "listId": "list_1794186637284"
     }
   ],
   "taskLists": [
@@ -3181,6 +3181,13 @@
       "name": "仓库1104",
       "description": "",
       "createdAt": "2026-11-04T03:05:06.004Z",
+      "isDefault": false
+    },
+    {
+      "id": "list_1794186637284",
+      "name": "仓库1109",
+      "description": "",
+      "createdAt": "2026-11-09T01:10:37.284Z",
       "isDefault": false
     },
     {
@@ -6758,6 +6765,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-09T00:47:27.946Z"
+    "lastSync": "2026-11-09T00:47:54.358Z"
   }
 }
