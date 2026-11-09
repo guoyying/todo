@@ -3007,7 +3007,7 @@
       "type": "task",
       "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。单靠我自己的力量其实并不能推动县分去做。我在想能不能借力。",
       "createdAt": "2026-11-02T09:15:47.517Z",
-      "updatedAt": "2026-11-06T01:06:37.320Z",
+      "updatedAt": "2026-11-09T00:45:20.324Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3067,7 +3067,7 @@
       "type": "task",
       "content": "思考下芳华姐的SDH业务清单怎么推进",
       "createdAt": "2026-11-06T06:41:59.881Z",
-      "updatedAt": "2026-11-06T07:13:44.073Z",
+      "updatedAt": "2026-11-09T00:45:23.088Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3097,7 +3097,7 @@
       "type": "task",
       "content": "私聊海珠：看到这两周你们都有在推进设备退网下电。今年可为的基本就这些了，其他的要转O实现比较难。剩下一个半月主推这些吧。存量还有 10 个 0 业务、1 条光路、计划退网10个。",
       "createdAt": "2026-11-06T09:42:08.446Z",
-      "updatedAt": "2026-11-06T09:43:05.823Z",
+      "updatedAt": "2026-11-09T00:45:23.444Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3145,7 +3145,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793583076464",
+  "currentListId": "list_1793761506004",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
