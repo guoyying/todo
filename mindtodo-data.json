@@ -3170,9 +3170,9 @@
     {
       "id": "mwa3xc8a21zke",
       "type": "task",
-      "content": "看下越秀说的2个移动关电的设备",
+      "content": "看下越秀说的2个移动关电的设备：较场西3-GZHC031 移动是离线的。",
       "createdAt": "2026-11-10T03:05:00.970Z",
-      "updatedAt": "2026-11-10T03:16:25.964Z",
+      "updatedAt": "2026-11-10T03:47:23.748Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6795,6 +6795,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-10T03:40:54.463Z"
+    "lastSync": "2026-11-10T03:41:09.423Z"
   }
 }
