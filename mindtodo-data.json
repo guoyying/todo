@@ -3196,6 +3196,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
+    },
+    {
+      "id": "mwag15f4a5628",
+      "type": "task",
+      "content": "我觉得就抓着一个资产的问题，比如归属，去穿测。这样慢慢搞比一起搞容易",
+      "createdAt": "2026-11-10T08:43:54.160Z",
+      "updatedAt": "2026-11-10T08:43:54.160Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791867278425"
     }
   ],
   "taskLists": [
@@ -3242,7 +3257,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1794280568144",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
