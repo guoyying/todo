@@ -3140,9 +3140,9 @@
     {
       "id": "mw92f3w3lfrv0",
       "type": "task",
-      "content": "继续看下增城的几个网元105的石滩想改路由",
+      "content": "增城105-石滩想改路由",
       "createdAt": "2026-11-09T09:35:04.563Z",
-      "updatedAt": "2026-11-10T03:30:25.863Z",
+      "updatedAt": "2026-11-10T03:40:43.805Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3196,6 +3196,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1794280568144"
+    },
+    {
+      "id": "mwa56v7voge2l",
+      "type": "task",
+      "content": "增城的193-石滩、135-石滩关注下是否更新了转O信息",
+      "createdAt": "2026-11-10T03:40:25.099Z",
+      "updatedAt": "2026-11-10T03:40:30.225Z",
+      "tags": [],
+      "done": true,
+      "doneAt": "2026-11-10T03:40:27.294Z",
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1791867278425"
     }
   ],
   "taskLists": [
@@ -6795,6 +6810,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-10T03:16:43.918Z"
+    "lastSync": "2026-11-10T03:30:31.382Z"
   }
 }
