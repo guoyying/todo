@@ -3093,21 +3093,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mw8jkuszgqtwt",
-      "type": "task",
-      "content": "看下资产专业反馈的进度怎么弄",
-      "createdAt": "2026-11-09T00:47:40.019Z",
-      "updatedAt": "2026-11-10T02:25:55.475Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-10T02:25:55.475Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
       "id": "mw8jl20238g9i",
       "type": "task",
       "content": "了解下怎么核实资产盘点",
@@ -3128,21 +3113,6 @@
       "content": "写一下纳管白名单的申请",
       "createdAt": "2026-11-09T08:51:54.865Z",
       "updatedAt": "2026-11-10T00:50:57.011Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
-      "id": "mw92f3w3lfrv0",
-      "type": "task",
-      "content": "增城105-石滩想改路由",
-      "createdAt": "2026-11-09T09:35:04.563Z",
-      "updatedAt": "2026-11-10T03:40:43.805Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3202,10 +3172,10 @@
       "type": "task",
       "content": "我觉得就抓着一个资产的问题，比如归属，去穿测。这样慢慢搞比一起搞容易",
       "createdAt": "2026-11-10T08:43:54.160Z",
-      "updatedAt": "2026-11-10T08:43:54.160Z",
+      "updatedAt": "2026-11-10T08:43:56.523Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-10T08:43:56.523Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3257,7 +3227,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1791867278425",
+  "currentListId": "list_1793583076464",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6810,6 +6780,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-10T03:41:09.423Z"
+    "lastSync": "2026-11-10T08:43:58.385Z"
   }
 }
