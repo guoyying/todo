@@ -3153,41 +3153,11 @@
       "listId": "list_1794186637284"
     },
     {
-      "id": "mw9zaxpjsjlwj",
-      "type": "task",
-      "content": "拆运一体转发邮件",
-      "createdAt": "2026-11-10T00:55:37.255Z",
-      "updatedAt": "2026-11-10T00:55:37.255Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
       "id": "mwa1kitd4ybox",
       "type": "task",
       "content": "科创课题",
       "createdAt": "2026-11-10T01:59:03.745Z",
       "updatedAt": "2026-11-10T01:59:03.745Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
-      "id": "mwa2jjduj1v01",
-      "type": "task",
-      "content": "过退网单",
-      "createdAt": "2026-11-10T02:26:17.442Z",
-      "updatedAt": "2026-11-10T02:26:17.442Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6818,6 +6788,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-10T02:53:23.993Z"
+    "lastSync": "2026-11-10T03:05:06.450Z"
   }
 }
