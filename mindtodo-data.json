@@ -3093,21 +3093,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mw8jl20238g9i",
-      "type": "task",
-      "content": "了解下怎么核实资产盘点",
-      "createdAt": "2026-11-09T00:47:49.346Z",
-      "updatedAt": "2026-11-12T01:12:49.872Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794186637284"
-    },
-    {
       "id": "mw90vlo1rir4y",
       "type": "task",
       "content": "写一下纳管白名单的申请",
@@ -3168,34 +3153,19 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwcuv7j70j5z8",
-      "type": "task",
-      "content": "海珠退网的设备过单，检查离线",
-      "createdAt": "2026-11-12T01:14:43.555Z",
-      "updatedAt": "2026-11-12T01:14:43.555Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
       "id": "mwcuvpxv6rta9",
       "type": "task",
       "content": "思考下荔湾跳纤怎么弄",
       "createdAt": "2026-11-12T01:15:07.411Z",
-      "updatedAt": "2026-11-12T01:15:07.411Z",
+      "updatedAt": "2026-11-12T07:31:13.558Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-12T07:31:10.116Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794280568144"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mwcuw3s8n3ait",
@@ -3203,6 +3173,21 @@
       "content": "过拆运一体单",
       "createdAt": "2026-11-12T01:15:25.352Z",
       "updatedAt": "2026-11-12T01:15:25.352Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1794280568144"
+    },
+    {
+      "id": "mwd7qgdl98lgb",
+      "type": "task",
+      "content": "资产盘点的汇总原值填共享表",
+      "createdAt": "2026-11-12T07:14:56.745Z",
+      "updatedAt": "2026-11-12T07:14:56.745Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -5376,7 +5361,7 @@
             "endTime": "18:00",
             "message": "卖油",
             "confirmed": true,
-            "confirmationTime": "2026-11-05T06:16:02.178Z"
+            "confirmationTime": "2026-11-12T06:55:27.730Z"
           }
         ]
       },
@@ -5384,7 +5369,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-11-05T06:16:00.023Z"
+        "0": "2026-11-12T06:52:00.027Z"
       }
     },
     {
@@ -5402,7 +5387,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-11-05T07:34:02.412Z"
+            "confirmationTime": "2026-11-12T07:30:05.650Z"
           }
         ]
       },
@@ -5410,7 +5395,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-11-05T07:25:00.029Z"
+        "0": "2026-11-12T07:26:00.013Z"
       }
     },
     {
