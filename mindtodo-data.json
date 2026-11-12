@@ -2958,51 +2958,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mvsyyzp91ail8",
-      "type": "task",
-      "content": "11.11健步行",
-      "createdAt": "2026-10-29T03:14:14.973Z",
-      "updatedAt": "2026-10-29T08:33:00.060Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-10-29T08:33:00.060Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvur6g9350fte",
-      "type": "task",
-      "content": "荔湾花地的跳纤，跟进下",
-      "createdAt": "2026-10-30T09:11:38.439Z",
-      "updatedAt": "2026-11-05T02:37:27.650Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-05T02:37:25.396Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mvyvyxl2136nw",
-      "type": "task",
-      "content": "未认领、未盘点资产看下咯 | 每周都看点咯",
-      "createdAt": "2026-11-02T06:36:50.438Z",
-      "updatedAt": "2026-11-02T07:44:30.320Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-02T07:44:30.320Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mvz1ncfx865vu",
       "type": "task",
       "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。单靠我自己的力量其实并不能推动县分去做。我在想能不能借力。",
@@ -3018,21 +2973,6 @@
       "listId": "list_1793583076464"
     },
     {
-      "id": "mw1szglj6jt1p",
-      "type": "task",
-      "content": "开始让县分的人盘点了。| 收集进度中，已联系4个县分。接下来是其他县分",
-      "createdAt": "2026-11-04T07:36:34.759Z",
-      "updatedAt": "2026-11-05T01:24:55.370Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-05T01:13:24.831Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
       "id": "mw1wt8qauxwv2",
       "type": "task",
       "content": "给张带超市的水果，分享可以",
@@ -3041,36 +2981,6 @@
       "tags": [],
       "done": true,
       "doneAt": "2026-11-04T09:23:45.050Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mw2y0xdl6559z",
-      "type": "task",
-      "content": "看下萝岗机楼搬迁的邮件",
-      "createdAt": "2026-11-05T02:45:27.417Z",
-      "updatedAt": "2026-11-06T02:20:23.003Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-06T02:20:20.711Z",
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1791867278425"
-    },
-    {
-      "id": "mw4qt5vyalbhz",
-      "type": "task",
-      "content": "跟进资产盘点问题梳理的事情",
-      "createdAt": "2026-11-06T08:59:00.238Z",
-      "updatedAt": "2026-11-06T09:27:44.163Z",
-      "tags": [],
-      "done": true,
-      "doneAt": "2026-11-06T09:27:41.877Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
@@ -3097,15 +3007,15 @@
       "type": "task",
       "content": "写一下纳管白名单的申请",
       "createdAt": "2026-11-09T08:51:54.865Z",
-      "updatedAt": "2026-11-12T01:12:50.219Z",
+      "updatedAt": "2026-11-12T07:36:57.119Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-12T07:36:55.070Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794186637284"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mwa3xc8a21zke",
@@ -3192,13 +3102,6 @@
       "isDefault": false
     },
     {
-      "id": "list_1794186637284",
-      "name": "仓库1109",
-      "description": "",
-      "createdAt": "2026-11-09T01:10:37.284Z",
-      "isDefault": false
-    },
-    {
       "id": "list_1794280568144",
       "name": "仓库1110",
       "description": "",
@@ -3227,7 +3130,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1794280568144",
+  "currentListId": "list_1791867278425",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6780,6 +6683,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-12T07:31:20.109Z"
+    "lastSync": "2026-11-12T07:37:22.644Z"
   }
 }
