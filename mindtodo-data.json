@@ -3136,21 +3136,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
-    },
-    {
-      "id": "mweoj5ehf0b6p",
-      "type": "task",
-      "content": "海珠的几台设备看屏蔽，确认",
-      "createdAt": "2026-11-13T07:52:55.577Z",
-      "updatedAt": "2026-11-13T07:52:55.577Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
     }
   ],
   "taskLists": [
@@ -6743,6 +6728,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-13T07:50:12.243Z"
+    "lastSync": "2026-11-13T09:37:40.986Z"
   }
 }
