@@ -3018,21 +3018,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwa3xc8a21zke",
-      "type": "task",
-      "content": "看下越秀说的2个移动关电的设备：较场西3-GZHC031 移动是离线的。",
-      "createdAt": "2026-11-10T03:05:00.970Z",
-      "updatedAt": "2026-11-13T00:34:28.987Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
       "id": "mwa56v7voge2l",
       "type": "task",
       "content": "增城的193-石滩、135-石滩关注下是否更新了转O信息",
@@ -3108,21 +3093,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwehe80q6pcb5",
-      "type": "task",
-      "content": "看越秀发的退网核查消息",
-      "createdAt": "2026-11-13T04:33:08.378Z",
-      "updatedAt": "2026-11-13T04:33:08.378Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
       "id": "mwen7b9jjlmhl",
       "type": "task",
       "content": "网管验收",
@@ -3138,11 +3108,11 @@
       "listId": "list_1794280568144"
     },
     {
-      "id": "mwend1rxp5j0e",
+      "id": "mweodnrtgm7xe",
       "type": "task",
-      "content": "加白申请",
-      "createdAt": "2026-11-13T07:20:11.325Z",
-      "updatedAt": "2026-11-13T07:20:11.325Z",
+      "content": "退网爬虫",
+      "createdAt": "2026-11-13T07:48:39.449Z",
+      "updatedAt": "2026-11-13T07:48:39.449Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6743,6 +6713,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-13T04:33:30.418Z"
+    "lastSync": "2026-11-13T07:20:45.763Z"
   }
 }
