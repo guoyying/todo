@@ -3050,32 +3050,17 @@
     {
       "id": "mwkktlgcc4vml",
       "type": "task",
-      "content": "CRM的问题",
+      "content": "CRM：关注资源系统业务是否能同步。不能就找客资处理下资源的问题",
       "createdAt": "2026-11-17T10:55:41.532Z",
-      "updatedAt": "2026-11-17T10:55:41.532Z",
+      "updatedAt": "2026-11-17T11:42:55.553Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-17T11:42:52.939Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwkktqf4gak8j",
-      "type": "task",
-      "content": "海珠补环的问题",
-      "createdAt": "2026-11-17T10:55:47.968Z",
-      "updatedAt": "2026-11-17T10:55:47.968Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mwkljvncixcwd",
@@ -6698,6 +6683,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-17T11:13:24.079Z"
+    "lastSync": "2026-11-17T11:16:51.274Z"
   }
 }
