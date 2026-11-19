@@ -3076,21 +3076,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwm9vpgvbw495",
-      "type": "task",
-      "content": "网安单：核对工信部资产厂商型号VS ISOC",
-      "createdAt": "2026-11-18T15:24:56.623Z",
-      "updatedAt": "2026-11-18T15:25:25.718Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
     }
   ],
   "taskLists": [
@@ -6683,6 +6668,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-18T15:26:17.584Z"
+    "lastSync": "2026-11-19T01:16:57.783Z"
   }
 }
