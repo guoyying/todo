@@ -3018,21 +3018,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwit4fd3rg6wn",
-      "type": "task",
-      "content": "看下OTMS吧",
-      "createdAt": "2026-11-16T05:12:31.431Z",
-      "updatedAt": "2026-11-18T15:25:05.385Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
       "id": "mwkksmotk3lly",
       "type": "task",
       "content": "看下拆运一体要做什么-穿测",
@@ -3115,7 +3100,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1794280568144",
+  "currentListId": "list_1793583076464",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -5242,7 +5227,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-11-12T06:52:00.027Z"
+        "0": "2026-11-19T08:21:28.337Z"
       }
     },
     {
@@ -5260,7 +5245,7 @@
             "endTime": "18:00",
             "message": "拆运一体发邮件",
             "confirmed": true,
-            "confirmationTime": "2026-11-12T07:30:05.650Z"
+            "confirmationTime": "2026-11-19T08:21:29.796Z"
           }
         ]
       },
@@ -5268,7 +5253,7 @@
       "lastReminderTime": null,
       "active": true,
       "lastReminderTimes": {
-        "0": "2026-11-12T07:26:00.013Z"
+        "0": "2026-11-19T08:21:28.337Z"
       }
     },
     {
@@ -6668,6 +6653,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-19T01:16:57.783Z"
+    "lastSync": "2026-11-19T01:48:30.167Z"
   }
 }
