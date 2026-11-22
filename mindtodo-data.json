@@ -2947,7 +2947,7 @@
       "type": "task",
       "content": "目前退网有个问题：我有几台设备都是PQ板或用户端SDH转O的，实际上并不在张的可为空间清单里。单靠我自己的力量其实并不能推动县分去做。我在想能不能借力。",
       "createdAt": "2026-11-02T09:15:47.517Z",
-      "updatedAt": "2026-11-18T15:25:09.200Z",
+      "updatedAt": "2026-11-22T23:45:28.791Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3052,7 +3052,7 @@
       "type": "task",
       "content": "网安单：改账号密码、省SOC漏洞扫描",
       "createdAt": "2026-11-17T11:16:07.800Z",
-      "updatedAt": "2026-11-18T15:25:17.817Z",
+      "updatedAt": "2026-11-22T23:45:32.729Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3100,7 +3100,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793583076464",
+  "currentListId": "list_1794280568144",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
