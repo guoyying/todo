@@ -3097,7 +3097,7 @@
       "type": "task",
       "content": "看下花都那台设备啥意思，什么上子架下子架啊。",
       "createdAt": "2026-11-23T02:47:12.597Z",
-      "updatedAt": "2026-11-23T02:47:12.597Z",
+      "updatedAt": "2026-11-23T08:16:21.323Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -3105,37 +3105,22 @@
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwssmg4jrrge7",
-      "type": "task",
-      "content": "黄埔看业务（今天内）",
-      "createdAt": "2026-11-23T04:56:14.371Z",
-      "updatedAt": "2026-11-23T04:56:14.371Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
+      "listId": "list_1793583076464"
     },
     {
       "id": "mwsspxsqcn5sz",
       "type": "task",
       "content": "网资一致性的问题",
       "createdAt": "2026-11-23T04:58:57.242Z",
-      "updatedAt": "2026-11-23T04:58:57.242Z",
+      "updatedAt": "2026-11-23T09:56:02.418Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-23T09:55:59.770Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794280568144"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mwsxf3vjh8sh3",
@@ -3155,9 +3140,9 @@
     {
       "id": "mwsxfuyurqxno",
       "type": "task",
-      "content": "过拆运一体单",
+      "content": "过拆运一体单（算力两张单发邮件）",
       "createdAt": "2026-11-23T07:11:05.094Z",
-      "updatedAt": "2026-11-23T07:11:05.094Z",
+      "updatedAt": "2026-11-23T10:00:49.412Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6773,6 +6758,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-23T07:11:05.728Z"
+    "lastSync": "2026-11-23T07:19:17.690Z"
   }
 }
