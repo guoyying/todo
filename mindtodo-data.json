@@ -3067,15 +3067,15 @@
       "type": "task",
       "content": "联系天河申请光路补环（新港127）",
       "createdAt": "2026-11-24T07:42:21.873Z",
-      "updatedAt": "2026-11-25T00:41:33.263Z",
+      "updatedAt": "2026-11-25T07:38:56.717Z",
       "tags": [],
-      "done": false,
-      "doneAt": null,
+      "done": true,
+      "doneAt": "2026-11-25T07:38:52.899Z",
       "dueTime": "",
       "unknown": false,
       "isList": true,
       "subtasks": [],
-      "listId": "list_1794280568144"
+      "listId": "list_1791867278425"
     },
     {
       "id": "mwuek8atcjmjg",
@@ -6713,6 +6713,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-25T02:45:32.085Z"
+    "lastSync": "2026-11-25T07:35:41.925Z"
   }
 }
