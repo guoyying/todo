@@ -3033,21 +3033,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwkljvncixcwd",
-      "type": "task",
-      "content": "网安单：省SOC漏洞扫描",
-      "createdAt": "2026-11-17T11:16:07.800Z",
-      "updatedAt": "2026-11-25T00:41:29.901Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793583076464"
-    },
-    {
       "id": "mwsspxsqcn5sz",
       "type": "task",
       "content": "网资一致性的问题",
@@ -3061,21 +3046,6 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1791867278425"
-    },
-    {
-      "id": "mwsxgvmue1vrh",
-      "type": "task",
-      "content": "agent离线处理---网安单",
-      "createdAt": "2026-11-23T07:11:52.614Z",
-      "updatedAt": "2026-11-25T00:41:30.621Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1793583076464"
     },
     {
       "id": "mwu0050n110zw",
@@ -3123,36 +3093,6 @@
       "listId": "list_1791867278425"
     },
     {
-      "id": "mwvg23ndbhtj6",
-      "type": "task",
-      "content": "了解下机房搬迁的方案",
-      "createdAt": "2026-11-25T01:27:48.217Z",
-      "updatedAt": "2026-11-25T01:27:48.217Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwvir48sz48h6",
-      "type": "task",
-      "content": "拆运一体的邮件看下（算力、天河）",
-      "createdAt": "2026-11-25T02:43:14.620Z",
-      "updatedAt": "2026-11-25T02:43:14.620Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
       "id": "mwvis38c5jaz7",
       "type": "task",
       "content": "隐患工单处理下",
@@ -3168,56 +3108,11 @@
       "listId": "list_1794280568144"
     },
     {
-      "id": "mwvis8hv0xxih",
+      "id": "mwvjsgh87lyow",
       "type": "task",
-      "content": "跟进荔湾的跳纤",
-      "createdAt": "2026-11-25T02:44:06.787Z",
-      "updatedAt": "2026-11-25T02:44:06.787Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwvitokb80nn4",
-      "type": "task",
-      "content": "拆运一体单",
-      "createdAt": "2026-11-25T02:45:14.267Z",
-      "updatedAt": "2026-11-25T02:45:14.267Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwvitrkcahx0k",
-      "type": "task",
-      "content": "退网单",
-      "createdAt": "2026-11-25T02:45:18.156Z",
-      "updatedAt": "2026-11-25T02:45:18.156Z",
-      "tags": [],
-      "done": false,
-      "doneAt": null,
-      "dueTime": "",
-      "unknown": false,
-      "isList": true,
-      "subtasks": [],
-      "listId": "list_1794280568144"
-    },
-    {
-      "id": "mwvitu1fomgi1",
-      "type": "task",
-      "content": "三码单",
-      "createdAt": "2026-11-25T02:45:21.363Z",
-      "updatedAt": "2026-11-25T02:45:21.363Z",
+      "content": "记录：4640-仙村可以退了，但等待环内剩余两条业务退网",
+      "createdAt": "2026-11-25T03:12:16.748Z",
+      "updatedAt": "2026-11-25T03:12:16.748Z",
       "tags": [],
       "done": false,
       "doneAt": null,
@@ -6818,6 +6713,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-25T02:40:54.183Z"
+    "lastSync": "2026-11-25T02:45:32.085Z"
   }
 }
