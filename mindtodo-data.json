@@ -3151,6 +3151,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1794280568144"
+    },
+    {
+      "id": "mwwxqnl7591h9",
+      "type": "task",
+      "content": "找几个拆运单",
+      "createdAt": "2026-11-26T02:30:33.451Z",
+      "updatedAt": "2026-11-26T02:30:33.451Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1794280568144"
     }
   ],
   "taskLists": [
@@ -6743,6 +6758,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-25T09:40:08.795Z"
+    "lastSync": "2026-11-26T02:29:33.534Z"
   }
 }
