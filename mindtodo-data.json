@@ -3130,6 +3130,21 @@
       "isList": true,
       "subtasks": [],
       "listId": "list_1794280568144"
+    },
+    {
+      "id": "mwysufspb795p",
+      "type": "task",
+      "content": "两个课题写个word",
+      "createdAt": "2026-11-27T09:49:04.249Z",
+      "updatedAt": "2026-11-27T09:49:04.249Z",
+      "tags": [],
+      "done": false,
+      "doneAt": null,
+      "dueTime": "",
+      "unknown": false,
+      "isList": true,
+      "subtasks": [],
+      "listId": "list_1794280568144"
     }
   ],
   "taskLists": [
@@ -3169,7 +3184,7 @@
       "isDefault": false
     }
   ],
-  "currentListId": "list_1793583076464",
+  "currentListId": "list_1794280568144",
   "normalFeelings": [
     {
       "id": "mogx4tc0pxr8t",
@@ -6662,6 +6677,6 @@
     "username": "guoyying",
     "repo": "todo",
     "issue": "1",
-    "lastSync": "2026-11-27T07:50:14.686Z"
+    "lastSync": "2026-11-27T09:48:22.396Z"
   }
 }
